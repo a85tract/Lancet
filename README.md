@@ -768,49 +768,6 @@ Time consumption: 4m25.287 - 4m14.763 = 10.524
 
 ### 1. Pull the Docker Image
 ```bash
-docker pull ghcr.io/a85tract/lancet:ffmpeg_10749
-```
-
-### 2. Run Baseline Mode
-```bash
-docker run ghcr.io/a85tract/lancet:ffmpeg_10749 baseline
-```
-
-### Expected Output
-
-```txt
-real    4m14.763s
-user    4m0.229s
-sys     0m19.076s
-```
-
-### 3. Run Lancet Mode
-```bash
-docker run ghcr.io/a85tract/lancet:ffmpeg_10749 lancet
-```
-
-### Expected Output
-
-```txt
-...
-[MovRead nullptr deref] ip: main+0x1fd286 final_ea: 0x70
-analyzed_ins_cnt
-...
-real    4m25.287s
-user    4m9.947s
-sys     0m21.018s
-```
-
-### Output Explanation
-
-MovRead nullptr deref means lancet detects a NULL pointer dereference at 0x70, ip is main+0x1fd286.
-
-Time consumption: 4m25.287 - 4m14.763 = 10.524
-
-# Experiment 10
-
-### 1. Pull the Docker Image
-```bash
 docker pull ghcr.io/a85tract/lancet:osv_2023_1276
 ```
 
@@ -861,7 +818,7 @@ The ownership log indicates that Lancet detects the dangling pointer 5 instructi
 
 Time consumption: 0m41.222 - 0m15.110 = 26.112
 
-# Experiment 11
+# Experiment 10
 
 ### 1. Pull the Docker Image
 ```bash
@@ -925,7 +882,7 @@ The ownership log indicates that Lancet detects the dangling pointer 431843 inst
 
 Time consumption: 0m14.631 - 0m13.670 = 0.961
 
-# Experiment 12
+# Experiment 11
 
 ### 1. Pull the Docker Image
 ```bash
@@ -985,7 +942,7 @@ The ownership log indicates that Lancet detects the dangling pointer 55 instruct
 
 Time consumption: 0m38.218 - 0m26.050 = 12.168
 
-# Experiment 13
+# Experiment 12
 
 ### 1. Pull the Docker Image
 ```bash
@@ -1050,7 +1007,7 @@ The ownership log indicates that Lancet detects the dangling pointer 651 instruc
 
 Time consumption: 3m59.961 - 0m30.883 = 229.078
 
-# Experiment 14
+# Experiment 13
 
 ### 1. Pull the Docker Image
 ```bash
@@ -1122,7 +1079,7 @@ The ownership log indicates that Lancet detects the dangling pointer 667 instruc
 
 Time consumption: 1m0.043 - 0m22.047 = 38.004
 
-# Experiment 15
+# Experiment 14
 
 ### 1. Pull the Docker Image
 ```bash
@@ -1166,7 +1123,7 @@ Ownership log:
 
 Time consumption: 0m20.858 - 0m7.479 = 13.379
 
-# Experiment 16
+# Experiment 15
 
 ### 1. Pull the Docker Image
 ```bash
@@ -1207,7 +1164,7 @@ sys     0m8.304s
 
 Time consumption: 0m32.506 - 0m16.358 = 16.148
 
-# Experiment 17
+# Experiment 16
 
 ### 1. Pull the Docker Image
 ```bash
@@ -1253,7 +1210,7 @@ The ownership log indicates that Lancet detects CROSSBOUNDARY.
 
 Time consumption: 0m7.675 - 0m3.886 = 3.789
 
-# Experiment 18
+# Experiment 17
 
 ### 1. Pull the Docker Image
 ```bash
@@ -1296,7 +1253,7 @@ The ownership log indicates that Lancet detects CROSSBOUNDARY.
 
 Time consumption: 0m29.296 - 0m10.853 = 18.443
 
-# Experiment 19
+# Experiment 18
 
 ### 1. Pull the Docker Image
 ```bash
