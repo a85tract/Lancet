@@ -26,7 +26,7 @@ QEMU_PLUGIN_EXPORT int qemu_plugin_version = QEMU_PLUGIN_VERSION;
 #define QLT_MAGIC "QLT1"
 #define QLT_VERSION 1
 #define QLT_REG_TABLE_X86_64_V1 1
-#define QLT_HEADER_SIZE 32ULL
+#define QLT_HEADER_SIZE 36ULL
 #define QLT_DEFAULT_BLOCK_SIZE (4U * 1024U * 1024U)
 
 #define TRACE_FLAG_HAS_BRANCH_TARGET (1u << 0)
@@ -82,6 +82,7 @@ static char out_path[512] = "trace.qlt";
 static gboolean flush_each = FALSE;
 static gboolean want_disas = TRUE;
 static gboolean want_insn_bytes = FALSE;
+static gboolean use_reg_pc = FALSE;
 static uint64_t range_lo = 0, range_hi = UINT64_MAX;
 static char target_name[64] = {0};
 static int only_cpu = -1;
@@ -768,6 +769,7 @@ static GHashTable *regs_by_vcpu = NULL;
 static int idx_reg_cr3 = -1;
 static int idx_reg_rsp = -1;
 static int idx_reg_rbp = -1;
+static int idx_reg_rip = -1;
 
 static inline GArray *get_or_fetch_vcpu_regs(unsigned int vcpu_index)
 {
@@ -830,6 +832,22 @@ static void locate_rbp_index(GArray *arr)
     }
 }
 
+static void locate_rip_index(GArray *arr)
+{
+    if (!arr || idx_reg_rip >= 0) {
+        return;
+    }
+    for (guint i = 0; i < arr->len; i++) {
+        reg_desc_t *d = &g_array_index(arr, reg_desc_t, i);
+        if (d->name && (g_ascii_strcasecmp(d->name, "rip") == 0 ||
+                        g_ascii_strcasecmp(d->name, "eip") == 0 ||
+                        g_ascii_strcasecmp(d->name, "pc") == 0)) {
+            idx_reg_rip = (int)i;
+            break;
+        }
+    }
+}
+
 static int fixed_reg_id_from_name(const char *name)
 {
     if (!name) {
@@ -877,6 +895,23 @@ static gboolean read_reg_by_name(GArray *arr, const char *name, uint64_t *out)
         }
     }
     return FALSE;
+}
+
+static gboolean read_pc_register(GArray *arr, uint64_t *out)
+{
+    if (!arr || !out) {
+        return FALSE;
+    }
+    locate_rip_index(arr);
+    if (idx_reg_rip >= 0) {
+        reg_desc_t *d = &g_array_index(arr, reg_desc_t, (guint)idx_reg_rip);
+        if (read_reg_descriptor_value(d, out)) {
+            return TRUE;
+        }
+    }
+    return read_reg_by_name(arr, "rip", out) ||
+           read_reg_by_name(arr, "eip", out) ||
+           read_reg_by_name(arr, "pc", out);
 }
 
 static int find_reg_index_by_name(GArray *arr, const char *name_ci)
@@ -1996,8 +2031,30 @@ static void insn_exec(unsigned int vcpu_index, void *udata)
         return;
     }
     ExecUData *ud = (ExecUData *)udata;
+
+    GArray *arr = NULL;
+    uint64_t exec_pc = ud->vaddr;
+    if (use_reg_pc) {
+        arr = get_or_fetch_vcpu_regs(vcpu_index);
+        if (!read_pc_register(arr, &exec_pc)) {
+            exec_pc = ud->vaddr;
+        }
+        if (!addr_matches_trace_mode(exec_pc)) {
+            return;
+        }
+        if (use_addr_whitelist) {
+            if (!addr_is_whitelisted(exec_pc) &&
+                !(use_trigger_mode && exec_pc == trigger_addr)) {
+                return;
+            }
+        } else if ((exec_pc < range_lo || exec_pc > range_hi) &&
+                   !(use_trigger_mode && exec_pc == trigger_addr)) {
+            return;
+        }
+    }
+
     if (use_trigger_mode) {
-        if (!g_atomic_int_get(&triggered_flag) && ud->vaddr == trigger_addr) {
+        if (!g_atomic_int_get(&triggered_flag) && exec_pc == trigger_addr) {
             g_atomic_int_set(&triggered_flag, 1);
         }
         if (!g_atomic_int_get(&triggered_flag)) {
@@ -2010,7 +2067,7 @@ static void insn_exec(unsigned int vcpu_index, void *udata)
 
     QltRecord rec;
     memset(&rec, 0, sizeof(rec));
-    rec.pc = ud->vaddr;
+    rec.pc = exec_pc;
     rec.cpu_id = (uint16_t)vcpu_index;
     rec.byte_len = ud->byte_len;
     if (rec.byte_len > sizeof(rec.bytes)) {
@@ -2033,18 +2090,23 @@ static void insn_exec(unsigned int vcpu_index, void *udata)
         rec.branch_target = ud->direct_target;
     }
 
+    ExecUData eff_ud = *ud;
+    eff_ud.vaddr = exec_pc;
+
     GString *text = NULL;
     if (!qlt_mode) {
         text = g_string_new("");
         g_string_append_printf(text, "%u|0x%016" PRIx64 "|%s|",
-                               vcpu_index, ud->vaddr,
+                               vcpu_index, exec_pc,
                                (want_disas && ud->disas_only) ? ud->disas_only : "");
-        text_append_insn_bytes(text, ud);
+        text_append_insn_bytes(text, &eff_ud);
     }
 
-    GArray *arr = get_or_fetch_vcpu_regs(vcpu_index);
-    collect_regs_for_record(arr, ud, qlt_mode ? &rec : NULL, text);
-    probe_config_values(arr, ud, qlt_mode ? &rec : NULL, text);
+    if (!arr) {
+        arr = get_or_fetch_vcpu_regs(vcpu_index);
+    }
+    collect_regs_for_record(arr, &eff_ud, qlt_mode ? &rec : NULL, text);
+    probe_config_values(arr, &eff_ud, qlt_mode ? &rec : NULL, text);
 
     g_mutex_lock(&mtx);
     if (qlt_mode) {
@@ -2068,7 +2130,7 @@ static void insn_exec(unsigned int vcpu_index, void *udata)
         g_string_free(text, TRUE);
     }
 
-    if (use_trigger_mode && have_stop_addr && ud->vaddr == stop_addr) {
+    if (use_trigger_mode && have_stop_addr && exec_pc == stop_addr) {
         g_atomic_int_set(&triggered_flag, 0);
     }
 }
@@ -2086,6 +2148,7 @@ static void vcpu_init_cb(qemu_plugin_id_t id, unsigned int vcpu_index)
         locate_cr3_index(arr);
         locate_rsp_index(arr);
         locate_rbp_index(arr);
+        locate_rip_index(arr);
     }
 }
 
@@ -2112,12 +2175,21 @@ static void tb_trans_cb(qemu_plugin_id_t id, struct qemu_plugin_tb *tb)
         if (dump_guest_vmmap) {
             guest_exec_record_vaddr(vaddr);
         }
-        if (!addr_matches_trace_mode(vaddr)) {
+        if (!use_reg_pc && !addr_matches_trace_mode(vaddr)) {
             continue;
         }
 
         gboolean should_register = FALSE;
-        if (use_trigger_mode && vaddr == trigger_addr) {
+        if (use_reg_pc) {
+            /*
+             * In system emulation some QEMU versions expose translated
+             * instruction addresses as physical/identity-mapped addresses,
+             * while the architectural RIP register still contains the guest
+             * virtual PC.  Register broadly and apply mode/range/trigger
+             * filters in insn_exec() after reading RIP.
+             */
+            should_register = TRUE;
+        } else if (use_trigger_mode && vaddr == trigger_addr) {
             should_register = TRUE;
             if (use_addr_whitelist && addr_whitelist) {
                 gchar *ts = now_ts();
@@ -2199,6 +2271,10 @@ static void parse_arg(const char *arg)
         flush_each = FALSE;
     } else if (g_strcmp0(arg, "no-disas") == 0) {
         want_disas = FALSE;
+    } else if (g_strcmp0(arg, "pc=reg") == 0 ||
+               g_strcmp0(arg, "pc=rip") == 0 ||
+               g_strcmp0(arg, "trigger-reg") == 0) {
+        use_reg_pc = TRUE;
     } else if (g_strcmp0(arg, "user-mode") == 0 || g_strcmp0(arg, "mode=user") == 0 || g_strcmp0(arg, "trace=user") == 0) {
         trace_addr_mode = TRACE_ADDR_USER;
     } else if (g_strcmp0(arg, "kernel-mode") == 0 || g_strcmp0(arg, "mode=kernel") == 0 || g_strcmp0(arg, "trace=kernel") == 0) {

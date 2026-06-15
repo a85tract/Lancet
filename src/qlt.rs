@@ -13,7 +13,7 @@ use crate::varint;
 
 const MAGIC: &[u8; 4] = b"QLT1";
 const VERSION: u16 = 1;
-const HEADER_SIZE: u64 = 32;
+const HEADER_SIZE: u64 = 36;
 const DEFAULT_BLOCK_SIZE: usize = 4 * 1024 * 1024;
 
 #[derive(Debug, Clone, Copy)]
