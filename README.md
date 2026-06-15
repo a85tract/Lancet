@@ -8,6 +8,9 @@ A clean rewrite of QLancet's trace analyzer based on the Lancet ownership model.
 - `legacy`: compatible with the old `cpu|pc|asm|bytecode|regs:` text trace.
 - `auto`: detect QLT by magic, otherwise parse legacy text.
 
+The analyzer processes traces in streaming mode, so QLT blocks are decompressed and
+analyzed one at a time instead of materializing the whole trace in memory.
+
 ## Build and test
 
 ```bash

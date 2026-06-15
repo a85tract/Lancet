@@ -26,10 +26,10 @@ pub fn run_klancet(
 ) -> Result<ReportSummary, Box<dyn std::error::Error>> {
     let config = Config::load(config_path)?;
     let mut analyzer = Analyzer::new(config);
-    let records = trace::read_trace(trace_path.as_ref(), format)?;
-    for record in records {
+    trace::for_each_trace_record(trace_path.as_ref(), format, |record| {
         analyzer.process_record(&record)?;
-    }
+        Ok(())
+    })?;
     let result = analyzer.finish();
     report::write_reports(&result, out_dir.as_ref()).map_err(|err| err.into())
 }

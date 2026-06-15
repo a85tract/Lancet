@@ -1,14 +1,14 @@
 use std::collections::HashMap;
 
-use iced_x86::{Instruction, InstructionInfoFactory, Mnemonic, OpKind, Register};
+use iced_x86::{Instruction, InstructionInfoFactory, Mnemonic, OpAccess, OpKind, Register};
 use thiserror::Error;
 
-use crate::config::{Config, SymbolConfig};
+use crate::config::{Config, PageAllocatorConfig, SymbolConfig};
 use crate::decode::{self, DecodedInstruction, ResolvedAccess};
 use crate::ownership::{
-    ALLOCATOR_SUBJECT, MemoryModel, OwnerSet, RegState, owner_set_one, sets_intersect,
+    ALLOCATOR_SUBJECT, MemoryModel, OwnerSet, RegState, SubjectKind, owner_set_one, sets_intersect,
 };
-use crate::registers::{RAX, RegId, id_from_iced};
+use crate::registers::{RAX, RBP, RCX, RDI, RSI, RSP, RegId, id_from_iced};
 use crate::trace::TRACE_FLAG_IS_CALL;
 use crate::trace::TraceRecord;
 use crate::vuln::{AccessKind, Violation, ViolationKind};
@@ -40,6 +40,10 @@ struct PendingAlloc {
     return_pc: u64,
     size: u64,
     symbol: Option<String>,
+    call_pc: u64,
+    call_step: u64,
+    zero_initialized: bool,
+    lookahead_left: u8,
 }
 #[derive(Debug, Clone)]
 struct PendingFree {
@@ -51,6 +55,30 @@ struct PendingFree {
     call_step: u64,
 }
 
+#[derive(Debug, Clone)]
+struct PendingPageAlloc {
+    return_pc: u64,
+    order: u64,
+    call_pc: u64,
+    call_step: u64,
+    symbol: Option<String>,
+    lookahead_left: u8,
+}
+
+#[derive(Debug, Clone)]
+struct PendingPageFree {
+    return_pc: u64,
+    page_ptr: u64,
+    order: u64,
+    call_pc: u64,
+    call_step: u64,
+    symbol: Option<String>,
+}
+
+const PAGE_SIZE: u64 = 0x1000;
+const PAGE_STRUCT_SHIFT: u32 = 6;
+const PAGE_SHIFT: u32 = 12;
+
 pub struct Analyzer {
     config: Config,
     mem: MemoryModel,
@@ -60,6 +88,10 @@ pub struct Analyzer {
     memory_events: Vec<MemoryEvent>,
     pending_allocs: Vec<PendingAlloc>,
     pending_frees: Vec<PendingFree>,
+    pending_page_allocs: Vec<PendingPageAlloc>,
+    pending_page_frees: Vec<PendingPageFree>,
+    stack_pages: HashMap<u64, u64>,
+    global_pages: HashMap<u64, u64>,
 }
 
 impl Analyzer {
@@ -73,16 +105,22 @@ impl Analyzer {
             memory_events: Vec::new(),
             pending_allocs: Vec::new(),
             pending_frees: Vec::new(),
+            pending_page_allocs: Vec::new(),
+            pending_page_frees: Vec::new(),
+            stack_pages: HashMap::new(),
+            global_pages: HashMap::new(),
         }
     }
 
     pub fn process_record(&mut self, record: &TraceRecord) -> Result<(), AnalyzerError> {
         self.apply_pending(record);
+        self.synchronize_sampled_registers(record);
         let decoded =
             decode::decode(record, &mut self.info_factory).map_err(AnalyzerError::Decode)?;
+        self.ensure_static_subjects(record, &decoded);
         self.observe_accesses(record, &decoded);
-        self.apply_instruction_semantics(record, &decoded);
         self.observe_call(record, &decoded.instruction);
+        self.apply_instruction_semantics(record, &decoded);
         Ok(())
     }
 
@@ -96,7 +134,9 @@ impl Analyzer {
     fn apply_pending(&mut self, record: &TraceRecord) {
         let mut allocs = Vec::new();
         self.pending_allocs.retain(|pending| {
-            if pending.return_pc == record.pc {
+            if pending.return_pc == record.pc
+                || (pending.lookahead_left > 0 && record.step > pending.call_step)
+            {
                 allocs.push(pending.clone());
                 false
             } else {
@@ -106,11 +146,12 @@ impl Analyzer {
         for pending in allocs {
             if let Some(ptr) = record.reg(RAX).filter(|v| *v != 0) {
                 self.add_allocation(
-                    record.step,
-                    record.pc,
+                    pending.call_step,
+                    pending.call_pc,
                     ptr,
                     pending.size,
                     pending.symbol.clone(),
+                    pending.zero_initialized,
                 );
                 self.regs.insert(
                     RAX,
@@ -123,6 +164,10 @@ impl Analyzer {
                         ),
                     },
                 );
+            } else if pending.lookahead_left > 1 {
+                let mut retry = pending;
+                retry.lookahead_left -= 1;
+                self.pending_allocs.push(retry);
             }
         }
         let mut frees = Vec::new();
@@ -143,14 +188,77 @@ impl Analyzer {
                 pending.symbol,
             );
         }
+
+        let mut page_allocs = Vec::new();
+        self.pending_page_allocs.retain(|pending| {
+            if pending.return_pc == record.pc
+                || (pending.lookahead_left > 0 && record.step > pending.call_step)
+            {
+                page_allocs.push(pending.clone());
+                false
+            } else {
+                true
+            }
+        });
+        for pending in page_allocs {
+            if let Some(page_ptr) = record.reg(RAX).filter(|v| *v != 0) {
+                if let Some((base, size)) = self.page_allocation_range(page_ptr, pending.order) {
+                    self.add_page_allocation(
+                        pending.call_step,
+                        pending.call_pc,
+                        page_ptr,
+                        base,
+                        size,
+                        pending.symbol.clone(),
+                    );
+                    let owner = self
+                        .mem
+                        .active_subject_containing(base)
+                        .unwrap_or(ALLOCATOR_SUBJECT);
+                    self.regs.insert(
+                        RAX,
+                        RegState {
+                            value_owners: owner_set_one(owner),
+                            pointee_owners: owner_set_one(owner),
+                        },
+                    );
+                }
+            } else if pending.lookahead_left > 1 {
+                let mut retry = pending;
+                retry.lookahead_left -= 1;
+                self.pending_page_allocs.push(retry);
+            }
+        }
+
+        let mut page_frees = Vec::new();
+        self.pending_page_frees.retain(|pending| {
+            if pending.return_pc == record.pc {
+                page_frees.push(pending.clone());
+                false
+            } else {
+                true
+            }
+        });
+        for pending in page_frees {
+            self.handle_page_free(
+                pending.call_step,
+                pending.call_pc,
+                pending.page_ptr,
+                pending.order,
+                pending.symbol,
+            );
+        }
     }
 
     fn observe_call(&mut self, record: &TraceRecord, instruction: &Instruction) {
-        if !decode::is_call(instruction) && record.flags & TRACE_FLAG_IS_CALL == 0 {
+        let is_call_like = decode::is_call(instruction)
+            || is_jump(instruction)
+            || record.flags & TRACE_FLAG_IS_CALL != 0;
+        if !is_call_like {
             return;
         }
         let target = record.branch_target.or_else(|| {
-            if instruction.is_call_near() {
+            if instruction.is_call_near() || instruction.is_jmp_short_or_near() {
                 Some(instruction.near_branch_target())
             } else {
                 None
@@ -159,28 +267,69 @@ impl Analyzer {
         let Some(target) = target else {
             return;
         };
-        let return_pc = record.pc.wrapping_add(instruction.len() as u64);
+        let return_pc = self
+            .config
+            .skip_return_for(target)
+            .unwrap_or_else(|| record.pc.wrapping_add(instruction.len() as u64));
         let symbol = self.config.symbol(target).cloned();
-        if self.config.malloc_addrs.contains(&target) {
+        if is_page_alloc_symbol(symbol.as_ref(), target, self.config.page_allocator) {
+            let order = record.reg(RSI).unwrap_or(0);
+            self.pending_page_allocs.push(PendingPageAlloc {
+                return_pc,
+                order,
+                call_pc: record.pc,
+                call_step: record.step,
+                symbol: symbol.map(|s| s.name),
+                lookahead_left: 0,
+            });
+        } else if is_page_free_symbol(symbol.as_ref(), target, self.config.page_allocator) {
+            let page_ptr = symbol
+                .as_ref()
+                .and_then(|s| s.import_reg)
+                .and_then(|reg| record.reg(reg))
+                .or_else(|| record.reg(RDI))
+                .unwrap_or(0);
+            let order = record.reg(RSI).unwrap_or(0);
+            self.pending_page_frees.push(PendingPageFree {
+                return_pc,
+                page_ptr,
+                order,
+                call_pc: record.pc,
+                call_step: record.step,
+                symbol: symbol.map(|s| s.name),
+            });
+        } else if self.config.malloc_addrs.contains(&target)
+            || symbol.as_ref().is_some_and(|s| is_alloc_name(&s.name))
+        {
             let size = symbol
                 .as_ref()
                 .and_then(|s| self.resolve_alloc_size(record, s))
-                .unwrap_or(0);
+                .or(self.config.malloc_size)
+                .unwrap_or_else(|| record.reg(RDI).unwrap_or(0));
+            let zero_initialized = symbol.as_ref().is_some_and(|s| s.zero_initialized);
             self.pending_allocs.push(PendingAlloc {
                 return_pc,
                 size,
-                symbol: symbol.map(|s| s.name),
+                symbol: symbol.as_ref().map(|s| s.name.clone()),
+                call_pc: record.pc,
+                call_step: record.step,
+                zero_initialized,
+                lookahead_left: 0,
             });
-        } else if self.config.free_addrs.contains(&target) {
+        } else if self.config.free_addrs.contains(&target)
+            || symbol.as_ref().is_some_and(|s| is_free_name(&s.name))
+        {
             let ptr = symbol
                 .as_ref()
                 .and_then(|s| s.import_reg)
                 .and_then(|reg| record.reg(reg))
+                .or_else(|| record.reg(RDI))
                 .unwrap_or(0);
             let pointer_owners = symbol
                 .as_ref()
                 .and_then(|s| s.import_reg)
                 .map(|reg| self.reg_state(reg).pointee_owners)
+                .or_else(|| Some(self.reg_state(RDI).pointee_owners))
                 .unwrap_or_default();
             self.pending_frees.push(PendingFree {
                 return_pc,
@@ -198,7 +347,9 @@ impl Analyzer {
             return Some(size);
         }
         if symbol.use_value_to_size {
-            return record.value;
+            return record
+                .value
+                .map(|value| apply_value_size(value, symbol.value_size));
         }
         symbol.import_reg.and_then(|reg| record.reg(reg)).map(|v| {
             if symbol.offset == 0 {
@@ -209,7 +360,15 @@ impl Analyzer {
         })
     }
 
-    fn add_allocation(&mut self, step: u64, pc: u64, ptr: u64, size: u64, symbol: Option<String>) {
+    fn add_allocation(
+        &mut self,
+        step: u64,
+        pc: u64,
+        ptr: u64,
+        size: u64,
+        symbol: Option<String>,
+        zero_initialized: bool,
+    ) {
         let subject = self.mem.fresh_heap_subject(ptr, size);
         let mut reported_overlap = false;
         for off in 0..size {
@@ -241,7 +400,10 @@ impl Analyzer {
             let cell = self.mem.cell_mut(addr);
             cell.cell_owners.shift_remove(&ALLOCATOR_SUBJECT);
             cell.cell_owners.insert(subject);
-            if cell.value_owners.is_empty() {
+            if zero_initialized {
+                cell.value_owners.clear();
+                cell.value_owners.insert(subject);
+            } else if cell.value_owners.is_empty() {
                 cell.value_owners.insert(ALLOCATOR_SUBJECT);
             }
         }
@@ -333,6 +495,178 @@ impl Analyzer {
         });
     }
 
+    fn add_page_allocation(
+        &mut self,
+        step: u64,
+        pc: u64,
+        page_ptr: u64,
+        base: u64,
+        size: u64,
+        symbol: Option<String>,
+    ) {
+        let subject = self.mem.fresh_subject(SubjectKind::Page, base, size);
+        for off in 0..size {
+            let cell = self.mem.cell_mut(base.saturating_add(off));
+            cell.cell_owners.shift_remove(&ALLOCATOR_SUBJECT);
+            cell.cell_owners.insert(subject);
+            if cell.value_owners.is_empty() {
+                cell.value_owners.insert(ALLOCATOR_SUBJECT);
+            }
+        }
+        self.memory_events.push(MemoryEvent {
+            step,
+            pc: hex(pc),
+            kind: "page-allocation".into(),
+            symbol,
+            ptr: Some(hex(page_ptr)),
+            size: Some(hex(size)),
+        });
+    }
+
+    fn handle_page_free(
+        &mut self,
+        step: u64,
+        pc: u64,
+        page_ptr: u64,
+        order: u64,
+        symbol: Option<String>,
+    ) {
+        let Some((base, size)) = self.page_allocation_range(page_ptr, order) else {
+            return;
+        };
+        let Some(subject) = self.mem.active_subject_containing(base) else {
+            self.record_simple(
+                step,
+                pc,
+                ViolationKind::InvalidFree,
+                AccessKind::Free,
+                base,
+                0,
+                OwnerSet::new(),
+                "free_pages target is not an active page allocation",
+            );
+            return;
+        };
+        self.mem.mark_freed(subject);
+        for off in 0..size {
+            let cell = self.mem.cell_mut(base.saturating_add(off));
+            cell.cell_owners.shift_remove(&subject);
+            cell.cell_owners.insert(ALLOCATOR_SUBJECT);
+        }
+        self.memory_events.push(MemoryEvent {
+            step,
+            pc: hex(pc),
+            kind: "page-free".into(),
+            symbol,
+            ptr: Some(hex(page_ptr)),
+            size: Some(hex(size)),
+        });
+    }
+
+    fn page_allocation_range(&self, page_ptr: u64, order: u64) -> Option<(u64, u64)> {
+        let PageAllocatorConfig {
+            vmemmap_start,
+            page_offset_base,
+        } = self.config.page_allocator?;
+        let offset = page_ptr.checked_sub(vmemmap_start)?;
+        let page_index = offset >> PAGE_STRUCT_SHIFT;
+        let bytes = page_index.checked_shl(PAGE_SHIFT)?;
+        let base = page_offset_base.checked_add(bytes)?;
+        let pages = 1u64.checked_shl(order as u32)?;
+        let size = pages.checked_mul(PAGE_SIZE)?;
+        Some((base, size))
+    }
+
+    fn synchronize_sampled_registers(&mut self, record: &TraceRecord) {
+        for (&reg, &value) in &record.regs {
+            let inferred = self.owner_set_for_value(value);
+            if inferred.is_empty() {
+                continue;
+            }
+            let state = self.regs.entry(reg).or_default();
+            state.value_owners.extend(inferred.iter().copied());
+            state.pointee_owners.extend(inferred);
+        }
+    }
+
+    fn owner_set_for_value(&self, value: u64) -> OwnerSet {
+        let mut owners = self.mem.owner_for_address(value);
+        if let Some(subject) = self.mem.active_subject_containing(value) {
+            owners.insert(subject);
+        }
+        if let Some(subject) = self.mem.freed_subject_containing(value) {
+            owners.insert(subject);
+        }
+        owners
+    }
+
+    fn ensure_static_subjects(&mut self, record: &TraceRecord, decoded: &DecodedInstruction) {
+        for access in &decoded.accesses {
+            let size = access.size.max(1);
+            if self.pointer_owner_from_access(access).is_empty() && self.is_stack_access(access) {
+                self.ensure_stack_page(access.address, size);
+            } else if self.should_treat_as_global(record, access) {
+                self.ensure_global_page(access.address, size);
+            }
+        }
+    }
+
+    fn is_stack_access(&self, access: &ResolvedAccess) -> bool {
+        matches!(access.base, Some(reg) if reg == RSP || reg == RBP)
+    }
+
+    fn should_treat_as_global(&self, _record: &TraceRecord, access: &ResolvedAccess) -> bool {
+        if !self.mem.cell(access.address).cell_owners.is_empty()
+            || self.mem.active_subject_containing(access.address).is_some()
+            || self.mem.freed_subject_containing(access.address).is_some()
+        {
+            return false;
+        }
+        if let Some((base, size)) = self.config.module_range
+            && access.address >= base
+            && access.address < base.saturating_add(size)
+        {
+            return true;
+        }
+        is_high_half_address(access.address) && self.pointer_owner_from_access(access).is_empty()
+    }
+
+    fn ensure_stack_page(&mut self, addr: u64, size: u32) {
+        let start = addr & !(PAGE_SIZE - 1);
+        if self.stack_pages.contains_key(&start) {
+            return;
+        }
+        let subject = self
+            .mem
+            .ensure_range_owner(SubjectKind::Stack, start, PAGE_SIZE);
+        for off in 0..size.max(1) {
+            let cell = self.mem.cell_mut(addr.saturating_add(off as u64));
+            cell.cell_owners.insert(subject);
+            if cell.value_owners.is_empty() {
+                cell.value_owners.insert(subject);
+            }
+        }
+        self.stack_pages.insert(start, subject);
+    }
+
+    fn ensure_global_page(&mut self, addr: u64, size: u32) {
+        let start = addr & !(PAGE_SIZE - 1);
+        if self.global_pages.contains_key(&start) {
+            return;
+        }
+        let subject = self
+            .mem
+            .ensure_range_owner(SubjectKind::Global, start, PAGE_SIZE);
+        for off in 0..size.max(1) {
+            let cell = self.mem.cell_mut(addr.saturating_add(off as u64));
+            cell.cell_owners.insert(subject);
+            if cell.value_owners.is_empty() {
+                cell.value_owners.insert(subject);
+            }
+        }
+        self.global_pages.insert(start, subject);
+    }
+
     fn observe_accesses(&mut self, record: &TraceRecord, decoded: &DecodedInstruction) {
         for access in &decoded.accesses {
             let size = access.size.max(1);
@@ -389,6 +723,23 @@ impl Analyzer {
                 );
                 return;
             }
+            if pointer_owners
+                .iter()
+                .any(|owner| self.mem.subject_freed(*owner))
+            {
+                self.record(
+                    record.step,
+                    record.pc,
+                    ViolationKind::ExpiredPointerDereference,
+                    access.kind,
+                    addr,
+                    1,
+                    pointer_owners.clone(),
+                    cell.clone(),
+                    Some("dereference through an expired pointer owner".into()),
+                );
+                return;
+            }
             if !pointer_owners.is_empty() && !sets_intersect(&pointer_owners, &cell.cell_owners) {
                 let kind = if is_write {
                     ViolationKind::OutOfBoundsWrite
@@ -432,12 +783,12 @@ impl Analyzer {
         if decode::is_call(ins) || decode::is_ret(ins) {
             return;
         }
+        if self.apply_rep_string(record, ins) {
+            return;
+        }
         if decode::is_lea(ins) {
             self.apply_lea(record, ins);
             return;
-        }
-        if decode::is_pointer_arith(ins) {
-            self.apply_arith(record, ins);
         }
         self.apply_loads_and_stores(record, decoded);
         self.apply_register_writes(record, ins);
@@ -446,15 +797,6 @@ impl Analyzer {
     fn apply_loads_and_stores(&mut self, record: &TraceRecord, decoded: &DecodedInstruction) {
         let ins = &decoded.instruction;
         for access in &decoded.accesses {
-            if matches!(access.kind, AccessKind::Read | AccessKind::ReadWrite) {
-                if let Some(dst) = first_written_reg(ins) {
-                    let mut state = self.state_from_memory(access);
-                    if access.size != 8 {
-                        state.pointee_owners.clear();
-                    }
-                    self.regs.insert(dst, state);
-                }
-            }
             if matches!(access.kind, AccessKind::Write | AccessKind::ReadWrite) {
                 let src = first_read_reg_not_addr(ins, access);
                 let pointer_owners = self.pointer_owner_from_access(access);
@@ -463,6 +805,9 @@ impl Analyzer {
                     .unwrap_or_default();
                 if access.size != 8 {
                     src_pointee.clear();
+                }
+                if let Some(src) = src {
+                    self.check_dangling_pointer_copy(record, src);
                 }
                 for off in 0..access.size.max(1) {
                     let addr = access.address.saturating_add(off as u64);
@@ -481,43 +826,256 @@ impl Analyzer {
     }
 
     fn apply_register_writes(&mut self, record: &TraceRecord, ins: &Instruction) {
-        if ins.mnemonic() != Mnemonic::Mov {
-            return;
-        }
-        if ins.op_count() < 2 || ins.op0_kind() != OpKind::Register {
+        if ins.op_count() == 0 || ins.op0_kind() != OpKind::Register {
             return;
         }
         let Some(dst) = id_from_iced(ins.op0_register()) else {
             return;
         };
-        match ins.op1_kind() {
-            OpKind::Register => {
-                if let Some(src) = id_from_iced(ins.op1_register()) {
-                    self.regs.insert(dst, self.reg_state(src));
+        match ins.mnemonic() {
+            mnemonic
+                if matches!(
+                    mnemonic,
+                    Mnemonic::Mov | Mnemonic::Movzx | Mnemonic::Movsxd | Mnemonic::Movsx
+                ) || is_cmov(mnemonic) =>
+            {
+                let copy_pointee = is_pointer_width(ins.op0_register().size() as u32)
+                    && (ins.mnemonic() == Mnemonic::Mov || is_cmov(ins.mnemonic()));
+                let mut state = match ins.op1_kind() {
+                    OpKind::Register => {
+                        if let Some(src) = id_from_iced(ins.op1_register()) {
+                            self.check_dangling_pointer_copy(record, src);
+                            self.reg_state(src)
+                        } else {
+                            RegState::default()
+                        }
+                    }
+                    OpKind::Memory => self
+                        .first_memory_read_state(record, ins)
+                        .unwrap_or_default(),
+                    OpKind::Immediate8
+                    | OpKind::Immediate8to16
+                    | OpKind::Immediate8to32
+                    | OpKind::Immediate8to64
+                    | OpKind::Immediate16
+                    | OpKind::Immediate32
+                    | OpKind::Immediate32to64
+                    | OpKind::Immediate64 => state_for_immediate(self, immediate(ins)),
+                    _ => RegState::default(),
+                };
+                if !copy_pointee {
+                    state.pointee_owners.clear();
+                }
+                if is_cmov(ins.mnemonic()) {
+                    let mut old = self.reg_state(dst);
+                    old.value_owners.extend(state.value_owners);
+                    old.pointee_owners.extend(state.pointee_owners);
+                    self.regs.insert(dst, old);
+                } else {
+                    self.regs.insert(dst, state);
                 }
             }
-            OpKind::Immediate8
-            | OpKind::Immediate16
-            | OpKind::Immediate32
-            | OpKind::Immediate32to64
-            | OpKind::Immediate64 => {
-                let value = immediate(ins);
-                let mut owners = self.mem.owner_for_address(value);
-                if owners.is_empty() {
-                    owners = OwnerSet::new();
+            Mnemonic::Add
+            | Mnemonic::Sub
+            | Mnemonic::Adc
+            | Mnemonic::Sbb
+            | Mnemonic::And
+            | Mnemonic::Or
+            | Mnemonic::Xor
+            | Mnemonic::Shl
+            | Mnemonic::Sal
+            | Mnemonic::Shr
+            | Mnemonic::Sar => {
+                if ins.mnemonic() == Mnemonic::Xor
+                    && ins.op1_kind() == OpKind::Register
+                    && ins.op1_register().full_register() == ins.op0_register().full_register()
+                {
+                    self.regs.remove(&dst);
+                    return;
                 }
-                self.regs.insert(
-                    dst,
-                    RegState {
-                        value_owners: owners.clone(),
-                        pointee_owners: owners,
-                    },
-                );
+                let Some(left) = record.reg(dst) else {
+                    return;
+                };
+                let Some(right) = right_operand_value(record, ins) else {
+                    return;
+                };
+                let Some(result) = binary_result(ins.mnemonic(), left, right) else {
+                    return;
+                };
+                let mut state = self.reg_state(dst);
+                if is_cross_boundary_mnemonic(ins.mnemonic()) {
+                    self.check_cross_boundary(
+                        record.step,
+                        record.pc,
+                        result,
+                        &state.pointee_owners,
+                    );
+                }
+                if let Some(right_reg) = right_operand_register(ins) {
+                    state
+                        .pointee_owners
+                        .extend(self.reg_state(right_reg).pointee_owners);
+                    self.check_dangling_pointer_copy(record, right_reg);
+                }
+                let result_owners = self.owner_set_for_value(result);
+                if replace_pointee_owner_for_mnemonic(ins.mnemonic()) {
+                    state.pointee_owners = result_owners;
+                } else {
+                    state.pointee_owners.extend(result_owners);
+                }
+                state.value_owners.extend(state.pointee_owners.clone());
+                self.regs.insert(dst, state);
+            }
+            Mnemonic::Xchg => {
+                if let Some(src) = id_from_iced(ins.op1_register()) {
+                    let dst_state = self.reg_state(dst);
+                    let src_state = self.reg_state(src);
+                    self.regs.insert(dst, src_state);
+                    self.regs.insert(src, dst_state);
+                }
+            }
+            mnemonic if is_setcc(mnemonic) => {
+                self.regs.remove(&dst);
             }
             _ => {
                 let _ = record;
             }
         }
+    }
+
+    fn first_memory_read_state(&self, record: &TraceRecord, ins: &Instruction) -> Option<RegState> {
+        let mut factory = InstructionInfoFactory::new();
+        let info = factory.info(ins);
+        for mem in info.used_memory() {
+            let access = mem.access();
+            if !matches!(
+                access,
+                OpAccess::Read | OpAccess::CondRead | OpAccess::ReadWrite | OpAccess::ReadCondWrite
+            ) {
+                continue;
+            }
+            let address = mem.virtual_address(0, |reg, _, _| match reg {
+                Register::None => Some(0),
+                Register::RIP => Some(record.pc.wrapping_add(ins.len() as u64)),
+                Register::EIP => Some((record.pc.wrapping_add(ins.len() as u64)) as u32 as u64),
+                Register::FS
+                | Register::GS
+                | Register::CS
+                | Register::DS
+                | Register::ES
+                | Register::SS => Some(0),
+                other => id_from_iced(other).and_then(|id| record.reg(id)),
+            })?;
+            let access = ResolvedAccess {
+                address,
+                size: mem.memory_size().size() as u32,
+                kind: AccessKind::Read,
+                base: id_from_iced(mem.base()),
+                index: id_from_iced(mem.index()),
+            };
+            let mut state = self.state_from_memory(&access);
+            if !is_pointer_width(access.size) {
+                state.pointee_owners.clear();
+            }
+            if state.pointee_owners.len() > 1 {
+                // This mirrors Lancet's "untrusted pointer" check: a single
+                // pointer-sized value should not be assembled from bytes with
+                // incompatible pointee owners.
+                // It is reported by observe/access path through explicit record
+                // below only when callers copy the value.
+            }
+            return Some(state);
+        }
+        None
+    }
+
+    fn apply_rep_string(&mut self, record: &TraceRecord, ins: &Instruction) -> bool {
+        if is_rep_movs_instruction(ins) {
+            let Some(count) = record.reg(RCX) else {
+                return false;
+            };
+            let Some(src_base) = record.reg(RSI) else {
+                return false;
+            };
+            let Some(dst_base) = record.reg(RDI) else {
+                return false;
+            };
+            let elem = rep_movs_element_size(ins.mnemonic()) as u64;
+            let backwards = record
+                .reg(crate::registers::RFLAGS)
+                .is_some_and(|flags| flags & (1 << 10) != 0);
+            for i in 0..count {
+                let off = i.saturating_mul(elem);
+                let src = if backwards {
+                    src_base.wrapping_sub(off)
+                } else {
+                    src_base.wrapping_add(off)
+                };
+                let dst = if backwards {
+                    dst_base.wrapping_sub(off)
+                } else {
+                    dst_base.wrapping_add(off)
+                };
+                let read = ResolvedAccess {
+                    address: src,
+                    size: elem as u32,
+                    kind: AccessKind::Read,
+                    base: Some(RSI),
+                    index: None,
+                };
+                let state = self.state_from_memory(&read);
+                for byte in 0..elem {
+                    let src_cell = self.mem.cell(src.saturating_add(byte));
+                    let dst_cell = self.mem.cell_mut(dst.saturating_add(byte));
+                    dst_cell.value_owners = src_cell.value_owners;
+                    dst_cell.pointee_owners = if elem == 8 {
+                        state.pointee_owners.clone()
+                    } else {
+                        OwnerSet::new()
+                    };
+                    dst_cell.last_write_pc = Some(record.pc);
+                }
+            }
+            return true;
+        }
+        if is_rep_stos_instruction(ins) {
+            let Some(count) = record.reg(RCX) else {
+                return false;
+            };
+            let Some(dst_base) = record.reg(RDI) else {
+                return false;
+            };
+            let elem = rep_stos_element_size(ins.mnemonic()) as u64;
+            let backwards = record
+                .reg(crate::registers::RFLAGS)
+                .is_some_and(|flags| flags & (1 << 10) != 0);
+            let src_state = self.reg_state(RAX);
+            for i in 0..count {
+                let off = i.saturating_mul(elem);
+                let dst = if backwards {
+                    dst_base.wrapping_sub(off)
+                } else {
+                    dst_base.wrapping_add(off)
+                };
+                for byte in 0..elem {
+                    let cell_owners = self.mem.cell(dst.saturating_add(byte)).cell_owners;
+                    let cell = self.mem.cell_mut(dst.saturating_add(byte));
+                    cell.value_owners = if src_state.value_owners.is_empty() {
+                        cell_owners
+                    } else {
+                        src_state.value_owners.clone()
+                    };
+                    cell.pointee_owners = if elem == 8 {
+                        src_state.pointee_owners.clone()
+                    } else {
+                        OwnerSet::new()
+                    };
+                    cell.last_write_pc = Some(record.pc);
+                }
+            }
+            return true;
+        }
+        false
     }
 
     fn apply_lea(&mut self, record: &TraceRecord, ins: &Instruction) {
@@ -545,32 +1103,6 @@ impl Analyzer {
         );
     }
 
-    fn apply_arith(&mut self, record: &TraceRecord, ins: &Instruction) {
-        if ins.op_count() < 2 || ins.op0_kind() != OpKind::Register {
-            return;
-        }
-        let Some(dst) = id_from_iced(ins.op0_register()) else {
-            return;
-        };
-        let Some(left) = record.reg(dst) else {
-            return;
-        };
-        let Some(right) = right_operand_value(record, ins) else {
-            return;
-        };
-        let result = match ins.mnemonic() {
-            Mnemonic::Add => left.wrapping_add(right),
-            Mnemonic::Sub => left.wrapping_sub(right),
-            _ => return,
-        };
-        let mut state = self.reg_state(dst);
-        self.check_cross_boundary(record.step, record.pc, result, &state.pointee_owners);
-        state
-            .pointee_owners
-            .extend(self.mem.owner_for_address(result));
-        self.regs.insert(dst, state);
-    }
-
     fn check_cross_boundary(&mut self, step: u64, pc: u64, result: u64, pointer_owners: &OwnerSet) {
         if pointer_owners.is_empty() {
             return;
@@ -590,6 +1122,41 @@ impl Analyzer {
                 pointer_owners.clone(),
                 result_cell,
                 Some("pointer arithmetic moved into a different subject".into()),
+            );
+        }
+    }
+
+    fn check_dangling_pointer_copy(&mut self, record: &TraceRecord, src: RegId) {
+        let state = self.reg_state(src);
+        if state.pointee_owners.is_empty() {
+            return;
+        }
+        let Some(address) = record.reg(src) else {
+            return;
+        };
+        let cell = self.mem.cell(address);
+        let points_to_freed = state
+            .pointee_owners
+            .iter()
+            .any(|owner| self.mem.subject_freed(*owner));
+        let points_outside_owner = !cell.cell_owners.is_empty()
+            && !sets_intersect(&state.pointee_owners, &cell.cell_owners);
+        if points_to_freed || points_outside_owner {
+            let kind = if points_to_freed {
+                ViolationKind::DanglingPointer
+            } else {
+                ViolationKind::UntrustedPtr
+            };
+            self.record(
+                record.step,
+                record.pc,
+                kind,
+                AccessKind::Other,
+                address,
+                1,
+                state.pointee_owners,
+                cell,
+                Some("copying a pointer whose owner no longer matches its pointee".into()),
             );
         }
     }
@@ -622,6 +1189,7 @@ impl Analyzer {
         self.mem.active_subject_at_start(ptr)
     }
 
+    #[allow(clippy::too_many_arguments)]
     fn record_simple(
         &mut self,
         step: u64,
@@ -647,6 +1215,7 @@ impl Analyzer {
         );
     }
 
+    #[allow(clippy::too_many_arguments)]
     fn record(
         &mut self,
         step: u64,
@@ -698,22 +1267,6 @@ impl Analyzer {
     }
 }
 
-fn first_written_reg(ins: &Instruction) -> Option<RegId> {
-    for i in 0..ins.op_count() {
-        if ins.op_kind(i) == OpKind::Register {
-            // Heuristic: first register operand of load-like instruction is destination.
-            return id_from_iced(match i {
-                0 => ins.op0_register(),
-                1 => ins.op1_register(),
-                2 => ins.op2_register(),
-                3 => ins.op3_register(),
-                _ => Register::None,
-            });
-        }
-    }
-    None
-}
-
 fn first_read_reg_not_addr(ins: &Instruction, access: &ResolvedAccess) -> Option<RegId> {
     for i in 0..ins.op_count() {
         if ins.op_kind(i) != OpKind::Register {
@@ -760,6 +1313,7 @@ fn compute_lea_result(record: &TraceRecord, ins: &Instruction) -> Option<u64> {
 fn right_operand_value(record: &TraceRecord, ins: &Instruction) -> Option<u64> {
     match ins.op1_kind() {
         OpKind::Register => id_from_iced(ins.op1_register()).and_then(|id| record.reg(id)),
+        OpKind::Memory => None,
         _ => Some(immediate(ins)),
     }
 }
@@ -786,4 +1340,154 @@ fn parse_hex_label(label: &str) -> Option<u64> {
     let trimmed = label.trim();
     let raw = trimmed.strip_prefix("0x").unwrap_or(trimmed);
     u64::from_str_radix(raw, 16).ok()
+}
+
+fn state_for_immediate(analyzer: &Analyzer, value: u64) -> RegState {
+    let owners = analyzer.owner_set_for_value(value);
+    RegState {
+        value_owners: owners.clone(),
+        pointee_owners: owners,
+    }
+}
+
+fn is_pointer_width(size: u32) -> bool {
+    size == 8
+}
+
+fn binary_result(mnemonic: Mnemonic, left: u64, right: u64) -> Option<u64> {
+    Some(match mnemonic {
+        Mnemonic::Add | Mnemonic::Adc => left.wrapping_add(right),
+        Mnemonic::Sub | Mnemonic::Sbb => left.wrapping_sub(right),
+        Mnemonic::And => left & right,
+        Mnemonic::Or => left | right,
+        Mnemonic::Xor => left ^ right,
+        Mnemonic::Shl | Mnemonic::Sal => left.wrapping_shl((right & 0x3f) as u32),
+        Mnemonic::Shr | Mnemonic::Sar => left.wrapping_shr((right & 0x3f) as u32),
+        _ => return None,
+    })
+}
+
+fn right_operand_register(ins: &Instruction) -> Option<RegId> {
+    if ins.op1_kind() == OpKind::Register {
+        id_from_iced(ins.op1_register())
+    } else {
+        None
+    }
+}
+
+fn replace_pointee_owner_for_mnemonic(mnemonic: Mnemonic) -> bool {
+    matches!(
+        mnemonic,
+        Mnemonic::And
+            | Mnemonic::Or
+            | Mnemonic::Xor
+            | Mnemonic::Shl
+            | Mnemonic::Sal
+            | Mnemonic::Shr
+            | Mnemonic::Sar
+    )
+}
+
+fn is_cross_boundary_mnemonic(mnemonic: Mnemonic) -> bool {
+    matches!(
+        mnemonic,
+        Mnemonic::Add | Mnemonic::Sub | Mnemonic::Adc | Mnemonic::Sbb
+    )
+}
+
+fn is_cmov(mnemonic: Mnemonic) -> bool {
+    format!("{mnemonic:?}").starts_with("Cmov")
+}
+
+fn is_setcc(mnemonic: Mnemonic) -> bool {
+    format!("{mnemonic:?}").starts_with("Set")
+}
+
+fn is_jump(instruction: &Instruction) -> bool {
+    instruction.is_jmp_short_or_near() || instruction.is_jmp_far()
+}
+
+fn is_high_half_address(address: u64) -> bool {
+    (address >> 63) == 1
+}
+
+fn is_alloc_name(name: &str) -> bool {
+    let lower = name.to_ascii_lowercase();
+    (lower.contains("alloc") || lower.contains("kmalloc") || lower.contains("vmalloc"))
+        && !lower.contains("free")
+}
+
+fn is_free_name(name: &str) -> bool {
+    let lower = name.to_ascii_lowercase();
+    lower.contains("free") || lower == "kfree"
+}
+
+fn is_page_alloc_symbol(
+    symbol: Option<&SymbolConfig>,
+    _target: u64,
+    page_allocator: Option<PageAllocatorConfig>,
+) -> bool {
+    page_allocator.is_some()
+        && symbol.is_some_and(|s| matches!(s.name.as_str(), "alloc_pages" | "__alloc_pages"))
+}
+
+fn is_page_free_symbol(
+    symbol: Option<&SymbolConfig>,
+    _target: u64,
+    page_allocator: Option<PageAllocatorConfig>,
+) -> bool {
+    page_allocator.is_some()
+        && symbol.is_some_and(|s| matches!(s.name.as_str(), "free_pages" | "__free_pages"))
+}
+
+fn apply_value_size(value: u64, value_size: Option<u8>) -> u64 {
+    let Some(size) = value_size else {
+        return value;
+    };
+    if size == 0 {
+        0
+    } else if size >= 8 {
+        value
+    } else {
+        let bits = size as u32 * 8;
+        value & ((1u64 << bits) - 1)
+    }
+}
+
+fn is_rep_movs_instruction(instruction: &Instruction) -> bool {
+    if !(instruction.has_rep_prefix() || instruction.has_repne_prefix()) {
+        return false;
+    }
+    matches!(
+        instruction.mnemonic(),
+        Mnemonic::Movsb | Mnemonic::Movsw | Mnemonic::Movsd | Mnemonic::Movsq
+    )
+}
+
+fn is_rep_stos_instruction(instruction: &Instruction) -> bool {
+    if !(instruction.has_rep_prefix() || instruction.has_repne_prefix()) {
+        return false;
+    }
+    matches!(
+        instruction.mnemonic(),
+        Mnemonic::Stosb | Mnemonic::Stosw | Mnemonic::Stosd | Mnemonic::Stosq
+    )
+}
+
+fn rep_movs_element_size(mnemonic: Mnemonic) -> u32 {
+    match mnemonic {
+        Mnemonic::Movsw => 2,
+        Mnemonic::Movsd => 4,
+        Mnemonic::Movsq => 8,
+        _ => 1,
+    }
+}
+
+fn rep_stos_element_size(mnemonic: Mnemonic) -> u32 {
+    match mnemonic {
+        Mnemonic::Stosw => 2,
+        Mnemonic::Stosd => 4,
+        Mnemonic::Stosq => 8,
+        _ => 1,
+    }
 }

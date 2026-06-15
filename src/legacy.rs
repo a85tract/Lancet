@@ -15,13 +15,13 @@ impl LegacyReader {
             path: path.as_ref().to_path_buf(),
         })
     }
-}
 
-impl TraceReader for LegacyReader {
-    fn read_all(&mut self) -> Result<Vec<TraceRecord>, Box<dyn std::error::Error>> {
+    pub fn for_each_record(
+        &mut self,
+        mut f: impl FnMut(TraceRecord) -> Result<(), Box<dyn std::error::Error>>,
+    ) -> Result<(), Box<dyn std::error::Error>> {
         let file = File::open(&self.path)?;
         let reader = BufReader::new(file);
-        let mut records = Vec::new();
         let mut step = 0u64;
         for line in reader.lines() {
             let line = line?;
@@ -29,8 +29,19 @@ impl TraceReader for LegacyReader {
                 continue;
             }
             step += 1;
-            records.push(parse_line(&line, step)?);
+            f(parse_line(&line, step)?)?;
         }
+        Ok(())
+    }
+}
+
+impl TraceReader for LegacyReader {
+    fn read_all(&mut self) -> Result<Vec<TraceRecord>, Box<dyn std::error::Error>> {
+        let mut records = Vec::new();
+        self.for_each_record(|record| {
+            records.push(record);
+            Ok(())
+        })?;
         Ok(records)
     }
 }
@@ -110,10 +121,10 @@ fn parse_branch_target(asm: &str) -> Option<u64> {
     }
     for token in asm.split(|c: char| c.is_whitespace() || c == ',' || c == '*') {
         let token = token.trim();
-        if token.starts_with("0x") {
-            if let Ok(value) = parse_u64(token) {
-                return Some(value);
-            }
+        if token.starts_with("0x")
+            && let Ok(value) = parse_u64(token)
+        {
+            return Some(value);
         }
     }
     None

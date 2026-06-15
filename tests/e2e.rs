@@ -26,7 +26,7 @@ fn default_config_json() -> &'static str {
     r#"{
         "malloc_addrs":["0x1000"],
         "free_addrs":["0x2000"],
-        "vulnerability_types":["uninitializedread","outofboundsread","outofboundswrite","uafread","uafwrite","doublefree","invalidfree","memoryoverlap","crossboundary","nullpointerdereference"],
+        "vulnerability_types":["uninitializedread","outofboundsread","outofboundswrite","uafread","uafwrite","doublefree","invalidfree","memoryoverlap","crossboundary","danglingptr","expiredptr","nullpointerdereference","untrustedptr"],
         "symbol_names":{
             "malloc":{"addr":"0x1000","import_reg":"rdi"},
             "free":{"addr":"0x2000","import_reg":"rdi"}
@@ -41,6 +41,13 @@ fn call(step: u64, pc: u64, target: u64, rdi: u64) -> TraceRecord {
     r
 }
 
+fn jmp_to_alloc(step: u64, pc: u64, target: u64, rdi: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0xe9, 0, 0, 0, 0]);
+    r.branch_target = Some(target);
+    r.set_reg(RDI, rdi);
+    r
+}
+
 fn nop(step: u64, pc: u64, rax: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x90]);
     r.set_reg(RAX, rax);
@@ -50,6 +57,19 @@ fn nop(step: u64, pc: u64, rax: u64) -> TraceRecord {
 fn mov_rbx_rax(step: u64, pc: u64, rax: u64, rbx: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0xc3]);
     r.set_reg(RAX, rax);
+    r.set_reg(RBX, rbx);
+    r
+}
+
+fn mov_rcx_rbx(step: u64, pc: u64, rbx: u64, rcx: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0xd9]);
+    r.set_reg(RBX, rbx);
+    r.set_reg(RCX, rcx);
+    r
+}
+
+fn add_rbx_imm8(step: u64, pc: u64, rbx: u64, imm: u8) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x83, 0xc3, imm]);
     r.set_reg(RBX, rbx);
     r
 }
@@ -73,9 +93,27 @@ fn write_ptr(step: u64, pc: u64, base: RegId, addr: u64) -> TraceRecord {
     r
 }
 
+fn read_rbx(step: u64, pc: u64, rbx: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x8b, 0x03]); // mov eax,[rbx]
+    r.set_reg(RBX, rbx);
+    r
+}
+
 fn read_rax(step: u64, pc: u64, rax: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x8b, 0x00]); // mov eax, [rax]
     r.set_reg(RAX, rax);
+    r
+}
+
+fn read_rsp(step: u64, pc: u64, rsp: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x8b, 0x04, 0x24]); // mov rax,[rsp]
+    r.set_reg(RSP, rsp);
+    r
+}
+
+fn read_abs_rax(step: u64, pc: u64, addr: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0xa1, 0, 0, 0, 0, 0, 0, 0, 0]); // mov rax,moffs64
+    r.bytecode[2..10].copy_from_slice(&addr.to_le_bytes());
     r
 }
 
@@ -189,6 +227,32 @@ fn qlt_value_field_drives_malloc_size() {
 }
 
 #[test]
+fn value_size_masks_allocator_size() {
+    let mut alloc = TraceRecord::new(1, 0x400000, vec![0xe8, 0, 0, 0, 0]);
+    alloc.branch_target = Some(0x1000);
+    alloc.value = Some(0x1_0000_0010);
+    let records = vec![
+        alloc,
+        nop(2, 0x400005, 0x5000),
+        read_rax(3, 0x400006, 0x5000),
+    ];
+    let summary = run_qlt_with_config(
+        "value_size_mask",
+        &records,
+        r#"{
+            "malloc_addrs":["0x1000"],
+            "free_addrs":[],
+            "vulnerability_types":["uninitializedread","outofboundsread"],
+            "symbol_names":{
+                "slab_alloc":{"addr":"0x1000","use_value_to_size":true,"value_size":4}
+            }
+        }"#,
+    );
+    assert_eq!(summary["out_of_bounds_reads"], 0);
+    assert_eq!(summary["uninitialized_reads"], 1);
+}
+
+#[test]
 fn qlt_preserves_branch_value_and_cr3_fields() {
     let dir = temp_dir("qlt_fields");
     let trace = dir.join("trace.qlt");
@@ -220,6 +284,102 @@ fn memory_overlap_on_reused_active_cell() {
     ];
     let summary = run_qlt("overlap", &records);
     assert_eq!(summary["memory_overlaps"], 1);
+}
+
+#[test]
+fn dangling_pointer_copy_after_free() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        mov_rdi_rax(4, 0x400009, 0x5000, 0),
+        call(5, 0x40000c, 0x2000, 0x5000),
+        nop(6, 0x400011, 0),
+        mov_rcx_rbx(7, 0x400012, 0x5000, 0),
+    ];
+    let summary = run_qlt("dangling_copy", &records);
+    assert_eq!(summary["dangling_pointers"], 1);
+}
+
+#[test]
+fn expired_pointer_deref_after_pointer_leaves_freed_range() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        mov_rdi_rax(4, 0x400009, 0x5000, 0),
+        call(5, 0x40000c, 0x2000, 0x5000),
+        nop(6, 0x400011, 0),
+        add_rbx_imm8(7, 0x400012, 0x5000, 0x20),
+        read_rbx(8, 0x400016, 0x5020),
+    ];
+    let summary = run_qlt("expired_deref", &records);
+    assert_eq!(summary["expired_pointer_dereferences"], 1);
+    assert_eq!(summary["out_of_bounds_reads"], 0);
+}
+
+#[test]
+fn stack_and_global_reads_are_modeled_subjects() {
+    let records = vec![
+        read_rsp(1, 0x400000, 0x7fff_ffff_f000),
+        read_abs_rax(2, 0x400004, 0xffff_8880_0000_1000),
+    ];
+    let summary = run_qlt("static_subjects", &records);
+    assert_eq!(summary["out_of_bounds_reads"], 0);
+    assert_eq!(summary["uninitialized_reads"], 0);
+}
+
+#[test]
+fn page_allocator_uaf_is_detected() {
+    let mut alloc = TraceRecord::new(1, 0x400000, vec![0xe8, 0, 0, 0, 0]);
+    alloc.branch_target = Some(0x3000);
+    alloc.set_reg(RSI, 0);
+    let mut ret = nop(2, 0x400005, 0xffff_ea00_0000_0000);
+    ret.set_reg(RAX, 0xffff_ea00_0000_0000);
+    let mut free = TraceRecord::new(3, 0x400006, vec![0xe8, 0, 0, 0, 0]);
+    free.branch_target = Some(0x4000);
+    free.set_reg(RDI, 0xffff_ea00_0000_0000);
+    free.set_reg(RSI, 0);
+    let mut after = nop(4, 0x40000b, 0);
+    after.set_reg(RAX, 0);
+    let mut read = read_rax(5, 0x40000c, 0xffff_8880_0000_0000);
+    read.set_reg(RAX, 0xffff_8880_0000_0000);
+    let summary = run_qlt_with_config(
+        "page_uaf",
+        &[alloc, ret, free, after, read],
+        r#"{
+            "malloc_addrs":[],
+            "free_addrs":[],
+            "vulnerability_types":["uafread"],
+            "page_allocator":{"vmemmap_start":"0xffffea0000000000","page_offset_base":"0xffff888000000000"},
+            "symbol_names":{
+                "alloc_pages":{"addr":"0x3000"},
+                "free_pages":{"addr":"0x4000"}
+            }
+        }"#,
+    );
+    assert_eq!(summary["use_after_free_reads"], 1);
+}
+
+#[test]
+fn skip_return_range_applies_tail_call_allocation() {
+    let records = vec![
+        jmp_to_alloc(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400010, 0x5000),
+        read_rax(3, 0x400011, 0x5000),
+    ];
+    let summary = run_qlt_with_config(
+        "skip_return_alloc",
+        &records,
+        r#"{
+            "malloc_addrs":["0x1000"],
+            "free_addrs":[],
+            "vulnerability_types":["uninitializedread"],
+            "skip_addrs":[{"malloc":{"start_addr":"0x1000","ret_addr":"0x400010"}}],
+            "symbol_names":{"malloc":{"addr":"0x1000","import_reg":"rdi"}}
+        }"#,
+    );
+    assert_eq!(summary["uninitialized_reads"], 1);
 }
 
 #[test]

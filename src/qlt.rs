@@ -148,11 +148,11 @@ impl QltReader {
         }
         Ok(Self { file, indexes })
     }
-}
 
-impl TraceReader for QltReader {
-    fn read_all(&mut self) -> Result<Vec<TraceRecord>, Box<dyn std::error::Error>> {
-        let mut out = Vec::new();
+    pub fn for_each_record(
+        &mut self,
+        mut f: impl FnMut(TraceRecord) -> Result<(), Box<dyn std::error::Error>>,
+    ) -> Result<(), Box<dyn std::error::Error>> {
         let mut prev_step = 0u64;
         for index in &self.indexes {
             self.file.seek(SeekFrom::Start(index.compressed_offset))?;
@@ -163,9 +163,20 @@ impl TraceReader for QltReader {
             for _ in 0..index.record_count {
                 let record = decode_record(&mut cursor, prev_step)?;
                 prev_step = record.step;
-                out.push(record);
+                f(record)?;
             }
         }
+        Ok(())
+    }
+}
+
+impl TraceReader for QltReader {
+    fn read_all(&mut self) -> Result<Vec<TraceRecord>, Box<dyn std::error::Error>> {
+        let mut out = Vec::new();
+        self.for_each_record(|record| {
+            out.push(record);
+            Ok(())
+        })?;
         Ok(out)
     }
 }

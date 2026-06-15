@@ -99,3 +99,24 @@ pub fn read_trace(
         }
     }
 }
+
+pub fn for_each_trace_record(
+    path: &Path,
+    format: TraceFormat,
+    f: impl FnMut(TraceRecord) -> Result<(), Box<dyn std::error::Error>>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    match format {
+        TraceFormat::Qlt => crate::qlt::QltReader::open(path)?.for_each_record(f),
+        TraceFormat::Legacy => crate::legacy::LegacyReader::open(path)?.for_each_record(f),
+        TraceFormat::Auto => {
+            let mut file = File::open(path)?;
+            let mut magic = [0u8; 4];
+            let n = file.read(&mut magic)?;
+            if n == 4 && &magic == b"QLT1" {
+                crate::qlt::QltReader::open(path)?.for_each_record(f)
+            } else {
+                crate::legacy::LegacyReader::open(path)?.for_each_record(f)
+            }
+        }
+    }
+}

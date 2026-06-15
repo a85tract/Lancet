@@ -77,13 +77,17 @@ impl MemoryModel {
     }
 
     pub fn fresh_heap_subject(&mut self, start: u64, size: u64) -> SubjectId {
+        self.fresh_subject(SubjectKind::Heap, start, size)
+    }
+
+    pub fn fresh_subject(&mut self, kind: SubjectKind, start: u64, size: u64) -> SubjectId {
         let id = self.next_subject;
         self.next_subject = self.next_subject.saturating_add(1);
         self.subjects.insert(
             id,
             Subject {
                 id,
-                kind: SubjectKind::Heap,
+                kind,
                 start: Some(start),
                 size: Some(size),
                 freed: false,
@@ -103,6 +107,32 @@ impl MemoryModel {
         self.cell(addr).cell_owners
     }
 
+    pub fn ensure_range_owner(&mut self, kind: SubjectKind, start: u64, size: u64) -> SubjectId {
+        if let Some(subject) = self.subject_containing_kind(kind, start) {
+            return subject;
+        }
+        let subject = self.fresh_subject(kind, start, size.max(1));
+        for off in 0..size.max(1) {
+            self.cell_mut(start.saturating_add(off))
+                .cell_owners
+                .insert(subject);
+        }
+        subject
+    }
+
+    pub fn subject_containing_kind(&self, kind: SubjectKind, ptr: u64) -> Option<SubjectId> {
+        self.subjects
+            .values()
+            .find(|s| {
+                s.kind == kind
+                    && !s.freed
+                    && s.start.zip(s.size).is_some_and(|(start, size)| {
+                        ptr >= start && ptr < start.saturating_add(size)
+                    })
+            })
+            .map(|s| s.id)
+    }
+
     pub fn active_subject_at_start(&self, ptr: u64) -> Option<SubjectId> {
         self.subjects
             .values()
@@ -114,9 +144,22 @@ impl MemoryModel {
         self.subjects
             .values()
             .find(|s| {
-                s.kind == SubjectKind::Heap
+                matches!(s.kind, SubjectKind::Heap | SubjectKind::Page)
                     && !s.freed
-                    && s.start.zip(s.size).map_or(false, |(start, size)| {
+                    && s.start.zip(s.size).is_some_and(|(start, size)| {
+                        ptr >= start && ptr < start.saturating_add(size)
+                    })
+            })
+            .map(|s| s.id)
+    }
+
+    pub fn freed_subject_containing(&self, ptr: u64) -> Option<SubjectId> {
+        self.subjects
+            .values()
+            .find(|s| {
+                matches!(s.kind, SubjectKind::Heap | SubjectKind::Page)
+                    && s.freed
+                    && s.start.zip(s.size).is_some_and(|(start, size)| {
                         ptr >= start && ptr < start.saturating_add(size)
                     })
             })
@@ -134,13 +177,11 @@ impl MemoryModel {
         self.subjects
             .get(&subject)
             .and_then(|s| s.start.zip(s.size))
-            .map_or(false, |(start, size)| {
-                addr >= start && addr < start.saturating_add(size)
-            })
+            .is_some_and(|(start, size)| addr >= start && addr < start.saturating_add(size))
     }
 
     pub fn subject_freed(&self, subject: SubjectId) -> bool {
-        self.subjects.get(&subject).map_or(false, |s| s.freed)
+        self.subjects.get(&subject).is_some_and(|s| s.freed)
     }
 
     pub fn mark_freed(&mut self, subject: SubjectId) {

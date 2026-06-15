@@ -13,6 +13,10 @@ pub struct Config {
     pub free_addrs: HashSet<u64>,
     pub symbols_by_addr: HashMap<u64, SymbolConfig>,
     pub enabled: HashSet<ViolationKind>,
+    pub malloc_size: Option<u64>,
+    pub skip_return_addrs: HashMap<u64, u64>,
+    pub module_range: Option<(u64, u64)>,
+    pub page_allocator: Option<PageAllocatorConfig>,
 }
 
 #[derive(Debug, Clone)]
@@ -23,6 +27,15 @@ pub struct SymbolConfig {
     pub offset: i64,
     pub use_value_to_size: bool,
     pub malloc_size: Option<u64>,
+    pub value_size: Option<u8>,
+    pub zero_initialized: bool,
+    pub is_bulk: bool,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct PageAllocatorConfig {
+    pub vmemmap_start: u64,
+    pub page_offset_base: u64,
 }
 
 #[derive(Debug, Deserialize)]
@@ -37,6 +50,20 @@ struct RawConfig {
     symbol_names: HashMap<String, RawSymbol>,
     #[serde(default, alias = "malloc-size", alias = "mallocSize")]
     malloc_size: Option<RawNum>,
+    #[serde(default)]
+    skip_addrs: Vec<HashMap<String, RawSkipRange>>,
+    #[serde(default)]
+    ctf_mode: bool,
+    #[serde(default)]
+    module_base: Option<String>,
+    #[serde(default)]
+    module_size: Option<RawNum>,
+    #[serde(default)]
+    page_allocator: Option<RawPageAllocator>,
+    #[serde(default)]
+    vmemmap_start: Option<String>,
+    #[serde(default)]
+    page_offset_base: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -50,6 +77,24 @@ struct RawSymbol {
     use_value_to_size: bool,
     #[serde(default, alias = "malloc-size", alias = "mallocSize")]
     malloc_size: Option<RawNum>,
+    #[serde(default)]
+    value_size: Option<u8>,
+    #[serde(default)]
+    zero_initialized: bool,
+    #[serde(default)]
+    is_bulk: bool,
+}
+
+#[derive(Debug, Deserialize)]
+struct RawSkipRange {
+    start_addr: String,
+    ret_addr: String,
+}
+
+#[derive(Debug, Deserialize)]
+struct RawPageAllocator {
+    vmemmap_start: String,
+    page_offset_base: String,
 }
 
 #[derive(Debug, Deserialize)]
@@ -89,12 +134,18 @@ impl Config {
             symbols_by_addr.insert(
                 addr,
                 SymbolConfig {
+                    zero_initialized: raw_sym.zero_initialized
+                        || name.contains("kzalloc")
+                        || name.contains("calloc")
+                        || name.contains("zalloc"),
+                    is_bulk: raw_sym.is_bulk || name.contains("_bulk"),
                     name,
                     addr,
                     import_reg,
                     offset,
                     use_value_to_size: raw_sym.use_value_to_size,
                     malloc_size,
+                    value_size: raw_sym.value_size,
                 },
             );
         }
@@ -106,6 +157,9 @@ impl Config {
                 offset: 0,
                 use_value_to_size: false,
                 malloc_size: global_malloc_size,
+                value_size: None,
+                zero_initialized: false,
+                is_bulk: false,
             });
         }
         for &addr in &free_addrs {
@@ -116,8 +170,48 @@ impl Config {
                 offset: 0,
                 use_value_to_size: false,
                 malloc_size: None,
+                value_size: None,
+                zero_initialized: false,
+                is_bulk: false,
             });
         }
+        let mut skip_return_addrs = HashMap::new();
+        for range in raw.skip_addrs {
+            for (_, raw_range) in range {
+                skip_return_addrs.insert(
+                    parse_u64(&raw_range.start_addr)?,
+                    parse_u64(&raw_range.ret_addr)?,
+                );
+            }
+        }
+        let module_range = if raw.ctf_mode {
+            match (raw.module_base.as_deref(), raw.module_size) {
+                (Some(base), Some(size)) => {
+                    let base = parse_u64(base)?;
+                    Some((base, parse_raw_num(size)?))
+                }
+                _ => None,
+            }
+        } else {
+            None
+        };
+        let page_allocator = if let Some(page) = raw.page_allocator {
+            Some(PageAllocatorConfig {
+                vmemmap_start: parse_u64(&page.vmemmap_start)?,
+                page_offset_base: parse_u64(&page.page_offset_base)?,
+            })
+        } else {
+            match (
+                raw.vmemmap_start.as_deref(),
+                raw.page_offset_base.as_deref(),
+            ) {
+                (Some(vmemmap_start), Some(page_offset_base)) => Some(PageAllocatorConfig {
+                    vmemmap_start: parse_u64(vmemmap_start)?,
+                    page_offset_base: parse_u64(page_offset_base)?,
+                }),
+                _ => None,
+            }
+        };
         let enabled = if raw.vulnerability_types.is_empty() {
             ViolationKind::all().into_iter().collect()
         } else {
@@ -131,11 +225,18 @@ impl Config {
             free_addrs,
             symbols_by_addr,
             enabled,
+            malloc_size: global_malloc_size,
+            skip_return_addrs,
+            module_range,
+            page_allocator,
         })
     }
 
     pub fn symbol(&self, addr: u64) -> Option<&SymbolConfig> {
         self.symbols_by_addr.get(&addr)
+    }
+    pub fn skip_return_for(&self, target: u64) -> Option<u64> {
+        self.skip_return_addrs.get(&target).copied()
     }
     pub fn violation_enabled(&self, kind: ViolationKind) -> bool {
         self.enabled.contains(&kind)
