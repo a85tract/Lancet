@@ -86,6 +86,7 @@ static gboolean use_reg_pc = FALSE;
 static uint64_t range_lo = 0, range_hi = UINT64_MAX;
 static char target_name[64] = {0};
 static int only_cpu = -1;
+static int trigger_only_cpu = -2; /* -2: follow only_cpu, -1: all CPUs */
 static gboolean dump_guest_vmmap = FALSE;
 static size_t qlt_block_limit = QLT_DEFAULT_BLOCK_SIZE;
 static int qlt_zstd_level = 3;
@@ -96,6 +97,7 @@ typedef enum {
     TRACE_ADDR_ALL = 2
 } trace_addr_mode_t;
 static trace_addr_mode_t trace_addr_mode = TRACE_ADDR_KERNEL;
+static trace_addr_mode_t trigger_addr_mode = TRACE_ADDR_ALL;
 
 typedef enum {
     REGS_NONE = 0,
@@ -109,11 +111,13 @@ static gboolean saw_regs_arg = FALSE;
 
 static gboolean use_addr_whitelist = FALSE;
 static gboolean use_trigger_mode = FALSE;
+static gboolean trigger_pc_from_reg = FALSE;
 static char addrfile_path[512] = "/tmp/addr.txt";
 static gboolean use_config_json = FALSE;
 static char config_path[512] = "config.json";
 
 static uint64_t trigger_addr = 0;
+static uint64_t trigger_reg_window = 0x20000ULL;
 static gboolean have_stop_addr = FALSE;
 static uint64_t stop_addr = 0;
 static volatile gint triggered_flag = 0;
@@ -169,6 +173,12 @@ static inline gboolean cpu_ok(unsigned int vcpu_index)
     return only_cpu < 0 || (int)vcpu_index == only_cpu;
 }
 
+static inline gboolean trigger_cpu_ok(unsigned int vcpu_index)
+{
+    int cpu = trigger_only_cpu == -2 ? only_cpu : trigger_only_cpu;
+    return cpu < 0 || (int)vcpu_index == cpu;
+}
+
 static gboolean is_kernel_addr_default(uint64_t va)
 {
     if (strstr(target_name, "x86_64") || strstr(target_name, "aarch64") ||
@@ -184,16 +194,35 @@ static gboolean is_kernel_addr_default(uint64_t va)
     return (va >> 63) == 1;
 }
 
-static inline gboolean addr_matches_trace_mode(uint64_t va)
+static inline gboolean addr_matches_mode(uint64_t va, trace_addr_mode_t mode)
 {
     const gboolean is_kernel = is_kernel_addr_default(va);
-    if (trace_addr_mode == TRACE_ADDR_KERNEL) {
+    if (mode == TRACE_ADDR_KERNEL) {
         return is_kernel;
     }
-    if (trace_addr_mode == TRACE_ADDR_USER) {
+    if (mode == TRACE_ADDR_USER) {
         return !is_kernel;
     }
     return TRUE;
+}
+
+static inline gboolean addr_matches_trace_mode(uint64_t va)
+{
+    return addr_matches_mode(va, trace_addr_mode);
+}
+
+static inline gboolean addr_matches_trigger_mode(uint64_t va)
+{
+    return addr_matches_mode(va, trigger_addr_mode);
+}
+
+static inline gboolean addr_in_trigger_reg_window(uint64_t va)
+{
+    if (trigger_reg_window == 0) {
+        return TRUE;
+    }
+    return (va >= trigger_addr && va - trigger_addr <= trigger_reg_window) ||
+           (trigger_addr > va && trigger_addr - va <= trigger_reg_window);
 }
 
 static gboolean target_is_little_endian(void)
@@ -1753,6 +1782,7 @@ typedef struct ExecUData {
     gboolean is_rep;
     gboolean has_direct_target;
     uint64_t direct_target;
+    gboolean can_trigger;
 } ExecUData;
 
 static void text_append_insn_bytes(GString *out, ExecUData *ud)
@@ -2027,39 +2057,53 @@ static gboolean cr3_allowed_for_cpu(unsigned int vcpu_index)
 
 static void insn_exec(unsigned int vcpu_index, void *udata)
 {
-    if (!cpu_ok(vcpu_index)) {
+    const gboolean can_trace_cpu = cpu_ok(vcpu_index);
+    const gboolean can_trigger_cpu = trigger_cpu_ok(vcpu_index);
+    if (!can_trace_cpu && !can_trigger_cpu) {
         return;
     }
     ExecUData *ud = (ExecUData *)udata;
 
     GArray *arr = NULL;
     uint64_t exec_pc = ud->vaddr;
+    uint64_t trigger_pc = ud->vaddr;
     if (use_reg_pc) {
         arr = get_or_fetch_vcpu_regs(vcpu_index);
         if (!read_pc_register(arr, &exec_pc)) {
             exec_pc = ud->vaddr;
         }
-        if (!addr_matches_trace_mode(exec_pc)) {
-            return;
-        }
-        if (use_addr_whitelist) {
-            if (!addr_is_whitelisted(exec_pc) &&
-                !(use_trigger_mode && exec_pc == trigger_addr)) {
-                return;
-            }
-        } else if ((exec_pc < range_lo || exec_pc > range_hi) &&
-                   !(use_trigger_mode && exec_pc == trigger_addr)) {
-            return;
+        trigger_pc = exec_pc;
+    } else if (trigger_pc_from_reg && use_trigger_mode && can_trigger_cpu && ud->can_trigger &&
+               !g_atomic_int_get(&triggered_flag)) {
+        arr = get_or_fetch_vcpu_regs(vcpu_index);
+        if (!read_pc_register(arr, &trigger_pc)) {
+            trigger_pc = ud->vaddr;
         }
     }
 
     if (use_trigger_mode) {
-        if (!g_atomic_int_get(&triggered_flag) && exec_pc == trigger_addr) {
+        if (can_trigger_cpu &&
+            !g_atomic_int_get(&triggered_flag) &&
+            trigger_pc == trigger_addr &&
+            addr_matches_trigger_mode(trigger_pc)) {
             g_atomic_int_set(&triggered_flag, 1);
         }
         if (!g_atomic_int_get(&triggered_flag)) {
             return;
         }
+    }
+    if (!can_trace_cpu) {
+        return;
+    }
+    if (!addr_matches_trace_mode(exec_pc)) {
+        return;
+    }
+    if (use_addr_whitelist) {
+        if (!addr_is_whitelisted(exec_pc)) {
+            return;
+        }
+    } else if (exec_pc < range_lo || exec_pc > range_hi) {
+        return;
     }
     if (!cr3_allowed_for_cpu(vcpu_index)) {
         return;
@@ -2175,7 +2219,30 @@ static void tb_trans_cb(qemu_plugin_id_t id, struct qemu_plugin_tb *tb)
         if (dump_guest_vmmap) {
             guest_exec_record_vaddr(vaddr);
         }
-        if (!use_reg_pc && !addr_matches_trace_mode(vaddr)) {
+        gboolean trigger_candidate = FALSE;
+        if (use_trigger_mode) {
+            if (trigger_pc_from_reg) {
+                /*
+                 * A user-mode architectural RIP trigger in system emulation
+                 * may have a translated address that is not equal to RIP.
+                 * Register a small translated-PC window around the trigger when
+                 * possible and compare against the real PC in insn_exec().  A
+                 * trigger-window=0 override deliberately disables this rough
+                 * translated-PC prefilter, so callers can combine ONLYCPU with
+                 * guest CPU pinning and still catch a user _start whose TB
+                 * virtual address does not resemble the architectural RIP.
+                 */
+                trigger_candidate =
+                    trigger_reg_window == 0 ||
+                    (addr_matches_trigger_mode(vaddr) &&
+                     addr_in_trigger_reg_window(vaddr));
+            } else {
+                trigger_candidate = (vaddr == trigger_addr &&
+                                     addr_matches_trigger_mode(vaddr));
+            }
+        }
+
+        if (!use_reg_pc && !addr_matches_trace_mode(vaddr) && !trigger_candidate) {
             continue;
         }
 
@@ -2189,7 +2256,7 @@ static void tb_trans_cb(qemu_plugin_id_t id, struct qemu_plugin_tb *tb)
              * filters in insn_exec() after reading RIP.
              */
             should_register = TRUE;
-        } else if (use_trigger_mode && vaddr == trigger_addr) {
+        } else if (trigger_candidate) {
             should_register = TRUE;
             if (use_addr_whitelist && addr_whitelist) {
                 gchar *ts = now_ts();
@@ -2211,6 +2278,7 @@ static void tb_trans_cb(qemu_plugin_id_t id, struct qemu_plugin_tb *tb)
 
         ExecUData *ud = g_new0(ExecUData, 1);
         ud->vaddr = vaddr;
+        ud->can_trigger = trigger_candidate;
         ud->insn_size = ilen;
         int copy_len = ilen;
         if (copy_len < 0) {
@@ -2272,9 +2340,22 @@ static void parse_arg(const char *arg)
     } else if (g_strcmp0(arg, "no-disas") == 0) {
         want_disas = FALSE;
     } else if (g_strcmp0(arg, "pc=reg") == 0 ||
-               g_strcmp0(arg, "pc=rip") == 0 ||
-               g_strcmp0(arg, "trigger-reg") == 0) {
+               g_strcmp0(arg, "pc=rip") == 0) {
         use_reg_pc = TRUE;
+        trigger_pc_from_reg = TRUE;
+    } else if (g_strcmp0(arg, "trigger-pc=reg") == 0 ||
+               g_strcmp0(arg, "trigger-pc=rip") == 0 ||
+               g_strcmp0(arg, "trigger-reg") == 0) {
+        trigger_pc_from_reg = TRUE;
+    } else if (g_strcmp0(arg, "trigger-mode=user") == 0 ||
+               g_strcmp0(arg, "trigger-trace=user") == 0) {
+        trigger_addr_mode = TRACE_ADDR_USER;
+    } else if (g_strcmp0(arg, "trigger-mode=kernel") == 0 ||
+               g_strcmp0(arg, "trigger-trace=kernel") == 0) {
+        trigger_addr_mode = TRACE_ADDR_KERNEL;
+    } else if (g_strcmp0(arg, "trigger-mode=all") == 0 ||
+               g_strcmp0(arg, "trigger-trace=all") == 0) {
+        trigger_addr_mode = TRACE_ADDR_ALL;
     } else if (g_strcmp0(arg, "user-mode") == 0 || g_strcmp0(arg, "mode=user") == 0 || g_strcmp0(arg, "trace=user") == 0) {
         trace_addr_mode = TRACE_ADDR_USER;
     } else if (g_strcmp0(arg, "kernel-mode") == 0 || g_strcmp0(arg, "mode=kernel") == 0 || g_strcmp0(arg, "trace=kernel") == 0) {
@@ -2287,6 +2368,12 @@ static void parse_arg(const char *arg)
         range_hi = g_ascii_strtoull(arg + 3, NULL, 0);
     } else if (g_str_has_prefix(arg, "onlycpu=")) {
         only_cpu = atoi(arg + 8);
+    } else if (g_str_has_prefix(arg, "trigger-onlycpu=")) {
+        const char *val = arg + 16;
+        trigger_only_cpu = (g_strcmp0(val, "all") == 0) ? -1 : atoi(val);
+    } else if (g_str_has_prefix(arg, "trigger-cpu=")) {
+        const char *val = arg + 12;
+        trigger_only_cpu = (g_strcmp0(val, "all") == 0) ? -1 : atoi(val);
     } else if (g_strcmp0(arg, "regs=none") == 0 || g_strcmp0(arg, "no-regs") == 0) {
         regs_mode = REGS_NONE;
     } else if (g_strcmp0(arg, "regs") == 0 || g_strcmp0(arg, "regs=all") == 0) {
@@ -2307,6 +2394,8 @@ static void parse_arg(const char *arg)
     } else if (g_str_has_prefix(arg, "trigger=")) {
         use_trigger_mode = TRUE;
         trigger_addr = g_ascii_strtoull(arg + 8, NULL, 0);
+    } else if (g_str_has_prefix(arg, "trigger-window=")) {
+        trigger_reg_window = g_ascii_strtoull(arg + 15, NULL, 0);
     } else if (g_str_has_prefix(arg, "stop=")) {
         have_stop_addr = TRUE;
         stop_addr = g_ascii_strtoull(arg + 5, NULL, 0);

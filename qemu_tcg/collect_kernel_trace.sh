@@ -28,15 +28,23 @@ Options:
 
 Environment knobs:
   QEMU_BIN=qemu-system-x86_64  MEMORY=3.5G  SMP=2  QLT_BLOCK_MB=16  QLT_ZSTD=3
-  PLUGIN_MODE=user|kernel|all  ONLYCPU=1  PC_FROM_REG=0|1  EXTRA_PLUGIN_ARGS='proc=exp,...'
+  PLUGIN_MODE=user|kernel|all  TRIGGER_MODE=user|kernel|all
+  ONLYCPU=1  TRIGGER_ONLYCPU=all|N
+  PC_FROM_REG=0|1  TRIGGER_PC_FROM_REG=0|1  TRIGGER_WINDOW=0x20000
+  EXTRA_PLUGIN_ARGS='proc=exp,...'
   SERIAL_LOG=/tmp/qemu.serial.log  EXTRA_QEMU_ARGS='...'  TRACE_SMOKE=1
 
 Notes:
   * The default PLUGIN_MODE=user matches the old QLancet simulator flow: boot a
     kernel but collect the exploit/user process trace starting at core/exp::_start.
   * In system-mode QEMU, guest user virtual PCs may require PC_FROM_REG=1; this
-    is slower because RIP is sampled at runtime. The fast smoke path normally
-    uses --start 0xfffffff0 with ONLYCPU=0 and PC_FROM_REG=0.
+    is slower because RIP is sampled at runtime. For scheme-B PoC tracing, use
+    PLUGIN_MODE=kernel TRIGGER_MODE=user TRIGGER_PC_FROM_REG=1 and --start <user _start>.
+    If the PoC is migrated to an isolated CPU after exec, set ONLYCPU to that
+    trace CPU and TRIGGER_ONLYCPU=all so _start can arm tracing on its original CPU.
+    If the translated-PC trigger window misses that user RIP, set TRIGGER_WINDOW=0
+    only when the trigger CPU set is small enough for broad callbacks.
+    The fast smoke path normally uses --start 0xfffffff0 with ONLYCPU=0 and PC_FROM_REG=0.
   * For true kernel-address tracing, set PLUGIN_MODE=kernel and provide a kernel
     --start/--stop or addrfile/range through EXTRA_PLUGIN_ARGS.
 USAGE
@@ -132,10 +140,14 @@ MEMORY=${MEMORY:-3.5G}
 SMP=${SMP:-2}
 ONLYCPU=${ONLYCPU:-1}
 PLUGIN_MODE=${PLUGIN_MODE:-user}
+TRIGGER_MODE=${TRIGGER_MODE:-all}
 QLT_BLOCK_MB=${QLT_BLOCK_MB:-16}
 QLT_ZSTD=${QLT_ZSTD:-3}
 EXTRA_PLUGIN_ARGS=${EXTRA_PLUGIN_ARGS:-}
 PC_FROM_REG=${PC_FROM_REG:-0}
+TRIGGER_PC_FROM_REG=${TRIGGER_PC_FROM_REG:-0}
+TRIGGER_WINDOW=${TRIGGER_WINDOW:-}
+TRIGGER_ONLYCPU=${TRIGGER_ONLYCPU:-}
 EXTRA_QEMU_ARGS=${EXTRA_QEMU_ARGS:-}
 SERIAL_LOG=${SERIAL_LOG:-}
 
@@ -145,8 +157,26 @@ if [[ "$RELEASE_NAME" == mitigation-v3* ]]; then
 fi
 
 PLUGIN_ARG="format=qlt,out=$OUT_PATH,trigger=$START_ADDR,regs=insn,onlycpu=$ONLYCPU,mode=$PLUGIN_MODE,block-mb=$QLT_BLOCK_MB,zstd=$QLT_ZSTD"
+case "$TRIGGER_MODE" in
+  user|kernel|all) PLUGIN_ARG+=",trigger-mode=$TRIGGER_MODE" ;;
+  *) echo "invalid TRIGGER_MODE=$TRIGGER_MODE" >&2; exit 2 ;;
+esac
 if [[ "$PC_FROM_REG" == "1" ]]; then
   PLUGIN_ARG+=",pc=reg"
+fi
+if [[ "$TRIGGER_PC_FROM_REG" == "1" ]]; then
+  PLUGIN_ARG+=",trigger-pc=reg"
+fi
+if [[ -n "$TRIGGER_ONLYCPU" ]]; then
+  if [[ "$TRIGGER_ONLYCPU" == "all" || "$TRIGGER_ONLYCPU" =~ ^-?[0-9]+$ ]]; then
+    PLUGIN_ARG+=",trigger-onlycpu=$TRIGGER_ONLYCPU"
+  else
+    echo "invalid TRIGGER_ONLYCPU=$TRIGGER_ONLYCPU" >&2
+    exit 2
+  fi
+fi
+if [[ -n "$TRIGGER_WINDOW" ]]; then
+  PLUGIN_ARG+=",trigger-window=$TRIGGER_WINDOW"
 fi
 if [[ -n "$STOP_ADDR" ]]; then
   PLUGIN_ARG+=",stop=$STOP_ADDR"
