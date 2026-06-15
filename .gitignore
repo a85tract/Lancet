@@ -2,3 +2,4 @@
 *.qlt
 *.so
 /out/
+qemu_tcg/mmap.txt
