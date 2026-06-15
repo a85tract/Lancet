@@ -1,0 +1,184 @@
+use std::collections::HashMap;
+
+use indexmap::IndexSet;
+use serde::Serialize;
+
+use crate::vuln::SubjectId;
+
+pub const ALLOCATOR_SUBJECT: SubjectId = 0;
+
+pub type OwnerSet = IndexSet<SubjectId>;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize)]
+#[serde(rename_all = "kebab-case")]
+pub enum SubjectKind {
+    Allocator,
+    Heap,
+    Stack,
+    Global,
+    Page,
+    Unknown,
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct Subject {
+    pub id: SubjectId,
+    pub kind: SubjectKind,
+    pub start: Option<u64>,
+    pub size: Option<u64>,
+    pub freed: bool,
+}
+
+#[derive(Debug, Clone, Default)]
+pub struct CellState {
+    pub cell_owners: OwnerSet,
+    pub value_owners: OwnerSet,
+    pub pointee_owners: OwnerSet,
+    pub last_write_pc: Option<u64>,
+}
+
+#[derive(Debug, Clone, Default)]
+pub struct RegState {
+    pub value_owners: OwnerSet,
+    pub pointee_owners: OwnerSet,
+}
+
+#[derive(Debug, Clone)]
+pub struct MemoryModel {
+    pub subjects: HashMap<SubjectId, Subject>,
+    cells: HashMap<u64, CellState>,
+    next_subject: SubjectId,
+}
+
+impl Default for MemoryModel {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl MemoryModel {
+    pub fn new() -> Self {
+        let mut subjects = HashMap::new();
+        subjects.insert(
+            ALLOCATOR_SUBJECT,
+            Subject {
+                id: ALLOCATOR_SUBJECT,
+                kind: SubjectKind::Allocator,
+                start: None,
+                size: None,
+                freed: false,
+            },
+        );
+        Self {
+            subjects,
+            cells: HashMap::new(),
+            next_subject: 1,
+        }
+    }
+
+    pub fn fresh_heap_subject(&mut self, start: u64, size: u64) -> SubjectId {
+        let id = self.next_subject;
+        self.next_subject = self.next_subject.saturating_add(1);
+        self.subjects.insert(
+            id,
+            Subject {
+                id,
+                kind: SubjectKind::Heap,
+                start: Some(start),
+                size: Some(size),
+                freed: false,
+            },
+        );
+        id
+    }
+
+    pub fn cell(&self, addr: u64) -> CellState {
+        self.cells.get(&addr).cloned().unwrap_or_default()
+    }
+    pub fn cell_mut(&mut self, addr: u64) -> &mut CellState {
+        self.cells.entry(addr).or_default()
+    }
+
+    pub fn owner_for_address(&self, addr: u64) -> OwnerSet {
+        self.cell(addr).cell_owners
+    }
+
+    pub fn active_subject_at_start(&self, ptr: u64) -> Option<SubjectId> {
+        self.subjects
+            .values()
+            .find(|s| s.kind == SubjectKind::Heap && !s.freed && s.start == Some(ptr))
+            .map(|s| s.id)
+    }
+
+    pub fn active_subject_containing(&self, ptr: u64) -> Option<SubjectId> {
+        self.subjects
+            .values()
+            .find(|s| {
+                s.kind == SubjectKind::Heap
+                    && !s.freed
+                    && s.start.zip(s.size).map_or(false, |(start, size)| {
+                        ptr >= start && ptr < start.saturating_add(size)
+                    })
+            })
+            .map(|s| s.id)
+    }
+
+    pub fn freed_subject_at_start(&self, ptr: u64) -> Option<SubjectId> {
+        self.subjects
+            .values()
+            .find(|s| s.kind == SubjectKind::Heap && s.freed && s.start == Some(ptr))
+            .map(|s| s.id)
+    }
+
+    pub fn subject_contains(&self, subject: SubjectId, addr: u64) -> bool {
+        self.subjects
+            .get(&subject)
+            .and_then(|s| s.start.zip(s.size))
+            .map_or(false, |(start, size)| {
+                addr >= start && addr < start.saturating_add(size)
+            })
+    }
+
+    pub fn subject_freed(&self, subject: SubjectId) -> bool {
+        self.subjects.get(&subject).map_or(false, |s| s.freed)
+    }
+
+    pub fn mark_freed(&mut self, subject: SubjectId) {
+        if let Some(s) = self.subjects.get_mut(&subject) {
+            s.freed = true;
+        }
+    }
+
+    pub fn subject_label(&self, subject: SubjectId) -> String {
+        if subject == ALLOCATOR_SUBJECT {
+            return "allocator".into();
+        }
+        match self
+            .subjects
+            .get(&subject)
+            .map(|s| s.kind)
+            .unwrap_or(SubjectKind::Unknown)
+        {
+            SubjectKind::Heap => format!("heap:{subject}"),
+            SubjectKind::Stack => format!("stack:{subject}"),
+            SubjectKind::Global => format!("global:{subject}"),
+            SubjectKind::Page => format!("page:{subject}"),
+            SubjectKind::Allocator => "allocator".into(),
+            SubjectKind::Unknown => format!("unknown:{subject}"),
+        }
+    }
+
+    pub fn labels(&self, owners: &OwnerSet) -> Vec<String> {
+        owners.iter().map(|id| self.subject_label(*id)).collect()
+    }
+}
+
+pub fn owner_set_one(subject: SubjectId) -> OwnerSet {
+    let mut set = OwnerSet::new();
+    set.insert(subject);
+    set
+}
+
+pub fn sets_intersect(a: &OwnerSet, b: &OwnerSet) -> bool {
+    a.iter().any(|id| b.contains(id))
+}
