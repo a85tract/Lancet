@@ -94,6 +94,20 @@ fn add_rax_imm8(step: u64, pc: u64, rax: u64, imm: u8) -> TraceRecord {
     r
 }
 
+fn sub_rax_rbx(step: u64, pc: u64, rax: u64, rbx: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x29, 0xd8]); // sub rax, rbx
+    r.set_reg(RAX, rax);
+    r.set_reg(RBX, rbx);
+    r
+}
+
+fn sub_rax_mem_rsp(step: u64, pc: u64, rax: u64, rsp: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x2b, 0x04, 0x24]); // sub rax, [rsp]
+    r.set_reg(RAX, rax);
+    r.set_reg(RSP, rsp);
+    r
+}
+
 fn sub_rsp_imm8(step: u64, pc: u64, rsp: u64, imm: u8) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x48, 0x83, 0xec, imm]);
     r.set_reg(RSP, rsp);
@@ -129,6 +143,13 @@ fn write_ptr(step: u64, pc: u64, base: RegId, addr: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, bytes);
     r.set_reg(base, addr);
     r.set_reg(RCX, 0x41414141);
+    r
+}
+
+fn write_rsp_rax(step: u64, pc: u64, rsp: u64, rax: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0x04, 0x24]); // mov [rsp], rax
+    r.set_reg(RSP, rsp);
+    r.set_reg(RAX, rax);
     r
 }
 
@@ -415,6 +436,52 @@ fn reused_allocation_return_drops_freed_owner_inference() {
         mov_rbx_rax(8, 0x400015, 0x5000, 0),
     ];
     let summary = run_qlt("reuse_no_dangling", &records);
+    assert_eq!(summary["dangling_pointers"], 0);
+    assert_eq!(summary["expired_pointer_dereferences"], 0);
+}
+
+#[test]
+fn pointer_difference_stored_as_size_is_not_dangling_pointer() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        call(4, 0x400009, 0x1000, 0x10),
+        nop(5, 0x40000e, 0x6000),
+        mov_rcx_rax(6, 0x40000f, 0x6000, 0),
+        sub_rsp_imm8(7, 0x400012, 0x7000, 0x20),
+        sub_rax_rbx(8, 0x400016, 0x6000, 0x5000),
+        write_rsp_rax(9, 0x400019, 0x6fe0, 0x1000),
+        mov_rdi_rcx(10, 0x40001d, 0x6000, 0),
+        call(11, 0x400020, 0x2000, 0x6000),
+        nop(12, 0x400025, 0),
+        read_rsp(13, 0x400026, 0x6fe0),
+        mov_rcx_rax(14, 0x40002a, 0x1000, 0),
+    ];
+    let summary = run_qlt("ptrdiff_size_not_dangling", &records);
+    assert_eq!(summary["dangling_pointers"], 0);
+    assert_eq!(summary["expired_pointer_dereferences"], 0);
+}
+
+#[test]
+fn pointer_difference_with_memory_operand_is_not_pointer() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        sub_rsp_imm8(3, 0x400006, 0x7000, 0x20),
+        write_rsp_rax(4, 0x40000a, 0x6fe0, 0x5000),
+        call(5, 0x40000e, 0x1000, 0x10),
+        nop(6, 0x400013, 0x6000),
+        mov_rcx_rax(7, 0x400014, 0x6000, 0),
+        sub_rax_mem_rsp(8, 0x400017, 0x6000, 0x6fe0),
+        write_rsp_rax(9, 0x40001b, 0x6fe0, 0x1000),
+        mov_rdi_rcx(10, 0x40001f, 0x6000, 0),
+        call(11, 0x400022, 0x2000, 0x6000),
+        nop(12, 0x400027, 0),
+        read_rsp(13, 0x400028, 0x6fe0),
+        mov_rcx_rax(14, 0x40002c, 0x1000, 0),
+    ];
+    let summary = run_qlt("ptrdiff_mem_not_dangling", &records);
     assert_eq!(summary["dangling_pointers"], 0);
     assert_eq!(summary["expired_pointer_dereferences"], 0);
 }

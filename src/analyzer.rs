@@ -1493,6 +1493,17 @@ impl Analyzer {
                     self.regs.remove(&dst);
                     return;
                 }
+                if ins.op1_kind() == OpKind::Memory {
+                    let mut state = self.reg_state(dst);
+                    let right_state = self
+                        .first_memory_read_state(record, ins)
+                        .unwrap_or_default();
+                    if pointer_difference_yields_integer(ins.mnemonic(), &state, &right_state) {
+                        state.pointee_owners.clear();
+                        self.regs.insert(dst, state);
+                    }
+                    return;
+                }
                 let Some(left) = record.reg(dst) else {
                     return;
                 };
@@ -1512,9 +1523,12 @@ impl Analyzer {
                     );
                 }
                 if let Some(right_reg) = right_operand_register(ins) {
-                    state
-                        .pointee_owners
-                        .extend(self.reg_state(right_reg).pointee_owners);
+                    let right_state = self.reg_state(right_reg);
+                    if pointer_difference_yields_integer(ins.mnemonic(), &state, &right_state) {
+                        state.pointee_owners.clear();
+                    } else {
+                        state.pointee_owners.extend(right_state.pointee_owners);
+                    }
                     self.check_dangling_pointer_copy(record, right_reg);
                 }
                 let result_owners = self.owner_set_for_value(result);
@@ -2002,6 +2016,16 @@ fn binary_result(mnemonic: Mnemonic, left: u64, right: u64) -> Option<u64> {
         Mnemonic::Shr | Mnemonic::Sar => left.wrapping_shr((right & 0x3f) as u32),
         _ => return None,
     })
+}
+
+fn pointer_difference_yields_integer(
+    mnemonic: Mnemonic,
+    left: &RegState,
+    right: &RegState,
+) -> bool {
+    matches!(mnemonic, Mnemonic::Sub | Mnemonic::Sbb)
+        && !left.pointee_owners.is_empty()
+        && !right.pointee_owners.is_empty()
 }
 
 fn right_operand_register(ins: &Instruction) -> Option<RegId> {
