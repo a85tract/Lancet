@@ -1,8 +1,8 @@
 {
   "name": "house_einherjar",
-  "release": "mitigation-v4-6.6",
+  "release": "user",
   "trace_format": "qlt",
-  "simulator": "kernelctf",
+  "simulator": "user",
   "exp": "exp.c",
   "build": "build.sh",
   "auto_config": false,

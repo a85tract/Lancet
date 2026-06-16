@@ -38,6 +38,15 @@ def trace_path(cfg, case_dir: Path, case_name: str, fmt: str) -> Path:
     return (output_dir / trace_name).resolve()
 
 
+def case_mode(cfg) -> str:
+    release = str(first(cfg, "release", "linux_kernel_version", "kernel", default="")).lower()
+    simulator = str(first(cfg, "simulator", "sim", "sim_dir", "simulator_dir", default="")).lower()
+    plugin_mode = str(first(cfg, "plugin_mode", default="")).lower()
+    if release == "user" or simulator == "user" or plugin_mode == "user":
+        return "user"
+    return "kernel"
+
+
 def main() -> int:
     cases_dir = Path(sys.argv[1] if len(sys.argv) > 1 else "cases").resolve()
     root = Path(sys.argv[2] if len(sys.argv) > 2 else cases_dir.parent).resolve()
@@ -54,12 +63,13 @@ def main() -> int:
         try:
             cfg = json.loads(manifest.read_text(encoding="utf-8"))
             name = str(first(cfg, "name", default=fallback_name))
+            mode = case_mode(cfg)
             release = str(first(cfg, "release", "linux_kernel_version", "kernel", default="?"))
             fmt = str(first(cfg, "trace_format", "format", default="qlt"))
             trace = rel(trace_path(cfg, case_dir, name, fmt), root)
-            print(f"  {name:<16} release={release:<20} format={fmt:<5} trace={trace}")
+            print(f"  {mode:<6} {name:<28} release={release:<20} format={fmt:<5} trace={trace}")
         except Exception as err:
-            print(f"  {fallback_name:<16} invalid config: {err}")
+            print(f"  {'?':<6} {fallback_name:<28} invalid config: {err}")
     return 0
 
 
