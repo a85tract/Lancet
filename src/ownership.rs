@@ -27,6 +27,8 @@ pub struct Subject {
     pub start: Option<u64>,
     pub size: Option<u64>,
     pub freed: bool,
+    pub name: Option<String>,
+    pub parent: Option<SubjectId>,
 }
 
 #[derive(Debug, Clone, Default)]
@@ -67,6 +69,8 @@ impl MemoryModel {
                 start: None,
                 size: None,
                 freed: false,
+                name: Some("allocator".into()),
+                parent: None,
             },
         );
         Self {
@@ -80,7 +84,27 @@ impl MemoryModel {
         self.fresh_subject(SubjectKind::Heap, start, size)
     }
 
+    pub fn fresh_heap_subject_named(
+        &mut self,
+        start: u64,
+        size: u64,
+        name: Option<String>,
+    ) -> SubjectId {
+        self.fresh_subject_named(SubjectKind::Heap, start, size, name, None)
+    }
+
     pub fn fresh_subject(&mut self, kind: SubjectKind, start: u64, size: u64) -> SubjectId {
+        self.fresh_subject_named(kind, start, size, None, None)
+    }
+
+    pub fn fresh_subject_named(
+        &mut self,
+        kind: SubjectKind,
+        start: u64,
+        size: u64,
+        name: Option<String>,
+        parent: Option<SubjectId>,
+    ) -> SubjectId {
         let id = self.next_subject;
         self.next_subject = self.next_subject.saturating_add(1);
         self.subjects.insert(
@@ -91,6 +115,8 @@ impl MemoryModel {
                 start: Some(start),
                 size: Some(size),
                 freed: false,
+                name,
+                parent,
             },
         );
         id
@@ -222,9 +248,33 @@ impl MemoryModel {
         }
     }
 
+    pub fn subject_and_descendants(&self, subject: SubjectId) -> Vec<SubjectId> {
+        let mut out = vec![subject];
+        let mut idx = 0;
+        while idx < out.len() {
+            let parent = out[idx];
+            let children: Vec<_> = self
+                .subjects
+                .values()
+                .filter(|candidate| candidate.parent == Some(parent))
+                .map(|candidate| candidate.id)
+                .collect();
+            for child in children {
+                if !out.contains(&child) {
+                    out.push(child);
+                }
+            }
+            idx += 1;
+        }
+        out
+    }
+
     pub fn subject_label(&self, subject: SubjectId) -> String {
         if subject == ALLOCATOR_SUBJECT {
             return "allocator".into();
+        }
+        if let Some(name) = self.subjects.get(&subject).and_then(|s| s.name.as_ref()) {
+            return name.clone();
         }
         match self
             .subjects

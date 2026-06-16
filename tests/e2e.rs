@@ -68,9 +68,29 @@ fn mov_rcx_rbx(step: u64, pc: u64, rbx: u64, rcx: u64) -> TraceRecord {
     r
 }
 
+fn mov_rcx_rax(step: u64, pc: u64, rax: u64, rcx: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0xc1]);
+    r.set_reg(RAX, rax);
+    r.set_reg(RCX, rcx);
+    r
+}
+
+fn mov_rdi_rcx(step: u64, pc: u64, rcx: u64, rdi: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0xcf]);
+    r.set_reg(RCX, rcx);
+    r.set_reg(RDI, rdi);
+    r
+}
+
 fn add_rbx_imm8(step: u64, pc: u64, rbx: u64, imm: u8) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x48, 0x83, 0xc3, imm]);
     r.set_reg(RBX, rbx);
+    r
+}
+
+fn add_rax_imm8(step: u64, pc: u64, rax: u64, imm: u8) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x83, 0xc0, imm]);
+    r.set_reg(RAX, rax);
     r
 }
 
@@ -169,6 +189,19 @@ fn run_qlt_with_config(
     records: &[TraceRecord],
     config_json: &str,
 ) -> serde_json::Value {
+    run_qlt_full(name, records, config_json).0
+}
+
+fn run_qlt_full(
+    name: &str,
+    records: &[TraceRecord],
+    config_json: &str,
+) -> (
+    serde_json::Value,
+    serde_json::Value,
+    serde_json::Value,
+    PathBuf,
+) {
     let dir = temp_dir(name);
     let config = dir.join("config.json");
     fs::write(&config, config_json).unwrap();
@@ -181,7 +214,13 @@ fn run_qlt_with_config(
     writer.finish().unwrap();
     let out = dir.join("out");
     a85_qlancet::run_klancet(&trace, &config, &out, a85_qlancet::trace::TraceFormat::Auto).unwrap();
-    serde_json::from_str(&fs::read_to_string(out.join("summary.json")).unwrap()).unwrap()
+    let summary =
+        serde_json::from_str(&fs::read_to_string(out.join("summary.json")).unwrap()).unwrap();
+    let fcs =
+        serde_json::from_str(&fs::read_to_string(out.join("fcs_report.json")).unwrap()).unwrap();
+    let epf =
+        serde_json::from_str(&fs::read_to_string(out.join("epf_report.json")).unwrap()).unwrap();
+    (summary, fcs, epf, out)
 }
 
 #[test]
@@ -579,4 +618,425 @@ fn qlt_and_legacy_are_equivalent_for_invalid_free() {
     let summary: serde_json::Value =
         serde_json::from_str(&fs::read_to_string(out.join("summary.json")).unwrap()).unwrap();
     assert_eq!(summary["invalid_frees"], 1);
+}
+
+#[test]
+fn fcs_cross_boundary_to_oob_write() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        call(4, 0x400009, 0x1000, 0x10),
+        nop(5, 0x40000e, 0x5010),
+        add_rbx_imm8(6, 0x40000f, 0x5000, 0x10),
+        write_ptr(7, 0x400013, RBX, 0x5010),
+    ];
+    let (summary, fcs, _epf, _out) = run_qlt_full("fcs_oob", &records, default_config_json());
+    assert_eq!(summary["cross_boundaries"], 1);
+    assert_eq!(summary["out_of_bounds_writes"], 1);
+    let findings = fcs["findings"].as_array().unwrap();
+    assert!(findings.iter().any(|finding| {
+        finding["kind"] == "out-of-bounds-write"
+            && finding["evidence"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .any(|ev| ev["role"] == "cross-boundary")
+    }));
+}
+
+#[test]
+fn fcs_uaf_aliases_free_site() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        mov_rdi_rax(4, 0x400009, 0x5000, 0),
+        call(5, 0x40000c, 0x2000, 0x5000),
+        nop(6, 0x400011, 0),
+        write_ptr(7, 0x400012, RBX, 0x5000),
+    ];
+    let (summary, fcs, _epf, _out) = run_qlt_full("fcs_uaf_alias", &records, default_config_json());
+    assert_eq!(summary["use_after_free_writes"], 1);
+    let findings = fcs["findings"].as_array().unwrap();
+    let finding = findings
+        .iter()
+        .find(|finding| finding["kind"] == "use-after-free-write")
+        .unwrap();
+    assert!(!finding["aliases"].as_array().unwrap().is_empty());
+    assert!(
+        finding["evidence"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|ev| ev["role"] == "free-site")
+    );
+}
+
+#[test]
+fn fcs_double_free_with_first_free_site() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rdi_rax(3, 0x400006, 0x5000, 0),
+        call(4, 0x400009, 0x2000, 0x5000),
+        nop(5, 0x40000e, 0),
+        call(6, 0x40000f, 0x2000, 0x5000),
+        nop(7, 0x400014, 0),
+    ];
+    let (summary, fcs, _epf, _out) =
+        run_qlt_full("fcs_double_free", &records, default_config_json());
+    assert_eq!(summary["double_frees"], 1);
+    let finding = fcs["findings"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|finding| finding["kind"] == "double-free")
+        .unwrap();
+    assert!(
+        finding["evidence"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|ev| ev["role"] == "first-free-site")
+    );
+}
+
+#[test]
+fn fcs_uninitialized_read_allocation_site() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        read_rax(3, 0x400006, 0x5000),
+    ];
+    let (summary, fcs, _epf, _out) = run_qlt_full("fcs_uninit", &records, default_config_json());
+    assert_eq!(summary["uninitialized_reads"], 1);
+    let finding = fcs["findings"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|finding| finding["kind"] == "uninitialized-read")
+        .unwrap();
+    assert!(
+        finding["evidence"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|ev| ev["role"] == "allocation-site")
+    );
+}
+
+#[test]
+fn field_internal_overflow_between_subsubjects() {
+    let config = r#"{
+        "malloc_addrs":[],
+        "free_addrs":[],
+        "vulnerability_types":["crossboundary","outofboundswrite"],
+        "field_subjects":[{
+            "start":"0x5000",
+            "size":16,
+            "name":"obj",
+            "fields":[
+                {"name":"a","offset":0,"size":8},
+                {"name":"b","offset":8,"size":8}
+            ]
+        }]
+    }"#;
+    let records = vec![
+        nop(1, 0x400000, 0x5000),
+        add_rax_imm8(2, 0x400001, 0x5000, 8),
+        write_ptr(3, 0x400005, RAX, 0x5008),
+    ];
+    let (summary, fcs, _epf, _out) = run_qlt_full("field_overflow", &records, config);
+    assert_eq!(summary["cross_boundaries"], 1);
+    assert_eq!(summary["out_of_bounds_writes"], 1);
+    let finding = fcs["findings"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|finding| finding["kind"] == "out-of-bounds-write")
+        .unwrap();
+    assert!(
+        finding["subjects"]["pointer_owners"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|owner| owner == "obj.a")
+    );
+    assert!(
+        finding["subjects"]["cell_owners"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|owner| owner == "obj.b")
+    );
+}
+
+#[test]
+fn heap_type_hint_installs_field_subjects() {
+    let config = r#"{
+        "malloc_addrs":["0x1000"],
+        "free_addrs":["0x2000"],
+        "vulnerability_types":["crossboundary","outofboundswrite","uafread"],
+        "symbol_names":{
+            "malloc":{"addr":"0x1000","import_reg":"rdi"},
+            "free":{"addr":"0x2000","import_reg":"rdi"}
+        },
+        "allocation_type_hints":{"0x400000":"struct obj"},
+        "type_layouts":{
+            "struct obj":{
+                "size":16,
+                "fields":[
+                    {"name":"a","offset":0,"size":8},
+                    {"name":"b","offset":8,"size":8}
+                ]
+            }
+        }
+    }"#;
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        add_rbx_imm8(4, 0x400009, 0x5000, 8),
+        write_ptr(5, 0x40000d, RBX, 0x5008),
+        mov_rdi_rax(6, 0x40000f, 0x5000, 0),
+        call(7, 0x400012, 0x2000, 0x5000),
+        nop(8, 0x400017, 0),
+        read_rax(9, 0x400018, 0x5000),
+    ];
+    let (summary, fcs, _epf, _out) = run_qlt_full("heap_type_fields", &records, config);
+    assert_eq!(summary["cross_boundaries"], 1);
+    assert_eq!(summary["out_of_bounds_writes"], 1);
+    assert_eq!(summary["use_after_free_reads"], 1);
+    let finding = fcs["findings"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|finding| finding["kind"] == "out-of-bounds-write")
+        .unwrap();
+    let pointer_owners = finding["subjects"]["pointer_owners"].as_array().unwrap();
+    let cell_owners = finding["subjects"]["cell_owners"].as_array().unwrap();
+    assert!(
+        pointer_owners
+            .iter()
+            .any(|owner| owner.as_str().unwrap().contains(".a"))
+    );
+    assert!(
+        cell_owners
+            .iter()
+            .any(|owner| owner.as_str().unwrap().contains(".b"))
+    );
+}
+
+#[test]
+fn fcs_report_can_suppress_raw_evidence() {
+    let config = r#"{
+        "malloc_addrs":["0x1000"],
+        "free_addrs":[],
+        "vulnerability_types":["uninitializedread"],
+        "symbol_names":{"malloc":{"addr":"0x1000","import_reg":"rdi"}},
+        "report":{"include_raw_evidence":false}
+    }"#;
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        read_rax(3, 0x400006, 0x5000),
+    ];
+    let (_summary, fcs, _epf, _out) = run_qlt_full("fcs_no_evidence", &records, config);
+    assert!(
+        fcs["findings"][0]["evidence"]
+            .as_array()
+            .unwrap()
+            .is_empty()
+    );
+}
+
+#[test]
+fn epf_house_of_spirit_stack_free() {
+    let records = vec![
+        sub_rsp_imm8(1, 0x400000, 0x7000, 0x20),
+        lea_rax_rsp(2, 0x400004, 0x6fe0, 0x6fe0),
+        mov_rdi_rax(3, 0x400008, 0x6fe0, 0),
+        call(4, 0x40000b, 0x2000, 0x6fe0),
+        nop(5, 0x400010, 0),
+    ];
+    let (summary, _fcs, epf, _out) = run_qlt_full("epf_spirit", &records, default_config_json());
+    assert_eq!(summary["invalid_frees"], 1);
+    assert!(
+        epf["techniques"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|technique| technique["name"] == "HouseOfSpirit")
+    );
+}
+
+#[test]
+fn epf_einherjar_style_transition() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        call(4, 0x400009, 0x1000, 0x10),
+        nop(5, 0x40000e, 0x5010),
+        mov_rcx_rax(6, 0x40000f, 0x5010, 0),
+        add_rbx_imm8(7, 0x400015, 0x5000, 0x18),
+        write_ptr(8, 0x400019, RBX, 0x5018),
+        mov_rdi_rcx(9, 0x40001b, 0x5010, 0),
+        call(10, 0x40001e, 0x2000, 0x5010),
+        nop(11, 0x400023, 0),
+        read_rbx(12, 0x400024, 0x5018),
+    ];
+    let (summary, _fcs, epf, _out) = run_qlt_full("epf_einherjar", &records, default_config_json());
+    assert_eq!(summary["cross_boundaries"], 1);
+    assert_eq!(summary["out_of_bounds_writes"], 1);
+    assert_eq!(summary["use_after_free_reads"], 1);
+    let events = epf["primitive_events"].as_array().unwrap();
+    for kind in ["CrossBoundary", "OOBW", "UAFR"] {
+        assert!(
+            events.iter().any(|event| event["kind"] == kind),
+            "missing {kind}"
+        );
+    }
+    assert!(!epf["transitions"].as_array().unwrap().is_empty());
+}
+
+#[test]
+fn qlt_v2_compat_extended_regs() {
+    let dir = temp_dir("qlt_v2_ext");
+    let trace = dir.join("trace.qlt");
+    let mut record = TraceRecord::new(1, 0x400000, vec![0x90]);
+    record.fs_base = Some(0x1111_0000);
+    record.gs_base = Some(0x2222_0000);
+    let file = fs::File::create(&trace).unwrap();
+    let mut writer = QltWriter::new(file).unwrap();
+    writer.write_record(&record).unwrap();
+    writer.finish().unwrap();
+    let mut reader = a85_qlancet::qlt::QltReader::open(&trace).unwrap();
+    let decoded = a85_qlancet::trace::TraceReader::read_all(&mut reader).unwrap();
+    assert_eq!(decoded[0].fs_base, Some(0x1111_0000));
+    assert_eq!(decoded[0].gs_base, Some(0x2222_0000));
+}
+
+#[test]
+fn gs_based_access_uses_configured_base() {
+    let config = r#"{
+        "malloc_addrs":[],
+        "free_addrs":[],
+        "vulnerability_types":["untrustedptr"],
+        "segment_bases":{"gs":"0x7000"},
+        "field_subjects":[{
+            "start":"0x7020",
+            "size":8,
+            "name":"percpu_slot",
+            "fields":[{"name":"value","offset":0,"size":8}]
+        }]
+    }"#;
+    let record = TraceRecord::new(
+        1,
+        0x400000,
+        vec![0x65, 0x48, 0x8b, 0x04, 0x25, 0x20, 0x00, 0x00, 0x00],
+    ); // mov rax, qword ptr gs:[0x20]
+    let summary = run_qlt_with_config("gs_base", &[record], config);
+    assert_eq!(summary["untrusted_ptrs"], 0);
+}
+
+#[test]
+fn markdown_reports_are_generated() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        read_rax(3, 0x400006, 0x5000),
+    ];
+    let (_summary, _fcs, _epf, out) =
+        run_qlt_full("markdown_reports", &records, default_config_json());
+    assert!(
+        fs::read_to_string(out.join("fcs_report.md"))
+            .unwrap()
+            .contains("# FCS Report")
+    );
+    assert!(
+        fs::read_to_string(out.join("epf_report.md"))
+            .unwrap()
+            .contains("# EPF Report")
+    );
+}
+
+#[test]
+fn metadata_resolves_function_file_line() {
+    let dir = temp_dir("metadata_source");
+    let src = dir.join("fixture.c");
+    let bin = dir.join("fixture");
+    fs::write(
+        &src,
+        "__attribute__((noinline)) void trigger_uninit(void) {\n    asm volatile(\"\");\n}\nint main(void) { trigger_uninit(); return 0; }\n",
+    )
+    .unwrap();
+    let status = std::process::Command::new("cc")
+        .arg("-g")
+        .arg("-O0")
+        .arg("-no-pie")
+        .arg(&src)
+        .arg("-o")
+        .arg(&bin)
+        .status()
+        .unwrap();
+    assert!(status.success());
+    let nm = std::process::Command::new("nm")
+        .arg("-n")
+        .arg(&bin)
+        .output()
+        .unwrap();
+    assert!(nm.status.success());
+    let symbols = String::from_utf8_lossy(&nm.stdout);
+    let pc = symbols
+        .lines()
+        .find_map(|line| {
+            let parts: Vec<_> = line.split_whitespace().collect();
+            if parts.len() >= 3 && parts[2] == "trigger_uninit" {
+                u64::from_str_radix(parts[0], 16).ok()
+            } else {
+                None
+            }
+        })
+        .unwrap();
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        read_rax(3, pc, 0x5000),
+    ];
+    let config = format!(
+        r#"{{
+            "malloc_addrs":["0x1000"],
+            "free_addrs":[],
+            "vulnerability_types":["uninitializedread"],
+            "symbol_names":{{"malloc":{{"addr":"0x1000","import_reg":"rdi"}}}},
+            "metadata":{{"binary":"{}","source_roots":["{}"]}}
+        }}"#,
+        bin.display(),
+        dir.display()
+    );
+    let (_summary, fcs, _epf, _out) = run_qlt_full("metadata_report", &records, &config);
+    let source = &fcs["findings"][0]["source"];
+    assert_eq!(source["function"], "trigger_uninit");
+    assert!(source["file"].as_str().unwrap().ends_with("fixture.c"));
+    assert!(source["line"].as_u64().unwrap() > 0);
+}
+
+#[test]
+#[ignore = "uses the larger checked-in CVE trace; run explicitly for integration smoke testing"]
+fn cve39682_checked_in_trace_smoke() {
+    let root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let trace = root.join("qemu_tcg/traces/cve39682.qlt");
+    let config = root.join("cases/cve39682/generated/mitigation-v4-6.6/analyzer_config.json");
+    if !trace.exists() || !config.exists() {
+        return;
+    }
+    let out = temp_dir("cve39682_smoke").join("out");
+    a85_qlancet::run_klancet(&trace, &config, &out, a85_qlancet::trace::TraceFormat::Qlt).unwrap();
+    let summary: serde_json::Value =
+        serde_json::from_str(&fs::read_to_string(out.join("summary.json")).unwrap()).unwrap();
+    assert!(summary["ownership_violations"].is_u64());
+    assert!(out.join("fcs_report.json").exists());
+    assert!(out.join("epf_report.json").exists());
 }

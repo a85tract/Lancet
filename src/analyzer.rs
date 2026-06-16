@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use iced_x86::{Instruction, InstructionInfoFactory, Mnemonic, OpAccess, OpKind, Register};
 use thiserror::Error;
 
-use crate::config::{Config, PageAllocatorConfig, SymbolConfig};
+use crate::config::{Config, FieldConfig, PageAllocatorConfig, SymbolConfig};
 use crate::decode::{self, DecodedInstruction, ResolvedAccess};
 use crate::ownership::{
     ALLOCATOR_SUBJECT, MemoryModel, OwnerSet, RegState, SubjectKind, owner_set_one, sets_intersect,
@@ -19,8 +19,9 @@ pub enum AnalyzerError {
     Decode(String),
 }
 
-#[derive(Debug, Default)]
+#[derive(Debug)]
 pub struct AnalysisResult {
+    pub config: Config,
     pub violations: Vec<Violation>,
     pub memory_events: Vec<MemoryEvent>,
 }
@@ -30,6 +31,8 @@ pub struct MemoryEvent {
     pub step: u64,
     pub pc: String,
     pub kind: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub subject: Option<String>,
     pub symbol: Option<String>,
     pub ptr: Option<String>,
     pub size: Option<String>,
@@ -110,7 +113,7 @@ pub struct Analyzer {
 
 impl Analyzer {
     pub fn new(config: Config) -> Self {
-        Self {
+        let mut analyzer = Self {
             config,
             mem: MemoryModel::new(),
             regs: HashMap::new(),
@@ -124,14 +127,16 @@ impl Analyzer {
             pending_page_frees: Vec::new(),
             stack_pages: HashMap::new(),
             global_pages: HashMap::new(),
-        }
+        };
+        analyzer.install_configured_field_subjects();
+        analyzer
     }
 
     pub fn process_record(&mut self, record: &TraceRecord) -> Result<(), AnalyzerError> {
         self.apply_pending(record);
         self.synchronize_sampled_registers(record);
-        let decoded =
-            decode::decode(record, &mut self.info_factory).map_err(AnalyzerError::Decode)?;
+        let decoded = decode::decode(record, &mut self.info_factory, self.config.segment_bases)
+            .map_err(AnalyzerError::Decode)?;
         self.ensure_static_subjects(record, &decoded);
         self.observe_accesses(record, &decoded);
         self.observe_call(record, &decoded.instruction);
@@ -141,8 +146,63 @@ impl Analyzer {
 
     pub fn finish(self) -> AnalysisResult {
         AnalysisResult {
+            config: self.config,
             violations: self.violations,
             memory_events: self.memory_events,
+        }
+    }
+
+    fn install_configured_field_subjects(&mut self) {
+        let configured = self.config.field_subjects.clone();
+        for object in configured {
+            let parent = self.mem.fresh_subject_named(
+                SubjectKind::Global,
+                object.start,
+                object.size,
+                Some(object.name.clone()),
+                None,
+            );
+            for off in 0..object.size.max(1) {
+                self.mem
+                    .cell_mut(object.start.saturating_add(off))
+                    .cell_owners
+                    .insert(parent);
+            }
+            self.install_field_children(
+                parent,
+                SubjectKind::Global,
+                object.start,
+                &object.name,
+                &object.fields,
+            );
+        }
+    }
+
+    fn install_field_children(
+        &mut self,
+        parent: u64,
+        kind: SubjectKind,
+        object_start: u64,
+        object_name: &str,
+        fields: &[FieldConfig],
+    ) {
+        for field in fields {
+            let start = object_start.saturating_add(field.offset);
+            let subject = self.mem.fresh_subject_named(
+                kind,
+                start,
+                field.size,
+                Some(format!("{object_name}.{}", field.name)),
+                Some(parent),
+            );
+            for off in 0..field.size.max(1) {
+                let cell = self.mem.cell_mut(start.saturating_add(off));
+                cell.cell_owners.shift_remove(&parent);
+                cell.cell_owners.insert(subject);
+                if cell.value_owners.is_empty() {
+                    cell.value_owners.insert(subject);
+                }
+            }
         }
     }
 
@@ -469,7 +529,29 @@ impl Analyzer {
 
     fn apply_library_summary(&mut self, record: &TraceRecord, symbol: &SymbolConfig) -> bool {
         let name = symbol.name.to_ascii_lowercase();
-        if name.contains("memcpy") || name.contains("memmove") || name.contains("mempcpy") {
+        if symbol.is_bulk {
+            let kind = if name.contains("free") {
+                "bulk-free-summary"
+            } else {
+                "bulk-allocation-summary"
+            };
+            self.memory_events.push(MemoryEvent {
+                step: record.step,
+                pc: hex(record.pc),
+                kind: kind.into(),
+                subject: None,
+                symbol: Some(symbol.name.clone()),
+                ptr: record.reg(RCX).or_else(|| record.reg(RDI)).map(hex),
+                size: record.reg(RDX).map(hex),
+            });
+            return true;
+        }
+        if name.contains("memcpy")
+            || name.contains("memmove")
+            || name.contains("mempcpy")
+            || name.contains("copy_from_user")
+            || name.contains("copy_to_user")
+        {
             let Some(dst) = record.reg(RDI) else {
                 return false;
             };
@@ -483,6 +565,7 @@ impl Analyzer {
                 step: record.step,
                 pc: hex(record.pc),
                 kind: "memcpy-summary".into(),
+                subject: None,
                 symbol: Some(symbol.name.clone()),
                 ptr: Some(hex(dst)),
                 size: Some(hex(len)),
@@ -504,6 +587,7 @@ impl Analyzer {
                 step: record.step,
                 pc: hex(record.pc),
                 kind: "memset-summary".into(),
+                subject: None,
                 symbol: Some(symbol.name.clone()),
                 ptr: Some(hex(dst)),
                 size: Some(hex(len)),
@@ -522,7 +606,14 @@ impl Analyzer {
         symbol: Option<String>,
         zero_initialized: bool,
     ) {
-        let subject = self.mem.fresh_heap_subject(ptr, size);
+        let type_hint = self.allocation_type_hint(pc, ptr, symbol.as_deref());
+        let subject_name = type_hint.as_deref().map(|ty| format!("{ty}@{}", hex(ptr)));
+        let subject = if subject_name.is_some() {
+            self.mem
+                .fresh_heap_subject_named(ptr, size, subject_name.clone())
+        } else {
+            self.mem.fresh_heap_subject(ptr, size)
+        };
         let mut reported_overlap = false;
         for off in 0..size {
             let addr = ptr.saturating_add(off);
@@ -560,14 +651,38 @@ impl Analyzer {
                 cell.value_owners.insert(ALLOCATOR_SUBJECT);
             }
         }
+        if let Some(type_hint) = type_hint.as_deref()
+            && let Some(layout) = self.config.type_layouts.get(type_hint).cloned()
+            && layout.size.is_none_or(|layout_size| layout_size <= size)
+        {
+            let name = subject_name.unwrap_or_else(|| format!("{type_hint}@{}", hex(ptr)));
+            self.install_field_children(subject, SubjectKind::Heap, ptr, &name, &layout.fields);
+        }
         self.memory_events.push(MemoryEvent {
             step,
             pc: hex(pc),
             kind: "allocation".into(),
+            subject: Some(self.mem.subject_label(subject)),
             symbol,
             ptr: Some(hex(ptr)),
             size: Some(hex(size)),
         });
+    }
+
+    fn allocation_type_hint(&self, call_pc: u64, ptr: u64, symbol: Option<&str>) -> Option<String> {
+        self.config
+            .allocation_type_hints
+            .get(&call_pc)
+            .or_else(|| self.config.allocation_type_hints.get(&ptr))
+            .cloned()
+            .or_else(|| {
+                symbol.and_then(|name| {
+                    self.config
+                        .type_layouts
+                        .contains_key(name)
+                        .then(|| name.to_string())
+                })
+            })
     }
 
     fn handle_free(
@@ -626,7 +741,10 @@ impl Analyzer {
             );
             return;
         };
-        self.mem.mark_freed(subject);
+        let subjects_to_free = self.mem.subject_and_descendants(subject);
+        for freed_subject in &subjects_to_free {
+            self.mem.mark_freed(*freed_subject);
+        }
         let (start, size) = self
             .mem
             .subjects
@@ -635,13 +753,16 @@ impl Analyzer {
             .unwrap_or((ptr, 0));
         for off in 0..size {
             let cell = self.mem.cell_mut(start.saturating_add(off));
-            cell.cell_owners.shift_remove(&subject);
+            for freed_subject in &subjects_to_free {
+                cell.cell_owners.shift_remove(freed_subject);
+            }
             cell.cell_owners.insert(ALLOCATOR_SUBJECT);
         }
         self.memory_events.push(MemoryEvent {
             step,
             pc: hex(pc),
             kind: "free".into(),
+            subject: Some(self.mem.subject_label(subject)),
             symbol,
             ptr: Some(hex(ptr)),
             size: None,
@@ -670,6 +791,7 @@ impl Analyzer {
             step,
             pc: hex(pc),
             kind: "page-allocation".into(),
+            subject: Some(self.mem.subject_label(subject)),
             symbol,
             ptr: Some(hex(page_ptr)),
             size: Some(hex(size)),
@@ -710,6 +832,7 @@ impl Analyzer {
             step,
             pc: hex(pc),
             kind: "page-free".into(),
+            subject: Some(self.mem.subject_label(subject)),
             symbol,
             ptr: Some(hex(page_ptr)),
             size: Some(hex(size)),
@@ -944,7 +1067,9 @@ impl Analyzer {
                 );
                 return;
             }
-            if !pointer_owners.is_empty() && !sets_intersect(&pointer_owners, &cell.cell_owners) {
+            if !pointer_owners.is_empty()
+                && (pointer_owners.len() > 1 || !sets_intersect(&pointer_owners, &cell.cell_owners))
+            {
                 let kind = if is_write {
                     ViolationKind::OutOfBoundsWrite
                 } else {
@@ -1210,6 +1335,7 @@ impl Analyzer {
             step,
             pc: hex(pc),
             kind: "stack-allocation".into(),
+            subject: Some(self.mem.subject_label(subject)),
             symbol: None,
             ptr: Some(hex(start)),
             size: Some(hex(size)),
@@ -1240,6 +1366,7 @@ impl Analyzer {
             step,
             pc: hex(pc),
             kind: "stack-free".into(),
+            subject: None,
             symbol: None,
             ptr: Some(hex(start)),
             size: Some(hex(size)),
@@ -1410,12 +1537,9 @@ impl Analyzer {
                 Register::None => Some(0),
                 Register::RIP => Some(record.pc.wrapping_add(ins.len() as u64)),
                 Register::EIP => Some((record.pc.wrapping_add(ins.len() as u64)) as u32 as u64),
-                Register::FS
-                | Register::GS
-                | Register::CS
-                | Register::DS
-                | Register::ES
-                | Register::SS => Some(0),
+                Register::FS => Some(record.fs_base.or(self.config.segment_bases.fs).unwrap_or(0)),
+                Register::GS => Some(record.gs_base.or(self.config.segment_bases.gs).unwrap_or(0)),
+                Register::CS | Register::DS | Register::ES | Register::SS => Some(0),
                 other => id_from_iced(other).and_then(|id| record.reg(id)),
             })?;
             let access = ResolvedAccess {

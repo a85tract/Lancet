@@ -15,6 +15,8 @@ pub const TRACE_FLAG_IS_CALL: u32 = 1 << 3;
 pub const TRACE_FLAG_IS_RET: u32 = 1 << 4;
 pub const TRACE_FLAG_IS_REP: u32 = 1 << 5;
 pub const TRACE_FLAG_REGS_FALLBACK_ALL_GPR: u32 = 1 << 6;
+pub const TRACE_FLAG_HAS_FS_BASE: u32 = 1 << 7;
+pub const TRACE_FLAG_HAS_GS_BASE: u32 = 1 << 8;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum TraceFormat {
@@ -47,6 +49,8 @@ pub struct TraceRecord {
     pub branch_target: Option<u64>,
     pub value: Option<u64>,
     pub cr3: Option<u64>,
+    pub fs_base: Option<u64>,
+    pub gs_base: Option<u64>,
 }
 
 impl TraceRecord {
@@ -61,6 +65,8 @@ impl TraceRecord {
             branch_target: None,
             value: None,
             cr3: None,
+            fs_base: None,
+            gs_base: None,
         }
     }
 

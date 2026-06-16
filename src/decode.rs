@@ -1,5 +1,6 @@
 use iced_x86::{Instruction, MemorySize, Mnemonic, OpAccess, Register, UsedMemory};
 
+use crate::config::SegmentBases;
 use crate::registers::{RIP, RegId, id_from_iced};
 use crate::trace::TraceRecord;
 use crate::vuln::AccessKind;
@@ -22,6 +23,7 @@ pub struct ResolvedAccess {
 pub fn decode(
     record: &TraceRecord,
     info_factory: &mut iced_x86::InstructionInfoFactory,
+    segment_bases: SegmentBases,
 ) -> Result<DecodedInstruction, String> {
     let mut decoder = iced_x86::Decoder::with_ip(
         64,
@@ -49,7 +51,7 @@ pub fn decode(
         let Some(kind) = access_kind(mem.access()) else {
             continue;
         };
-        let Some(address) = compute_address(mem, &instruction, record) else {
+        let Some(address) = compute_address(mem, &instruction, record, segment_bases) else {
             // QLT traces collected with regs=insn may still miss an implicit
             // address register for a few instructions (for example stack
             // operands using RSP). The analyzer cannot soundly resolve that
@@ -90,14 +92,15 @@ fn compute_address(
     mem: &UsedMemory,
     instruction: &Instruction,
     record: &TraceRecord,
+    segment_bases: SegmentBases,
 ) -> Option<u64> {
     mem.virtual_address(0, |reg, _, _| match reg {
         Register::None => Some(0),
         Register::RIP => Some(record.pc.wrapping_add(instruction.len() as u64)),
         Register::EIP => Some((record.pc.wrapping_add(instruction.len() as u64)) as u32 as u64),
-        Register::FS | Register::GS | Register::CS | Register::DS | Register::ES | Register::SS => {
-            Some(0)
-        }
+        Register::FS => Some(record.fs_base.or(segment_bases.fs).unwrap_or(0)),
+        Register::GS => Some(record.gs_base.or(segment_bases.gs).unwrap_or(0)),
+        Register::CS | Register::DS | Register::ES | Register::SS => Some(0),
         other => id_from_iced(other).and_then(|id| record.reg(id)),
     })
 }

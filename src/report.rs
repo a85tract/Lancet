@@ -5,6 +5,7 @@ use std::path::Path;
 use serde::Serialize;
 
 use crate::analyzer::AnalysisResult;
+use crate::metadata::SourceResolver;
 use crate::vuln::ViolationKind;
 
 #[derive(Debug, Default, Serialize)]
@@ -65,5 +66,25 @@ pub fn write_reports(result: &AnalysisResult, out_dir: &Path) -> std::io::Result
     let mut summary_file = BufWriter::new(File::create(out_dir.join("summary.json"))?);
     serde_json::to_writer_pretty(&mut summary_file, &summary)?;
     summary_file.write_all(b"\n")?;
+    let mut fcs_resolver = SourceResolver::new(&result.config.metadata);
+    let fcs_report = crate::fcs::build_report(
+        result,
+        &mut fcs_resolver,
+        result.config.report.max_findings,
+        result.config.report.include_raw_evidence,
+    );
+    let mut fcs_json = BufWriter::new(File::create(out_dir.join("fcs_report.json"))?);
+    serde_json::to_writer_pretty(&mut fcs_json, &fcs_report)?;
+    fcs_json.write_all(b"\n")?;
+    let mut fcs_md = BufWriter::new(File::create(out_dir.join("fcs_report.md"))?);
+    fcs_md.write_all(crate::fcs::render_markdown(&fcs_report).as_bytes())?;
+
+    let mut epf_resolver = SourceResolver::new(&result.config.metadata);
+    let epf_report = crate::epf::build_report(result, &mut epf_resolver);
+    let mut epf_json = BufWriter::new(File::create(out_dir.join("epf_report.json"))?);
+    serde_json::to_writer_pretty(&mut epf_json, &epf_report)?;
+    epf_json.write_all(b"\n")?;
+    let mut epf_md = BufWriter::new(File::create(out_dir.join("epf_report.md"))?);
+    epf_md.write_all(crate::epf::render_markdown(&epf_report).as_bytes())?;
     Ok(summary)
 }

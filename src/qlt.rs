@@ -6,13 +6,14 @@ use thiserror::Error;
 
 use crate::registers::{REG_COUNT, REG_TABLE_ID_X86_64_V1, RegId};
 use crate::trace::{
-    TRACE_FLAG_HAS_BRANCH_TARGET, TRACE_FLAG_HAS_CR3, TRACE_FLAG_HAS_VALUE, TraceReader,
-    TraceRecord,
+    TRACE_FLAG_HAS_BRANCH_TARGET, TRACE_FLAG_HAS_CR3, TRACE_FLAG_HAS_FS_BASE,
+    TRACE_FLAG_HAS_GS_BASE, TRACE_FLAG_HAS_VALUE, TraceReader, TraceRecord,
 };
 use crate::varint;
 
 const MAGIC: &[u8; 4] = b"QLT1";
 const VERSION: u16 = 1;
+const VERSION_EXTENDED_REGS: u16 = 2;
 const HEADER_SIZE: u64 = 36;
 const DEFAULT_BLOCK_SIZE: usize = 4 * 1024 * 1024;
 
@@ -48,6 +49,7 @@ pub struct QltWriter<W: Write + Seek> {
     records_in_block: u64,
     block_size: usize,
     compression_level: i32,
+    saw_extended_record: bool,
 }
 
 impl QltWriter<File> {
@@ -68,6 +70,7 @@ impl<W: Write + Seek> QltWriter<W> {
             records_in_block: 0,
             block_size: DEFAULT_BLOCK_SIZE,
             compression_level: 3,
+            saw_extended_record: false,
         })
     }
 
@@ -77,6 +80,9 @@ impl<W: Write + Seek> QltWriter<W> {
     }
 
     pub fn write_record(&mut self, record: &TraceRecord) -> Result<(), QltError> {
+        if record.fs_base.is_some() || record.gs_base.is_some() {
+            self.saw_extended_record = true;
+        }
         if self.first_step_in_block.is_none() {
             self.first_step_in_block = Some(record.step);
         }
@@ -100,7 +106,16 @@ impl<W: Write + Seek> QltWriter<W> {
             write_u64(&mut self.writer, index.record_count)?;
         }
         self.writer.seek(SeekFrom::Start(0))?;
-        write_header(&mut self.writer, self.indexes.len() as u64, index_offset)?;
+        write_header_version(
+            &mut self.writer,
+            if self.saw_extended_record {
+                VERSION_EXTENDED_REGS
+            } else {
+                VERSION
+            },
+            self.indexes.len() as u64,
+            index_offset,
+        )?;
         self.writer.seek(SeekFrom::End(0))?;
         Ok(self.writer)
     }
@@ -186,8 +201,17 @@ fn write_placeholder_header(writer: &mut impl Write) -> io::Result<()> {
 }
 
 fn write_header(writer: &mut impl Write, block_count: u64, index_offset: u64) -> io::Result<()> {
+    write_header_version(writer, VERSION, block_count, index_offset)
+}
+
+fn write_header_version(
+    writer: &mut impl Write,
+    version: u16,
+    block_count: u64,
+    index_offset: u64,
+) -> io::Result<()> {
     writer.write_all(MAGIC)?;
-    write_u16(writer, VERSION)?;
+    write_u16(writer, version)?;
     write_u16(writer, 0)?; // flags
     write_u16(writer, REG_TABLE_ID_X86_64_V1)?;
     write_u16(writer, 0)?; // reserved
@@ -204,7 +228,7 @@ fn read_header(reader: &mut impl Read) -> Result<(u64, u64), QltError> {
         return Err(QltError::InvalidMagic);
     }
     let version = read_u16(reader)?;
-    if version != VERSION {
+    if version != VERSION && version != VERSION_EXTENDED_REGS {
         return Err(QltError::UnsupportedVersion(version));
     }
     let _flags = read_u16(reader)?;
@@ -238,6 +262,12 @@ fn encode_record(
     if record.cr3.is_some() {
         flags |= TRACE_FLAG_HAS_CR3;
     }
+    if record.fs_base.is_some() {
+        flags |= TRACE_FLAG_HAS_FS_BASE;
+    }
+    if record.gs_base.is_some() {
+        flags |= TRACE_FLAG_HAS_GS_BASE;
+    }
     write_u32(out, flags)?;
     if record.bytecode.len() > u8::MAX as usize {
         return Err(QltError::InvalidData("bytecode too long".into()));
@@ -266,6 +296,12 @@ fn encode_record(
     }
     if let Some(cr3) = record.cr3 {
         write_u64(out, cr3)?;
+    }
+    if let Some(fs_base) = record.fs_base {
+        write_u64(out, fs_base)?;
+    }
+    if let Some(gs_base) = record.gs_base {
+        write_u64(out, gs_base)?;
     }
     Ok(())
 }
@@ -302,6 +338,16 @@ fn decode_record(input: &mut impl Read, prev_step: u64) -> Result<TraceRecord, Q
     } else {
         None
     };
+    let fs_base = if flags & TRACE_FLAG_HAS_FS_BASE != 0 {
+        Some(read_u64(input)?)
+    } else {
+        None
+    };
+    let gs_base = if flags & TRACE_FLAG_HAS_GS_BASE != 0 {
+        Some(read_u64(input)?)
+    } else {
+        None
+    };
     Ok(TraceRecord {
         step,
         cpu_id,
@@ -312,6 +358,8 @@ fn decode_record(input: &mut impl Read, prev_step: u64) -> Result<TraceRecord, Q
         branch_target,
         value,
         cr3,
+        fs_base,
+        gs_base,
     })
 }
 

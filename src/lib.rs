@@ -1,7 +1,10 @@
 pub mod analyzer;
 pub mod config;
 pub mod decode;
+pub mod epf;
+pub mod fcs;
 pub mod legacy;
+pub mod metadata;
 pub mod ownership;
 pub mod qlt;
 pub mod registers;
