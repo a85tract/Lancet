@@ -1,5 +1,16 @@
 /target/
 *.qlt
+*.qlt.serial
+*.qlt.meta
 *.so
 /out/
+qemu_tcg/traces/
+qemu_tcg/sim_*/
+cases/*/out/
+simulators/*/core/
+simulators/*/releases/
+simulators/*/rootfs*.img
+simulators/*/rootfs*.img.gz
+simulators/*/ramdisk*
+simulators/*/qemu_v*.sh
 qemu_tcg/mmap.txt

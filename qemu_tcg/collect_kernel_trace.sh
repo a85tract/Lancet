@@ -27,7 +27,8 @@ Options:
   -h, --help          Show this help.
 
 Environment knobs:
-  QEMU_BIN=qemu-system-x86_64  MEMORY=3.5G  SMP=2  QLT_BLOCK_MB=16  QLT_ZSTD=3
+  QEMU_BIN=qemu-system-x86_64  MEMORY=3.5G  SMP=2  TRACE_FORMAT=qlt
+  QLT_BLOCK_MB=16  QLT_ZSTD=3
   PLUGIN_MODE=user|kernel|all  TRIGGER_MODE=user|kernel|all
   ONLYCPU=1  TRIGGER_ONLYCPU=all|N
   PC_FROM_REG=0|1  TRIGGER_PC_FROM_REG=0|1  TRIGGER_WINDOW=0x20000
@@ -139,6 +140,7 @@ QEMU_BIN=${QEMU_BIN:-qemu-system-x86_64}
 MEMORY=${MEMORY:-3.5G}
 SMP=${SMP:-2}
 ONLYCPU=${ONLYCPU:-1}
+TRACE_FORMAT=${TRACE_FORMAT:-qlt}
 PLUGIN_MODE=${PLUGIN_MODE:-user}
 TRIGGER_MODE=${TRIGGER_MODE:-all}
 QLT_BLOCK_MB=${QLT_BLOCK_MB:-16}
@@ -156,7 +158,12 @@ if [[ "$RELEASE_NAME" == mitigation-v3* ]]; then
   HARDENING="sysctl.kernel.dmesg_restrict=1 sysctl.kernel.kptr_restrict=2 sysctl.kernel.unprivileged_bpf_disabled=2 sysctl.net.core.bpf_jit_harden=1 sysctl.kernel.yama.ptrace_scope=1"
 fi
 
-PLUGIN_ARG="format=qlt,out=$OUT_PATH,trigger=$START_ADDR,regs=insn,onlycpu=$ONLYCPU,mode=$PLUGIN_MODE,block-mb=$QLT_BLOCK_MB,zstd=$QLT_ZSTD"
+case "$TRACE_FORMAT" in
+  qlt|text) ;;
+  *) echo "invalid TRACE_FORMAT=$TRACE_FORMAT (expected qlt or text)" >&2; exit 2 ;;
+esac
+
+PLUGIN_ARG="format=$TRACE_FORMAT,out=$OUT_PATH,trigger=$START_ADDR,regs=insn,onlycpu=$ONLYCPU,mode=$PLUGIN_MODE,block-mb=$QLT_BLOCK_MB,zstd=$QLT_ZSTD"
 case "$TRIGGER_MODE" in
   user|kernel|all) PLUGIN_ARG+=",trigger-mode=$TRIGGER_MODE" ;;
   *) echo "invalid TRIGGER_MODE=$TRIGGER_MODE" >&2; exit 2 ;;
