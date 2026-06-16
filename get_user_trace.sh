@@ -252,6 +252,25 @@ fi
 
 resolve_sym() {
   local sym=$1
+  if [[ "$sym" == *:return ]]; then
+    local func=${sym%:return}
+    objdump -d "$EXP_OUT" 2>/dev/null | awk -v sym="$func" '
+      $0 ~ "^[[:space:]]*[0-9a-fA-F]+[[:space:]]+<" sym ">:" {inside=1; next}
+      inside && $0 ~ "^[[:space:]]*[0-9a-fA-F]+[[:space:]]+<[^>]+>:" {exit}
+      inside && $0 ~ /[[:space:]]ret[q]?[[:space:]]*$/ {
+        addr=$1
+        sub(":", "", addr)
+        last=addr
+      }
+      END {
+        if (last != "") {
+          print "0x" last
+          exit 0
+        }
+        exit 1
+      }'
+    return
+  fi
   nm "$EXP_OUT" 2>/dev/null | awk -v sym="$sym" '$2 ~ /^[Tt]$/ && $3 == sym {print "0x"$1; found=1} END {exit found ? 0 : 1}'
 }
 START_ADDR=""

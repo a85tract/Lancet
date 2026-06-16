@@ -10,12 +10,12 @@
   "output_dir": "../../qemu_tcg/traces",
   "trace": "fastbin_reverse_into_tcache.qlt",
   "timeout": 120,
-  "start_symbol": "ql_trace_start",
-  "stop_symbol": "ql_trace_stop",
+  "start_symbol": "main",
   "plugin_mode": "user",
   "trigger_mode": "user",
   "qlt_block_mb": 4,
   "qlt_zstd": 1,
   "glibc_version": "2.32-0ubuntu3_amd64",
-  "extra_plugin_args": "from=0x4010a0,to=0x405000"
+  "extra_plugin_args": "from=0x4010a0,to=0x405000",
+  "stop_symbol": "main:return"
 }

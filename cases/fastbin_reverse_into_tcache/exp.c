@@ -3,15 +3,10 @@
 #include <string.h>
 #include <assert.h>
 
-__attribute__((noinline)) void ql_trace_start(void) { asm volatile("" ::: "memory"); }
-__attribute__((noinline)) void ql_trace_stop(void) { asm volatile("" ::: "memory"); }
-
 const size_t allocsize = 0x40;
 
 int main(){
 	setbuf(stdout, NULL);
-	ql_trace_start();
-
 	printf("\n"
 		   "This attack is intended to have a similar effect to the unsorted_bin_attack,\n"
 		   "except it works with a small allocation size (allocsize <= 0x78).\n"
@@ -105,7 +100,5 @@ int main(){
 			"Finally, if we malloc one more time then we get the stack address back: %p\n", q);
 	
 	assert(q == (char *)&stack_var[2]);
-	ql_trace_stop();
-	
 	return 0;
 }
