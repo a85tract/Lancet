@@ -1,0 +1,21 @@
+{
+  "name": "cve39682",
+  "release": "mitigation-v4-6.6",
+  "trace_format": "qlt",
+  "simulator": "kernelctf",
+  "exp": "exp.c",
+  "build": "build.sh",
+  "output_dir": "../../qemu_tcg/traces",
+  "trace": "cve39682.qlt",
+  "timeout": 900,
+  "trace_cpu": 1,
+  "taskset_mask": "0x2",
+  "fifo_prio": 99,
+  "plugin_mode": "kernel",
+  "trigger_mode": "user",
+  "trigger_pc_from_reg": 1,
+  "trigger_onlycpu": "all",
+  "trigger_window": 0,
+  "qlt_block_mb": 16,
+  "qlt_zstd": 1
+}

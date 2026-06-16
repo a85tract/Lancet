@@ -1,0 +1,56 @@
+{
+    "___slab_alloc": {
+        "addr": "0xffffffff81468d30",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    },
+    "__kmalloc_node": {
+        "addr": "0xffffffff813f7d20",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    },
+    "kmalloc_node_trace": {
+        "addr": "0xffffffff813f7130",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    },
+    "kmalloc_trace": {
+        "addr": "0xffffffff813f7080",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    },
+    "kmem_cache_alloc_lru": {
+        "addr": "0xffffffff81469e50",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    },
+    "__kmem_cache_alloc_node": {
+        "addr": "0xffffffff8146c0c0",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    },
+    "kmem_cache_alloc": {
+        "addr": "0xffffffff8146a350",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    },
+    "kmem_cache_alloc_bulk": {
+        "addr": "0xffffffff8146ba30",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    },
+    "kmem_cache_alloc_node": {
+        "addr": "0xffffffff81469a10",
+        "import_reg": "rdi",
+        "offset": 24,
+        "is_call": true
+    }
+}

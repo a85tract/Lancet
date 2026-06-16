@@ -1,0 +1,11 @@
+{
+  "name": "kernelctf",
+  "prepare": "prepare.sh",
+  "core": "core",
+  "releases": "releases",
+  "rootfs": "rootfs_v3.img",
+  "ramdisk": "ramdisk_v1.img",
+  "flag": "flag",
+  "plugin_config": "plugin_config.json",
+  "qemu_script": "qemu_v3.sh"
+}
