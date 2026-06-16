@@ -49,7 +49,14 @@ pub fn decode(
         let Some(kind) = access_kind(mem.access()) else {
             continue;
         };
-        let address = compute_address(mem, &instruction, record)?;
+        let Some(address) = compute_address(mem, &instruction, record) else {
+            // QLT traces collected with regs=insn may still miss an implicit
+            // address register for a few instructions (for example stack
+            // operands using RSP). The analyzer cannot soundly resolve that
+            // memory address, so skip this operand instead of aborting the
+            // whole trace.
+            continue;
+        };
         let mut size = mem.memory_size().size() as u32;
         if size == 0 && is_rep_string(&instruction) {
             let count = record.reg(crate::registers::RCX).unwrap_or(0);
@@ -83,23 +90,16 @@ fn compute_address(
     mem: &UsedMemory,
     instruction: &Instruction,
     record: &TraceRecord,
-) -> Result<u64, String> {
-    let mut missing = Vec::new();
-    let address = mem.virtual_address(0, |reg, _, _| match reg {
+) -> Option<u64> {
+    mem.virtual_address(0, |reg, _, _| match reg {
         Register::None => Some(0),
         Register::RIP => Some(record.pc.wrapping_add(instruction.len() as u64)),
         Register::EIP => Some((record.pc.wrapping_add(instruction.len() as u64)) as u32 as u64),
         Register::FS | Register::GS | Register::CS | Register::DS | Register::ES | Register::SS => {
             Some(0)
         }
-        other => id_from_iced(other)
-            .and_then(|id| record.reg(id))
-            .or_else(|| {
-                missing.push(format!("{other:?}"));
-                None
-            }),
-    });
-    address.ok_or_else(|| format!("missing regs for memory address: {missing:?}"))
+        other => id_from_iced(other).and_then(|id| record.reg(id)),
+    })
 }
 
 fn access_kind(access: OpAccess) -> Option<AccessKind> {

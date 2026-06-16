@@ -556,6 +556,13 @@ fn qlt_block_index_handles_multiple_blocks() {
 }
 
 #[test]
+fn missing_address_register_skips_unresolved_memory_operand() {
+    let record = TraceRecord::new(1, 0x400000, vec![0x48, 0x8b, 0x04, 0x24]); // mov rax,[rsp]
+    let summary = run_qlt("missing_addr_reg", &[record]);
+    assert_eq!(summary["ownership_violations"], 0);
+}
+
+#[test]
 fn qlt_and_legacy_are_equivalent_for_invalid_free() {
     let dir = temp_dir("legacy_equiv");
     let config = write_config(&dir);
