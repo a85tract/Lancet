@@ -8,26 +8,40 @@ ensure_patchelf() {
   if command -v patchelf >/dev/null 2>&1; then
     return 0
   fi
-  if command -v apt-get >/dev/null 2>&1; then
+  if [[ "${GLIBC_AIO_RUNTIME_INSTALL:-0}" =~ ^(1|true|yes|on)$ ]] && command -v apt-get >/dev/null 2>&1; then
     echo "[glibc-aio] installing patchelf" >&2
     apt-get update >&2
     DEBIAN_FRONTEND=noninteractive apt-get install -y patchelf >&2
   fi
   command -v patchelf >/dev/null 2>&1 || {
-    echo "patchelf is required in the Docker image" >&2
+    cat >&2 <<'MSG'
+patchelf is required in the Docker image.
+Rebuild the image once so the dependency is persisted:
+  BUILD_IMAGE=1 ./get_trace.sh <case>
+For a one-off ephemeral install, set GLIBC_AIO_RUNTIME_INSTALL=1.
+MSG
     return 1
   }
 }
 
 ensure_glibc_aio() {
   local aio_dir=${GLIBC_AIO_DIR:-/opt/glibc-all-in-one}
-  if command -v glibc-aio >/dev/null 2>&1; then
-    return 0
-  fi
   if [[ ! -d "$aio_dir/.git" ]]; then
     echo "[glibc-aio] cloning into $aio_dir" >&2
     rm -rf "$aio_dir"
     git clone https://github.com/matrix1001/glibc-all-in-one.git "$aio_dir" >&2
+  fi
+  if command -v glibc-aio >/dev/null 2>&1 && (cd "$aio_dir" && glibc-aio --version >/dev/null 2>&1); then
+    return 0
+  fi
+  if [[ ! "${GLIBC_AIO_RUNTIME_INSTALL:-0}" =~ ^(1|true|yes|on)$ ]]; then
+    cat >&2 <<'MSG'
+glibc-aio is not installed in the Docker image.
+Rebuild the image once so the Python entry point and dependencies are persisted:
+  BUILD_IMAGE=1 ./get_trace.sh <case>
+For a one-off ephemeral pip install, set GLIBC_AIO_RUNTIME_INSTALL=1.
+MSG
+    return 1
   fi
   echo "[glibc-aio] installing Python package" >&2
   pip install -e "$aio_dir" >&2
