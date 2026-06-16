@@ -19,6 +19,16 @@ arguments to list supported cases discovered under `cases/*/config.json`.
 Use `get_trace.sh` for kernel/system-mode cases and `get_user_trace.sh` for
 Linux user-mode binaries.
 
+Both collectors target x86_64 guests. On an arm64/aarch64 Docker host the
+scripts now switch PoC builds to an x86_64 target compiler inside the container
+and validate the generated ELF before QEMU starts. If you instead want the whole
+container to be amd64, or if an old image lacks the cross compiler, rebuild/run
+with:
+
+```bash
+DOCKER_PLATFORM=linux/amd64 BUILD_IMAGE=1 ./get_user_trace.sh house_einherjar
+```
+
 The House of Einherjar trace is written to
 `qemu_tcg/traces/house_einherjar.qlt`, the generated analyzer config to
 `cases/house_einherjar/generated/user/analyzer_config.json`, and analyzer

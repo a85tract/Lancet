@@ -121,7 +121,8 @@ compile_c_with_glibc() {
   echo "[glibc-aio] compiling $src against $GLIBC_AIO_RESOLVED" >&2
   echo "[glibc-aio] link interpreter: $GLIBC_AIO_LD" >&2
   echo "[glibc-aio] link rpath      : $GLIBC_AIO_LIBDIR" >&2
-  gcc "$@" \
+  local cc=${TARGET_CC:-gcc}
+  "$cc" "$@" \
     -Wl,--dynamic-linker="$GLIBC_AIO_LD" \
     -Wl,-rpath="$GLIBC_AIO_LIBDIR" \
     -Wl,-rpath-link="$GLIBC_AIO_LIBDIR" \

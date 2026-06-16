@@ -15,6 +15,7 @@ Usage:
 Environment:
   IMAGE=a85_qlancet_qemu      Docker image containing qemu-x86_64 with plugins.
   BUILD_IMAGE=auto|1|0        Build Dockerfile if image is missing.
+  DOCKER_PLATFORM=linux/amd64 Optional platform for docker build/run.
   TIMEOUT=120                 qemu-x86_64 timeout seconds.
   START_SYMBOL=name           Trigger symbol for case/direct mode.
   STOP_SYMBOL=name            Optional stop symbol for bounded traces.
@@ -122,6 +123,7 @@ EXP_BASE=$(basename "$EXP_PATH")
 IMAGE=${IMAGE:-a85_qlancet_qemu}
 BUILD_IMAGE=${BUILD_IMAGE:-auto}
 DOCKERFILE=${DOCKERFILE:-$ROOT_DIR/Dockerfile}
+DOCKER_PLATFORM=${DOCKER_PLATFORM:-${DOCKER_DEFAULT_PLATFORM:-}}
 CONTAINER_NAME=${CONTAINER_NAME:-a85_get_user_trace_$(date +%s)_$$}
 DOCKER_NETWORK=${DOCKER_NETWORK:-}
 if [[ -z "$DOCKER_NETWORK" ]]; then
@@ -133,10 +135,26 @@ if [[ -z "$DOCKER_NETWORK" ]]; then
 fi
 if command -v docker >/dev/null 2>&1; then DOCKER_CMD=(docker); elif command -v sudo >/dev/null 2>&1; then DOCKER_CMD=(sudo docker); else die "docker not found"; fi
 NEED_BUILD=0
-if [[ "$BUILD_IMAGE" == "1" ]]; then NEED_BUILD=1; elif [[ "$BUILD_IMAGE" == "auto" ]]; then if ! "${DOCKER_CMD[@]}" image inspect "$IMAGE" >/dev/null 2>&1; then NEED_BUILD=1; fi; fi
+if [[ "$BUILD_IMAGE" == "1" ]]; then
+  NEED_BUILD=1
+elif [[ "$BUILD_IMAGE" == "auto" ]]; then
+  if ! "${DOCKER_CMD[@]}" image inspect "$IMAGE" >/dev/null 2>&1; then
+    NEED_BUILD=1
+  elif [[ -n "$DOCKER_PLATFORM" ]]; then
+    image_platform=$("${DOCKER_CMD[@]}" image inspect --format '{{.Os}}/{{.Architecture}}' "$IMAGE" 2>/dev/null || true)
+    case "$DOCKER_PLATFORM" in
+      "$image_platform"|"$image_platform"/*) ;;
+      *) NEED_BUILD=1 ;;
+    esac
+  fi
+fi
+DOCKER_PLATFORM_ARGS=()
+if [[ -n "$DOCKER_PLATFORM" ]]; then
+  DOCKER_PLATFORM_ARGS=(--platform "$DOCKER_PLATFORM")
+fi
 if [[ "$NEED_BUILD" == "1" ]]; then
   echo "[*] building Docker image $IMAGE from $DOCKERFILE"
-  "${DOCKER_CMD[@]}" build -t "$IMAGE" -f "$DOCKERFILE" "$ROOT_DIR"
+  "${DOCKER_CMD[@]}" build "${DOCKER_PLATFORM_ARGS[@]}" -t "$IMAGE" -f "$DOCKERFILE" "$ROOT_DIR"
 fi
 
 cleanup() { "${DOCKER_CMD[@]}" rm -f "$CONTAINER_NAME" >/dev/null 2>&1 || true; }
@@ -148,6 +166,9 @@ echo "[*] stop symbol  : ${STOP_SYMBOL:-<none>}"
 echo "[*] glibc        : ${GLIBC_VERSION:-<system/static>}"
 echo "[*] output       : $TRACE_PATH"
 echo "[*] docker image : $IMAGE"
+if [[ -n "$DOCKER_PLATFORM" ]]; then
+  echo "[*] docker plat  : $DOCKER_PLATFORM"
+fi
 
 GLIBC_AIO_HOST_CACHE=${GLIBC_AIO_HOST_CACHE:-$ROOT_DIR/.cache/glibc-all-in-one}
 if [[ -n "$GLIBC_VERSION" ]]; then
@@ -155,7 +176,9 @@ if [[ -n "$GLIBC_VERSION" ]]; then
 fi
 
 DOCKER_ARGS=(
-  run --rm -i --name "$CONTAINER_NAME"
+  run --rm -i
+  "${DOCKER_PLATFORM_ARGS[@]}"
+  --name "$CONTAINER_NAME"
   --network "$DOCKER_NETWORK"
   --security-opt seccomp=unconfined
   -v "$ROOT_DIR":/work/a85
@@ -180,6 +203,9 @@ set -euo pipefail
 cd /work/a85/qemu_tcg
 ./build.sh
 
+source /work/a85/scripts/target_x86_64.sh
+setup_x86_64_target_toolchain
+
 EXP_IN="/inputs/exp_dir/$EXP_BASE"
 EXP_OUT="/tmp/ql_user_exp"
 if [[ -n "${EXP_BUILD_CMD:-}" ]]; then
@@ -200,16 +226,18 @@ else
         compile_c_with_glibc "$EXP_IN" "$EXP_OUT" "$GLIBC_VERSION" \
           -no-pie -O0 -g -fno-stack-protector -fno-omit-frame-pointer
       else
-        gcc -static -no-pie -O0 -g -fno-stack-protector -fno-omit-frame-pointer "$EXP_IN" -o "$EXP_OUT"
+        "$TARGET_CC" -static -no-pie -O0 -g -fno-stack-protector -fno-omit-frame-pointer "$EXP_IN" -o "$EXP_OUT"
       fi
       ;;
     *) cp "$EXP_IN" "$EXP_OUT" ;;
   esac
 fi
+validate_x86_64_elf "$EXP_OUT" "PoC"
 chmod +x "$EXP_OUT"
 if [[ -n "${GLIBC_VERSION:-}" ]]; then
   source /work/a85/scripts/glibc_aio.sh
   patch_elf_to_glibc "$EXP_OUT" "$GLIBC_VERSION"
+  validate_x86_64_elf "$EXP_OUT" "patched PoC"
 fi
 
 resolve_sym() {

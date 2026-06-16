@@ -38,6 +38,7 @@ Common environment overrides:
   IMAGE=a85_qlancet_qemu           Docker image name.
   BUILD_IMAGE=auto|1|0             Build Dockerfile if missing (default: auto).
   DOCKERFILE=./Dockerfile          Dockerfile used when building IMAGE.
+  DOCKER_PLATFORM=linux/amd64      Optional platform for docker build/run.
   TIMEOUT=900                      QEMU timeout seconds.
   TRACE_CPU=1                      Guest CPU to trace.
   TASKSET_MASK=0x2                 CPU mask for running /bin/exp.
@@ -484,6 +485,7 @@ fi
 IMAGE=${IMAGE:-a85_qlancet_qemu}
 BUILD_IMAGE=${BUILD_IMAGE:-auto}
 DOCKERFILE=${DOCKERFILE:-$ROOT_DIR/Dockerfile}
+DOCKER_PLATFORM=${DOCKER_PLATFORM:-${DOCKER_DEFAULT_PLATFORM:-}}
 TIMEOUT=${TIMEOUT:-900}
 TRACE_CPU=${TRACE_CPU:-1}
 TASKSET_MASK=${TASKSET_MASK:-0x2}
@@ -512,13 +514,24 @@ if [[ "$BUILD_IMAGE" == "1" ]]; then
 elif [[ "$BUILD_IMAGE" == "auto" ]]; then
   if ! "${DOCKER_CMD[@]}" image inspect "$IMAGE" >/dev/null 2>&1; then
     NEED_BUILD=1
+  elif [[ -n "$DOCKER_PLATFORM" ]]; then
+    image_platform=$("${DOCKER_CMD[@]}" image inspect --format '{{.Os}}/{{.Architecture}}' "$IMAGE" 2>/dev/null || true)
+    case "$DOCKER_PLATFORM" in
+      "$image_platform"|"$image_platform"/*) ;;
+      *) NEED_BUILD=1 ;;
+    esac
   fi
+fi
+
+DOCKER_PLATFORM_ARGS=()
+if [[ -n "$DOCKER_PLATFORM" ]]; then
+  DOCKER_PLATFORM_ARGS=(--platform "$DOCKER_PLATFORM")
 fi
 
 if [[ "$NEED_BUILD" == "1" ]]; then
   [[ -f "$DOCKERFILE" ]] || die "missing Dockerfile: $DOCKERFILE"
   echo "[*] building Docker image $IMAGE from $DOCKERFILE"
-  "${DOCKER_CMD[@]}" build -t "$IMAGE" -f "$DOCKERFILE" "$ROOT_DIR"
+  "${DOCKER_CMD[@]}" build "${DOCKER_PLATFORM_ARGS[@]}" -t "$IMAGE" -f "$DOCKERFILE" "$ROOT_DIR"
 fi
 
 cleanup() {
@@ -540,10 +553,15 @@ fi
 echo "[*] output        : $TRACE_PATH"
 echo "[*] serial        : $TRACE_PATH.serial"
 echo "[*] docker image  : $IMAGE"
+if [[ -n "$DOCKER_PLATFORM" ]]; then
+  echo "[*] docker plat   : $DOCKER_PLATFORM"
+fi
 echo "[*] container     : $CONTAINER_NAME (--rm)"
 
 DOCKER_ARGS=(
-  run --rm -i --name "$CONTAINER_NAME"
+  run --rm -i
+  "${DOCKER_PLATFORM_ARGS[@]}"
+  --name "$CONTAINER_NAME"
   --network "$DOCKER_NETWORK"
   --security-opt seccomp=unconfined
   -v "$ROOT_DIR":/work/a85
@@ -603,6 +621,9 @@ if ! printf '#include <zstd.h>\n' | gcc -E - >/dev/null 2>&1; then
 fi
 ./build.sh
 
+source /work/a85/scripts/target_x86_64.sh
+setup_x86_64_target_toolchain
+
 echo "[container] preparing simulator overlay"
 rm -rf /run_sim
 mkdir -p /run_sim
@@ -632,7 +653,7 @@ else
     c)
       echo "[container] compiling C PoC -> /run_sim/core/exp"
       # shellcheck disable=SC2086 # EXP_CFLAGS/LDFLAGS are intentionally shell-split.
-      gcc -static -no-pie -O0 -g -I"$(dirname "$EXP_IN")" $EXP_CFLAGS "$EXP_IN" -o "$EXP_OUT" $EXP_LDFLAGS
+      "$TARGET_CC" -static -no-pie -O0 -g -I"$(dirname "$EXP_IN")" $EXP_CFLAGS "$EXP_IN" -o "$EXP_OUT" $EXP_LDFLAGS
       ;;
     bin)
       echo "[container] copying executable PoC -> /run_sim/core/exp"
@@ -645,6 +666,7 @@ else
   esac
 fi
 chmod +x "$EXP_OUT"
+validate_x86_64_elf "$EXP_OUT" "guest PoC"
 
 cat > /run_sim/core/test.sh <<EOS
 #!/bin/bash
