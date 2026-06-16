@@ -18,6 +18,7 @@ Options:
 
 Environment:
   KERNELCTF_BASE_URL=https://storage.googleapis.com/kernelctf-build
+  KERNELCTF_FORCE_IPV4=1   Force wget/curl to use IPv4 by default.
 USAGE
   exit 1
 }
@@ -53,14 +54,28 @@ fetch() {
   local url=$1
   local out=$2
   local tmp="$out.tmp.$$"
+  local force4=${KERNELCTF_FORCE_IPV4:-1}
   echo "[kernelctf] fetching $url -> $out"
+  local rc=0
   if command -v wget >/dev/null 2>&1; then
-    wget -O "$tmp" "$url"
+    if [[ "$force4" == "0" ]]; then
+      wget -O "$tmp" "$url" || rc=$?
+    else
+      wget -4 -O "$tmp" "$url" || rc=$?
+    fi
   elif command -v curl >/dev/null 2>&1; then
-    curl -fL "$url" -o "$tmp"
+    if [[ "$force4" == "0" ]]; then
+      curl -fL "$url" -o "$tmp" || rc=$?
+    else
+      curl -4 -fL "$url" -o "$tmp" || rc=$?
+    fi
   else
     echo "missing downloader: install wget or curl" >&2
     exit 1
+  fi
+  if [[ "$rc" != "0" ]]; then
+    rm -f "$tmp"
+    return "$rc"
   fi
   mv "$tmp" "$out"
 }

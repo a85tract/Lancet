@@ -77,6 +77,23 @@ case PoC as `/bin/exp`, rebuilds `ramdisk_v1`, starts QEMU with
 CPU1 trace after the user `_start` trigger. The serial log is written to
 `<trace>.serial`.
 
+For case runs, `auto_config` defaults to enabled. `get_trace.sh` downloads the
+release `vmlinux.gz` when needed, generates:
+
+```text
+cases/<case>/generated/<release>/analyzer_config.json
+cases/<case>/generated/<release>/qemu_config.json
+```
+
+and uses the generated QEMU config for value probes. Parse the trace with the
+printed command, e.g.:
+
+```bash
+cargo run -- klancet qemu_tcg/traces/cve39682.qlt \
+  cases/cve39682/generated/mitigation-v4-6.6/analyzer_config.json \
+  out/cve39682 --trace-format qlt
+```
+
 To populate the reusable simulator from kernelCTF storage without relying on an
 external checkout:
 

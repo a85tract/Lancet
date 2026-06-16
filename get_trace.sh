@@ -40,7 +40,8 @@ Common environment overrides:
 
 Case config keys:
   release, trace_format, exp, build, simulator, output_dir, trace/trace_path,
-  timeout, trace_cpu, taskset_mask, fifo_prio, plugin_config, start_addr.
+  timeout, trace_cpu, taskset_mask, fifo_prio, analyzer_config, qemu_config,
+  plugin_config, auto_config, start_addr.
   Relative paths are resolved from the case directory.
 
 Simulator manifests live under ./simulators/<name>/config.json and point to
@@ -82,6 +83,13 @@ set_env_default() {
   if [[ -n "$v" && -z "${!k+x}" ]]; then
     export "$k=$v"
   fi
+}
+
+truthy() {
+  case "${1,,}" in
+    1|true|yes|y|on) return 0 ;;
+    *) return 1 ;;
+  esac
 }
 
 resolve_simulator() {
@@ -199,7 +207,9 @@ if [[ ${1:-} == "-h" || ${1:-} == "--help" ]]; then
   exit 0
 fi
 
+CASE_MODE=0
 if [[ $# -eq 1 ]]; then
+  CASE_MODE=1
   CASE_ARG=$1
   CASES_DIR=${CASES_DIR:-$ROOT_DIR/cases}
   if [[ -d "$CASE_ARG" ]]; then
@@ -289,6 +299,9 @@ values = {
     "CASE_EXP_PATH": exp_path,
     "CASE_TRACE_PATH": trace_path,
     "CASE_SIM_REF": ref_value(first("simulator", "sim", "sim_dir", "simulator_dir")),
+    "CASE_ANALYZER_CONFIG": path_value(first("analyzer_config", "qlancet_config")),
+    "CASE_QEMU_CONFIG": path_value(first("qemu_config", "qemu_output")),
+    "CASE_AUTO_CONFIG": first("auto_config", default="1"),
     "CASE_BUILD_REL": build_rel,
     "CASE_PLUGIN_CONFIG": path_value(first("plugin_config", "qlt_config")),
     "CASE_TIMEOUT": first("timeout"),
@@ -326,6 +339,9 @@ PY
   set_env_default TASKSET_MASK "$CASE_TASKSET_MASK"
   set_env_default FIFO_PRIO "$CASE_FIFO_PRIO"
   set_env_default START_ADDR "$CASE_START_ADDR"
+  set_env_default AUTO_CONFIG "$CASE_AUTO_CONFIG"
+  set_env_default ANALYZER_CONFIG "$CASE_ANALYZER_CONFIG"
+  set_env_default QEMU_CONFIG "$CASE_QEMU_CONFIG"
   set_env_default PLUGIN_CONFIG "$CASE_PLUGIN_CONFIG"
   set_env_default QEMU_BIN "$CASE_QEMU_BIN"
   set_env_default MEMORY "$CASE_MEMORY"
@@ -384,6 +400,46 @@ TRACE_DIR=$(cd "$TRACE_DIR" && pwd -P)
 TRACE_PATH="$TRACE_DIR/$TRACE_BASE"
 
 resolve_simulator "$SIM_REF"
+
+AUTO_CONFIG=${AUTO_CONFIG:-}
+if [[ -z "$AUTO_CONFIG" ]]; then
+  if [[ "$CASE_MODE" == "1" ]]; then
+    AUTO_CONFIG=1
+  else
+    AUTO_CONFIG=0
+  fi
+fi
+
+ANALYZER_CONFIG=${ANALYZER_CONFIG:-}
+QEMU_CONFIG=${QEMU_CONFIG:-}
+if truthy "$AUTO_CONFIG"; then
+  if [[ -z "$ANALYZER_CONFIG" ]]; then
+    if [[ -n "${CASE_DIR:-}" ]]; then
+      ANALYZER_CONFIG="$CASE_DIR/generated/$RELEASE/analyzer_config.json"
+    else
+      ANALYZER_CONFIG="$TRACE_PATH.analyzer_config.json"
+    fi
+  fi
+  if [[ -z "$QEMU_CONFIG" ]]; then
+    if [[ -n "${CASE_DIR:-}" ]]; then
+      QEMU_CONFIG="$CASE_DIR/generated/$RELEASE/qemu_config.json"
+    else
+      QEMU_CONFIG="$TRACE_PATH.qemu_config.json"
+    fi
+  fi
+  ANALYZER_CONFIG=$(mkdir -p "$(dirname "$ANALYZER_CONFIG")" && cd "$(dirname "$ANALYZER_CONFIG")" && pwd -P)/$(basename "$ANALYZER_CONFIG")
+  QEMU_CONFIG=$(mkdir -p "$(dirname "$QEMU_CONFIG")" && cd "$(dirname "$QEMU_CONFIG")" && pwd -P)/$(basename "$QEMU_CONFIG")
+  if [[ "${REGENERATE_CONFIG:-0}" == "1" || ! -s "$ANALYZER_CONFIG" || ! -s "$QEMU_CONFIG" ]]; then
+    echo "[*] generating analyzer/qemu configs for $RELEASE"
+    python3 "$ROOT_DIR/scripts/gen_config.py" \
+      --kernel "$RELEASE" \
+      --releases-dir "$RELEASES_DIR" \
+      --qlancet-output "$ANALYZER_CONFIG" \
+      --qemu-output "$QEMU_CONFIG"
+  fi
+  CONFIG_PATH="$QEMU_CONFIG"
+fi
+
 if [[ -n "${PLUGIN_CONFIG:-}" ]]; then
   CONFIG_PATH=$(abs_file "$PLUGIN_CONFIG")
 fi
@@ -453,6 +509,12 @@ echo "[*] trace format  : $TRACE_FORMAT"
 echo "[*] exp           : $EXP_PATH"
 echo "[*] simulator     : $SIM_DESC"
 echo "[*] simulator core: $CORE_DIR"
+if [[ -n "${ANALYZER_CONFIG:-}" ]]; then
+  echo "[*] analyzer cfg  : $ANALYZER_CONFIG"
+fi
+if [[ -n "${CONFIG_PATH:-}" ]]; then
+  echo "[*] qemu cfg      : $CONFIG_PATH"
+fi
 echo "[*] output        : $TRACE_PATH"
 echo "[*] serial        : $TRACE_PATH.serial"
 echo "[*] docker image  : $IMAGE"
@@ -678,5 +740,9 @@ fi
 
 if [[ $docker_rc -ne 0 && ( ! -s "$TRACE_PATH" || ${validate_rc:-0} -ne 0 ) ]]; then
   exit "$docker_rc"
+fi
+if [[ -n "${ANALYZER_CONFIG:-}" ]]; then
+  echo "[*] analyze with:"
+  echo "    cargo run -- klancet '$TRACE_PATH' '$ANALYZER_CONFIG' 'out/${TRACE_BASE%.*}' --trace-format $TRACE_FORMAT"
 fi
 exit "${validate_rc:-0}"
