@@ -22,11 +22,11 @@ Usage:
   ./analyzer.sh <trace-path> <analyzer-config.json> [out-dir] [trace-format]
 
 Examples:
-  ./analyzer.sh cve39682
-  ./analyzer.sh cve39682 out/cve39682-rerun
-  ./analyzer.sh qemu_tcg/traces/cve39682.qlt \
-    cases/cve39682/generated/mitigation-v4-6.6/analyzer_config.json \
-    out/cve39682 qlt
+  ./analyzer.sh house_einherjar
+  ./analyzer.sh house_einherjar out/house_einherjar-rerun
+  ./analyzer.sh qemu_tcg/traces/house_einherjar.qlt \
+    cases/house_einherjar/generated/user/analyzer_config.json \
+    out/house_einherjar qlt
 
 Environment:
   TRACE_FORMAT=auto|qlt|legacy   Override detected/case trace format.
@@ -194,6 +194,7 @@ values = {
     "AUTO_CONFIG": "1" if truthy(auto_config) else "0",
     "OUT_DIR": analysis_out,
     "RELEASES_DIR": simulator_releases_dir(ref_value(first("simulator", "sim", "sim_dir", "simulator_dir"))),
+    "PLUGIN_MODE": first("plugin_mode", default=""),
 }
 for key, value in values.items():
     print(f"{key}={shlex.quote(str(value))}")
@@ -218,6 +219,68 @@ else
   AUTO_CONFIG=0
 fi
 
+collect_hint() {
+  if [[ "${CASE_MODE:-0}" == "1" ]]; then
+    if [[ "${PLUGIN_MODE:-}" == "user" ]]; then
+      printf "run ./get_user_trace.sh '%s' first" "$CASE_ARG"
+    else
+      printf "run ./get_trace.sh '%s' first" "$CASE_ARG"
+    fi
+  else
+    printf "regenerate or recollect the trace"
+  fi
+}
+
+validate_qlt_trace() {
+  local trace=$1
+  python3 - "$trace" <<'PY'
+import os
+import struct
+import sys
+
+path = sys.argv[1]
+size = os.path.getsize(path)
+if size < 36:
+    raise SystemExit(
+        f"trace '{path}' is only {size} bytes; QLT header is incomplete"
+    )
+
+with open(path, "rb") as f:
+    header = f.read(36)
+if header[:4] != b"QLT1":
+    raise SystemExit(f"trace '{path}' does not start with QLT1 magic")
+
+version, _flags, _regtab, _reserved = struct.unpack_from("<HHHH", header, 4)
+blocks, index_off, header_size = struct.unpack_from("<QQQ", header, 12)
+if header_size != 36:
+    raise SystemExit(f"trace '{path}' has unexpected QLT header size {header_size}")
+if version not in (1, 2):
+    raise SystemExit(f"trace '{path}' has unsupported QLT version {version}")
+if blocks == 0:
+    raise SystemExit(f"trace '{path}' has no completed QLT blocks")
+index_end = index_off + blocks * 40
+if index_off > size or index_end > size:
+    raise SystemExit(
+        f"trace '{path}' has incomplete QLT index: index_end={index_end}, file_size={size}"
+    )
+
+with open(path, "rb") as f:
+    f.seek(index_off)
+    for i in range(blocks):
+        data = f.read(40)
+        if len(data) != 40:
+            raise SystemExit(f"trace '{path}' ended inside QLT index entry {i}")
+        comp_off, comp_size, _uncomp_size, _first_step, record_count = struct.unpack("<QQQQQ", data)
+        if comp_off + comp_size > index_off:
+            raise SystemExit(
+                f"trace '{path}' has incomplete QLT data block {i}: "
+                f"data_end={comp_off + comp_size}, index_off={index_off}"
+            )
+        if record_count == 0:
+            raise SystemExit(f"trace '{path}' has empty QLT data block {i}")
+PY
+}
+
 case "$TRACE_FORMAT" in
   auto|qlt|legacy|text)
     if [[ "$TRACE_FORMAT" == "text" ]]; then TRACE_FORMAT=legacy; fi
@@ -225,7 +288,13 @@ case "$TRACE_FORMAT" in
   *) die "unsupported trace format: $TRACE_FORMAT" ;;
 esac
 
-[[ -f "$TRACE_PATH" ]] || die "missing trace: $TRACE_PATH (run ./get_trace.sh first)"
+[[ -f "$TRACE_PATH" ]] || die "missing trace: $TRACE_PATH ($(collect_hint))"
+
+if [[ "$TRACE_FORMAT" == "qlt" || ( "$TRACE_FORMAT" == "auto" && "$TRACE_PATH" == *.qlt ) ]]; then
+  if ! qlt_error=$(validate_qlt_trace "$TRACE_PATH" 2>&1); then
+    die "$qlt_error; $(collect_hint)"
+  fi
+fi
 
 if [[ ! -f "$ANALYZER_CONFIG" ]]; then
   if [[ "$CASE_MODE" == "1" ]] && truthy "$AUTO_CONFIG"; then
