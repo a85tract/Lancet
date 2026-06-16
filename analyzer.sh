@@ -5,6 +5,16 @@ set -euo pipefail
 ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 CALLER_PWD=$(pwd -P)
 
+list_supported_cases() {
+  local cases_dir=${CASES_DIR:-$ROOT_DIR/cases}
+  if [[ -f "$ROOT_DIR/scripts/list_cases.py" ]]; then
+    python3 "$ROOT_DIR/scripts/list_cases.py" "$cases_dir" "$ROOT_DIR" || true
+  else
+    echo "Supported cases:"
+    find "$cases_dir" -mindepth 2 -maxdepth 2 -name config.json -printf '  %h\n' 2>/dev/null | sed "s#^  $cases_dir/#  #" || true
+  fi
+}
+
 usage() {
   cat <<'USAGE'
 Usage:
@@ -23,6 +33,8 @@ Environment:
   REGENERATE_CONFIG=1            Regenerate case analyzer config from vmlinux.
   CARGO='cargo'                  Cargo command to use.
 USAGE
+  echo
+  list_supported_cases
 }
 
 die() {

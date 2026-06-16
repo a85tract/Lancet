@@ -12,6 +12,9 @@ the container automatically when QEMU exits. For the built-in CVE case:
 ./analyzer.sh cve39682
 ```
 
+Run `./get_trace.sh` or `./analyzer.sh` without arguments to list supported
+cases discovered under `cases/*/config.json`.
+
 The trace is written to `qemu_tcg/traces/cve39682.qlt`, the serial log to
 `qemu_tcg/traces/cve39682.qlt.serial`, and analyzer output to
 `out/cve39682/summary.json`.
