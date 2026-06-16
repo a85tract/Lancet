@@ -44,6 +44,8 @@ Common environment overrides:
   FIFO_PRIO=99                     chrt FIFO priority.
   START_ADDR=0x...                 Override trigger address; default resolves exp::_start.
   START_SYMBOL=name                Resolve trigger from this symbol when START_ADDR is unset.
+  STOP_ADDR=0x...                  Optional stop address to disarm tracing.
+  STOP_SYMBOL=name                 Resolve stop address from this symbol when STOP_ADDR is unset.
   EXP_KIND=auto|c|bin              How to handle exp-path (default: auto).
   EXP_CFLAGS='...' EXP_LDFLAGS='...'  Extra flags for default .c compilation.
   EXP_BUILD_CMD='...'              Custom build command; uses EXP_IN and EXP_OUT variables.
@@ -53,6 +55,7 @@ Case config keys:
   release, trace_format, exp, build, simulator, output_dir, trace/trace_path,
   timeout, trace_cpu, taskset_mask, fifo_prio, analyzer_config, qemu_config,
   plugin_config, auto_config, start_addr, start_symbol.
+  stop_addr and stop_symbol are also supported for bounded user-mode traces.
   Relative paths are resolved from the case directory.
 
 Simulator manifests live under ./simulators/<name>/config.json and point to
@@ -323,6 +326,8 @@ values = {
     "CASE_FIFO_PRIO": first("fifo_prio"),
     "CASE_START_ADDR": first("start_addr", "trigger"),
     "CASE_START_SYMBOL": first("start_symbol", "trigger_symbol"),
+    "CASE_STOP_ADDR": first("stop_addr", "stop"),
+    "CASE_STOP_SYMBOL": first("stop_symbol"),
     "CASE_QEMU_BIN": first("qemu_bin"),
     "CASE_MEMORY": first("memory"),
     "CASE_SMP": first("smp"),
@@ -354,6 +359,8 @@ PY
   set_env_default FIFO_PRIO "$CASE_FIFO_PRIO"
   set_env_default START_ADDR "$CASE_START_ADDR"
   set_env_default START_SYMBOL "$CASE_START_SYMBOL"
+  set_env_default STOP_ADDR "$CASE_STOP_ADDR"
+  set_env_default STOP_SYMBOL "$CASE_STOP_SYMBOL"
   set_env_default AUTO_CONFIG "$CASE_AUTO_CONFIG"
   set_env_default ANALYZER_CONFIG "$CASE_ANALYZER_CONFIG"
   set_env_default QEMU_CONFIG "$CASE_QEMU_CONFIG"
@@ -559,6 +566,8 @@ DOCKER_ARGS=(
   -e FLAG_BASE="$FLAG_BASE"
   -e START_ADDR="$START_ADDR"
   -e START_SYMBOL="${START_SYMBOL:-}"
+  -e STOP_ADDR="${STOP_ADDR:-}"
+  -e STOP_SYMBOL="${STOP_SYMBOL:-}"
   -e EXP_CFLAGS="${EXP_CFLAGS:-}"
   -e EXP_LDFLAGS="${EXP_LDFLAGS:-}"
   -e EXP_BUILD_CMD="${EXP_BUILD_CMD:-}"
@@ -673,14 +682,32 @@ if [[ -n "${START_SYMBOL:-}" ]]; then
   echo "[container] trigger START_SYMBOL=$START_SYMBOL"
 fi
 echo "[container] trigger START_ADDR=$START_ADDR"
+if [[ -z "${STOP_ADDR:-}" && -n "${STOP_SYMBOL:-}" ]]; then
+  if STOP_ADDR=$(nm "$EXP_OUT" 2>/dev/null | awk -v sym="$STOP_SYMBOL" '$2 ~ /^[Tt]$/ && $3 == sym {print "0x"$1; found=1} END {exit found ? 0 : 1}'); then
+    :
+  else
+    echo "failed to resolve STOP_SYMBOL=$STOP_SYMBOL from $EXP_OUT" >&2
+    exit 1
+  fi
+fi
+if [[ -n "${STOP_SYMBOL:-}" ]]; then
+  echo "[container] stop STOP_SYMBOL=$STOP_SYMBOL"
+fi
+if [[ -n "${STOP_ADDR:-}" ]]; then
+  echo "[container] stop STOP_ADDR=$STOP_ADDR"
+fi
 echo "[container] exp symbols:"
-nm -n "$EXP_OUT" 2>/dev/null | grep -E ' _start$| main$' || true
+nm -n "$EXP_OUT" 2>/dev/null | grep -E ' _start$| main$| ql_trace_start$| ql_trace_stop$' || true
 
 echo "[container] rebuilding initramfs"
 (cd /run_sim/core && find . | cpio -o --format=newc > /run_sim/ramdisk_v1)
 
 echo "[container] collecting trace"
 cd /work/a85/qemu_tcg
+STOP_ARGS=()
+if [[ -n "${STOP_ADDR:-}" ]]; then
+  STOP_ARGS=(--stop "$STOP_ADDR")
+fi
 TRACE_FORMAT="$TRACE_FORMAT" \
 QEMU_BIN="${QEMU_BIN:-qemu-system-x86_64}" \
 PLUGIN_MODE="${PLUGIN_MODE:-kernel}" \
@@ -696,7 +723,7 @@ SMP="$SMP" \
 EXTRA_PLUGIN_ARGS="$EXTRA_PLUGIN_ARGS" \
 EXTRA_QEMU_ARGS="$EXTRA_QEMU_ARGS" \
 SERIAL_LOG="/out/$OUT_BASE.serial" \
-./collect_kernel_trace.sh --timeout "$TIMEOUT" --start "$START_ADDR" --init /home/user/run.sh /run_sim "$RELEASE" "/out/$OUT_BASE"
+./collect_kernel_trace.sh --timeout "$TIMEOUT" --start "$START_ADDR" "${STOP_ARGS[@]}" --init /home/user/run.sh /run_sim "$RELEASE" "/out/$OUT_BASE"
 IN_CONTAINER
 docker_rc=$?
 set -e
