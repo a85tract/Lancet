@@ -17,7 +17,7 @@ ensure_patchelf() {
     cat >&2 <<'MSG'
 patchelf is required in the Docker image.
 Rebuild the image once so the dependency is persisted:
-  BUILD_IMAGE=1 ./get_trace.sh <case>
+  BUILD_IMAGE=1 ./lancet.sh <case>
 For a one-off ephemeral install, set GLIBC_AIO_RUNTIME_INSTALL=1.
 MSG
     return 1
@@ -38,7 +38,7 @@ ensure_glibc_aio() {
     cat >&2 <<'MSG'
 glibc-aio is not installed in the Docker image.
 Rebuild the image once so the Python entry point and dependencies are persisted:
-  BUILD_IMAGE=1 ./get_trace.sh <case>
+  BUILD_IMAGE=1 ./lancet.sh <case>
 For a one-off ephemeral pip install, set GLIBC_AIO_RUNTIME_INSTALL=1.
 MSG
     return 1

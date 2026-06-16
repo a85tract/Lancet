@@ -35,7 +35,7 @@ ensure_x86_64_target_cc() {
     cat >&2 <<'MSG'
 missing x86_64 target compiler in a non-x86_64 container.
 Either rebuild the Docker image with gcc-x86-64-linux-gnu installed, or run with:
-  DOCKER_PLATFORM=linux/amd64 BUILD_IMAGE=1 ./get_user_trace.sh <case>
+  DOCKER_PLATFORM=linux/amd64 BUILD_IMAGE=1 ./lancet.sh user <case>
 MSG
     return 1
   }
@@ -87,7 +87,7 @@ architecture mismatch for $label: $elf
   Machine   : ${machine:-unknown}
 This trace flow runs qemu-x86_64 / x86_64 guests, so the PoC must be an x86_64 ELF.
 Fix by using the target cross compiler (x86_64-linux-gnu-gcc) or by forcing an amd64 Docker image:
-  DOCKER_PLATFORM=linux/amd64 BUILD_IMAGE=1 ./get_user_trace.sh <case>
+  DOCKER_PLATFORM=linux/amd64 BUILD_IMAGE=1 ./lancet.sh user <case>
 MSG
     return 1
   fi

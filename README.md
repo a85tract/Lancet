@@ -4,7 +4,7 @@ A clean rewrite of QLancet's trace analyzer based on the Lancet ownership model.
 
 ## One-shot: collect and analyze a case
 
-Use `get_trace.sh` as the unified trace collection + analysis entry point. For
+Use `lancet.sh` as the unified trace collection + analysis entry point. For
 user-mode PoCs it dispatches to the user-mode collector, builds the QEMU plugin
 inside Docker, compiles the case in the container, patches glibc-versioned PoCs
 when a case sets `glibc_version`, runs `qemu-x86_64`, validates the QLT, and
@@ -12,22 +12,22 @@ then runs the Rust analyzer automatically. For the built-in House of Einherjar
 case:
 
 ```bash
-./get_trace.sh house_einherjar
+./lancet.sh house_einherjar
 ```
 
-Run `./get_trace.sh` without arguments to list supported cases discovered under
-`cases/*/config.json`. `analyzer.sh` is kept for rerunning analysis on an
-existing trace/config pair, and `get_user_trace.sh` is kept for direct
-user-mode collection, but new case workflows should use `get_trace.sh`.
+Run `./lancet.sh` without arguments to list supported cases discovered under
+`cases/*/config.json`. There is only one shell entrypoint now:
+`lancet.sh analyze` reruns analysis on an existing trace/config pair, and
+`lancet.sh user` performs direct user-mode collection when needed.
 
-Both collectors target x86_64 guests. On an arm64/aarch64 Docker host the
-scripts now switch PoC builds to an x86_64 target compiler inside the container
+Both collection modes target x86_64 guests. On an arm64/aarch64 Docker host
+`lancet.sh` switches PoC builds to an x86_64 target compiler inside the container
 and validate the generated ELF before QEMU starts. If you instead want the whole
 container to be amd64, or if an old image lacks the cross compiler, rebuild/run
 with:
 
 ```bash
-DOCKER_PLATFORM=linux/amd64 BUILD_IMAGE=1 ./get_trace.sh house_einherjar
+DOCKER_PLATFORM=linux/amd64 BUILD_IMAGE=1 ./lancet.sh house_einherjar
 ```
 
 The House of Einherjar trace is written to
@@ -42,18 +42,18 @@ fcs_report.json / fcs_report.md  # crash triage evidence and source locations
 epf_report.json / epf_report.md  # exploit primitive timeline/transitions
 ```
 
-For a custom trace path with the same case, keep case mode; `get_trace.sh` still
+For a custom trace path with the same case, keep case mode; `lancet.sh` still
 collects and analyzes in one command:
 
 ```bash
-./get_trace.sh house_einherjar ./out/house_einherjar.qlt
+./lancet.sh house_einherjar ./out/house_einherjar.qlt
 ```
 
 Set `TRACE_ONLY=1` (or `ANALYZE=0`) to collect without running the analyzer.
 Set `ANALYSIS_OUT=/path/to/out` to override the analyzer output directory.
 
 Kernel/system-mode case runs usually default to `auto_config=true`.
-`get_trace.sh` downloads the release `vmlinux.gz` when needed and generates:
+`lancet.sh` downloads the release `vmlinux.gz` when needed and generates:
 
 ```text
 cases/<case>/generated/<release>/analyzer_config.json
@@ -138,12 +138,12 @@ and analyzed one at a time instead of materializing the whole trace in memory.
 
 ## Analyzer CLI
 
-`get_trace.sh <case>` runs this automatically after successful collection.
+`lancet.sh <case>` runs this automatically after successful collection.
 Use the standalone wrapper only when rerunning analysis on an existing trace:
 
 ```bash
-./analyzer.sh <case-name-or-dir> [out-dir]
-./analyzer.sh <trace> <config.json> [out-dir] [trace-format]
+./lancet.sh analyze <case-name-or-dir> [out-dir]
+./lancet.sh analyze <trace> <config.json> [out-dir] [trace-format]
 ```
 
 The underlying Rust command remains:
@@ -215,8 +215,9 @@ old telnet monitor/logfile step.
 
 ```bash
 docker build -t a85_qlancet_qemu -f Dockerfile .
-./run_qemu_tcg_docker.sh
+docker run --rm -ti --security-opt seccomp=unconfined \
+  -v "$PWD":/work/a85 a85_qlancet_qemu bash
 # inside the container:
-cd /qemu/contrib/plugins/test/qemu_tcg
+cd /work/a85/qemu_tcg
 ./build.sh
 ```

@@ -2,8 +2,8 @@
 """Run analyzer benchmark passes over QLancet case manifests or explicit cases.
 
 This intentionally benchmarks only the Rust analyzer/report pipeline, assuming
-traces already exist (for example after ./get_trace.sh <case>). It shells out to
-analyzer.sh so case path/config regeneration behavior stays identical to normal
+traces already exist (for example after ./lancet.sh <case>). It shells out to
+lancet.sh analyze so case path/config regeneration behavior stays identical to normal
 usage, then records elapsed wall-clock time and the generated summary counters.
 """
 from __future__ import annotations
@@ -23,7 +23,7 @@ def discover_cases(root: Path, cases_dir: Path) -> list[str]:
 
 
 def run_one(root: Path, case: str, out_root: Path | None, timeout: float | None) -> dict:
-    cmd = [str(root / "analyzer.sh"), case]
+    cmd = [str(root / "lancet.sh"), "analyze", case]
     out_dir = None
     if out_root is not None:
         out_dir = out_root / case
@@ -39,7 +39,7 @@ def run_one(root: Path, case: str, out_root: Path | None, timeout: float | None)
     )
     elapsed = time.perf_counter() - start
     if out_dir is None:
-        # analyzer.sh prints the resolved output path. Fall back to out/<case> if
+        # lancet.sh analyze prints the resolved output path. Fall back to out/<case> if
         # parsing fails; this keeps the script useful for ad-hoc cases too.
         for line in proc.stdout.splitlines():
             if line.startswith("[*] output       :"):

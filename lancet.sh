@@ -1,9 +1,723 @@
 #!/usr/bin/env bash
+# Unified QLancet entrypoint: collect traces and run the analyzer.
+#
+# Common usage:
+#   ./lancet.sh <case-name-or-dir> [trace-path]          # collect + analyze
+#   TRACE_ONLY=1 ./lancet.sh <case-name-or-dir>          # collect only
+#   ./lancet.sh analyze <case-name-or-dir> [out-dir]     # analyze existing trace
+#   ./lancet.sh user <case-or-exp.c> <trace-path> [...]  # direct user-mode collection
+set -euo pipefail
+
+ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
+
+list_supported_cases_unified() {
+  local cases_dir=${CASES_DIR:-$ROOT_DIR/cases}
+  if [[ -f "$ROOT_DIR/scripts/list_cases.py" ]]; then
+    python3 "$ROOT_DIR/scripts/list_cases.py" "$cases_dir" "$ROOT_DIR" || true
+  else
+    echo "Supported cases:"
+    find "$cases_dir" -mindepth 2 -maxdepth 2 -name config.json -printf '  %h\n' 2>/dev/null | sed "s#^  $cases_dir/#  #" || true
+  fi
+}
+
+usage_unified() {
+  cat <<'USAGE'
+Usage:
+  ./lancet.sh <case-name-or-dir> [trace-path]
+  ./lancet.sh <linux-kernel-version> <trace-format> <exp-path> <trace-path> [sim-dir]
+  ./lancet.sh analyze <case-name-or-dir> [out-dir]
+  ./lancet.sh analyze <trace-path> <analyzer-config.json> [out-dir] [trace-format]
+  ./lancet.sh user <case-name-or-dir> [trace-path]
+  ./lancet.sh user <exp.c-or-bin> <trace-path> [start-symbol] [stop-symbol]
+
+Default mode collects a trace and, for case runs, analyzes it immediately.
+Use TRACE_ONLY=1 or ANALYZE=0 to skip the analyzer step. Use ANALYSIS_OUT=...
+to override the analyzer output directory.
+
+Subcommands:
+  analyze       Rerun only the Rust analyzer on an existing trace/config.
+  user          Direct user-mode trace collection via qemu-x86_64.
+  collect/trace Explicit alias for the default collect + analyze mode.
+
+Important environment overrides:
+  IMAGE=a85_qlancet_qemu
+  BUILD_IMAGE=auto|1|0
+  DOCKER_PLATFORM=linux/amd64
+  REQUIRED_IMAGE_REV=20260617-ql-user-deps-v1
+  GLIBC_AIO_RUNTIME_INSTALL=1   Allow one-off dependency install in stale images.
+USAGE
+  echo
+  list_supported_cases_unified
+}
+
+cmd_analyze() (
+# Run the Rust analyzer on traces/configs produced by lancet.sh.
+set -euo pipefail
+
+ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
+CALLER_PWD=$(pwd -P)
+
+list_supported_cases() {
+  local cases_dir=${CASES_DIR:-$ROOT_DIR/cases}
+  if [[ -f "$ROOT_DIR/scripts/list_cases.py" ]]; then
+    python3 "$ROOT_DIR/scripts/list_cases.py" "$cases_dir" "$ROOT_DIR" || true
+  else
+    echo "Supported cases:"
+    find "$cases_dir" -mindepth 2 -maxdepth 2 -name config.json -printf '  %h\n' 2>/dev/null | sed "s#^  $cases_dir/#  #" || true
+  fi
+}
+
+usage() {
+  cat <<'USAGE'
+Usage:
+  ./lancet.sh analyze <case-name-or-dir> [out-dir]
+  ./lancet.sh analyze <trace-path> <analyzer-config.json> [out-dir] [trace-format]
+
+Examples:
+  ./lancet.sh analyze house_einherjar
+  ./lancet.sh analyze house_einherjar out/house_einherjar-rerun
+  ./lancet.sh analyze qemu_tcg/traces/house_einherjar.qlt \
+    cases/house_einherjar/generated/user/analyzer_config.json \
+    out/house_einherjar qlt
+
+Environment:
+  TRACE_FORMAT=auto|qlt|legacy   Override detected/case trace format.
+  REGENERATE_CONFIG=1            Regenerate case analyzer config from vmlinux.
+  CARGO='cargo'                  Cargo command to use.
+USAGE
+  echo
+  list_supported_cases
+}
+
+die() {
+  echo "error: $*" >&2
+  exit 1
+}
+
+truthy() {
+  case "${1,,}" in
+    1|true|yes|y|on) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+abs_existing_file() {
+  local p=$1
+  [[ -f "$p" ]] || die "missing file: $p"
+  readlink -f "$p"
+}
+
+abs_dir_allow_new() {
+  local p=$1
+  if [[ "$p" != /* ]]; then
+    p="$CALLER_PWD/$p"
+  fi
+  mkdir -p "$p"
+  (cd "$p" && pwd -P)
+}
+
+trace_format_from_path() {
+  case "$1" in
+    *.qlt) echo qlt ;;
+    *) echo auto ;;
+  esac
+}
+
+case "$#" in
+  0) usage >&2; exit 2 ;;
+esac
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
+CASE_MODE=0
+CASE_ARG=${1:-}
+CASES_DIR=${CASES_DIR:-$ROOT_DIR/cases}
+
+if [[ $# -eq 1 || ($# -eq 2 && ! -f "$CASE_ARG") ]]; then
+  if [[ -d "$CASE_ARG" || -d "$CASES_DIR/$CASE_ARG" ]]; then
+    CASE_MODE=1
+  fi
+fi
+
+if [[ "$CASE_MODE" == "1" ]]; then
+  if [[ -d "$CASE_ARG" ]]; then
+    CASE_DIR=$(cd "$CASE_ARG" && pwd -P)
+  else
+    CASE_DIR=$(cd "$CASES_DIR/$CASE_ARG" && pwd -P)
+  fi
+  CASE_JSON=${CASE_CONFIG:-$CASE_DIR/config.json}
+  [[ -f "$CASE_JSON" ]] || die "missing case config: $CASE_JSON"
+
+  eval "$(
+    python3 - "$CASE_JSON" "$CASE_DIR" "$ROOT_DIR" <<'PY'
+import json
+import os
+import shlex
+import sys
+
+cfg_path, case_dir, root_dir = sys.argv[1:4]
+with open(cfg_path, "r", encoding="utf-8") as f:
+    cfg = json.load(f)
+
+def first(*names, default=""):
+    for name in names:
+        if name in cfg and cfg[name] is not None:
+            return cfg[name]
+    return default
+
+def path_value(value, base=case_dir):
+    if value in (None, ""):
+        return ""
+    value = str(value)
+    if os.path.isabs(value):
+        return os.path.normpath(value)
+    return os.path.normpath(os.path.join(base, value))
+
+def ref_value(value):
+    if value in (None, ""):
+        return "kernelctf"
+    value = str(value)
+    if os.path.isabs(value) or value.startswith(".") or "/" in value:
+        return path_value(value)
+    return value
+
+def truthy(value):
+    return str(value).strip().lower() in ("1", "true", "yes", "y", "on")
+
+def simulator_releases_dir(ref):
+    manifest = ""
+    if not ref:
+        ref = "kernelctf"
+    if os.path.isfile(os.path.join(root_dir, "simulators", ref, "config.json")):
+        manifest = os.path.join(root_dir, "simulators", ref, "config.json")
+    elif os.path.isfile(ref):
+        manifest = ref
+    elif os.path.isdir(ref):
+        if os.path.isfile(os.path.join(ref, "config.json")):
+            manifest = os.path.join(ref, "config.json")
+        else:
+            return os.path.abspath(os.path.join(ref, "releases"))
+    if manifest:
+        base = os.path.dirname(os.path.abspath(manifest))
+        with open(manifest, "r", encoding="utf-8") as mf:
+            sim = json.load(mf)
+        releases = sim.get("releases") or sim.get("releases_dir")
+        if releases:
+            return path_value(releases, base)
+    return os.path.join(root_dir, "simulators", "kernelctf", "releases")
+
+case_name = first("name", default=os.path.basename(case_dir))
+release = first("release", "linux_kernel_version", "kernel")
+fmt = first("trace_format", "format", default="qlt")
+auto_config = first("auto_config", default=True)
+
+trace_path = first("trace_path", "out", "output")
+if trace_path:
+    trace_path = path_value(trace_path)
+else:
+    output_dir = path_value(first("output_dir", "trace_dir", default="out"))
+    trace_name = first("trace", "trace_name", default=f"{case_name}.{fmt}")
+    trace_path = os.path.normpath(os.path.join(output_dir, str(trace_name)))
+
+analyzer_config = path_value(first("analyzer_config", "qlancet_config"))
+if not analyzer_config and truthy(auto_config):
+    analyzer_config = os.path.join(case_dir, "generated", str(release), "analyzer_config.json")
+
+qemu_config = path_value(first("qemu_config", "qemu_output"))
+if not qemu_config and truthy(auto_config):
+    qemu_config = os.path.join(case_dir, "generated", str(release), "qemu_config.json")
+
+analysis_out = path_value(first("analysis_output", "analysis_out", "analyzer_output", "analyzer_out", default=""))
+if not analysis_out:
+    stem = os.path.basename(trace_path)
+    if "." in stem:
+        stem = stem.rsplit(".", 1)[0]
+    analysis_out = os.path.join(root_dir, "out", stem)
+
+values = {
+    "CASE_NAME": case_name,
+    "RELEASE": release,
+    "TRACE_FORMAT_CASE": fmt,
+    "TRACE_PATH": trace_path,
+    "ANALYZER_CONFIG": analyzer_config,
+    "QEMU_CONFIG": qemu_config,
+    "AUTO_CONFIG": "1" if truthy(auto_config) else "0",
+    "OUT_DIR": analysis_out,
+    "RELEASES_DIR": simulator_releases_dir(ref_value(first("simulator", "sim", "sim_dir", "simulator_dir"))),
+    "PLUGIN_MODE": first("plugin_mode", default=""),
+}
+for key, value in values.items():
+    print(f"{key}={shlex.quote(str(value))}")
+PY
+  )"
+  if [[ $# -eq 2 ]]; then
+    OUT_DIR=$(abs_dir_allow_new "$2")
+  fi
+  TRACE_FORMAT=${TRACE_FORMAT:-$TRACE_FORMAT_CASE}
+else
+  [[ $# -ge 2 && $# -le 4 ]] || { usage >&2; exit 2; }
+  TRACE_PATH=$(abs_existing_file "$1")
+  ANALYZER_CONFIG=$(abs_existing_file "$2")
+  if [[ $# -ge 3 ]]; then
+    OUT_DIR=$(abs_dir_allow_new "$3")
+  else
+    stem=$(basename "$TRACE_PATH")
+    stem=${stem%.*}
+    OUT_DIR="$ROOT_DIR/out/$stem"
+  fi
+  TRACE_FORMAT=${4:-${TRACE_FORMAT:-$(trace_format_from_path "$TRACE_PATH")}}
+  AUTO_CONFIG=0
+fi
+
+collect_hint() {
+  if [[ "${CASE_MODE:-0}" == "1" ]]; then
+    if [[ "${PLUGIN_MODE:-}" == "user" ]]; then
+      printf "run ./lancet.sh user '%s' first" "$CASE_ARG"
+    else
+      printf "run ./lancet.sh '%s' first" "$CASE_ARG"
+    fi
+  else
+    printf "regenerate or recollect the trace"
+  fi
+}
+
+validate_qlt_trace() {
+  local trace=$1
+  python3 - "$trace" <<'PY'
+import os
+import struct
+import sys
+
+path = sys.argv[1]
+size = os.path.getsize(path)
+if size < 36:
+    raise SystemExit(
+        f"trace '{path}' is only {size} bytes; QLT header is incomplete"
+    )
+
+with open(path, "rb") as f:
+    header = f.read(36)
+if header[:4] != b"QLT1":
+    raise SystemExit(f"trace '{path}' does not start with QLT1 magic")
+
+version, _flags, _regtab, _reserved = struct.unpack_from("<HHHH", header, 4)
+blocks, index_off, header_size = struct.unpack_from("<QQQ", header, 12)
+if header_size != 36:
+    raise SystemExit(f"trace '{path}' has unexpected QLT header size {header_size}")
+if version not in (1, 2):
+    raise SystemExit(f"trace '{path}' has unsupported QLT version {version}")
+if blocks == 0:
+    raise SystemExit(f"trace '{path}' has no completed QLT blocks")
+index_end = index_off + blocks * 40
+if index_off > size or index_end > size:
+    raise SystemExit(
+        f"trace '{path}' has incomplete QLT index: index_end={index_end}, file_size={size}"
+    )
+
+with open(path, "rb") as f:
+    f.seek(index_off)
+    for i in range(blocks):
+        data = f.read(40)
+        if len(data) != 40:
+            raise SystemExit(f"trace '{path}' ended inside QLT index entry {i}")
+        comp_off, comp_size, _uncomp_size, _first_step, record_count = struct.unpack("<QQQQQ", data)
+        if comp_off + comp_size > index_off:
+            raise SystemExit(
+                f"trace '{path}' has incomplete QLT data block {i}: "
+                f"data_end={comp_off + comp_size}, index_off={index_off}"
+            )
+        if record_count == 0:
+            raise SystemExit(f"trace '{path}' has empty QLT data block {i}")
+PY
+}
+
+case "$TRACE_FORMAT" in
+  auto|qlt|legacy|text)
+    if [[ "$TRACE_FORMAT" == "text" ]]; then TRACE_FORMAT=legacy; fi
+    ;;
+  *) die "unsupported trace format: $TRACE_FORMAT" ;;
+esac
+
+[[ -f "$TRACE_PATH" ]] || die "missing trace: $TRACE_PATH ($(collect_hint))"
+
+if [[ "$TRACE_FORMAT" == "qlt" || ( "$TRACE_FORMAT" == "auto" && "$TRACE_PATH" == *.qlt ) ]]; then
+  if ! qlt_error=$(validate_qlt_trace "$TRACE_PATH" 2>&1); then
+    die "$qlt_error; $(collect_hint)"
+  fi
+fi
+
+if [[ ! -f "$ANALYZER_CONFIG" ]]; then
+  if [[ "$CASE_MODE" == "1" ]] && truthy "$AUTO_CONFIG"; then
+    [[ -n "${RELEASE:-}" ]] || die "case config has no release; cannot regenerate analyzer config"
+    [[ -n "${QEMU_CONFIG:-}" ]] || QEMU_CONFIG="$CASE_DIR/generated/$RELEASE/qemu_config.json"
+    echo "[*] analyzer config missing; generating for $RELEASE"
+    python3 "$ROOT_DIR/scripts/gen_config.py" \
+      --kernel "$RELEASE" \
+      --releases-dir "$RELEASES_DIR" \
+      --qlancet-output "$ANALYZER_CONFIG" \
+      --qemu-output "$QEMU_CONFIG"
+  else
+    die "missing analyzer config: $ANALYZER_CONFIG"
+  fi
+elif [[ "$CASE_MODE" == "1" && "${REGENERATE_CONFIG:-0}" == "1" ]]; then
+  echo "[*] regenerating analyzer config for $RELEASE"
+  python3 "$ROOT_DIR/scripts/gen_config.py" \
+    --kernel "$RELEASE" \
+    --releases-dir "$RELEASES_DIR" \
+    --qlancet-output "$ANALYZER_CONFIG" \
+    --qemu-output "$QEMU_CONFIG"
+fi
+
+mkdir -p "$OUT_DIR"
+
+echo "[*] trace        : $TRACE_PATH"
+echo "[*] config       : $ANALYZER_CONFIG"
+echo "[*] output       : $OUT_DIR"
+echo "[*] trace format : $TRACE_FORMAT"
+
+cd "$ROOT_DIR"
+exec ${CARGO:-cargo} run -- klancet "$TRACE_PATH" "$ANALYZER_CONFIG" "$OUT_DIR" --trace-format "$TRACE_FORMAT"
+)
+
+cmd_user_trace() (
+# Fast user-mode QEMU trace collector. It mirrors lancet.sh's Docker/plugin
+# build flow but runs qemu-x86_64 instead of booting a full kernel simulator.
+set -euo pipefail
+
+ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
+CALLER_PWD=$(pwd -P)
+
+usage() {
+  cat <<'USAGE'
+Usage:
+  ./lancet.sh user <case-name-or-dir> [trace-path]
+  ./lancet.sh user <exp.c-or-bin> <trace-path> [start-symbol] [stop-symbol]
+
+Environment:
+  IMAGE=a85_qlancet_qemu      Docker image containing qemu-x86_64 with plugins.
+  BUILD_IMAGE=auto|1|0        Build Dockerfile if image is missing.
+  DOCKER_PLATFORM=linux/amd64 Optional platform for docker build/run.
+  TIMEOUT=120                 qemu-x86_64 timeout seconds.
+  START_SYMBOL=name           Trigger symbol for case/direct mode.
+  STOP_SYMBOL=name            Optional stop symbol for bounded traces.
+  GLIBC_VERSION=2.32-0ubuntu3_amd64
+                               Patch dynamic PoCs to this glibc-all-in-one id.
+  EXTRA_PLUGIN_ARGS='...'     Extra plugin args appended after defaults.
+USAGE
+}
+
+die() { echo "error: $*" >&2; exit 1; }
+truthy() { case "${1,,}" in 1|true|yes|y|on) return 0;; *) return 1;; esac; }
+abs_file() { local p=$1; [[ -e "$p" ]] || die "missing path: $p"; readlink -f "$p"; }
+
+if [[ ${1:-} == "-h" || ${1:-} == "--help" || $# -lt 1 ]]; then
+  usage
+  exit $([[ $# -lt 1 ]] && echo 2 || echo 0)
+fi
+
+CASE_MODE=0
+CASE_ARG=$1
+CASES_DIR=${CASES_DIR:-$ROOT_DIR/cases}
+EXP_PATH=""
+TRACE_PATH=""
+BUILD_REL=""
+ANALYZER_CONFIG=""
+
+if [[ $# -le 2 && ( -d "$CASE_ARG" || -d "$CASES_DIR/$CASE_ARG" ) ]]; then
+  CASE_MODE=1
+  if [[ -d "$CASE_ARG" ]]; then CASE_DIR=$(cd "$CASE_ARG" && pwd -P); else CASE_DIR=$(cd "$CASES_DIR/$CASE_ARG" && pwd -P); fi
+  CASE_JSON=${CASE_CONFIG:-$CASE_DIR/config.json}
+  [[ -f "$CASE_JSON" ]] || die "missing case config: $CASE_JSON"
+  eval "$(python3 - "$CASE_JSON" "$CASE_DIR" <<'PY'
+import json, os, shlex, sys
+cfg_path, case_dir = sys.argv[1:3]
+cfg = json.load(open(cfg_path, encoding='utf-8'))
+def first(*names, default=''):
+    for name in names:
+        v = cfg.get(name)
+        if v not in (None, ''):
+            return v
+    return default
+def path_value(v):
+    if v in (None, ''): return ''
+    v = str(v)
+    return os.path.normpath(v if os.path.isabs(v) else os.path.join(case_dir, v))
+name = first('name', default=os.path.basename(case_dir))
+fmt = first('trace_format', 'format', default='qlt')
+exp = first('exp', 'exp_path', 'poc')
+if not exp:
+    for cand in ('exp.c', 'poc.c', 'exp'):
+        if os.path.exists(os.path.join(case_dir, cand)):
+            exp = cand; break
+if not exp: raise SystemExit('case config requires exp or exp.c')
+trace = first('trace_path', 'out', 'output')
+if trace: trace = path_value(trace)
+else:
+    outdir = path_value(first('output_dir', 'trace_dir', default='out'))
+    trace = os.path.normpath(os.path.join(outdir, first('trace', 'trace_name', default=f'{name}.{fmt}')))
+build = first('build', 'build_script')
+build_rel = ''
+if build:
+    bp = path_value(build)
+    build_rel = os.path.relpath(bp, os.path.dirname(path_value(exp)))
+vals = {
+ 'EXP_PATH': path_value(exp),
+ 'TRACE_PATH': trace,
+ 'BUILD_REL': build_rel,
+ 'START_SYMBOL_CASE': first('start_symbol', 'trigger_symbol', default='main'),
+ 'STOP_SYMBOL_CASE': first('stop_symbol', default=''),
+ 'ANALYZER_CONFIG': path_value(first('analyzer_config', 'qlancet_config')),
+ 'GLIBC_VERSION_CASE': first('glibc_version', 'glibc', default=''),
+ 'TIMEOUT_CASE': first('timeout', default=''),
+ 'EXTRA_PLUGIN_ARGS_CASE': first('extra_plugin_args', default=''),
+}
+for k,v in vals.items(): print(f'{k}={shlex.quote(str(v))}')
+PY
+)"
+  if [[ $# -eq 2 ]]; then TRACE_PATH=$2; fi
+  START_SYMBOL=${START_SYMBOL:-$START_SYMBOL_CASE}
+  STOP_SYMBOL=${STOP_SYMBOL:-$STOP_SYMBOL_CASE}
+  GLIBC_VERSION=${GLIBC_VERSION:-$GLIBC_VERSION_CASE}
+  TIMEOUT=${TIMEOUT:-${TIMEOUT_CASE:-120}}
+  EXTRA_PLUGIN_ARGS=${EXTRA_PLUGIN_ARGS:-${EXTRA_PLUGIN_ARGS_CASE:-}}
+else
+  [[ $# -ge 2 && $# -le 4 ]] || { usage >&2; exit 2; }
+  EXP_PATH=$(abs_file "$1")
+  TRACE_PATH=$2
+  START_SYMBOL=${START_SYMBOL:-${3:-main}}
+  STOP_SYMBOL=${STOP_SYMBOL:-${4:-}}
+  GLIBC_VERSION=${GLIBC_VERSION:-}
+  TIMEOUT=${TIMEOUT:-120}
+  EXTRA_PLUGIN_ARGS=${EXTRA_PLUGIN_ARGS:-}
+fi
+
+if [[ "$TRACE_PATH" != /* ]]; then TRACE_PATH="$CALLER_PWD/$TRACE_PATH"; fi
+TRACE_DIR=$(dirname "$TRACE_PATH")
+TRACE_BASE=$(basename "$TRACE_PATH")
+mkdir -p "$TRACE_DIR"
+TRACE_DIR=$(cd "$TRACE_DIR" && pwd -P)
+TRACE_PATH="$TRACE_DIR/$TRACE_BASE"
+EXP_PATH=$(abs_file "$EXP_PATH")
+EXP_DIR=$(dirname "$EXP_PATH")
+EXP_BASE=$(basename "$EXP_PATH")
+
+IMAGE=${IMAGE:-a85_qlancet_qemu}
+BUILD_IMAGE=${BUILD_IMAGE:-auto}
+DOCKERFILE=${DOCKERFILE:-$ROOT_DIR/Dockerfile}
+DOCKER_PLATFORM=${DOCKER_PLATFORM:-${DOCKER_DEFAULT_PLATFORM:-}}
+REQUIRED_IMAGE_REV=${REQUIRED_IMAGE_REV:-20260617-ql-user-deps-v1}
+CONTAINER_NAME=${CONTAINER_NAME:-a85_get_user_trace_$(date +%s)_$$}
+DOCKER_NETWORK=${DOCKER_NETWORK:-}
+if [[ -z "$DOCKER_NETWORK" ]]; then
+  if [[ -n "$GLIBC_VERSION" ]]; then
+    DOCKER_NETWORK=bridge
+  else
+    DOCKER_NETWORK=none
+  fi
+fi
+if command -v docker >/dev/null 2>&1; then DOCKER_CMD=(docker); elif command -v sudo >/dev/null 2>&1; then DOCKER_CMD=(sudo docker); else die "docker not found"; fi
+NEED_BUILD=0
+if [[ "$BUILD_IMAGE" == "1" ]]; then
+  NEED_BUILD=1
+elif [[ "$BUILD_IMAGE" == "auto" ]]; then
+  if ! "${DOCKER_CMD[@]}" image inspect "$IMAGE" >/dev/null 2>&1; then
+    NEED_BUILD=1
+  else
+    if [[ -n "$REQUIRED_IMAGE_REV" && "$REQUIRED_IMAGE_REV" != "skip" ]]; then
+      image_rev=$("${DOCKER_CMD[@]}" image inspect --format '{{index .Config.Labels "org.a85.qlancet.image-rev"}}' "$IMAGE" 2>/dev/null || true)
+      if [[ "$image_rev" != "$REQUIRED_IMAGE_REV" ]]; then
+        echo "[*] Docker image $IMAGE is stale (rev=${image_rev:-<none>}, need=$REQUIRED_IMAGE_REV); rebuilding"
+        NEED_BUILD=1
+      fi
+    fi
+    if [[ -n "$DOCKER_PLATFORM" ]]; then
+      image_platform=$("${DOCKER_CMD[@]}" image inspect --format '{{.Os}}/{{.Architecture}}' "$IMAGE" 2>/dev/null || true)
+      case "$DOCKER_PLATFORM" in
+        "$image_platform"|"$image_platform"/*) ;;
+        *) NEED_BUILD=1 ;;
+      esac
+    fi
+  fi
+fi
+DOCKER_PLATFORM_ARGS=()
+if [[ -n "$DOCKER_PLATFORM" ]]; then
+  DOCKER_PLATFORM_ARGS=(--platform "$DOCKER_PLATFORM")
+fi
+if [[ "$NEED_BUILD" == "1" ]]; then
+  echo "[*] building Docker image $IMAGE from $DOCKERFILE"
+  "${DOCKER_CMD[@]}" build "${DOCKER_PLATFORM_ARGS[@]}" -t "$IMAGE" -f "$DOCKERFILE" "$ROOT_DIR"
+fi
+
+cleanup() { "${DOCKER_CMD[@]}" rm -f "$CONTAINER_NAME" >/dev/null 2>&1 || true; }
+trap cleanup EXIT INT TERM
+
+echo "[*] exp          : $EXP_PATH"
+echo "[*] start symbol : ${START_SYMBOL:-<none>}"
+echo "[*] stop symbol  : ${STOP_SYMBOL:-<none>}"
+echo "[*] glibc        : ${GLIBC_VERSION:-<system/static>}"
+echo "[*] output       : $TRACE_PATH"
+echo "[*] docker image : $IMAGE"
+if [[ -n "$DOCKER_PLATFORM" ]]; then
+  echo "[*] docker plat  : $DOCKER_PLATFORM"
+fi
+
+GLIBC_AIO_HOST_CACHE=${GLIBC_AIO_HOST_CACHE:-$ROOT_DIR/.cache/glibc-all-in-one}
+if [[ -n "$GLIBC_VERSION" ]]; then
+  mkdir -p "$GLIBC_AIO_HOST_CACHE"
+fi
+
+DOCKER_ARGS=(
+  run --rm -i
+  "${DOCKER_PLATFORM_ARGS[@]}"
+  --name "$CONTAINER_NAME"
+  --network "$DOCKER_NETWORK"
+  --security-opt seccomp=unconfined
+  -v "$ROOT_DIR":/work/a85
+  -v "$EXP_DIR":/inputs/exp_dir:ro
+  -v "$TRACE_DIR":/out
+  -e EXP_BASE="$EXP_BASE"
+  -e OUT_BASE="$TRACE_BASE"
+  -e START_SYMBOL="${START_SYMBOL:-}"
+  -e STOP_SYMBOL="${STOP_SYMBOL:-}"
+  -e GLIBC_VERSION="${GLIBC_VERSION:-}"
+  -e TIMEOUT="$TIMEOUT"
+  -e BUILD_REL="$BUILD_REL"
+  -e EXP_BUILD_CMD="${EXP_BUILD_CMD:-}"
+  -e EXTRA_PLUGIN_ARGS="$EXTRA_PLUGIN_ARGS"
+)
+if [[ -n "$GLIBC_VERSION" ]]; then
+  DOCKER_ARGS+=(-v "$GLIBC_AIO_HOST_CACHE":/opt/glibc-all-in-one -e GLIBC_AIO_DIR=/opt/glibc-all-in-one)
+fi
+
+"${DOCKER_CMD[@]}" "${DOCKER_ARGS[@]}" "$IMAGE" bash -s <<'IN_CONTAINER'
+set -euo pipefail
+cd /work/a85/qemu_tcg
+./build.sh
+
+source /work/a85/scripts/target_x86_64.sh
+setup_x86_64_target_toolchain
+
+EXP_IN="/inputs/exp_dir/$EXP_BASE"
+EXP_OUT="/tmp/ql_user_exp"
+if [[ -n "${EXP_BUILD_CMD:-}" ]]; then
+  export EXP_IN EXP_OUT
+  eval "$EXP_BUILD_CMD"
+elif [[ -n "${BUILD_REL:-}" ]]; then
+  build_exec="$BUILD_REL"
+  [[ "$build_exec" == */* ]] || build_exec="./$build_exec"
+  export EXP_IN EXP_OUT
+  cd "$(dirname "$EXP_IN")"
+  bash "$build_exec"
+  cd /work/a85/qemu_tcg
+else
+  case "$EXP_IN" in
+    *.c)
+      if [[ -n "${GLIBC_VERSION:-}" ]]; then
+        source /work/a85/scripts/glibc_aio.sh
+        compile_c_with_glibc "$EXP_IN" "$EXP_OUT" "$GLIBC_VERSION" \
+          -no-pie -O0 -g -fno-stack-protector -fno-omit-frame-pointer
+      else
+        "$TARGET_CC" -static -no-pie -O0 -g -fno-stack-protector -fno-omit-frame-pointer "$EXP_IN" -o "$EXP_OUT"
+      fi
+      ;;
+    *) cp "$EXP_IN" "$EXP_OUT" ;;
+  esac
+fi
+validate_x86_64_elf "$EXP_OUT" "PoC"
+chmod +x "$EXP_OUT"
+if [[ -n "${GLIBC_VERSION:-}" ]]; then
+  source /work/a85/scripts/glibc_aio.sh
+  patch_elf_to_glibc "$EXP_OUT" "$GLIBC_VERSION"
+  validate_x86_64_elf "$EXP_OUT" "patched PoC"
+fi
+
+resolve_sym() {
+  local sym=$1
+  if [[ "$sym" == *:return ]]; then
+    local func=${sym%:return}
+    objdump -d "$EXP_OUT" 2>/dev/null | awk -v sym="$func" '
+      $0 ~ "^[[:space:]]*[0-9a-fA-F]+[[:space:]]+<" sym ">:" {inside=1; next}
+      inside && $0 ~ "^[[:space:]]*[0-9a-fA-F]+[[:space:]]+<[^>]+>:" {exit}
+      inside && $0 ~ /[[:space:]]ret[q]?[[:space:]]*$/ {
+        addr=$1
+        sub(":", "", addr)
+        last=addr
+      }
+      END {
+        if (last != "") {
+          print "0x" last
+          exit 0
+        }
+        exit 1
+      }'
+    return
+  fi
+  nm "$EXP_OUT" 2>/dev/null | awk -v sym="$sym" '$2 ~ /^[Tt]$/ && $3 == sym {print "0x"$1; found=1} END {exit found ? 0 : 1}'
+}
+START_ADDR=""
+if [[ -n "${START_SYMBOL:-}" ]]; then START_ADDR=$(resolve_sym "$START_SYMBOL"); else START_ADDR=$(resolve_sym main); fi
+STOP_ADDR=""
+if [[ -n "${STOP_SYMBOL:-}" ]]; then STOP_ADDR=$(resolve_sym "$STOP_SYMBOL"); fi
+
+echo "[container] START_ADDR=$START_ADDR STOP_ADDR=${STOP_ADDR:-}"
+nm -n "$EXP_OUT" 2>/dev/null | grep -E ' main$| ql_trace_start$| ql_trace_stop$| malloc$| free$' || true
+
+PLUGIN_ARG="format=qlt,out=/out/$OUT_BASE,trigger=$START_ADDR,regs=insn,onlycpu=0,mode=user,trigger-mode=user,block-mb=4,zstd=1"
+if [[ -n "$STOP_ADDR" ]]; then PLUGIN_ARG+=",stop=$STOP_ADDR"; fi
+if [[ -n "${EXTRA_PLUGIN_ARGS:-}" ]]; then PLUGIN_ARG+=",$EXTRA_PLUGIN_ARGS"; fi
+set +e
+timeout --kill-after=5s "${TIMEOUT}s" qemu-x86_64 -plugin "./hello.so,$PLUGIN_ARG" "$EXP_OUT"
+rc=$?
+set -e
+echo "[container] qemu-x86_64 rc=$rc"
+exit 0
+IN_CONTAINER
+
+python3 - "$TRACE_PATH" <<'PY'
+import os, struct, sys
+p = sys.argv[1]
+size = os.path.getsize(p) if os.path.exists(p) else 0
+print('[*] qlt path:', p)
+print('[*] qlt size:', size)
+if size < 36:
+    print('[!] qlt too small')
+    sys.exit(3)
+h = open(p, 'rb').read(36)
+if h[:4] != b'QLT1':
+    print('[!] invalid magic:', h[:4]); sys.exit(3)
+version, flags, regtab, reserved = struct.unpack_from('<HHHH', h, 4)
+blocks, index_off, header_size = struct.unpack_from('<QQQ', h, 12)
+print(f'[*] qlt header: version={version} flags={flags} reg_table={regtab} blocks={blocks} index_offset={index_off} header_size={header_size}')
+if blocks == 0 or size < index_off + blocks * 40:
+    print('[!] qlt index incomplete')
+    sys.exit(3)
+total = 0
+with open(p, 'rb') as f:
+    f.seek(index_off)
+    first = last = None
+    for i in range(blocks):
+        e = struct.unpack('<QQQQQ', f.read(40))
+        first = first or e
+        last = e
+        total += e[4]
+print('[*] qlt records:', total)
+print('[*] first index:', first)
+print('[*] last index :', last)
+PY
+
+if [[ -n "${ANALYZER_CONFIG:-}" && "${QL_SUPPRESS_ANALYZE_HINT:-0}" != "1" ]]; then
+  echo "[*] analyze with: ./lancet.sh analyze '$TRACE_PATH' '$ANALYZER_CONFIG' '${TRACE_PATH%.qlt}.out' qlt"
+fi
+)
+
+cmd_collect() (
 # One-shot Docker wrapper for collecting QLancet QEMU traces and, in case mode,
 # running the analyzer on the generated trace.
 #
 # Example:
-#   ./get_trace.sh mitigation-v4-6.6 qlt ./poc.c ./out/poc.qlt
+#   ./lancet.sh mitigation-v4-6.6 qlt ./poc.c ./out/poc.qlt
 #
 # The container is started with --rm and a per-run name; it is removed
 # automatically when collection finishes or this wrapper is interrupted.
@@ -25,8 +739,8 @@ list_supported_cases() {
 usage() {
   cat <<'USAGE'
 Usage:
-  ./get_trace.sh <case-name-or-dir> [trace-path]
-  ./get_trace.sh <linux-kernel-version> <trace-format> <exp-path> <trace-path> [sim-dir]
+  ./lancet.sh <case-name-or-dir> [trace-path]
+  ./lancet.sh <linux-kernel-version> <trace-format> <exp-path> <trace-path> [sim-dir]
 
 Arguments:
   case-name-or-dir      Case under ./cases or a direct case directory containing config.json.
@@ -167,7 +881,7 @@ run_trace_analyzer() {
   echo "[*] analyzer cfg    : $config"
   echo "[*] analyzer output : $out"
   echo "[*] analyzer format : $fmt"
-  "$ROOT_DIR/analyzer.sh" "$trace" "$config" "$out" "$fmt"
+  cmd_analyze "$trace" "$config" "$out" "$fmt"
 }
 
 resolve_simulator() {
@@ -380,8 +1094,8 @@ for key, value in values.items():
     print(f"{key}={shlex.quote(str(value))}")
 PY
     )"
-    echo "[*] user-mode case detected; dispatching to get_user_trace.sh"
-    QL_SUPPRESS_ANALYZE_HINT=1 "$ROOT_DIR/get_user_trace.sh" "$@"
+    echo "[*] user-mode case detected; dispatching to lancet.sh user"
+    QL_SUPPRESS_ANALYZE_HINT=1 cmd_user_trace "$@"
     if analysis_enabled; then
       run_trace_analyzer "$USER_TRACE_PATH" "$USER_ANALYZER_CONFIG" "${ANALYSIS_OUT:-$USER_ANALYSIS_OUT}" "$USER_TRACE_FORMAT"
     fi
@@ -811,7 +1525,7 @@ set -euo pipefail
 echo "[container] building QEMU plugin"
 cd /work/a85/qemu_tcg
 if ! printf '#include <zstd.h>\n' | gcc -E - >/dev/null 2>&1; then
-  echo "container image is missing libzstd-dev; rebuild with: BUILD_IMAGE=1 ./get_trace.sh ..." >&2
+  echo "container image is missing libzstd-dev; rebuild with: BUILD_IMAGE=1 ./lancet.sh ..." >&2
   exit 1
 fi
 ./build.sh
@@ -1011,6 +1725,41 @@ if [[ ${validate_rc:-0} -eq 0 ]] && analysis_enabled; then
   run_trace_analyzer "$TRACE_PATH" "${ANALYZER_CONFIG:-}" "${ANALYSIS_OUT:-}" "$TRACE_FORMAT"
 elif [[ -n "${ANALYZER_CONFIG:-}" ]]; then
   echo "[*] analyzer skipped; run manually with:"
-  echo "    ./analyzer.sh '$TRACE_PATH' '$ANALYZER_CONFIG' '$(default_analysis_out "$TRACE_PATH")' $(analyzer_trace_format "$TRACE_FORMAT")"
+  echo "    ./lancet.sh analyze '$TRACE_PATH' '$ANALYZER_CONFIG' '$(default_analysis_out "$TRACE_PATH")' $(analyzer_trace_format "$TRACE_FORMAT")"
 fi
 exit "${validate_rc:-0}"
+)
+
+main() {
+  case "${1:-}" in
+    "")
+      usage_unified >&2
+      exit 2
+      ;;
+    -h|--help)
+      usage_unified
+      exit 0
+      ;;
+    analyze)
+      shift
+      cmd_analyze "$@"
+      ;;
+    user|user-trace)
+      shift
+      cmd_user_trace "$@"
+      ;;
+    collect|trace|run)
+      shift
+      cmd_collect "$@"
+      ;;
+    trace-only|collect-only)
+      shift
+      TRACE_ONLY=1 cmd_collect "$@"
+      ;;
+    *)
+      cmd_collect "$@"
+      ;;
+  esac
+}
+
+main "$@"

@@ -3,7 +3,7 @@
 #
 # This is intentionally close to the upstream kernelCTF helper: it downloads the
 # requested release kernel, rootfs, ramdisk, qemu_v3.sh, and flag if they are
-# missing. It also extracts ramdisk_v1.img into core/ because get_trace.sh needs
+# missing. It also extracts ramdisk_v1.img into core/ because lancet.sh needs
 # a writable initramfs template where it can install the case PoC as /bin/exp.
 set -euo pipefail
 

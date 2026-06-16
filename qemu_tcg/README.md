@@ -8,8 +8,10 @@ writing QLT binary traces by default.
 ```bash
 cd /home/ubuntu/aixcc/a85_QLancet
 docker build -t a85_qlancet_qemu -f Dockerfile .
-./run_qemu_tcg_docker.sh
+docker run --rm -ti --security-opt seccomp=unconfined \
+  -v "$PWD":/work/a85 a85_qlancet_qemu bash
 # inside container:
+cd /work/a85/qemu_tcg
 ./build.sh
 ```
 
