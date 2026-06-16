@@ -43,6 +43,7 @@ Common environment overrides:
   TASKSET_MASK=0x2                 CPU mask for running /bin/exp.
   FIFO_PRIO=99                     chrt FIFO priority.
   START_ADDR=0x...                 Override trigger address; default resolves exp::_start.
+  START_SYMBOL=name                Resolve trigger from this symbol when START_ADDR is unset.
   EXP_KIND=auto|c|bin              How to handle exp-path (default: auto).
   EXP_CFLAGS='...' EXP_LDFLAGS='...'  Extra flags for default .c compilation.
   EXP_BUILD_CMD='...'              Custom build command; uses EXP_IN and EXP_OUT variables.
@@ -51,7 +52,7 @@ Common environment overrides:
 Case config keys:
   release, trace_format, exp, build, simulator, output_dir, trace/trace_path,
   timeout, trace_cpu, taskset_mask, fifo_prio, analyzer_config, qemu_config,
-  plugin_config, auto_config, start_addr.
+  plugin_config, auto_config, start_addr, start_symbol.
   Relative paths are resolved from the case directory.
 
 Simulator manifests live under ./simulators/<name>/config.json and point to
@@ -321,6 +322,7 @@ values = {
     "CASE_TASKSET_MASK": first("taskset_mask"),
     "CASE_FIFO_PRIO": first("fifo_prio"),
     "CASE_START_ADDR": first("start_addr", "trigger"),
+    "CASE_START_SYMBOL": first("start_symbol", "trigger_symbol"),
     "CASE_QEMU_BIN": first("qemu_bin"),
     "CASE_MEMORY": first("memory"),
     "CASE_SMP": first("smp"),
@@ -351,6 +353,7 @@ PY
   set_env_default TASKSET_MASK "$CASE_TASKSET_MASK"
   set_env_default FIFO_PRIO "$CASE_FIFO_PRIO"
   set_env_default START_ADDR "$CASE_START_ADDR"
+  set_env_default START_SYMBOL "$CASE_START_SYMBOL"
   set_env_default AUTO_CONFIG "$CASE_AUTO_CONFIG"
   set_env_default ANALYZER_CONFIG "$CASE_ANALYZER_CONFIG"
   set_env_default QEMU_CONFIG "$CASE_QEMU_CONFIG"
@@ -555,6 +558,7 @@ DOCKER_ARGS=(
   -e ROOTFS_BASE="$ROOTFS_BASE"
   -e FLAG_BASE="$FLAG_BASE"
   -e START_ADDR="$START_ADDR"
+  -e START_SYMBOL="${START_SYMBOL:-}"
   -e EXP_CFLAGS="${EXP_CFLAGS:-}"
   -e EXP_LDFLAGS="${EXP_LDFLAGS:-}"
   -e EXP_BUILD_CMD="${EXP_BUILD_CMD:-}"
@@ -657,11 +661,16 @@ EOS
 chmod +x /run_sim/core/test.sh
 
 if [[ -z "${START_ADDR:-}" ]]; then
-  if START_ADDR=$(nm "$EXP_OUT" 2>/dev/null | awk '/ T _start$/ {print "0x"$1; found=1} END {exit found ? 0 : 1}'); then
+  if [[ -n "${START_SYMBOL:-}" ]] && START_ADDR=$(nm "$EXP_OUT" 2>/dev/null | awk -v sym="$START_SYMBOL" '$2 ~ /^[Tt]$/ && $3 == sym {print "0x"$1; found=1} END {exit found ? 0 : 1}'); then
+    :
+  elif START_ADDR=$(nm "$EXP_OUT" 2>/dev/null | awk '/ T _start$/ {print "0x"$1; found=1} END {exit found ? 0 : 1}'); then
     :
   else
     START_ADDR=$(readelf -h "$EXP_OUT" | awk '/Entry point address:/ {print $4; found=1} END {exit found ? 0 : 1}')
   fi
+fi
+if [[ -n "${START_SYMBOL:-}" ]]; then
+  echo "[container] trigger START_SYMBOL=$START_SYMBOL"
 fi
 echo "[container] trigger START_ADDR=$START_ADDR"
 echo "[container] exp symbols:"

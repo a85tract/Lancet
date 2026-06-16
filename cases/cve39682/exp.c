@@ -28,6 +28,19 @@
 
 #define PORT 4444
 
+__attribute__((constructor)) static void pin_trace_cpu(void)
+{
+	cpu_set_t set;
+	CPU_ZERO(&set);
+	CPU_SET(1, &set);
+	(void)sched_setaffinity(0, sizeof(set), &set);
+
+	struct sched_param param = {
+		.sched_priority = 99,
+	};
+	(void)sched_setscheduler(0, SCHED_FIFO, &param);
+}
+
 void setup_tls(int sock)
 {
 	struct tls12_crypto_info_aes_ccm_128 crypto = {0};
@@ -131,4 +144,3 @@ int main(int argc, char **argv)
 
 	return 0;
 }
-

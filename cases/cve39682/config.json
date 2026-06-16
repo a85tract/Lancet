@@ -14,10 +14,11 @@
   "trace_cpu": 1,
   "taskset_mask": "0x2",
   "fifo_prio": 99,
+  "start_symbol": "main",
   "plugin_mode": "kernel",
   "trigger_mode": "all",
   "trigger_pc_from_reg": 0,
-  "trigger_onlycpu": "all",
+  "trigger_onlycpu": 1,
   "trigger_window": 0,
   "qlt_block_mb": 16,
   "qlt_zstd": 1
