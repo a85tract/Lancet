@@ -4,6 +4,8 @@
 *.qlt.meta
 *.so
 /out/
+__pycache__/
+scripts/__pycache__/
 qemu_tcg/traces/
 qemu_tcg/sim_*/
 cases/*/out/

@@ -16,8 +16,15 @@ Run `./get_trace.sh` or `./analyzer.sh` without arguments to list supported
 cases discovered under `cases/*/config.json`.
 
 The trace is written to `qemu_tcg/traces/cve39682.qlt`, the serial log to
-`qemu_tcg/traces/cve39682.qlt.serial`, and analyzer output to
-`out/cve39682/summary.json`.
+`qemu_tcg/traces/cve39682.qlt.serial`, and analyzer output under
+`out/cve39682/`. In addition to the legacy `summary.json`,
+`ownership_details.jsonl`, and `memory_events.jsonl`, the analyzer now emits
+Lancet downstream reports:
+
+```text
+fcs_report.json / fcs_report.md  # crash triage evidence and source locations
+epf_report.json / epf_report.md  # exploit primitive timeline/transitions
+```
 
 For direct/custom collection, enable config generation and pass the generated
 config to `analyzer.sh`:
@@ -84,11 +91,21 @@ cd simulators/kernelctf
 ```bash
 cargo build
 cargo test --verbose
+cargo clippy --all-targets --all-features
+```
+
+To time analyzer/report generation over existing traces:
+
+```bash
+scripts/bench_cases.py cve39682 --out-root out/bench --json-out out/bench/results.json
 ```
 
 ## Trace formats
 
 - `qlt`: compact binary trace (`QLT1`) with block-level zstd compression and a tail block index.
+  Version 1 records are still accepted; version 2 records additionally carry
+  per-instruction FS/GS bases when the TCG plugin can sample them for
+  segment-relative memory accesses.
 - `legacy`: compatible with the old `cpu|pc|asm|bytecode|regs:` text trace.
 - `auto`: detect QLT by magic, otherwise parse legacy text.
 
@@ -110,9 +127,63 @@ The underlying Rust command remains:
 cargo run -- klancet <trace> <config.json> <output_dir> --trace-format auto
 ```
 
+## Analyzer configuration additions
+
+QLancet keeps the existing allocator/free/symbol configuration and accepts
+optional Lancet/FCS/EPF fields:
+
+```json
+{
+  "metadata": {
+    "binary": "/path/to/vmlinux-or-binary",
+    "source_roots": ["/workspace/src"]
+  },
+  "report": {
+    "max_findings": 200,
+    "include_raw_evidence": true
+  },
+  "segment_bases": {
+    "fs": "0x0",
+    "gs": "0xffff888000000000"
+  },
+  "field_subjects": [
+    {
+      "start": "0xffffffffdead0000",
+      "size": 16,
+      "name": "global_obj",
+      "fields": [
+        {"name": "a", "offset": 0, "size": 8},
+        {"name": "b", "offset": 8, "size": 8}
+      ]
+    }
+  ],
+  "allocation_type_hints": {
+    "0xffffffff81001234": "struct foo"
+  },
+  "type_layouts": {
+    "struct foo": {
+      "size": 16,
+      "fields": [
+        {"name": "a", "offset": 0, "size": 8},
+        {"name": "b", "offset": 8, "size": 8}
+      ]
+    }
+  }
+}
+```
+
+`field_subjects` models known static/global objects. `allocation_type_hints`
+maps an allocation call PC (or returned pointer for synthetic traces) to a
+`type_layouts` entry so heap objects are split into subfield subjects; this
+lets the ownership rules report internal overflows that would otherwise stay
+inside one coarse allocation subject. `metadata.binary` is resolved with
+`addr2line` when available.
+
 ## QEMU TCG plugin
 
 The full plugin lives in `qemu_tcg/hello.c` and writes QLT by default.
+It writes QLT v1 records normally and upgrades the final header to QLT v2 when
+an FS/GS segment base was captured for an x86 segment-relative instruction.
 For lower-level kernelCTF-style collection use
 `qemu_tcg/collect_kernel_trace.sh`; it writes QLT directly and does not need the
 old telnet monitor/logfile step.
