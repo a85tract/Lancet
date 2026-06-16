@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+LABEL org.a85.qlancet.image-rev="20260617-ql-user-deps-v1"
+
 WORKDIR /
 
 RUN apt-get update && apt-get install -y \

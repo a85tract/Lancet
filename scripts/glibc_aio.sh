@@ -80,11 +80,11 @@ resolve_glibc_package() {
 ensure_glibc_version() {
   local requested=${1:?missing glibc version/package id}
   local aio_dir=${GLIBC_AIO_DIR:-/opt/glibc-all-in-one}
-  ensure_glibc_aio
   local version
   version=$(resolve_glibc_package "$requested")
   local lib_root="$aio_dir/libs/$version"
   if [[ ! -d "$lib_root" ]]; then
+    ensure_glibc_aio
     cd "$aio_dir"
     echo "[glibc-aio] downloading $version" >&2
     glibc-aio download "$version" --no-dbg >&2

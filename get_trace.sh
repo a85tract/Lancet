@@ -527,6 +527,7 @@ IMAGE=${IMAGE:-a85_qlancet_qemu}
 BUILD_IMAGE=${BUILD_IMAGE:-auto}
 DOCKERFILE=${DOCKERFILE:-$ROOT_DIR/Dockerfile}
 DOCKER_PLATFORM=${DOCKER_PLATFORM:-${DOCKER_DEFAULT_PLATFORM:-}}
+REQUIRED_IMAGE_REV=${REQUIRED_IMAGE_REV:-20260617-ql-user-deps-v1}
 TIMEOUT=${TIMEOUT:-900}
 TRACE_CPU=${TRACE_CPU:-1}
 TASKSET_MASK=${TASKSET_MASK:-0x2}
@@ -555,12 +556,21 @@ if [[ "$BUILD_IMAGE" == "1" ]]; then
 elif [[ "$BUILD_IMAGE" == "auto" ]]; then
   if ! "${DOCKER_CMD[@]}" image inspect "$IMAGE" >/dev/null 2>&1; then
     NEED_BUILD=1
-  elif [[ -n "$DOCKER_PLATFORM" ]]; then
-    image_platform=$("${DOCKER_CMD[@]}" image inspect --format '{{.Os}}/{{.Architecture}}' "$IMAGE" 2>/dev/null || true)
-    case "$DOCKER_PLATFORM" in
-      "$image_platform"|"$image_platform"/*) ;;
-      *) NEED_BUILD=1 ;;
-    esac
+  else
+    if [[ -n "$REQUIRED_IMAGE_REV" && "$REQUIRED_IMAGE_REV" != "skip" ]]; then
+      image_rev=$("${DOCKER_CMD[@]}" image inspect --format '{{index .Config.Labels "org.a85.qlancet.image-rev"}}' "$IMAGE" 2>/dev/null || true)
+      if [[ "$image_rev" != "$REQUIRED_IMAGE_REV" ]]; then
+        echo "[*] Docker image $IMAGE is stale (rev=${image_rev:-<none>}, need=$REQUIRED_IMAGE_REV); rebuilding"
+        NEED_BUILD=1
+      fi
+    fi
+    if [[ -n "$DOCKER_PLATFORM" ]]; then
+      image_platform=$("${DOCKER_CMD[@]}" image inspect --format '{{.Os}}/{{.Architecture}}' "$IMAGE" 2>/dev/null || true)
+      case "$DOCKER_PLATFORM" in
+        "$image_platform"|"$image_platform"/*) ;;
+        *) NEED_BUILD=1 ;;
+      esac
+    fi
   fi
 fi
 
