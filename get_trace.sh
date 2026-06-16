@@ -23,11 +23,12 @@ list_supported_cases() {
 usage() {
   cat <<'USAGE'
 Usage:
-  ./get_trace.sh <case-name-or-dir>
+  ./get_trace.sh <case-name-or-dir> [trace-path]
   ./get_trace.sh <linux-kernel-version> <trace-format> <exp-path> <trace-path> [sim-dir]
 
 Arguments:
   case-name-or-dir      Case under ./cases or a direct case directory containing config.json.
+                        User-mode cases are dispatched to the user-mode collector.
   linux-kernel-version  Release directory under simulator/releases, e.g. mitigation-v4-6.6.
   trace-format          qlt or text. qlt is the normal binary QLT format.
   exp-path              PoC source (.c, compiled static in Docker) or executable to place at /bin/exp.
@@ -223,6 +224,46 @@ if [[ ${1:-} == "-h" || ${1:-} == "--help" ]]; then
   usage
   exit 0
 fi
+
+maybe_dispatch_user_case() {
+  if [[ $# -lt 1 || $# -gt 2 ]]; then
+    return 0
+  fi
+  local case_arg=$1
+  local cases_dir=${CASES_DIR:-$ROOT_DIR/cases}
+  local case_dir=""
+  if [[ -d "$case_arg" ]]; then
+    case_dir=$(abs_dir "$case_arg")
+  elif [[ -d "$cases_dir/$case_arg" ]]; then
+    case_dir=$(abs_dir "$cases_dir/$case_arg")
+  else
+    return 0
+  fi
+  local case_json=${CASE_CONFIG:-$case_dir/config.json}
+  [[ -f "$case_json" ]] || return 0
+  local is_user
+  is_user=$(python3 - "$case_json" <<'PY'
+import json, sys
+cfg = json.load(open(sys.argv[1], encoding="utf-8"))
+def first(*names):
+    for name in names:
+        value = cfg.get(name)
+        if value not in (None, ""):
+            return str(value).lower()
+    return ""
+release = first("release", "linux_kernel_version", "kernel")
+simulator = first("simulator", "sim", "sim_dir", "simulator_dir")
+plugin_mode = first("plugin_mode")
+print("1" if release == "user" or simulator == "user" or plugin_mode == "user" else "0")
+PY
+  )
+  if [[ "$is_user" == "1" ]]; then
+    echo "[*] user-mode case detected; dispatching to get_user_trace.sh"
+    exec "$ROOT_DIR/get_user_trace.sh" "$@"
+  fi
+}
+
+maybe_dispatch_user_case "$@"
 
 CASE_MODE=0
 if [[ $# -eq 1 ]]; then
