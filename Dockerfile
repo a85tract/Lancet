@@ -1,12 +1,13 @@
 FROM ubuntu:22.04
 
-LABEL org.a85.qlancet.image-rev="20260617-ql-user-deps-v1"
+LABEL org.a85.qlancet.image-rev="20260617-ql-user-binutils-v2"
 
 WORKDIR /
 
 RUN apt-get update && apt-get install -y \
     git wget curl ninja-build build-essential pkg-config \
-    gcc-x86-64-linux-gnu g++-x86-64-linux-gnu libc6-dev-amd64-cross \
+    gcc-x86-64-linux-gnu g++-x86-64-linux-gnu \
+    binutils-x86-64-linux-gnu libc6-dev-amd64-cross \
     libglib2.0-dev libpixman-1-dev libzstd-dev \
     python3-venv python3-pip python3-setuptools python3-wheel \
     libcapstone-dev libcapstone4 libslirp-dev libslirp0 cpio libaio-dev \
