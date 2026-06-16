@@ -24,6 +24,8 @@ pub enum ViolationKind {
     OutOfBoundsWrite,
     UseAfterFreeRead,
     UseAfterFreeWrite,
+    StackUseAfterScopeRead,
+    StackUseAfterScopeWrite,
     DoubleFree,
     InvalidFree,
     MemoryOverlap,
@@ -42,6 +44,8 @@ impl ViolationKind {
             Self::OutOfBoundsWrite,
             Self::UseAfterFreeRead,
             Self::UseAfterFreeWrite,
+            Self::StackUseAfterScopeRead,
+            Self::StackUseAfterScopeWrite,
             Self::DoubleFree,
             Self::InvalidFree,
             Self::MemoryOverlap,
@@ -64,6 +68,12 @@ impl FromStr for ViolationKind {
             "outofboundswrite" | "outofboundeswrite" | "oobw" => Ok(Self::OutOfBoundsWrite),
             "uafread" | "useafterfreeread" => Ok(Self::UseAfterFreeRead),
             "uafwrite" | "useafterfreewrite" => Ok(Self::UseAfterFreeWrite),
+            "stackuseafterscoperead" | "stackreadafterscope" | "stackuafread" => {
+                Ok(Self::StackUseAfterScopeRead)
+            }
+            "stackuseafterscopewrite" | "stackwriteafterscope" | "stackuafwrite" => {
+                Ok(Self::StackUseAfterScopeWrite)
+            }
             "doublefree" => Ok(Self::DoubleFree),
             "invalidfree" => Ok(Self::InvalidFree),
             "memoryoverlap" | "memoverlap" | "overlap" => Ok(Self::MemoryOverlap),

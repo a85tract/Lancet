@@ -26,7 +26,7 @@ fn default_config_json() -> &'static str {
     r#"{
         "malloc_addrs":["0x1000"],
         "free_addrs":["0x2000"],
-        "vulnerability_types":["uninitializedread","outofboundsread","outofboundswrite","uafread","uafwrite","doublefree","invalidfree","memoryoverlap","crossboundary","danglingptr","expiredptr","nullpointerdereference","untrustedptr"],
+        "vulnerability_types":["uninitializedread","outofboundsread","outofboundswrite","uafread","uafwrite","stackuseafterscoperead","stackuseafterscopewrite","doublefree","invalidfree","memoryoverlap","crossboundary","danglingptr","expiredptr","nullpointerdereference","untrustedptr"],
         "symbol_names":{
             "malloc":{"addr":"0x1000","import_reg":"rdi"},
             "free":{"addr":"0x2000","import_reg":"rdi"}
@@ -74,6 +74,25 @@ fn add_rbx_imm8(step: u64, pc: u64, rbx: u64, imm: u8) -> TraceRecord {
     r
 }
 
+fn sub_rsp_imm8(step: u64, pc: u64, rsp: u64, imm: u8) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x83, 0xec, imm]);
+    r.set_reg(RSP, rsp);
+    r
+}
+
+fn add_rsp_imm8(step: u64, pc: u64, rsp: u64, imm: u8) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x83, 0xc4, imm]);
+    r.set_reg(RSP, rsp);
+    r
+}
+
+fn lea_rax_rsp(step: u64, pc: u64, rsp: u64, rax: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x8d, 0x04, 0x24]); // lea rax,[rsp]
+    r.set_reg(RSP, rsp);
+    r.set_reg(RAX, rax);
+    r
+}
+
 fn mov_rdi_rax(step: u64, pc: u64, rax: u64, rdi: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0xc7]);
     r.set_reg(RAX, rax);
@@ -114,6 +133,30 @@ fn read_rsp(step: u64, pc: u64, rsp: u64) -> TraceRecord {
 fn read_abs_rax(step: u64, pc: u64, addr: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x48, 0xa1, 0, 0, 0, 0, 0, 0, 0, 0]); // mov rax,moffs64
     r.bytecode[2..10].copy_from_slice(&addr.to_le_bytes());
+    r
+}
+
+fn call_memset(step: u64, pc: u64, target: u64, dst: u64, len: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0xe8, 0, 0, 0, 0]);
+    r.branch_target = Some(target);
+    r.set_reg(RDI, dst);
+    r.set_reg(RDX, len);
+    r
+}
+
+fn call_realloc(step: u64, pc: u64, target: u64, old: u64, size: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0xe8, 0, 0, 0, 0]);
+    r.branch_target = Some(target);
+    r.set_reg(RDI, old);
+    r.set_reg(RSI, size);
+    r
+}
+
+fn call_calloc(step: u64, pc: u64, target: u64, nmemb: u64, size: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0xe8, 0, 0, 0, 0]);
+    r.branch_target = Some(target);
+    r.set_reg(RDI, nmemb);
+    r.set_reg(RSI, size);
     r
 }
 
@@ -325,6 +368,113 @@ fn stack_and_global_reads_are_modeled_subjects() {
         read_abs_rax(2, 0x400004, 0xffff_8880_0000_1000),
     ];
     let summary = run_qlt("static_subjects", &records);
+    assert_eq!(summary["out_of_bounds_reads"], 0);
+    assert_eq!(summary["uninitialized_reads"], 0);
+}
+
+#[test]
+fn stack_use_after_scope_is_detected_after_rsp_restore() {
+    let records = vec![
+        sub_rsp_imm8(1, 0x400000, 0x7000, 0x20),
+        lea_rax_rsp(2, 0x400004, 0x6fe0, 0x6fe0),
+        add_rsp_imm8(3, 0x400008, 0x6fe0, 0x20),
+        read_rax(4, 0x40000c, 0x6fe0),
+    ];
+    let summary = run_qlt("stack_after_scope", &records);
+    assert_eq!(summary["stack_use_after_scope_reads"], 1);
+    assert_eq!(summary["use_after_free_reads"], 0);
+}
+
+#[test]
+fn heap_oob_into_unmodeled_cell_is_reported() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        read_rbx(4, 0x400009, 0x5010),
+    ];
+    let summary = run_qlt("heap_oob_unknown_cell", &records);
+    assert_eq!(summary["out_of_bounds_reads"], 1);
+}
+
+#[test]
+fn unknown_owner_dereference_is_untrusted_ptr() {
+    let records = vec![read_abs_rax(1, 0x400000, 0x0040_0000)];
+    let summary = run_qlt("untrusted_unknown", &records);
+    assert_eq!(summary["untrusted_ptrs"], 1);
+}
+
+#[test]
+fn memset_summary_marks_heap_bytes_initialized() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x8),
+        nop(2, 0x400005, 0x5000),
+        call_memset(3, 0x400006, 0x3000, 0x5000, 0x8),
+        read_rax(4, 0x40000b, 0x5000),
+    ];
+    let summary = run_qlt_with_config(
+        "memset_summary",
+        &records,
+        r#"{
+            "malloc_addrs":["0x1000"],
+            "free_addrs":[],
+            "vulnerability_types":["uninitializedread","outofboundswrite","untrustedptr"],
+            "symbol_names":{
+                "malloc":{"addr":"0x1000","import_reg":"rdi"},
+                "memset":{"addr":"0x3000"}
+            }
+        }"#,
+    );
+    assert_eq!(summary["uninitialized_reads"], 0);
+    assert_eq!(summary["out_of_bounds_writes"], 0);
+    assert_eq!(summary["untrusted_ptrs"], 0);
+}
+
+#[test]
+fn realloc_invalidates_old_alias_even_when_address_is_reused() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        mov_rdi_rax(4, 0x400009, 0x5000, 0),
+        call_realloc(5, 0x40000c, 0x3000, 0x5000, 0x20),
+        nop(6, 0x400011, 0x5000),
+        write_ptr(7, 0x400012, RBX, 0x5000),
+    ];
+    let summary = run_qlt_with_config(
+        "realloc_alias",
+        &records,
+        r#"{
+            "malloc_addrs":["0x1000"],
+            "free_addrs":[],
+            "vulnerability_types":["uafwrite","outofboundswrite"],
+            "symbol_names":{
+                "malloc":{"addr":"0x1000","import_reg":"rdi"},
+                "realloc":{"addr":"0x3000"}
+            }
+        }"#,
+    );
+    assert_eq!(summary["use_after_free_writes"], 1);
+    assert_eq!(summary["out_of_bounds_writes"], 0);
+}
+
+#[test]
+fn calloc_uses_product_size_and_zero_initializes() {
+    let records = vec![
+        call_calloc(1, 0x400000, 0x3000, 2, 8),
+        nop(2, 0x400005, 0x5000),
+        read_rax(3, 0x400006, 0x5008),
+    ];
+    let summary = run_qlt_with_config(
+        "calloc_product",
+        &records,
+        r#"{
+            "malloc_addrs":[],
+            "free_addrs":[],
+            "vulnerability_types":["uninitializedread","outofboundsread"],
+            "symbol_names":{"calloc":{"addr":"0x3000"}}
+        }"#,
+    );
     assert_eq!(summary["out_of_bounds_reads"], 0);
     assert_eq!(summary["uninitialized_reads"], 0);
 }

@@ -144,8 +144,10 @@ impl MemoryModel {
         self.subjects
             .values()
             .find(|s| {
-                matches!(s.kind, SubjectKind::Heap | SubjectKind::Page)
-                    && !s.freed
+                matches!(
+                    s.kind,
+                    SubjectKind::Heap | SubjectKind::Page | SubjectKind::Stack
+                ) && !s.freed
                     && s.start.zip(s.size).is_some_and(|(start, size)| {
                         ptr >= start && ptr < start.saturating_add(size)
                     })
@@ -157,8 +159,10 @@ impl MemoryModel {
         self.subjects
             .values()
             .find(|s| {
-                matches!(s.kind, SubjectKind::Heap | SubjectKind::Page)
-                    && s.freed
+                matches!(
+                    s.kind,
+                    SubjectKind::Heap | SubjectKind::Page | SubjectKind::Stack
+                ) && s.freed
                     && s.start.zip(s.size).is_some_and(|(start, size)| {
                         ptr >= start && ptr < start.saturating_add(size)
                     })
@@ -171,6 +175,34 @@ impl MemoryModel {
             .values()
             .find(|s| s.kind == SubjectKind::Heap && s.freed && s.start == Some(ptr))
             .map(|s| s.id)
+    }
+
+    pub fn subject_kind(&self, subject: SubjectId) -> SubjectKind {
+        self.subjects
+            .get(&subject)
+            .map(|s| s.kind)
+            .unwrap_or(SubjectKind::Unknown)
+    }
+
+    pub fn active_subjects_of_kind_overlapping(
+        &self,
+        kind: SubjectKind,
+        start: u64,
+        size: u64,
+    ) -> Vec<SubjectId> {
+        let end = start.saturating_add(size.max(1));
+        self.subjects
+            .values()
+            .filter(|s| {
+                s.kind == kind
+                    && !s.freed
+                    && s.start.zip(s.size).is_some_and(|(s_start, s_size)| {
+                        let s_end = s_start.saturating_add(s_size.max(1));
+                        start < s_end && s_start < end
+                    })
+            })
+            .map(|s| s.id)
+            .collect()
     }
 
     pub fn subject_contains(&self, subject: SubjectId, addr: u64) -> bool {

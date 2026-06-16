@@ -8,7 +8,7 @@ use crate::decode::{self, DecodedInstruction, ResolvedAccess};
 use crate::ownership::{
     ALLOCATOR_SUBJECT, MemoryModel, OwnerSet, RegState, SubjectKind, owner_set_one, sets_intersect,
 };
-use crate::registers::{RAX, RBP, RCX, RDI, RSI, RSP, RegId, id_from_iced};
+use crate::registers::{RAX, RBP, RCX, RDI, RDX, RSI, RSP, RegId, id_from_iced};
 use crate::trace::TRACE_FLAG_IS_CALL;
 use crate::trace::TraceRecord;
 use crate::vuln::{AccessKind, Violation, ViolationKind};
@@ -45,6 +45,19 @@ struct PendingAlloc {
     zero_initialized: bool,
     lookahead_left: u8,
 }
+
+#[derive(Debug, Clone)]
+struct PendingRealloc {
+    return_pc: u64,
+    old_ptr: u64,
+    old_pointer_owners: OwnerSet,
+    size: u64,
+    symbol: Option<String>,
+    call_pc: u64,
+    call_step: u64,
+    lookahead_left: u8,
+}
+
 #[derive(Debug, Clone)]
 struct PendingFree {
     return_pc: u64,
@@ -87,6 +100,7 @@ pub struct Analyzer {
     violations: Vec<Violation>,
     memory_events: Vec<MemoryEvent>,
     pending_allocs: Vec<PendingAlloc>,
+    pending_reallocs: Vec<PendingRealloc>,
     pending_frees: Vec<PendingFree>,
     pending_page_allocs: Vec<PendingPageAlloc>,
     pending_page_frees: Vec<PendingPageFree>,
@@ -104,6 +118,7 @@ impl Analyzer {
             violations: Vec::new(),
             memory_events: Vec::new(),
             pending_allocs: Vec::new(),
+            pending_reallocs: Vec::new(),
             pending_frees: Vec::new(),
             pending_page_allocs: Vec::new(),
             pending_page_frees: Vec::new(),
@@ -170,6 +185,68 @@ impl Analyzer {
                 self.pending_allocs.push(retry);
             }
         }
+
+        let mut reallocs = Vec::new();
+        self.pending_reallocs.retain(|pending| {
+            if pending.return_pc == record.pc
+                || (pending.lookahead_left > 0 && record.step > pending.call_step)
+            {
+                reallocs.push(pending.clone());
+                false
+            } else {
+                true
+            }
+        });
+        for pending in reallocs {
+            match record.reg(RAX) {
+                Some(new_ptr) if new_ptr != 0 => {
+                    if pending.old_ptr != 0 {
+                        self.handle_free(
+                            pending.call_step,
+                            pending.call_pc,
+                            pending.old_ptr,
+                            pending.old_pointer_owners.clone(),
+                            pending.symbol.as_ref().map(|name| format!("{name}:old")),
+                        );
+                    }
+                    self.add_allocation(
+                        pending.call_step,
+                        pending.call_pc,
+                        new_ptr,
+                        pending.size,
+                        pending.symbol.clone(),
+                        false,
+                    );
+                    self.regs.insert(
+                        RAX,
+                        RegState {
+                            value_owners: owner_set_one(
+                                self.subject_at_start(new_ptr).unwrap_or(ALLOCATOR_SUBJECT),
+                            ),
+                            pointee_owners: owner_set_one(
+                                self.subject_at_start(new_ptr).unwrap_or(ALLOCATOR_SUBJECT),
+                            ),
+                        },
+                    );
+                }
+                Some(0) if pending.size == 0 && pending.old_ptr != 0 => {
+                    self.handle_free(
+                        pending.call_step,
+                        pending.call_pc,
+                        pending.old_ptr,
+                        pending.old_pointer_owners,
+                        pending.symbol,
+                    );
+                }
+                _ if pending.lookahead_left > 1 => {
+                    let mut retry = pending;
+                    retry.lookahead_left -= 1;
+                    self.pending_reallocs.push(retry);
+                }
+                _ => {}
+            }
+        }
+
         let mut frees = Vec::new();
         self.pending_frees.retain(|pending| {
             if pending.return_pc == record.pc {
@@ -272,6 +349,12 @@ impl Analyzer {
             .skip_return_for(target)
             .unwrap_or_else(|| record.pc.wrapping_add(instruction.len() as u64));
         let symbol = self.config.symbol(target).cloned();
+        if symbol
+            .as_ref()
+            .is_some_and(|s| self.apply_library_summary(record, s))
+        {
+            return;
+        }
         if is_page_alloc_symbol(symbol.as_ref(), target, self.config.page_allocator) {
             let order = record.reg(RSI).unwrap_or(0);
             self.pending_page_allocs.push(PendingPageAlloc {
@@ -297,6 +380,20 @@ impl Analyzer {
                 call_pc: record.pc,
                 call_step: record.step,
                 symbol: symbol.map(|s| s.name),
+            });
+        } else if symbol.as_ref().is_some_and(|s| is_realloc_name(&s.name)) {
+            let old_ptr = record.reg(RDI).unwrap_or(0);
+            let old_pointer_owners = self.reg_state(RDI).pointee_owners;
+            let size = record.reg(RSI).unwrap_or(0);
+            self.pending_reallocs.push(PendingRealloc {
+                return_pc,
+                old_ptr,
+                old_pointer_owners,
+                size,
+                symbol: symbol.as_ref().map(|s| s.name.clone()),
+                call_pc: record.pc,
+                call_step: record.step,
+                lookahead_left: 0,
             });
         } else if self.config.malloc_addrs.contains(&target)
             || symbol.as_ref().is_some_and(|s| is_alloc_name(&s.name))
@@ -346,6 +443,16 @@ impl Analyzer {
         if let Some(size) = symbol.malloc_size {
             return Some(size);
         }
+        let lower = symbol.name.to_ascii_lowercase();
+        if lower.contains("calloc") {
+            return record
+                .reg(RDI)
+                .zip(record.reg(RSI))
+                .map(|(nmemb, size)| nmemb.saturating_mul(size));
+        }
+        if is_realloc_name(&lower) {
+            return record.reg(RSI);
+        }
         if symbol.use_value_to_size {
             return record
                 .value
@@ -358,6 +465,52 @@ impl Analyzer {
                 ((v as i128) + symbol.offset as i128).max(0) as u64
             }
         })
+    }
+
+    fn apply_library_summary(&mut self, record: &TraceRecord, symbol: &SymbolConfig) -> bool {
+        let name = symbol.name.to_ascii_lowercase();
+        if name.contains("memcpy") || name.contains("memmove") || name.contains("mempcpy") {
+            let Some(dst) = record.reg(RDI) else {
+                return false;
+            };
+            let Some(src) = record.reg(RSI) else {
+                return false;
+            };
+            let len = record.reg(RDX).unwrap_or(0);
+            self.copy_memory_summary(record, dst, src, len);
+            self.regs.insert(RAX, self.reg_state(RDI));
+            self.memory_events.push(MemoryEvent {
+                step: record.step,
+                pc: hex(record.pc),
+                kind: "memcpy-summary".into(),
+                symbol: Some(symbol.name.clone()),
+                ptr: Some(hex(dst)),
+                size: Some(hex(len)),
+            });
+            return true;
+        }
+        if name.contains("memset") || name.contains("bzero") || name.contains("clear_user") {
+            let Some(dst) = record.reg(RDI) else {
+                return false;
+            };
+            let len = if name.contains("bzero") {
+                record.reg(RSI).unwrap_or(0)
+            } else {
+                record.reg(RDX).unwrap_or(0)
+            };
+            self.set_memory_summary(record, dst, len);
+            self.regs.insert(RAX, self.reg_state(RDI));
+            self.memory_events.push(MemoryEvent {
+                step: record.step,
+                pc: hex(record.pc),
+                kind: "memset-summary".into(),
+                symbol: Some(symbol.name.clone()),
+                ptr: Some(hex(dst)),
+                size: Some(hex(len)),
+            });
+            return true;
+        }
+        false
     }
 
     fn add_allocation(
@@ -679,6 +832,16 @@ impl Analyzer {
 
     fn observe_one_access(&mut self, record: &TraceRecord, access: &ResolvedAccess, addr: u64) {
         let pointer_owners = self.pointer_owner_from_access(access);
+        self.observe_one_access_with_pointer(record, access, addr, pointer_owners);
+    }
+
+    fn observe_one_access_with_pointer(
+        &mut self,
+        record: &TraceRecord,
+        access: &ResolvedAccess,
+        addr: u64,
+        pointer_owners: OwnerSet,
+    ) {
         let cell = self.mem.cell(addr);
         if addr < 0x1000
             && matches!(
@@ -704,11 +867,22 @@ impl Analyzer {
             let uaf = pointer_owners.iter().copied().find(|owner| {
                 self.mem.subject_freed(*owner) && self.mem.subject_contains(*owner, addr)
             });
-            if uaf.is_some() {
-                let kind = if is_write {
+            if let Some(owner) = uaf {
+                let kind = if self.mem.subject_kind(owner) == SubjectKind::Stack {
+                    if is_write {
+                        ViolationKind::StackUseAfterScopeWrite
+                    } else {
+                        ViolationKind::StackUseAfterScopeRead
+                    }
+                } else if is_write {
                     ViolationKind::UseAfterFreeWrite
                 } else {
                     ViolationKind::UseAfterFreeRead
+                };
+                let note = if self.mem.subject_kind(owner) == SubjectKind::Stack {
+                    "stale pointer owner refers to an expired stack range"
+                } else {
+                    "stale pointer owner refers to a freed allocation range"
                 };
                 self.record(
                     record.step,
@@ -719,7 +893,7 @@ impl Analyzer {
                     1,
                     pointer_owners.clone(),
                     cell.clone(),
-                    Some("stale pointer owner refers to a freed allocation range".into()),
+                    Some(note.into()),
                 );
                 return;
             }
@@ -737,6 +911,36 @@ impl Analyzer {
                     pointer_owners.clone(),
                     cell.clone(),
                     Some("dereference through an expired pointer owner".into()),
+                );
+                return;
+            }
+            if cell.cell_owners.is_empty() && addr >= 0x1000 {
+                let (kind, note) = if pointer_owners.is_empty() {
+                    (
+                        ViolationKind::UntrustedPtr,
+                        "dereference of an address with no modeled cell owner",
+                    )
+                } else if is_write {
+                    (
+                        ViolationKind::OutOfBoundsWrite,
+                        "pointer owner is known but target cell has no owner",
+                    )
+                } else {
+                    (
+                        ViolationKind::OutOfBoundsRead,
+                        "pointer owner is known but target cell has no owner",
+                    )
+                };
+                self.record(
+                    record.step,
+                    record.pc,
+                    kind,
+                    access.kind,
+                    addr,
+                    1,
+                    pointer_owners.clone(),
+                    cell.clone(),
+                    Some(note.into()),
                 );
                 return;
             }
@@ -778,9 +982,70 @@ impl Analyzer {
         }
     }
 
+    fn copy_memory_summary(&mut self, record: &TraceRecord, dst: u64, src: u64, len: u64) {
+        let src_pointer = self.reg_state(RSI).pointee_owners;
+        let dst_pointer = self.reg_state(RDI).pointee_owners;
+        let mut source_cells = Vec::with_capacity(len.min(4096) as usize);
+        for off in 0..len {
+            let src_addr = src.saturating_add(off);
+            let dst_addr = dst.saturating_add(off);
+            let read = ResolvedAccess {
+                address: src_addr,
+                size: 1,
+                kind: AccessKind::Read,
+                base: Some(RSI),
+                index: None,
+            };
+            let write = ResolvedAccess {
+                address: dst_addr,
+                size: 1,
+                kind: AccessKind::Write,
+                base: Some(RDI),
+                index: None,
+            };
+            self.observe_one_access_with_pointer(record, &read, src_addr, src_pointer.clone());
+            self.observe_one_access_with_pointer(record, &write, dst_addr, dst_pointer.clone());
+            source_cells.push(self.mem.cell(src_addr));
+        }
+        for (off, src_cell) in source_cells.into_iter().enumerate() {
+            let dst_addr = dst.saturating_add(off as u64);
+            let dst_cell = self.mem.cell_mut(dst_addr);
+            dst_cell.value_owners = src_cell.value_owners;
+            dst_cell.pointee_owners = src_cell.pointee_owners;
+            dst_cell.last_write_pc = Some(record.pc);
+        }
+    }
+
+    fn set_memory_summary(&mut self, record: &TraceRecord, dst: u64, len: u64) {
+        let dst_pointer = self.reg_state(RDI).pointee_owners;
+        for off in 0..len {
+            let dst_addr = dst.saturating_add(off);
+            let write = ResolvedAccess {
+                address: dst_addr,
+                size: 1,
+                kind: AccessKind::Write,
+                base: Some(RDI),
+                index: None,
+            };
+            self.observe_one_access_with_pointer(record, &write, dst_addr, dst_pointer.clone());
+            let cell_owners = self.mem.cell(dst_addr).cell_owners;
+            let cell = self.mem.cell_mut(dst_addr);
+            cell.value_owners = if cell_owners.is_empty() {
+                dst_pointer.clone()
+            } else {
+                cell_owners
+            };
+            cell.pointee_owners.clear();
+            cell.last_write_pc = Some(record.pc);
+        }
+    }
+
     fn apply_instruction_semantics(&mut self, record: &TraceRecord, decoded: &DecodedInstruction) {
         let ins = &decoded.instruction;
         if decode::is_call(ins) || decode::is_ret(ins) {
+            return;
+        }
+        if self.apply_stack_semantics(record, ins) {
             return;
         }
         if self.apply_rep_string(record, ins) {
@@ -792,6 +1057,193 @@ impl Analyzer {
         }
         self.apply_loads_and_stores(record, decoded);
         self.apply_register_writes(record, ins);
+    }
+
+    fn apply_stack_semantics(&mut self, record: &TraceRecord, ins: &Instruction) -> bool {
+        match ins.mnemonic() {
+            Mnemonic::Push => {
+                let Some(old_rsp) = record.reg(RSP) else {
+                    return false;
+                };
+                let size = stack_slot_size(ins);
+                let new_rsp = old_rsp.saturating_sub(size);
+                let src_state = stack_source_state(self, record, ins);
+                self.allocate_stack_object(
+                    record.step,
+                    record.pc,
+                    new_rsp,
+                    size,
+                    true,
+                    src_state.pointee_owners,
+                );
+                self.regs.insert(
+                    RSP,
+                    RegState {
+                        value_owners: self.owner_set_for_value(new_rsp),
+                        pointee_owners: self.owner_set_for_value(new_rsp),
+                    },
+                );
+                true
+            }
+            Mnemonic::Pop => {
+                let Some(old_rsp) = record.reg(RSP) else {
+                    return false;
+                };
+                let size = stack_slot_size(ins);
+                if ins.op0_kind() == OpKind::Register
+                    && let Some(dst) = id_from_iced(ins.op0_register())
+                {
+                    let access = ResolvedAccess {
+                        address: old_rsp,
+                        size: size as u32,
+                        kind: AccessKind::Read,
+                        base: Some(RSP),
+                        index: None,
+                    };
+                    let mut state = self.state_from_memory(&access);
+                    if !is_pointer_width(size as u32) {
+                        state.pointee_owners.clear();
+                    }
+                    self.regs.insert(dst, state);
+                }
+                self.free_stack_range(record.step, record.pc, old_rsp, size);
+                let new_rsp = old_rsp.saturating_add(size);
+                self.regs.insert(
+                    RSP,
+                    RegState {
+                        value_owners: self.owner_set_for_value(new_rsp),
+                        pointee_owners: self.owner_set_for_value(new_rsp),
+                    },
+                );
+                true
+            }
+            Mnemonic::Sub
+                if ins.op0_kind() == OpKind::Register
+                    && id_from_iced(ins.op0_register()) == Some(RSP) =>
+            {
+                let Some(old_rsp) = record.reg(RSP) else {
+                    return false;
+                };
+                let Some(size) = right_operand_value(record, ins) else {
+                    return false;
+                };
+                let new_rsp = old_rsp.saturating_sub(size);
+                self.allocate_stack_object(
+                    record.step,
+                    record.pc,
+                    new_rsp,
+                    size,
+                    false,
+                    OwnerSet::new(),
+                );
+                self.regs.insert(
+                    RSP,
+                    RegState {
+                        value_owners: self.owner_set_for_value(new_rsp),
+                        pointee_owners: self.owner_set_for_value(new_rsp),
+                    },
+                );
+                true
+            }
+            Mnemonic::Add
+                if ins.op0_kind() == OpKind::Register
+                    && id_from_iced(ins.op0_register()) == Some(RSP) =>
+            {
+                let Some(old_rsp) = record.reg(RSP) else {
+                    return false;
+                };
+                let Some(size) = right_operand_value(record, ins) else {
+                    return false;
+                };
+                self.free_stack_range(record.step, record.pc, old_rsp, size);
+                let new_rsp = old_rsp.saturating_add(size);
+                self.regs.insert(
+                    RSP,
+                    RegState {
+                        value_owners: self.owner_set_for_value(new_rsp),
+                        pointee_owners: self.owner_set_for_value(new_rsp),
+                    },
+                );
+                true
+            }
+            Mnemonic::Leave => {
+                let Some(old_rsp) = record.reg(RSP) else {
+                    return false;
+                };
+                let Some(old_rbp) = record.reg(RBP) else {
+                    return false;
+                };
+                let end = old_rbp.saturating_add(8);
+                if end > old_rsp {
+                    self.free_stack_range(record.step, record.pc, old_rsp, end - old_rsp);
+                }
+                true
+            }
+            _ => false,
+        }
+    }
+
+    fn allocate_stack_object(
+        &mut self,
+        step: u64,
+        pc: u64,
+        start: u64,
+        size: u64,
+        initialized: bool,
+        pointee_owners: OwnerSet,
+    ) {
+        let size = size.max(1);
+        let subject = self.mem.fresh_subject(SubjectKind::Stack, start, size);
+        for off in 0..size {
+            let addr = start.saturating_add(off);
+            let cell = self.mem.cell_mut(addr);
+            cell.cell_owners.insert(subject);
+            if initialized {
+                cell.value_owners.clear();
+                cell.value_owners.insert(subject);
+            } else if cell.value_owners.is_empty() {
+                cell.value_owners.insert(ALLOCATOR_SUBJECT);
+            }
+            cell.pointee_owners = pointee_owners.clone();
+        }
+        self.memory_events.push(MemoryEvent {
+            step,
+            pc: hex(pc),
+            kind: "stack-allocation".into(),
+            symbol: None,
+            ptr: Some(hex(start)),
+            size: Some(hex(size)),
+        });
+    }
+
+    fn free_stack_range(&mut self, step: u64, pc: u64, start: u64, size: u64) {
+        let size = size.max(1);
+        let subjects =
+            self.mem
+                .active_subjects_of_kind_overlapping(SubjectKind::Stack, start, size);
+        for subject in subjects {
+            let (subject_start, subject_size) = self
+                .mem
+                .subjects
+                .get(&subject)
+                .and_then(|s| s.start.zip(s.size))
+                .unwrap_or((start, size));
+            self.mem.mark_freed(subject);
+            for off in 0..subject_size.max(1) {
+                self.mem
+                    .cell_mut(subject_start.saturating_add(off))
+                    .cell_owners
+                    .shift_remove(&subject);
+            }
+        }
+        self.memory_events.push(MemoryEvent {
+            step,
+            pc: hex(pc),
+            kind: "stack-free".into(),
+            symbol: None,
+            ptr: Some(hex(start)),
+            size: Some(hex(size)),
+        });
     }
 
     fn apply_loads_and_stores(&mut self, record: &TraceRecord, decoded: &DecodedInstruction) {
@@ -1319,7 +1771,11 @@ fn right_operand_value(record: &TraceRecord, ins: &Instruction) -> Option<u64> {
 }
 
 fn immediate(ins: &Instruction) -> u64 {
-    match ins.op1_kind() {
+    immediate_at(ins, 1)
+}
+
+fn immediate_at(ins: &Instruction, operand: u32) -> u64 {
+    match ins.op_kind(operand) {
         OpKind::Immediate8 => ins.immediate8() as u64,
         OpKind::Immediate8to16 => ins.immediate8to16() as u64,
         OpKind::Immediate8to32 => ins.immediate8to32() as u64,
@@ -1347,6 +1803,42 @@ fn state_for_immediate(analyzer: &Analyzer, value: u64) -> RegState {
     RegState {
         value_owners: owners.clone(),
         pointee_owners: owners,
+    }
+}
+
+fn stack_slot_size(ins: &Instruction) -> u64 {
+    for i in 0..ins.op_count() {
+        if ins.op_kind(i) == OpKind::Register {
+            let reg = match i {
+                0 => ins.op0_register(),
+                1 => ins.op1_register(),
+                2 => ins.op2_register(),
+                3 => ins.op3_register(),
+                _ => Register::None,
+            };
+            return u64::from((reg.size() as u32).max(8));
+        }
+    }
+    8
+}
+
+fn stack_source_state(analyzer: &Analyzer, record: &TraceRecord, ins: &Instruction) -> RegState {
+    match ins.op0_kind() {
+        OpKind::Register => id_from_iced(ins.op0_register())
+            .map(|reg| analyzer.reg_state(reg))
+            .unwrap_or_default(),
+        OpKind::Immediate8
+        | OpKind::Immediate8to16
+        | OpKind::Immediate8to32
+        | OpKind::Immediate8to64
+        | OpKind::Immediate16
+        | OpKind::Immediate32
+        | OpKind::Immediate32to64
+        | OpKind::Immediate64 => state_for_immediate(analyzer, immediate_at(ins, 0)),
+        OpKind::Memory => analyzer
+            .first_memory_read_state(record, ins)
+            .unwrap_or_default(),
+        _ => RegState::default(),
     }
 }
 
@@ -1420,6 +1912,10 @@ fn is_alloc_name(name: &str) -> bool {
 fn is_free_name(name: &str) -> bool {
     let lower = name.to_ascii_lowercase();
     lower.contains("free") || lower == "kfree"
+}
+
+fn is_realloc_name(name: &str) -> bool {
+    name.to_ascii_lowercase().contains("realloc")
 }
 
 fn is_page_alloc_symbol(
