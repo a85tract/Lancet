@@ -925,7 +925,7 @@ impl Analyzer {
         self.stack_pages.insert(start, subject);
     }
 
-    fn ensure_global_page(&mut self, addr: u64, size: u32) {
+    fn ensure_global_page(&mut self, addr: u64, _size: u32) {
         let start = addr & !(PAGE_SIZE - 1);
         if self.global_pages.contains_key(&start) {
             return;
@@ -933,8 +933,8 @@ impl Analyzer {
         let subject = self
             .mem
             .ensure_range_owner(SubjectKind::Global, start, PAGE_SIZE);
-        for off in 0..size.max(1) {
-            let cell = self.mem.cell_mut(addr.saturating_add(off as u64));
+        for off in 0..PAGE_SIZE {
+            let cell = self.mem.cell_mut(start.saturating_add(off));
             cell.cell_owners.insert(subject);
             if cell.value_owners.is_empty() {
                 cell.value_owners.insert(subject);
@@ -1067,8 +1067,10 @@ impl Analyzer {
                 );
                 return;
             }
+            let ambiguous_pointer = pointer_owners.len() > 1
+                && !self.is_benign_static_multi_owner(&pointer_owners, &cell.cell_owners);
             if !pointer_owners.is_empty()
-                && (pointer_owners.len() > 1 || !sets_intersect(&pointer_owners, &cell.cell_owners))
+                && (ambiguous_pointer || !sets_intersect(&pointer_owners, &cell.cell_owners))
             {
                 let kind = if is_write {
                     ViolationKind::OutOfBoundsWrite
@@ -1105,6 +1107,20 @@ impl Analyzer {
                 );
             }
         }
+    }
+
+    fn is_benign_static_multi_owner(
+        &self,
+        pointer_owners: &OwnerSet,
+        cell_owners: &OwnerSet,
+    ) -> bool {
+        sets_intersect(pointer_owners, cell_owners)
+            && pointer_owners
+                .iter()
+                .all(|owner| self.mem.subject_kind(*owner) == SubjectKind::Stack)
+            && cell_owners
+                .iter()
+                .all(|owner| self.mem.subject_kind(*owner) == SubjectKind::Stack)
     }
 
     fn copy_memory_summary(&mut self, record: &TraceRecord, dst: u64, src: u64, len: u64) {
