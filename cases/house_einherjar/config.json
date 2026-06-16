@@ -20,5 +20,7 @@
   "trigger_onlycpu": "all",
   "trigger_window": 0,
   "qlt_block_mb": 4,
-  "qlt_zstd": 1
+  "qlt_zstd": 1,
+  "glibc_version": "2.32-0ubuntu3_amd64",
+  "extra_plugin_args": "from=0x400000,to=0x405000,stop=0x4017f2"
 }

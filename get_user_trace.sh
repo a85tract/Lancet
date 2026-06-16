@@ -18,6 +18,8 @@ Environment:
   TIMEOUT=120                 qemu-x86_64 timeout seconds.
   START_SYMBOL=name           Trigger symbol for case/direct mode.
   STOP_SYMBOL=name            Optional stop symbol for bounded traces.
+  GLIBC_VERSION=2.32-0ubuntu3_amd64
+                               Patch dynamic PoCs to this glibc-all-in-one id.
   EXTRA_PLUGIN_ARGS='...'     Extra plugin args appended after defaults.
 USAGE
 }
@@ -83,6 +85,7 @@ vals = {
  'START_SYMBOL_CASE': first('start_symbol', 'trigger_symbol', default='main'),
  'STOP_SYMBOL_CASE': first('stop_symbol', default=''),
  'ANALYZER_CONFIG': path_value(first('analyzer_config', 'qlancet_config')),
+ 'GLIBC_VERSION_CASE': first('glibc_version', 'glibc', default=''),
  'TIMEOUT_CASE': first('timeout', default=''),
  'EXTRA_PLUGIN_ARGS_CASE': first('extra_plugin_args', default=''),
 }
@@ -92,6 +95,7 @@ PY
   if [[ $# -eq 2 ]]; then TRACE_PATH=$2; fi
   START_SYMBOL=${START_SYMBOL:-$START_SYMBOL_CASE}
   STOP_SYMBOL=${STOP_SYMBOL:-$STOP_SYMBOL_CASE}
+  GLIBC_VERSION=${GLIBC_VERSION:-$GLIBC_VERSION_CASE}
   TIMEOUT=${TIMEOUT:-${TIMEOUT_CASE:-120}}
   EXTRA_PLUGIN_ARGS=${EXTRA_PLUGIN_ARGS:-${EXTRA_PLUGIN_ARGS_CASE:-}}
 else
@@ -100,6 +104,7 @@ else
   TRACE_PATH=$2
   START_SYMBOL=${START_SYMBOL:-${3:-main}}
   STOP_SYMBOL=${STOP_SYMBOL:-${4:-}}
+  GLIBC_VERSION=${GLIBC_VERSION:-}
   TIMEOUT=${TIMEOUT:-120}
   EXTRA_PLUGIN_ARGS=${EXTRA_PLUGIN_ARGS:-}
 fi
@@ -118,6 +123,14 @@ IMAGE=${IMAGE:-a85_qlancet_qemu}
 BUILD_IMAGE=${BUILD_IMAGE:-auto}
 DOCKERFILE=${DOCKERFILE:-$ROOT_DIR/Dockerfile}
 CONTAINER_NAME=${CONTAINER_NAME:-a85_get_user_trace_$(date +%s)_$$}
+DOCKER_NETWORK=${DOCKER_NETWORK:-}
+if [[ -z "$DOCKER_NETWORK" ]]; then
+  if [[ -n "$GLIBC_VERSION" ]]; then
+    DOCKER_NETWORK=bridge
+  else
+    DOCKER_NETWORK=none
+  fi
+fi
 if command -v docker >/dev/null 2>&1; then DOCKER_CMD=(docker); elif command -v sudo >/dev/null 2>&1; then DOCKER_CMD=(sudo docker); else die "docker not found"; fi
 NEED_BUILD=0
 if [[ "$BUILD_IMAGE" == "1" ]]; then NEED_BUILD=1; elif [[ "$BUILD_IMAGE" == "auto" ]]; then if ! "${DOCKER_CMD[@]}" image inspect "$IMAGE" >/dev/null 2>&1; then NEED_BUILD=1; fi; fi
@@ -132,12 +145,18 @@ trap cleanup EXIT INT TERM
 echo "[*] exp          : $EXP_PATH"
 echo "[*] start symbol : ${START_SYMBOL:-<none>}"
 echo "[*] stop symbol  : ${STOP_SYMBOL:-<none>}"
+echo "[*] glibc        : ${GLIBC_VERSION:-<system/static>}"
 echo "[*] output       : $TRACE_PATH"
 echo "[*] docker image : $IMAGE"
 
+GLIBC_AIO_HOST_CACHE=${GLIBC_AIO_HOST_CACHE:-$ROOT_DIR/.cache/glibc-all-in-one}
+if [[ -n "$GLIBC_VERSION" ]]; then
+  mkdir -p "$GLIBC_AIO_HOST_CACHE"
+fi
+
 DOCKER_ARGS=(
   run --rm -i --name "$CONTAINER_NAME"
-  --network none
+  --network "$DOCKER_NETWORK"
   --security-opt seccomp=unconfined
   -v "$ROOT_DIR":/work/a85
   -v "$EXP_DIR":/inputs/exp_dir:ro
@@ -146,11 +165,15 @@ DOCKER_ARGS=(
   -e OUT_BASE="$TRACE_BASE"
   -e START_SYMBOL="${START_SYMBOL:-}"
   -e STOP_SYMBOL="${STOP_SYMBOL:-}"
+  -e GLIBC_VERSION="${GLIBC_VERSION:-}"
   -e TIMEOUT="$TIMEOUT"
   -e BUILD_REL="$BUILD_REL"
   -e EXP_BUILD_CMD="${EXP_BUILD_CMD:-}"
   -e EXTRA_PLUGIN_ARGS="$EXTRA_PLUGIN_ARGS"
 )
+if [[ -n "$GLIBC_VERSION" ]]; then
+  DOCKER_ARGS+=(-v "$GLIBC_AIO_HOST_CACHE":/opt/glibc-all-in-one -e GLIBC_AIO_DIR=/opt/glibc-all-in-one)
+fi
 
 "${DOCKER_CMD[@]}" "${DOCKER_ARGS[@]}" "$IMAGE" bash -s <<'IN_CONTAINER'
 set -euo pipefail
@@ -171,11 +194,23 @@ elif [[ -n "${BUILD_REL:-}" ]]; then
   cd /work/a85/qemu_tcg
 else
   case "$EXP_IN" in
-    *.c) gcc -static -no-pie -O0 -g -fno-stack-protector -fno-omit-frame-pointer "$EXP_IN" -o "$EXP_OUT" ;;
+    *.c)
+      if [[ -n "${GLIBC_VERSION:-}" ]]; then
+        source /work/a85/scripts/glibc_aio.sh
+        compile_c_with_glibc "$EXP_IN" "$EXP_OUT" "$GLIBC_VERSION" \
+          -no-pie -O0 -g -fno-stack-protector -fno-omit-frame-pointer
+      else
+        gcc -static -no-pie -O0 -g -fno-stack-protector -fno-omit-frame-pointer "$EXP_IN" -o "$EXP_OUT"
+      fi
+      ;;
     *) cp "$EXP_IN" "$EXP_OUT" ;;
   esac
 fi
 chmod +x "$EXP_OUT"
+if [[ -n "${GLIBC_VERSION:-}" ]]; then
+  source /work/a85/scripts/glibc_aio.sh
+  patch_elf_to_glibc "$EXP_OUT" "$GLIBC_VERSION"
+fi
 
 resolve_sym() {
   local sym=$1
