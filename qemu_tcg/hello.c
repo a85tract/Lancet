@@ -951,12 +951,11 @@ static gboolean read_reg_descriptor_value(reg_desc_t *d, uint64_t *out)
         return FALSE;
     }
     GByteArray *val = g_byte_array_sized_new(16);
-    int sz = qemu_plugin_read_register(d->handle, val);
-    if (sz <= 0 || val->len != (guint)sz) {
+    if (!qemu_plugin_read_register(d->handle, val) || val->len == 0) {
         g_byte_array_free(val, TRUE);
         return FALSE;
     }
-    *out = bytes_to_u64_target_limited(val->data, sz, target_is_little_endian());
+    *out = bytes_to_u64_target_limited(val->data, (int)val->len, target_is_little_endian());
     g_byte_array_free(val, TRUE);
     return TRUE;
 }
