@@ -93,6 +93,10 @@ if [[ ! -f flag ]]; then
 fi
 
 if [[ "$FORCE_CORE" == "1" || ! -d core || ! -f core/init ]]; then
+  if ! command -v file >/dev/null 2>&1; then
+    echo "missing dependency: file" >&2
+    exit 1
+  fi
   echo "[kernelctf] extracting ramdisk_v1.img -> core/"
   rm -rf core.tmp.$$
   mkdir -p core.tmp.$$
