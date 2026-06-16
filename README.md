@@ -4,21 +4,21 @@ A clean rewrite of QLancet's trace analyzer based on the Lancet ownership model.
 
 ## One-shot: collect and analyze a case
 
-Use `get_trace.sh` as the unified trace collection entry point. For user-mode
-PoCs it dispatches to the user-mode collector, builds the QEMU plugin inside
-Docker, compiles the case in the container, patches glibc-versioned PoCs when a
-case sets `glibc_version`, runs `qemu-x86_64`, and removes the container
-automatically when QEMU exits. For the built-in House of Einherjar case:
+Use `get_trace.sh` as the unified trace collection + analysis entry point. For
+user-mode PoCs it dispatches to the user-mode collector, builds the QEMU plugin
+inside Docker, compiles the case in the container, patches glibc-versioned PoCs
+when a case sets `glibc_version`, runs `qemu-x86_64`, validates the QLT, and
+then runs the Rust analyzer automatically. For the built-in House of Einherjar
+case:
 
 ```bash
 ./get_trace.sh house_einherjar
-./analyzer.sh house_einherjar
 ```
 
-Run `./get_trace.sh` or `./analyzer.sh` without arguments to list supported
-cases discovered under `cases/*/config.json`. `get_user_trace.sh` is kept as a
-compatibility entry point for direct user-mode collection, but new workflows
-should use `get_trace.sh`.
+Run `./get_trace.sh` without arguments to list supported cases discovered under
+`cases/*/config.json`. `analyzer.sh` is kept for rerunning analysis on an
+existing trace/config pair, and `get_user_trace.sh` is kept for direct
+user-mode collection, but new case workflows should use `get_trace.sh`.
 
 Both collectors target x86_64 guests. On an arm64/aarch64 Docker host the
 scripts now switch PoC builds to an x86_64 target compiler inside the container
@@ -42,16 +42,15 @@ fcs_report.json / fcs_report.md  # crash triage evidence and source locations
 epf_report.json / epf_report.md  # exploit primitive timeline/transitions
 ```
 
-For a custom output path with the same case, keep case mode for collection so
-the case build script can generate the user-mode analyzer config, then pass the
-generated config to `analyzer.sh`:
+For a custom trace path with the same case, keep case mode; `get_trace.sh` still
+collects and analyzes in one command:
 
 ```bash
 ./get_trace.sh house_einherjar ./out/house_einherjar.qlt
-./analyzer.sh ./out/house_einherjar.qlt \
-  ./cases/house_einherjar/generated/user/analyzer_config.json \
-  ./out/house_einherjar qlt
 ```
+
+Set `TRACE_ONLY=1` (or `ANALYZE=0`) to collect without running the analyzer.
+Set `ANALYSIS_OUT=/path/to/out` to override the analyzer output directory.
 
 Kernel/system-mode case runs usually default to `auto_config=true`.
 `get_trace.sh` downloads the release `vmlinux.gz` when needed and generates:
@@ -62,8 +61,8 @@ cases/<case>/generated/<release>/qemu_config.json
 ```
 
 The generated QEMU config is used for value probes; the generated analyzer
-config is consumed by `analyzer.sh`. Use `REGENERATE_CONFIG=1` with either
-script to force regeneration.
+config is consumed by the analyzer step. Use `REGENERATE_CONFIG=1` to force
+regeneration.
 
 ## Case and simulator layout
 
@@ -139,7 +138,8 @@ and analyzed one at a time instead of materializing the whole trace in memory.
 
 ## Analyzer CLI
 
-The wrapper resolves case paths and generated configs:
+`get_trace.sh <case>` runs this automatically after successful collection.
+Use the standalone wrapper only when rerunning analysis on an existing trace:
 
 ```bash
 ./analyzer.sh <case-name-or-dir> [out-dir]

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# One-shot Docker wrapper for collecting QLancet QEMU traces.
+# One-shot Docker wrapper for collecting QLancet QEMU traces and, in case mode,
+# running the analyzer on the generated trace.
 #
 # Example:
 #   ./get_trace.sh mitigation-v4-6.6 qlt ./poc.c ./out/poc.qlt
@@ -9,6 +10,7 @@
 set -euo pipefail
 
 ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
+CALLER_PWD=$(pwd -P)
 
 list_supported_cases() {
   local cases_dir=${CASES_DIR:-$ROOT_DIR/cases}
@@ -28,7 +30,8 @@ Usage:
 
 Arguments:
   case-name-or-dir      Case under ./cases or a direct case directory containing config.json.
-                        User-mode cases are dispatched to the user-mode collector.
+                        Case mode collects the trace and then runs the analyzer.
+                        User-mode cases are dispatched to the user-mode collector first.
   linux-kernel-version  Release directory under simulator/releases, e.g. mitigation-v4-6.6.
   trace-format          qlt or text. qlt is the normal binary QLT format.
   exp-path              PoC source (.c, compiled static in Docker) or executable to place at /bin/exp.
@@ -52,6 +55,10 @@ Common environment overrides:
   EXP_CFLAGS='...' EXP_LDFLAGS='...'  Extra flags for default .c compilation.
   EXP_BUILD_CMD='...'              Custom build command; uses EXP_IN and EXP_OUT variables.
   DOCKER_NETWORK=none              Docker network mode; use host if the PoC needs host networking.
+  ANALYZE=1|0                      Run analyzer after successful case trace collection
+                                   (default: 1 in case mode, 0 in direct release mode).
+  TRACE_ONLY=1                     Alias for ANALYZE=0.
+  ANALYSIS_OUT=out/<trace-stem>    Analyzer output directory.
 
 Case config keys:
   release, trace_format, exp, build, simulator, output_dir, trace/trace_path,
@@ -108,6 +115,59 @@ truthy() {
     1|true|yes|y|on) return 0 ;;
     *) return 1 ;;
   esac
+}
+
+analysis_enabled() {
+  if truthy "${TRACE_ONLY:-0}"; then
+    return 1
+  fi
+  if [[ -n "${ANALYZE+x}" ]]; then
+    truthy "$ANALYZE"
+    return
+  fi
+  [[ "${CASE_MODE:-0}" == "1" || "${USER_CASE_DISPATCH:-0}" == "1" ]]
+}
+
+analyzer_trace_format() {
+  case "$1" in
+    text) echo legacy ;;
+    "") echo auto ;;
+    *) echo "$1" ;;
+  esac
+}
+
+default_analysis_out() {
+  local trace=$1
+  local stem
+  stem=$(basename "$trace")
+  stem=${stem%.*}
+  printf '%s/out/%s\n' "$ROOT_DIR" "$stem"
+}
+
+run_trace_analyzer() {
+  local trace=$1
+  local config=${2:-}
+  local out=${3:-}
+  local fmt=${4:-auto}
+
+  if [[ -z "$config" ]]; then
+    echo "[!] analyzer config is not set; skip analyzer" >&2
+    return 0
+  fi
+  if [[ ! -s "$config" ]]; then
+    echo "[!] analyzer config is missing or empty: $config; skip analyzer" >&2
+    return 0
+  fi
+  if [[ -z "$out" ]]; then
+    out=$(default_analysis_out "$trace")
+  fi
+
+  fmt=$(analyzer_trace_format "$fmt")
+  echo "[*] analyzing trace : $trace"
+  echo "[*] analyzer cfg    : $config"
+  echo "[*] analyzer output : $out"
+  echo "[*] analyzer format : $fmt"
+  "$ROOT_DIR/analyzer.sh" "$trace" "$config" "$out" "$fmt"
 }
 
 resolve_simulator() {
@@ -258,15 +318,81 @@ print("1" if release == "user" or simulator == "user" or plugin_mode == "user" e
 PY
   )
   if [[ "$is_user" == "1" ]]; then
+    USER_CASE_DISPATCH=1
+    local trace_override="${2:-}"
+    eval "$(
+      python3 - "$case_json" "$case_dir" "$ROOT_DIR" "$CALLER_PWD" "$trace_override" <<'PY'
+import json
+import os
+import shlex
+import sys
+
+cfg_path, case_dir, root_dir, caller_pwd, trace_override = sys.argv[1:6]
+with open(cfg_path, "r", encoding="utf-8") as f:
+    cfg = json.load(f)
+
+def first(*names, default=""):
+    for name in names:
+        value = cfg.get(name)
+        if value not in (None, ""):
+            return value
+    return default
+
+def path_value(value, base=case_dir):
+    if value in (None, ""):
+        return ""
+    value = str(value)
+    if os.path.isabs(value):
+        return os.path.normpath(value)
+    return os.path.normpath(os.path.join(base, value))
+
+case_name = first("name", default=os.path.basename(case_dir))
+fmt = str(first("trace_format", "format", default="qlt"))
+if trace_override:
+    trace_path = trace_override
+    if not os.path.isabs(trace_path):
+        trace_path = os.path.normpath(os.path.join(caller_pwd, trace_path))
+else:
+    trace_path = first("trace_path", "out", "output")
+    if trace_path:
+        trace_path = path_value(trace_path)
+    else:
+        output_dir = path_value(first("output_dir", "trace_dir", default="out"))
+        trace_name = first("trace", "trace_name", default=f"{case_name}.{fmt}")
+        trace_path = os.path.normpath(os.path.join(output_dir, str(trace_name)))
+
+analysis_out = first("analysis_output", "analysis_out", "analyzer_output", "analyzer_out", default="")
+if analysis_out:
+    analysis_out = path_value(analysis_out)
+else:
+    stem = os.path.basename(trace_path)
+    if "." in stem:
+        stem = stem.rsplit(".", 1)[0]
+    analysis_out = os.path.join(root_dir, "out", stem)
+
+values = {
+    "USER_TRACE_PATH": trace_path,
+    "USER_ANALYZER_CONFIG": path_value(first("analyzer_config", "qlancet_config")),
+    "USER_ANALYSIS_OUT": analysis_out,
+    "USER_TRACE_FORMAT": fmt,
+}
+for key, value in values.items():
+    print(f"{key}={shlex.quote(str(value))}")
+PY
+    )"
     echo "[*] user-mode case detected; dispatching to get_user_trace.sh"
-    exec "$ROOT_DIR/get_user_trace.sh" "$@"
+    QL_SUPPRESS_ANALYZE_HINT=1 "$ROOT_DIR/get_user_trace.sh" "$@"
+    if analysis_enabled; then
+      run_trace_analyzer "$USER_TRACE_PATH" "$USER_ANALYZER_CONFIG" "${ANALYSIS_OUT:-$USER_ANALYSIS_OUT}" "$USER_TRACE_FORMAT"
+    fi
+    exit 0
   fi
 }
 
 maybe_dispatch_user_case "$@"
 
 CASE_MODE=0
-if [[ $# -eq 1 ]]; then
+if [[ $# -eq 1 || $# -eq 2 ]]; then
   CASE_MODE=1
   CASE_ARG=$1
   CASES_DIR=${CASES_DIR:-$ROOT_DIR/cases}
@@ -281,13 +407,13 @@ if [[ $# -eq 1 ]]; then
   [[ -f "$CASE_JSON" ]] || die "missing case config: $CASE_JSON"
 
   eval "$(
-    python3 - "$CASE_JSON" "$CASE_DIR" <<'PY'
+    python3 - "$CASE_JSON" "$CASE_DIR" "$ROOT_DIR" <<'PY'
 import json
 import os
 import shlex
 import sys
 
-cfg_path, case_dir = sys.argv[1], sys.argv[2]
+cfg_path, case_dir, root_dir = sys.argv[1], sys.argv[2], sys.argv[3]
 with open(cfg_path, "r", encoding="utf-8") as f:
     cfg = json.load(f)
 
@@ -338,6 +464,14 @@ else:
     trace_name = first("trace", "trace_name", default=f"{case_name}.{fmt}")
     trace_path = os.path.normpath(os.path.join(output_dir, str(trace_name)))
 
+analysis_out_cfg = path_value(first("analysis_output", "analysis_out", "analyzer_output", "analyzer_out", default=""))
+analysis_out = analysis_out_cfg
+if not analysis_out:
+    stem = os.path.basename(trace_path)
+    if "." in stem:
+        stem = stem.rsplit(".", 1)[0]
+    analysis_out = os.path.join(root_dir, "out", stem)
+
 build = first("build", "build_script")
 build_rel = ""
 if build:
@@ -356,6 +490,8 @@ values = {
     "CASE_TRACE_FORMAT": fmt,
     "CASE_EXP_PATH": exp_path,
     "CASE_TRACE_PATH": trace_path,
+    "CASE_ANALYSIS_OUT": analysis_out,
+    "CASE_ANALYSIS_OUT_EXPLICIT": "1" if analysis_out_cfg else "0",
     "CASE_SIM_REF": ref_value(first("simulator", "sim", "sim_dir", "simulator_dir")),
     "CASE_ANALYZER_CONFIG": path_value(first("analyzer_config", "qlancet_config")),
     "CASE_QEMU_CONFIG": path_value(first("qemu_config", "qemu_output")),
@@ -429,6 +565,14 @@ PY
     printf -v build_exec_q '%q' "$build_exec"
     export EXP_BUILD_CMD="cd \"\$(dirname \"\$EXP_IN\")\" && bash $build_exec_q"
   fi
+
+  if [[ $# -eq 2 ]]; then
+    CASE_TRACE_PATH=$2
+    if [[ "$CASE_ANALYSIS_OUT_EXPLICIT" != "1" ]]; then
+      CASE_ANALYSIS_OUT=$(default_analysis_out "$CASE_TRACE_PATH")
+    fi
+  fi
+  set_env_default ANALYSIS_OUT "$CASE_ANALYSIS_OUT"
 
   if [[ -n "$CASE_SIM_REF" ]]; then
     set -- "$CASE_RELEASE" "$CASE_TRACE_FORMAT" "$CASE_EXP_PATH" "$CASE_TRACE_PATH" "$CASE_SIM_REF"
@@ -862,8 +1006,11 @@ fi
 if [[ $docker_rc -ne 0 && ( ! -s "$TRACE_PATH" || ${validate_rc:-0} -ne 0 ) ]]; then
   exit "$docker_rc"
 fi
-if [[ -n "${ANALYZER_CONFIG:-}" ]]; then
-  echo "[*] analyze with:"
-  echo "    cargo run -- klancet '$TRACE_PATH' '$ANALYZER_CONFIG' 'out/${TRACE_BASE%.*}' --trace-format $TRACE_FORMAT"
+
+if [[ ${validate_rc:-0} -eq 0 ]] && analysis_enabled; then
+  run_trace_analyzer "$TRACE_PATH" "${ANALYZER_CONFIG:-}" "${ANALYSIS_OUT:-}" "$TRACE_FORMAT"
+elif [[ -n "${ANALYZER_CONFIG:-}" ]]; then
+  echo "[*] analyzer skipped; run manually with:"
+  echo "    ./analyzer.sh '$TRACE_PATH' '$ANALYZER_CONFIG' '$(default_analysis_out "$TRACE_PATH")' $(analyzer_trace_format "$TRACE_FORMAT")"
 fi
 exit "${validate_rc:-0}"

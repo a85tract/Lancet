@@ -324,6 +324,6 @@ print('[*] first index:', first)
 print('[*] last index :', last)
 PY
 
-if [[ -n "${ANALYZER_CONFIG:-}" ]]; then
+if [[ -n "${ANALYZER_CONFIG:-}" && "${QL_SUPPRESS_ANALYZE_HINT:-0}" != "1" ]]; then
   echo "[*] analyze with: ./analyzer.sh '$TRACE_PATH' '$ANALYZER_CONFIG' '${TRACE_PATH%.qlt}.out' qlt"
 fi
