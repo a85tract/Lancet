@@ -369,6 +369,25 @@ fn memory_overlap_on_reused_active_cell() {
 }
 
 #[test]
+fn fcs_includes_memory_overlap_findings() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        call(3, 0x400006, 0x1000, 0x10),
+        nop(4, 0x40000b, 0x5000),
+    ];
+    let (summary, fcs, _epf, _out) = run_qlt_full("fcs_overlap", &records, default_config_json());
+    assert_eq!(summary["memory_overlaps"], 1);
+    assert!(
+        fcs["findings"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|finding| finding["kind"] == "memory-overlap")
+    );
+}
+
+#[test]
 fn dangling_pointer_copy_after_free() {
     let records = vec![
         call(1, 0x400000, 0x1000, 0x10),
@@ -381,6 +400,23 @@ fn dangling_pointer_copy_after_free() {
     ];
     let summary = run_qlt("dangling_copy", &records);
     assert_eq!(summary["dangling_pointers"], 1);
+}
+
+#[test]
+fn reused_allocation_return_drops_freed_owner_inference() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rdi_rax(3, 0x400006, 0x5000, 0),
+        call(4, 0x400009, 0x2000, 0x5000),
+        nop(5, 0x40000e, 0),
+        call(6, 0x40000f, 0x1000, 0x10),
+        nop(7, 0x400014, 0x5000),
+        mov_rbx_rax(8, 0x400015, 0x5000, 0),
+    ];
+    let summary = run_qlt("reuse_no_dangling", &records);
+    assert_eq!(summary["dangling_pointers"], 0);
+    assert_eq!(summary["expired_pointer_dereferences"], 0);
 }
 
 #[test]
@@ -899,6 +935,34 @@ fn epf_einherjar_style_transition() {
         );
     }
     assert!(!epf["transitions"].as_array().unwrap().is_empty());
+}
+
+#[test]
+fn epf_fastbin_reverse_into_tcache_style() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        mov_rdi_rax(4, 0x400009, 0x5000, 0),
+        call(5, 0x40000c, 0x2000, 0x5000),
+        nop(6, 0x400011, 0),
+        mov_rcx_rbx(7, 0x400012, 0x5000, 0),
+        write_ptr(8, 0x400015, RBX, 0x5000),
+        sub_rsp_imm8(9, 0x400017, 0x7000, 0x20),
+        call(10, 0x40001b, 0x1000, 0x10),
+        nop(11, 0x400020, 0x6fe0),
+    ];
+    let (summary, _fcs, epf, _out) =
+        run_qlt_full("epf_fastbin_reverse", &records, default_config_json());
+    assert_eq!(summary["use_after_free_writes"], 1);
+    assert_eq!(summary["memory_overlaps"], 1);
+    assert!(
+        epf["techniques"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|technique| technique["name"] == "FastbinReverseIntoTcacheStyle")
+    );
 }
 
 #[test]

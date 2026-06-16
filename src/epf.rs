@@ -185,7 +185,42 @@ fn recognize_techniques(events: &[PrimitiveEvent]) -> Vec<TechniqueSummary> {
         });
     }
 
+    if let Some((chain, confidence)) = find_fastbin_reverse_into_tcache(events) {
+        techniques.push(TechniqueSummary {
+            name: "FastbinReverseIntoTcacheStyle".into(),
+            events: chain,
+            confidence,
+        });
+    }
+
     techniques
+}
+
+fn find_fastbin_reverse_into_tcache(events: &[PrimitiveEvent]) -> Option<(Vec<String>, String)> {
+    let uafw = events.iter().find(|event| event.kind == "UAFW")?;
+    let overlap = events.iter().find(|event| {
+        event.step > uafw.step && event.kind == "MemoryOverlap" && has_static_owner(&event.subjects)
+    })?;
+    let mut chain = Vec::new();
+    let dangling = events
+        .iter()
+        .find(|event| event.step < uafw.step && event.kind == "DanglingPtr");
+    if let Some(dangling) = dangling {
+        chain.push(dangling.id.clone());
+    }
+    chain.push(uafw.id.clone());
+    chain.push(overlap.id.clone());
+    let confidence = if dangling.is_some() { "high" } else { "medium" }.into();
+    Some((chain, confidence))
+}
+
+fn has_static_owner(subjects: &PrimitiveSubjects) -> bool {
+    subjects
+        .pointer_owners
+        .iter()
+        .chain(subjects.cell_owners.iter())
+        .chain(subjects.value_owners.iter())
+        .any(|owner| owner.contains("stack") || owner.contains("global"))
 }
 
 fn find_chain(

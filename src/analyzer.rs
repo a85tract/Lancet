@@ -870,7 +870,9 @@ impl Analyzer {
         if let Some(subject) = self.mem.active_subject_containing(value) {
             owners.insert(subject);
         }
-        if let Some(subject) = self.mem.freed_subject_containing(value) {
+        if owners.is_empty()
+            && let Some(subject) = self.mem.freed_subject_containing(value)
+        {
             owners.insert(subject);
         }
         owners
@@ -1364,6 +1366,9 @@ impl Analyzer {
             self.mem
                 .active_subjects_of_kind_overlapping(SubjectKind::Stack, start, size);
         for subject in subjects {
+            if self.stack_pages.values().any(|page| *page == subject) {
+                continue;
+            }
             let (subject_start, subject_size) = self
                 .mem
                 .subjects

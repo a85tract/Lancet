@@ -319,6 +319,7 @@ fn is_fcs_kind(kind: ViolationKind) -> bool {
             | ViolationKind::StackUseAfterScopeWrite
             | ViolationKind::DoubleFree
             | ViolationKind::InvalidFree
+            | ViolationKind::MemoryOverlap
             | ViolationKind::CrossBoundary
             | ViolationKind::DanglingPointer
             | ViolationKind::ExpiredPointerDereference
