@@ -49,8 +49,10 @@ gcc -fPIC -shared hello.c -o hello.so -I/usr/local/include \
 - `block-mb=<n>` / `block-size=<bytes>` and `zstd=<level>` tune QLT block compression.
 
 QLT stores pc, instruction bytes, selected x86_64 registers, branch target,
-value probes, and cr3. It does not store asm text; the Rust analyzer re-decodes
-bytes with `iced-x86`.
+value probes, and cr3. When the QEMU register API exposes FS/GS base registers,
+the plugin also writes QLT v2 segment-base fields for x86 FS:/GS: memory
+accesses; the analyzer remains backward-compatible with QLT v1. QLT does not
+store asm text; the Rust analyzer re-decodes bytes with `iced-x86`.
 
 ## KernelCTF smoke trace collection
 

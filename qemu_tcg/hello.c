@@ -25,6 +25,7 @@ QEMU_PLUGIN_EXPORT int qemu_plugin_version = QEMU_PLUGIN_VERSION;
 /* ===================== QLT constants ===================== */
 #define QLT_MAGIC "QLT1"
 #define QLT_VERSION 1
+#define QLT_VERSION_EXTENDED_REGS 2
 #define QLT_REG_TABLE_X86_64_V1 1
 #define QLT_HEADER_SIZE 36ULL
 #define QLT_DEFAULT_BLOCK_SIZE (4U * 1024U * 1024U)
@@ -36,6 +37,8 @@ QEMU_PLUGIN_EXPORT int qemu_plugin_version = QEMU_PLUGIN_VERSION;
 #define TRACE_FLAG_IS_RET            (1u << 4)
 #define TRACE_FLAG_IS_REP            (1u << 5)
 #define TRACE_FLAG_REGS_FALLBACK_ALL_GPR (1u << 6)
+#define TRACE_FLAG_HAS_FS_BASE       (1u << 7)
+#define TRACE_FLAG_HAS_GS_BASE       (1u << 8)
 
 typedef enum {
     QREG_RAX = 0, QREG_RBX, QREG_RCX, QREG_RDX, QREG_RSI, QREG_RDI, QREG_RBP, QREG_RSP,
@@ -71,6 +74,10 @@ typedef struct QltRecord {
     uint64_t value;
     gboolean has_cr3;
     uint64_t cr3;
+    gboolean has_fs_base;
+    uint64_t fs_base;
+    gboolean has_gs_base;
+    uint64_t gs_base;
 } QltRecord;
 
 /* ===================== Global options/state ===================== */
@@ -136,6 +143,7 @@ static uint64_t qlt_prev_step = 0;
 static uint64_t qlt_step_counter = 0;
 static uint64_t qlt_first_step_in_block = 0;
 static uint64_t qlt_records_in_block = 0;
+static gboolean qlt_saw_extended_record = FALSE;
 
 /* ===================== config.json value probes ===================== */
 typedef struct ConfigEntry {
@@ -799,6 +807,8 @@ static int idx_reg_cr3 = -1;
 static int idx_reg_rsp = -1;
 static int idx_reg_rbp = -1;
 static int idx_reg_rip = -1;
+static int idx_reg_fs_base = -1;
+static int idx_reg_gs_base = -1;
 
 static inline GArray *get_or_fetch_vcpu_regs(unsigned int vcpu_index)
 {
@@ -877,6 +887,45 @@ static void locate_rip_index(GArray *arr)
     }
 }
 
+static gboolean reg_name_matches_any(const char *name, const char *const *aliases)
+{
+    if (!name || !aliases) {
+        return FALSE;
+    }
+    for (size_t i = 0; aliases[i] != NULL; i++) {
+        if (g_ascii_strcasecmp(name, aliases[i]) == 0) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+static void locate_alias_index(GArray *arr, int *idx, const char *const *aliases)
+{
+    if (!arr || !idx || *idx >= 0) {
+        return;
+    }
+    for (guint i = 0; i < arr->len; i++) {
+        reg_desc_t *d = &g_array_index(arr, reg_desc_t, i);
+        if (reg_name_matches_any(d->name, aliases)) {
+            *idx = (int)i;
+            break;
+        }
+    }
+}
+
+static void locate_segment_base_indices(GArray *arr)
+{
+    static const char *const fs_aliases[] = {
+        "fs_base", "fsbase", "fs.base", "fs.base64", "fs_base64", NULL
+    };
+    static const char *const gs_aliases[] = {
+        "gs_base", "gsbase", "gs.base", "gs.base64", "gs_base64", "kernelgsbase", NULL
+    };
+    locate_alias_index(arr, &idx_reg_fs_base, fs_aliases);
+    locate_alias_index(arr, &idx_reg_gs_base, gs_aliases);
+}
+
 static int fixed_reg_id_from_name(const char *name)
 {
     if (!name) {
@@ -921,6 +970,26 @@ static gboolean read_reg_by_name(GArray *arr, const char *name, uint64_t *out)
         reg_desc_t *d = &g_array_index(arr, reg_desc_t, i);
         if (d->name && g_ascii_strcasecmp(d->name, name) == 0) {
             return read_reg_descriptor_value(d, out);
+        }
+    }
+    return FALSE;
+}
+
+static gboolean read_reg_by_aliases(GArray *arr, int idx, const char *const *aliases, uint64_t *out)
+{
+    if (!arr || !out) {
+        return FALSE;
+    }
+    if (idx >= 0 && (guint)idx < arr->len) {
+        reg_desc_t *d = &g_array_index(arr, reg_desc_t, (guint)idx);
+        if (read_reg_descriptor_value(d, out)) {
+            return TRUE;
+        }
+    }
+    for (guint i = 0; aliases && i < arr->len; i++) {
+        reg_desc_t *d = &g_array_index(arr, reg_desc_t, i);
+        if (reg_name_matches_any(d->name, aliases) && read_reg_descriptor_value(d, out)) {
+            return TRUE;
         }
     }
     return FALSE;
@@ -1347,7 +1416,7 @@ static void qlt_write_header(uint64_t block_count, uint64_t index_offset)
     }
     fseeko(fp, 0, SEEK_SET);
     fwrite(QLT_MAGIC, 1, 4, fp);
-    qlt_wr16_file(QLT_VERSION);
+    qlt_wr16_file(qlt_saw_extended_record ? QLT_VERSION_EXTENDED_REGS : QLT_VERSION);
     qlt_wr16_file(0); /* flags */
     qlt_wr16_file(QLT_REG_TABLE_X86_64_V1);
     qlt_wr16_file(0); /* reserved */
@@ -1419,6 +1488,14 @@ static void qlt_append_record_locked(QltRecord *rec)
     if (rec->has_cr3) {
         rec->flags |= TRACE_FLAG_HAS_CR3;
     }
+    if (rec->has_fs_base) {
+        rec->flags |= TRACE_FLAG_HAS_FS_BASE;
+        qlt_saw_extended_record = TRUE;
+    }
+    if (rec->has_gs_base) {
+        rec->flags |= TRACE_FLAG_HAS_GS_BASE;
+        qlt_saw_extended_record = TRUE;
+    }
 
     qlt_bavar(qlt_block_buf, step - qlt_prev_step);
     qlt_prev_step = step;
@@ -1443,6 +1520,12 @@ static void qlt_append_record_locked(QltRecord *rec)
     }
     if (rec->has_cr3) {
         qlt_ba64(qlt_block_buf, rec->cr3);
+    }
+    if (rec->has_fs_base) {
+        qlt_ba64(qlt_block_buf, rec->fs_base);
+    }
+    if (rec->has_gs_base) {
+        qlt_ba64(qlt_block_buf, rec->gs_base);
     }
     qlt_records_in_block++;
     if (qlt_block_buf->len >= qlt_block_limit) {
@@ -1951,6 +2034,76 @@ static void collect_regs_for_record(GArray *arr, ExecUData *ud, QltRecord *rec, 
     }
 }
 
+static gboolean insn_uses_segment_override(ExecUData *ud, guint8 prefix, const char *disas_prefix)
+{
+    if (!ud) {
+        return FALSE;
+    }
+    for (guint i = 0; i < ud->byte_len && i < 8; i++) {
+        if (ud->bytes[i] == prefix) {
+            return TRUE;
+        }
+    }
+    if (ud->disas_only) {
+        char *lower = str_tolower_dup(ud->disas_only);
+        gboolean found = lower && strstr(lower, disas_prefix) != NULL;
+        g_free(lower);
+        if (found) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+static void collect_segment_bases_for_record(GArray *arr, ExecUData *ud, QltRecord *rec, GString *text)
+{
+    if (!arr || !ud || (!rec && !text)) {
+        return;
+    }
+    const gboolean need_fs = insn_uses_segment_override(ud, 0x64, "fs:");
+    const gboolean need_gs = insn_uses_segment_override(ud, 0x65, "gs:");
+    if (!need_fs && !need_gs) {
+        return;
+    }
+
+    static const char *const fs_aliases[] = {
+        "fs_base", "fsbase", "fs.base", "fs.base64", "fs_base64", NULL
+    };
+    static const char *const gs_aliases[] = {
+        "gs_base", "gsbase", "gs.base", "gs.base64", "gs_base64", "kernelgsbase", NULL
+    };
+    locate_segment_base_indices(arr);
+
+    uint64_t value = 0;
+    gboolean wrote_text_header = FALSE;
+    if (need_fs && read_reg_by_aliases(arr, idx_reg_fs_base, fs_aliases, &value)) {
+        if (rec) {
+            rec->has_fs_base = TRUE;
+            rec->fs_base = value;
+        }
+        if (text) {
+            if (!wrote_text_header) {
+                g_string_append(text, "|segbases:");
+                wrote_text_header = TRUE;
+            }
+            g_string_append_printf(text, " fs=0x%016" PRIx64, value);
+        }
+    }
+    if (need_gs && read_reg_by_aliases(arr, idx_reg_gs_base, gs_aliases, &value)) {
+        if (rec) {
+            rec->has_gs_base = TRUE;
+            rec->gs_base = value;
+        }
+        if (text) {
+            if (!wrote_text_header) {
+                g_string_append(text, "|segbases:");
+                wrote_text_header = TRUE;
+            }
+            g_string_append_printf(text, " gs=0x%016" PRIx64, value);
+        }
+    }
+}
+
 static gboolean add_signed_offset(uint64_t base, int64_t offset, uint64_t *out)
 {
     if (!out) {
@@ -2150,6 +2303,7 @@ static void insn_exec(unsigned int vcpu_index, void *udata)
         arr = get_or_fetch_vcpu_regs(vcpu_index);
     }
     collect_regs_for_record(arr, &eff_ud, qlt_mode ? &rec : NULL, text);
+    collect_segment_bases_for_record(arr, &eff_ud, qlt_mode ? &rec : NULL, text);
     probe_config_values(arr, &eff_ud, qlt_mode ? &rec : NULL, text);
 
     g_mutex_lock(&mtx);
@@ -2193,6 +2347,7 @@ static void vcpu_init_cb(qemu_plugin_id_t id, unsigned int vcpu_index)
         locate_rsp_index(arr);
         locate_rbp_index(arr);
         locate_rip_index(arr);
+        locate_segment_base_indices(arr);
     }
 }
 
