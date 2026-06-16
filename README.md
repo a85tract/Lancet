@@ -2,53 +2,41 @@
 
 A clean rewrite of QLancet's trace analyzer based on the Lancet ownership model.
 
-## Trace formats
-
-- `qlt`: compact binary trace (`QLT1`) with block-level zstd compression and a tail block index.
-- `legacy`: compatible with the old `cpu|pc|asm|bytecode|regs:` text trace.
-- `auto`: detect QLT by magic, otherwise parse legacy text.
-
-The analyzer processes traces in streaming mode, so QLT blocks are decompressed and
-analyzed one at a time instead of materializing the whole trace in memory.
-
-## Build and test
-
-```bash
-cargo build
-cargo test --verbose
-```
-
-## QEMU TCG plugin
-
-The full plugin lives in `qemu_tcg/hello.c` and writes QLT by default.
-For kernelCTF-style smoke collection with the old simulator assets, use
-`qemu_tcg/docker_kernel_smoke.sh` or `qemu_tcg/collect_kernel_trace.sh`; the
-script writes QLT directly and does not need the old telnet monitor/logfile step.
-The Docker smoke defaults to a fast reset-vector trigger; set `SMOKE_TRIGGER=exp`
-when you specifically want to test the guest exploit `_start` trigger path.
-
-```bash
-docker build -t a85_qlancet_qemu -f Dockerfile .
-./run_qemu_tcg_docker.sh
-# inside the container:
-cd /qemu/contrib/plugins/test/qemu_tcg
-./build.sh
-```
-
-### One-shot Docker trace collection
+## One-shot: collect and analyze a case
 
 Use `get_trace.sh` to build/run inside a disposable Docker container and remove
-the container automatically when QEMU exits:
-
-```bash
-./get_trace.sh mitigation-v4-6.6 qlt ./pocs/tls.c ./out/tls.qlt
-```
-
-For repeatable cases, put a manifest under `cases/<name>/config.json` and run:
+the container automatically when QEMU exits. For the built-in CVE case:
 
 ```bash
 ./get_trace.sh cve39682
+./analyzer.sh cve39682
 ```
+
+The trace is written to `qemu_tcg/traces/cve39682.qlt`, the serial log to
+`qemu_tcg/traces/cve39682.qlt.serial`, and analyzer output to
+`out/cve39682/summary.json`.
+
+For direct/custom collection, enable config generation and pass the generated
+config to `analyzer.sh`:
+
+```bash
+AUTO_CONFIG=1 ./get_trace.sh mitigation-v4-6.6 qlt ./cases/cve39682/exp.c ./out/cve39682.qlt
+./analyzer.sh ./out/cve39682.qlt ./out/cve39682.qlt.analyzer_config.json ./out/cve39682 qlt
+```
+
+Case runs default to `auto_config=true`. `get_trace.sh` downloads the release
+`vmlinux.gz` when needed and generates:
+
+```text
+cases/<case>/generated/<release>/analyzer_config.json
+cases/<case>/generated/<release>/qemu_config.json
+```
+
+The generated QEMU config is used for value probes; the generated analyzer
+config is consumed by `analyzer.sh`. Use `REGENERATE_CONFIG=1` with either
+script to force regeneration.
+
+## Case and simulator layout
 
 Case layout:
 
@@ -77,23 +65,6 @@ case PoC as `/bin/exp`, rebuilds `ramdisk_v1`, starts QEMU with
 CPU1 trace after the user `_start` trigger. The serial log is written to
 `<trace>.serial`.
 
-For case runs, `auto_config` defaults to enabled. `get_trace.sh` downloads the
-release `vmlinux.gz` when needed, generates:
-
-```text
-cases/<case>/generated/<release>/analyzer_config.json
-cases/<case>/generated/<release>/qemu_config.json
-```
-
-and uses the generated QEMU config for value probes. Parse the trace with the
-printed command, e.g.:
-
-```bash
-cargo run -- klancet qemu_tcg/traces/cve39682.qlt \
-  cases/cve39682/generated/mitigation-v4-6.6/analyzer_config.json \
-  out/cve39682 --trace-format qlt
-```
-
 To populate the reusable simulator from kernelCTF storage without relying on an
 external checkout:
 
@@ -105,8 +76,48 @@ cd simulators/kernelctf
 ./prepare.sh mitigation-v4-6.6 --root --run
 ```
 
-## Run
+## Build and test
+
+```bash
+cargo build
+cargo test --verbose
+```
+
+## Trace formats
+
+- `qlt`: compact binary trace (`QLT1`) with block-level zstd compression and a tail block index.
+- `legacy`: compatible with the old `cpu|pc|asm|bytecode|regs:` text trace.
+- `auto`: detect QLT by magic, otherwise parse legacy text.
+
+The analyzer processes traces in streaming mode, so QLT blocks are decompressed
+and analyzed one at a time instead of materializing the whole trace in memory.
+
+## Analyzer CLI
+
+The wrapper resolves case paths and generated configs:
+
+```bash
+./analyzer.sh <case-name-or-dir> [out-dir]
+./analyzer.sh <trace> <config.json> [out-dir] [trace-format]
+```
+
+The underlying Rust command remains:
 
 ```bash
 cargo run -- klancet <trace> <config.json> <output_dir> --trace-format auto
+```
+
+## QEMU TCG plugin
+
+The full plugin lives in `qemu_tcg/hello.c` and writes QLT by default.
+For lower-level kernelCTF-style collection use
+`qemu_tcg/collect_kernel_trace.sh`; it writes QLT directly and does not need the
+old telnet monitor/logfile step.
+
+```bash
+docker build -t a85_qlancet_qemu -f Dockerfile .
+./run_qemu_tcg_docker.sh
+# inside the container:
+cd /qemu/contrib/plugins/test/qemu_tcg
+./build.sh
 ```
