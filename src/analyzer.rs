@@ -706,29 +706,28 @@ impl Analyzer {
             );
             return;
         }
-        if pointer_owners
-            .iter()
-            .any(|owner| self.mem.subject_freed(*owner))
-            || self.mem.freed_subject_at_start(ptr).is_some()
-        {
-            self.record_simple(
-                step,
-                pc,
-                ViolationKind::DoubleFree,
-                AccessKind::Free,
-                ptr,
-                0,
-                pointer_owners.clone(),
-                "free of an already freed subject",
-            );
+        if let Some(subject) = self.mem.active_subject_at_start(ptr) {
+            self.free_active_subject(step, pc, ptr, subject, symbol);
             return;
         }
-        let Some(subject) = self.mem.active_subject_at_start(ptr) else {
-            let note = if self.mem.active_subject_containing(ptr).is_some() {
-                "free pointer is inside an allocation but not at its start"
-            } else {
-                "free pointer is not an active allocation start"
-            };
+        let Some(_containing_subject) = self.mem.active_subject_containing(ptr) else {
+            if pointer_owners
+                .iter()
+                .any(|owner| self.mem.subject_freed(*owner))
+                || self.mem.freed_subject_at_start(ptr).is_some()
+            {
+                self.record_simple(
+                    step,
+                    pc,
+                    ViolationKind::DoubleFree,
+                    AccessKind::Free,
+                    ptr,
+                    0,
+                    pointer_owners.clone(),
+                    "free of an already freed subject",
+                );
+                return;
+            }
             self.record_simple(
                 step,
                 pc,
@@ -737,10 +736,30 @@ impl Analyzer {
                 ptr,
                 0,
                 pointer_owners,
-                note,
+                "free pointer is not an active allocation start",
             );
             return;
         };
+        self.record_simple(
+            step,
+            pc,
+            ViolationKind::InvalidFree,
+            AccessKind::Free,
+            ptr,
+            0,
+            pointer_owners,
+            "free pointer is inside an allocation but not at its start",
+        );
+    }
+
+    fn free_active_subject(
+        &mut self,
+        step: u64,
+        pc: u64,
+        ptr: u64,
+        subject: u64,
+        symbol: Option<String>,
+    ) {
         let subjects_to_free = self.mem.subject_and_descendants(subject);
         for freed_subject in &subjects_to_free {
             self.mem.mark_freed(*freed_subject);

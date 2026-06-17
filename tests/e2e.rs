@@ -806,6 +806,25 @@ fn fcs_double_free_with_first_free_site() {
 }
 
 #[test]
+fn free_reallocated_same_address_is_not_double_free() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rdi_rax(3, 0x400006, 0x5000, 0),
+        call(4, 0x400009, 0x2000, 0x5000),
+        nop(5, 0x40000e, 0),
+        call(6, 0x40000f, 0x1000, 0x10),
+        nop(7, 0x400014, 0x5000),
+        mov_rdi_rax(8, 0x400015, 0x5000, 0),
+        call(9, 0x400018, 0x2000, 0x5000),
+        nop(10, 0x40001d, 0),
+    ];
+    let summary = run_qlt("free_reallocated_same_addr", &records);
+    assert_eq!(summary["double_frees"], 0);
+    assert_eq!(summary["invalid_frees"], 0);
+}
+
+#[test]
 fn fcs_uninitialized_read_allocation_site() {
     let records = vec![
         call(1, 0x400000, 0x1000, 0x10),
