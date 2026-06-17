@@ -2332,9 +2332,8 @@ static void insn_exec(unsigned int vcpu_index, void *udata)
     }
 }
 
-static void vcpu_init_cb(qemu_plugin_id_t id, unsigned int vcpu_index)
+static void vcpu_init_impl(unsigned int vcpu_index)
 {
-    (void)id;
     GArray *arr = qemu_plugin_get_registers();
     if (arr) {
         if (!regs_by_vcpu) {
@@ -2350,6 +2349,20 @@ static void vcpu_init_cb(qemu_plugin_id_t id, unsigned int vcpu_index)
     }
 }
 
+#if QEMU_PLUGIN_VERSION >= 7
+static void vcpu_init_cb(unsigned int vcpu_index, void *userdata)
+{
+    (void)userdata;
+    vcpu_init_impl(vcpu_index);
+}
+#else
+static void vcpu_init_cb(qemu_plugin_id_t id, unsigned int vcpu_index)
+{
+    (void)id;
+    vcpu_init_impl(vcpu_index);
+}
+#endif
+
 static inline gchar *now_ts(void)
 {
     GDateTime *dt = g_date_time_new_now_local();
@@ -2358,9 +2371,8 @@ static inline gchar *now_ts(void)
     return s;
 }
 
-static void tb_trans_cb(qemu_plugin_id_t id, struct qemu_plugin_tb *tb)
+static void tb_trans_impl(struct qemu_plugin_tb *tb)
 {
-    (void)id;
     size_t n = qemu_plugin_tb_n_insns(tb);
     if (n == 0) {
         return;
@@ -2465,6 +2477,20 @@ static void tb_trans_cb(qemu_plugin_id_t id, struct qemu_plugin_tb *tb)
         qemu_plugin_register_vcpu_insn_exec_cb(insn, insn_exec, QEMU_PLUGIN_CB_R_REGS, ud);
     }
 }
+
+#if QEMU_PLUGIN_VERSION >= 7
+static void tb_trans_cb(struct qemu_plugin_tb *tb, void *userdata)
+{
+    (void)userdata;
+    tb_trans_impl(tb);
+}
+#else
+static void tb_trans_cb(qemu_plugin_id_t id, struct qemu_plugin_tb *tb)
+{
+    (void)id;
+    tb_trans_impl(tb);
+}
+#endif
 
 /* ===================== Lifecycle and argument parsing ===================== */
 static void parse_early_arg(const char *arg)
@@ -2593,10 +2619,8 @@ static void parse_arg(const char *arg)
     }
 }
 
-static void at_exit_cb(qemu_plugin_id_t id, void *userdata)
+static void at_exit_impl(void)
 {
-    (void)id;
-    (void)userdata;
     g_mutex_lock(&mtx);
     if (qlt_mode) {
         qlt_finish_locked();
@@ -2649,6 +2673,21 @@ static void at_exit_cb(qemu_plugin_id_t id, void *userdata)
     }
     g_mutex_unlock(&mtx);
 }
+
+#if QEMU_PLUGIN_VERSION >= 7
+static void at_exit_cb(void *userdata)
+{
+    (void)userdata;
+    at_exit_impl();
+}
+#else
+static void at_exit_cb(qemu_plugin_id_t id, void *userdata)
+{
+    (void)id;
+    (void)userdata;
+    at_exit_impl();
+}
+#endif
 
 QEMU_PLUGIN_EXPORT int qemu_plugin_install(qemu_plugin_id_t id, const qemu_info_t *info,
                                            int argc, char **argv)
@@ -2720,8 +2759,13 @@ QEMU_PLUGIN_EXPORT int qemu_plugin_install(qemu_plugin_id_t id, const qemu_info_
                qlt_mode ? "qlt" : "text", fp ? out_path : "stdout", regs_mode,
                target_name[0] ? target_name : "unknown");
 
+#if QEMU_PLUGIN_VERSION >= 7
+    qemu_plugin_register_vcpu_init_cb(id, vcpu_init_cb, NULL);
+    qemu_plugin_register_vcpu_tb_trans_cb(id, tb_trans_cb, NULL);
+#else
     qemu_plugin_register_vcpu_init_cb(id, vcpu_init_cb);
     qemu_plugin_register_vcpu_tb_trans_cb(id, tb_trans_cb);
+#endif
     qemu_plugin_register_atexit_cb(id, at_exit_cb, NULL);
     return 0;
 }
