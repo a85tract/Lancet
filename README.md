@@ -80,6 +80,11 @@ cases/house_spirit/
   build.sh
   exp.c
 
+cases/poison_null_byte/
+  config.json   # user-mode poison-null-byte overlap primitive on glibc 2.31
+  build.sh
+  exp.c
+
 cases/cve39682/
   config.json   # kernel release, simulator name, trigger/CPU settings
   build.sh
