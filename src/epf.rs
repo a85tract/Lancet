@@ -164,20 +164,25 @@ fn recognize_techniques(events: &[PrimitiveEvent]) -> Vec<TechniqueSummary> {
         });
     }
 
-    if let Some(chain) = find_chain(
+    let has_invalid_free = events.iter().any(|event| event.kind == "InvalidFree");
+
+    if let Some(chain) = find_chain4(
         events,
         &["CrossBoundary", "OOBW"],
-        &["InvalidFree", "MemoryOverlap"],
+        &["MemoryOverlap"],
+        &["InvalidFree"],
         &["UAFR", "UAFW"],
     ) {
         techniques.push(TechniqueSummary {
             name: "EinherjarStyle".into(),
             events: chain,
-            confidence: "medium".into(),
+            confidence: "high".into(),
         });
     }
 
-    if let Some(chain) = find_chain(events, &["OOBW"], &["MemoryOverlap"], &["UAFR", "UAFW"]) {
+    if !has_invalid_free
+        && let Some(chain) = find_chain(events, &["OOBW"], &["MemoryOverlap"], &["UAFR", "UAFW"])
+    {
         techniques.push(TechniqueSummary {
             name: "PoisonNullByteStyle".into(),
             events: chain,
@@ -185,7 +190,8 @@ fn recognize_techniques(events: &[PrimitiveEvent]) -> Vec<TechniqueSummary> {
         });
     }
 
-    if let Some((chain, confidence)) = find_fastbin_reverse_into_tcache(events) {
+    if !has_invalid_free && let Some((chain, confidence)) = find_fastbin_reverse_into_tcache(events)
+    {
         techniques.push(TechniqueSummary {
             name: "FastbinReverseIntoTcacheStyle".into(),
             events: chain,
@@ -239,6 +245,33 @@ fn find_chain(
         .iter()
         .find(|event| event.step > middle.step && last_kinds.contains(&event.kind.as_str()))?;
     Some(vec![first.id.clone(), middle.id.clone(), last.id.clone()])
+}
+
+fn find_chain4(
+    events: &[PrimitiveEvent],
+    first_kinds: &[&str],
+    second_kinds: &[&str],
+    third_kinds: &[&str],
+    fourth_kinds: &[&str],
+) -> Option<Vec<String>> {
+    let first = events
+        .iter()
+        .find(|event| first_kinds.contains(&event.kind.as_str()))?;
+    let second = events
+        .iter()
+        .find(|event| event.step > first.step && second_kinds.contains(&event.kind.as_str()))?;
+    let third = events
+        .iter()
+        .find(|event| event.step > second.step && third_kinds.contains(&event.kind.as_str()))?;
+    let fourth = events
+        .iter()
+        .find(|event| event.step > third.step && fourth_kinds.contains(&event.kind.as_str()))?;
+    Some(vec![
+        first.id.clone(),
+        second.id.clone(),
+        third.id.clone(),
+        fourth.id.clone(),
+    ])
 }
 
 fn transition_is_escalation(from: &PrimitiveEvent, to: &PrimitiveEvent) -> bool {

@@ -6,7 +6,7 @@ use thiserror::Error;
 use crate::config::{Config, FieldConfig, PageAllocatorConfig, SymbolConfig};
 use crate::decode::{self, DecodedInstruction, ResolvedAccess};
 use crate::ownership::{
-    ALLOCATOR_SUBJECT, MemoryModel, OwnerSet, RegState, SubjectKind, owner_set_one, sets_intersect,
+    ALLOCATOR_SUBJECT, MemoryModel, OwnerSet, RegState, SubjectKind, owner_set_one,
 };
 use crate::registers::{RAX, RBP, RCX, RDI, RDX, RSI, RSP, RegId, id_from_iced};
 use crate::trace::TRACE_FLAG_IS_CALL;
@@ -220,7 +220,7 @@ impl Analyzer {
         });
         for pending in allocs {
             if let Some(ptr) = record.reg(RAX).filter(|v| *v != 0) {
-                self.add_allocation(
+                let subject = self.add_allocation(
                     pending.call_step,
                     pending.call_pc,
                     ptr,
@@ -231,12 +231,8 @@ impl Analyzer {
                 self.regs.insert(
                     RAX,
                     RegState {
-                        value_owners: owner_set_one(
-                            self.subject_at_start(ptr).unwrap_or(ALLOCATOR_SUBJECT),
-                        ),
-                        pointee_owners: owner_set_one(
-                            self.subject_at_start(ptr).unwrap_or(ALLOCATOR_SUBJECT),
-                        ),
+                        value_owners: owner_set_one(subject),
+                        pointee_owners: owner_set_one(subject),
                     },
                 );
             } else if pending.lookahead_left > 1 {
@@ -269,7 +265,7 @@ impl Analyzer {
                             pending.symbol.as_ref().map(|name| format!("{name}:old")),
                         );
                     }
-                    self.add_allocation(
+                    let subject = self.add_allocation(
                         pending.call_step,
                         pending.call_pc,
                         new_ptr,
@@ -280,12 +276,8 @@ impl Analyzer {
                     self.regs.insert(
                         RAX,
                         RegState {
-                            value_owners: owner_set_one(
-                                self.subject_at_start(new_ptr).unwrap_or(ALLOCATOR_SUBJECT),
-                            ),
-                            pointee_owners: owner_set_one(
-                                self.subject_at_start(new_ptr).unwrap_or(ALLOCATOR_SUBJECT),
-                            ),
+                            value_owners: owner_set_one(subject),
+                            pointee_owners: owner_set_one(subject),
                         },
                     );
                 }
@@ -605,7 +597,7 @@ impl Analyzer {
         size: u64,
         symbol: Option<String>,
         zero_initialized: bool,
-    ) {
+    ) -> u64 {
         let type_hint = self.allocation_type_hint(pc, ptr, symbol.as_deref());
         let subject_name = type_hint.as_deref().map(|ty| format!("{ty}@{}", hex(ptr)));
         let subject = if subject_name.is_some() {
@@ -651,12 +643,16 @@ impl Analyzer {
                 cell.value_owners.insert(ALLOCATOR_SUBJECT);
             }
         }
+        let mut return_subject = subject;
         if let Some(type_hint) = type_hint.as_deref()
             && let Some(layout) = self.config.type_layouts.get(type_hint).cloned()
             && layout.size.is_none_or(|layout_size| layout_size <= size)
         {
             let name = subject_name.unwrap_or_else(|| format!("{type_hint}@{}", hex(ptr)));
             self.install_field_children(subject, SubjectKind::Heap, ptr, &name, &layout.fields);
+            if let Some(child) = self.child_subject_at_start(subject, ptr) {
+                return_subject = child;
+            }
         }
         self.memory_events.push(MemoryEvent {
             step,
@@ -667,6 +663,7 @@ impl Analyzer {
             ptr: Some(hex(ptr)),
             size: Some(hex(size)),
         });
+        return_subject
     }
 
     fn allocation_type_hint(&self, call_pc: u64, ptr: u64, symbol: Option<&str>) -> Option<String> {
@@ -706,14 +703,30 @@ impl Analyzer {
             );
             return;
         }
-        if let Some(subject) = self.mem.active_subject_at_start(ptr) {
+        if let Some(subject) = self.active_heap_subject_at_start_for_pointer(ptr, &pointer_owners) {
+            let cell = self.mem.cell(ptr);
+            if cell.cell_owners.len() > 1 {
+                self.record(
+                    step,
+                    pc,
+                    ViolationKind::InvalidFree,
+                    AccessKind::Free,
+                    ptr,
+                    0,
+                    pointer_owners,
+                    cell,
+                    Some("free target has multiple cell owners".into()),
+                );
+            }
             self.free_active_subject(step, pc, ptr, subject, symbol);
             return;
         }
         let Some(_containing_subject) = self.mem.active_subject_containing(ptr) else {
-            if pointer_owners
-                .iter()
-                .any(|owner| self.mem.subject_freed(*owner))
+            let cell = self.mem.cell(ptr);
+            if cell.cell_owners.contains(&ALLOCATOR_SUBJECT)
+                || pointer_owners
+                    .iter()
+                    .any(|owner| self.mem.subject_freed(*owner))
                 || self.mem.freed_subject_at_start(ptr).is_some()
             {
                 self.record_simple(
@@ -879,8 +892,12 @@ impl Analyzer {
                 continue;
             }
             let state = self.regs.entry(reg).or_default();
-            state.value_owners.extend(inferred.iter().copied());
-            state.pointee_owners.extend(inferred);
+            if state.value_owners.is_empty() {
+                state.value_owners.extend(inferred.iter().copied());
+            }
+            if state.pointee_owners.is_empty() {
+                state.pointee_owners.extend(inferred);
+            }
         }
     }
 
@@ -1088,32 +1105,77 @@ impl Analyzer {
                 );
                 return;
             }
-            let ambiguous_pointer = pointer_owners.len() > 1
-                && !self.is_benign_static_multi_owner(&pointer_owners, &cell.cell_owners);
-            if !pointer_owners.is_empty()
-                && (ambiguous_pointer || !sets_intersect(&pointer_owners, &cell.cell_owners))
-            {
-                let kind = if is_write {
-                    ViolationKind::OutOfBoundsWrite
-                } else {
-                    ViolationKind::OutOfBoundsRead
-                };
-                self.record(
-                    record.step,
-                    record.pc,
-                    kind,
-                    access.kind,
-                    addr,
-                    1,
-                    pointer_owners.clone(),
-                    cell.clone(),
-                    None,
-                );
+            let stack_model_alias =
+                self.is_active_stack_model_alias(&pointer_owners, &cell.cell_owners);
+            let mut pointer_matches_cell = pointer_owners.is_empty()
+                || same_owners(&pointer_owners, &cell.cell_owners)
+                || stack_model_alias;
+            if !stack_model_alias {
+                if !pointer_owners.is_empty()
+                    && cell.cell_owners.contains(&ALLOCATOR_SUBJECT)
+                    && pointer_owners.iter().any(|owner| {
+                        matches!(
+                            self.mem.subject_kind(*owner),
+                            SubjectKind::Heap | SubjectKind::Page
+                        )
+                    })
+                {
+                    self.record(
+                        record.step,
+                        record.pc,
+                        if is_write {
+                            ViolationKind::UseAfterFreeWrite
+                        } else {
+                            ViolationKind::UseAfterFreeRead
+                        },
+                        access.kind,
+                        addr,
+                        1,
+                        pointer_owners.clone(),
+                        cell.clone(),
+                        Some("heap pointer reaches a cell co-owned by allocator".into()),
+                    );
+                    return;
+                }
+                if !pointer_owners.is_empty() && pointer_owners.len() > 1 {
+                    self.record(
+                        record.step,
+                        record.pc,
+                        if is_write {
+                            ViolationKind::OutOfBoundsWrite
+                        } else {
+                            ViolationKind::OutOfBoundsRead
+                        },
+                        access.kind,
+                        addr,
+                        1,
+                        pointer_owners.clone(),
+                        cell.clone(),
+                        Some("pointer has multiple pointee owners".into()),
+                    );
+                    pointer_matches_cell = false;
+                } else if !pointer_owners.is_empty()
+                    && !same_owners(&pointer_owners, &cell.cell_owners)
+                {
+                    let kind = self.strict_mismatch_kind(&pointer_owners, is_write);
+                    self.record(
+                        record.step,
+                        record.pc,
+                        kind,
+                        access.kind,
+                        addr,
+                        1,
+                        pointer_owners.clone(),
+                        cell.clone(),
+                        Some("pointee owners differ from target cell owners".into()),
+                    );
+                    return;
+                }
             }
             if is_read
                 && !cell.cell_owners.is_empty()
-                && !cell.cell_owners.contains(&ALLOCATOR_SUBJECT)
-                && !sets_intersect(&cell.cell_owners, &cell.value_owners)
+                && pointer_matches_cell
+                && !same_owners(&cell.cell_owners, &cell.value_owners)
             {
                 self.record(
                     record.step,
@@ -1130,18 +1192,49 @@ impl Analyzer {
         }
     }
 
-    fn is_benign_static_multi_owner(
+    fn strict_mismatch_kind(&self, pointer_owners: &OwnerSet, is_write: bool) -> ViolationKind {
+        if pointer_owners.iter().any(|owner| {
+            matches!(
+                self.mem.subject_kind(*owner),
+                SubjectKind::Heap | SubjectKind::Page
+            )
+        }) {
+            if is_write {
+                ViolationKind::UseAfterFreeWrite
+            } else {
+                ViolationKind::UseAfterFreeRead
+            }
+        } else if pointer_owners
+            .iter()
+            .any(|owner| self.mem.subject_kind(*owner) == SubjectKind::Stack)
+        {
+            if is_write {
+                ViolationKind::StackUseAfterScopeWrite
+            } else {
+                ViolationKind::StackUseAfterScopeRead
+            }
+        } else {
+            ViolationKind::ExpiredPointerDereference
+        }
+    }
+
+    fn is_active_stack_model_alias(
         &self,
         pointer_owners: &OwnerSet,
         cell_owners: &OwnerSet,
     ) -> bool {
-        sets_intersect(pointer_owners, cell_owners)
+        !pointer_owners.is_empty()
+            && !cell_owners.is_empty()
             && pointer_owners
                 .iter()
+                .chain(cell_owners.iter())
                 .all(|owner| self.mem.subject_kind(*owner) == SubjectKind::Stack)
+            && pointer_owners
+                .iter()
+                .all(|owner| !self.mem.subject_freed(*owner))
             && cell_owners
                 .iter()
-                .all(|owner| self.mem.subject_kind(*owner) == SubjectKind::Stack)
+                .all(|owner| !self.mem.subject_freed(*owner))
     }
 
     fn copy_memory_summary(&mut self, record: &TraceRecord, dst: u64, src: u64, len: u64) {
@@ -1356,9 +1449,13 @@ impl Analyzer {
     ) {
         let size = size.max(1);
         let subject = self.mem.fresh_subject(SubjectKind::Stack, start, size);
+        let page_subjects: Vec<_> = self.stack_pages.values().copied().collect();
         for off in 0..size {
             let addr = start.saturating_add(off);
             let cell = self.mem.cell_mut(addr);
+            for page_subject in &page_subjects {
+                cell.cell_owners.shift_remove(page_subject);
+            }
             cell.cell_owners.insert(subject);
             if initialized {
                 cell.value_owners.clear();
@@ -1396,10 +1493,13 @@ impl Analyzer {
                 .unwrap_or((start, size));
             self.mem.mark_freed(subject);
             for off in 0..subject_size.max(1) {
-                self.mem
-                    .cell_mut(subject_start.saturating_add(off))
-                    .cell_owners
-                    .shift_remove(&subject);
+                let addr = subject_start.saturating_add(off);
+                let stack_page = self.stack_page_subject_for_addr(addr);
+                let cell = self.mem.cell_mut(addr);
+                cell.cell_owners.shift_remove(&subject);
+                if let Some(stack_page) = stack_page {
+                    cell.cell_owners.insert(stack_page);
+                }
             }
         }
         self.memory_events.push(MemoryEvent {
@@ -1431,12 +1531,15 @@ impl Analyzer {
                 for off in 0..access.size.max(1) {
                     let addr = access.address.saturating_add(off as u64);
                     let cell_owners = self.mem.cell(addr).cell_owners;
-                    let cell = self.mem.cell_mut(addr);
-                    cell.value_owners = if pointer_owners.is_empty() {
-                        cell_owners
+                    let value_owners = if pointer_owners.is_empty()
+                        || self.is_active_stack_model_alias(&pointer_owners, &cell_owners)
+                    {
+                        cell_owners.clone()
                     } else {
                         pointer_owners.clone()
                     };
+                    let cell = self.mem.cell_mut(addr);
+                    cell.value_owners = value_owners;
                     cell.pointee_owners = src_pointee.clone();
                     cell.last_write_pc = Some(record.pc);
                 }
@@ -1741,7 +1844,7 @@ impl Analyzer {
         if result_cell.cell_owners.is_empty() {
             return;
         }
-        if !sets_intersect(pointer_owners, &result_cell.cell_owners) {
+        if !same_owners(pointer_owners, &result_cell.cell_owners) {
             self.record(
                 step,
                 pc,
@@ -1769,8 +1872,8 @@ impl Analyzer {
             .pointee_owners
             .iter()
             .any(|owner| self.mem.subject_freed(*owner));
-        let points_outside_owner = !cell.cell_owners.is_empty()
-            && !sets_intersect(&state.pointee_owners, &cell.cell_owners);
+        let points_outside_owner =
+            !cell.cell_owners.is_empty() && !same_owners(&state.pointee_owners, &cell.cell_owners);
         if points_to_freed || points_outside_owner {
             let kind = if points_to_freed {
                 ViolationKind::DanglingPointer
@@ -1815,8 +1918,39 @@ impl Analyzer {
     fn reg_state(&self, reg: RegId) -> RegState {
         self.regs.get(&reg).cloned().unwrap_or_default()
     }
-    fn subject_at_start(&self, ptr: u64) -> Option<u64> {
-        self.mem.active_subject_at_start(ptr)
+
+    fn active_heap_subject_at_start_for_pointer(
+        &self,
+        ptr: u64,
+        pointer_owners: &OwnerSet,
+    ) -> Option<u64> {
+        pointer_owners
+            .iter()
+            .copied()
+            .find(|owner| {
+                self.mem.subjects.get(owner).is_some_and(|subject| {
+                    subject.kind == SubjectKind::Heap
+                        && !subject.freed
+                        && subject.start == Some(ptr)
+                })
+            })
+            .or_else(|| self.mem.active_subject_at_start(ptr))
+    }
+
+    fn child_subject_at_start(&self, parent: u64, ptr: u64) -> Option<u64> {
+        self.mem
+            .subjects
+            .values()
+            .filter(|subject| {
+                subject.parent == Some(parent) && !subject.freed && subject.start == Some(ptr)
+            })
+            .max_by_key(|subject| subject.id)
+            .map(|subject| subject.id)
+    }
+
+    fn stack_page_subject_for_addr(&self, addr: u64) -> Option<u64> {
+        let page_start = addr & !(PAGE_SIZE - 1);
+        self.stack_pages.get(&page_start).copied()
     }
 
     #[allow(clippy::too_many_arguments)]
@@ -1974,6 +2108,10 @@ fn parse_hex_label(label: &str) -> Option<u64> {
     let trimmed = label.trim();
     let raw = trimmed.strip_prefix("0x").unwrap_or(trimmed);
     u64::from_str_radix(raw, 16).ok()
+}
+
+fn same_owners(left: &OwnerSet, right: &OwnerSet) -> bool {
+    left.len() == right.len() && left.iter().all(|owner| right.contains(owner))
 }
 
 fn state_for_immediate(analyzer: &Analyzer, value: u64) -> RegState {

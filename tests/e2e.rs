@@ -134,6 +134,13 @@ fn mov_rdi_rax(step: u64, pc: u64, rax: u64, rdi: u64) -> TraceRecord {
     r
 }
 
+fn mov_rdi_rbx(step: u64, pc: u64, rbx: u64, rdi: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0xdf]);
+    r.set_reg(RBX, rbx);
+    r.set_reg(RDI, rdi);
+    r
+}
+
 fn write_ptr(step: u64, pc: u64, base: RegId, addr: u64) -> TraceRecord {
     let bytes = match base.name() {
         "rbx" => vec![0x89, 0x0b], // mov dword ptr [rbx], ecx
@@ -387,6 +394,43 @@ fn memory_overlap_on_reused_active_cell() {
     ];
     let summary = run_qlt("overlap", &records);
     assert_eq!(summary["memory_overlaps"], 1);
+}
+
+#[test]
+fn strict_invalid_free_when_cell_has_multiple_owners() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        call(4, 0x400009, 0x1000, 0x10),
+        nop(5, 0x40000e, 0x5000),
+        mov_rdi_rbx(6, 0x40000f, 0x5000, 0),
+        call(7, 0x400012, 0x2000, 0x5000),
+        nop(8, 0x400017, 0),
+    ];
+    let summary = run_qlt("strict_invalid_free_multi_owner", &records);
+    assert_eq!(summary["memory_overlaps"], 1);
+    assert_eq!(summary["invalid_frees"], 1);
+    assert_eq!(summary["double_frees"], 0);
+}
+
+#[test]
+fn strict_heap_owner_mismatch_on_overlapped_cell_is_uaf() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        call(4, 0x400009, 0x1000, 0x10),
+        nop(5, 0x40000e, 0x5000),
+        mov_rdi_rbx(6, 0x40000f, 0x5000, 0),
+        call(7, 0x400012, 0x2000, 0x5000),
+        nop(8, 0x400017, 0),
+        write_ptr(9, 0x400018, RAX, 0x5000),
+    ];
+    let summary = run_qlt("strict_overlap_uaf", &records);
+    assert_eq!(summary["invalid_frees"], 1);
+    assert_eq!(summary["use_after_free_writes"], 1);
+    assert_eq!(summary["out_of_bounds_writes"], 0);
 }
 
 #[test]

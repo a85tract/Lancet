@@ -162,7 +162,8 @@ impl MemoryModel {
     pub fn active_subject_at_start(&self, ptr: u64) -> Option<SubjectId> {
         self.subjects
             .values()
-            .find(|s| s.kind == SubjectKind::Heap && !s.freed && s.start == Some(ptr))
+            .filter(|s| s.kind == SubjectKind::Heap && !s.freed && s.start == Some(ptr))
+            .max_by_key(|s| s.id)
             .map(|s| s.id)
     }
 
