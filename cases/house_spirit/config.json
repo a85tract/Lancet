@@ -1,0 +1,21 @@
+{
+  "name": "house_spirit",
+  "release": "user",
+  "trace_format": "qlt",
+  "simulator": "user",
+  "exp": "exp.c",
+  "build": "build.sh",
+  "auto_config": false,
+  "analyzer_config": "generated/user/analyzer_config.json",
+  "output_dir": "../../qemu_tcg/traces",
+  "trace": "house_spirit.qlt",
+  "timeout": 120,
+  "start_symbol": "main",
+  "stop_symbol": "main:return",
+  "plugin_mode": "user",
+  "trigger_mode": "user",
+  "qlt_block_mb": 4,
+  "qlt_zstd": 1,
+  "glibc_version": "2.32-0ubuntu3_amd64",
+  "extra_plugin_args": "from=0x400000,to=0x405000"
+}
