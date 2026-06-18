@@ -1872,8 +1872,9 @@ impl Analyzer {
             .pointee_owners
             .iter()
             .any(|owner| self.mem.subject_freed(*owner));
-        let points_outside_owner =
-            !cell.cell_owners.is_empty() && !same_owners(&state.pointee_owners, &cell.cell_owners);
+        let points_outside_owner = !cell.cell_owners.is_empty()
+            && !same_owners(&state.pointee_owners, &cell.cell_owners)
+            && !self.is_active_stack_model_alias(&state.pointee_owners, &cell.cell_owners);
         if points_to_freed || points_outside_owner {
             let kind = if points_to_freed {
                 ViolationKind::DanglingPointer

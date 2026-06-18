@@ -559,6 +559,19 @@ fn stack_and_global_reads_are_modeled_subjects() {
 }
 
 #[test]
+fn active_stack_alias_copy_is_not_untrusted_ptr() {
+    let records = vec![
+        read_rsp(1, 0x400000, 0x6fe0),
+        lea_rax_rsp(2, 0x400004, 0x6fe0, 0x6fe0),
+        sub_rsp_imm8(3, 0x400008, 0x7000, 0x20),
+        mov_rcx_rax(4, 0x40000c, 0x6fe0, 0),
+    ];
+    let summary = run_qlt("active_stack_alias_copy", &records);
+    assert_eq!(summary["untrusted_ptrs"], 0);
+    assert_eq!(summary["dangling_pointers"], 0);
+}
+
+#[test]
 fn stack_use_after_scope_is_detected_after_rsp_restore() {
     let records = vec![
         sub_rsp_imm8(1, 0x400000, 0x7000, 0x20),
