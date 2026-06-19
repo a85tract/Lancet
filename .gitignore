@@ -62,3 +62,5 @@ analysis.md
 # PoC files that are too large or binary
 dataset/*/poc/*.bin
 dataset/*/poc/presets/
+pinos.log.*
+tmp.scanfile.*
