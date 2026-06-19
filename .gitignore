@@ -79,3 +79,10 @@ tmp.dbload.*
 # Old scripts
 remake.sh
 run.sh
+
+# PIN logs in dataset subdirs
+dataset/*/pin.log
+dataset/*/lancet_test/
+
+# Root logs dir (runtime output)
+logs/

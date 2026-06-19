@@ -1,8 +1,0 @@
-[INCONSISTENCY mov write reg] ip: main+0x1f2fe8 co: 5 vo: -1, -1 write 5
-[INCONSISTENCY mov write reg] ip: main+0x1f2feb co: 5 vo: -1, -1 write 5
-[UNINITIALIZED mov read] ip: main+0x1c6eab co: 5 vo: -1
-[UNTRUSTEDPTRDEREF] ip: main+0x1c6eae final_ea: 0x7ffe7b92a758 base: 0x7ffe7b92a758 pointee: -1 base_vo: -1
-[UNINITIALIZED mov read] ip: main+0x208f1e co: 4 vo: -1
-[UNINITIALIZED mov read] ip: main+0x208f4b co: 4 vo: -1
-[INCONSISTENCY mov write reg] ip: main+0x1c6ed9 co: 6 vo: -1, -1 write 6
-[UNINITIALIZED mov read] ip: main+0x21a4c7 co: 4 vo: -1
