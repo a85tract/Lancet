@@ -64,3 +64,18 @@ dataset/*/poc/*.bin
 dataset/*/poc/presets/
 pinos.log.*
 tmp.scanfile.*
+
+# PIN/Lancet runtime output
+pin.log
+pintool.log
+
+# Stray PoC files in root
+poc.*
+poc_input.*
+
+# Temp db files
+tmp.dbload.*
+
+# Old scripts
+remake.sh
+run.sh
