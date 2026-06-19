@@ -1,0 +1,404 @@
+[INCONSISTENCY mov write reg] ip: main+0x1464 (main @ harness_main.c:11) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1467 (main @ harness_main.c:11) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x14a8 (main @ harness_main.c:16) final_ea: 0x7fff004588f0 base: 0x7fff004588f0 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x61c1c1747010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x14bd (main @ harness_main.c:16) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x61c1c17471f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x20112) -> 0x72388e2bb010 subject=8 at main @ harness_main.c:24
+[FREE:internal] free(0x61c1c17471f0) subject=6 at _IO_setb
+[FREE:internal] free(0x61c1c1747010) subject=5 at _IO_fclose
+[FREE:internal] free(0x61c1c1747010) subject=0
+[DOUBLE FREE] free(0x61c1c1747010) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x1219 (FUZZ_seed @ fuzz_helpers.h:62) loaded: 0x7fff00458748 from cell: 0x7fff00458718 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x121d (FUZZ_seed @ fuzz_helpers.h:62) loaded: 0x72388e2bb010 from cell: 0x7fff00458748 cell_owner: 9 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1224 (FUZZ_seed @ fuzz_helpers.h:63) loaded: 0x7fff00458740 from cell: 0x7fff00458710 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1228 (FUZZ_seed @ fuzz_helpers.h:63) loaded: 0x20112 from cell: 0x7fff00458740 cell_owner: 9 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x123b (FUZZ_seed @ fuzz_helpers.h:64) loaded: 0x7fff00458740 from cell: 0x7fff00458710 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x123f (FUZZ_seed @ fuzz_helpers.h:64) loaded: 0x20112 from cell: 0x7fff00458740 cell_owner: 9 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1249 (FUZZ_seed @ fuzz_helpers.h:64) loaded: 0x7fff00458740 from cell: 0x7fff00458710 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1250 (FUZZ_seed @ fuzz_helpers.h:65) loaded: 0x7fff00458748 from cell: 0x7fff00458718 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1254 (FUZZ_seed @ fuzz_helpers.h:65) loaded: 0x72388e2bb010 from cell: 0x7fff00458748 cell_owner: 9 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x125e (FUZZ_seed @ fuzz_helpers.h:65) loaded: 0x7fff00458748 from cell: 0x7fff00458718 cell_owner: 10 value_owner: 9
+[UNTRUSTEDPTRDEREF] ip: main+0x1779 (XXH32 @ xxhash.c:417) final_ea: 0x61c197ff40d8 base: 0x61c197ff40d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x1782 (XXH32 @ xxhash.c:427) base: 0x7fff00458700 pointee: 10 read from 11
+[CORRUPTED_PTR_LOAD] ip: main+0x1782 (XXH32 @ xxhash.c:427) loaded: 0x45873000000001 from cell: 0x7fff004586fc cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x178c (XXH32 @ xxhash.c:427) loaded: 0x72388e2bb010 from cell: 0x7fff004585a8 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x1797 (XXH32 @ xxhash.c:427) loaded: 0x4 from cell: 0x7fff004585a0 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x17a2 (XXH32 @ xxhash.c:427) loaded: 0x400000000 from cell: 0x7fff0045859c cell_owner: 11 value_owner: 10
+[STACK PIVOT] ip: main+0x2087 (XXH32 @ xxhash.c:432) RSP 0x7fff00458708 left stack [0xd,0x7fff00438000]
+[STACK PIVOT] ip: main+0x127d (FUZZ_seed @ fuzz_helpers.h:67) RSP 0x7fff00458738 left stack [0xe,0x7fff00438000]
+[UNTRUSTEDPTRDEREF] ip: main+0x5f5f (ZSTD_createDCtx @ zstd_decompress.c:148) final_ea: 0x61c197ff4240 base: 0x61c197ff4240 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x5f66 (ZSTD_createDCtx @ zstd_decompress.c:148) final_ea: 0x61c197ff4248 base: 0x61c197ff4240 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x5f6f (ZSTD_createDCtx @ zstd_decompress.c:148) final_ea: 0x61c197ff4250 base: 0x61c197ff4240 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x5e8c (ZSTD_createDCtx_advanced @ zstd_decompress.c:134) UAF write at: 0x7fff004586e8
+STACKREADUSEAFTERSCOPE at: 0x7fff004586e8 ip: main+0x5ec7 (ZSTD_createDCtx_advanced)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5ed3 (ZSTD_createDCtx_advanced @ zstd_decompress.c:137) UAF write at: 0x7fff004586d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x5edb (ZSTD_createDCtx_advanced @ zstd_decompress.c:137) UAF write at: 0x7fff004586d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5ee4 (ZSTD_createDCtx_advanced @ zstd_decompress.c:137) UAF write at: 0x7fff004586e0
+Store dangling pointer: 0x7fff004586d0 at: 0x7fff004586a8
+[INCONSISTENCY mov write reg UAF] ip: main+0x528ec (ZSTD_malloc @ zstd_common.c:57) UAF write at: 0x7fff004586a8
+first time found dangling pointer at: 253 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x528f0 (ZSTD_malloc @ zstd_common.c:57) UAF write at: 0x7fff004586b0
+[INCONSISTENCY mov read UAF] ip: main+0x528f4 (ZSTD_malloc @ zstd_common.c:58) UAF read at: 0x7fff004586d0
+[INCONSISTENCY mov read UAF] ip: main+0x52918 (ZSTD_malloc @ zstd_common.c:60) UAF read at: 0x7fff004586b0
+[ALLOC] malloc(0x271f8) -> 0x72388dfba010 subject=18 at ZSTD_malloc @ zstd_common.c:60
+[INCONSISTENCY mov write reg UAF] ip: main+0x52921 (ZSTD_malloc @ zstd_common.c:60) UAF write at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x52925 (ZSTD_malloc @ zstd_common.c:61) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5eee (ZSTD_createDCtx_advanced @ zstd_decompress.c:137) UAF write at: 0x7fff004586f0
+STACKREADUSEAFTERSCOPE at: 0x7fff004586f0 ip: main+0x5ef2 (ZSTD_createDCtx_advanced @ zstd_decompress.c:138)
+STACKREADUSEAFTERSCOPE at: 0x7fff004586e8 ip: main+0x5f0a (ZSTD_createDCtx_advanced)
+STACKREADUSEAFTERSCOPE at: 0x7fff004586f0 ip: main+0x5f0e (ZSTD_createDCtx_advanced @ zstd_decompress.c:139)
+STACKREADUSEAFTERSCOPE at: 0x7fff004586f0 ip: main+0x5f32 (ZSTD_createDCtx_advanced @ zstd_decompress.c:140)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5d68 (ZSTD_initDCtx_internal @ zstd_decompress.c:101) UAF write at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5d6c (ZSTD_initDCtx_internal @ zstd_decompress.c:102) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5d7a (ZSTD_initDCtx_internal @ zstd_decompress.c:103) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5d89 (ZSTD_initDCtx_internal @ zstd_decompress.c:104) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5d98 (ZSTD_initDCtx_internal @ zstd_decompress.c:105) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5da7 (ZSTD_initDCtx_internal @ zstd_decompress.c:106) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5db6 (ZSTD_initDCtx_internal @ zstd_decompress.c:107) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5dc5 (ZSTD_initDCtx_internal @ zstd_decompress.c:108) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5dd3 (ZSTD_initDCtx_internal @ zstd_decompress.c:109) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5de1 (ZSTD_initDCtx_internal @ zstd_decompress.c:110) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5df0 (ZSTD_initDCtx_internal @ zstd_decompress.c:111) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5dff (ZSTD_initDCtx_internal @ zstd_decompress.c:112) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5e0e (ZSTD_initDCtx_internal @ zstd_decompress.c:113) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5e1c (ZSTD_initDCtx_internal @ zstd_decompress.c:114) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5e2b (ZSTD_initDCtx_internal @ zstd_decompress.c:115) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x5e39 (ZSTD_initDCtx_internal @ zstd_decompress.c:116) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov write imm UAF] ip: main+0xacd5 (ZSTD_cpuid @ cpu.h:35) UAF write at: 0x7fff00458674
+[INCONSISTENCY mov write imm UAF] ip: main+0xacdc (ZSTD_cpuid @ cpu.h:36) UAF write at: 0x7fff00458670
+[INCONSISTENCY mov write imm UAF] ip: main+0xace3 (ZSTD_cpuid @ cpu.h:37) UAF write at: 0x7fff0045866c
+[INCONSISTENCY mov write imm UAF] ip: main+0xacea (ZSTD_cpuid @ cpu.h:38) UAF write at: 0x7fff00458668
+[INCONSISTENCY mov write reg UAF] ip: main+0xacf5 (ZSTD_cpuid @ cpu.h:89) UAF write at: 0x7fff00458664
+[INCONSISTENCY mov read UAF] ip: main+0xacf8 (ZSTD_cpuid @ cpu.h:90) UAF read at: 0x7fff00458664
+[INCONSISTENCY mov write reg UAF] ip: main+0xad09 (ZSTD_cpuid @ cpu.h:92) UAF write at: 0x7fff00458660
+[INCONSISTENCY mov write reg UAF] ip: main+0xad0c (ZSTD_cpuid @ cpu.h:92) UAF write at: 0x7fff00458674
+[INCONSISTENCY mov write reg UAF] ip: main+0xad0f (ZSTD_cpuid @ cpu.h:92) UAF write at: 0x7fff00458670
+[INCONSISTENCY mov read UAF] ip: main+0xad12 (ZSTD_cpuid @ cpu.h:94) UAF read at: 0x7fff00458664
+[INCONSISTENCY mov write reg UAF] ip: main+0xad25 (ZSTD_cpuid @ cpu.h:96) UAF write at: 0x7fff0045865c
+[INCONSISTENCY mov write reg UAF] ip: main+0xad28 (ZSTD_cpuid @ cpu.h:96) UAF write at: 0x7fff0045866c
+[INCONSISTENCY mov write reg UAF] ip: main+0xad2b (ZSTD_cpuid @ cpu.h:96) UAF write at: 0x7fff00458668
+[INCONSISTENCY mov read UAF] ip: main+0xad2e (ZSTD_cpuid @ cpu.h:104) UAF read at: 0x7fff00458674
+[INCONSISTENCY mov write reg UAF] ip: main+0xad31 (ZSTD_cpuid @ cpu.h:104) UAF write at: 0x7fff00458678
+[INCONSISTENCY mov read UAF] ip: main+0xad34 (ZSTD_cpuid @ cpu.h:105) UAF read at: 0x7fff00458670
+[INCONSISTENCY mov write reg UAF] ip: main+0xad37 (ZSTD_cpuid @ cpu.h:105) UAF write at: 0x7fff0045867c
+[INCONSISTENCY mov read UAF] ip: main+0xad3a (ZSTD_cpuid @ cpu.h:106) UAF read at: 0x7fff0045866c
+[INCONSISTENCY mov write reg UAF] ip: main+0xad3d (ZSTD_cpuid @ cpu.h:106) UAF write at: 0x7fff00458680
+[INCONSISTENCY mov read UAF] ip: main+0xad40 (ZSTD_cpuid @ cpu.h:107) UAF read at: 0x7fff00458668
+[INCONSISTENCY mov write reg UAF] ip: main+0xad43 (ZSTD_cpuid @ cpu.h:107) UAF write at: 0x7fff00458684
+[INCONSISTENCY mov read UAF] ip: main+0xad46 (ZSTD_cpuid @ cpu.h:108) UAF read at: 0x7fff00458678
+[INCONSISTENCY mov read UAF] ip: main+0xad4a (ZSTD_cpuid) UAF read at: 0x7fff00458680
+[INCONSISTENCY mov write reg UAF] ip: main+0x5e4c (ZSTD_initDCtx_internal @ zstd_decompress.c:117) UAF write at: 0x7fff004586a8
+first time found dangling pointer at: 253 distance: 98
+[INCONSISTENCY mov write reg UAF] ip: main+0x5e50 (ZSTD_initDCtx_internal @ zstd_decompress.c:117) UAF write at: 0x7fff004586b0
+[INCONSISTENCY mov read UAF] ip: main+0x5e54 (ZSTD_initDCtx_internal @ zstd_decompress.c:117) UAF read at: 0x7fff004586a8
+first time found dangling pointer at: 253 distance: 100
+[INCONSISTENCY mov read UAF] ip: main+0x5e58 (ZSTD_initDCtx_internal @ zstd_decompress.c:117) UAF read at: 0x7fff004586b0
+[INCONSISTENCY mov write reg UAF] ip: main+0xaca4 (ZSTD_cpuid_bmi2 @ cpu.h:187) UAF write at: 0x7fff00458680
+[INCONSISTENCY mov write reg UAF] ip: main+0xaca8 (ZSTD_cpuid_bmi2 @ cpu.h:187) UAF write at: 0x7fff00458688
+[INCONSISTENCY mov read UAF] ip: main+0xacac (ZSTD_cpuid_bmi2 @ cpu.h:187) UAF read at: 0x7fff00458688
+[INCONSISTENCY mov read UAF] ip: main+0x5e63 (ZSTD_initDCtx_internal @ zstd_decompress.c:117) UAF read at: 0x7fff004586b8
+STACKREADUSEAFTERSCOPE at: 0x7fff004586f0 ip: main+0x5f3b (ZSTD_createDCtx_advanced @ zstd_decompress.c:141)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5f3f (ZSTD_createDCtx_advanced @ zstd_decompress.c:141) UAF write at: 0x7fff004586f8
+STACKREADUSEAFTERSCOPE at: 0x7fff004586f8 ip: main+0x5f43 (ZSTD_createDCtx_advanced @ zstd_decompress.c:143)
+[INCONSISTENCY mov write reg] ip: main+0x1333 (LLVMFuzzerTestOneInput @ simple_decompress.c:29) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg UAF] ip: main+0x1283 (FUZZ_rand @ fuzz_helpers.h:71) UAF write at: 0x7fff004586e8
+STACKREADUSEAFTERSCOPE at: 0x7fff004586e8 ip: main+0x1287 (FUZZ_rand @ fuzz_helpers.h:74)
+[INCONSISTENCY mov write reg UAF] ip: main+0x128d (FUZZ_rand @ fuzz_helpers.h:74) UAF write at: 0x7fff004586fc
+[UNTRUSTEDPTRDEREF] ip: main+0x1290 (FUZZ_rand @ fuzz_helpers.h:75) final_ea: 0x61c197ff40ac base: 0x61c197f94290 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff004586fc ip: main+0x1296 (FUZZ_rand @ fuzz_helpers.h:75)
+[INCONSISTENCY mov write reg UAF] ip: main+0x129c (FUZZ_rand @ fuzz_helpers.h:75) UAF write at: 0x7fff004586fc
+[UNTRUSTEDPTRDEREF] ip: main+0x129f (FUZZ_rand @ fuzz_helpers.h:76) final_ea: 0x61c197ff40b0 base: 0x61c197f9429f pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff004586e8 ip: main+0x12ac (FUZZ_rand @ fuzz_helpers.h:78)
+STACKREADUSEAFTERSCOPE at: 0x7fff004586fc ip: main+0x12b0 (FUZZ_rand @ fuzz_helpers.h:78)
+STACKREADUSEAFTERSCOPE at: 0x7fff004586fc ip: main+0x12b5 (FUZZ_rand @ fuzz_helpers.h:79)
+[STACK PIVOT] ip: main+0x12f6 (FUZZ_rand32 @ fuzz_helpers.h:86) RSP 0x7fff00458738 left stack [0x16,0x7fff00438000]
+[ALLOC] malloc(0x261f) -> 0x61c1c17474f0 subject=22 at LLVMFuzzerTestOneInput @ simple_decompress.c:35
+Store dangling pointer: 0x61c1c17474f0 at: 0x7fff00458758
+main+0x13ba (LLVMFuzzerTestOneInput @ simple_decompress.c:36) Using expired pointer: 0x61c1c17474f0 from 0x7fff00458758
+first time found dangling pointer at: 443 distance: 1
+[INCONSISTENCY mov write reg UAF] ip: main+0x7698 (ZSTD_decompressDCtx @ zstd_decompress.c:819) UAF write at: 0x7fff00458728
+[INCONSISTENCY mov write reg UAF] ip: main+0x769c (ZSTD_decompressDCtx @ zstd_decompress.c:819) UAF write at: 0x7fff00458720
+first time found dangling pointer at: 458 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x76a0 (ZSTD_decompressDCtx @ zstd_decompress.c:819) UAF write at: 0x7fff00458718
+[INCONSISTENCY mov write reg UAF] ip: main+0x76a4 (ZSTD_decompressDCtx @ zstd_decompress.c:819) UAF write at: 0x7fff00458710
+STACKREADUSEAFTERSCOPE at: 0x7fff00458728 ip: main+0x76ac (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+[INCONSISTENCY mov write reg UAF] ip: main+0x76b0 (ZSTD_decompressDCtx @ zstd_decompress.c:820) UAF write at: 0x7fff004586e0
+STACKREADUSEAFTERSCOPE at: 0x7fff00458720 ip: main+0x76b4 (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+first time found dangling pointer at: 458 distance: 6
+[INCONSISTENCY mov write reg UAF] ip: main+0x76b8 (ZSTD_decompressDCtx @ zstd_decompress.c:820) UAF write at: 0x7fff004586e8
+first time found dangling pointer at: 465 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fff00458718 ip: main+0x76bc (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+[INCONSISTENCY mov write reg UAF] ip: main+0x76c0 (ZSTD_decompressDCtx @ zstd_decompress.c:820) UAF write at: 0x7fff004586f0
+STACKREADUSEAFTERSCOPE at: 0x7fff00458710 ip: main+0x76c4 (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+[INCONSISTENCY mov write reg UAF] ip: main+0x76c8 (ZSTD_decompressDCtx @ zstd_decompress.c:820) UAF write at: 0x7fff004586f8
+STACKREADUSEAFTERSCOPE at: 0x7fff00458728 ip: main+0x76d4 (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+[INCONSISTENCY mov write reg UAF] ip: main+0x7768 (ZSTD_getDDict @ zstd_decompress.c:802) UAF write at: 0x7fff004586c0
+[INCONSISTENCY mov read UAF] ip: main+0x776c (ZSTD_getDDict @ zstd_decompress.c:803) UAF read at: 0x7fff004586c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x7776 (ZSTD_getDDict @ zstd_decompress.c:803) UAF write at: 0x7fff004586bc
+[INCONSISTENCY mov read UAF] ip: main+0x7787 (ZSTD_getDDict) UAF read at: 0x7fff004586bc
+[INCONSISTENCY mov read UAF] ip: main+0x77ad (ZSTD_getDDict @ zstd_decompress.c:808) UAF read at: 0x7fff004586c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x60b8 (ZSTD_clearDict @ zstd_decompress.c:152) UAF write at: 0x7fff00458698
+[INCONSISTENCY mov read UAF] ip: main+0x60bc (ZSTD_clearDict @ zstd_decompress.c:153) UAF read at: 0x7fff00458698
+[INCONSISTENCY mov write reg UAF] ip: main+0x60888 (ZSTD_freeDDict @ zstd_ddict.c:209) UAF write at: 0x7fff00458670
+[INCONSISTENCY mov read UAF] ip: main+0x6088c (ZSTD_freeDDict @ zstd_ddict.c:210) UAF read at: 0x7fff00458670
+[INCONSISTENCY mov write imm UAF] ip: main+0x60897 (ZSTD_freeDDict @ zstd_ddict.c:210) UAF write at: 0x7fff00458678
+[INCONSISTENCY mov read UAF] ip: main+0x60920 (ZSTD_freeDDict @ zstd_ddict.c:216) UAF read at: 0x7fff00458678
+[INCONSISTENCY mov read UAF] ip: main+0x60cc (ZSTD_clearDict @ zstd_decompress.c:154) UAF read at: 0x7fff00458698
+[INCONSISTENCY mov read UAF] ip: main+0x60db (ZSTD_clearDict @ zstd_decompress.c:155) UAF read at: 0x7fff00458698
+[INCONSISTENCY mov read UAF] ip: main+0x60ea (ZSTD_clearDict @ zstd_decompress.c:156) UAF read at: 0x7fff00458698
+[INCONSISTENCY mov write imm UAF] ip: main+0x77b6 (ZSTD_getDDict @ zstd_decompress.c:809) UAF write at: 0x7fff004586c8
+[INCONSISTENCY mov read UAF] ip: main+0x77f4 (ZSTD_getDDict @ zstd_decompress.c:816) UAF read at: 0x7fff004586c8
+STACKREADUSEAFTERSCOPE at: 0x7fff004586e0 ip: main+0x76dd (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+STACKREADUSEAFTERSCOPE at: 0x7fff004586e8 ip: main+0x76e1 (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+first time found dangling pointer at: 465 distance: 59
+STACKREADUSEAFTERSCOPE at: 0x7fff004586f0 ip: main+0x76e5 (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+STACKREADUSEAFTERSCOPE at: 0x7fff004586f8 ip: main+0x76e9 (ZSTD_decompressDCtx @ zstd_decompress.c:820)
+[INCONSISTENCY mov write reg UAF] ip: main+0x7708 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1224) UAF write at: 0x7fff004586c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x770c (ZSTD_decompress_usingDDict @ zstd_decompress.c:1224) UAF write at: 0x7fff004586c0
+first time found dangling pointer at: 534 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x7710 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1224) UAF write at: 0x7fff004586b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x7714 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1224) UAF write at: 0x7fff004586b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x7718 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1224) UAF write at: 0x7fff004586a8
+first time found dangling pointer at: 253 distance: 284
+[INCONSISTENCY mov write reg UAF] ip: main+0x771c (ZSTD_decompress_usingDDict @ zstd_decompress.c:1224) UAF write at: 0x7fff004586a0
+[INCONSISTENCY mov read UAF] ip: main+0x7720 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1226) UAF read at: 0x7fff004586c8
+[INCONSISTENCY mov read UAF] ip: main+0x7724 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1226) UAF read at: 0x7fff004586c0
+first time found dangling pointer at: 534 distance: 6
+[INCONSISTENCY mov read UAF] ip: main+0x7728 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1226) UAF read at: 0x7fff004586b8
+[INCONSISTENCY mov read UAF] ip: main+0x772c (ZSTD_decompress_usingDDict @ zstd_decompress.c:1226) UAF read at: 0x7fff004586b0
+[INCONSISTENCY mov read UAF] ip: main+0x7730 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1226) UAF read at: 0x7fff004586a8
+first time found dangling pointer at: 253 distance: 290
+[INCONSISTENCY mov read UAF] ip: main+0x7734 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1228) UAF read at: 0x7fff004586a0
+[INCONSISTENCY mov write imm UAF] ip: main+0x773b (ZSTD_decompress_usingDDict @ zstd_decompress.c:1226) UAF write at: 0x7fff00458690
+[INCONSISTENCY mov write reg UAF] ip: main+0x7743 (ZSTD_decompress_usingDDict @ zstd_decompress.c:1226) UAF write at: 0x7fff00458698
+[INCONSISTENCY mov read UAF] ip: main+0x735b (ZSTD_decompressMultiFrame @ zstd_decompress.c:705) UAF read at: 0x7fff00458698
+[INCONSISTENCY mov read UAF] ip: main+0x735f (ZSTD_decompressMultiFrame @ zstd_decompress.c:705) UAF read at: 0x7fff00458690
+[INCONSISTENCY mov write reg UAF] ip: main+0x7363 (ZSTD_decompressMultiFrame @ zstd_decompress.c:705) UAF write at: 0x7fff00458670
+[INCONSISTENCY mov write reg UAF] ip: main+0x7367 (ZSTD_decompressMultiFrame @ zstd_decompress.c:705) UAF write at: 0x7fff00458668
+first time found dangling pointer at: 555 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x736b (ZSTD_decompressMultiFrame @ zstd_decompress.c:705) UAF write at: 0x7fff00458660
+[INCONSISTENCY mov write reg UAF] ip: main+0x736f (ZSTD_decompressMultiFrame @ zstd_decompress.c:705) UAF write at: 0x7fff00458658
+[INCONSISTENCY mov write reg UAF] ip: main+0x7373 (ZSTD_decompressMultiFrame @ zstd_decompress.c:705) UAF write at: 0x7fff00458650
+[INCONSISTENCY mov write reg UAF] ip: main+0x7377 (ZSTD_decompressMultiFrame @ zstd_decompress.c:705) UAF write at: 0x7fff00458648
+[INCONSISTENCY mov read UAF] ip: main+0x737b (ZSTD_decompressMultiFrame @ zstd_decompress.c:706) UAF read at: 0x7fff00458668
+first time found dangling pointer at: 555 distance: 5
+[INCONSISTENCY mov write reg UAF] ip: main+0x737f (ZSTD_decompressMultiFrame @ zstd_decompress.c:706) UAF write at: 0x7fff00458640
+first time found dangling pointer at: 561 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x7383 (ZSTD_decompressMultiFrame @ zstd_decompress.c:707) UAF write at: 0x7fff0045863c
+[INCONSISTENCY mov read UAF] ip: main+0x738a (ZSTD_decompressMultiFrame @ zstd_decompress.c:712) UAF read at: 0x7fff00458698
+[INCONSISTENCY mov read UAF] ip: main+0x73b4 (ZSTD_decompressMultiFrame @ zstd_decompress.c:717) UAF read at: 0x7fff00458650
+[INCONSISTENCY mov read UAF] ip: main+0x73bf (ZSTD_decompressMultiFrame @ zstd_decompress.c:720) UAF read at: 0x7fff00458658
+[INCONSISTENCY mov read UAF] ip: main+0x73c3 (ZSTD_decompressMultiFrame @ zstd_decompress.c:720) UAF read at: 0x7fff00458650
+[INCONSISTENCY mov write reg UAF] ip: main+0x62d8 (ZSTD_isLegacy @ zstd_legacy.h:57) UAF write at: 0x7fff004585d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x62dc (ZSTD_isLegacy @ zstd_legacy.h:57) UAF write at: 0x7fff004585c8
+[INCONSISTENCY mov read UAF] ip: main+0x62e0 (ZSTD_isLegacy @ zstd_legacy.h:59) UAF read at: 0x7fff004585c8
+[INCONSISTENCY mov read UAF] ip: main+0x62f7 (ZSTD_isLegacy @ zstd_legacy.h:60) UAF read at: 0x7fff004585d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x6288 (MEM_readLE32 @ mem.h:278) UAF write at: 0x7fff004585a0
+[UNTRUSTEDPTRDEREF] ip: main+0xad64 (MEM_isLittleEndian @ mem.h:115) final_ea: 0x61c197ff4690 base: 0x61c197f9dd64 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xad6a (MEM_isLittleEndian @ mem.h:115) UAF write at: 0x7fff00458588
+[INCONSISTENCY mov read UAF] ip: main+0x629a (MEM_readLE32 @ mem.h:280) UAF read at: 0x7fff004585a0
+[INCONSISTENCY mov write reg UAF] ip: main+0xad84 (MEM_read32 @ mem.h:151) UAF write at: 0x7fff00458588
+[INCONSISTENCY mov write reg UAF] ip: main+0x62a3 (MEM_readLE32 @ mem.h:280) UAF write at: 0x7fff004585ac
+[INCONSISTENCY mov read UAF] ip: main+0x62be (MEM_readLE32 @ mem.h:283) UAF read at: 0x7fff004585ac
+[INCONSISTENCY mov write reg UAF] ip: main+0x6300 (ZSTD_isLegacy @ zstd_legacy.h:60) UAF write at: 0x7fff004585c4
+[INCONSISTENCY mov read UAF] ip: main+0x6303 (ZSTD_isLegacy @ zstd_legacy.h:61) UAF read at: 0x7fff004585c4
+[INCONSISTENCY mov write reg UAF] ip: main+0x6306 (ZSTD_isLegacy @ zstd_legacy.h:61) UAF write at: 0x7fff004585c0
+[INCONSISTENCY mov read UAF] ip: main+0x6319 (ZSTD_isLegacy) UAF read at: 0x7fff004585c0
+[INCONSISTENCY mov write imm UAF] ip: main+0x63a3 (ZSTD_isLegacy @ zstd_legacy.h:70) UAF write at: 0x7fff004585dc
+[INCONSISTENCY mov read UAF] ip: main+0x63e6 (ZSTD_isLegacy @ zstd_legacy.h:86) UAF read at: 0x7fff004585dc
+[INCONSISTENCY mov read UAF] ip: main+0x73d5 (ZSTD_decompressMultiFrame @ zstd_decompress.c:722) UAF read at: 0x7fff00458658
+[INCONSISTENCY mov read UAF] ip: main+0x73d9 (ZSTD_decompressMultiFrame @ zstd_decompress.c:722) UAF read at: 0x7fff00458650
+[INCONSISTENCY mov write reg UAF] ip: main+0xafa8 (ZSTD_findFrameCompressedSizeLegacy @ zstd_legacy.h:249) UAF write at: 0x7fff004585d8
+[INCONSISTENCY mov write reg UAF] ip: main+0xafac (ZSTD_findFrameCompressedSizeLegacy @ zstd_legacy.h:249) UAF write at: 0x7fff004585d0
+[INCONSISTENCY mov read UAF] ip: main+0xafb0 (ZSTD_findFrameCompressedSizeLegacy @ zstd_legacy.h:250) UAF read at: 0x7fff004585d8
+[INCONSISTENCY mov read UAF] ip: main+0xafb4 (ZSTD_findFrameCompressedSizeLegacy @ zstd_legacy.h:250) UAF read at: 0x7fff004585d0
+[INCONSISTENCY mov write reg UAF] ip: main+0xae08 (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:182) UAF write at: 0x7fff00458598
+[INCONSISTENCY mov write reg UAF] ip: main+0xae0c (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:182) UAF write at: 0x7fff00458590
+[INCONSISTENCY mov read UAF] ip: main+0xae10 (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:184) UAF read at: 0x7fff00458598
+[INCONSISTENCY mov read UAF] ip: main+0xae14 (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:184) UAF read at: 0x7fff00458590
+[INCONSISTENCY mov read] ip: main+0x62e0 (ZSTD_isLegacy @ zstd_legacy.h:59) base: 0x7fff00458570 pointee: 32 read from 33
+[CORRUPTED_PTR_LOAD] ip: main+0x62e0 (ZSTD_isLegacy @ zstd_legacy.h:59) loaded: 0x2010e from cell: 0x7fff00458558 cell_owner: 33 value_owner: 32
+[CORRUPTED_PTR_LOAD] ip: main+0x62f7 (ZSTD_isLegacy @ zstd_legacy.h:60) loaded: 0x72388e2bb014 from cell: 0x7fff00458560 cell_owner: 33 value_owner: 32
+[CORRUPTED_PTR_LOAD] ip: main+0x629a (MEM_readLE32 @ mem.h:280) loaded: 0x72388e2bb014 from cell: 0x7fff00458530 cell_owner: 34 value_owner: 33
+[INCONSISTENCY mov write reg UAF] ip: main+0xae1d (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:184) UAF write at: 0x7fff0045858c
+[INCONSISTENCY mov read UAF] ip: main+0xae20 (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:185) UAF read at: 0x7fff0045858c
+[INCONSISTENCY mov write reg UAF] ip: main+0xae28 (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:185) UAF write at: 0x7fff00458580
+[INCONSISTENCY mov read UAF] ip: main+0xae35 (ZSTD_findFrameSizeInfoLegacy) UAF read at: 0x7fff00458580
+[UNTRUSTEDPTRDEREF] ip: main+0xae40 (ZSTD_findFrameSizeInfoLegacy) final_ea: 0x61c197ff4200 base: 0x61c197ff41f8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xae85 (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:203) UAF read at: 0x7fff00458598
+[INCONSISTENCY mov read UAF] ip: main+0xae89 (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:203) UAF read at: 0x7fff00458590
+Store dangling pointer: 0x7fff004585a0 at: 0x7fff00458558
+Store dangling pointer: 0x7fff004585a8 at: 0x7fff00458550
+[UNTRUSTEDPTRDEREF] ip: main+0x22374 (MEM_isLittleEndian @ zstd_v03.c:142) final_ea: 0x61c197ff4690 base: 0x61c197fb5374 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x21d8a (MEM_readLE32 @ zstd_v03.c:230) loaded: 0x72388e2bb014 from cell: 0x7fff00458500 cell_owner: 36 value_owner: 35
+main+0x21d21 (ZSTDv03_findFrameSizeInfoLegacy @ zstd_v03.c:3014) Using expired pointer: 0x7fff004585a0 from 0x7fff00458558
+first time found dangling pointer at: 721 distance: 235
+[INCONSISTENCY mov write reg UAF] ip: main+0x21d25 (ZSTDv03_findFrameSizeInfoLegacy @ zstd_v03.c:3014) UAF write at: 0x7fff004585a0
+main+0x21d30 (ZSTDv03_findFrameSizeInfoLegacy @ zstd_v03.c:3015) Using expired pointer: 0x7fff004585a8 from 0x7fff00458550
+first time found dangling pointer at: 722 distance: 238
+[INCONSISTENCY mov write reg UAF] ip: main+0x21d34 (ZSTDv03_findFrameSizeInfoLegacy @ zstd_v03.c:3015) UAF write at: 0x7fff004585a8
+[INCONSISTENCY mov read UAF] ip: main+0xaf2b (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:241) UAF read at: 0x7fff004585a0
+[INCONSISTENCY mov read UAF] ip: main+0xaf3d (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:241) UAF read at: 0x7fff004585a0
+[INCONSISTENCY mov read UAF] ip: main+0xaf5b (ZSTD_findFrameSizeInfoLegacy @ zstd_legacy.h:245) UAF read at: 0x7fff004585a0
+[INCONSISTENCY mov read UAF] ip: main+0xaf5f (ZSTD_findFrameSizeInfoLegacy) UAF read at: 0x7fff004585a8
+[INCONSISTENCY mov write reg UAF] ip: main+0xafbd (ZSTD_findFrameCompressedSizeLegacy @ zstd_legacy.h:250) UAF write at: 0x7fff004585c0
+[INCONSISTENCY mov write reg UAF] ip: main+0xafc1 (ZSTD_findFrameCompressedSizeLegacy @ zstd_legacy.h:250) UAF write at: 0x7fff004585c8
+[INCONSISTENCY mov read UAF] ip: main+0xafc5 (ZSTD_findFrameCompressedSizeLegacy @ zstd_legacy.h:251) UAF read at: 0x7fff004585c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x73e2 (ZSTD_decompressMultiFrame @ zstd_decompress.c:722) UAF write at: 0x7fff00458628
+[INCONSISTENCY mov read UAF] ip: main+0x73e6 (ZSTD_decompressMultiFrame @ zstd_decompress.c:723) UAF read at: 0x7fff00458628
+[INCONSISTENCY mov write reg UAF] ip: main+0x6e24 (ERR_isError @ error_private.h:56) UAF write at: 0x7fff004585d8
+[INCONSISTENCY mov read UAF] ip: main+0x6e28 (ERR_isError @ error_private.h:56) UAF read at: 0x7fff004585d8
+[INCONSISTENCY mov read UAF] ip: main+0x7405 (ZSTD_decompressMultiFrame @ zstd_decompress.c:724) UAF read at: 0x7fff00458670
+[INCONSISTENCY mov read UAF] ip: main+0x7424 (ZSTD_decompressMultiFrame @ zstd_decompress.c:727) UAF read at: 0x7fff00458668
+first time found dangling pointer at: 555 distance: 455
+[INCONSISTENCY mov read UAF] ip: main+0x7428 (ZSTD_decompressMultiFrame @ zstd_decompress.c:727) UAF read at: 0x7fff00458660
+[INCONSISTENCY mov read UAF] ip: main+0x742c (ZSTD_decompressMultiFrame @ zstd_decompress.c:727) UAF read at: 0x7fff00458658
+[INCONSISTENCY mov read UAF] ip: main+0x7430 (ZSTD_decompressMultiFrame @ zstd_decompress.c:727) UAF read at: 0x7fff00458628
+[INCONSISTENCY mov read UAF] ip: main+0x7434 (ZSTD_decompressMultiFrame @ zstd_decompress.c:727) UAF read at: 0x7fff00458648
+[INCONSISTENCY mov read UAF] ip: main+0x7438 (ZSTD_decompressMultiFrame @ zstd_decompress.c:727) UAF read at: 0x7fff00458690
+[INCONSISTENCY mov write reg UAF] ip: main+0xafdb (ZSTD_decompressLegacy @ zstd_legacy.h:125) UAF write at: 0x7fff004585d0
+first time found dangling pointer at: 1020 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xafdf (ZSTD_decompressLegacy @ zstd_legacy.h:125) UAF write at: 0x7fff004585c8
+[INCONSISTENCY mov write reg UAF] ip: main+0xafe3 (ZSTD_decompressLegacy @ zstd_legacy.h:125) UAF write at: 0x7fff004585c0
+[INCONSISTENCY mov write reg UAF] ip: main+0xafe7 (ZSTD_decompressLegacy @ zstd_legacy.h:125) UAF write at: 0x7fff004585b8
+[INCONSISTENCY mov write reg UAF] ip: main+0xafeb (ZSTD_decompressLegacy @ zstd_legacy.h:125) UAF write at: 0x7fff004585b0
+[INCONSISTENCY mov write reg UAF] ip: main+0xafef (ZSTD_decompressLegacy @ zstd_legacy.h:125) UAF write at: 0x7fff004585a8
+[INCONSISTENCY mov read UAF] ip: main+0xaff3 (ZSTD_decompressLegacy @ zstd_legacy.h:126) UAF read at: 0x7fff004585c0
+[INCONSISTENCY mov read UAF] ip: main+0xaff7 (ZSTD_decompressLegacy @ zstd_legacy.h:126) UAF read at: 0x7fff004585b8
+[INCONSISTENCY mov read] ip: main+0x62f7 (ZSTD_isLegacy @ zstd_legacy.h:60) base: 0x7fff00458550 pointee: 33 read from 40
+[INCONSISTENCY mov read] ip: main+0xad6d (MEM_isLittleEndian @ mem.h:116) base: 0x7fff00458500 pointee: 38 read from 36
+[CORRUPTED_PTR_LOAD] ip: main+0xad6d (MEM_isLittleEndian @ mem.h:116) loaded: 0x61c100000001 from cell: 0x7fff004584f8 cell_owner: 36 value_owner: 41
+[INCONSISTENCY mov read] ip: main+0x629a (MEM_readLE32 @ mem.h:280) base: 0x7fff00458520 pointee: 35 read from 41
+[INCONSISTENCY mov read] ip: main+0xad88 (MEM_read32 @ mem.h:151) base: 0x7fff00458500 pointee: 38 read from 36
+[CORRUPTED_PTR_LOAD] ip: main+0xad88 (MEM_read32 @ mem.h:151) loaded: 0x72388e2bb014 from cell: 0x7fff004584f8 cell_owner: 36 value_owner: 41
+[INCONSISTENCY mov read] ip: main+0x62be (MEM_readLE32 @ mem.h:283) base: 0x7fff00458520 pointee: 35 read from 41
+[CORRUPTED_PTR_LOAD] ip: main+0x62be (MEM_readLE32 @ mem.h:283) loaded: 0x458550fd2fb523 from cell: 0x7fff0045851c cell_owner: 41 value_owner: 35
+[INCONSISTENCY mov read] ip: main+0x6303 (ZSTD_isLegacy @ zstd_legacy.h:61) base: 0x7fff00458550 pointee: 33 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0x6303 (ZSTD_isLegacy @ zstd_legacy.h:61) loaded: 0x2010efd2fb523 from cell: 0x7fff00458534 cell_owner: 40 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x6319 (ZSTD_isLegacy) base: 0x7fff00458550 pointee: 33 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0x6319 (ZSTD_isLegacy) loaded: 0xfd2fb523fd2fb523 from cell: 0x7fff00458530 cell_owner: 40 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x63e6 (ZSTD_isLegacy @ zstd_legacy.h:86) base: 0x7fff00458550 pointee: 33 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0x63e6 (ZSTD_isLegacy @ zstd_legacy.h:86) loaded: 0x4585e000000003 from cell: 0x7fff0045854c cell_owner: 40 value_owner: 33
+[INCONSISTENCY mov write reg UAF] ip: main+0xb000 (ZSTD_decompressLegacy @ zstd_legacy.h:126) UAF write at: 0x7fff004585a4
+[INCONSISTENCY mov read UAF] ip: main+0xb003 (ZSTD_decompressLegacy @ zstd_legacy.h:128) UAF read at: 0x7fff004585a4
+[INCONSISTENCY mov write reg UAF] ip: main+0xb00b (ZSTD_decompressLegacy @ zstd_legacy.h:128) UAF write at: 0x7fff00458568
+[INCONSISTENCY mov read UAF] ip: main+0xb018 (ZSTD_decompressLegacy) UAF read at: 0x7fff00458568
+[UNTRUSTEDPTRDEREF] ip: main+0xb023 (ZSTD_decompressLegacy) final_ea: 0x61c197ff421c base: 0x61c197ff4214 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xb068 (ZSTD_decompressLegacy @ zstd_legacy.h:140) UAF read at: 0x7fff004585d0
+first time found dangling pointer at: 1020 distance: 74
+[INCONSISTENCY mov read UAF] ip: main+0xb06c (ZSTD_decompressLegacy @ zstd_legacy.h:140) UAF read at: 0x7fff004585c8
+[INCONSISTENCY mov read UAF] ip: main+0xb070 (ZSTD_decompressLegacy @ zstd_legacy.h:140) UAF read at: 0x7fff004585c0
+[INCONSISTENCY mov read UAF] ip: main+0xb074 (ZSTD_decompressLegacy @ zstd_legacy.h:140) UAF read at: 0x7fff004585b8
+[INCONSISTENCY mov read] ip: main+0x21f18 (ZSTDv03_decompress @ zstd_v03.c:3129) base: 0x7fff00458550 pointee: 33 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x21f18 (ZSTDv03_decompress @ zstd_v03.c:3129) loaded: 0x61c1c17474f0 from cell: 0x7fff00458548 cell_owner: 42 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x21f1c (ZSTDv03_decompress @ zstd_v03.c:3129) base: 0x7fff00458550 pointee: 33 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x21f1c (ZSTDv03_decompress @ zstd_v03.c:3129) loaded: 0x261f from cell: 0x7fff00458540 cell_owner: 42 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x21f20 (ZSTDv03_decompress @ zstd_v03.c:3129) base: 0x7fff00458550 pointee: 33 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x21f20 (ZSTDv03_decompress @ zstd_v03.c:3129) loaded: 0x72388e2bb014 from cell: 0x7fff00458538 cell_owner: 42 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x21f24 (ZSTDv03_decompress @ zstd_v03.c:3129) base: 0x7fff00458550 pointee: 33 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x21f24 (ZSTDv03_decompress @ zstd_v03.c:3129) loaded: 0x2010e from cell: 0x7fff00458530 cell_owner: 42 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x21f5b (ZSTD_decompress @ zstd_v03.c:2959) base: 0x7fff00458520 pointee: 35 read from 41
+[CORRUPTED_PTR_LOAD] ip: main+0x21f5b (ZSTD_decompress @ zstd_v03.c:2959) loaded: 0x61c1c17474f0 from cell: 0x7fff00458518 cell_owner: 41 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x21f6d (ZSTD_decompress @ zstd_v03.c:2960) base: 0x7fff00458520 pointee: 35 read from 41
+[CORRUPTED_PTR_LOAD] ip: main+0x21f6d (ZSTD_decompress @ zstd_v03.c:2960) loaded: 0x61c1c17474f0 from cell: 0x7fff00458518 cell_owner: 41 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x21f71 (ZSTD_decompress @ zstd_v03.c:2960) base: 0x7fff00458520 pointee: 35 read from 41
+[CORRUPTED_PTR_LOAD] ip: main+0x21f71 (ZSTD_decompress @ zstd_v03.c:2960) loaded: 0x261f from cell: 0x7fff00458510 cell_owner: 41 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x21f75 (ZSTD_decompress @ zstd_v03.c:2960) base: 0x7fff00458520 pointee: 35 read from 38
+[CORRUPTED_PTR_LOAD] ip: main+0x21f75 (ZSTD_decompress @ zstd_v03.c:2960) loaded: 0x72388e2bb014 from cell: 0x7fff00458508 cell_owner: 38 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x21f79 (ZSTD_decompress @ zstd_v03.c:2960) base: 0x7fff00458520 pointee: 35 read from 38
+[CORRUPTED_PTR_LOAD] ip: main+0x21f79 (ZSTD_decompress @ zstd_v03.c:2960) loaded: 0x2010e from cell: 0x7fff00458500 cell_owner: 38 value_owner: 42
+[INCONSISTENCY mov write reg] ip: main+0x223db (ZSTD_decompressDCtx @ zstd_v03.c:2900) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x223df (ZSTD_decompressDCtx @ zstd_v03.c:2900) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x223e3 (ZSTD_decompressDCtx @ zstd_v03.c:2900) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x223e7 (ZSTD_decompressDCtx @ zstd_v03.c:2900) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x223eb (ZSTD_decompressDCtx @ zstd_v03.c:2900) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x223f3 (ZSTD_decompressDCtx @ zstd_v03.c:2901) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x223ff (ZSTD_decompressDCtx @ zstd_v03.c:2902) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x22407 (ZSTD_decompressDCtx @ zstd_v03.c:2903) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x2240f (ZSTD_decompressDCtx @ zstd_v03.c:2904) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x2241b (ZSTD_decompressDCtx @ zstd_v03.c:2905) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x22423 (ZSTD_decompressDCtx @ zstd_v03.c:2906) co: 43 vo: 43, 43 write 43
+[UNTRUSTEDPTRDEREF] ip: main+0x2237d (MEM_isLittleEndian @ zstd_v03.c:143) final_ea: 0x7fff00435bc8 base: 0x7fff00435bd0 pointee: -1 base_vo: 43
+[UNTRUSTEDPTRDEREF] ip: main+0x22398 (MEM_read32 @ zstd_v03.c:180) final_ea: 0x7fff00435bc8 base: 0x7fff00435bd0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x223a1 (MEM_read32 @ zstd_v03.c:180) final_ea: 0x7fff00435bc4 base: 0x7fff00435bd0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x21d93 (MEM_readLE32 @ zstd_v03.c:230) co: 44 vo: 44, 44 write 44
+[INCONSISTENCY mov write reg] ip: main+0x22448 (ZSTD_decompressDCtx @ zstd_v03.c:2912) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x2246d (ZSTD_decompressDCtx @ zstd_v03.c:2914) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x22479 (ZSTD_decompressDCtx @ zstd_v03.c:2914) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x21de4 (ZSTD_getcBlockSize @ zstd_v03.c:2459) co: 44 vo: 44, 44 write 44
+[INCONSISTENCY mov write reg] ip: main+0x21de8 (ZSTD_getcBlockSize @ zstd_v03.c:2459) co: 44 vo: 44, 44 write 44
+[INCONSISTENCY mov write reg] ip: main+0x21dec (ZSTD_getcBlockSize @ zstd_v03.c:2459) co: 44 vo: 44, 44 write 44
+[UNTRUSTEDPTRDEREF] ip: main+0x21e10 (ZSTD_getcBlockSize @ zstd_v03.c:2466) final_ea: 0x7fff00435bd8 base: 0x7fff00435c00 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21e19 (ZSTD_getcBlockSize @ zstd_v03.c:2467) final_ea: 0x7fff00435bd8 base: 0x7fff00435c00 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21e21 (ZSTD_getcBlockSize @ zstd_v03.c:2467) final_ea: 0x7fff00435bd8 base: 0x7fff00435c00 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21e2e (ZSTD_getcBlockSize @ zstd_v03.c:2467) final_ea: 0x7fff00435bd8 base: 0x7fff00435c00 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21e40 (ZSTD_getcBlockSize @ zstd_v03.c:2469) final_ea: 0x7fff00435bd7 base: 0x7fff00435c00 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21e6f (ZSTD_getcBlockSize) final_ea: 0x7fff00435bcc base: 0x7fff00435c00 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21ead (ZSTD_getcBlockSize @ zstd_v03.c:2474) final_ea: 0x7fff00435bd0 base: 0x7fff00435c00 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x21eb0 (ZSTD_getcBlockSize @ zstd_v03.c:2474) co: 44 vo: 44, 44 write 44
+[INCONSISTENCY mov write reg] ip: main+0x2249d (ZSTD_decompressDCtx @ zstd_v03.c:2920) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x21ec8 (ZSTD_isError @ zstd_v03.c:2435) co: 45 vo: 45, 45 write 45
+[UNTRUSTEDPTRDEREF] ip: main+0x223b8 (ERR_isError @ error_private.h:56) final_ea: 0x7fff00435bd8 base: 0x7fff00435be0 pointee: 45 base_vo: -1 src_subject: 44 src_base: 0x7fff00435be0
+[INCONSISTENCY mov write reg] ip: main+0x224c8 (ZSTD_decompressDCtx @ zstd_v03.c:2923) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x224d4 (ZSTD_decompressDCtx @ zstd_v03.c:2924) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x224f6 (ZSTD_decompressDCtx @ zstd_v03.c:2927) co: 43 vo: 43, 43 write 43
+[UNTRUSTEDPTRDEREF] ip: main+0x22515 (ZSTD_decompressDCtx) final_ea: 0x61c197ff54b0 base: 0x61c197ff54b0 pointee: -1 base_vo: -1
+[OVERLAP] new alloc [0x7fff00435bc0, 0x7fff00435c00) overlaps live subject 44 [0x7fff00435be0, 0x7fff00435c00)
+[OVERLAP] new alloc [0x7fff00435bc0, 0x7fff00435c00) overlaps live subject 45 [0x7fff00435bf0, 0x7fff00435c00)
+[INCONSISTENCY mov write reg] ip: main+0x22628 (ZSTD_decompressBlock @ zstd_v03.c:2885) co: 45 vo: 45, 45 write 45
+[INCONSISTENCY mov write reg] ip: main+0x2262c (ZSTD_decompressBlock @ zstd_v03.c:2885) co: 44 vo: 44, 44 write 44
+[INCONSISTENCY mov write reg] ip: main+0x22630 (ZSTD_decompressBlock @ zstd_v03.c:2885) co: 44 vo: 44, 44 write 44
+[INCONSISTENCY mov write reg] ip: main+0x22634 (ZSTD_decompressBlock @ zstd_v03.c:2885) co: 46 vo: 46, 46 write 46
+[INCONSISTENCY mov write reg] ip: main+0x22638 (ZSTD_decompressBlock @ zstd_v03.c:2885) co: 46 vo: 46, 46 write 46
+[INCONSISTENCY mov write reg] ip: main+0x22640 (ZSTD_decompressBlock @ zstd_v03.c:2887) co: 46 vo: 46, 46 write 46
+[CORRUPTED_PTR_LOAD] ip: main+0x22734 (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2510) loaded: 0x7fff00435cb8 from cell: 0x7fff00435ba0 cell_owner: 47 value_owner: 46
+[INCONSISTENCY mov write reg] ip: main+0x22738 (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2510) co: 47 vo: 47, 47 write 47
+[CORRUPTED_PTR_LOAD] ip: main+0x2273c (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2511) loaded: 0x72388e2bb01b from cell: 0x7fff00435b98 cell_owner: 47 value_owner: 46
+[INCONSISTENCY mov write reg] ip: main+0x22740 (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2511) co: 47 vo: 47, 47 write 47
+[CORRUPTED_PTR_LOAD] ip: main+0x22744 (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2514) loaded: 0x20104 from cell: 0x7fff00435b90 cell_owner: 47 value_owner: 46
+[INCONSISTENCY mov write reg] ip: main+0x22766 (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2516) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x2282a (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2530) co: 47 vo: 47, 47 write 47
+[CORRUPTED_PTR_LOAD] ip: main+0x22832 (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2531) loaded: 0x20104 from cell: 0x7fff00435b90 cell_owner: 47 value_owner: 46
+[CORRUPTED_PTR_LOAD] ip: main+0x22847 (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2533) loaded: 0x20104 from cell: 0x7fff00435b90 cell_owner: 47 value_owner: 46
+[INCONSISTENCY mov write reg] ip: main+0x228cc (ZSTD_decodeLiteralsBlock @ zstd_v03.c:2538) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x22655 (ZSTD_decompressBlock @ zstd_v03.c:2890) co: 46 vo: 46, 46 write 46
+[CORRUPTED_PTR_LOAD] ip: main+0x223b8 (ERR_isError @ error_private.h:56) loaded: 0x20103 from cell: 0x7fff00435b88 cell_owner: 47 value_owner: 49
+[INCONSISTENCY mov write reg] ip: main+0x22680 (ZSTD_decompressBlock @ zstd_v03.c:2892) co: 46 vo: 46, 46 write 46
+[INCONSISTENCY mov write reg] ip: main+0x2268f (ZSTD_decompressBlock @ zstd_v03.c:2893) co: 46 vo: 46, 46 write 46
+[OVERLAP] new alloc [0x7fff00435a50, 0x7fff00435bb0) overlaps live subject 48 [0x7fff00435b20, 0x7fff00435b40)
+[OVERLAP] new alloc [0x7fff00435a50, 0x7fff00435bb0) overlaps live subject 47 [0x7fff00435b50, 0x7fff00435bb0)
+[OVERLAP] new alloc [0x7fff00435a50, 0x7fff00435bb0) overlaps live subject 49 [0x7fff00435ba0, 0x7fff00435bb0)
+[INCONSISTENCY mov write reg] ip: main+0x229ab (ZSTD_decompressSequences @ zstd_v03.c:2814) co: 49 vo: 49, 49 write 49
+[INCONSISTENCY mov write reg] ip: main+0x229af (ZSTD_decompressSequences @ zstd_v03.c:2814) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229b3 (ZSTD_decompressSequences @ zstd_v03.c:2814) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229b7 (ZSTD_decompressSequences @ zstd_v03.c:2814) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229bb (ZSTD_decompressSequences @ zstd_v03.c:2814) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229c3 (ZSTD_decompressSequences @ zstd_v03.c:2815) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229cb (ZSTD_decompressSequences @ zstd_v03.c:2816) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229d7 (ZSTD_decompressSequences @ zstd_v03.c:2817) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229df (ZSTD_decompressSequences @ zstd_v03.c:2818) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229e7 (ZSTD_decompressSequences @ zstd_v03.c:2819) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x229f3 (ZSTD_decompressSequences @ zstd_v03.c:2820) co: 47 vo: 47, 47 write 47
+[INCONSISTENCY mov write reg] ip: main+0x22a02 (ZSTD_decompressSequences @ zstd_v03.c:2822) co: 48 vo: 48, 48 write 48
+Store dangling pointer: 0x7fff004585f8 at: 0x7fff00435b30
+[INCONSISTENCY mov write reg] ip: main+0x22a15 (ZSTD_decompressSequences @ zstd_v03.c:2823) co: 48 vo: 48, 48 write 48
+[INCONSISTENCY mov write reg] ip: main+0x22a1d (ZSTD_decompressSequences @ zstd_v03.c:2826) co: 50 vo: 50, 50 write 50
+[INCONSISTENCY mov write reg] ip: main+0x22a2e (ZSTD_decompressSequences @ zstd_v03.c:2827) co: 50 vo: 50, 50 write 50
+[INCONSISTENCY mov write reg] ip: main+0x22a3f (ZSTD_decompressSequences @ zstd_v03.c:2828) co: 50 vo: 50, 50 write 50
+[INCONSISTENCY mov write reg] ip: main+0x22a51 (ZSTD_decompressSequences @ zstd_v03.c:2829) co: 50 vo: 50, 50 write 50
+[INCONSISTENCY mov write reg] ip: main+0x274d3 (ZSTD_decodeSeqHeaders @ zstd_v03.c:2561) co: 51 vo: 51, 51 write 51
+[INCONSISTENCY mov write reg] ip: main+0x274d7 (ZSTD_decodeSeqHeaders @ zstd_v03.c:2561) co: 51 vo: 51, 51 write 51
+[INCONSISTENCY mov write reg] ip: main+0x274db (ZSTD_decodeSeqHeaders @ zstd_v03.c:2561) co: 51 vo: 51, 51 write 51
+[INCONSISTENCY mov write reg] ip: main+0x274df (ZSTD_decodeSeqHeaders @ zstd_v03.c:2561) co: 51 vo: 51, 51 write 51
+[INCONSISTENCY mov write reg] ip: main+0x274e3 (ZSTD_decodeSeqHeaders @ zstd_v03.c:2561) co: 51 vo: 51, 51 write 51
+[INCONSISTENCY mov write reg] ip: main+0x274e7 (ZSTD_decodeSeqHeaders @ zstd_v03.c:2561) co: 51 vo: 51, 51 write 51
+[INCONSISTENCY mov write reg] ip: main+0x274ef (ZSTD_decodeSeqHeaders @ zstd_v03.c:2562) co: 51 vo: 51, 51 write 51
+[INCONSISTENCY mov write reg] ip: main+0x274f7 (ZSTD_decodeSeqHeaders @ zstd_v03.c:2563) co: 51 vo: 51, 51 write 51
+[INCONSISTENCY mov write reg] ip: main+0x27503 (ZSTD_decodeSeqHeaders @ zstd_v03.c:2564) co: 51 vo: 51, 51 write 51
+[UNTRUSTEDPTRDEREF] ip: main+0x22aa0 (ZSTD_decompressSequences @ zstd_v03.c:2835) final_ea: 0x7fff00435b48 base: 0x7fff00435bb0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x22ab2 (ZSTD_decompressSequences @ zstd_v03.c:2835) final_ea: 0x7fff00435b48 base: 0x7fff00435bb0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x22ab6 (ZSTD_decompressSequences @ zstd_v03.c:2835) co: 49 vo: 49, 49 write 49
+[INCONSISTENCY mov write reg] ip: main+0x226ac (ZSTD_decompressBlock @ zstd_v03.c:2895) co: 45 vo: 45, 45 write 45
+[INCONSISTENCY mov write reg] ip: main+0x2253e (ZSTD_decompressDCtx @ zstd_v03.c:2930) co: 43 vo: 43, 43 write 43
+[INCONSISTENCY mov write reg] ip: main+0x225c9 (ZSTD_decompressDCtx @ zstd_v03.c:2947) co: 43 vo: 43, 43 write 43

@@ -1,0 +1,24 @@
+[ALLOC] malloc(0x10) -> 0xa5852a0 subject=6 at main @ mmap_overlapping_chunks.c:51
+[INCONSISTENCY mov write reg] ip: main+0xe5c (main @ mmap_overlapping_chunks.c:51) co: 5 vo: 5, 5 write 5
+[ALLOC:internal] malloc(0x1000) -> 0xa5852c0 subject=7 at _IO_file_doallocate
+[ALLOC] malloc(0x100000) -> 0x70e5378ff010 subject=9 at main @ mmap_overlapping_chunks.c:59
+[INCONSISTENCY mov write reg] ip: main+0xeb5 (main @ mmap_overlapping_chunks.c:59) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x100000) -> 0x70e536f6d010 subject=11 at main @ mmap_overlapping_chunks.c:63
+[ALLOC] malloc(0x100000) -> 0x70e5370ff010 subject=13 at main @ mmap_overlapping_chunks.c:66
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xf39 (main @ mmap_overlapping_chunks.c:83) sub rax, 0x10 id before: 13 after: 12 value: 0x70e5370ff000
+[UNINITIALIZED mov read] ip: main+0xf3d (main @ mmap_overlapping_chunks.c:83) co: 12 vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xf5b (main @ mmap_overlapping_chunks.c:84) sub rax, 0x8 id before: 13 after: 12 value: 0x70e5370ff008
+[UNINITIALIZED mov read] ip: main+0xf5f (main @ mmap_overlapping_chunks.c:84) co: 12 vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xfaa (main @ mmap_overlapping_chunks.c:92) sub rax, 0x8 id before: 13 after: 12 value: 0x70e5370ff008
+[UNINITIALIZED mov read] ip: main+0xfae (main @ mmap_overlapping_chunks.c:92) co: 12 vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xfc2 (main @ mmap_overlapping_chunks.c:92) sub rax, 0x8 id before: 11 after: 10 value: 0x70e536f6d008
+[UNINITIALIZED mov read] ip: main+0xfc6 (main @ mmap_overlapping_chunks.c:92) co: 10 vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xfdd (main @ mmap_overlapping_chunks.c:92) sub rax, 0x8 id before: 13 after: 12 value: 0x70e5370ff008
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xfec (main @ mmap_overlapping_chunks.c:93) sub rax, 0x8 id before: 13 after: 12 value: 0x70e5370ff008
+[FREE] free(0x70e5370ff010) subject=13 at main @ mmap_overlapping_chunks.c:108
+[ALLOC] malloc(0x300000) -> 0x70e533eff010 subject=15 at main @ mmap_overlapping_chunks.c:124
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1070 (main @ mmap_overlapping_chunks.c:126) sub rax, 0x8 id before: 15 after: 14 value: 0x70e533eff008
+[UNINITIALIZED mov read] ip: main+0x1074 (main @ mmap_overlapping_chunks.c:126) co: 14 vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x10f4 (main @ mmap_overlapping_chunks.c:135) add rax, rdx id before: 15 after: 11 value: 0x70e536f6d010
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1133 (main @ mmap_overlapping_chunks.c:139) add rax, rdx id before: 15 after: 11 value: 0x70e536f6d010
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1177 (main @ mmap_overlapping_chunks.c:141) add rax, rcx id before: 15 after: 11 value: 0x70e536f6d010

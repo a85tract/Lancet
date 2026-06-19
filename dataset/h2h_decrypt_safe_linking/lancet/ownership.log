@@ -1,0 +1,28 @@
+[ALLOC] malloc(0x20) -> 0x22c0b010 subject=6 at main @ decrypt_safe_linking.c:45
+[INCONSISTENCY mov write reg] ip: main+0x1331 (main @ decrypt_safe_linking.c:45) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x20) -> 0x22c0b040 subject=7 at main @ decrypt_safe_linking.c:46
+[INCONSISTENCY mov write reg] ip: main+0x133f (main @ decrypt_safe_linking.c:46) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x10) -> 0x22c0b070 subject=8 at main @ decrypt_safe_linking.c:48
+[FREE] free(0x22c0b010) subject=6 at main @ decrypt_safe_linking.c:54
+[FREE:internal] free(0x22c0b010) subject=0
+[DOUBLE FREE] free(0x22c0b010) — already freed
+[FREE] free(0x22c0b040) subject=7 at main @ decrypt_safe_linking.c:55
+main+0x13a2 (main @ decrypt_safe_linking.c:56) Read a dangling pointer 0x22c0b010 from 0x7ffd0993b188
+main+0x13a6 (main @ decrypt_safe_linking.c:56) Read a dangling pointer 0x22c0b040 from 0x7ffd0993b190
+main+0x13c1 (main @ decrypt_safe_linking.c:57) Using expired pointer: 0x22c0b040 from 0x7ffd0993b190
+first time found dangling pointer at: 85 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x13c5 (main @ decrypt_safe_linking.c:57) UAF read at: 0x22c0b040
+[INCONSISTENCY mov read UAF] ip: main+0x13f2 (main @ decrypt_safe_linking.c:61) UAF read at: 0x22c0b040
+[INCONSISTENCY mov read] ip: main+0x12e3 (decrypt @ decrypt_safe_linking.c:13) base: 0x7ffd0993b170 pointee: 5 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x12e3 (decrypt @ decrypt_safe_linking.c:13) loaded: 0x7ffd00000001 from cell: 0x7ffd0993b158 cell_owner: 9 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1227 (decrypt @ decrypt_safe_linking.c:14) loaded: 0x7ffd00000001 from cell: 0x7ffd0993b158 cell_owner: 9 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1247 (decrypt @ decrypt_safe_linking.c:16) loaded: 0x22c29c1b from cell: 0x7ffd0993b148 cell_owner: 9 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1275 (decrypt @ decrypt_safe_linking.c:18) loaded: 0x3400000001 from cell: 0x7ffd0993b158 cell_owner: 9 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x12c4 (decrypt @ decrypt_safe_linking.c:21) loaded: 0x22c29c1b from cell: 0x7ffd0993b148 cell_owner: 9 value_owner: 5
+main+0x1269 (decrypt @ decrypt_safe_linking.c:17) Using expired pointer: 0x22c0b010 from 0x7ffd0993b168
+first time found dangling pointer at: 387 distance: 1
+[STACK PIVOT] ip: main+0x12f1 (decrypt @ decrypt_safe_linking.c:24) RSP 0x7ffd0993b178 left stack [0xb,0x7ffd0991c000]
+[STACK PIVOT] ip: main+0x146b (main @ decrypt_safe_linking.c:66) RSP 0x7ffd0993b1a8 left stack [0xc,0x7ffd0991c000]
+[STACK PIVOT] ip: main+0x146c (main @ decrypt_safe_linking.c:66) RSP 0x7ffd0993b1b0 left stack after RET
+[STACK PIVOT] ip: main+0x11be (__do_global_dtors_aux) RSP 0x7ffd0993b090 left stack after RET
+[STACK PIVOT] ip: main+0x147c (_fini) RSP 0x7ffd0993b0c0 left stack after RET

@@ -1,0 +1,263 @@
+[INCONSISTENCY mov write reg] ip: main+0x84eb (main @ harness.c:33) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x84ee (main @ harness.c:33) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x852f (main @ harness.c:36) final_ea: 0x7ffcf735c790 base: 0x7ffcf735c790 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x64d4b5bb4010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x8544 (main @ harness.c:36) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x64d4b5bb41f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x55) -> 0x64d4b5bb5200 subject=7 at main @ harness.c:41
+[FREE:internal] free(0x64d4b5bb41f0) subject=6 at _IO_setb
+[FREE:internal] free(0x64d4b5bb4010) subject=5 at _IO_fclose
+[FREE:internal] free(0x64d4b5bb4010) subject=0
+[DOUBLE FREE] free(0x64d4b5bb4010) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x847e (gb_alloc_data @ harness.c:27) loaded: 0x628 from cell: 0x7ffcf735c5d8 cell_owner: 8 value_owner: 4
+[ALLOC] calloc(0x628) -> 0x64d4b5bb44f0 subject=9 at gb_alloc_data @ harness.c:27
+Store dangling pointer: 0x64d4b5bb44f0 at: 0x7ffcf735c5e8
+main+0x8493 (gb_alloc_data @ harness.c:28) Using expired pointer: 0x64d4b5bb44f0 from 0x7ffcf735c5e8
+first time found dangling pointer at: 597 distance: 1
+[INCONSISTENCY mov write reg] ip: main+0x84ae (gb_alloc_data @ harness.c:28) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x84d1 (gb_alloc_data @ harness.c:30) RSP 0x7ffcf735c5f8 left stack [0xb,0x7ffcf733d000]
+[INCONSISTENCY mov write reg] ip: main+0x85ed (main @ harness.c:47) co: 3 vo: 3, 3 write 3
+[ALLOC] calloc(0x401) -> 0x64d4b5bb4b20 subject=12 at gb_alloc_data @ harness.c:27
+Store dangling pointer: 0x64d4b5bb4b20 at: 0x7ffcf735c5e8
+main+0x8493 (gb_alloc_data @ harness.c:28) Using expired pointer: 0x64d4b5bb4b20 from 0x7ffcf735c5e8
+first time found dangling pointer at: 597 distance: 36
+[STACK PIVOT] ip: main+0x84d1 (gb_alloc_data @ harness.c:30) RSP 0x7ffcf735c5f8 left stack [0xe,0x7ffcf733d000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8631 (main @ harness.c:49) UAF write at: 0x64d4b5bb4928
+first time found dangling pointer at: 649 distance: 0
+[ALLOC] calloc(0xc8) -> 0x64d4b5bb4f30 subject=15 at gb_alloc_data @ harness.c:27
+Store dangling pointer: 0x64d4b5bb4f30 at: 0x7ffcf735c5e8
+main+0x8493 (gb_alloc_data @ harness.c:28) Using expired pointer: 0x64d4b5bb4f30 from 0x7ffcf735c5e8
+first time found dangling pointer at: 597 distance: 68
+[STACK PIVOT] ip: main+0x84d1 (gb_alloc_data @ harness.c:30) RSP 0x7ffcf735c5f8 left stack [0x11,0x7ffcf733d000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8649 (main @ harness.c:50) UAF write at: 0x64d4b5bb4b00
+first time found dangling pointer at: 681 distance: 0
+[ALLOC] calloc(0x18) -> 0x64d4b5bb5000 subject=18 at gb_alloc_data @ harness.c:27
+Store dangling pointer: 0x64d4b5bb5000 at: 0x7ffcf735c5e8
+main+0x8493 (gb_alloc_data @ harness.c:28) Using expired pointer: 0x64d4b5bb5000 from 0x7ffcf735c5e8
+first time found dangling pointer at: 597 distance: 99
+[STACK PIVOT] ip: main+0x84d1 (gb_alloc_data @ harness.c:30) RSP 0x7ffcf735c5f8 left stack [0x14,0x7ffcf733d000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x8669 (main @ harness.c:53) UAF write at: 0x64d4b5bb5010
+[INCONSISTENCY mov write reg UAF] ip: main+0x867c (main @ harness.c:53) UAF write at: 0x64d4b5bb4858
+first time found dangling pointer at: 719 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x8ccb (cache_init @ cache.c:156) UAF read at: 0x64d4b5bb46d4
+[INCONSISTENCY mov write reg] ip: main+0x8ce9 (cache_init @ cache.c:156) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read UAF] ip: main+0x8cf6 (cache_init @ cache.c:158) UAF read at: 0x64d4b5bb46d4
+[INCONSISTENCY mov read UAF] ip: main+0x8d77 (cache_init @ cache.c:171) UAF read at: 0x64d4b5bb46d4
+[INCONSISTENCY mov write reg UAF] ip: main+0x8d93 (rehash @ cache.c:179) UAF write at: 0x7ffcf735c59c
+[INCONSISTENCY mov write imm UAF] ip: main+0x8d96 (rehash @ cache.c:184) UAF write at: 0x7ffcf735c5b8
+[INCONSISTENCY mov read UAF] ip: main+0x8da2 (rehash @ cache.c:184) UAF read at: 0x7ffcf735c59c
+[INCONSISTENCY mov read UAF] ip: main+0x8dbd (rehash @ cache.c:184) UAF read at: 0x7ffcf735c5b8
+[INCONSISTENCY mov read UAF] ip: main+0x8dce (rehash @ cache.c:188) UAF read at: 0x7ffcf735c5b8
+[CORRUPTED_PTR_LOAD] ip: main+0x47ad3 (safe_malloc @ util.c:302) loaded: 0x200 from cell: 0x7ffcf735c568 cell_owner: 22 value_owner: 21
+[ALLOC] calloc(0x200) -> 0x64d4b5bb5260 subject=23 at safe_malloc @ util.c:302
+[STACK PIVOT] ip: main+0x47b0c (safe_malloc @ util.c:308) RSP 0x7ffcf735c588 left stack [0x19,0x7ffcf733d000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8ddf (rehash @ cache.c:188) UAF write at: 0x7ffcf735c5c8
+[INCONSISTENCY mov write imm UAF] ip: main+0x8e14 (rehash @ cache.c:192) UAF write at: 0x7ffcf735c5bc
+[INCONSISTENCY mov read UAF] ip: main+0x8e3c (rehash @ cache.c:192) UAF read at: 0x7ffcf735c5bc
+[INCONSISTENCY mov read UAF] ip: main+0x8e1d (rehash @ cache.c:193) UAF read at: 0x7ffcf735c5bc
+[INCONSISTENCY mov read UAF] ip: main+0x8e2a (rehash @ cache.c:193) UAF read at: 0x7ffcf735c5c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x8e4b (rehash @ cache.c:195) UAF write at: 0x7ffcf735c5b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x8e55 (rehash @ cache.c:196) UAF write at: 0x7ffcf735c5ac
+[INCONSISTENCY mov read UAF] ip: main+0x8e58 (rehash @ cache.c:197) UAF read at: 0x7ffcf735c5c8
+[INCONSISTENCY mov write reg] ip: main+0x8e5c (rehash @ cache.c:197) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read UAF] ip: main+0x8e63 (rehash @ cache.c:198) UAF read at: 0x7ffcf735c5b8
+[INCONSISTENCY mov write reg] ip: main+0x8e66 (rehash @ cache.c:198) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read UAF] ip: main+0x8e6c (rehash @ cache.c:200) UAF read at: 0x7ffcf735c5b0
+[STACK PIVOT] ip: main+0x8edb (rehash @ cache.c:210) RSP 0x7ffcf735c5d8 left stack [0x1a,0x7ffcf733d000]
+[STACK PIVOT] ip: main+0x8d85 (cache_init @ cache.c:172) RSP 0x7ffcf735c5f8 left stack [0x1b,0x7ffcf733d000]
+[INCONSISTENCY mov read UAF] ip: main+0x8864 (blockdata_init @ blockdata.c:49) UAF read at: 0x64d4b5bb44f4
+[ALLOC] malloc(0x32) -> 0x64d4b5bb5020 subject=27 at main @ harness.c:60
+Store dangling pointer: 0x64d4b5bb5020 at: 0x7ffcf735c618
+[ALLOC] malloc(0x56) -> 0x64d4b5bb5060 subject=28 at main @ harness.c:61
+Store dangling pointer: 0x64d4b5bb5060 at: 0x7ffcf735c610
+main+0x86ba (main @ harness.c:62) Using expired pointer: 0x64d4b5bb5060 from 0x7ffcf735c610
+first time found dangling pointer at: 1475 distance: 1
+main+0x86c1 (main @ harness.c:62) Using expired pointer: 0x64d4b5bb5020 from 0x7ffcf735c618
+first time found dangling pointer at: 1468 distance: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x86ff (main @ harness.c:65) UAF write at: 0x64d4b5bb50b5
+[INCONSISTENCY mov write reg UAF] ip: main+0x36ccb (resize_packet @ rfc1035.c:337) UAF write at: 0x7ffcf735c5c8
+first time found dangling pointer at: 1510 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x36ccf (resize_packet @ rfc1035.c:337) UAF write at: 0x7ffcf735c5c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x36cd3 (resize_packet @ rfc1035.c:337) UAF write at: 0x7ffcf735c5b8
+first time found dangling pointer at: 1512 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x36cd7 (resize_packet @ rfc1035.c:337) UAF write at: 0x7ffcf735c5b0
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c0 ip: main+0x36cdb (resize_packet @ rfc1035.c:338)
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c8 ip: main+0x36cdf (resize_packet @ rfc1035.c:338)
+first time found dangling pointer at: 1510 distance: 5
+[INCONSISTENCY mov write reg UAF] ip: main+0x36b78 (skip_questions @ rfc1035.c:305) UAF write at: 0x7ffcf735c588
+first time found dangling pointer at: 1523 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x36b7c (skip_questions @ rfc1035.c:305) UAF write at: 0x7ffcf735c580
+[INCONSISTENCY mov read UAF] ip: main+0x36b80 (skip_questions @ rfc1035.c:307) UAF read at: 0x7ffcf735c588
+first time found dangling pointer at: 1523 distance: 2
+Store dangling pointer: 0x64d4b5bb506c at: 0x7ffcf735c590
+[INCONSISTENCY mov write reg UAF] ip: main+0x36b88 (skip_questions @ rfc1035.c:307) UAF write at: 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x36b8c (skip_questions @ rfc1035.c:309) UAF read at: 0x7ffcf735c588
+first time found dangling pointer at: 1523 distance: 5
+[INCONSISTENCY mov read UAF] ip: main+0x36b90 (skip_questions @ rfc1035.c:309) UAF read at: 0x64d4b5bb5064
+[INCONSISTENCY mov write reg UAF] ip: main+0x36ba1 (skip_questions @ rfc1035.c:309) UAF write at: 0x7ffcf735c59c
+[INCONSISTENCY mov read UAF] ip: main+0x36bda (skip_questions @ rfc1035.c:309) UAF read at: 0x7ffcf735c59c
+[INCONSISTENCY mov read UAF] ip: main+0x36ba6 (skip_questions @ rfc1035.c:311) UAF read at: 0x7ffcf735c580
+[INCONSISTENCY mov read UAF] ip: main+0x36baa (skip_questions @ rfc1035.c:311) UAF read at: 0x7ffcf735c588
+first time found dangling pointer at: 1523 distance: 18
+[INCONSISTENCY mov read UAF] ip: main+0x36bae (skip_questions @ rfc1035.c:311) UAF read at: 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 15
+main+0x36bae (skip_questions @ rfc1035.c:311) Using expired pointer: 0x64d4b5bb506c from 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 15
+[INCONSISTENCY mov read UAF] ip: main+0x36a17 (skip_name @ rfc1035.c:255) UAF read at: 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 4
+[INCONSISTENCY mov read UAF] ip: main+0x36a23 (skip_name @ rfc1035.c:255) UAF read at: 0x7ffcf735c548
+[INCONSISTENCY mov read UAF] ip: main+0x36a33 (skip_name @ rfc1035.c:258) UAF read at: 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 9
+[INCONSISTENCY mov read UAF] ip: main+0x36a37 (skip_name @ rfc1035.c:258) UAF read at: 0x64d4b5bb506c
+[INCONSISTENCY mov write reg UAF] ip: main+0x36a42 (skip_name @ rfc1035.c:258) UAF write at: 0x7ffcf735c56c
+[INCONSISTENCY mov read UAF] ip: main+0x36a45 (skip_name @ rfc1035.c:260) UAF read at: 0x7ffcf735c56c
+[INCONSISTENCY mov read UAF] ip: main+0x36a58 (skip_name @ rfc1035.c:266) UAF read at: 0x7ffcf735c56c
+[INCONSISTENCY mov read UAF] ip: main+0x36a6b (skip_name @ rfc1035.c:268) UAF read at: 0x7ffcf735c56c
+[INCONSISTENCY mov read UAF] ip: main+0x36aed (skip_name @ rfc1035.c:288) UAF read at: 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 20
+Store dangling pointer: 0x64d4b5bb506d at: 0x7ffcf735c558
+[INCONSISTENCY mov write reg UAF] ip: main+0x36af5 (skip_name @ rfc1035.c:288) UAF write at: 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 22
+[INCONSISTENCY mov read UAF] ip: main+0x36af9 (skip_name @ rfc1035.c:288) UAF read at: 0x64d4b5bb506c
+[INCONSISTENCY mov write reg UAF] ip: main+0x36b02 (skip_name @ rfc1035.c:288) UAF write at: 0x7ffcf735c568
+[INCONSISTENCY mov read UAF] ip: main+0x36b05 (skip_name @ rfc1035.c:290) UAF read at: 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 27
+main+0x36b05 (skip_name @ rfc1035.c:290) Using expired pointer: 0x64d4b5bb506d from 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 27
+[INCONSISTENCY mov read UAF] ip: main+0x36b10 (skip_name @ rfc1035.c:290) UAF read at: 0x7ffcf735c568
+[INCONSISTENCY mov read UAF] ip: main+0x36b16 (skip_name @ rfc1035.c:290) UAF read at: 0x7ffcf735c548
+[INCONSISTENCY mov read UAF] ip: main+0x36b1c (skip_name @ rfc1035.c:290) UAF read at: 0x7ffcf735c568
+[INCONSISTENCY mov read UAF] ip: main+0x36b3a (skip_name @ rfc1035.c:293) UAF read at: 0x7ffcf735c568
+main+0x36a17 (skip_name @ rfc1035.c:255) Read a dangling pointer 0x64d4b5bb5074 from 0x7ffcf735c558
+main+0x36a33 (skip_name @ rfc1035.c:258) Using expired pointer: 0x64d4b5bb5074 from 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 48
+Store dangling pointer: 0x64d4b5bb5075 at: 0x7ffcf735c558
+main+0x36b05 (skip_name @ rfc1035.c:290) Using expired pointer: 0x64d4b5bb5075 from 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 66
+main+0x36a17 (skip_name @ rfc1035.c:255) Read a dangling pointer 0x64d4b5bb5078 from 0x7ffcf735c558
+main+0x36a33 (skip_name @ rfc1035.c:258) Using expired pointer: 0x64d4b5bb5078 from 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 87
+Store dangling pointer: 0x64d4b5bb5079 at: 0x7ffcf735c558
+main+0x36b05 (skip_name @ rfc1035.c:290) Using expired pointer: 0x64d4b5bb5079 from 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 105
+[INCONSISTENCY mov read UAF] ip: main+0x36b46 (skip_name @ rfc1035.c:298) UAF read at: 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 121
+[INCONSISTENCY mov read UAF] ip: main+0x36b51 (skip_name @ rfc1035.c:298) UAF read at: 0x7ffcf735c544
+[INCONSISTENCY mov read UAF] ip: main+0x36b59 (skip_name @ rfc1035.c:298) UAF read at: 0x7ffcf735c548
+[INCONSISTENCY mov read UAF] ip: main+0x36b66 (skip_name @ rfc1035.c:301) UAF read at: 0x7ffcf735c558
+first time found dangling pointer at: 1549 distance: 129
+[INCONSISTENCY mov write reg UAF] ip: main+0x36bbf (skip_questions @ rfc1035.c:311) UAF write at: 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 154
+[INCONSISTENCY mov read UAF] ip: main+0x36bc3 (skip_questions @ rfc1035.c:311) UAF read at: 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 155
+[INCONSISTENCY mov read UAF] ip: main+0x36be0 (skip_questions @ rfc1035.c:316) UAF read at: 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 161
+main+0x36be0 (skip_questions @ rfc1035.c:316) Read a dangling pointer 0x64d4b5bb507d from 0x7ffcf735c590
+[STACK PIVOT] ip: main+0x36be4 (skip_questions @ rfc1035.c:317) RSP 0x7ffcf735c5a8 left stack [0x20,0x7ffcf733d000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x36cee (resize_packet @ rfc1035.c:338) UAF write at: 0x7ffcf735c5d8
+first time found dangling pointer at: 1691 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5d8 ip: main+0x36cf2 (resize_packet @ rfc1035.c:341)
+first time found dangling pointer at: 1691 distance: 1
+main+0x36cf2 (resize_packet @ rfc1035.c:341) Using expired pointer: 0x64d4b5bb507d from 0x7ffcf735c5d8
+first time found dangling pointer at: 1691 distance: 1
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c8 ip: main+0x36d02 (resize_packet @ rfc1035.c:344)
+first time found dangling pointer at: 1510 distance: 184
+[INCONSISTENCY mov read UAF] ip: main+0x36d06 (resize_packet @ rfc1035.c:344) UAF read at: 0x64d4b5bb5066
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c8 ip: main+0x36d17 (resize_packet @ rfc1035.c:344)
+first time found dangling pointer at: 1510 distance: 192
+[INCONSISTENCY mov read UAF] ip: main+0x36d1b (resize_packet @ rfc1035.c:344) UAF read at: 0x64d4b5bb5068
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c8 ip: main+0x36d2e (resize_packet @ rfc1035.c:344)
+first time found dangling pointer at: 1510 distance: 201
+[INCONSISTENCY mov read UAF] ip: main+0x36d32 (resize_packet @ rfc1035.c:344) UAF read at: 0x64d4b5bb506a
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c0 ip: main+0x36d46 (resize_packet @ rfc1035.c:344)
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c8 ip: main+0x36d4a (resize_packet @ rfc1035.c:344)
+first time found dangling pointer at: 1510 distance: 211
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5d8 ip: main+0x36d4e (resize_packet @ rfc1035.c:344)
+first time found dangling pointer at: 1691 distance: 31
+[INCONSISTENCY mov write reg UAF] ip: main+0x36bf2 (skip_section @ rfc1035.c:320) UAF write at: 0x7ffcf735c578
+first time found dangling pointer at: 1729 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x36bf6 (skip_section @ rfc1035.c:320) UAF write at: 0x7ffcf735c574
+[INCONSISTENCY mov write reg UAF] ip: main+0x36bf9 (skip_section @ rfc1035.c:320) UAF write at: 0x7ffcf735c568
+first time found dangling pointer at: 1731 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x36bfd (skip_section @ rfc1035.c:320) UAF write at: 0x7ffcf735c560
+[INCONSISTENCY mov write imm UAF] ip: main+0x36c01 (skip_section @ rfc1035.c:323) UAF write at: 0x7ffcf735c59c
+[INCONSISTENCY mov read UAF] ip: main+0x36cac (skip_section @ rfc1035.c:323) UAF read at: 0x7ffcf735c59c
+[INCONSISTENCY mov read UAF] ip: main+0x36c0d (skip_section @ rfc1035.c:325) UAF read at: 0x7ffcf735c560
+[INCONSISTENCY mov read UAF] ip: main+0x36c11 (skip_section @ rfc1035.c:325) UAF read at: 0x7ffcf735c568
+first time found dangling pointer at: 1731 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x36c15 (skip_section @ rfc1035.c:325) UAF read at: 0x7ffcf735c578
+first time found dangling pointer at: 1729 distance: 11
+main+0x36b46 (skip_name @ rfc1035.c:298) Read a dangling pointer 0x64d4b5bb507f from 0x7ffcf735c538
+main+0x36b66 (skip_name @ rfc1035.c:301) Using expired pointer: 0x64d4b5bb507f from 0x7ffcf735c538
+first time found dangling pointer at: 1747 distance: 26
+[INCONSISTENCY mov write reg UAF] ip: main+0x36c26 (skip_section @ rfc1035.c:325) UAF write at: 0x7ffcf735c578
+first time found dangling pointer at: 1729 distance: 47
+[INCONSISTENCY mov read UAF] ip: main+0x36c2a (skip_section @ rfc1035.c:325) UAF read at: 0x7ffcf735c578
+first time found dangling pointer at: 1729 distance: 48
+[INCONSISTENCY mov read UAF] ip: main+0x36c40 (skip_section @ rfc1035.c:328) UAF read at: 0x7ffcf735c578
+first time found dangling pointer at: 1729 distance: 51
+main+0x36c40 (skip_section @ rfc1035.c:328) Read a dangling pointer 0x64d4b5bb5087 from 0x7ffcf735c578
+[INCONSISTENCY mov write reg UAF] ip: main+0x36c44 (skip_section @ rfc1035.c:328) UAF write at: 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 254
+[INCONSISTENCY mov read UAF] ip: main+0x36c48 (skip_section @ rfc1035.c:328) UAF read at: 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 255
+main+0x36c48 (skip_section @ rfc1035.c:328) Using expired pointer: 0x64d4b5bb5087 from 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 255
+[INCONSISTENCY mov read UAF] ip: main+0x36c4c (skip_section @ rfc1035.c:328) UAF read at: 0x64d4b5bb5087
+[INCONSISTENCY mov read UAF] ip: main+0x36c57 (skip_section @ rfc1035.c:328) UAF read at: 0x7ffcf735c590
+first time found dangling pointer at: 1527 distance: 260
+[INCONSISTENCY mov read UAF] ip: main+0x36c5f (skip_section @ rfc1035.c:328) UAF read at: 0x64d4b5bb5088
+[INCONSISTENCY mov write reg UAF] ip: main+0x36c67 (skip_section @ rfc1035.c:328) UAF write at: 0x7ffcf735c58c
+[INCONSISTENCY mov read UAF] ip: main+0x36c6f (skip_section @ rfc1035.c:329) UAF read at: 0x7ffcf735c578
+first time found dangling pointer at: 1729 distance: 65
+main+0x36c6f (skip_section @ rfc1035.c:329) Read a dangling pointer 0x64d4b5bb5089 from 0x7ffcf735c578
+[INCONSISTENCY mov read UAF] ip: main+0x36c7a (skip_section @ rfc1035.c:329) UAF read at: 0x7ffcf735c58c
+[INCONSISTENCY mov read UAF] ip: main+0x36c82 (skip_section @ rfc1035.c:329) UAF read at: 0x7ffcf735c560
+[INCONSISTENCY mov read UAF] ip: main+0x36c88 (skip_section @ rfc1035.c:329) UAF read at: 0x7ffcf735c58c
+[INCONSISTENCY mov read UAF] ip: main+0x36cb8 (skip_section @ rfc1035.c:333) UAF read at: 0x7ffcf735c578
+first time found dangling pointer at: 1729 distance: 84
+main+0x36cb8 (skip_section @ rfc1035.c:333) Read a dangling pointer 0x64d4b5bb508d from 0x7ffcf735c578
+[STACK PIVOT] ip: main+0x36cbc (skip_section @ rfc1035.c:334) RSP 0x7ffcf735c5a8 left stack [0x22,0x7ffcf733d000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x36d5a (resize_packet @ rfc1035.c:344) UAF write at: 0x7ffcf735c5d8
+first time found dangling pointer at: 1691 distance: 125
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5d8 ip: main+0x36d5e (resize_packet @ rfc1035.c:344)
+first time found dangling pointer at: 1691 distance: 126
+main+0x36d5e (resize_packet @ rfc1035.c:344) Using expired pointer: 0x64d4b5bb508d from 0x7ffcf735c5d8
+first time found dangling pointer at: 1691 distance: 126
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5b8 ip: main+0x36d6b (resize_packet @ rfc1035.c:349)
+first time found dangling pointer at: 1512 distance: 307
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c8 ip: main+0x36d72 (resize_packet @ rfc1035.c:349)
+first time found dangling pointer at: 1510 distance: 311
+[INCONSISTENCY mov read UAF] ip: main+0x36d76 (resize_packet @ rfc1035.c:349) UAF read at: 0x64d4b5bb506a
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5b0 ip: main+0x36d89 (resize_packet @ rfc1035.c:352)
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5b8 ip: main+0x36d8d (resize_packet @ rfc1035.c:352)
+first time found dangling pointer at: 1512 distance: 319
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5d8 ip: main+0x36d91 (resize_packet @ rfc1035.c:352)
+first time found dangling pointer at: 1691 distance: 141
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5c8 ip: main+0x36daa (resize_packet @ rfc1035.c:353)
+first time found dangling pointer at: 1510 distance: 332
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5b0 ip: main+0x36db2 (resize_packet @ rfc1035.c:354)
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5d8 ip: main+0x36dba (resize_packet @ rfc1035.c:357)
+first time found dangling pointer at: 1691 distance: 155
+main+0x36dba (resize_packet @ rfc1035.c:357) Read a dangling pointer 0x64d4b5bb50bf from 0x7ffcf735c5d8
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5e8 ip: main+0x36dc2 (resize_packet @ rfc1035.c:358)
+first time found dangling pointer at: 597 distance: 1251
+[STACK PIVOT] ip: main+0x36dc6 (resize_packet @ rfc1035.c:358) RSP 0x7ffcf735c5f8 left stack [0x23,0x7ffcf733d000]
+[FREE] free(0x64d4b5bb5020) subject=27 at main @ harness.c:70
+[FREE] free(0x64d4b5bb5060) subject=28 at main @ harness.c:71
+[INCONSISTENCY mov write imm UAF] ip: main+0x841a (gb_cleanup @ harness.c:23) UAF write at: 0x7ffcf735c5ec
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5ec ip: main+0x8464 (gb_cleanup @ harness.c:23)
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5ec ip: main+0x8423 (gb_cleanup @ harness.c:24)
+STACKREADUSEAFTERSCOPE at: 0x7ffcf735c5ec ip: main+0x8440 (gb_cleanup @ harness.c:24)
+[FREE] free(0x64d4b5bb44f0) subject=9 at gb_cleanup @ harness.c:24
+[FREE] free(0x64d4b5bb4b20) subject=12 at gb_cleanup @ harness.c:24
+[FREE] free(0x64d4b5bb4f30) subject=15 at gb_cleanup @ harness.c:24
+[FREE] free(0x64d4b5bb5000) subject=18 at gb_cleanup @ harness.c:24
+[STACK PIVOT] ip: main+0x846c (gb_cleanup @ harness.c:25) RSP 0x7ffcf735c5f8 left stack [0x25,0x7ffcf733d000]
+[FREE] free(0x64d4b5bb5200) subject=7 at main @ harness.c:75
+[STACK PIVOT] ip: main+0x8752 (main @ harness.c:77) RSP 0x7ffcf735c658 left stack [0x26,0x7ffcf733d000]
+[STACK PIVOT] ip: main+0x8753 (main @ harness.c:77) RSP 0x7ffcf735c660 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x838e (__do_global_dtors_aux) final_ea: 0x64d490472fe8 base: 0x64d49040c38e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x83b4 (__do_global_dtors_aux) RSP 0x7ffcf735c540 left stack after RET
+[STACK PIVOT] ip: main+0x5e54c (_fini) RSP 0x7ffcf735c570 left stack after RET

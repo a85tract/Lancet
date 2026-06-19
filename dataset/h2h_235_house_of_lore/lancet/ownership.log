@@ -1,0 +1,51 @@
+[INCONSISTENCY mov write reg] ip: main+0xea7 (main @ house_of_lore.c:32) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0xead (main @ house_of_lore.c:32) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0xebd (main @ house_of_lore.c:32) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x100) -> 0x7b712a0 subject=6 at main @ house_of_lore.c:44
+[INCONSISTENCY mov write reg] ip: main+0xf71 (main @ house_of_lore.c:44) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x100) -> 0x7b713b0 subject=7 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x7b714c0 subject=8 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x7b715d0 subject=9 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x7b716e0 subject=10 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x7b717f0 subject=11 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x7b71900 subject=12 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x7b71a10 subject=13 at main @ house_of_lore.c:49
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xffd (main @ house_of_lore.c:52) sub rax, 0x10 id before: 6 after: -1 [chunk metadata] value: 0x7b71290
+[ALLOC] malloc(0x3e8) -> 0x7b71b20 subject=14 at main @ house_of_lore.c:83
+[FREE] free(0x7b713b0) subject=7 at main @ house_of_lore.c:88
+[FREE] free(0x7b714c0) subject=8 at main @ house_of_lore.c:88
+[FREE] free(0x7b715d0) subject=9 at main @ house_of_lore.c:88
+[FREE] free(0x7b716e0) subject=10 at main @ house_of_lore.c:88
+[FREE] free(0x7b717f0) subject=11 at main @ house_of_lore.c:88
+[FREE] free(0x7b71900) subject=12 at main @ house_of_lore.c:88
+[FREE] free(0x7b71a10) subject=13 at main @ house_of_lore.c:88
+[FREE] free(0x7b712a0) subject=6 at main @ house_of_lore.c:90
+main+0x12b9 (main @ house_of_lore.c:93) Read a dangling pointer 0x7b712a0 from 0x7fff535a7db8
+[INCONSISTENCY mov read UAF] ip: main+0x12c0 (main @ house_of_lore.c:93) UAF read at: 0x7b712a0
+main+0x12e4 (main @ house_of_lore.c:94) Using expired pointer: 0x7b712a0 from 0x7fff535a7db8
+first time found dangling pointer at: 471 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0x12ef (main @ house_of_lore.c:94) UAF read at: 0x7b712a8
+[ALLOC] malloc(0x4b0) -> 0x7b71f10 subject=15 at main @ house_of_lore.c:99
+[INCONSISTENCY mov read UAF] ip: main+0x13b5 (main @ house_of_lore.c:103) UAF read at: 0x7b712a0
+[INCONSISTENCY mov read UAF] ip: main+0x13e4 (main @ house_of_lore.c:104) UAF read at: 0x7b712a8
+[INCONSISTENCY mov write reg UAF] ip: main+0x143a (main @ house_of_lore.c:110) UAF write at: 0x7b712a8
+[ALLOC] malloc(0x100) -> 0x7b71a10 subject=16 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x7b71900 subject=17 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x7b717f0 subject=18 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x7b716e0 subject=19 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x7b715d0 subject=20 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x7b714c0 subject=21 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x7b713b0 subject=22 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x7b712a0 subject=23 at main @ house_of_lore.c:120
+[ALLOC] malloc(0x100) -> 0x7fff535a7f00 subject=24 at main @ house_of_lore.c:123
+[INCONSISTENCY mov read] ip: main+0x1525 (main @ house_of_lore.c:126) base: 0x7fff535a7f60 pointee: 24 read from 5
+[INCONSISTENCY mov read] ip: main+0x1551 (main @ house_of_lore.c:129) base: 0x7fff535a7f60 pointee: 24 read from 5
+[INCONSISTENCY mov read] ip: main+0x1583 (main @ house_of_lore.c:132) base: 0x7fff535a7f60 pointee: 24 read from 5
+[INCONSISTENCY mov read] ip: main+0x1594 (main @ house_of_lore.c:133) base: 0x7fff535a7f60 pointee: 24 read from 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1594 (main @ house_of_lore.c:133) loaded: 0x60 from cell: 0x7fff535a7de8 cell_owner: 5 value_owner: 24
+[INCONSISTENCY mov read] ip: main+0x159f (main @ house_of_lore.c:133) base: 0x7fff535a7f60 pointee: 24 read from 5
+[INCONSISTENCY mov read] ip: main+0x15a9 (main @ house_of_lore.c:133) base: 0x7fff535a7f60 pointee: 24 read from 5
+[CORRUPTED_PTR_LOAD] ip: main+0x15a9 (main @ house_of_lore.c:133) loaded: 0x4011f6 from cell: 0x7fff535a7db0 cell_owner: 5 value_owner: 24
+[STACK PIVOT] ip: main+0x1604 (main @ house_of_lore.c:137) RSP 0x7fff535a7f68 left stack [0x1a,0x7fff5358a000]
+[STACK PIVOT] ip: main+0xe4e (__do_global_dtors_aux) RSP 0x7fff535a7e68 left stack after RET
+[STACK PIVOT] ip: main+0x1614 (_fini) RSP 0x7fff535a7e68 left stack after RET

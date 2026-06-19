@@ -1,0 +1,16 @@
+[INCONSISTENCY mov write reg] ip: main+0xe92 (main @ overlapping_chunks.c:16) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0xe95 (main @ overlapping_chunks.c:16) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x78) -> 0x64c72a0 subject=6 at main @ overlapping_chunks.c:28
+[INCONSISTENCY mov write reg] ip: main+0xee4 (main @ overlapping_chunks.c:28) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x4f8) -> 0x64c7320 subject=7 at main @ overlapping_chunks.c:29
+[INCONSISTENCY mov write reg] ip: main+0xef2 (main @ overlapping_chunks.c:29) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x78) -> 0x64c7820 subject=8 at main @ overlapping_chunks.c:30
+[INCONSISTENCY mov write reg] ip: main+0xf00 (main @ overlapping_chunks.c:30) co: 5 vo: 5, 5 write 5
+[FREE] free(0x64c7320) subject=7 at main @ overlapping_chunks.c:49
+[OVERLAP] new alloc [0x64c7320, 0x64c7898) overlaps live subject 8 [0x64c7820, 0x64c7898)
+[ALLOC] malloc(0x578) -> 0x64c7320 subject=9 at main @ overlapping_chunks.c:56
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1012 (main @ overlapping_chunks.c:58) add rdx, rax id before: 9 after: -1 [chunk metadata] value: 0x64c7898
+[STACK PIVOT] ip: main+0x11b9 (main @ overlapping_chunks.c:80) RSP 0x7ffee667d248 left stack [0xb,0x7ffee665e000]
+[STACK PIVOT] ip: main+0x11ba (main @ overlapping_chunks.c:80) RSP 0x7ffee667d250 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7ffee667d150 left stack after RET
+[STACK PIVOT] ip: main+0x11c8 (_fini) RSP 0x7ffee667d150 left stack after RET

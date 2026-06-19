@@ -1,0 +1,211 @@
+[INCONSISTENCY mov write reg] ip: main+0x3958 (main @ harness.c:28) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x395e (main @ harness.c:28) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x39ab (main @ harness.c:35) final_ea: 0x7fff4907fcb0 base: 0x7fff4907fcb0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x39c0 (main @ harness.c:35) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x3a24 (main @ harness.c:48) co: 4 vo: 4, 4 write 4
+[ALLOC] malloc(0x5) -> 0x5e70ccc6b010 subject=5 at main @ harness.c:55
+[INCONSISTENCY mov write reg] ip: main+0x3a72 (main @ harness.c:55) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x5e70ccc6b030 subject=6 at _IO_file_doallocate
+[INCONSISTENCY mov write reg] ip: main+0x21529 (coap_clock_init @ coap_time.c:64) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x21531 (coap_clock_init @ coap_time.c:65) RSP 0x7fff4907fa28 left stack [0xa,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x215ac (coap_ticks @ coap_time.c:89) UAF write at: 0x7fff4907fa18
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa18 ip: main+0x215c5 (coap_ticks @ coap_time.c:106)
+[STACK PIVOT] ip: main+0x215d4 (coap_ticks @ coap_time.c:107) RSP 0x7fff4907fa28 left stack [0xc,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x2160f (coap_ticks_to_rt_us @ coap_time.c:114) UAF write at: 0x7fff4907fa18
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa18 ip: main+0x21621 (coap_ticks_to_rt_us @ coap_time.c:115)
+[INCONSISTENCY mov write reg UAF] ip: main+0x1adfa (coap_prng_init @ coap_prng.c:38) UAF write at: 0x7fff4907fa18
+[STACK PIVOT] ip: main+0xab62 (coap_startup @ net.c:2931) RSP 0x7fff4907fa48 left stack [0xd,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xc435 (coap_pdu_init @ pdu.c:79) UAF write at: 0x7fff4907fa18
+[INCONSISTENCY mov write reg UAF] ip: main+0x218db (coap_malloc_type @ mem.c:343) UAF write at: 0x7fff4907f9fc
+[INCONSISTENCY mov write reg UAF] ip: main+0x218de (coap_malloc_type @ mem.c:343) UAF write at: 0x7fff4907f9f0
+[INCONSISTENCY mov read UAF] ip: main+0x218e2 (coap_malloc_type @ mem.c:345) UAF read at: 0x7fff4907f9f0
+[ALLOC] malloc(0x38) -> 0x5e70ccc6c040 subject=15 at coap_malloc_type @ mem.c:345
+[STACK PIVOT] ip: main+0x218ee (coap_malloc_type @ mem.c:346) RSP 0x7fff4907fa08 left stack [0x11,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xc456 (coap_pdu_init @ pdu.c:82) UAF write at: 0x7fff4907fa38
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc45a (coap_pdu_init @ pdu.c:83)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc46b (coap_pdu_init @ pdu.c:91)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa18 ip: main+0xc473 (coap_pdu_init @ pdu.c:103)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc483 (coap_pdu_init @ pdu.c:103)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc48b (coap_pdu_init @ pdu.c:104)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc493 (coap_pdu_init @ pdu.c:104)
+[ALLOC] malloc(0x6) -> 0x5e70ccc6c080 subject=18 at coap_malloc_type @ mem.c:345
+[STACK PIVOT] ip: main+0x218ee (coap_malloc_type @ mem.c:346) RSP 0x7fff4907fa08 left stack [0x14,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xc4ae (coap_pdu_init @ pdu.c:104) UAF write at: 0x7fff4907fa30
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa30 ip: main+0xc4b2 (coap_pdu_init @ pdu.c:105)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc4d1 (coap_pdu_init @ pdu.c:109)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa30 ip: main+0xc4dc (coap_pdu_init @ pdu.c:109)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc4e3 (coap_pdu_init @ pdu.c:109)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa18 ip: main+0xc4eb (coap_pdu_init @ pdu.c:111)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc4ef (coap_pdu_init @ pdu.c:111)
+[INCONSISTENCY mov write reg UAF] ip: main+0xc313 (coap_pdu_clear @ pdu.c:34) UAF write at: 0x7fff4907f9f8
+[INCONSISTENCY mov write reg UAF] ip: main+0xc317 (coap_pdu_clear @ pdu.c:34) UAF write at: 0x7fff4907f9f0
+[INCONSISTENCY mov read UAF] ip: main+0xc31b (coap_pdu_clear @ pdu.c:35) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc34a (coap_pdu_clear @ pdu.c:36) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc37f (coap_pdu_clear @ pdu.c:37) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc3b3 (coap_pdu_clear @ pdu.c:38) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc3bb (coap_pdu_clear @ pdu.c:38) UAF read at: 0x7fff4907f9f0
+[INCONSISTENCY mov read UAF] ip: main+0xc3cd (coap_pdu_clear @ pdu.c:40) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc3d4 (coap_pdu_clear @ pdu.c:41) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc3dc (coap_pdu_clear @ pdu.c:42) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc3e4 (coap_pdu_clear @ pdu.c:43) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc3ec (coap_pdu_clear @ pdu.c:44) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc3f6 (coap_pdu_clear @ pdu.c:45) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc400 (coap_pdu_clear @ pdu.c:46) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc404 (coap_pdu_clear @ pdu.c:46) UAF read at: 0x7fff4907f9f0
+[INCONSISTENCY mov read UAF] ip: main+0xc40c (coap_pdu_clear @ pdu.c:47) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc418 (coap_pdu_clear @ pdu.c:48) UAF read at: 0x7fff4907f9f8
+[STACK PIVOT] ip: main+0xc425 (coap_pdu_clear @ pdu.c:49) RSP 0x7fff4907fa08 left stack [0x16,0x7fff49060000]
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc4fe (coap_pdu_init @ pdu.c:112)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc50a (coap_pdu_init @ pdu.c:113)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc514 (coap_pdu_init @ pdu.c:114)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc51f (coap_pdu_init @ pdu.c:115)
+[STACK PIVOT] ip: main+0xc523 (coap_pdu_init @ pdu.c:116) RSP 0x7fff4907fa48 left stack [0x17,0x7fff49060000]
+[INTRA_OBJECT_OVERFLOW] ip: main+0xd5c0 (coap_pdu_parse_header_size @ pdu.c:539) byte write at: 0x7fff4907f9ec offset: +0xc cell_owner: 24 writer_pointee: 23
+[INCONSISTENCY mov read] ip: main+0xd5c3 (coap_pdu_parse_header_size @ pdu.c:540) base: 0x7fff4907fa00 pointee: 23 read from 24
+[CORRUPTED_PTR_LOAD] ip: main+0xd5c3 (coap_pdu_parse_header_size @ pdu.c:540) loaded: 0x5e70ccc6b010 from cell: 0x7fff4907f9e0 cell_owner: 24 value_owner: 23
+[INCONSISTENCY mov write imm UAF] ip: main+0xd5f2 (coap_pdu_parse_header_size @ pdu.c:541) UAF write at: 0x7fff4907f9f8
+[INCONSISTENCY mov read] ip: main+0xd5fa (coap_pdu_parse_header_size @ pdu.c:543) base: 0x7fff4907fa00 pointee: 23 read from 24
+[CORRUPTED_PTR_LOAD] ip: main+0xd5fa (coap_pdu_parse_header_size @ pdu.c:543) loaded: 0xfbc1358000000001 from cell: 0x7fff4907f9ec cell_owner: 24 value_owner: 23
+[INCONSISTENCY mov read] ip: main+0xd600 (coap_pdu_parse_header_size @ pdu.c:543) base: 0x7fff4907fa00 pointee: 23 read from 24
+[CORRUPTED_PTR_LOAD] ip: main+0xd600 (coap_pdu_parse_header_size @ pdu.c:543) loaded: 0xfbc1358000000001 from cell: 0x7fff4907f9ec cell_owner: 24 value_owner: 23
+[INCONSISTENCY mov read] ip: main+0xd64d (coap_pdu_parse_header_size @ pdu.c:553) base: 0x7fff4907fa00 pointee: 23 read from 24
+[CORRUPTED_PTR_LOAD] ip: main+0xd64d (coap_pdu_parse_header_size @ pdu.c:553) loaded: 0xfbc1358000000001 from cell: 0x7fff4907f9ec cell_owner: 24 value_owner: 23
+[INCONSISTENCY mov write imm UAF] ip: main+0xd659 (coap_pdu_parse_header_size @ pdu.c:554) UAF write at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xd661 (coap_pdu_parse_header_size @ pdu.c:557) UAF read at: 0x7fff4907f9f8
+[STACK PIVOT] ip: main+0xd665 (coap_pdu_parse_header_size @ pdu.c:558) RSP 0x7fff4907fa08 left stack [0x1a,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xe13c (coap_pdu_parse @ pdu.c:780) UAF write at: 0x7fff4907fa38
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xe140 (coap_pdu_parse @ pdu.c:781)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xe147 (coap_pdu_parse @ pdu.c:781)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xe166 (coap_pdu_parse @ pdu.c:783)
+[INCONSISTENCY mov write reg UAF] ip: main+0xc5f7 (coap_pdu_resize @ pdu.c:140) UAF write at: 0x7fff4907f9e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xc5fb (coap_pdu_resize @ pdu.c:140) UAF write at: 0x7fff4907f9e0
+[INCONSISTENCY mov read UAF] ip: main+0xc5ff (coap_pdu_resize @ pdu.c:141) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xc607 (coap_pdu_resize @ pdu.c:141) UAF read at: 0x7fff4907f9e0
+[INCONSISTENCY mov read UAF] ip: main+0xc611 (coap_pdu_resize @ pdu.c:146) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xc65a (coap_pdu_resize @ pdu.c:151) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov write imm UAF] ip: main+0xc6c0 (coap_pdu_resize @ pdu.c:155) UAF write at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc6c8 (coap_pdu_resize @ pdu.c:157) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xc6d3 (coap_pdu_resize @ pdu.c:157) UAF read at: 0x7fff4907f9e0
+[INCONSISTENCY mov read UAF] ip: main+0xc6da (coap_pdu_resize @ pdu.c:157) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xc6e2 (coap_pdu_resize @ pdu.c:157) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xc6fe (coap_pdu_resize @ pdu.c:157) UAF write at: 0x7fff4907f9f0
+[INCONSISTENCY mov read UAF] ip: main+0xc702 (coap_pdu_resize @ pdu.c:158) UAF read at: 0x7fff4907f9f0
+[INCONSISTENCY mov read UAF] ip: main+0xc734 (coap_pdu_resize @ pdu.c:162) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xc73f (coap_pdu_resize @ pdu.c:162) UAF read at: 0x7fff4907f9f0
+[INCONSISTENCY mov read UAF] ip: main+0xc746 (coap_pdu_resize @ pdu.c:162) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xc74e (coap_pdu_resize @ pdu.c:163) UAF read at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xc76e (coap_pdu_resize @ pdu.c:166) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xc77a (coap_pdu_resize @ pdu.c:169) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xc77e (coap_pdu_resize @ pdu.c:169) UAF read at: 0x7fff4907f9e0
+[STACK PIVOT] ip: main+0xc78b (coap_pdu_resize @ pdu.c:171) RSP 0x7fff4907fa08 left stack [0x1d,0x7fff49060000]
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xe1a3 (coap_pdu_parse @ pdu.c:788)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xe1c1 (coap_pdu_parse @ pdu.c:790)
+[INCONSISTENCY mov write reg UAF] ip: main+0xd859 (coap_pdu_parse_header @ pdu.c:593) UAF write at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xd862 (coap_pdu_parse_header @ pdu.c:594) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xd86a (coap_pdu_parse_header @ pdu.c:594) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xd87b (coap_pdu_parse_header @ pdu.c:594) UAF write at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xd87f (coap_pdu_parse_header @ pdu.c:595) UAF read at: 0x7fff4907f9e4
+[INCONSISTENCY mov read UAF] ip: main+0xd88f (coap_pdu_parse_header @ pdu.c:596) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xd8c3 (coap_pdu_parse_header @ pdu.c:597) UAF read at: 0x7fff4907f9f8
+[CORRUPTED_PTR_LOAD] ip: main+0xd8c7 (coap_pdu_parse_header @ pdu.c:597) loaded: 0xee01004440 from cell: 0x5e70ccc6c082 cell_owner: 27 value_owner: 18
+[INCONSISTENCY mov read UAF] ip: main+0xd8ff (coap_pdu_parse_header @ pdu.c:601) UAF read at: 0x7fff4907f9f8
+[CORRUPTED_PTR_LOAD] ip: main+0xd903 (coap_pdu_parse_header @ pdu.c:601) loaded: 0xee01004440 from cell: 0x5e70ccc6c082 cell_owner: 27 value_owner: 18
+[INCONSISTENCY mov read UAF] ip: main+0xd90e (coap_pdu_parse_header @ pdu.c:601) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xd914 (coap_pdu_parse_header @ pdu.c:602) UAF read at: 0x7fff4907f9f8
+[CORRUPTED_PTR_LOAD] ip: main+0xd918 (coap_pdu_parse_header @ pdu.c:602) loaded: 0xee01004440 from cell: 0x5e70ccc6c082 cell_owner: 27 value_owner: 18
+[INCONSISTENCY mov read UAF] ip: main+0xd920 (coap_pdu_parse_header @ pdu.c:602) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xd927 (coap_pdu_parse_header @ pdu.c:603) UAF read at: 0x7fff4907f9f8
+[CORRUPTED_PTR_LOAD] ip: main+0xd92b (coap_pdu_parse_header @ pdu.c:603) loaded: 0xee010044 from cell: 0x5e70ccc6c083 cell_owner: 27 value_owner: 18
+[INCONSISTENCY mov read UAF] ip: main+0xd92f (coap_pdu_parse_header @ pdu.c:603) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xd936 (coap_pdu_parse_header @ pdu.c:604) UAF read at: 0x7fff4907f9f8
+[CORRUPTED_PTR_LOAD] ip: main+0xd93e (coap_pdu_parse_header @ pdu.c:604) loaded: 0xee0100 from cell: 0x5e70ccc6c084 cell_owner: 27 value_owner: 18
+[INCONSISTENCY mov read UAF] ip: main+0xd949 (coap_pdu_parse_header @ pdu.c:604) UAF read at: 0x7fff4907f9f8
+[CORRUPTED_PTR_LOAD] ip: main+0xd951 (coap_pdu_parse_header @ pdu.c:604) loaded: 0xee01 from cell: 0x5e70ccc6c085 cell_owner: 27 value_owner: 18
+[INCONSISTENCY mov read UAF] ip: main+0xd95b (coap_pdu_parse_header @ pdu.c:604) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xda29 (coap_pdu_parse_header @ pdu.c:615) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xda34 (coap_pdu_parse_header @ pdu.c:615) UAF read at: 0x7fff4907f9e8
+[STACK PIVOT] ip: main+0xda82 (coap_pdu_parse_header @ pdu.c:622) RSP 0x7fff4907fa08 left stack [0x1f,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xdbb0 (coap_pdu_parse_opt @ pdu.c:679) UAF write at: 0x7fff4907f9d8
+[INCONSISTENCY mov write imm UAF] ip: main+0xdbb4 (coap_pdu_parse_opt @ pdu.c:681) UAF write at: 0x7fff4907f9fc
+[INCONSISTENCY mov read UAF] ip: main+0xdbbb (coap_pdu_parse_opt @ pdu.c:683) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov read UAF] ip: main+0xdc0e (coap_pdu_parse_opt @ pdu.c:690) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov read UAF] ip: main+0xdc19 (coap_pdu_parse_opt @ pdu.c:690) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov read UAF] ip: main+0xdc26 (coap_pdu_parse_opt @ pdu.c:690) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov read UAF] ip: main+0xdc60 (coap_pdu_parse_opt @ pdu.c:695) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov read UAF] ip: main+0xdc6a (coap_pdu_parse_opt @ pdu.c:696) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov read UAF] ip: main+0xdc93 (coap_pdu_parse_opt @ pdu.c:702) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov read UAF] ip: main+0xdc9b (coap_pdu_parse_opt @ pdu.c:702) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov write reg UAF] ip: main+0xdca9 (coap_pdu_parse_opt @ pdu.c:702) UAF write at: 0x7fff4907f9f0
+[INCONSISTENCY mov read UAF] ip: main+0xdcad (coap_pdu_parse_opt @ pdu.c:703) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov read UAF] ip: main+0xdcb5 (coap_pdu_parse_opt @ pdu.c:703) UAF read at: 0x7fff4907f9d8
+[INCONSISTENCY mov write reg UAF] ip: main+0xdcc6 (coap_pdu_parse_opt @ pdu.c:703) UAF write at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xe034 (coap_pdu_parse_opt @ pdu.c:706) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xe03d (coap_pdu_parse_opt @ pdu.c:706) UAF read at: 0x7fff4907f9f0
+[CORRUPTED_PTR_LOAD] ip: main+0xe041 (coap_pdu_parse_opt @ pdu.c:706) loaded: 0xee from cell: 0x5e70ccc6c086 cell_owner: 27 value_owner: 18
+[INCONSISTENCY mov read UAF] ip: main+0xdccf (coap_pdu_parse_opt @ pdu.c:707) UAF read at: 0x7fff4907f9f0
+[CORRUPTED_PTR_LOAD] ip: main+0xb60e (coap_opt_length @ option.c:212) loaded: 0x5e70ccc6c086 from cell: 0x7fff4907f9a8 cell_owner: 32 value_owner: 31
+[CORRUPTED_PTR_LOAD] ip: main+0xb612 (coap_opt_length @ option.c:212) loaded: 0xee from cell: 0x5e70ccc6c086 cell_owner: 27 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0xb61e (coap_opt_length @ option.c:213) loaded: 0x5e70ccc6c086 from cell: 0x7fff4907f9a8 cell_owner: 32 value_owner: 31
+[CORRUPTED_PTR_LOAD] ip: main+0xb622 (coap_opt_length @ option.c:213) loaded: 0xee from cell: 0x5e70ccc6c086 cell_owner: 27 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0xb6cd (coap_opt_length @ option.c:234) loaded: 0x5e70ccc6c089 from cell: 0x7fff4907f9a8 cell_owner: 32 value_owner: 31
+[UNTRUSTEDPTRDEREF] ip: main+0xb6d9 (coap_opt_length @ option.c:234) final_ea: 0x5e70ccc6c089 base: 0x5e70ccc6c089 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xb6f6 (coap_opt_length @ option.c:237) final_ea: 0x5e70ccc6c08a base: 0x5e70ccc6c08a pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0xb703 (coap_opt_length @ option.c:243) RSP 0x7fff4907f9c8 left stack [0x22,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xdcdb (coap_pdu_parse_opt @ pdu.c:707) UAF write at: 0x7fff4907f9f8
+[INCONSISTENCY mov read UAF] ip: main+0xdcde (coap_pdu_parse_opt @ pdu.c:708) UAF read at: 0x7fff4907f9d8
+Store dangling pointer: 0x7fff4907f9f0 at: 0x7fff4907f998
+Store dangling pointer: 0x7fff4907f9e8 at: 0x7fff4907f990
+main+0xd456 (next_option_safe @ pdu.c:517) Using expired pointer: 0x7fff4907f9f0 from 0x7fff4907f998
+first time found dangling pointer at: 786 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0xd489 (next_option_safe @ pdu.c:517) UAF read at: 0x7fff4907f9f0
+main+0xd4b9 (next_option_safe @ pdu.c:518) Using expired pointer: 0x7fff4907f9e8 from 0x7fff4907f990
+first time found dangling pointer at: 787 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0xd4ec (next_option_safe @ pdu.c:520) UAF read at: 0x7fff4907f9e8
+[INCONSISTENCY mov read UAF] ip: main+0xd4f3 (next_option_safe @ pdu.c:520) UAF read at: 0x7fff4907f9f0
+Store dangling pointer: 0x7fff4907f9a0 at: 0x7fff4907f948
+[CORRUPTED_PTR_LOAD] ip: main+0xae44 (coap_opt_parse @ option.c:37) loaded: 0x5e70ccc6c086 from cell: 0x7fff4907f958 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0xae4c (coap_opt_parse @ option.c:39) loaded: 0x5e70ccc6c086 from cell: 0x7fff4907f958 cell_owner: 35 value_owner: 34
+main+0xae7b (coap_opt_parse @ option.c:39) Using expired pointer: 0x7fff4907f9a0 from 0x7fff4907f948
+first time found dangling pointer at: 811 distance: 5
+[CORRUPTED_PTR_LOAD] ip: main+0xae7b (coap_opt_parse @ option.c:39) loaded: 0x7fff4907f9a0 from cell: 0x7fff4907f948 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0xaeaa (coap_opt_parse @ option.c:41) loaded: 0x1 from cell: 0x7fff4907f950 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0xaebb (coap_opt_parse @ option.c:44) loaded: 0x5e70ccc6c086 from cell: 0x7fff4907f958 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0xaebf (coap_opt_parse @ option.c:44) loaded: 0xee from cell: 0x5e70ccc6c086 cell_owner: 27 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0xaec8 (coap_opt_parse @ option.c:44) loaded: 0x7fff4907f9a0 from cell: 0x7fff4907f948 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0xaecf (coap_opt_parse @ option.c:45) loaded: 0x5e70ccc6c086 from cell: 0x7fff4907f958 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0xaed3 (coap_opt_parse @ option.c:45) loaded: 0xee from cell: 0x5e70ccc6c086 cell_owner: 27 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0xaedf (coap_opt_parse @ option.c:45) loaded: 0x7fff4907f9a0 from cell: 0x7fff4907f948 cell_owner: 35 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0xaee3 (coap_opt_parse @ option.c:45) UAF write at: 0x7fff4907f9a8
+[CORRUPTED_PTR_LOAD] ip: main+0xaee7 (coap_opt_parse @ option.c:47) loaded: 0x7fff4907f9a0 from cell: 0x7fff4907f948 cell_owner: 35 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0xaeeb (coap_opt_parse @ option.c:47) UAF read at: 0x7fff4907f9a0
+[CORRUPTED_PTR_LOAD] ip: main+0xaf4b (coap_opt_parse @ option.c:57) loaded: 0x1 from cell: 0x7fff4907f950 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0xaf8a (coap_opt_parse @ option.c:57) loaded: 0x0 from cell: 0x7fff4907f950 cell_owner: 35 value_owner: 34
+[STACK PIVOT] ip: main+0xb225 (coap_opt_parse @ option.c:107) RSP 0x7fff4907f978 left stack [0x25,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xd505 (next_option_safe @ pdu.c:520) UAF write at: 0x7fff4907f9b8
+STACKREADUSEAFTERSCOPE at: 0x7fff4907f9b8 ip: main+0xd509 (next_option_safe @ pdu.c:521)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907f9b8 ip: main+0xd5a8 (next_option_safe @ pdu.c:534)
+[STACK PIVOT] ip: main+0xd5ac (next_option_safe @ pdu.c:535) RSP 0x7fff4907f9c8 left stack [0x26,0x7fff49060000]
+[STACK PIVOT] ip: main+0xe0fa (coap_pdu_parse_opt @ pdu.c:768) RSP 0x7fff4907fa08 left stack [0x27,0x7fff49060000]
+[STACK PIVOT] ip: main+0xe213 (coap_pdu_parse @ pdu.c:793) RSP 0x7fff4907fa48 left stack [0x28,0x7fff49060000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xc599 (coap_delete_pdu @ pdu.c:127) UAF write at: 0x7fff4907fa38
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc59d (coap_delete_pdu @ pdu.c:128)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc5a4 (coap_delete_pdu @ pdu.c:132)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc5b1 (coap_delete_pdu @ pdu.c:133)
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc5b9 (coap_delete_pdu @ pdu.c:133)
+[INCONSISTENCY mov write reg UAF] ip: main+0x21928 (coap_free_type @ mem.c:355) UAF write at: 0x7fff4907fa1c
+[INCONSISTENCY mov write reg UAF] ip: main+0x2192b (coap_free_type @ mem.c:355) UAF write at: 0x7fff4907fa10
+[INCONSISTENCY mov read UAF] ip: main+0x2192f (coap_free_type @ mem.c:357) UAF read at: 0x7fff4907fa10
+[FREE] free(0x5e70ccc6c080) subject=27 at coap_free_type @ mem.c:357
+[FREE:internal] free(0x5e70ccc6c080) subject=0
+[DOUBLE FREE] free(0x5e70ccc6c080) — already freed
+[STACK PIVOT] ip: main+0x2193c (coap_free_type @ mem.c:358) RSP 0x7fff4907fa28 left stack [0x2b,0x7fff49060000]
+STACKREADUSEAFTERSCOPE at: 0x7fff4907fa38 ip: main+0xc5d7 (coap_delete_pdu @ pdu.c:135)
+[FREE] free(0x5e70ccc6c040) subject=15 at coap_free_type @ mem.c:357
+[STACK PIVOT] ip: main+0x2193c (coap_free_type @ mem.c:358) RSP 0x7fff4907fa28 left stack [0x2d,0x7fff49060000]
+[STACK PIVOT] ip: main+0xc5e9 (coap_delete_pdu @ pdu.c:137) RSP 0x7fff4907fa48 left stack [0x2e,0x7fff49060000]
+[FREE] free(0x5e70ccc6b010) subject=5 at main @ harness.c:120
+[STACK PIVOT] ip: main+0x3d1e (main @ harness.c:125) RSP 0x7fff4907fb78 left stack [0x2f,0x7fff49060000]
+[STACK PIVOT] ip: main+0x3d1f (main @ harness.c:125) RSP 0x7fff4907fb80 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x390e (__do_global_dtors_aux) final_ea: 0x5e70b06a7fe0 base: 0x5e70b067f90e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x3934 (__do_global_dtors_aux) RSP 0x7fff4907fa60 left stack after RET
+[STACK PIVOT] ip: main+0x2194c (_fini) RSP 0x7fff4907fa90 left stack after RET

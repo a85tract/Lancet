@@ -1,0 +1,964 @@
+[INCONSISTENCY mov write reg] ip: main+0x2655 (main @ harness.c:19) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x2658 (main @ harness.c:19) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] calloc(0xd0) -> 0x59e145178010 subject=6 at xmlFreeEntitiesTable
+[STACK PIVOT] ip: main+0x2867 (LLVMFuzzerInitialize @ xml.c:22) RSP 0x7fffb0c783a8 left stack [0x8,0x7fffb0c59000]
+[ALLOC:internal] malloc(0x1d8) -> 0x59e1451780f0 subject=8 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x59e1451782d0 subject=9 at _IO_file_doallocate
+[ALLOC] malloc(0xfe) -> 0x59e1451792e0 subject=10 at main @ harness.c:41
+[FREE:internal] free(0x59e1451782d0) subject=9 at _IO_setb
+[FREE:internal] free(0x59e1451780f0) subject=8 at _IO_fclose
+[FREE:internal] free(0x59e1451780f0) subject=0
+[DOUBLE FREE] free(0x59e1451780f0) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x2b49 (xmlFuzzDataInit @ fuzz.c:59) loaded: 0x59e1451792e0 from cell: 0x7fffb0c78318 cell_owner: 12 value_owner: 11
+[INCONSISTENCY mov write reg] ip: main+0x2b4d (xmlFuzzDataInit @ fuzz.c:59) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x2b54 (xmlFuzzDataInit @ fuzz.c:60) loaded: 0xfe from cell: 0x7fffb0c78310 cell_owner: 12 value_owner: 11
+[INCONSISTENCY mov write reg] ip: main+0x2b58 (xmlFuzzDataInit @ fuzz.c:60) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x2b5f (xmlFuzzDataInit @ fuzz.c:61) loaded: 0x59e1451792e0 from cell: 0x7fffb0c78318 cell_owner: 12 value_owner: 11
+[INCONSISTENCY mov write reg] ip: main+0x2b63 (xmlFuzzDataInit @ fuzz.c:61) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x2b6a (xmlFuzzDataInit @ fuzz.c:62) loaded: 0xfe from cell: 0x7fffb0c78310 cell_owner: 12 value_owner: 11
+[INCONSISTENCY mov write reg] ip: main+0x2b6e (xmlFuzzDataInit @ fuzz.c:62) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x2b7c (xmlFuzzDataInit @ fuzz.c:64) loaded: 0xfe from cell: 0x7fffb0c78310 cell_owner: 12 value_owner: 11
+[ALLOC] malloc(0xff) -> 0x59e1451785d0 subject=13 at xmlFuzzDataInit @ fuzz.c:64
+Store dangling pointer: 0x59e1451785d0 at: 0x59e11fd72080
+[INCONSISTENCY mov write reg] ip: main+0x2b89 (xmlFuzzDataInit @ fuzz.c:64) co: 3 vo: 3, 3 write 3
+main+0x2b90 (xmlFuzzDataInit @ fuzz.c:65) Using expired pointer: 0x59e1451785d0 from 0x59e11fd72080
+first time found dangling pointer at: 137 distance: 1
+[INCONSISTENCY mov write reg] ip: main+0x2b97 (xmlFuzzDataInit @ fuzz.c:65) co: 3 vo: 3, 3 write 3
+[ALLOC:internal] malloc(0x20) -> 0x59e1451786e0 subject=14 at xmlHashCreate
+Store dangling pointer: 0x59e1451786e0 at: 0x59e11fd72090
+[INCONSISTENCY mov write reg] ip: main+0x2ba8 (xmlFuzzDataInit @ fuzz.c:67) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x2bc6 (xmlFuzzDataInit @ fuzz.c:70) RSP 0x7fffb0c78328 left stack [0x10,0x7fffb0c59000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x2c4b (xmlFuzzReadInt @ fuzz.c:100) UAF write at: 0x7fffb0c7831c
+[INCONSISTENCY mov write reg] ip: main+0x2c59 (xmlFuzzReadInt @ fuzz.c:101) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x2c6b (xmlFuzzReadInt @ fuzz.c:102) co: 3 vo: 3, 3 write 3
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c7831c ip: main+0x2c72 (xmlFuzzReadInt @ fuzz.c:104)
+[INCONSISTENCY mov write imm UAF] ip: main+0x3019 (xmlFuzzReadEntities @ fuzz.c:242) UAF write at: 0x7fffb0c78318
+[INCONSISTENCY mov write reg] ip: main+0x2d6c (xmlFuzzReadString @ fuzz.c:162) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x2d87 (xmlFuzzReadString @ fuzz.c:163) co: 3 vo: 3, 3 write 3
+Store dangling pointer: 0x59e1451785d1 at: 0x59e11fd72088
+[INCONSISTENCY mov write reg] ip: main+0x2e4a (xmlFuzzReadString @ fuzz.c:181) co: 3 vo: 3, 3 write 3
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785d1 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 81
+Store dangling pointer: 0x59e1451785d2 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785d2 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 100
+Store dangling pointer: 0x59e1451785d3 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785d3 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 119
+Store dangling pointer: 0x59e1451785d4 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785d4 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 138
+Store dangling pointer: 0x59e1451785d5 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785d5 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 157
+Store dangling pointer: 0x59e1451785d6 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785d6 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 176
+Store dangling pointer: 0x59e1451785d7 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785d7 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 195
+Store dangling pointer: 0x59e1451785d8 at: 0x59e11fd72088
+[INCONSISTENCY mov write reg] ip: main+0x2dc9 (xmlFuzzReadString @ fuzz.c:169) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x2ddb (xmlFuzzReadString @ fuzz.c:170) co: 3 vo: 3, 3 write 3
+main+0x2de2 (xmlFuzzReadString @ fuzz.c:171) Using expired pointer: 0x59e1451785d8 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 229
+Store dangling pointer: 0x59e1451785d9 at: 0x59e11fd72088
+[INCONSISTENCY mov write reg] ip: main+0x2e02 (xmlFuzzReadString @ fuzz.c:172) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write imm UAF] ip: main+0x2e09 (xmlFuzzReadString @ fuzz.c:172) UAF write at: 0x59e1451785d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x302d (xmlFuzzReadEntities @ fuzz.c:249) UAF write at: 0x7fffb0c78310
+first time found dangling pointer at: 381 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78310 ip: main+0x3031 (xmlFuzzReadEntities @ fuzz.c:250)
+first time found dangling pointer at: 381 distance: 1
+main+0x2d51 (xmlFuzzReadString @ fuzz.c:159) Using expired pointer: 0x59e1451785d9 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 252
+Store dangling pointer: 0x59e1451785da at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785da from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 288
+Store dangling pointer: 0x59e1451785db at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785db from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 307
+Store dangling pointer: 0x59e1451785dc at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785dc from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 326
+Store dangling pointer: 0x59e1451785dd at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785dd from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 345
+Store dangling pointer: 0x59e1451785de at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785de from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 364
+Store dangling pointer: 0x59e1451785df at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785df from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 383
+Store dangling pointer: 0x59e1451785e0 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e0 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 402
+Store dangling pointer: 0x59e1451785e1 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e1 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 421
+Store dangling pointer: 0x59e1451785e2 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e2 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 440
+Store dangling pointer: 0x59e1451785e3 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e3 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 459
+Store dangling pointer: 0x59e1451785e4 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e4 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 478
+Store dangling pointer: 0x59e1451785e5 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e5 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 497
+Store dangling pointer: 0x59e1451785e6 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e6 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 516
+Store dangling pointer: 0x59e1451785e7 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e7 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 535
+Store dangling pointer: 0x59e1451785e8 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e8 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 554
+Store dangling pointer: 0x59e1451785e9 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785e9 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 573
+Store dangling pointer: 0x59e1451785ea at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785ea from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 592
+Store dangling pointer: 0x59e1451785eb at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785eb from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 611
+Store dangling pointer: 0x59e1451785ec at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785ec from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 630
+Store dangling pointer: 0x59e1451785ed at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785ed from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 649
+Store dangling pointer: 0x59e1451785ee at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785ee from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 668
+Store dangling pointer: 0x59e1451785ef at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785ef from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 687
+Store dangling pointer: 0x59e1451785f0 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f0 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 706
+Store dangling pointer: 0x59e1451785f1 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f1 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 725
+Store dangling pointer: 0x59e1451785f2 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f2 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 744
+Store dangling pointer: 0x59e1451785f3 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f3 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 763
+Store dangling pointer: 0x59e1451785f4 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f4 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 782
+Store dangling pointer: 0x59e1451785f5 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f5 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 801
+Store dangling pointer: 0x59e1451785f6 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f6 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 820
+Store dangling pointer: 0x59e1451785f7 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f7 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 839
+Store dangling pointer: 0x59e1451785f8 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f8 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 858
+Store dangling pointer: 0x59e1451785f9 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785f9 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 877
+Store dangling pointer: 0x59e1451785fa at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785fa from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 896
+Store dangling pointer: 0x59e1451785fb at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785fb from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 915
+Store dangling pointer: 0x59e1451785fc at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785fc from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 934
+Store dangling pointer: 0x59e1451785fd at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785fd from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 953
+Store dangling pointer: 0x59e1451785fe at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785fe from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 972
+Store dangling pointer: 0x59e1451785ff at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e1451785ff from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 991
+Store dangling pointer: 0x59e145178600 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178600 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1010
+Store dangling pointer: 0x59e145178601 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178601 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1029
+Store dangling pointer: 0x59e145178602 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178602 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1048
+Store dangling pointer: 0x59e145178603 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178603 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1067
+Store dangling pointer: 0x59e145178604 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178604 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1086
+Store dangling pointer: 0x59e145178605 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178605 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1105
+Store dangling pointer: 0x59e145178606 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178606 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1124
+Store dangling pointer: 0x59e145178607 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178607 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1143
+Store dangling pointer: 0x59e145178608 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178608 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1162
+Store dangling pointer: 0x59e145178609 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178609 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1181
+Store dangling pointer: 0x59e14517860a at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e14517860a from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1200
+Store dangling pointer: 0x59e14517860b at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e14517860b from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1219
+Store dangling pointer: 0x59e14517860c at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e14517860c from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1238
+Store dangling pointer: 0x59e14517860d at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e14517860d from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1257
+Store dangling pointer: 0x59e14517860e at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e14517860e from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1276
+Store dangling pointer: 0x59e14517860f at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e14517860f from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1295
+Store dangling pointer: 0x59e145178610 at: 0x59e11fd72088
+main+0x2e3f (xmlFuzzReadString @ fuzz.c:181) Using expired pointer: 0x59e145178610 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1300
+Store dangling pointer: 0x59e145178611 at: 0x59e11fd72088
+main+0x2de2 (xmlFuzzReadString @ fuzz.c:171) Read a dangling pointer 0x59e1451786c7 from 0x59e11fd72088
+main+0x2df7 (xmlFuzzReadString @ fuzz.c:172) Using expired pointer: 0x59e1451786c7 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1325
+Store dangling pointer: 0x59e1451786c8 at: 0x59e11fd72088
+main+0x3057 (xmlFuzzReadEntities @ fuzz.c:255) Using expired pointer: 0x59e1451786e0 from 0x59e11fd72090
+first time found dangling pointer at: 144 distance: 1331
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78310 ip: main+0x305e (xmlFuzzReadEntities @ fuzz.c:255)
+first time found dangling pointer at: 381 distance: 1095
+[ALLOC] malloc(0x10) -> 0x59e145178710 subject=17 at xmlFuzzReadEntities @ fuzz.c:256
+Store dangling pointer: 0x59e145178710 at: 0x7fffb0c78300
+main+0x3084 (xmlFuzzReadEntities @ fuzz.c:257) Using expired pointer: 0x59e145178710 from 0x7fffb0c78300
+first time found dangling pointer at: 1487 distance: 1
+[INCONSISTENCY mov write reg UAF] ip: main+0x308c (xmlFuzzReadEntities @ fuzz.c:257) UAF write at: 0x59e145178710
+first time found dangling pointer at: 1490 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x3097 (xmlFuzzReadEntities @ fuzz.c:258) UAF write at: 0x59e145178718
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78310 ip: main+0x30a6 (xmlFuzzReadEntities @ fuzz.c:260)
+first time found dangling pointer at: 381 distance: 1115
+[ALLOC:internal] malloc(0x140) -> 0x59e145178730 subject=18 at xmlHashDefaultDeallocator
+[ALLOC:internal] malloc(0x9) -> 0x59e145178880 subject=19 at xmlHashAddEntry
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78318 ip: main+0x30b5 (xmlFuzzReadEntities @ fuzz.c:262)
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78310 ip: main+0x30bc (xmlFuzzReadEntities @ fuzz.c:263)
+first time found dangling pointer at: 381 distance: 1123
+[INCONSISTENCY mov write reg] ip: main+0x30c0 (xmlFuzzReadEntities @ fuzz.c:263) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x30cb (xmlFuzzReadEntities @ fuzz.c:264) co: 3 vo: 3, 3 write 3
+main+0x2d51 (xmlFuzzReadString @ fuzz.c:159) Using expired pointer: 0x59e1451786c8 from 0x59e11fd72088
+first time found dangling pointer at: 139 distance: 1378
+[STACK PIVOT] ip: main+0x30e1 (xmlFuzzReadEntities @ fuzz.c:270) RSP 0x7fffb0c78328 left stack [0x15,0x7fffb0c59000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x30fc (xmlFuzzMainEntity @ fuzz.c:289) UAF write at: 0x7fffb0c78318
+[INCONSISTENCY mov read UAF] ip: main+0x311a (xmlFuzzMainEntity @ fuzz.c:292) UAF read at: 0x59e145178718
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78318 ip: main+0x311e (xmlFuzzMainEntity @ fuzz.c:292)
+[INCONSISTENCY mov read UAF] ip: main+0x312c (xmlFuzzMainEntity @ fuzz.c:293) UAF read at: 0x59e145178710
+first time found dangling pointer at: 1490 distance: 59
+[ALLOC:internal] malloc(0x348) -> 0x59e1451788a0 subject=21 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e145178bf0 subject=22 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e145178c40 subject=23 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178d50 subject=24 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178d80 subject=25 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178de0 subject=26 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e40 subject=27 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e70 subject=28 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x40) -> 0x59e145178ea0 subject=29 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x30) -> 0x59e145178ef0 subject=30 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x1771) -> 0x59e1451793f0 subject=31 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x10) -> 0x59e145178f30 subject=32 at xmlNewInputFromMemory
+[ALLOC:internal] malloc(0x78) -> 0x59e145178f50 subject=33 at xmlFreeInputStream
+[ALLOC:internal] malloc(0x80) -> 0x59e145178fd0 subject=34 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0x418) -> 0x59e14517ab70 subject=35 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0xa) -> 0x59e145179060 subject=36 at xmlParseVersionNum
+[ALLOC:internal] malloc(0xb0) -> 0x59e145179080 subject=37 at xmlNewDoc
+[ALLOC:internal] malloc(0x4) -> 0x59e145179140 subject=38 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=39 at xmlCreateURI
+[ALLOC:internal] malloc(0x5) -> 0x59e1451791c0 subject=40 at xmlStrndup
+[ALLOC:internal] malloc(0xb) -> 0x59e1451791e0 subject=41 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0xf) -> 0x59e145179200 subject=42 at xmlURIUnescapeString
+[FREE:internal] free(0x59e1451791c0) subject=40 at xmlFreeURI
+[FREE:internal] free(0x59e1451791e0) subject=41 at xmlFreeURI
+[FREE:internal] free(0x59e145179200) subject=42 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=39 at xmlParseStartTag
+[ALLOC:internal] malloc(0x100) -> 0x59e14517af90 subject=43
+[ALLOC:internal] malloc(0x180) -> 0x59e14517b0a0 subject=45
+[ALLOC:internal] malloc(0x80) -> 0x59e145179220 subject=47 at xmlListSort
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b230 subject=48 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x30) -> 0x59e14517b2b0 subject=49 at xmlNewNs
+[ALLOC:internal] malloc(0x20) -> 0x59e1451792b0 subject=50 at xmlStrndup
+[ALLOC:internal] malloc(0x3) -> 0x59e145179200 subject=51 at xmlStrndup
+[ALLOC:internal] malloc(0xf0) -> 0x59e14517b2f0 subject=52 at xmlListSort
+[ALLOC:internal] malloc(0x100) -> 0x59e14517b3f0 subject=53 at xmlThrDefOutputBufferCreateFilenameDefault
+[FREE:internal] free(0x59e145178fd0) subject=34 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0x190) -> 0x59e14517b500 subject=54
+[ALLOC:internal] malloc(0x28) -> 0x59e14517b6a0 subject=56
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b6d0 subject=58 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517b750 subject=59 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b7c0 subject=60 at xmlNewCDataBlock
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b840 subject=61 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b8c0 subject=62 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517b940 subject=63 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b9b0 subject=64 at xmlNewCDataBlock
+[ALLOC:internal] malloc(0x78) -> 0x59e14517ba30 subject=65 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bab0 subject=66 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517bb30 subject=67 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bba0 subject=68 at xmlNewCDataBlock
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bc20 subject=69 at xmlNewDocNodeEatName
+[FREE:internal] free(0x59e145178f30) subject=32 at xmlValidatePushElement
+[FREE:internal] free(0x59e1451793f0) subject=31 at xmlFreeParserInputBuffer
+[FREE:internal] free(0x59e145178ef0) subject=30 at xmlFreeParserInputBuffer
+[FREE:internal] free(0x59e145178ea0) subject=29 at xmlFreeInputStream
+[FREE:internal] free(0x59e145178f50) subject=33 at xmlCtxtParseDocument
+[FREE:internal] free(0x59e145178e40) subject=27 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178de0) subject=26 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d80) subject=25 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d50) subject=24 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179060) subject=36 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178c40) subject=23 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b500) subject=55 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517af90) subject=44 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b0a0) subject=46 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179220) subject=47 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e70) subject=28 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b2f0) subject=52 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b6a0) subject=57 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e1451788a0) subject=21 at xmlReadMemory
+Store dangling pointer: 0x59e145179080 at: 0x7fffb0c78378
+main+0x28ff (LLVMFuzzerTestOneInput @ xml.c:51) Using expired pointer: 0x59e145179080 from 0x7fffb0c78378
+first time found dangling pointer at: 1566 distance: 6
+[ALLOC:internal] malloc(0x88) -> 0x59e145179220 subject=70 at xmlXIncludeNewContext
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=71 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145178d80 subject=72 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=73 at xmlStrndup
+[FREE:internal] free(0x59e145178f30) subject=73 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=74 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e145178de0 subject=75 at xmlSaveUri
+[FREE:internal] free(0x59e145179060) subject=71 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=76 at xmlStrndup
+[FREE:internal] free(0x59e145178de0) subject=75 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e145178ef0 subject=77 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e1451791e0 subject=78 at xmlStrndup
+[ALLOC:internal] malloc(0x20) -> 0x59e14517b6a0 subject=79
+[FREE:internal] free(0x59e145178f30) subject=74 at xmlFreeURI
+[FREE:internal] free(0x59e145178d80) subject=72 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e1451788a0 subject=81 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e145178ea0 subject=82 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517af90 subject=83 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e70 subject=84 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178d80 subject=85 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178de0 subject=86 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178d50 subject=87 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e40 subject=88 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e145178ea0) subject=82 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=89 at xmlStrndup
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78158 left stack [0x5c,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78160 left stack after RET
+[FREE:internal] free(0x59e145178f30) subject=89 at xmlNewInputFromFile
+[FREE:internal] free(0x59e145178d50) subject=87 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178de0) subject=86 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d80) subject=85 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e70) subject=84 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517af90) subject=83 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e40) subject=88 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e1451788a0) subject=81 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0xc0) -> 0x59e1451793f0 subject=93
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=95 at xmlStrndup
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791c0 subject=96 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145178d80 subject=97 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e1451794c0 subject=98 at xmlStrndup
+[FREE:internal] free(0x59e1451794c0) subject=98 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e1451794c0 subject=99 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e145178de0 subject=100 at xmlSaveUri
+[FREE:internal] free(0x59e1451791c0) subject=96 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791c0 subject=101 at xmlStrndup
+[FREE:internal] free(0x59e145178de0) subject=100 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e1451794e0 subject=102 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e145179520 subject=103 at xmlStrndup
+[FREE:internal] free(0x59e1451794c0) subject=99 at xmlFreeURI
+[FREE:internal] free(0x59e145178d80) subject=97 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e1451788a0 subject=104 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e145178ea0 subject=105 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517af90 subject=106 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e40 subject=107 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178d80 subject=108 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178de0 subject=109 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e70 subject=110 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178d50 subject=111 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e145178ea0) subject=105 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451794c0 subject=112 at xmlStrndup
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78028 left stack [0x73,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78030 left stack after RET
+[FREE:internal] free(0x59e1451794c0) subject=112 at xmlNewInputFromFile
+[FREE:internal] free(0x59e145178e70) subject=110 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178de0) subject=109 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d80) subject=108 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e40) subject=107 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517af90) subject=106 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d50) subject=111 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e1451788a0) subject=104 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451794c0 subject=116 at xmlStrndup
+[ALLOC:internal] malloc(0x4) -> 0x59e145179540 subject=117 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145178d80 subject=118 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e145179560 subject=119 at xmlStrndup
+[FREE:internal] free(0x59e145179560) subject=119 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e145179560 subject=120 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e145178de0 subject=121 at xmlSaveUri
+[FREE:internal] free(0x59e145179540) subject=117 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179540 subject=122 at xmlStrndup
+[FREE:internal] free(0x59e145178de0) subject=121 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e145179580 subject=123 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e1451795c0 subject=124 at xmlStrndup
+[FREE:internal] free(0x59e145179560) subject=120 at xmlFreeURI
+[FREE:internal] free(0x59e145178d80) subject=118 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e1451788a0 subject=125 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e145178ea0 subject=126 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517af90 subject=127 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178d50 subject=128 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178d80 subject=129 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178de0 subject=130 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e40 subject=131 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e70 subject=132 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e145178ea0) subject=126 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179560 subject=133 at xmlStrndup
+[INCONSISTENCY mov write reg UAF] ip: main+0x313d (xmlFuzzEntityLoader @ fuzz.c:303) UAF write at: 0x7fffb0c78008
+[INCONSISTENCY mov write reg UAF] ip: main+0x3141 (xmlFuzzEntityLoader @ fuzz.c:303) UAF write at: 0x7fffb0c78000
+[INCONSISTENCY mov write reg UAF] ip: main+0x3145 (xmlFuzzEntityLoader @ fuzz.c:303) UAF write at: 0x7fffb0c77ff8
+[INCONSISTENCY mov read UAF] ip: main+0x3149 (xmlFuzzEntityLoader @ fuzz.c:307) UAF read at: 0x7fffb0c78008
+[INCONSISTENCY mov read UAF] ip: main+0x3161 (xmlFuzzEntityLoader @ fuzz.c:309) UAF read at: 0x7fffb0c78008
+[INCONSISTENCY mov write reg UAF] ip: main+0x3170 (xmlFuzzEntityLoader @ fuzz.c:309) UAF write at: 0x7fffb0c78018
+[INCONSISTENCY mov read UAF] ip: main+0x3174 (xmlFuzzEntityLoader @ fuzz.c:310) UAF read at: 0x7fffb0c78018
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78028 left stack [0x88,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78030 left stack after RET
+[FREE:internal] free(0x59e145179560) subject=133 at xmlNewInputFromFile
+[FREE:internal] free(0x59e145178e40) subject=131 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178de0) subject=130 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d80) subject=129 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d50) subject=128 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517af90) subject=127 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e70) subject=132 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e1451788a0) subject=125 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179560 subject=137 at xmlStrndup
+[FREE:internal] free(0x59e14517ba30) subject=65 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b9b0) subject=64 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b940) subject=63 at xmlFreePropList
+[FREE:internal] free(0x59e14517b8c0) subject=62 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bc20) subject=69 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bba0) subject=68 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bb30) subject=67 at xmlFreePropList
+[FREE:internal] free(0x59e14517bab0) subject=66 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b840) subject=61 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b7c0) subject=60 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b750) subject=59 at xmlFreePropList
+[FREE:internal] free(0x59e14517b6d0) subject=58 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e145178f30) subject=95 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451794c0) subject=116 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179560) subject=137 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451793f0) subject=94 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179060) subject=76 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451791e0) subject=78 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145178ef0) subject=77 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451791c0) subject=101 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179520) subject=103 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451794e0) subject=102 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179540) subject=122 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451795c0) subject=124 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179580) subject=123 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e14517b6a0) subject=80 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179220) subject=70 at xmlXIncludeProcessTreeFlagsData
+[ALLOC:internal] malloc(0x38) -> 0x59e145179580 subject=138 at xmlAllocOutputBuffer
+[ALLOC:internal] malloc(0x30) -> 0x59e1451794e0 subject=139 at xmlAllocOutputBuffer
+[ALLOC:internal] malloc(0xfa1) -> 0x59e1451795e0 subject=140 at xmlAllocOutputBuffer
+[FREE:internal] free(0x59e1451794e0) subject=139 at xmlOutputBufferClose
+[FREE:internal] free(0x59e145179580) subject=138 at xmlOutputBufferClose
+main+0x292b (LLVMFuzzerTestOneInput @ xml.c:54) Read a dangling pointer 0x59e1451795e0 from 0x7fffb0c78358
+[FREE] free(0x59e1451795e0) subject=140 at LLVMFuzzerTestOneInput @ xml.c:54
+[FREE:internal] free(0x59e1451792b0) subject=50 at xmlFreeNs
+[FREE:internal] free(0x59e145179200) subject=51 at xmlFreeNs
+[FREE:internal] free(0x59e14517b2b0) subject=49 at xmlFreeNsList
+[FREE:internal] free(0x59e14517b230) subject=48 at xmlFreeNodeList
+[FREE:internal] free(0x59e145179140) subject=38 at xmlFreeDoc
+[FREE:internal] free(0x59e145179080) subject=37 at xmlFreeDoc
+[FREE:internal] free(0x59e14517b3f0) subject=53 at xmlDictFree
+[FREE:internal] free(0x59e14517ab70) subject=35 at xmlDictFree
+[FREE] free(0x59e145178bf0) subject=22 at LLVMFuzzerTestOneInput @ xml.c:55
+[ALLOC:internal] malloc(0x348) -> 0x59e1451788a0 subject=141 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e145178bf0 subject=142 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517b3f0 subject=143 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e1451792b0 subject=144 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178d80 subject=145 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178de0 subject=146 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517b6a0 subject=147 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e70 subject=148 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x40) -> 0x59e145178ea0 subject=149 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x30) -> 0x59e14517b2b0 subject=150 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x1771) -> 0x59e1451795e0 subject=151 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b230 subject=152 at xmlFreeInputStream
+[INCONSISTENCY mov write imm UAF] ip: main+0x2974 (LLVMFuzzerTestOneInput @ xml.c:62) UAF write at: 0x7fffb0c78398
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78398 ip: main+0x29d1 (LLVMFuzzerTestOneInput @ xml.c:62)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2986 (LLVMFuzzerTestOneInput @ xml.c:63) UAF write at: 0x7fffb0c78390
+[UNTRUSTEDPTRDEREF] ip: main+0x298a (LLVMFuzzerTestOneInput @ xml.c:64) final_ea: 0x59e11fd70078 base: 0x59e11fd6e98a pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78390 ip: main+0x2991 (LLVMFuzzerTestOneInput @ xml.c:64)
+[UNTRUSTEDPTRDEREF] ip: main+0x2997 (LLVMFuzzerTestOneInput @ xml.c:65) final_ea: 0x59e11fd70078 base: 0x59e11fd6e997 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x299e (LLVMFuzzerTestOneInput @ xml.c:65) UAF write at: 0x7fffb0c78390
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78390 ip: main+0x29a2 (LLVMFuzzerTestOneInput @ xml.c:66)
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78398 ip: main+0x29ac (LLVMFuzzerTestOneInput @ xml.c:66)
+[ALLOC:internal] malloc(0x80) -> 0x59e145179220 subject=153 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0x418) -> 0x59e14517bca0 subject=154 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0xa) -> 0x59e145179140 subject=155 at xmlParseVersionNum
+[ALLOC:internal] malloc(0xb0) -> 0x59e145179080 subject=156 at xmlNewDoc
+[ALLOC:internal] malloc(0x4) -> 0x59e145179200 subject=157 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=158 at xmlCreateURI
+[ALLOC:internal] malloc(0x5) -> 0x59e1451795c0 subject=159 at xmlStrndup
+[ALLOC:internal] malloc(0xb) -> 0x59e145179540 subject=160 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0xf) -> 0x59e145179520 subject=161 at xmlURIUnescapeString
+[FREE:internal] free(0x59e1451795c0) subject=159 at xmlFreeURI
+[FREE:internal] free(0x59e145179540) subject=160 at xmlFreeURI
+[FREE:internal] free(0x59e145179520) subject=161 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=158 at xmlParseStartTag
+[ALLOC:internal] malloc(0x100) -> 0x59e14517af90 subject=162
+[ALLOC:internal] malloc(0x180) -> 0x59e14517b0a0 subject=164
+[ALLOC:internal] malloc(0x80) -> 0x59e145178fd0 subject=166 at xmlListSort
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b6d0 subject=167 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x30) -> 0x59e145179580 subject=168 at xmlNewNs
+[ALLOC:internal] malloc(0x20) -> 0x59e145178d50 subject=169 at xmlStrndup
+[ALLOC:internal] malloc(0x3) -> 0x59e145179520 subject=170 at xmlStrndup
+[ALLOC:internal] malloc(0xf0) -> 0x59e14517b2f0 subject=171 at xmlListSort
+[ALLOC:internal] malloc(0x100) -> 0x59e145178c40 subject=172 at xmlThrDefOutputBufferCreateFilenameDefault
+[FREE:internal] free(0x59e145179220) subject=153 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0x190) -> 0x59e14517b500 subject=173
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e40 subject=175
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b7c0 subject=177 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517b750 subject=178 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b840 subject=179 at xmlNewCDataBlock
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bab0 subject=180 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bba0 subject=181 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517bb30 subject=182 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bc20 subject=183 at xmlNewCDataBlock
+STACKREADUSEAFTERSCOPE at: 0x7fffb0c78390 ip: main+0x29c5 (LLVMFuzzerTestOneInput @ xml.c:62)
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b8c0 subject=184 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b9b0 subject=185 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517b940 subject=186 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517ba30 subject=187 at xmlNewCDataBlock
+[ALLOC:internal] malloc(0x78) -> 0x59e145178f50 subject=188 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x88) -> 0x59e145179220 subject=189 at xmlXIncludeNewContext
+[ALLOC:internal] malloc(0x4) -> 0x59e145179540 subject=190 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=191 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e1451795c0 subject=192 at xmlStrndup
+[FREE:internal] free(0x59e1451795c0) subject=192 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e1451795c0 subject=193 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e14517ad60 subject=194 at xmlSaveUri
+[FREE:internal] free(0x59e145179540) subject=190 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179540 subject=195 at xmlStrndup
+[FREE:internal] free(0x59e14517ad60) subject=194 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e1451794e0 subject=196 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e1451791c0 subject=197 at xmlStrndup
+[ALLOC:internal] malloc(0x20) -> 0x59e14517adc0 subject=198
+[FREE:internal] free(0x59e1451795c0) subject=193 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=191 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e14517c0c0 subject=200 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e14517adf0 subject=201 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517ae40 subject=202 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517af50 subject=203 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145179160 subject=204 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e14517ad60 subject=205 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c410 subject=206 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c440 subject=207 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e14517adf0) subject=201 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451795c0 subject=208 at xmlStrndup
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78158 left stack [0xd3,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78160 left stack after RET
+[FREE:internal] free(0x59e1451795c0) subject=208 at xmlNewInputFromFile
+[FREE:internal] free(0x59e14517c410) subject=206 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ad60) subject=205 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179160) subject=204 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517af50) subject=203 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ae40) subject=202 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c440) subject=207 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c0c0) subject=200 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0xc0) -> 0x59e1451793f0 subject=212
+[ALLOC:internal] malloc(0x4) -> 0x59e1451795c0 subject=214 at xmlStrndup
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791e0 subject=215 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=216 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=217 at xmlStrndup
+[FREE:internal] free(0x59e145179060) subject=217 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=218 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e14517ad60 subject=219 at xmlSaveUri
+[FREE:internal] free(0x59e1451791e0) subject=215 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791e0 subject=220 at xmlStrndup
+[FREE:internal] free(0x59e14517ad60) subject=219 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e14517af50 subject=221 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e145179560 subject=222 at xmlStrndup
+[FREE:internal] free(0x59e145179060) subject=218 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=216 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e14517c0c0 subject=223 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e14517adf0 subject=224 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517ae40 subject=225 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c440 subject=226 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145179160 subject=227 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e14517ad60 subject=228 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c410 subject=229 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c470 subject=230 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e14517adf0) subject=224 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=231 at xmlStrndup
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78028 left stack [0xea,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78030 left stack after RET
+[FREE:internal] free(0x59e145179060) subject=231 at xmlNewInputFromFile
+[FREE:internal] free(0x59e14517c410) subject=229 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ad60) subject=228 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179160) subject=227 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c440) subject=226 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ae40) subject=225 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c470) subject=230 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c0c0) subject=223 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=235 at xmlStrndup
+[ALLOC:internal] malloc(0x4) -> 0x59e1451794c0 subject=236 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=237 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=238 at xmlStrndup
+[FREE:internal] free(0x59e145178f30) subject=238 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=239 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e14517ad60 subject=240 at xmlSaveUri
+[FREE:internal] free(0x59e1451794c0) subject=236 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451794c0 subject=241 at xmlStrndup
+[FREE:internal] free(0x59e14517ad60) subject=240 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e145178ef0 subject=242 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e14517c4a0 subject=243 at xmlStrndup
+[FREE:internal] free(0x59e145178f30) subject=239 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=237 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e14517c0c0 subject=244 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e14517adf0 subject=245 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517ae40 subject=246 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c470 subject=247 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145179160 subject=248 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e14517ad60 subject=249 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c440 subject=250 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c410 subject=251 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e14517adf0) subject=245 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=252 at xmlStrndup
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78028 left stack [0xff,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78030 left stack after RET
+[FREE:internal] free(0x59e145178f30) subject=252 at xmlNewInputFromFile
+[FREE:internal] free(0x59e14517c440) subject=250 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ad60) subject=249 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179160) subject=248 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c470) subject=247 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ae40) subject=246 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c410) subject=251 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c0c0) subject=244 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=256 at xmlStrndup
+[FREE:internal] free(0x59e14517b8c0) subject=184 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bc20) subject=183 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bb30) subject=182 at xmlFreePropList
+[FREE:internal] free(0x59e14517bba0) subject=181 at xmlFreeNodeList
+[FREE:internal] free(0x59e145178f50) subject=188 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517ba30) subject=187 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b940) subject=186 at xmlFreePropList
+[FREE:internal] free(0x59e14517b9b0) subject=185 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bab0) subject=180 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b840) subject=179 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b750) subject=178 at xmlFreePropList
+[FREE:internal] free(0x59e14517b7c0) subject=177 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e1451795c0) subject=214 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179060) subject=235 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145178f30) subject=256 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451793f0) subject=213 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179540) subject=195 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451791c0) subject=197 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451794e0) subject=196 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451791e0) subject=220 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179560) subject=222 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e14517af50) subject=221 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451794c0) subject=241 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e14517c4a0) subject=243 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145178ef0) subject=242 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e14517adc0) subject=199 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179220) subject=189 at xmlXIncludeProcessTreeFlagsData
+[FREE:internal] free(0x59e145178d50) subject=169 at xmlFreeNs
+[FREE:internal] free(0x59e145179520) subject=170 at xmlFreeNs
+[FREE:internal] free(0x59e145179580) subject=168 at xmlFreeNsList
+[FREE:internal] free(0x59e14517b6d0) subject=167 at xmlFreeNodeList
+[FREE:internal] free(0x59e145179200) subject=157 at xmlFreeDoc
+[FREE:internal] free(0x59e145179080) subject=156 at xmlFreeDoc
+[FREE:internal] free(0x59e1451795e0) subject=151 at xmlFreeParserInputBuffer
+[FREE:internal] free(0x59e14517b2b0) subject=150 at xmlFreeParserInputBuffer
+[FREE:internal] free(0x59e145178ea0) subject=149 at xmlFreeInputStream
+[FREE:internal] free(0x59e14517b230) subject=152 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b6a0) subject=147 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178de0) subject=146 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d80) subject=145 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e1451792b0) subject=144 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179140) subject=155 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b3f0) subject=143 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b500) subject=174 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178c40) subject=172 at xmlDictFree
+[FREE:internal] free(0x59e14517bca0) subject=154 at xmlDictFree
+[FREE:internal] free(0x59e145178bf0) subject=142 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517af90) subject=163 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b0a0) subject=165 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178fd0) subject=166 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e70) subject=148 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b2f0) subject=171 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e40) subject=176 at xmlFreeParserCtxt
+[FREE] free(0x59e1451788a0) subject=141 at LLVMFuzzerTestOneInput @ xml.c:73
+[ALLOC:internal] malloc(0x40) -> 0x59e145178bf0 subject=257 at xmlParserInputBufferCreateMem
+[ALLOC:internal] malloc(0x30) -> 0x59e14517b2b0 subject=258 at xmlHashDefaultDeallocator
+[ALLOC:internal] malloc(0xef) -> 0x59e14517b2f0 subject=259 at xmlHashDefaultDeallocator
+[ALLOC:internal] malloc(0x158) -> 0x59e14517bca0 subject=260 at xmlNewTextReader
+[ALLOC:internal] malloc(0x30) -> 0x59e145179580 subject=261 at xmlNewTextReader
+[ALLOC:internal] malloc(0x33) -> 0x59e145178ef0 subject=262 at xmlNewTextReader
+[ALLOC:internal] malloc(0x100) -> 0x59e14517af90 subject=263 at xmlNewTextReader
+[ALLOC:internal] malloc(0x348) -> 0x59e1451788a0 subject=264 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e145178ea0 subject=265 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e145178c40 subject=266 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e40 subject=267 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178d80 subject=268 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145178de0 subject=269 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e145178e70 subject=270 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e1451792b0 subject=271 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x40) -> 0x59e14517adf0 subject=272 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x30) -> 0x59e14517af50 subject=273 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x1771) -> 0x59e1451795e0 subject=274 at xmlAllocParserInputBuffer
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b230 subject=275 at xmlFreeInputStream
+[ALLOC:internal] malloc(0x80) -> 0x59e145178fd0 subject=276 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0x418) -> 0x59e14517c4c0 subject=277 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0xa) -> 0x59e145179140 subject=278 at xmlParseVersionNum
+[ALLOC:internal] malloc(0xb0) -> 0x59e145179080 subject=279 at xmlNewDoc
+[ALLOC:internal] malloc(0x4) -> 0x59e145179200 subject=280 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=281 at xmlCreateURI
+[ALLOC:internal] malloc(0x5) -> 0x59e145179520 subject=282 at xmlStrndup
+[ALLOC:internal] malloc(0xb) -> 0x59e14517c4a0 subject=283 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0xf) -> 0x59e1451794c0 subject=284 at xmlURIUnescapeString
+[FREE:internal] free(0x59e145179520) subject=282 at xmlFreeURI
+[FREE:internal] free(0x59e14517c4a0) subject=283 at xmlFreeURI
+[FREE:internal] free(0x59e1451794c0) subject=284 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=281 at xmlParseStartTag
+[ALLOC:internal] malloc(0x100) -> 0x59e14517b3f0 subject=285
+[ALLOC:internal] malloc(0x180) -> 0x59e14517b0a0 subject=287
+[ALLOC:internal] malloc(0x80) -> 0x59e145179220 subject=289 at xmlListSort
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b6d0 subject=290 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x30) -> 0x59e1451794e0 subject=291 at xmlNewNs
+[ALLOC:internal] malloc(0x20) -> 0x59e14517b6a0 subject=292 at xmlStrndup
+[ALLOC:internal] malloc(0x3) -> 0x59e1451794c0 subject=293 at xmlStrndup
+[ALLOC:internal] malloc(0xf0) -> 0x59e14517be00 subject=294 at xmlListSort
+[ALLOC:internal] malloc(0x100) -> 0x59e14517ae40 subject=295 at xmlThrDefOutputBufferCreateFilenameDefault
+[FREE:internal] free(0x59e145178fd0) subject=276 at xmlThrDefOutputBufferCreateFilenameDefault
+[ALLOC:internal] malloc(0x190) -> 0x59e14517b500 subject=296
+[ALLOC:internal] malloc(0x28) -> 0x59e145178d50 subject=298
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b7c0 subject=300 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517b750 subject=301 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b840 subject=302 at xmlNewCDataBlock
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bab0 subject=303 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b9b0 subject=304 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517b940 subject=305 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517ba30 subject=306 at xmlNewCDataBlock
+[ALLOC:internal] malloc(0x78) -> 0x59e145178f50 subject=307 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bba0 subject=308 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x68) -> 0x59e14517bb30 subject=309 at xmlFreeDoc
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bc20 subject=310 at xmlNewCDataBlock
+[ALLOC:internal] malloc(0x78) -> 0x59e14517b8c0 subject=311 at xmlNewDocNodeEatName
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bf00 subject=312 at xmlNewText
+[ALLOC:internal] malloc(0x20) -> 0x59e14517adc0 subject=313 at xmlStrndup
+[ALLOC:internal] malloc(0x88) -> 0x59e145178fd0 subject=314 at xmlXIncludeNewContext
+[ALLOC:internal] malloc(0x4) -> 0x59e14517c4a0 subject=315 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=316 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e145179520 subject=317 at xmlStrndup
+[FREE:internal] free(0x59e145179520) subject=317 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e145179520 subject=318 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e14517ad60 subject=319 at xmlSaveUri
+[FREE:internal] free(0x59e14517c4a0) subject=315 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e14517c4a0 subject=320 at xmlStrndup
+[FREE:internal] free(0x59e14517ad60) subject=319 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e14517bf80 subject=321 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e145179560 subject=322 at xmlStrndup
+[ALLOC:internal] malloc(0x20) -> 0x59e14517c410 subject=323
+[FREE:internal] free(0x59e145179520) subject=318 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=316 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e14517c0c0 subject=325 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e14517bfc0 subject=326 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517c8e0 subject=327 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c470 subject=328 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145179160 subject=329 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e14517ad60 subject=330 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c440 subject=331 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c010 subject=332 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e14517bfc0) subject=326 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179520 subject=333 at xmlStrndup
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78118 left stack [0x150,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c78120 left stack after RET
+[FREE:internal] free(0x59e145179520) subject=333 at xmlNewInputFromFile
+[FREE:internal] free(0x59e14517c440) subject=331 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ad60) subject=330 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179160) subject=329 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c470) subject=328 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c8e0) subject=327 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c010) subject=332 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c0c0) subject=325 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0xc0) -> 0x59e1451793f0 subject=337
+[ALLOC:internal] malloc(0x4) -> 0x59e145179520 subject=339 at xmlStrndup
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791e0 subject=340 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=341 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791c0 subject=342 at xmlStrndup
+[FREE:internal] free(0x59e1451791c0) subject=342 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791c0 subject=343 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e14517ad60 subject=344 at xmlSaveUri
+[FREE:internal] free(0x59e1451791e0) subject=340 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791e0 subject=345 at xmlStrndup
+[FREE:internal] free(0x59e14517ad60) subject=344 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e14517c040 subject=346 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e145179540 subject=347 at xmlStrndup
+[FREE:internal] free(0x59e1451791c0) subject=343 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=341 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e14517c0c0 subject=348 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e14517bfc0 subject=349 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517c8e0 subject=350 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c010 subject=351 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145179160 subject=352 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e14517ad60 subject=353 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c470 subject=354 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c440 subject=355 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e14517bfc0) subject=349 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791c0 subject=356 at xmlStrndup
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c77fe8 left stack [0x167,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c77ff0 left stack after RET
+[FREE:internal] free(0x59e1451791c0) subject=356 at xmlNewInputFromFile
+[FREE:internal] free(0x59e14517c470) subject=354 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ad60) subject=353 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179160) subject=352 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c010) subject=351 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c8e0) subject=350 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c440) subject=355 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c0c0) subject=348 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e1451791c0 subject=360 at xmlStrndup
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=361 at xmlStrndup
+[ALLOC:internal] malloc(0x58) -> 0x59e145179160 subject=362 at xmlCreateURI
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=363 at xmlStrndup
+[FREE:internal] free(0x59e145179060) subject=363 at xmlAddChild
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=364 at xmlURIUnescapeString
+[ALLOC:internal] malloc(0x51) -> 0x59e14517ad60 subject=365 at xmlSaveUri
+[FREE:internal] free(0x59e145178f30) subject=361 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145178f30 subject=366 at xmlStrndup
+[FREE:internal] free(0x59e14517ad60) subject=365 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x38) -> 0x59e14517c080 subject=367 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x1) -> 0x59e1451795c0 subject=368 at xmlStrndup
+[FREE:internal] free(0x59e145179060) subject=364 at xmlFreeURI
+[FREE:internal] free(0x59e145179160) subject=362 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x348) -> 0x59e14517c0c0 subject=369 at xmlNewSAXParserCtxt
+[ALLOC:internal] malloc(0x40) -> 0x59e14517bfc0 subject=370 at xmlDictCreate
+[ALLOC:internal] malloc(0x100) -> 0x59e14517c8e0 subject=371 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c440 subject=372 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e145179160 subject=373 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x50) -> 0x59e14517ad60 subject=374 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c010 subject=375 at xmlLoadExternalEntity
+[ALLOC:internal] malloc(0x28) -> 0x59e14517c470 subject=376 at xmlLoadExternalEntity
+[FREE:internal] free(0x59e14517bfc0) subject=370 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=377 at xmlStrndup
+[STACK PIVOT] ip: main+0x3212 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c77fe8 left stack [0x17c,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x3213 (xmlFuzzEntityLoader @ fuzz.c:321) RSP 0x7fffb0c77ff0 left stack after RET
+[FREE:internal] free(0x59e145179060) subject=377 at xmlNewInputFromFile
+[FREE:internal] free(0x59e14517c010) subject=375 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ad60) subject=374 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179160) subject=373 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c440) subject=372 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c8e0) subject=371 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c470) subject=376 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517c0c0) subject=369 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x4) -> 0x59e145179060 subject=381 at xmlStrndup
+[FREE:internal] free(0x59e14517b840) subject=302 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b750) subject=301 at xmlUnsetProp
+[FREE:internal] free(0x59e145178f50) subject=307 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517ba30) subject=306 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b940) subject=305 at xmlFreePropList
+[FREE:internal] free(0x59e14517b9b0) subject=304 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517b8c0) subject=311 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bc20) subject=310 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bb30) subject=309 at xmlFreePropList
+[FREE:internal] free(0x59e14517bba0) subject=308 at xmlFreeNodeList
+[FREE:internal] free(0x59e14517bab0) subject=303 at xmlXPathFreeCompExpr
+[ALLOC:internal] malloc(0x78) -> 0x59e14517bab0 subject=382 at xmlNewDocProp
+[FREE:internal] free(0x59e14517c4a0) subject=320 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e145179560) subject=322 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e14517bf80) subject=321 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e1451791e0) subject=345 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e145179540) subject=347 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e14517c040) subject=346 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e145178f30) subject=366 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e1451795c0) subject=368 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e14517c080) subject=367 at xmlXPathFreeCompExpr
+[FREE:internal] free(0x59e14517bab0) subject=382 at xmlTextReaderRead
+[FREE:internal] free(0x59e14517b7c0) subject=300 at xmlTextReaderConstEncoding
+[FREE:internal] free(0x59e14517b6a0) subject=292 at xmlFreeNs
+[FREE:internal] free(0x59e1451794c0) subject=293 at xmlFreeNs
+[FREE:internal] free(0x59e1451794e0) subject=291 at xmlFreeNsList
+[FREE:internal] free(0x59e145179520) subject=339 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451791c0) subject=360 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145179060) subject=381 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e1451793f0) subject=338 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e14517c410) subject=324 at xmlXIncludeFreeContext
+[FREE:internal] free(0x59e145178fd0) subject=314 at xmlFreeTextReader
+[FREE:internal] free(0x59e14517adc0) subject=313 at xmlFreeNode
+[FREE:internal] free(0x59e14517bf00) subject=312 at xmlTextReaderClose
+[FREE:internal] free(0x59e145179200) subject=280 at xmlTextReaderConstEncoding
+[FREE:internal] free(0x59e145179080) subject=279 at xmlTextReaderClose
+[FREE:internal] free(0x59e14517b2f0) subject=259 at xmlFreeParserInputBuffer
+[FREE:internal] free(0x59e14517b2b0) subject=258 at xmlFreeParserInputBuffer
+[FREE:internal] free(0x59e145178bf0) subject=257 at xmlTextReaderClose
+[FREE:internal] free(0x59e1451795e0) subject=274 at xmlFreeParserInputBuffer
+[FREE:internal] free(0x59e14517af50) subject=273 at xmlFreeParserInputBuffer
+[FREE:internal] free(0x59e14517adf0) subject=272 at xmlFreeInputStream
+[FREE:internal] free(0x59e14517b230) subject=275 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e70) subject=270 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178de0) subject=269 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d80) subject=268 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178e40) subject=267 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179140) subject=278 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178c40) subject=266 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b500) subject=297 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517ae40) subject=295 at xmlDictFree
+[FREE:internal] free(0x59e14517c4c0) subject=277 at xmlDictFree
+[FREE:internal] free(0x59e145178ea0) subject=265 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b3f0) subject=286 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b0a0) subject=288 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145179220) subject=289 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e1451792b0) subject=271 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517be00) subject=294 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e145178d50) subject=299 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e14517b6d0) subject=290 at xmlFreeParserCtxt
+[FREE:internal] free(0x59e1451788a0) subject=264 at xmlFreeTextReader
+[FREE:internal] free(0x59e14517af90) subject=263 at xmlFreeTextReader
+[FREE:internal] free(0x59e145178ef0) subject=262 at xmlFreeTextReader
+[FREE:internal] free(0x59e145179580) subject=261 at xmlFreeTextReader
+[FREE] free(0x59e14517bca0) subject=260 at LLVMFuzzerTestOneInput @ xml.c:87
+[FREE] free(0x59e1451785d0) subject=13 at xmlFuzzDataCleanup @ fuzz.c:84
+[INCONSISTENCY mov write reg UAF] ip: main+0x2bd4 (xmlFreeEntityEntry @ fuzz.c:73) UAF write at: 0x7fffb0c782c8
+first time found dangling pointer at: 2009 distance: 0
+Store dangling pointer: 0x59e145178880 at: 0x7fffb0c782c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x2bd8 (xmlFreeEntityEntry @ fuzz.c:73) UAF write at: 0x7fffb0c782c0
+first time found dangling pointer at: 2010 distance: 0
+[FREE] free(0x59e145178710) subject=17 at xmlFreeEntityEntry @ fuzz.c:74
+[STACK PIVOT] ip: main+0x2bed (xmlFreeEntityEntry @ fuzz.c:75) RSP 0x7fffb0c782d8 left stack [0x181,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x2bee (xmlFreeEntityEntry @ fuzz.c:75) RSP 0x7fffb0c782e0 left stack after RET
+[FREE:internal] free(0x59e145178880) subject=19 at xmlHashFree
+[FREE:internal] free(0x59e145178730) subject=18 at xmlHashFree
+[FREE] free(0x59e1451786e0) subject=14 at xmlFuzzDataCleanup @ fuzz.c:85
+[STACK PIVOT] ip: main+0x2ad6 (LLVMFuzzerTestOneInput @ xml.c:94) RSP 0x7fffb0c783a8 left stack [0x183,0x7fffb0c59000]
+[FREE] free(0x59e1451792e0) subject=10 at main @ harness.c:60
+[STACK PIVOT] ip: main+0x2824 (main @ harness.c:62) RSP 0x7fffb0c783e8 left stack [0x184,0x7fffb0c59000]
+[STACK PIVOT] ip: main+0x2825 (main @ harness.c:62) RSP 0x7fffb0c783f0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x260e (__do_global_dtors_aux) final_ea: 0x59e11fd71ff0 base: 0x59e11fd6e60e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x2634 (__do_global_dtors_aux) RSP 0x7fffb0c782b0 left stack after RET
+[STACK PIVOT] ip: main+0x3374 (_fini) RSP 0x7fffb0c782e0 left stack after RET
+[FREE:internal] free(0x59e145178010) subject=6 at xmlCleanupParser

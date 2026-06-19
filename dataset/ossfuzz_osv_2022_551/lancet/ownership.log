@@ -1,0 +1,91 @@
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a4010 subject=4 at __trans_list_add
+[ALLOC:internal] malloc(0x7) -> 0x5d67072a4040 subject=5 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a4060 subject=6 at __trans_list_add
+[ALLOC:internal] malloc(0x9) -> 0x5d67072a4090 subject=7 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a40b0 subject=8 at __trans_list_add
+[ALLOC:internal] malloc(0x7) -> 0x5d67072a40e0 subject=9 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a4100 subject=10 at __trans_list_add
+[ALLOC:internal] malloc(0x5) -> 0x5d67072a4130 subject=11 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a4150 subject=12 at __trans_list_add
+[ALLOC:internal] malloc(0x7) -> 0x5d67072a4180 subject=13 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a41a0 subject=14 at __trans_list_add
+[ALLOC:internal] malloc(0x7) -> 0x5d67072a41d0 subject=15 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a41f0 subject=16 at __trans_list_add
+[ALLOC:internal] malloc(0x7) -> 0x5d67072a4220 subject=17 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a4240 subject=18 at __trans_list_add
+[ALLOC:internal] malloc(0x8) -> 0x5d67072a4270 subject=19 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a4290 subject=20 at __trans_list_add
+[ALLOC:internal] malloc(0x5) -> 0x5d67072a42c0 subject=21 at strdup
+[ALLOC:internal] calloc(0x20) -> 0x5d67072a42e0 subject=22 at __trans_list_add
+[ALLOC:internal] malloc(0x6) -> 0x5d67072a4310 subject=23 at strdup
+[ALLOC:internal] malloc(0x13) -> 0x5d67072a4330 subject=24 at setlinebuf
+[ALLOC:internal] malloc(0x1d8) -> 0x5d67072a4350 subject=25 at _IO_fopen
+[FREE:internal] free(0x5d67072a4350) subject=25 at _IO_fopen
+[FREE:internal] free(0x5d67072a4350) subject=0
+[DOUBLE FREE] free(0x5d67072a4350) — already freed
+[FREE:internal] free(0x5d67072a4330) subject=24 at rtnl_tc_read_classid_file
+[INCONSISTENCY mov write reg] ip: main+0x1355 (main @ fuzz_pcap_harness.c:21) co: 26 vo: 26, 26 write 26
+[INCONSISTENCY mov write reg] ip: main+0x1358 (main @ fuzz_pcap_harness.c:21) co: 26 vo: 26, 26 write 26
+[ALLOC:internal] malloc(0x1d8) -> 0x5d67072a4350 subject=27 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x5d67072a4830 subject=28 at _IO_file_doallocate
+[ALLOC] malloc(0x38) -> 0x5d67072a5840 subject=29 at main @ fuzz_pcap_harness.c:43
+[FREE:internal] free(0x5d67072a4830) subject=28 at _IO_setb
+[FREE:internal] free(0x5d67072a4350) subject=27 at _IO_fclose
+[ALLOC:internal] malloc(0x1d8) -> 0x5d67072a4350 subject=31 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x16c3 (LLVMFuzzerTestOneInput @ fuzz_pcap.c:48) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x16e0 (LLVMFuzzerTestOneInput @ fuzz_pcap.c:55) loaded: 0x38 from cell: 0x7ffc94651f20 cell_owner: 30 value_owner: 26
+[CORRUPTED_PTR_LOAD] ip: main+0x16e7 (LLVMFuzzerTestOneInput @ fuzz_pcap.c:55) loaded: 0x5d67072a5840 from cell: 0x7ffc94651f28 cell_owner: 30 value_owner: 26
+[CORRUPTED_PTR_LOAD] ip: main+0x1569 (bufferToFile @ fuzz_pcap.c:12) loaded: 0x5d66df27d0cb from cell: 0x7ffc94651ef8 cell_owner: 32 value_owner: 30
+[CORRUPTED_PTR_LOAD] ip: main+0x15ac (bufferToFile @ fuzz_pcap.c:18) loaded: 0x5d66df27d0cb from cell: 0x7ffc94651ef8 cell_owner: 32 value_owner: 30
+[ALLOC:internal] malloc(0x1d8) -> 0x5d67072a4830 subject=33 at _IO_fopen
+[CORRUPTED_PTR_LOAD] ip: main+0x15f5 (bufferToFile @ fuzz_pcap.c:23) loaded: 0x38 from cell: 0x7ffc94651ee8 cell_owner: 32 value_owner: 30
+[CORRUPTED_PTR_LOAD] ip: main+0x15f9 (bufferToFile @ fuzz_pcap.c:23) loaded: 0x5d67072a5840 from cell: 0x7ffc94651ef0 cell_owner: 32 value_owner: 30
+[ALLOC:internal] malloc(0x1000) -> 0x5d67072a5880 subject=34 at _IO_file_doallocate
+[CORRUPTED_PTR_LOAD] ip: main+0x160a (bufferToFile @ fuzz_pcap.c:23) loaded: 0x38 from cell: 0x7ffc94651ee8 cell_owner: 32 value_owner: 30
+[FREE:internal] free(0x5d67072a5880) subject=34 at _IO_setb
+[FREE:internal] free(0x5d67072a4830) subject=33 at _IO_fclose
+[STACK PIVOT] ip: main+0x1634 (bufferToFile @ fuzz_pcap.c:29) RSP 0x7ffc94651f18 left stack [0x24,0x7ffc94634000]
+[ALLOC:internal] malloc(0x1d8) -> 0x5d67072a4830 subject=36 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x5d67072a5880 subject=37 at _IO_file_doallocate
+[ALLOC:internal] calloc(0x298) -> 0x5d67072a4a10 subject=38 at pcap_fopen_offline
+[ALLOC:internal] malloc(0x10) -> 0x5d67072a4330 subject=39 at pcap_fopen_offline
+Store dangling pointer: 0x5d67072a4a10 at: 0x7ffc94652050
+main+0x172b (LLVMFuzzerTestOneInput @ fuzz_pcap.c:61) Using expired pointer: 0x5d67072a4a10 from 0x7ffc94652050
+first time found dangling pointer at: 157 distance: 1
+main+0x1783 (LLVMFuzzerTestOneInput @ fuzz_pcap.c:70) Read a dangling pointer 0x5d67072a4c18 from 0x7ffc94651f40
+[INCONSISTENCY mov read UAF] ip: main+0x178a (LLVMFuzzerTestOneInput @ fuzz_pcap.c:70) UAF read at: 0x5d67072a4c2c
+main+0x178d (LLVMFuzzerTestOneInput @ fuzz_pcap.c:70) Using expired pointer: 0x5d67072a4c18 from 0x7ffc94651f40
+first time found dangling pointer at: 172 distance: 2
+[INCONSISTENCY mov read UAF] ip: main+0x1794 (LLVMFuzzerTestOneInput @ fuzz_pcap.c:70) UAF read at: 0x5d67072a4c28
+[ALLOC:internal] malloc(0x1000) -> 0x5d67072a6890 subject=40 at _IO_file_doallocate
+[FREE:internal] free(0x5d67072a5880) subject=37 at _IO_setb
+[FREE:internal] free(0x5d67072a4830) subject=36 at _IO_fclose
+[FREE:internal] free(0x5d67072a4330) subject=39 at pcap_dump_open_append
+[FREE] free(0x5d67072a4a10) subject=38 at LLVMFuzzerTestOneInput @ fuzz_pcap.c:77
+[STACK PIVOT] ip: main+0x1827 (LLVMFuzzerTestOneInput @ fuzz_pcap.c:80) RSP 0x7ffc94652068 left stack [0x2a,0x7ffc94634000]
+[FREE] free(0x5d67072a5840) subject=29 at main @ fuzz_pcap_harness.c:62
+[STACK PIVOT] ip: main+0x154f (main @ fuzz_pcap_harness.c:64) RSP 0x7ffc946520a8 left stack [0x2b,0x7ffc94634000]
+[STACK PIVOT] ip: main+0x1550 (main @ fuzz_pcap_harness.c:64) RSP 0x7ffc946520b0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x130e (__do_global_dtors_aux) final_ea: 0x5d66df27efd8 base: 0x5d66df27c30e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1334 (__do_global_dtors_aux) RSP 0x7ffc94651f50 left stack after RET
+[STACK PIVOT] ip: main+0x1838 (_fini) RSP 0x7ffc94651f80 left stack after RET
+[FREE:internal] free(0x5d67072a41d0) subject=15 at __trans_list_clear
+[FREE:internal] free(0x5d67072a41a0) subject=14 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4220) subject=17 at __trans_list_clear
+[FREE:internal] free(0x5d67072a41f0) subject=16 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4270) subject=19 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4240) subject=18 at __trans_list_clear
+[FREE:internal] free(0x5d67072a42c0) subject=21 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4290) subject=20 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4310) subject=23 at __trans_list_clear
+[FREE:internal] free(0x5d67072a42e0) subject=22 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4040) subject=5 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4010) subject=4 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4090) subject=7 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4060) subject=6 at __trans_list_clear
+[FREE:internal] free(0x5d67072a40e0) subject=9 at __trans_list_clear
+[FREE:internal] free(0x5d67072a40b0) subject=8 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4130) subject=11 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4100) subject=10 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4180) subject=13 at __trans_list_clear
+[FREE:internal] free(0x5d67072a4150) subject=12 at __trans_list_clear

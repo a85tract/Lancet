@@ -1,0 +1,913 @@
+[ALLOC:internal] malloc(0x12000) -> 0x6066aac60010 subject=4 at _ZSt21__to_chars_bfloat16_tPcS_fSt12chars_format
+[ALLOC:internal] calloc(0x410) -> 0x6066aac72020 subject=5 at __cxa_at_quick_exit
+[ALLOC:internal] calloc(0x410) -> 0x6066aac72440 subject=6 at __cxa_at_quick_exit
+[ALLOC:internal] calloc(0x410) -> 0x6066aac72860 subject=7 at __cxa_at_quick_exit
+[INCONSISTENCY mov write reg] ip: main+0x2a520 (main @ harness.cpp:53) co: 8 vo: 8, 8 write 8
+[INCONSISTENCY mov write reg] ip: main+0x2a523 (main @ harness.cpp:53) co: 8 vo: 8, 8 write 8
+[ALLOC:internal] malloc(0x1d8) -> 0x6066aac72c80 subject=9 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x6066aac72e60 subject=10 at _IO_file_doallocate
+[ALLOC] malloc(0x171) -> 0x6066aac73e70 subject=11 at main @ harness.cpp:75
+[FREE:internal] free(0x6066aac72e60) subject=10 at _IO_setb
+[FREE:internal] free(0x6066aac72c80) subject=9 at _IO_fclose
+[FREE:internal] free(0x6066aac72c80) subject=0
+[DOUBLE FREE] free(0x6066aac72c80) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x2a4ed (fuzz_one @ harness.cpp:48) loaded: 0x171 from cell: 0x7ffc3a435790 cell_owner: 12 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x2a4f1 (fuzz_one @ harness.cpp:48) loaded: 0x6066aac73e70 from cell: 0x7ffc3a435798 cell_owner: 12 value_owner: 8
+[UNINITIALIZED mov read] ip: main+0xbb8b4 (internal_exr_update_default_handlers @ internal_structs.c:485) co: 14 vo: -1
+[UNINITIALIZED mov read] ip: main+0xbb8d6 (internal_exr_update_default_handlers @ internal_structs.c:488) co: 14 vo: -1
+[UNINITIALIZED mov read] ip: main+0xbb8e8 (internal_exr_update_default_handlers @ internal_structs.c:489) co: 14 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xb9e63 (exr_start_read @ context.c:232) final_ea: 0x606683b791a9 base: 0x606683b791a9 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0xbb151 (internal_exr_alloc_context @ internal_structs.c:332) co: 14 vo: -1
+[ALLOC] malloc(0x220) -> 0x6066aac73160 subject=16 at internal_exr_alloc_context @ internal_structs.c:337
+[UNINITIALIZED mov read] ip: main+0xbb18a (internal_exr_alloc_context @ internal_structs.c:347) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb18e (internal_exr_alloc_context @ internal_structs.c:347) UAF write at: 0x6066aac731e0
+[UNINITIALIZED mov read] ip: main+0xbb195 (internal_exr_alloc_context @ internal_structs.c:348) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb1af (internal_exr_alloc_context) UAF write at: 0x6066aac731e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb1bd (internal_exr_alloc_context @ internal_structs.c:354) UAF write at: 0x6066aac73198
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb1c8 (internal_exr_alloc_context @ internal_structs.c:355) UAF write at: 0x6066aac731a0
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb1d3 (internal_exr_alloc_context @ internal_structs.c:356) UAF write at: 0x6066aac731a8
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb1db (internal_exr_alloc_context @ internal_structs.c:357) UAF write at: 0x6066aac731b0
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb1e3 (internal_exr_alloc_context @ internal_structs.c:358) UAF write at: 0x6066aac731b8
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb1eb (internal_exr_alloc_context @ internal_structs.c:359) UAF write at: 0x6066aac731c0
+[UNINITIALIZED mov read] ip: main+0xbb1fc (internal_exr_alloc_context @ internal_structs.c:362) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb281 (internal_exr_alloc_context @ internal_structs.c:363) UAF write at: 0x6066aac731c8
+[UNINITIALIZED mov read] ip: main+0xbb284 (internal_exr_alloc_context @ internal_structs.c:370) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb28f (internal_exr_alloc_context @ internal_structs.c:371) UAF write at: 0x6066aac731cc
+[UNINITIALIZED mov read] ip: main+0xbb29f (internal_exr_alloc_context @ internal_structs.c:379) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb2e2 (internal_exr_alloc_context @ internal_structs.c:380) UAF write at: 0x6066aac731d0
+[UNINITIALIZED mov read] ip: main+0xbb2e5 (internal_exr_alloc_context @ internal_structs.c:387) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb2f4 (internal_exr_alloc_context @ internal_structs.c:388) UAF write at: 0x6066aac731d4
+[INCONSISTENCY mov write reg UAF] ip: main+0xe01ef (exr_get_default_zip_compression_level @ base.c:191) UAF write at: 0x6066aac731d8
+[CORRUPTED_PTR_LOAD] ip: main+0xbb30f (internal_exr_alloc_context @ internal_structs.c:397) loaded: 0x60 from cell: 0x7ffc3a435470 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0xbb315 (internal_exr_alloc_context @ internal_structs.c:399) loaded: 0xbf800000fffffffe from cell: 0x7ffc3a4354c8 cell_owner: 14 value_owner: 13
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb335 (internal_exr_alloc_context @ internal_structs.c:405) UAF write at: 0x6066aac731f8
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb340 (internal_exr_alloc_context @ internal_structs.c:406) UAF write at: 0x6066aac73162
+[UNINITIALIZED mov read] ip: main+0xbb344 (internal_exr_alloc_context @ internal_structs.c:408) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb348 (internal_exr_alloc_context @ internal_structs.c:408) UAF write at: 0x6066aac731f0
+[UNINITIALIZED mov read] ip: main+0xbb34f (internal_exr_alloc_context @ internal_structs.c:409) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb353 (internal_exr_alloc_context @ internal_structs.c:409) UAF write at: 0x6066aac73200
+[UNINITIALIZED mov read] ip: main+0xbb35a (internal_exr_alloc_context @ internal_structs.c:410) co: 14 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb35e (internal_exr_alloc_context @ internal_structs.c:410) UAF write at: 0x6066aac73208
+Store dangling pointer: 0x6066aac73160 at: 0x7ffc3a4354d0
+[INCONSISTENCY mov read UAF] ip: main+0xbb3a0 (internal_exr_alloc_context @ internal_structs.c:215) UAF read at: 0x6066aac73224
+Store dangling pointer: 0x6066aac73228 at: 0x6066aac73330
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb412 (internal_exr_alloc_context @ internal_structs.c:225) UAF write at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb419 (internal_exr_alloc_context @ internal_structs.c:246) UAF write at: 0x6066aac7322c
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb421 (internal_exr_alloc_context @ internal_structs.c:247) UAF write at: 0x6066aac732c0
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb42c (internal_exr_alloc_context @ internal_structs.c:249) UAF write at: 0x6066aac732d0
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb437 (internal_exr_alloc_context @ internal_structs.c:251) UAF write at: 0x6066aac7331c
+[INCONSISTENCY mov read UAF] ip: main+0xbb442 (internal_exr_alloc_context @ internal_structs.c:253) UAF read at: 0x6066aac731d8
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb445 (internal_exr_alloc_context @ internal_structs.c:253) UAF write at: 0x6066aac732e0
+[INCONSISTENCY mov read UAF] ip: main+0xbb45a (internal_exr_alloc_context @ internal_structs.c:254) UAF read at: 0x6066aac73224
+Store dangling pointer: 0x6066aac73330 at: 0x6066aac73338
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb54c (internal_exr_alloc_context @ internal_structs.c:267) UAF write at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xbb557 (internal_exr_alloc_context @ internal_structs.c:268) UAF write at: 0x6066aac73224
+main+0xb9e86 (exr_start_read @ context.c:241) Using expired pointer: 0x6066aac73160 from 0x7ffc3a4354d0
+first time found dangling pointer at: 341 distance: 40
+[INCONSISTENCY mov write reg UAF] ip: main+0xb9e91 (exr_start_read @ context.c:241) UAF write at: 0x6066aac73188
+[ALLOC] malloc(0xc) -> 0x6066aac73390 subject=17 at exr_attr_string_create @ string.c:35
+Store dangling pointer: 0x6066aac73390 at: 0x6066aac73170
+[INCONSISTENCY mov write reg UAF] ip: main+0xde0b3 (exr_attr_string_create @ string.c:35) UAF write at: 0x6066aac73170
+first time found dangling pointer at: 423 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xde0bf (exr_attr_string_create @ string.c:38) UAF write at: 0x6066aac73168
+[INCONSISTENCY mov write reg UAF] ip: main+0xde0c6 (exr_attr_string_create @ string.c:39) UAF write at: 0x6066aac7316c
+[INCONSISTENCY mov write imm UAF] ip: main+0xde0dd (exr_attr_string_create @ string.c:137) UAF write at: 0x6066aac7339b
+[INCONSISTENCY mov read UAF] ip: main+0xb9ebf (exr_start_read @ context.c:112) UAF read at: 0x6066aac731e8
+[CORRUPTED_PTR_LOAD] ip: main+0x2a749 (memstream_size @ ImfCheckFile.cpp:1513) loaded: 0x171 from cell: 0x7ffc3a435588 cell_owner: 13 value_owner: 12
+[INCONSISTENCY mov write reg UAF] ip: main+0xb9f39 (exr_start_read @ context.c:116) UAF write at: 0x6066aac731f8
+[INCONSISTENCY mov read UAF] ip: main+0xb9b90 (dispatch_read @ context.c:47) UAF read at: 0x6066aac73200
+[INCONSISTENCY mov read UAF] ip: main+0xb9b9c (dispatch_read @ context.c:54) UAF read at: 0x6066aac731a8
+[INCONSISTENCY mov read UAF] ip: main+0xb9ba0 (dispatch_read @ context.c:50) UAF read at: 0x6066aac731e8
+[CORRUPTED_PTR_LOAD] ip: main+0x2a8ec (memstream_read @ ImfCheckFile.cpp:1497) loaded: 0x171 from cell: 0x7ffc3a435588 cell_owner: 13 value_owner: 12
+[STACK PIVOT] ip: main+0x2a917 (memstream_read @ ImfCheckFile.cpp:1505) RSP 0x7ffc3a435158 left stack [0x14,0x7ffc3a417000]
+[ALLOC] malloc(0x1000) -> 0x6066aac73ff0 subject=20 at internal_exr_parse_header @ parse_header.c:130
+[INCONSISTENCY mov read UAF] ip: main+0xc7ea7 (internal_exr_parse_header @ parse_header.c:2376) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 221
+main+0xc7ea7 (internal_exr_parse_header @ parse_header.c:2376) Using expired pointer: 0x6066aac73330 from 0x6066aac73338
+first time found dangling pointer at: 366 distance: 221
+[INCONSISTENCY mov read UAF] ip: main+0xc7eae (internal_exr_parse_header @ parse_header.c:2376) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 236
+main+0xc7eae (internal_exr_parse_header @ parse_header.c:2376) Using expired pointer: 0x6066aac73228 from 0x6066aac73330
+first time found dangling pointer at: 352 distance: 236
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7f0e (internal_exr_parse_header) UAF write at: 0x6066aac7322c
+[INCONSISTENCY mov write reg UAF] ip: main+0xc9dd4 (scratch_seq_read) UAF write at: 0x7ffc3a435140
+[UNINITIALIZED mov read] ip: main+0xc9e23 (scratch_seq_read @ parse_header.c:45) co: 18 vo: -1
+[INCONSISTENCY mov write imm UAF] ip: main+0xc9e73 (scratch_seq_read @ parse_header.c:82) UAF write at: 0x7ffc3a435148
+STACKREADUSEAFTERSCOPE at: 0x7ffc3a435140 ip: main+0xc9e87 (scratch_seq_read @ parse_header.c:83)
+[INCONSISTENCY mov write imm UAF] ip: main+0xb9b7f (dispatch_read @ context.c:37) UAF write at: 0x7ffc3a435148
+main+0x2a913 (memstream_read @ ImfCheckFile.cpp:1505) Read a dangling pointer 0x7ffc3a435148 from 0x7ffc3a4350e8
+[STACK PIVOT] ip: main+0x2a917 (memstream_read @ ImfCheckFile.cpp:1505) RSP 0x7ffc3a4350f8 left stack [0x17,0x7ffc3a417000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xb9bb5 (dispatch_read @ context.c:58) UAF write at: 0x7ffc3a435148
+STACKREADUSEAFTERSCOPE at: 0x7ffc3a435148 ip: main+0xc9e9b (scratch_seq_read @ parse_header.c:90)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xc9e14 (scratch_seq_read @ parse_header.c:54) add r15, r14 id before: 15 after: 1 value: 0x7ffc3a435438
+[UNTRUSTEDPTRDEREF] ip: main+0xc8360 (internal_exr_parse_header) final_ea: 0x606683d60270 base: 0x606683d60270 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xc8772 (internal_exr_parse_header @ parse_header.c:768) UAF read at: 0x6066aac73248
+[INCONSISTENCY mov write reg UAF] ip: main+0xca067 (extract_attr_chlist) UAF write at: 0x7ffc3a435140
+[INCONSISTENCY mov write reg UAF] ip: main+0xca06b (extract_attr_chlist) UAF write at: 0x7ffc3a435148
+first time found dangling pointer at: 2088 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xca06f (extract_attr_chlist) UAF read at: 0x6066aac73162
+[CORRUPTED_PTR_LOAD] ip: main+0xc9edf (scratch_seq_read @ parse_header.c:106) loaded: 0x37ffffffff from cell: 0x7ffc3a434fd4 cell_owner: 40 value_owner: 39
+STACKREADUSEAFTERSCOPE at: 0x7ffc3a435148 ip: main+0xca20d (extract_attr_chlist @ parse_header.c:308)
+first time found dangling pointer at: 2088 distance: 401
+[INCONSISTENCY mov read UAF] ip: main+0xdf0a0 (exr_attr_chlist_add_with_length) UAF read at: 0x6066aac73162
+[UNINITIALIZED mov read] ip: main+0xdf194 (exr_attr_chlist_add_with_length @ channel_list.c:142) co: 15 vo: -1
+[UNINITIALIZED mov read] ip: main+0xdf19c (exr_attr_chlist_add_with_length) co: 15 vo: -1
+[ALLOC] malloc(0x2) -> 0x6066aac733b0 subject=47 at exr_attr_string_create_with_length @ string.c:35
+Store dangling pointer: 0x6066aac733b0 at: 0x7ffc3a434f88
+[INCONSISTENCY mov write imm UAF] ip: main+0xddff8 (exr_attr_string_create_with_length @ string.c:137) UAF write at: 0x6066aac733b1
+[UNINITIALIZED mov read] ip: main+0xdf273 (exr_attr_chlist_add_with_length @ channel_list.c:167) co: 15 vo: -1
+[UNINITIALIZED mov read] ip: main+0xdf28a (exr_attr_chlist_add_with_length @ channel_list.c:173) co: 15 vo: -1
+[ALLOC] malloc(0x40) -> 0x6066aac733d0 subject=48 at exr_attr_chlist_add_with_length @ channel_list.c:177
+Store dangling pointer: 0x6066aac733d0 at: 0x7ffc3a435418
+main+0xdf194 (exr_attr_chlist_add_with_length @ channel_list.c:142) Using expired pointer: 0x6066aac733d0 from 0x7ffc3a435418
+first time found dangling pointer at: 2658 distance: 459
+Store dangling pointer: 0x6066aac733d8 at: 0x7ffc3a434f70
+[INCONSISTENCY mov read UAF] ip: main+0xdf1c0 (exr_attr_chlist_add_with_length @ channel_list.c:145) UAF read at: 0x6066aac733d8
+[ALLOC] malloc(0x2) -> 0x6066aac73420 subject=56 at exr_attr_string_create_with_length @ string.c:35
+Store dangling pointer: 0x6066aac73420 at: 0x7ffc3a434f88
+[ALLOC] malloc(0x2) -> 0x6066aac73440 subject=64 at exr_attr_string_create_with_length @ string.c:35
+Store dangling pointer: 0x6066aac73440 at: 0x7ffc3a434f88
+[ALLOC] malloc(0x80) -> 0x6066aac73460 subject=65 at exr_attr_chlist_add_with_length @ channel_list.c:177
+Store dangling pointer: 0x6066aac73460 at: 0x7ffc3a435418
+[FREE] free(0x6066aac733d0) subject=48 at exr_attr_chlist_add_with_length @ channel_list.c:205
+Store dangling pointer: 0x6066aac73248 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73248 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 21
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd883 (exr_attr_list_add_static_name) UAF write at: 0x7ffc3a43514c
+[INCONSISTENCY mov write imm UAF] ip: main+0xdcd9e (validate_attr_arguments @ attributes.c:577) UAF write at: 0x6066aac73248
+[UNTRUSTEDPTRDEREF] ip: main+0xdce18 (validate_attr_arguments @ attributes.c:598) final_ea: 0x606683d1b135 base: 0x606683d1b135 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xdce2a (validate_attr_arguments @ attributes.c:444) UAF read at: 0x6066aac73240
+[CORRUPTED_PTR_LOAD] ip: main+0xdcf48 (validate_attr_arguments) loaded: 0x0 from cell: 0x7ffc3a4350d4 cell_owner: 68 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xdd8ef (exr_attr_list_add_static_name @ attributes.c:1022) UAF read at: 0x6066aac73162
+[UNTRUSTEDPTRDEREF] ip: main+0xdd99c (exr_attr_list_add_static_name @ attributes.c:1056) final_ea: 0x606683e21a90 base: 0x606683e21a50 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffc3a43514c ip: main+0xdd9bb (exr_attr_list_add_static_name)
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd9c0 (exr_attr_list_add_static_name @ attributes.c:686) UAF write at: 0x7ffc3a435140
+[ALLOC] malloc(0x30) -> 0x6066aac734f0 subject=69 at exr_attr_list_add_static_name @ attributes.c:697
+Store dangling pointer: 0x6066aac73510 at: 0x6066aac73508
+[INCONSISTENCY mov write reg UAF] ip: main+0xdda15 (exr_attr_list_add_static_name @ attributes.c:723) UAF write at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffc3a435140 ip: main+0xdda24 (exr_attr_list_add_static_name)
+[INCONSISTENCY mov write reg UAF] ip: main+0xdda54 (exr_attr_list_add_static_name @ attributes.c:1060) UAF write at: 0x6066aac734f0
+[UNTRUSTEDPTRDEREF] ip: main+0xdda58 (exr_attr_list_add_static_name @ attributes.c:1061) final_ea: 0x606683e21a80 base: 0x606683e21a50 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xdda5c (exr_attr_list_add_static_name @ attributes.c:1061) UAF write at: 0x6066aac734f8
+[UNTRUSTEDPTRDEREF] ip: main+0xdda6f (exr_attr_list_add_static_name @ attributes.c:1064) final_ea: 0x606683e21a8c base: 0x606683e21a50 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xdda73 (exr_attr_list_add_static_name @ attributes.c:1064) UAF write at: 0x6066aac73504
+[INCONSISTENCY mov read UAF] ip: main+0xdd114 (add_to_list @ attributes.c:491) UAF read at: 0x6066aac73230
+[INCONSISTENCY mov read UAF] ip: main+0xdd11b (add_to_list @ attributes.c:499) UAF read at: 0x6066aac73234
+Store dangling pointer: 0x6066aac73230 at: 0x7ffc3a4350c8
+Store dangling pointer: 0x6066aac734f0 at: 0x7ffc3a4350c0
+[ALLOC] malloc(0x20) -> 0x6066aac73530 subject=71 at add_to_list @ attributes.c:503
+main+0xdd183 (add_to_list) Using expired pointer: 0x6066aac73230 from 0x7ffc3a4350c8
+first time found dangling pointer at: 4131 distance: 25
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd187 (add_to_list @ attributes.c:511) UAF write at: 0x6066aac73234
+[INCONSISTENCY mov read UAF] ip: main+0xdd23a (add_to_list @ attributes.c:520) UAF read at: 0x6066aac73238
+Store dangling pointer: 0x6066aac73530 at: 0x6066aac73238
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd253 (add_to_list @ attributes.c:521) UAF write at: 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 0
+Store dangling pointer: 0x6066aac73540 at: 0x6066aac73240
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd257 (add_to_list @ attributes.c:522) UAF write at: 0x6066aac73240
+first time found dangling pointer at: 4166 distance: 0
+main+0xdd25b (add_to_list @ attributes.c:522) Using expired pointer: 0x6066aac734f0 from 0x7ffc3a4350c0
+first time found dangling pointer at: 4134 distance: 33
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd25f (add_to_list @ attributes.c:524) UAF write at: 0x6066aac73530
+first time found dangling pointer at: 4168 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd263 (add_to_list @ attributes.c:525) UAF write at: 0x6066aac73540
+first time found dangling pointer at: 4169 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd2ba (add_to_list @ attributes.c:541) UAF write at: 0x6066aac73230
+[INCONSISTENCY mov read UAF] ip: main+0xdd2bc (add_to_list @ attributes.c:68) UAF read at: 0x6066aac73504
+[UNTRUSTEDPTRDEREF] ip: main+0xdd2ce (add_to_list) final_ea: 0x606683da30d8 base: 0x606683da30d0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xdd2d7 (add_to_list) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 88
+main+0xdd2d7 (add_to_list) Using expired pointer: 0x6066aac73510 from 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 88
+[INCONSISTENCY mov write reg UAF] ip: main+0xdda87 (exr_attr_list_add_static_name @ attributes.c:1070) UAF write at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xdd421 (check_attr_handler @ attributes.c:632) UAF read at: 0x6066aac73504
+[INCONSISTENCY mov read UAF] ip: main+0xc9388 (internal_exr_parse_header @ parse_header.c:808) UAF read at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 34
+[INCONSISTENCY mov read UAF] ip: main+0xc938b (internal_exr_parse_header @ parse_header.c:808) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 139
+[INCONSISTENCY mov read UAF] ip: main+0xdf5b1 (exr_attr_chlist_destroy @ channel_list.c:256) UAF read at: 0x6066aac73510
+[INCONSISTENCY mov read UAF] ip: main+0xdf5b4 (exr_attr_chlist_destroy @ channel_list.c:258) UAF read at: 0x6066aac73518
+[INCONSISTENCY mov read UAF] ip: main+0xc9397 (internal_exr_parse_header @ parse_header.c:809) UAF read at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 73
+[INCONSISTENCY mov read UAF] ip: main+0xc939a (internal_exr_parse_header @ parse_header.c:809) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 178
+[INCONSISTENCY mov read UAF] ip: main+0xc8830 (internal_exr_parse_header @ parse_header.c:826) UAF read at: 0x6066aac73250
+Store dangling pointer: 0x6066aac73250 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73250 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 2383
+main+0xdce2a (validate_attr_arguments @ attributes.c:444) Using expired pointer: 0x6066aac73540 from 0x6066aac73240
+first time found dangling pointer at: 4166 distance: 2222
+[INCONSISTENCY mov read UAF] ip: main+0xdce49 (validate_attr_arguments @ attributes.c:447) UAF read at: 0x6066aac73230
+[CORRUPTED_PTR_LOAD] ip: main+0xdce63 (validate_attr_arguments) loaded: 0x1 from cell: 0x7ffc3a4350b8 cell_owner: 70 value_owner: 99
+[CORRUPTED_PTR_LOAD] ip: main+0xdce6a (validate_attr_arguments) loaded: 0x6066aac73540 from cell: 0x7ffc3a4350b0 cell_owner: 70 value_owner: 99
+[INCONSISTENCY mov read UAF] ip: main+0xdce88 (validate_attr_arguments @ attributes.c:455) UAF read at: 0x6066aac73540
+first time found dangling pointer at: 4169 distance: 2241
+[INCONSISTENCY mov read UAF] ip: main+0xdce8c (validate_attr_arguments @ attributes.c:455) UAF read at: 0x6066aac734f0
+[CORRUPTED_PTR_LOAD] ip: main+0xdceb2 (validate_attr_arguments) loaded: 0x606683d1b148 from cell: 0x7ffc3a4350c8 cell_owner: 72 value_owner: 99
+[CORRUPTED_PTR_LOAD] ip: main+0xdcebe (validate_attr_arguments) loaded: 0x6066aac73540 from cell: 0x7ffc3a4350b0 cell_owner: 70 value_owner: 99
+[CORRUPTED_PTR_LOAD] ip: main+0xdcec2 (validate_attr_arguments) loaded: 0x1 from cell: 0x7ffc3a4350b8 cell_owner: 70 value_owner: 99
+[ALLOC] malloc(0x20) -> 0x6066aac73560 subject=101 at exr_attr_list_add_static_name @ attributes.c:697
+[INCONSISTENCY mov read UAF] ip: main+0xdd130 (add_to_list) UAF read at: 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 2371
+main+0xdd130 (add_to_list) Using expired pointer: 0x6066aac73530 from 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 2371
+[INCONSISTENCY mov read UAF] ip: main+0xdd134 (add_to_list) UAF read at: 0x6066aac73240
+first time found dangling pointer at: 4166 distance: 2371
+Store dangling pointer: 0x6066aac73560 at: 0x6066aac73538
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd138 (add_to_list @ attributes.c:524) UAF write at: 0x6066aac73538
+first time found dangling pointer at: 6538 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd13c (add_to_list @ attributes.c:525) UAF write at: 0x6066aac73548
+first time found dangling pointer at: 6539 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xdd284 (add_to_list @ attributes.c:532) UAF read at: 0x6066aac73540
+first time found dangling pointer at: 4169 distance: 2378
+[INCONSISTENCY mov read UAF] ip: main+0xdd289 (add_to_list @ attributes.c:534) UAF read at: 0x6066aac73560
+[INCONSISTENCY mov read UAF] ip: main+0xdd28c (add_to_list @ attributes.c:534) UAF read at: 0x6066aac734f0
+[INCONSISTENCY mov write imm UAF] ip: main+0xdd2ec (add_to_list @ attributes.c:92) UAF write at: 0x6066aac73578
+[INCONSISTENCY mov read UAF] ip: main+0xc999a (internal_exr_parse_header @ parse_header.c:866) UAF read at: 0x6066aac73250
+first time found dangling pointer at: 6580 distance: 36
+main+0xc999a (internal_exr_parse_header @ parse_header.c:866) Using expired pointer: 0x6066aac73560 from 0x6066aac73250
+first time found dangling pointer at: 6580 distance: 36
+[INCONSISTENCY mov write reg UAF] ip: main+0xc99a1 (internal_exr_parse_header @ parse_header.c:867) UAF write at: 0x6066aac732d8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xc9dfa (scratch_seq_read @ parse_header.c:50) call qword ptr [rbp-0x60] id before: 15 after: 20 value: 0x6066aac7405a
+[INCONSISTENCY mov read UAF] ip: main+0xc87a6 (internal_exr_parse_header @ parse_header.c:884) UAF read at: 0x6066aac73258
+Store dangling pointer: 0x6066aac73258 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73258 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 3272
+[ALLOC] malloc(0x30) -> 0x6066aac73590 subject=108 at exr_attr_list_add_static_name @ attributes.c:697
+Store dangling pointer: 0x6066aac735b0 at: 0x6066aac735a8
+Store dangling pointer: 0x6066aac73590 at: 0x7ffc3a4350c0
+[ALLOC] malloc(0x40) -> 0x6066aac733d0 subject=110 at add_to_list @ attributes.c:503
+[INCONSISTENCY mov read UAF] ip: main+0xdd1e0 (add_to_list @ attributes.c:516) UAF read at: 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 3297
+[INCONSISTENCY mov read UAF] ip: main+0xdd1e4 (add_to_list @ attributes.c:516) UAF read at: 0x6066aac73530
+first time found dangling pointer at: 4168 distance: 3295
+[INCONSISTENCY mov read UAF] ip: main+0xdd1ec (add_to_list @ attributes.c:517) UAF read at: 0x6066aac73240
+first time found dangling pointer at: 4166 distance: 3299
+[INCONSISTENCY mov read UAF] ip: main+0xdd1f0 (add_to_list @ attributes.c:517) UAF read at: 0x6066aac73540
+first time found dangling pointer at: 4169 distance: 3297
+[INCONSISTENCY mov read UAF] ip: main+0xdd1f9 (add_to_list @ attributes.c:516) UAF read at: 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 3303
+[INCONSISTENCY mov read UAF] ip: main+0xdd1fd (add_to_list @ attributes.c:516) UAF read at: 0x6066aac73538
+first time found dangling pointer at: 6538 distance: 931
+[INCONSISTENCY mov read UAF] ip: main+0xdd207 (add_to_list @ attributes.c:517) UAF read at: 0x6066aac73240
+first time found dangling pointer at: 4166 distance: 3305
+[INCONSISTENCY mov read UAF] ip: main+0xdd20b (add_to_list @ attributes.c:517) UAF read at: 0x6066aac73548
+first time found dangling pointer at: 6539 distance: 933
+[FREE] free(0x6066aac73530) subject=71 at add_to_list @ attributes.c:520
+main+0xdd25b (add_to_list @ attributes.c:522) Using expired pointer: 0x6066aac73590 from 0x7ffc3a4350c0
+first time found dangling pointer at: 4134 distance: 3364
+main+0xdd2d7 (add_to_list) Using expired pointer: 0x6066aac735b0 from 0x6066aac735a8
+first time found dangling pointer at: 7387 distance: 141
+[INCONSISTENCY mov read UAF] ip: main+0xc9336 (internal_exr_parse_header @ parse_header.c:918) UAF read at: 0x6066aac73258
+first time found dangling pointer at: 7544 distance: 35
+[INCONSISTENCY mov read UAF] ip: main+0xc933a (internal_exr_parse_header @ parse_header.c:918) UAF read at: 0x6066aac735a8
+first time found dangling pointer at: 7387 distance: 193
+[INCONSISTENCY mov read UAF] ip: main+0xc8480 (internal_exr_parse_header @ parse_header.c:936) UAF read at: 0x6066aac73260
+Store dangling pointer: 0x6066aac73260 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73260 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 4229
+[ALLOC] malloc(0x30) -> 0x6066aac735d0 subject=114 at exr_attr_list_add_static_name @ attributes.c:697
+Store dangling pointer: 0x6066aac735f0 at: 0x6066aac735e8
+Store dangling pointer: 0x6066aac735d0 at: 0x6066aac733e8
+main+0xdd2d7 (add_to_list) Using expired pointer: 0x6066aac735f0 from 0x6066aac735e8
+first time found dangling pointer at: 8365 distance: 71
+[INCONSISTENCY mov read UAF] ip: main+0xc996e (internal_exr_parse_header @ parse_header.c:970) UAF read at: 0x6066aac73260
+first time found dangling pointer at: 8452 distance: 35
+main+0xc996e (internal_exr_parse_header @ parse_header.c:970) Using expired pointer: 0x6066aac735d0 from 0x6066aac73260
+first time found dangling pointer at: 8452 distance: 35
+[INCONSISTENCY mov read UAF] ip: main+0xc9972 (internal_exr_parse_header @ parse_header.c:970) UAF read at: 0x6066aac735e8
+first time found dangling pointer at: 8365 distance: 123
+[INCONSISTENCY mov read UAF] ip: main+0xc84d2 (internal_exr_parse_header @ parse_header.c:988) UAF read at: 0x6066aac73268
+Store dangling pointer: 0x6066aac73268 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73268 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 5115
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xdcea5 (validate_attr_arguments) add rsi, 0x8 id before: 110 after: 0 [freed] value: 0x6066aac73410
+[ALLOC] malloc(0x20) -> 0x6066aac73530 subject=119 at exr_attr_list_add_static_name @ attributes.c:697
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xdda0b (exr_attr_list_add_static_name @ attributes.c:703) add rax, 0x20 id before: 119 after: 0 [freed] value: 0x6066aac73550
+[ALLOC] malloc(0x80) -> 0x6066aac73610 subject=121 at add_to_list @ attributes.c:503
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd1e8 (add_to_list @ attributes.c:516) UAF write at: 0x6066aac73610
+first time found dangling pointer at: 9326 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd1f4 (add_to_list @ attributes.c:517) UAF write at: 0x6066aac73650
+first time found dangling pointer at: 9329 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd202 (add_to_list @ attributes.c:516) UAF write at: 0x6066aac73618
+first time found dangling pointer at: 9332 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xdd210 (add_to_list @ attributes.c:517) UAF write at: 0x6066aac73658
+first time found dangling pointer at: 9335 distance: 0
+[FREE] free(0x6066aac733d0) subject=110 at add_to_list @ attributes.c:520
+Store dangling pointer: 0x6066aac73610 at: 0x6066aac73238
+Store dangling pointer: 0x6066aac73650 at: 0x6066aac73240
+[INCONSISTENCY mov read UAF] ip: main+0xc9376 (internal_exr_parse_header @ parse_header.c:1028) UAF read at: 0x6066aac73268
+[INCONSISTENCY mov write reg UAF] ip: main+0xc937d (internal_exr_parse_header @ parse_header.c:1029) UAF write at: 0x6066aac732dc
+[INCONSISTENCY mov read UAF] ip: main+0xc85ca (internal_exr_parse_header @ parse_header.c:1050) UAF read at: 0x6066aac73270
+Store dangling pointer: 0x6066aac73270 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73270 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 6126
+main+0xdce2a (validate_attr_arguments @ attributes.c:444) Using expired pointer: 0x6066aac73650 from 0x6066aac73240
+first time found dangling pointer at: 4166 distance: 5965
+[ALLOC] malloc(0x20) -> 0x6066aac736a0 subject=125 at exr_attr_list_add_static_name @ attributes.c:697
+main+0xdd130 (add_to_list) Using expired pointer: 0x6066aac73610 from 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 6135
+Store dangling pointer: 0x6066aac736a0 at: 0x6066aac73638
+[INCONSISTENCY mov write imm UAF] ip: main+0xdd2f5 (add_to_list) UAF write at: 0x6066aac736b8
+[INCONSISTENCY mov read UAF] ip: main+0xc9a1f (internal_exr_parse_header @ parse_header.c:1099) UAF read at: 0x6066aac73270
+first time found dangling pointer at: 10344 distance: 35
+main+0xc9a1f (internal_exr_parse_header @ parse_header.c:1099) Using expired pointer: 0x6066aac736a0 from 0x6066aac73270
+first time found dangling pointer at: 10344 distance: 35
+[INCONSISTENCY mov read UAF] ip: main+0xc87cd (internal_exr_parse_header @ parse_header.c:1116) UAF read at: 0x6066aac73278
+Store dangling pointer: 0x6066aac73278 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73278 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 6657
+[ALLOC] malloc(0x28) -> 0x6066aac736d0 subject=130 at exr_attr_list_add_static_name @ attributes.c:697
+Store dangling pointer: 0x6066aac736f0 at: 0x6066aac736e8
+Store dangling pointer: 0x6066aac736d0 at: 0x6066aac73640
+[INCONSISTENCY mov read UAF] ip: main+0xdd2e3 (add_to_list) UAF read at: 0x6066aac736e8
+first time found dangling pointer at: 10793 distance: 71
+main+0xdd2e3 (add_to_list) Using expired pointer: 0x6066aac736f0 from 0x6066aac736e8
+first time found dangling pointer at: 10793 distance: 71
+[INCONSISTENCY mov write imm UAF] ip: main+0xdd3d9 (add_to_list) UAF write at: 0x6066aac736f0
+[INCONSISTENCY mov read UAF] ip: main+0xc99ac (internal_exr_parse_header @ parse_header.c:1166) UAF read at: 0x6066aac73278
+first time found dangling pointer at: 10878 distance: 34
+main+0xc99ac (internal_exr_parse_header @ parse_header.c:1166) Using expired pointer: 0x6066aac736d0 from 0x6066aac73278
+first time found dangling pointer at: 10878 distance: 34
+[INCONSISTENCY mov read UAF] ip: main+0xc99af (internal_exr_parse_header @ parse_header.c:1166) UAF read at: 0x6066aac736e8
+first time found dangling pointer at: 10793 distance: 120
+[INCONSISTENCY mov write reg UAF] ip: main+0xc99b7 (internal_exr_parse_header @ parse_header.c:1166) UAF write at: 0x6066aac736f0
+[INCONSISTENCY mov read UAF] ip: main+0xc8663 (internal_exr_parse_header @ parse_header.c:1187) UAF read at: 0x6066aac73280
+Store dangling pointer: 0x6066aac73280 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73280 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 7221
+[ALLOC] malloc(0x20) -> 0x6066aac73700 subject=135 at exr_attr_list_add_static_name @ attributes.c:697
+Store dangling pointer: 0x6066aac73700 at: 0x6066aac73648
+[INCONSISTENCY mov read UAF] ip: main+0xc9a62 (internal_exr_parse_header @ parse_header.c:1236) UAF read at: 0x6066aac73280
+first time found dangling pointer at: 11460 distance: 35
+main+0xc9a62 (internal_exr_parse_header @ parse_header.c:1236) Using expired pointer: 0x6066aac73700 from 0x6066aac73280
+first time found dangling pointer at: 11460 distance: 35
+[INCONSISTENCY mov read UAF] ip: main+0xc8808 (internal_exr_parse_header @ parse_header.c:1253) UAF read at: 0x6066aac73288
+Store dangling pointer: 0x6066aac73288 at: 0x7ffc3a435190
+main+0xdd873 (exr_attr_list_add_static_name) Using expired pointer: 0x6066aac73288 from 0x7ffc3a435190
+first time found dangling pointer at: 3972 distance: 7838
+[ALLOC] malloc(0x29) -> 0x6066aac73730 subject=140 at exr_attr_list_add_static_name @ attributes.c:697
+Store dangling pointer: 0x6066aac73750 at: 0x6066aac73748
+Store dangling pointer: 0x6066aac73730 at: 0x7ffc3a4350c0
+[ALLOC] malloc(0x100) -> 0x6066aac73770 subject=142 at add_to_list @ attributes.c:503
+[FREE] free(0x6066aac73610) subject=121 at add_to_list @ attributes.c:520
+Store dangling pointer: 0x6066aac73770 at: 0x6066aac73238
+Store dangling pointer: 0x6066aac737f0 at: 0x6066aac73240
+main+0xdd25b (add_to_list @ attributes.c:522) Using expired pointer: 0x6066aac73730 from 0x7ffc3a4350c0
+first time found dangling pointer at: 4134 distance: 8017
+[INCONSISTENCY mov read UAF] ip: main+0xdd3d1 (add_to_list @ attributes.c:148) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 186
+main+0xdd3d1 (add_to_list @ attributes.c:148) Using expired pointer: 0x6066aac73750 from 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 186
+[INCONSISTENCY mov write imm UAF] ip: main+0xdd3d5 (add_to_list @ attributes.c:148) UAF write at: 0x6066aac73758
+[INCONSISTENCY mov read UAF] ip: main+0xc9a29 (internal_exr_parse_header @ parse_header.c:1296) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 34
+[INCONSISTENCY mov read UAF] ip: main+0xc9a2c (internal_exr_parse_header @ parse_header.c:1296) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 235
+[INCONSISTENCY mov write reg UAF] ip: main+0xc9a3a (internal_exr_parse_header @ parse_header.c:1296) UAF write at: 0x6066aac73750
+[INCONSISTENCY mov read UAF] ip: main+0xd4c94 (validate_req_attr @ validation.c:17) UAF read at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 8069
+[INCONSISTENCY mov read UAF] ip: main+0xd4c9b (validate_req_attr @ validation.c:20) UAF read at: 0x6066aac73250
+first time found dangling pointer at: 6580 distance: 5690
+[INCONSISTENCY mov read UAF] ip: main+0xd4ca6 (validate_req_attr @ validation.c:23) UAF read at: 0x6066aac73258
+first time found dangling pointer at: 7544 distance: 4728
+[INCONSISTENCY mov read UAF] ip: main+0xd4cb1 (validate_req_attr @ validation.c:26) UAF read at: 0x6066aac73260
+first time found dangling pointer at: 8452 distance: 3822
+[INCONSISTENCY mov read UAF] ip: main+0xd4cbc (validate_req_attr @ validation.c:29) UAF read at: 0x6066aac73268
+[INCONSISTENCY mov read UAF] ip: main+0xd4cc7 (validate_req_attr @ validation.c:32) UAF read at: 0x6066aac73270
+first time found dangling pointer at: 10344 distance: 1934
+[INCONSISTENCY mov read UAF] ip: main+0xd4cd2 (validate_req_attr @ validation.c:37) UAF read at: 0x6066aac73278
+first time found dangling pointer at: 10878 distance: 1402
+[INCONSISTENCY mov read UAF] ip: main+0xd4cdd (validate_req_attr @ validation.c:42) UAF read at: 0x6066aac73280
+first time found dangling pointer at: 11460 distance: 822
+[INCONSISTENCY mov read UAF] ip: main+0xd4ce8 (validate_req_attr @ validation.c:48) UAF read at: 0x6066aac73165
+[INCONSISTENCY mov read UAF] ip: main+0xd4dba (validate_req_attr @ validation.c:48) UAF read at: 0x6066aac73164
+[INCONSISTENCY mov read UAF] ip: main+0xd4e36 (validate_image_dimensions @ validation.c:84) UAF read at: 0x6066aac732c8
+[INCONSISTENCY mov read UAF] ip: main+0xd4e3c (validate_image_dimensions @ validation.c:84) UAF read at: 0x6066aac732cc
+[INCONSISTENCY mov read UAF] ip: main+0xd4e43 (validate_image_dimensions @ validation.c:84) UAF read at: 0x6066aac732d0
+[INCONSISTENCY mov read UAF] ip: main+0xd4e4a (validate_image_dimensions @ validation.c:84) UAF read at: 0x6066aac732d4
+[INCONSISTENCY mov read UAF] ip: main+0xd4e96 (validate_image_dimensions) UAF read at: 0x6066aac732b8
+[INCONSISTENCY mov read UAF] ip: main+0xd4e9d (validate_image_dimensions) UAF read at: 0x6066aac732bc
+[INCONSISTENCY mov read UAF] ip: main+0xd4ea4 (validate_image_dimensions) UAF read at: 0x6066aac732c0
+[INCONSISTENCY mov read UAF] ip: main+0xd4eab (validate_image_dimensions) UAF read at: 0x6066aac732c4
+[INCONSISTENCY mov read UAF] ip: main+0xd4ef3 (validate_image_dimensions) UAF read at: 0x6066aac731c8
+[INCONSISTENCY mov read UAF] ip: main+0xd4ef7 (validate_image_dimensions) UAF read at: 0x6066aac731cc
+[INCONSISTENCY mov read UAF] ip: main+0xd4efb (validate_image_dimensions) UAF read at: 0x6066aac73270
+first time found dangling pointer at: 10344 distance: 1991
+[INCONSISTENCY mov read UAF] ip: main+0xd4eff (validate_image_dimensions) UAF read at: 0x6066aac73280
+first time found dangling pointer at: 11460 distance: 876
+[INCONSISTENCY mov read UAF] ip: main+0xd4bac (internal_exr_validate_read_part @ validation.c:409) UAF read at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 8171
+[INCONSISTENCY mov read UAF] ip: main+0xd4bb0 (internal_exr_validate_read_part @ validation.c:409) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 8276
+[INCONSISTENCY mov read UAF] ip: main+0xd5046 (validate_channels @ validation.c:179) UAF read at: 0x6066aac73258
+first time found dangling pointer at: 7544 distance: 4840
+[INCONSISTENCY mov read UAF] ip: main+0xd5051 (validate_channels) UAF read at: 0x6066aac73510
+[INCONSISTENCY mov read UAF] ip: main+0xd505d (validate_channels) UAF read at: 0x6066aac732b8
+[INCONSISTENCY mov read UAF] ip: main+0xd5064 (validate_channels) UAF read at: 0x6066aac732bc
+[INCONSISTENCY mov read UAF] ip: main+0xd506b (validate_channels) UAF read at: 0x6066aac732c0
+[INCONSISTENCY mov read UAF] ip: main+0xd5072 (validate_channels) UAF read at: 0x6066aac732c4
+[INCONSISTENCY mov read UAF] ip: main+0xd508d (validate_channels) UAF read at: 0x6066aac73518
+[INCONSISTENCY mov read UAF] ip: main+0xd50a0 (validate_channels @ validation.c:190) UAF read at: 0x6066aac73478
+[INCONSISTENCY mov read UAF] ip: main+0xd50ac (validate_channels) UAF read at: 0x6066aac7347c
+[INCONSISTENCY mov read UAF] ip: main+0xd4bc5 (internal_exr_validate_read_part @ validation.c:252) UAF read at: 0x6066aac73298
+[INCONSISTENCY mov read UAF] ip: main+0xd5274 (validate_tile_data @ validation.c:294) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read UAF] ip: main+0xd5283 (validate_tile_data @ validation.c:302) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 336
+[INCONSISTENCY mov read UAF] ip: main+0xd528c (validate_tile_data @ validation.c:308) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 539
+[INCONSISTENCY mov read UAF] ip: main+0xd5290 (validate_tile_data @ validation.c:309) UAF read at: 0x6066aac73750
+[INCONSISTENCY mov read UAF] ip: main+0xd5292 (validate_tile_data) UAF read at: 0x6066aac73754
+[INCONSISTENCY mov read UAF] ip: main+0xd52a5 (validate_tile_data) UAF read at: 0x6066aac731d0
+[INCONSISTENCY mov read UAF] ip: main+0xd52a8 (validate_tile_data) UAF read at: 0x6066aac731d4
+[INCONSISTENCY mov read UAF] ip: main+0xd52ac (validate_tile_data) UAF read at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 8347
+[INCONSISTENCY mov read UAF] ip: main+0xd52b0 (validate_tile_data) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 8452
+[INCONSISTENCY mov read UAF] ip: main+0xd5326 (validate_tile_data) UAF read at: 0x6066aac73510
+[INCONSISTENCY mov read UAF] ip: main+0xd532c (validate_tile_data) UAF read at: 0x6066aac73518
+first time found dangling pointer at: 12399 distance: 156
+main+0xd532c (validate_tile_data) Using expired pointer: 0x6066aac73460 from 0x6066aac73518
+first time found dangling pointer at: 12399 distance: 156
+[INCONSISTENCY mov read UAF] ip: main+0xd5340 (validate_tile_data @ validation.c:335) UAF read at: 0x6066aac73478
+[INCONSISTENCY mov read UAF] ip: main+0xd534b (validate_tile_data @ validation.c:342) UAF read at: 0x6066aac7347c
+[INCONSISTENCY mov read UAF] ip: main+0xd5394 (validate_deep_data @ validation.c:361) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read UAF] ip: main+0xc7f8e (internal_exr_parse_header @ parse_header.c:2429) UAF read at: 0x6066aac73165
+[INCONSISTENCY mov read UAF] ip: main+0xc9c4e (update_chunk_offsets @ parse_header.c:2222) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 12260
+[INCONSISTENCY mov read UAF] ip: main+0xc9c64 (update_chunk_offsets @ parse_header.c:2224) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 12279
+[INCONSISTENCY mov write reg UAF] ip: main+0xc9c67 (update_chunk_offsets @ parse_header.c:2224) UAF write at: 0x6066aac73320
+[INCONSISTENCY mov read UAF] ip: main+0xc9c6f (update_chunk_offsets @ parse_header.c:2227) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xc72c3 (internal_exr_compute_tile_information @ parse_header.c:1970) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read UAF] ip: main+0xc7316 (internal_exr_compute_tile_information @ parse_header.c:1977) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 459
+[INCONSISTENCY mov read UAF] ip: main+0xc7321 (internal_exr_compute_tile_information @ parse_header.c:1989) UAF read at: 0x6066aac732f0
+[INCONSISTENCY mov read UAF] ip: main+0xc732b (internal_exr_compute_tile_information @ parse_header.c:1991) UAF read at: 0x6066aac732b8
+[INCONSISTENCY mov read UAF] ip: main+0xc7332 (internal_exr_compute_tile_information @ parse_header.c:1991) UAF read at: 0x6066aac732bc
+[INCONSISTENCY mov read UAF] ip: main+0xc7339 (internal_exr_compute_tile_information @ parse_header.c:1991) UAF read at: 0x6066aac732c0
+[INCONSISTENCY mov read UAF] ip: main+0xc7340 (internal_exr_compute_tile_information @ parse_header.c:1991) UAF read at: 0x6066aac732c4
+[INCONSISTENCY mov read UAF] ip: main+0xc7347 (internal_exr_compute_tile_information @ parse_header.c:1992) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 467
+[INCONSISTENCY mov read UAF] ip: main+0xc734b (internal_exr_compute_tile_information @ parse_header.c:1992) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 668
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7355 (internal_exr_compute_tile_information @ parse_header.c:2000) UAF write at: 0x7ffc3a4350e0
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7363 (internal_exr_compute_tile_information @ parse_header.c:2001) UAF write at: 0x7ffc3a4350e8
+first time found dangling pointer at: 704 distance: 11966
+[INCONSISTENCY mov read UAF] ip: main+0xc736b (internal_exr_compute_tile_information @ parse_header.c:2003) UAF read at: 0x6066aac73758
+[INCONSISTENCY mov write reg UAF] ip: main+0xc755f (internal_exr_compute_tile_information @ parse_header.c:2036) UAF write at: 0x6066aac732e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7566 (internal_exr_compute_tile_information @ parse_header.c:2037) UAF write at: 0x6066aac732ec
+[ALLOC] malloc(0x10) -> 0x6066aac73880 subject=145 at internal_exr_compute_tile_information @ parse_header.c:2038
+[INCONSISTENCY mov write reg UAF] ip: main+0xc758b (internal_exr_compute_tile_information) UAF write at: 0x7ffc3a4350d8
+first time found dangling pointer at: 12703 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7592 (internal_exr_compute_tile_information) UAF write at: 0x7ffc3a4350d0
+first time found dangling pointer at: 4164 distance: 8541
+Store dangling pointer: 0x6066aac73884 at: 0x7ffc3a4350c8
+[INCONSISTENCY mov write reg UAF] ip: main+0xc759a (internal_exr_compute_tile_information) UAF write at: 0x7ffc3a4350c8
+first time found dangling pointer at: 4131 distance: 8576
+[INCONSISTENCY mov read UAF] ip: main+0xc75a1 (internal_exr_compute_tile_information @ parse_header.c:2046) UAF read at: 0x7ffc3a4350f0
+first time found dangling pointer at: 12679 distance: 30
+[INCONSISTENCY mov read UAF] ip: main+0xc7635 (internal_exr_compute_tile_information @ parse_header.c:2061) UAF read at: 0x6066aac73750
+[INCONSISTENCY mov write reg UAF] ip: main+0xc75c5 (internal_exr_compute_tile_information @ parse_header.c:2060) UAF write at: 0x6066aac73880
+[INCONSISTENCY mov read UAF] ip: main+0xc75c9 (internal_exr_compute_tile_information @ parse_header.c:2060) UAF read at: 0x7ffc3a4350c8
+first time found dangling pointer at: 4131 distance: 8617
+main+0xc75c9 (internal_exr_compute_tile_information @ parse_header.c:2060) Using expired pointer: 0x6066aac73884 from 0x7ffc3a4350c8
+first time found dangling pointer at: 4131 distance: 8617
+[INCONSISTENCY mov write reg UAF] ip: main+0xc75cd (internal_exr_compute_tile_information @ parse_header.c:2062) UAF write at: 0x6066aac73884
+[INCONSISTENCY mov read UAF] ip: main+0xc766f (internal_exr_compute_tile_information) UAF read at: 0x7ffc3a4350d0
+first time found dangling pointer at: 4164 distance: 8596
+[INCONSISTENCY mov read UAF] ip: main+0xc76a1 (internal_exr_compute_tile_information) UAF read at: 0x7ffc3a4350c0
+first time found dangling pointer at: 4134 distance: 8633
+[INCONSISTENCY mov read UAF] ip: main+0xc76f2 (internal_exr_compute_tile_information @ parse_header.c:2080) UAF read at: 0x6066aac73754
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7685 (internal_exr_compute_tile_information @ parse_header.c:2079) UAF write at: 0x6066aac73888
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7688 (internal_exr_compute_tile_information @ parse_header.c:2081) UAF write at: 0x6066aac7388c
+[INCONSISTENCY mov read UAF] ip: main+0xc7731 (internal_exr_compute_tile_information) UAF read at: 0x7ffc3a4350c8
+first time found dangling pointer at: 4131 distance: 8670
+[INCONSISTENCY mov read UAF] ip: main+0xc7735 (internal_exr_compute_tile_information) UAF read at: 0x7ffc3a4350d0
+first time found dangling pointer at: 4164 distance: 8638
+Store dangling pointer: 0x6066aac73880 at: 0x6066aac732f0
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7741 (internal_exr_compute_tile_information @ parse_header.c:2084) UAF write at: 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 0
+Store dangling pointer: 0x6066aac73888 at: 0x6066aac732f8
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7748 (internal_exr_compute_tile_information @ parse_header.c:2085) UAF write at: 0x6066aac732f8
+first time found dangling pointer at: 12806 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xc774f (internal_exr_compute_tile_information @ parse_header.c:2086) UAF write at: 0x6066aac73300
+first time found dangling pointer at: 12807 distance: 0
+Store dangling pointer: 0x6066aac7388c at: 0x6066aac73308
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7756 (internal_exr_compute_tile_information @ parse_header.c:2087) UAF write at: 0x6066aac73308
+first time found dangling pointer at: 12808 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xc77bd (internal_exr_compute_chunk_offset_size @ parse_header.c:2099) UAF read at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 8634
+[INCONSISTENCY mov read UAF] ip: main+0xc77c1 (internal_exr_compute_chunk_offset_size @ parse_header.c:2106) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 639
+[INCONSISTENCY mov read UAF] ip: main+0xc77c5 (internal_exr_compute_chunk_offset_size @ parse_header.c:2099) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 8740
+[INCONSISTENCY mov read UAF] ip: main+0xc77ce (internal_exr_compute_chunk_offset_size @ parse_header.c:2108) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 843
+[INCONSISTENCY mov read UAF] ip: main+0xc77d2 (internal_exr_compute_chunk_offset_size @ parse_header.c:2111) UAF read at: 0x6066aac73758
+[INCONSISTENCY mov read UAF] ip: main+0xc77e4 (internal_exr_compute_chunk_offset_size) UAF read at: 0x6066aac732e8
+[INCONSISTENCY mov read UAF] ip: main+0xc77f8 (internal_exr_compute_chunk_offset_size) UAF read at: 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 43
+main+0xc77f8 (internal_exr_compute_chunk_offset_size) Using expired pointer: 0x6066aac73880 from 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 43
+[INCONSISTENCY mov read UAF] ip: main+0xc77ff (internal_exr_compute_chunk_offset_size) UAF read at: 0x6066aac732f8
+first time found dangling pointer at: 12806 distance: 43
+main+0xc77ff (internal_exr_compute_chunk_offset_size) Using expired pointer: 0x6066aac73888 from 0x6066aac732f8
+first time found dangling pointer at: 12806 distance: 43
+[INCONSISTENCY mov read UAF] ip: main+0xc79d0 (internal_exr_compute_chunk_offset_size @ parse_header.c:2117) UAF read at: 0x6066aac73880
+[INCONSISTENCY mov read UAF] ip: main+0xc79d4 (internal_exr_compute_chunk_offset_size @ parse_header.c:2118) UAF read at: 0x6066aac73888
+[INCONSISTENCY mov read UAF] ip: main+0xc79f5 (internal_exr_compute_chunk_offset_size) UAF read at: 0x6066aac73510
+[INCONSISTENCY mov read UAF] ip: main+0xc7a01 (internal_exr_compute_chunk_offset_size) UAF read at: 0x6066aac73518
+first time found dangling pointer at: 12399 distance: 477
+[INCONSISTENCY mov read UAF] ip: main+0xc7a05 (internal_exr_compute_chunk_offset_size) UAF read at: 0x6066aac73750
+[INCONSISTENCY mov read UAF] ip: main+0xc7a08 (internal_exr_compute_chunk_offset_size) UAF read at: 0x6066aac73754
+[INCONSISTENCY mov read UAF] ip: main+0xc7a3e (internal_exr_compute_chunk_offset_size @ parse_header.c:2141) UAF read at: 0x6066aac73478
+[INCONSISTENCY mov read UAF] ip: main+0xc7a43 (internal_exr_compute_chunk_offset_size @ parse_header.c:2142) UAF read at: 0x6066aac7347c
+[INCONSISTENCY mov read UAF] ip: main+0xc7a4a (internal_exr_compute_chunk_offset_size @ parse_header.c:2144) UAF read at: 0x6066aac73470
+[INCONSISTENCY mov read UAF] ip: main+0xc794c (internal_exr_compute_chunk_offset_size) UAF read at: 0x7ffc3a435110
+first time found dangling pointer at: 12846 distance: 113
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7950 (internal_exr_compute_chunk_offset_size @ parse_header.c:2158) UAF write at: 0x6066aac73310
+[INCONSISTENCY mov read UAF] ip: main+0xc9cb3 (update_chunk_offsets @ parse_header.c:2246) UAF read at: 0x6066aac7331c
+[INCONSISTENCY mov write reg UAF] ip: main+0xc9cf2 (update_chunk_offsets) UAF write at: 0x6066aac7331c
+[INCONSISTENCY mov read UAF] ip: main+0xc9d19 (update_chunk_offsets @ parse_header.c:2227) UAF read at: 0x6066aac73224
+[FREE] free(0x6066aac73ff0) subject=20 at internal_exr_parse_header
+[CORRUPTED_PTR_LOAD] ip: main+0x30c8f (_ZN7Imf_3_116checkOpenEXRFileEPKcmbbb @ ImfCheckFile.cpp:1538) loaded: 0x769000000001 from cell: 0x7ffc3a435548 cell_owner: 13 value_owner: 12
+[INCONSISTENCY mov read UAF] ip: main+0xbb9a6 (exr_get_count @ part.c:20) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbb9e8 (exr_get_count @ part.c:21) UAF read at: 0x6066aac73224
+[CORRUPTED_PTR_LOAD] ip: main+0x2cadf (checkCoreFile @ ImfCheckFile.cpp:1428) loaded: 0x1 from cell: 0x7ffc3a4354b8 cell_owner: 146 value_owner: 14
+[INCONSISTENCY mov read UAF] ip: main+0xbba2c (exr_get_storage @ part.c:36) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbba42 (exr_get_storage @ part.c:36) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xbba4b (exr_get_storage @ part.c:36) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 12739
+[INCONSISTENCY mov read UAF] ip: main+0xbba55 (exr_get_storage @ part.c:36) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 12755
+[INCONSISTENCY mov read UAF] ip: main+0xbba59 (exr_get_storage @ part.c:37) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read UAF] ip: main+0xbba5d (exr_get_storage @ part.c:38) UAF read at: 0x6066aac73160
+[INTRA_OBJECT_OVERFLOW] ip: main+0x2c4da (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1262) byte write at: 0x7ffc3a4351bb offset: +0x2b cell_owner: 147 writer_pointee: 14
+[INTRA_OBJECT_OVERFLOW] ip: main+0x2c4e7 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1262) byte write at: 0x7ffc3a4351e3 offset: +0x53 cell_owner: 147 writer_pointee: 14
+[INCONSISTENCY mov read UAF] ip: main+0xbecfc (exr_get_data_window @ part_attr.c:714) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbed12 (exr_get_data_window @ part_attr.c:714) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xbed24 (exr_get_data_window @ part_attr.c:714) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 12804
+[INCONSISTENCY mov read UAF] ip: main+0xbed2e (exr_get_data_window @ part_attr.c:714) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 12820
+[INCONSISTENCY mov read UAF] ip: main+0xbed32 (exr_get_data_window @ part_attr.c:714) UAF read at: 0x6066aac73258
+first time found dangling pointer at: 7544 distance: 5629
+[INCONSISTENCY mov read UAF] ip: main+0xbed3f (exr_get_data_window @ part_attr.c:714) UAF read at: 0x6066aac735a4
+[INCONSISTENCY mov read UAF] ip: main+0xbed49 (exr_get_data_window @ part_attr.c:714) UAF read at: 0x6066aac735a8
+first time found dangling pointer at: 7387 distance: 5791
+[INCONSISTENCY mov read UAF] ip: main+0xbede6 (exr_get_data_window) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbf53c (exr_get_tile_descriptor @ part_attr.c:883) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbf56b (exr_get_tile_descriptor @ part_attr.c:883) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xbf574 (exr_get_tile_descriptor @ part_attr.c:883) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 12853
+[INCONSISTENCY mov read UAF] ip: main+0xbf57d (exr_get_tile_descriptor @ part_attr.c:883) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 12869
+[INCONSISTENCY mov read UAF] ip: main+0xbf581 (exr_get_tile_descriptor @ part_attr.c:885) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 1027
+[INCONSISTENCY mov read UAF] ip: main+0xbf58e (exr_get_tile_descriptor @ part_attr.c:889) UAF read at: 0x6066aac73744
+[INCONSISTENCY mov read UAF] ip: main+0xbf598 (exr_get_tile_descriptor) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 1232
+[INCONSISTENCY mov read UAF] ip: main+0xbf5a1 (exr_get_tile_descriptor @ part_attr.c:896) UAF read at: 0x6066aac73750
+[INCONSISTENCY mov read UAF] ip: main+0xbf5aa (exr_get_tile_descriptor @ part_attr.c:897) UAF read at: 0x6066aac73754
+[INCONSISTENCY mov read UAF] ip: main+0xbf5b4 (exr_get_tile_descriptor @ part_attr.c:898) UAF read at: 0x6066aac73758
+[INCONSISTENCY mov read UAF] ip: main+0xbf5c3 (exr_get_tile_descriptor @ part_attr.c:899) UAF read at: 0x6066aac73758
+[INCONSISTENCY mov read UAF] ip: main+0xbf5cf (exr_get_tile_descriptor) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbbdd0 (exr_get_tile_levels @ part.c:190) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbbdea (exr_get_tile_levels @ part.c:190) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xbbdf7 (exr_get_tile_levels @ part.c:190) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 12917
+[INCONSISTENCY mov read UAF] ip: main+0xbbe01 (exr_get_tile_levels @ part.c:190) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 12933
+[INCONSISTENCY mov read UAF] ip: main+0xbbe05 (exr_get_tile_levels @ part.c:192) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read UAF] ip: main+0xbbe14 (exr_get_tile_levels @ part.c:195) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 1095
+[INCONSISTENCY mov read UAF] ip: main+0xbbe1f (exr_get_tile_levels @ part.c:195) UAF read at: 0x6066aac732e8
+[INCONSISTENCY mov read UAF] ip: main+0xbbe2d (exr_get_tile_levels @ part.c:196) UAF read at: 0x6066aac732ec
+[INCONSISTENCY mov read UAF] ip: main+0xbbe3a (exr_get_tile_levels @ part.c:196) UAF read at: 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 492
+[INCONSISTENCY mov read UAF] ip: main+0xbbe44 (exr_get_tile_levels @ part.c:197) UAF read at: 0x6066aac732f8
+first time found dangling pointer at: 12806 distance: 493
+[INCONSISTENCY mov read UAF] ip: main+0xbbe5b (exr_get_tile_levels @ part.c:206) UAF read at: 0x6066aac732ec
+[INCONSISTENCY mov read UAF] ip: main+0xbbe67 (exr_get_tile_levels @ part.c:207) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read] ip: main+0x2c558 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1284) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c56d (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1286) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c5a8 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1286) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c5a8 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1286) loaded: 0x100e6c000000001 from cell: 0x7ffc3a4351dc cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x2c5b7 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1289) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c5b7 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1289) loaded: 0x7ffc3a435214 from cell: 0x7ffc3a4351c0 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x2c5be (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1289) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c5be (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1289) loaded: 0x7ffc3a435210 from cell: 0x7ffc3a4351c8 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read UAF] ip: main+0xbc14d (exr_get_level_sizes @ part.c:282) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbc181 (exr_get_level_sizes @ part.c:282) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xbc18e (exr_get_level_sizes @ part.c:282) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 12995
+[INCONSISTENCY mov read UAF] ip: main+0xbc198 (exr_get_level_sizes @ part.c:282) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 13011
+[INCONSISTENCY mov read UAF] ip: main+0xbc19c (exr_get_level_sizes @ part.c:284) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read UAF] ip: main+0xbc1ab (exr_get_level_sizes @ part.c:287) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 1173
+[INCONSISTENCY mov read UAF] ip: main+0xbc1b6 (exr_get_level_sizes @ part.c:287) UAF read at: 0x6066aac732e8
+[INCONSISTENCY mov read UAF] ip: main+0xbc1c4 (exr_get_level_sizes @ part.c:288) UAF read at: 0x6066aac732ec
+[INCONSISTENCY mov read UAF] ip: main+0xbc1d4 (exr_get_level_sizes @ part.c:288) UAF read at: 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 571
+[INCONSISTENCY mov read UAF] ip: main+0xbc1e2 (exr_get_level_sizes @ part.c:289) UAF read at: 0x6066aac732f8
+first time found dangling pointer at: 12806 distance: 572
+[INCONSISTENCY mov read UAF] ip: main+0xbc210 (exr_get_level_sizes @ part.c:302) UAF read at: 0x6066aac73300
+first time found dangling pointer at: 12807 distance: 582
+[INCONSISTENCY mov read UAF] ip: main+0xbc21a (exr_get_level_sizes @ part.c:302) UAF read at: 0x6066aac73884
+[INCONSISTENCY mov read UAF] ip: main+0xbc225 (exr_get_level_sizes @ part.c:303) UAF read at: 0x6066aac73308
+first time found dangling pointer at: 12808 distance: 587
+main+0xbc225 (exr_get_level_sizes @ part.c:303) Using expired pointer: 0x6066aac7388c from 0x6066aac73308
+first time found dangling pointer at: 12808 distance: 587
+[INCONSISTENCY mov read UAF] ip: main+0xbc22f (exr_get_level_sizes @ part.c:303) UAF read at: 0x6066aac7388c
+[INCONSISTENCY mov read UAF] ip: main+0xbc238 (exr_get_level_sizes @ part.c:304) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read] ip: main+0x2c600 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1301) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c600 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1301) loaded: 0x7ffc3a43521c from cell: 0x7ffc3a4351a8 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read UAF] ip: main+0xbbf3d (exr_get_tile_sizes @ part.c:225) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xbbf71 (exr_get_tile_sizes @ part.c:225) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xbbf7e (exr_get_tile_sizes @ part.c:225) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 13072
+[INCONSISTENCY mov read UAF] ip: main+0xbbf88 (exr_get_tile_sizes @ part.c:225) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 13088
+[INCONSISTENCY mov read UAF] ip: main+0xbbf8c (exr_get_tile_sizes @ part.c:227) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read UAF] ip: main+0xbbf9b (exr_get_tile_sizes @ part.c:232) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 1250
+[INCONSISTENCY mov read UAF] ip: main+0xbbfa8 (exr_get_tile_sizes @ part.c:232) UAF read at: 0x6066aac732e8
+[INCONSISTENCY mov read UAF] ip: main+0xbbfb8 (exr_get_tile_sizes @ part.c:233) UAF read at: 0x6066aac732ec
+[INCONSISTENCY mov read UAF] ip: main+0xbbfc8 (exr_get_tile_sizes @ part.c:233) UAF read at: 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 649
+[INCONSISTENCY mov read UAF] ip: main+0xbbfd6 (exr_get_tile_sizes @ part.c:234) UAF read at: 0x6066aac732f8
+first time found dangling pointer at: 12806 distance: 650
+[INCONSISTENCY mov read UAF] ip: main+0xbc000 (exr_get_tile_sizes @ part.c:247) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 1470
+[INCONSISTENCY mov read UAF] ip: main+0xbc009 (exr_get_tile_sizes @ part.c:250) UAF read at: 0x6066aac73300
+first time found dangling pointer at: 12807 distance: 661
+[INCONSISTENCY mov read UAF] ip: main+0xbc013 (exr_get_tile_sizes @ part.c:250) UAF read at: 0x6066aac73884
+[INCONSISTENCY mov read UAF] ip: main+0xbc017 (exr_get_tile_sizes @ part.c:251) UAF read at: 0x6066aac73750
+[INCONSISTENCY mov read UAF] ip: main+0xbc026 (exr_get_tile_sizes @ part.c:258) UAF read at: 0x6066aac73308
+first time found dangling pointer at: 12808 distance: 669
+[INCONSISTENCY mov read UAF] ip: main+0xbc030 (exr_get_tile_sizes @ part.c:258) UAF read at: 0x6066aac7388c
+[INCONSISTENCY mov read UAF] ip: main+0xbc033 (exr_get_tile_sizes @ part.c:259) UAF read at: 0x6066aac73754
+[INCONSISTENCY mov read UAF] ip: main+0xbc041 (exr_get_tile_sizes @ part.c:264) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read] ip: main+0x2c68f (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1322) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c6a0 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ stl_vector.h:98) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c6a0 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ stl_vector.h:98) loaded: 0x3a43521400000001 from cell: 0x7ffc3a4351bc cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x2c6bc (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1325) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c6ef (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1327) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c6ef (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1327) loaded: 0x100000000 from cell: 0x7ffc3a4351d8 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x2c6fb (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1327) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c6fb (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1327) loaded: 0x0 from cell: 0x7ffc3a4351e4 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read UAF] ip: main+0xcc1bc (exr_read_tile_chunk_info @ chunk.c:595) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xcc1fe (exr_read_tile_chunk_info @ chunk.c:595) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xcc225 (exr_read_tile_chunk_info) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 13198
+[INCONSISTENCY mov read UAF] ip: main+0xcc22f (exr_read_tile_chunk_info) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 13214
+[INCONSISTENCY mov read UAF] ip: main+0xcc233 (exr_read_tile_chunk_info @ chunk.c:601) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read UAF] ip: main+0xcc287 (exr_read_tile_chunk_info @ chunk.c:607) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 1374
+[INCONSISTENCY mov read UAF] ip: main+0xcc294 (exr_read_tile_chunk_info @ chunk.c:607) UAF read at: 0x6066aac732e8
+[INCONSISTENCY mov read UAF] ip: main+0xcc2a1 (exr_read_tile_chunk_info @ chunk.c:608) UAF read at: 0x6066aac732ec
+[INCONSISTENCY mov read UAF] ip: main+0xcc2ae (exr_read_tile_chunk_info @ chunk.c:608) UAF read at: 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 771
+[INCONSISTENCY mov read UAF] ip: main+0xcc2bc (exr_read_tile_chunk_info @ chunk.c:609) UAF read at: 0x6066aac732f8
+first time found dangling pointer at: 12806 distance: 772
+[INCONSISTENCY mov read UAF] ip: main+0xcc2ca (exr_read_tile_chunk_info @ chunk.c:615) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 1585
+[INCONSISTENCY mov read UAF] ip: main+0xcc2ce (exr_read_tile_chunk_info @ chunk.c:617) UAF read at: 0x6066aac73750
+[INCONSISTENCY mov read UAF] ip: main+0xcc2d1 (exr_read_tile_chunk_info @ chunk.c:618) UAF read at: 0x6066aac73300
+first time found dangling pointer at: 12807 distance: 775
+[INCONSISTENCY mov read UAF] ip: main+0xcc2db (exr_read_tile_chunk_info @ chunk.c:618) UAF read at: 0x6066aac73884
+[INCONSISTENCY mov read UAF] ip: main+0xcc2fa (exr_read_tile_chunk_info @ chunk.c:626) UAF read at: 0x6066aac73754
+[INCONSISTENCY mov read UAF] ip: main+0xcc2fe (exr_read_tile_chunk_info @ chunk.c:627) UAF read at: 0x6066aac73308
+first time found dangling pointer at: 12808 distance: 784
+[INCONSISTENCY mov read UAF] ip: main+0xcc308 (exr_read_tile_chunk_info @ chunk.c:627) UAF read at: 0x6066aac7388c
+[INCONSISTENCY mov write reg UAF] ip: main+0xcc34c (exr_read_tile_chunk_info) UAF write at: 0x7ffc3a435140
+[CORRUPTED_PTR_LOAD] ip: main+0xcc91d (compute_tile_chunk_off @ chunk.c:438) loaded: 0x7ffc3a43511c from cell: 0x7ffc3a4350a0 cell_owner: 139 value_owner: 138
+[INCONSISTENCY mov read UAF] ip: main+0xcc921 (compute_tile_chunk_off @ chunk.c:441) UAF read at: 0x6066aac73288
+first time found dangling pointer at: 12195 distance: 1433
+[INCONSISTENCY mov read UAF] ip: main+0xcc925 (compute_tile_chunk_off @ chunk.c:441) UAF read at: 0x6066aac73748
+first time found dangling pointer at: 11995 distance: 1634
+[INCONSISTENCY mov read UAF] ip: main+0xcc929 (compute_tile_chunk_off @ chunk.c:443) UAF read at: 0x6066aac73758
+[INCONSISTENCY mov read UAF] ip: main+0xcc93e (compute_tile_chunk_off @ chunk.c:458) UAF read at: 0x6066aac732e8
+[INCONSISTENCY mov read UAF] ip: main+0xcc94d (compute_tile_chunk_off @ chunk.c:470) UAF read at: 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 834
+[INCONSISTENCY mov read UAF] ip: main+0xcc954 (compute_tile_chunk_off @ chunk.c:471) UAF read at: 0x6066aac732f8
+first time found dangling pointer at: 12806 distance: 834
+[INCONSISTENCY mov read UAF] ip: main+0xcc95e (compute_tile_chunk_off @ chunk.c:470) UAF read at: 0x6066aac73880
+[INCONSISTENCY mov read UAF] ip: main+0xcc962 (compute_tile_chunk_off @ chunk.c:471) UAF read at: 0x6066aac73888
+[INCONSISTENCY mov read UAF] ip: main+0xccce5 (compute_tile_chunk_off @ chunk.c:559) UAF read at: 0x6066aac7331c
+STACKREADUSEAFTERSCOPE at: 0x7ffc3a435140 ip: main+0xcc39f (exr_read_tile_chunk_info @ chunk.c:647)
+[INCONSISTENCY mov read UAF] ip: main+0xcc3b9 (exr_read_tile_chunk_info @ chunk.c:658) UAF read at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 9496
+[INCONSISTENCY mov read UAF] ip: main+0xcc3bd (exr_read_tile_chunk_info @ chunk.c:658) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 9601
+[INCONSISTENCY mov read UAF] ip: main+0xcc3c1 (exr_read_tile_chunk_info) UAF read at: 0x6066aac73510
+[INCONSISTENCY mov read UAF] ip: main+0xcc3ca (exr_read_tile_chunk_info) UAF read at: 0x6066aac73518
+first time found dangling pointer at: 12399 distance: 1302
+[INCONSISTENCY mov read UAF] ip: main+0xcc58d (exr_read_tile_chunk_info @ chunk.c:663) UAF read at: 0x6066aac73470
+[INCONSISTENCY mov read UAF] ip: main+0xcbf24 (extract_chunk_table @ chunk.c:58) UAF read at: 0x6066aac73328
+[INCONSISTENCY mov read UAF] ip: main+0xcbf4e (extract_chunk_table @ chunk.c:62) UAF read at: 0x6066aac73320
+[INCONSISTENCY mov read UAF] ip: main+0xcbf59 (extract_chunk_table @ chunk.c:63) UAF read at: 0x6066aac7331c
+[INCONSISTENCY mov read UAF] ip: main+0xcbf71 (extract_chunk_table @ chunk.c:73) UAF read at: 0x6066aac731f8
+[ALLOC] malloc(0x8) -> 0x6066aac738a0 subject=151 at extract_chunk_table @ chunk.c:85
+[CORRUPTED_PTR_LOAD] ip: main+0xb9ba7 (dispatch_read @ context.c:53) loaded: 0x155 from cell: 0x7ffc3a435068 cell_owner: 150 value_owner: 148
+[CORRUPTED_PTR_LOAD] ip: main+0x2a913 (memstream_read @ ImfCheckFile.cpp:1505) loaded: 0x7ffc3a435070 from cell: 0x7ffc3a435018 cell_owner: 39 value_owner: 150
+[STACK PIVOT] ip: main+0x2a917 (memstream_read @ ImfCheckFile.cpp:1505) RSP 0x7ffc3a435028 left stack [0x99,0x7ffc3a417000]
+Store dangling pointer: 0x6066aac738a0 at: 0x7ffc3a4350e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xcbf30 (extract_chunk_table @ chunk.c:113) UAF write at: 0x7ffc3a4350e8
+first time found dangling pointer at: 704 distance: 13160
+[INCONSISTENCY mov read UAF] ip: main+0xcc5c5 (exr_read_tile_chunk_info) UAF read at: 0x6066aac73165
+[INCONSISTENCY mov read UAF] ip: main+0xcc5d1 (exr_read_tile_chunk_info @ chunk.c:669) UAF read at: 0x6066aac7322c
+STACKREADUSEAFTERSCOPE at: 0x7ffc3a4350e8 ip: main+0xcc5e9 (exr_read_tile_chunk_info @ chunk.c:681)
+first time found dangling pointer at: 704 distance: 13181
+main+0xcc5e9 (exr_read_tile_chunk_info @ chunk.c:681) Using expired pointer: 0x6066aac738a0 from 0x7ffc3a4350e8
+first time found dangling pointer at: 704 distance: 13181
+[INCONSISTENCY mov read UAF] ip: main+0xcc5f8 (exr_read_tile_chunk_info @ chunk.c:681) UAF read at: 0x6066aac738a0
+[STACK PIVOT] ip: main+0x2a917 (memstream_read @ ImfCheckFile.cpp:1505) RSP 0x7ffc3a435078 left stack [0x9a,0x7ffc3a417000]
+[INCONSISTENCY mov read UAF] ip: main+0xcc653 (exr_read_tile_chunk_info @ chunk.c:707) UAF read at: 0x6066aac73165
+[CORRUPTED_PTR_LOAD] ip: main+0xcc679 (exr_read_tile_chunk_info @ chunk.c:725) loaded: 0x0 from cell: 0x7ffc3a4350b0 cell_owner: 148 value_owner: 138
+[CORRUPTED_PTR_LOAD] ip: main+0xcc689 (exr_read_tile_chunk_info @ chunk.c:739) loaded: 0x0 from cell: 0x7ffc3a4350b4 cell_owner: 148 value_owner: 138
+[INCONSISTENCY mov read UAF] ip: main+0xcc6b9 (exr_read_tile_chunk_info @ chunk.c:782) UAF read at: 0x6066aac731f8
+[INCONSISTENCY mov read UAF] ip: main+0xcc6c8 (exr_read_tile_chunk_info @ chunk.c:783) UAF read at: 0x6066aac7322c
+[INCONSISTENCY mov read] ip: main+0xcc800 (exr_read_tile_chunk_info @ chunk.c:865) base: 0x7ffc3a4350b0 pointee: 148 read from 143
+[INCONSISTENCY mov read] ip: main+0x2c713 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1338) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c71b (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1340) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c71b (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1340) loaded: 0x7ffc3a435290 from cell: 0x7ffc3a4351b0 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x2c728 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1340) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c728 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1340) loaded: 0x7ffc3a435250 from cell: 0x7ffc3a4351d0 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read UAF] ip: main+0xce556 (exr_decoding_initialize @ decoding.c:407) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xce596 (exr_decoding_initialize @ decoding.c:407) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xce5bb (exr_decoding_initialize @ decoding.c:407) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 13686
+[INCONSISTENCY mov read UAF] ip: main+0xce5c5 (exr_decoding_initialize @ decoding.c:407) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 13702
+[INCONSISTENCY mov read UAF] ip: main+0xe02c4 (internal_coding_fill_channel_info @ coding.c:23) UAF read at: 0x6066aac73248
+first time found dangling pointer at: 4199 distance: 9877
+[INCONSISTENCY mov read UAF] ip: main+0xe02c8 (internal_coding_fill_channel_info @ coding.c:23) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 9982
+[INCONSISTENCY mov read UAF] ip: main+0xe02cc (internal_coding_fill_channel_info @ coding.c:24) UAF read at: 0x6066aac73510
+[INCONSISTENCY mov read UAF] ip: main+0xe0336 (internal_coding_fill_channel_info) UAF read at: 0x6066aac73518
+first time found dangling pointer at: 12399 distance: 1685
+[INCONSISTENCY mov read UAF] ip: main+0xe0399 (internal_coding_fill_channel_info @ coding.c:41) UAF read at: 0x6066aac73468
+[INCONSISTENCY mov read UAF] ip: main+0xe03a1 (internal_coding_fill_channel_info @ coding.c:43) UAF read at: 0x6066aac7347c
+[INCONSISTENCY mov read UAF] ip: main+0xe03d7 (internal_coding_fill_channel_info @ coding.c:54) UAF read at: 0x6066aac73478
+[INCONSISTENCY mov read UAF] ip: main+0xe035a (internal_coding_fill_channel_info @ coding.c:61) UAF read at: 0x6066aac73474
+[INCONSISTENCY mov read UAF] ip: main+0xe0362 (internal_coding_fill_channel_info @ coding.c:62) UAF read at: 0x6066aac73470
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xe0387 (internal_coding_fill_channel_info @ coding.c:36) add rcx, 0x30 id before: 147 after: 15 value: 0x7ffc3a43542e
+[INCONSISTENCY mov read] ip: main+0x2c91f (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1348) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c932 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1354) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c939 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1350) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c942 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1355) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x2c974 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1348) add rdx, 0x30 id before: 147 after: 15 value: 0x7ffc3a43542c
+[INCONSISTENCY mov read] ip: main+0x2c820 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1363) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2ca30 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ stl_vector.h:940) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2ca30 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ stl_vector.h:940) loaded: 0x7ffc3a435230 from cell: 0x7ffc3a435190 cell_owner: 147 value_owner: 14
+[UNINITIALIZED mov read] ip: main+0x31d91 (_ZNSt6vectorIhSaIhEE17_M_default_appendEm @ stl_vector.h:919) co: 147 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x31d95 (_ZNSt6vectorIhSaIhEE17_M_default_appendEm @ vector.tcc:618) loaded: 0x0 from cell: 0x7ffc3a435240 cell_owner: 147 value_owner: 14
+[ALLOC:internal] malloc(0x600) -> 0x6066aac73ff0 subject=156 at _Znwm
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x31ee7 (_ZNSt6vectorIhSaIhEE17_M_default_appendEm @ new_allocator.h:127) add r15, rax id before: 156 after: 0 [freed] value: 0x6066aac745f0
+[UNINITIALIZED mov read] ip: main+0x31e8b (_ZNSt6vectorIhSaIhEE17_M_default_appendEm @ stl_algobase.h:944) co: 147 vo: -1
+[UNINITIALIZED mov read] ip: main+0x31e8e (_ZNSt6vectorIhSaIhEE17_M_default_appendEm @ stl_vector.h:465) co: 147 vo: -1
+Store dangling pointer: 0x6066aac745f0 at: 0x7ffc3a435240
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x31e16 (_ZNSt6vectorIhSaIhEE17_M_default_appendEm @ vector.tcc:679) add r12, r13 id before: 156 after: 0 [freed] value: 0x6066aac745f0
+[INCONSISTENCY mov read] ip: main+0x2ca3f (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1364) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2ca3f (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1364) loaded: 0x7ffc3a435290 from cell: 0x7ffc3a4351b0 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read UAF] ip: main+0xce689 (exr_decoding_choose_default_routines @ decoding.c:439) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xce6c8 (exr_decoding_choose_default_routines @ decoding.c:439) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xce6f4 (exr_decoding_choose_default_routines) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 14026
+[INCONSISTENCY mov read UAF] ip: main+0xce6fd (exr_decoding_choose_default_routines) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 14042
+[INCONSISTENCY mov read UAF] ip: main+0xce708 (exr_decoding_choose_default_routines @ decoding.c:448) UAF read at: 0x6066aac7322c
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xce7b1 (exr_decoding_choose_default_routines @ decoding.c:453) add rdi, 0x30 id before: 147 after: 1 value: 0x7ffc3a435438
+[INCONSISTENCY mov read UAF] ip: main+0xce9f9 (exr_decoding_choose_default_routines) UAF read at: 0x6066aac732d8
+[INCONSISTENCY mov read] ip: main+0x2ca53 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1365) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c85f (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1388) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c86e (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1393) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c875 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1390) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c87c (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1394) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[INCONSISTENCY mov read] ip: main+0x2c887 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1394) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c887 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1394) loaded: 0x6066aac73ff0 from cell: 0x7ffc3a435198 cell_owner: 147 value_owner: 14
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x2c8b0 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1388) add rdx, 0x30 id before: 147 after: 15 value: 0x7ffc3a43542c
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x2c8cf (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1394) add rsi, rax id before: 156 after: 0 [freed] value: 0x6066aac745f0
+[INCONSISTENCY mov read] ip: main+0x2c8dc (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1397) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c8dc (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1397) loaded: 0x7ffc3a435290 from cell: 0x7ffc3a4351b0 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read UAF] ip: main+0xcf0a2 (exr_decoding_run @ decoding.c:626) UAF read at: 0x6066aac73160
+[INCONSISTENCY mov read UAF] ip: main+0xcf0d9 (exr_decoding_run @ decoding.c:626) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xcf101 (exr_decoding_run) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 14514
+[INCONSISTENCY mov read UAF] ip: main+0xcf10a (exr_decoding_run) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 14530
+[INCONSISTENCY mov read UAF] ip: main+0xceb5a (read_uncompressed_direct @ decoding.c:91) UAF read at: 0x6066aac73160
+[UNINITIALIZED mov read] ip: main+0xcebab (read_uncompressed_direct @ decoding.c:94) co: 147 vo: -1
+[UNINITIALIZED mov read] ip: main+0xcebb3 (read_uncompressed_direct @ decoding.c:96) co: 147 vo: -1
+[UNINITIALIZED mov read] ip: main+0xcebc3 (read_uncompressed_direct) co: 147 vo: -1
+[INCONSISTENCY mov read] ip: main+0xcebf5 (read_uncompressed_direct) base: 0x7ffc3a435150 pointee: 155 read from 138
+[INCONSISTENCY mov read] ip: main+0xcebf9 (read_uncompressed_direct) base: 0x7ffc3a435150 pointee: 155 read from 138
+[INCONSISTENCY mov read] ip: main+0xcec5a (read_uncompressed_direct) base: 0x7ffc3a435150 pointee: 155 read from 138
+[INCONSISTENCY mov read] ip: main+0x2a927 (memstream_read @ ImfCheckFile.cpp:1505) base: 0x7ffc3a4350c0 pointee: 143 read from 148
+[STACK PIVOT] ip: main+0x2a92b (memstream_read @ ImfCheckFile.cpp:1505) RSP 0x7ffc3a4350c8 left stack [0xa0,0x7ffc3a417000]
+[INCONSISTENCY mov read UAF] ip: main+0xcf117 (exr_decoding_run @ decoding.c:642) UAF read at: 0x6066aac731a0
+[INCONSISTENCY mov read UAF] ip: main+0xbb933 (default_error_handler @ internal_structs.c:56) UAF read at: 0x6066aac73170
+first time found dangling pointer at: 423 distance: 14631
+main+0xbb933 (default_error_handler @ internal_structs.c:56) Using expired pointer: 0x6066aac73390 from 0x6066aac73170
+first time found dangling pointer at: 423 distance: 14631
+[UNTRUSTEDPTRDEREF] ip: main+0xbb937 (default_error_handler) final_ea: 0x606683e24fa8 base: 0x606683b3c937 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0xbb93e (default_error_handler) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xe0126 (exr_get_error_code_as_string @ base.c:123) final_ea: 0x606683da46ac base: 0x606683da4684 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xbb976 (default_error_handler @ internal_structs.c:73) final_ea: 0x606683e24fa8 base: 0x606683b3c976 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0xbb97d (default_error_handler @ internal_structs.c:73) co: 3 vo: -1
+[INCONSISTENCY mov read] ip: main+0x2c8f4 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1400) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c8f4 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1400) loaded: 0x1 from cell: 0x7ffc3a4351e3 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x2c7ac (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1410) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c7ac (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ ImfCheckFile.cpp:1410) loaded: 0x7ffc3a435290 from cell: 0x7ffc3a4351b0 cell_owner: 147 value_owner: 14
+[UNINITIALIZED mov read] ip: main+0xcf538 (exr_decoding_destroy @ decoding.c:702) co: 147 vo: -1
+[UNINITIALIZED mov read] ip: main+0xcf546 (exr_decoding_destroy @ decoding.c:703) co: 147 vo: -1
+[UNINITIALIZED mov read] ip: main+0xe0820 (internal_decode_free_buffer @ coding.c:226) co: 147 vo: -1
+[INCONSISTENCY mov read] ip: main+0x2c7bb (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ stl_vector.h:678) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+[CORRUPTED_PTR_LOAD] ip: main+0x2c7bb (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ stl_vector.h:678) loaded: 0x6066aac73ff0 from cell: 0x7ffc3a435198 cell_owner: 147 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x2c7c7 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ alloc_traits.h:495) base: 0x7ffc3a4354a0 pointee: 14 read from 147
+main+0x2c7c7 (_ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb @ alloc_traits.h:495) Using expired pointer: 0x6066aac745f0 from 0x7ffc3a435240
+first time found dangling pointer at: 14350 distance: 936
+[FREE:internal] free(0x6066aac73ff0) subject=156 at _ZN7Imf_3_112_GLOBAL__N_117readCoreTiledPartEP19_priv_exr_context_tibb
+[CORRUPTED_PTR_LOAD] ip: main+0x30c9d (_ZN7Imf_3_116checkOpenEXRFileEPKcmbbb @ ImfCheckFile.cpp:1540) loaded: 0x7ffc3a435560 from cell: 0x7ffc3a435540 cell_owner: 13 value_owner: 12
+[INCONSISTENCY mov read UAF] ip: main+0xb9d85 (exr_finish @ context.c:197) UAF read at: 0x6066aac731f0
+[INCONSISTENCY mov read UAF] ip: main+0xbb784 (internal_exr_destroy_context @ internal_structs.c:463) UAF read at: 0x6066aac731c0
+[INCONSISTENCY mov read UAF] ip: main+0xde2ea (exr_attr_string_destroy @ string.c:245) UAF read at: 0x6066aac73170
+first time found dangling pointer at: 423 distance: 14947
+[INCONSISTENCY mov read UAF] ip: main+0xde2f3 (exr_attr_string_destroy @ string.c:245) UAF read at: 0x6066aac7316c
+[FREE] free(0x6066aac73390) subject=17 at exr_attr_string_destroy @ string.c:246
+[INCONSISTENCY mov read UAF] ip: main+0xdc0eb (exr_attr_list_destroy @ attributes.c:293) UAF read at: 0x6066aac73348
+[INCONSISTENCY mov write imm UAF] ip: main+0xdc168 (exr_attr_list_destroy @ attributes.c:302) UAF write at: 0x6066aac73350
+[INCONSISTENCY mov read UAF] ip: main+0xbb7b0 (internal_exr_destroy_context @ internal_structs.c:188) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov read UAF] ip: main+0xbb7be (internal_exr_destroy_context) UAF read at: 0x6066aac731c0
+[INCONSISTENCY mov read UAF] ip: main+0xbb7e0 (internal_exr_destroy_context @ internal_structs.c:190) UAF read at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 15091
+[INCONSISTENCY mov read UAF] ip: main+0xbb7e7 (internal_exr_destroy_context @ internal_structs.c:190) UAF read at: 0x6066aac73330
+first time found dangling pointer at: 352 distance: 15106
+main+0xdc0eb (exr_attr_list_destroy @ attributes.c:293) Using expired pointer: 0x6066aac73770 from 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 11309
+[INCONSISTENCY mov read UAF] ip: main+0xdc0f4 (exr_attr_list_destroy @ attributes.c:295) UAF read at: 0x6066aac73230
+[INCONSISTENCY mov read UAF] ip: main+0xdc0fa (exr_attr_list_destroy @ attributes.c:297) UAF read at: 0x6066aac73770
+first time found dangling pointer at: 12072 distance: 3407
+[INCONSISTENCY mov read UAF] ip: main+0xdc190 (attr_destroy @ attributes.c:211) UAF read at: 0x6066aac73504
+[UNTRUSTEDPTRDEREF] ip: main+0xdc1a4 (attr_destroy) final_ea: 0x606683da2ff0 base: 0x606683da2ff0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xdc1ad (attr_destroy @ attributes.c:214) UAF read at: 0x6066aac73508
+first time found dangling pointer at: 4095 distance: 11404
+[CORRUPTED_PTR_LOAD] ip: main+0xdf5c1 (exr_attr_chlist_destroy) loaded: 0x6066aac73460 from cell: 0x7ffc3a4353d0 cell_owner: 147 value_owner: 160
+main+0xde2ea (exr_attr_string_destroy @ string.c:245) Using expired pointer: 0x6066aac73440 from 0x6066aac73468
+first time found dangling pointer at: 14089 distance: 1450
+[FREE] free(0x6066aac73440) subject=64 at exr_attr_string_destroy @ string.c:246
+main+0xde2ea (exr_attr_string_destroy @ string.c:245) Using expired pointer: 0x6066aac73420 from 0x6066aac73488
+first time found dangling pointer at: 14121 distance: 1459
+[FREE] free(0x6066aac73420) subject=56 at exr_attr_string_destroy @ string.c:246
+main+0xde2ea (exr_attr_string_destroy @ string.c:245) Using expired pointer: 0x6066aac733b0 from 0x6066aac734a8
+first time found dangling pointer at: 14153 distance: 1468
+[FREE] free(0x6066aac733b0) subject=47 at exr_attr_string_destroy @ string.c:246
+[CORRUPTED_PTR_LOAD] ip: main+0xdf5e5 (exr_attr_chlist_destroy) loaded: 0x6066aac73460 from cell: 0x7ffc3a4353d0 cell_owner: 147 value_owner: 160
+[FREE] free(0x6066aac73460) subject=65 at exr_attr_chlist_destroy @ channel_list.c:262
+[FREE] free(0x6066aac734f0) subject=69 at attr_destroy @ attributes.c:263
+[INCONSISTENCY mov read UAF] ip: main+0xdc108 (exr_attr_list_destroy @ attributes.c:295) UAF read at: 0x6066aac73230
+[INCONSISTENCY mov read UAF] ip: main+0xdc120 (exr_attr_list_destroy @ attributes.c:297) UAF read at: 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 11536
+[INCONSISTENCY mov read UAF] ip: main+0xdc124 (exr_attr_list_destroy @ attributes.c:297) UAF read at: 0x6066aac73778
+first time found dangling pointer at: 12078 distance: 3624
+[FREE] free(0x6066aac73560) subject=101 at attr_destroy @ attributes.c:263
+[INCONSISTENCY mov read UAF] ip: main+0xdc13a (exr_attr_list_destroy @ attributes.c:295) UAF read at: 0x6066aac73230
+[FREE] free(0x6066aac73590) subject=108 at attr_destroy @ attributes.c:263
+[FREE] free(0x6066aac735d0) subject=114 at attr_destroy @ attributes.c:263
+[FREE] free(0x6066aac73530) subject=119 at attr_destroy @ attributes.c:263
+[FREE] free(0x6066aac736a0) subject=125 at attr_destroy @ attributes.c:263
+[FREE] free(0x6066aac736d0) subject=130 at attr_destroy @ attributes.c:263
+[FREE] free(0x6066aac73700) subject=135 at attr_destroy @ attributes.c:263
+[FREE] free(0x6066aac73730) subject=140 at attr_destroy @ attributes.c:263
+[INCONSISTENCY mov read UAF] ip: main+0xdc142 (exr_attr_list_destroy @ attributes.c:300) UAF read at: 0x6066aac73238
+first time found dangling pointer at: 4165 distance: 11896
+[FREE] free(0x6066aac73770) subject=142 at exr_attr_list_destroy @ attributes.c:300
+[INCONSISTENCY mov read UAF] ip: main+0xbb7f8 (internal_exr_destroy_context @ internal_structs.c:169) UAF read at: 0x6066aac732f0
+first time found dangling pointer at: 12805 distance: 3279
+[FREE] free(0x6066aac73880) subject=145 at internal_exr_destroy_context @ internal_structs.c:169
+[INCONSISTENCY mov read UAF] ip: main+0xbb807 (internal_exr_destroy_context @ internal_structs.c:176) UAF read at: 0x6066aac73328
+[FREE] free(0x6066aac738a0) subject=151 at internal_exr_destroy_context @ internal_structs.c:179
+[INCONSISTENCY mov read UAF] ip: main+0xbb84f (internal_exr_destroy_context @ internal_structs.c:188) UAF read at: 0x6066aac73224
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb877 (internal_exr_destroy_context @ internal_structs.c:203) UAF write at: 0x6066aac73338
+first time found dangling pointer at: 366 distance: 15760
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb882 (internal_exr_destroy_context @ internal_structs.c:204) UAF write at: 0x6066aac73224
+[INCONSISTENCY mov read] ip: main+0xbb89c (internal_exr_destroy_context @ internal_structs.c:477) base: 0x7ffc3a4354b0 pointee: 146 read from 160
+[FREE] free(0x6066aac73160) subject=16 at exr_finish @ context.c:200
+[STACK PIVOT] ip: main+0x2a512 (fuzz_one @ harness.cpp:50) RSP 0x7ffc3a4357a8 left stack [0xa2,0x7ffc3a417000]
+[FREE] free(0x6066aac73e70) subject=11 at main @ harness.cpp:94
+[STACK PIVOT] ip: main+0x2a71c (main @ harness.cpp:96) RSP 0x7ffc3a4357e8 left stack [0xa3,0x7ffc3a417000]
+[STACK PIVOT] ip: main+0x2a71d (main @ harness.cpp:96) RSP 0x7ffc3a4357f0 left stack after RET
+[FREE:internal] free(0x6066aac72860) subject=7 at erand48_r
+[FREE:internal] free(0x6066aac72440) subject=6 at erand48_r
+[FREE:internal] free(0x6066aac72020) subject=5 at erand48_r
+[UNTRUSTEDPTRDEREF] ip: main+0x2a49e (__do_global_dtors_aux) final_ea: 0x606683e24f58 base: 0x606683aab49e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x2a4c4 (__do_global_dtors_aux) RSP 0x7ffc3a4356b0 left stack after RET
+[STACK PIVOT] ip: main+0xf719c (_fini) RSP 0x7ffc3a4356e0 left stack after RET

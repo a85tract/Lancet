@@ -1,0 +1,707 @@
+[INCONSISTENCY mov write reg] ip: main+0x27d8 (main @ harness.c:29) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x27de (main @ harness.c:29) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x282b (main @ harness.c:35) final_ea: 0x7ffd8db7c680 base: 0x7ffd8db7c680 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x2840 (main @ harness.c:35) co: 4 vo: 4, 4 write 4
+[ALLOC] malloc(0x28) -> 0x64f1d154e010 subject=5 at main @ harness.c:48
+[INCONSISTENCY mov write reg] ip: main+0x28a9 (main @ harness.c:48) co: 4 vo: 4, 4 write 4
+[CORRUPTED_PTR_LOAD] ip: main+0x29df (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:12) loaded: 0x28 from cell: 0x7ffd8db7c390 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x29f4 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:12) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c398 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x3432 (ares_parse_a_reply) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c2f4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3438 (ares_parse_a_reply) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c2f8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x6315 (ares__parse_into_addrinfo2) loaded: 0x7ffd8db7c308 from cell: 0x7ffd8db7c218 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x6323 (ares__parse_into_addrinfo2) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c224 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x6336 (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x634c (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x6365 (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x637b (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x63a4 (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x63b7 (ares__parse_into_addrinfo2) loaded: 0x7ffd8db7c308 from cell: 0x7ffd8db7c218 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x63be (ares__parse_into_addrinfo2) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c224 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x63c4 (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x6d9d (ares__expand_name_for_response) loaded: 0x7ffd8db7c258 from cell: 0x7ffd8db7c1c8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x6da1 (ares__expand_name_for_response) loaded: 0x7ffd8db7c308 from cell: 0x7ffd8db7c1d0 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x6da5 (ares__expand_name_for_response) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c1dc cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x6da8 (ares__expand_name_for_response) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c1e0 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x6dac (ares__expand_name_for_response) loaded: 0x64f1d154e01c from cell: 0x7ffd8db7c1e8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x69e8 (ares_expand_name) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c17c cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x69eb (ares_expand_name) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c180 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x69ef (ares_expand_name) loaded: 0x64f1d154e01c from cell: 0x7ffd8db7c188 cell_owner: 10 value_owner: 9
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x6c11 (name_length) add rax, rdx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x6c59 (name_length) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x6d02 (name_length) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[UNINITIALIZED mov read] ip: main+0x6a1e (ares_expand_name) co: 2 vo: -1
+[ALLOC:internal] malloc(0x10) -> 0x64f1d154e040 subject=11 at ares_expand_name
+[CORRUPTED_PTR_LOAD] ip: main+0x6a2e (ares_expand_name) loaded: 0x7ffd8db7c308 from cell: 0x7ffd8db7c170 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x6a35 (ares_expand_name) loaded: 0x7ffd8db7c308 from cell: 0x7ffd8db7c170 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x6a4b (ares_expand_name) loaded: 0x7ffd8db7c308 from cell: 0x7ffd8db7c170 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x6a9e (ares_expand_name) loaded: 0x64f1d154e01c from cell: 0x7ffd8db7c188 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x6ac1 (ares_expand_name) loaded: 0x0 from cell: 0x7ffd8db7c1a8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x6adb (ares_expand_name) loaded: 0x7ffd8db7c258 from cell: 0x7ffd8db7c168 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x6b10 (ares_expand_name) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c180 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x6bbe (ares_expand_name) loaded: 0x7ffd8db7c308 from cell: 0x7ffd8db7c170 cell_owner: 10 value_owner: 9
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c1b8 left stack [0xd,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c208 left stack [0xe,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x63fa (ares__parse_into_addrinfo2) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c224 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x6403 (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x640a (ares__parse_into_addrinfo2) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[CORRUPTED_PTR_LOAD] ip: main+0x641c (ares__parse_into_addrinfo2) loaded: 0x7ffd8db7c308 from cell: 0x7ffd8db7c218 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x644a (ares__parse_into_addrinfo2) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c224 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x6450 (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[ALLOC:internal] malloc(0xc) -> 0x64f1d154e060 subject=16 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c1b8 left stack [0x12,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c208 left stack [0x13,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x648c (ares__parse_into_addrinfo2) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c224 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x6495 (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x649c (ares__parse_into_addrinfo2) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x6582 (ares__parse_into_addrinfo2) add rdx, rax id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[CORRUPTED_PTR_LOAD] ip: main+0x6585 (ares__parse_into_addrinfo2) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c224 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x658e (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x6595 (ares__parse_into_addrinfo2) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[UNINITIALIZED mov read] ip: main+0x68a2 (ares__parse_into_addrinfo2) co: 2 vo: -1
+[FREE:internal] free(0x64f1d154e060) subject=16 at ares__parse_into_addrinfo2
+[FREE:internal] free(0x64f1d154e060) subject=0
+[DOUBLE FREE] free(0x64f1d154e060) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x68b7 (ares__parse_into_addrinfo2) loaded: 0xd154e01000000028 from cell: 0x7ffd8db7c224 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x68c0 (ares__parse_into_addrinfo2) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c228 cell_owner: 8 value_owner: 7
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x68c7 (ares__parse_into_addrinfo2) add rax, rdx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c1b8 left stack [0x16,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c208 left stack [0x17,0x7ffd8db5e000]
+[UNINITIALIZED mov read] ip: main+0x694d (ares__parse_into_addrinfo2) co: 2 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x6959 (ares__parse_into_addrinfo2) loaded: 0x0 from cell: 0x7ffd8db7c240 cell_owner: 8 value_owner: 7
+[INCONSISTENCY mov write reg UAF] ip: main+0x6ed8 (ares__freeaddrinfo_cnames) UAF write at: 0x7ffd8db7c1e8
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6f33 (ares__freeaddrinfo_cnames)
+[STACK PIVOT] ip: main+0x6f3c (ares__freeaddrinfo_cnames) RSP 0x7ffd8db7c208 left stack [0x19,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x6965 (ares__parse_into_addrinfo2) loaded: 0x0 from cell: 0x7ffd8db7c238 cell_owner: 8 value_owner: 7
+[STACK PIVOT] ip: main+0x6f97 (ares__freeaddrinfo_nodes) RSP 0x7ffd8db7c208 left stack [0x1b,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6977 (ares__parse_into_addrinfo2) RSP 0x7ffd8db7c2c8 left stack [0x1c,0x7ffd8db5e000]
+[UNINITIALIZED mov read] ip: main+0x3457 (ares_parse_a_reply) co: 2 vo: -1
+[FREE:internal] free(0x64f1d154e040) subject=11 at ares_parse_a_reply
+[CORRUPTED_PTR_LOAD] ip: main+0x3463 (ares_parse_a_reply) loaded: 0x7ffd8db7c43c from cell: 0x7ffd8db7c2d8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x346d (ares_parse_a_reply) loaded: 0x7ffd8db7c43c from cell: 0x7ffd8db7c2d8 cell_owner: 7 value_owner: 6
+[STACK PIVOT] ip: main+0x38a8 (ares_parse_a_reply) RSP 0x7ffd8db7c388 left stack [0x1d,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x2a08 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:13) loaded: 0x0 from cell: 0x7ffd8db7c468 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2a2c (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:18) loaded: 0x28 from cell: 0x7ffd8db7c390 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2a44 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:18) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c398 cell_owner: 6 value_owner: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d8a (ares__expand_name_for_response) UAF write at: 0x7ffd8db7c1e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d8e (ares__expand_name_for_response) UAF write at: 0x7ffd8db7c1e0
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e0 ip: main+0x6da8 (ares__expand_name_for_response)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6dac (ares__expand_name_for_response)
+[ALLOC:internal] malloc(0x10) -> 0x64f1d154e040 subject=33 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c1b8 left stack [0x23,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x6dbb (ares__expand_name_for_response) UAF write at: 0x7ffd8db7c1fc
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1fc ip: main+0x6dbe (ares__expand_name_for_response)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1fc ip: main+0x6dcb (ares__expand_name_for_response)
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c208 left stack [0x24,0x7ffd8db5e000]
+[ALLOC:internal] malloc(0xc) -> 0x64f1d154e060 subject=38 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c1b8 left stack [0x28,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c208 left stack [0x29,0x7ffd8db5e000]
+[FREE:internal] free(0x64f1d154e060) subject=38 at ares__parse_into_addrinfo2
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c1b8 left stack [0x2c,0x7ffd8db5e000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x6dc4 (ares__expand_name_for_response) UAF write at: 0x7ffd8db7c1fc
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c208 left stack [0x2d,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6f3c (ares__freeaddrinfo_cnames) RSP 0x7ffd8db7c208 left stack [0x2f,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6f97 (ares__freeaddrinfo_nodes) RSP 0x7ffd8db7c208 left stack [0x31,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6977 (ares__parse_into_addrinfo2) RSP 0x7ffd8db7c2c8 left stack [0x32,0x7ffd8db5e000]
+[UNINITIALIZED mov read] ip: main+0x395b (ares_parse_aaaa_reply) co: 2 vo: -1
+[FREE:internal] free(0x64f1d154e040) subject=33 at ares_parse_aaaa_reply
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x3ddf (ares_parse_aaaa_reply)
+[STACK PIVOT] ip: main+0x3de3 (ares_parse_aaaa_reply) RSP 0x7ffd8db7c388 left stack [0x33,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x2a7f (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:23) loaded: 0x28 from cell: 0x7ffd8db7c390 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2a93 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:23) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c398 cell_owner: 6 value_owner: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x4bbb (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c2e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x4bc2 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c2e4
+[INCONSISTENCY mov write reg UAF] ip: main+0x4bc8 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x4bcf (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c2e0
+[INCONSISTENCY mov write reg UAF] ip: main+0x4bd5 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c2d4
+[INCONSISTENCY mov write imm UAF] ip: main+0x4be3 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c354
+[INCONSISTENCY mov write imm UAF] ip: main+0x4bea (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c350
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e4 ip: main+0x4bff (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4c12 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4c28 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4c3e (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c344
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4c41 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4c57 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4c6d (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c340
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c344 ip: main+0x4c70 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4c80 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4c8b (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c360
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e4 ip: main+0x4c97 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4c9d (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4ca4 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d92 (ares__expand_name_for_response) UAF write at: 0x7ffd8db7c28c
+Store dangling pointer: 0x7ffd8db7c308 at: 0x7ffd8db7c280
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d95 (ares__expand_name_for_response) UAF write at: 0x7ffd8db7c280
+first time found dangling pointer at: 3902 distance: 0
+Store dangling pointer: 0x7ffd8db7c310 at: 0x7ffd8db7c278
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d99 (ares__expand_name_for_response) UAF write at: 0x7ffd8db7c278
+first time found dangling pointer at: 3903 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x6d9d (ares__expand_name_for_response) UAF read at: 0x7ffd8db7c278
+first time found dangling pointer at: 3903 distance: 1
+main+0x6d9d (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c310 from 0x7ffd8db7c278
+first time found dangling pointer at: 3903 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x6da1 (ares__expand_name_for_response) UAF read at: 0x7ffd8db7c280
+first time found dangling pointer at: 3902 distance: 3
+main+0x6da1 (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c308 from 0x7ffd8db7c280
+first time found dangling pointer at: 3902 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0x6da5 (ares__expand_name_for_response) UAF read at: 0x7ffd8db7c28c
+[INCONSISTENCY mov write reg UAF] ip: main+0x69ce (ares_expand_name) UAF write at: 0x7ffd8db7c238
+[INCONSISTENCY mov write reg UAF] ip: main+0x69d2 (ares_expand_name) UAF write at: 0x7ffd8db7c230
+[INCONSISTENCY mov write reg UAF] ip: main+0x69d6 (ares_expand_name) UAF write at: 0x7ffd8db7c22c
+[INCONSISTENCY mov write reg UAF] ip: main+0x69d9 (ares_expand_name) UAF write at: 0x7ffd8db7c220
+first time found dangling pointer at: 3919 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x69dd (ares_expand_name) UAF write at: 0x7ffd8db7c218
+first time found dangling pointer at: 3920 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x69e1 (ares_expand_name) UAF write at: 0x7ffd8db7c258
+[INCONSISTENCY mov read UAF] ip: main+0x69e8 (ares_expand_name) UAF read at: 0x7ffd8db7c22c
+[INCONSISTENCY mov read UAF] ip: main+0x69eb (ares_expand_name) UAF read at: 0x7ffd8db7c230
+[INCONSISTENCY mov read UAF] ip: main+0x69ef (ares_expand_name) UAF read at: 0x7ffd8db7c238
+[INCONSISTENCY mov write reg UAF] ip: main+0x6bee (name_length) UAF write at: 0x7ffd8db7c1e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x6bf2 (name_length) UAF write at: 0x7ffd8db7c1e0
+[INCONSISTENCY mov write reg UAF] ip: main+0x6bf6 (name_length) UAF write at: 0x7ffd8db7c1dc
+[INCONSISTENCY mov write imm UAF] ip: main+0x6bf9 (name_length) UAF write at: 0x7ffd8db7c1fc
+[INCONSISTENCY mov write imm UAF] ip: main+0x6c00 (name_length) UAF write at: 0x7ffd8db7c1f4
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1dc ip: main+0x6c07 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e0 ip: main+0x6c0d (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6c14 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6d5c (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6c28 (name_length)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c37 (name_length) UAF write at: 0x7ffd8db7c1f0
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f0 ip: main+0x6c3a (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6c47 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1dc ip: main+0x6c4f (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e0 ip: main+0x6c55 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6c6b (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6c7f (name_length)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c8f (name_length) UAF write at: 0x7ffd8db7c1f8
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f8 ip: main+0x6c92 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f8 ip: main+0x6ca4 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e0 ip: main+0x6caa (name_length)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6cb1 (name_length) UAF write at: 0x7ffd8db7c1e8
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f4 ip: main+0x6cb9 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f4 ip: main+0x6cc1 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f0 ip: main+0x6cd5 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6cdb (name_length)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6ce5 (name_length) UAF write at: 0x7ffd8db7c1f8
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f8 ip: main+0x6ce8 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6cf1 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1dc ip: main+0x6cf8 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e0 ip: main+0x6cfe (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f8 ip: main+0x6d42 (name_length)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d48 (name_length) UAF write at: 0x7ffd8db7c1f8
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6d18 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1e8 ip: main+0x6d23 (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1fc ip: main+0x6d6b (name_length)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1fc ip: main+0x6d71 (name_length)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6a00 (ares_expand_name) UAF write at: 0x7ffd8db7c240
+[INCONSISTENCY mov read UAF] ip: main+0x6a04 (ares_expand_name) UAF read at: 0x7ffd8db7c240
+[INCONSISTENCY mov read UAF] ip: main+0x6a21 (ares_expand_name) UAF read at: 0x7ffd8db7c240
+[ALLOC:internal] malloc(0x10) -> 0x64f1d154e040 subject=54 at ares_expand_name
+[INCONSISTENCY mov read UAF] ip: main+0x6a2e (ares_expand_name) UAF read at: 0x7ffd8db7c220
+first time found dangling pointer at: 3919 distance: 418
+[INCONSISTENCY mov write reg UAF] ip: main+0x6a32 (ares_expand_name) UAF write at: 0x7ffd8db7c308
+[INCONSISTENCY mov read UAF] ip: main+0x6a35 (ares_expand_name) UAF read at: 0x7ffd8db7c220
+first time found dangling pointer at: 3919 distance: 420
+[INCONSISTENCY mov read UAF] ip: main+0x6a39 (ares_expand_name) UAF read at: 0x7ffd8db7c308
+[INCONSISTENCY mov read UAF] ip: main+0x6a4b (ares_expand_name) UAF read at: 0x7ffd8db7c220
+first time found dangling pointer at: 3919 distance: 424
+[INCONSISTENCY mov read UAF] ip: main+0x6a4f (ares_expand_name) UAF read at: 0x7ffd8db7c308
+[INCONSISTENCY mov write reg UAF] ip: main+0x6a52 (ares_expand_name) UAF write at: 0x7ffd8db7c250
+[INCONSISTENCY mov read UAF] ip: main+0x6a56 (ares_expand_name) UAF read at: 0x7ffd8db7c240
+[INCONSISTENCY mov read UAF] ip: main+0x6a9e (ares_expand_name) UAF read at: 0x7ffd8db7c238
+[INCONSISTENCY mov write reg UAF] ip: main+0x6aa2 (ares_expand_name) UAF write at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6b8e (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6aab (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6ac1 (ares_expand_name) UAF read at: 0x7ffd8db7c258
+[INCONSISTENCY mov read UAF] ip: main+0x6ac7 (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c1b (aresx_uztosl) UAF write at: 0x7ffd8db7c1f8
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c1f8 ip: main+0x8c1f (aresx_uztosl)
+[INCONSISTENCY mov read UAF] ip: main+0x6adb (ares_expand_name) UAF read at: 0x7ffd8db7c218
+first time found dangling pointer at: 3920 distance: 458
+[INCONSISTENCY mov write reg UAF] ip: main+0x6adf (ares_expand_name) UAF write at: 0x7ffd8db7c310
+[INCONSISTENCY mov write imm UAF] ip: main+0x6ae2 (ares_expand_name) UAF write at: 0x7ffd8db7c258
+[INCONSISTENCY mov read UAF] ip: main+0x6ae9 (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6afd (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6b10 (ares_expand_name) UAF read at: 0x7ffd8db7c230
+[INCONSISTENCY mov write reg UAF] ip: main+0x6b17 (ares_expand_name) UAF write at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6b1d (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov write reg UAF] ip: main+0x6b27 (ares_expand_name) UAF write at: 0x7ffd8db7c25c
+[INCONSISTENCY mov read UAF] ip: main+0x6b72 (ares_expand_name) UAF read at: 0x7ffd8db7c25c
+[INCONSISTENCY mov write reg UAF] ip: main+0x6b78 (ares_expand_name) UAF write at: 0x7ffd8db7c25c
+[INCONSISTENCY mov read UAF] ip: main+0x6b31 (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6b3c (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6b56 (ares_expand_name) UAF read at: 0x7ffd8db7c248
+[INCONSISTENCY mov read UAF] ip: main+0x6b5d (ares_expand_name) UAF read at: 0x7ffd8db7c250
+[INCONSISTENCY mov write reg UAF] ip: main+0x6b65 (ares_expand_name) UAF write at: 0x7ffd8db7c250
+[INCONSISTENCY mov read UAF] ip: main+0x6b47 (ares_expand_name) UAF read at: 0x7ffd8db7c250
+[INCONSISTENCY mov write reg UAF] ip: main+0x6b4f (ares_expand_name) UAF write at: 0x7ffd8db7c250
+[INCONSISTENCY mov read UAF] ip: main+0x6b7f (ares_expand_name) UAF read at: 0x7ffd8db7c250
+[INCONSISTENCY mov write reg UAF] ip: main+0x6b87 (ares_expand_name) UAF write at: 0x7ffd8db7c250
+[INCONSISTENCY mov read UAF] ip: main+0x6b9d (ares_expand_name) UAF read at: 0x7ffd8db7c258
+[INCONSISTENCY mov read UAF] ip: main+0x6bbe (ares_expand_name) UAF read at: 0x7ffd8db7c220
+first time found dangling pointer at: 3919 distance: 801
+[INCONSISTENCY mov read UAF] ip: main+0x6bc2 (ares_expand_name) UAF read at: 0x7ffd8db7c308
+[INCONSISTENCY mov read UAF] ip: main+0x6bc5 (ares_expand_name) UAF read at: 0x7ffd8db7c250
+[INCONSISTENCY mov read UAF] ip: main+0x6bcb (ares_expand_name) UAF read at: 0x7ffd8db7c250
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c268 left stack [0x38,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c2b8 left stack [0x39,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x4cb3 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c36c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x4cb6 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c310 ip: main+0x4cc4 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4ccc (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e4 ip: main+0x4cd3 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4cdc (ares_parse_ptr_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4ce3 (ares_parse_ptr_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c310 ip: main+0x4d08 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write imm UAF] ip: main+0x4d14 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c358
+[UNINITIALIZED mov read] ip: main+0x4d23 (ares_parse_ptr_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c350 ip: main+0x4d26 (ares_parse_ptr_reply)
+[ALLOC:internal] malloc(0x40) -> 0x64f1d154e380 subject=57 at ares_parse_ptr_reply
+[INCONSISTENCY mov write reg UAF] ip: main+0x4d35 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c348
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c348 ip: main+0x4d39 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write imm UAF] ip: main+0x4d5d (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c368
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c340 ip: main+0x50fc (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c368 ip: main+0x50ff (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e4 ip: main+0x4d71 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4d77 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4d7e (ares_parse_ptr_reply)
+Store dangling pointer: 0x7ffd8db7c300 at: 0x7ffd8db7c280
+main+0x6da1 (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c300 from 0x7ffd8db7c280
+first time found dangling pointer at: 3902 distance: 885
+[ALLOC:internal] malloc(0xc) -> 0x64f1d154e060 subject=60 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c268 left stack [0x3e,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c2b8 left stack [0x3f,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x4d8d (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c36c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x4d90 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c310 ip: main+0x4d9a (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4da2 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e4 ip: main+0x4daa (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4db3 (ares_parse_ptr_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4dba (ares_parse_ptr_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4de1 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4df0 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4e03 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c33c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4e06 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4e19 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4e2c (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c338
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4e2f (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4e42 (ares_parse_ptr_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4e55 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c334
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c334 ip: main+0x4e5d (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x4e63 (ares_parse_ptr_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4e67 (ares_parse_ptr_reply) add rdx, rax id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e4 ip: main+0x4e6a (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x4e73 (ares_parse_ptr_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4e7a (ares_parse_ptr_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c338 ip: main+0x4ea1 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c33c ip: main+0x4eab (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c338 ip: main+0x504b (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c33c ip: main+0x5051 (ares_parse_ptr_reply)
+[UNINITIALIZED mov read] ip: main+0x50c1 (ares_parse_ptr_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c300 ip: main+0x50c4 (ares_parse_ptr_reply)
+[FREE:internal] free(0x64f1d154e060) subject=60 at ares_parse_ptr_reply
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c334 ip: main+0x50cd (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e4 ip: main+0x50d6 (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2e8 ip: main+0x50df (ares_parse_ptr_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x50e6 (ares_parse_ptr_reply) add rax, rdx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x50e9 (ares_parse_ptr_reply)
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c268 left stack [0x42,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c2b8 left stack [0x43,0x7ffd8db5e000]
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x510b (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x511f (ares_parse_ptr_reply)
+[INCONSISTENCY mov write imm UAF] ip: main+0x5338 (ares_parse_ptr_reply) UAF write at: 0x7ffd8db7c368
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c368 ip: main+0x5387 (ares_parse_ptr_reply)
+[UNINITIALIZED mov read] ip: main+0x5396 (ares_parse_ptr_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c348 ip: main+0x5399 (ares_parse_ptr_reply)
+[FREE:internal] free(0x64f1d154e380) subject=57 at ares_parse_ptr_reply
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x53a2 (ares_parse_ptr_reply)
+[UNINITIALIZED mov read] ip: main+0x53c3 (ares_parse_ptr_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x53c6 (ares_parse_ptr_reply)
+[FREE:internal] free(0x64f1d154e040) subject=54 at ares_parse_ptr_reply
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x53cf (ares_parse_ptr_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x53d2 (ares_parse_ptr_reply)
+[STACK PIVOT] ip: main+0x53d6 (ares_parse_ptr_reply) RSP 0x7ffd8db7c388 left stack [0x44,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x2acd (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:27) loaded: 0x28 from cell: 0x7ffd8db7c390 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2ada (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:27) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c398 cell_owner: 6 value_owner: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x4664 (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c308
+[INCONSISTENCY mov write reg UAF] ip: main+0x4668 (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c304
+[INCONSISTENCY mov write reg UAF] ip: main+0x466b (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c2f8
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2f8 ip: main+0x4672 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x4680 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x4690 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x46a3 (ares_parse_ns_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x46b6 (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c354
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x46b9 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x46cc (ares_parse_ns_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x46df (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c350
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c354 ip: main+0x46e2 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x46f2 (ares_parse_ns_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x46fa (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c358
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x4706 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x4709 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x470d (ares_parse_ns_reply)
+Store dangling pointer: 0x7ffd8db7c320 at: 0x7ffd8db7c2b0
+Store dangling pointer: 0x7ffd8db7c328 at: 0x7ffd8db7c2a8
+main+0x6d9d (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c328 from 0x7ffd8db7c2a8
+first time found dangling pointer at: 5626 distance: 1
+main+0x6da1 (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c320 from 0x7ffd8db7c2b0
+first time found dangling pointer at: 5625 distance: 3
+[ALLOC:internal] malloc(0x10) -> 0x64f1d154e040 subject=70 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c298 left stack [0x48,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c2e8 left stack [0x49,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x471c (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c36c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x471f (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x472d (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x4735 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x473c (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x4742 (ares_parse_ns_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4746 (ares_parse_ns_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x476b (ares_parse_ns_reply)
+[UNINITIALIZED mov read] ip: main+0x477e (ares_parse_ns_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c350 ip: main+0x4781 (ares_parse_ns_reply)
+[ALLOC:internal] malloc(0xb790) -> 0x64f1d154e3d0 subject=73 at ares_parse_ns_reply
+[INCONSISTENCY mov write reg UAF] ip: main+0x4792 (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c348
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c348 ip: main+0x4796 (ares_parse_ns_reply)
+[INCONSISTENCY mov write imm UAF] ip: main+0x47ba (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c364
+[INCONSISTENCY mov write imm UAF] ip: main+0x47c1 (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c368
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c350 ip: main+0x4a46 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c368 ip: main+0x4a49 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x47d5 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x47d8 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x47dc (ares_parse_ns_reply)
+Store dangling pointer: 0x7ffd8db7c318 at: 0x7ffd8db7c2b0
+main+0x6da1 (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c318 from 0x7ffd8db7c2b0
+first time found dangling pointer at: 5625 distance: 756
+[ALLOC:internal] malloc(0xc) -> 0x64f1d154e060 subject=76 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c298 left stack [0x4e,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c2e8 left stack [0x4f,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x47eb (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c36c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x47ee (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x47f8 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x4800 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x4808 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x480e (ares_parse_ns_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4812 (ares_parse_ns_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x4839 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x4848 (ares_parse_ns_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x485b (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c344
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x485e (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x4871 (ares_parse_ns_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4884 (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c340
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x4887 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x489a (ares_parse_ns_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x48ad (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c33c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c33c ip: main+0x48b5 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x48bb (ares_parse_ns_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x48bf (ares_parse_ns_reply) add rdx, rax id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x48c2 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x48c8 (ares_parse_ns_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x48cc (ares_parse_ns_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c340 ip: main+0x48f3 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c344 ip: main+0x48fd (ares_parse_ns_reply)
+[UNINITIALIZED mov read] ip: main+0x4a11 (ares_parse_ns_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c318 ip: main+0x4a14 (ares_parse_ns_reply)
+[FREE:internal] free(0x64f1d154e060) subject=76 at ares_parse_ns_reply
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c33c ip: main+0x4a1d (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x4a26 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x4a2c (ares_parse_ns_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4a30 (ares_parse_ns_reply) add rax, rdx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x4a33 (ares_parse_ns_reply)
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c298 left stack [0x52,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c2e8 left stack [0x53,0x7ffd8db5e000]
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x4a55 (ares_parse_ns_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x4a68 (ares_parse_ns_reply)
+[INCONSISTENCY mov write imm UAF] ip: main+0x4b3e (ares_parse_ns_reply) UAF write at: 0x7ffd8db7c368
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c368 ip: main+0x4b71 (ares_parse_ns_reply)
+[UNINITIALIZED mov read] ip: main+0x4b80 (ares_parse_ns_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c348 ip: main+0x4b83 (ares_parse_ns_reply)
+[FREE:internal] free(0x64f1d154e3d0) subject=73 at ares_parse_ns_reply
+[UNINITIALIZED mov read] ip: main+0x4b93 (ares_parse_ns_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c320 ip: main+0x4b96 (ares_parse_ns_reply)
+[FREE:internal] free(0x64f1d154e040) subject=70 at ares_parse_ns_reply
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x4b9f (ares_parse_ns_reply)
+[CORRUPTED_PTR_LOAD] ip: main+0x2b0b (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:31) loaded: 0x28 from cell: 0x7ffd8db7c390 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2b1b (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:31) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c398 cell_owner: 6 value_owner: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x59d5 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c308
+[INCONSISTENCY mov write reg UAF] ip: main+0x59d9 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c304
+[INCONSISTENCY mov write reg UAF] ip: main+0x59dc (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c2f8
+[INCONSISTENCY mov write imm UAF] ip: main+0x59e3 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c320
+[INCONSISTENCY mov write imm UAF] ip: main+0x59eb (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c318
+[INCONSISTENCY mov write imm UAF] ip: main+0x59f3 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c360
+[INCONSISTENCY mov write imm UAF] ip: main+0x59fb (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c358
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c2f8 ip: main+0x5a03 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x5a11 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5a21 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5a34 (ares_parse_srv_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5a47 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c354
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5a4a (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5a5d (ares_parse_srv_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5a70 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c350
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c354 ip: main+0x5a73 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c350 ip: main+0x5a83 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5a93 (ares_parse_srv_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5a9b (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c370
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x5aa7 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5aaa (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5aae (ares_parse_srv_reply)
+[ALLOC:internal] malloc(0x10) -> 0x64f1d154e040 subject=86 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2e8 left stack [0x58,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x5abd (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c36c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x5ac0 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5ace (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5ad6 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x5add (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5ae3 (ares_parse_srv_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5ae7 (ares_parse_srv_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5b0c (ares_parse_srv_reply)
+[INCONSISTENCY mov write imm UAF] ip: main+0x5b18 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c37c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c37c ip: main+0x5d6e (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x5b2c (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5b2f (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5b33 (ares_parse_srv_reply)
+[ALLOC:internal] malloc(0xc) -> 0x64f1d154e060 subject=89 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2e8 left stack [0x5b,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x5b42 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c36c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x5b45 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5b4f (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5b57 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x5b5f (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5b65 (ares_parse_srv_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5b69 (ares_parse_srv_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5b7d (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5b8c (ares_parse_srv_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5b9f (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c34c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5ba2 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5bb5 (ares_parse_srv_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5bc8 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c348
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5bcb (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5bde (ares_parse_srv_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5bf1 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c344
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c344 ip: main+0x5bf9 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c370 ip: main+0x5bff (ares_parse_srv_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5c03 (ares_parse_srv_reply) add rdx, rax id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c304 ip: main+0x5c06 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c308 ip: main+0x5c0c (ares_parse_srv_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5c10 (ares_parse_srv_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c348 ip: main+0x5c24 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c34c ip: main+0x5c2e (ares_parse_srv_reply)
+[UNINITIALIZED mov read] ip: main+0x5d4d (ares_parse_srv_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c318 ip: main+0x5d50 (ares_parse_srv_reply)
+[FREE:internal] free(0x64f1d154e060) subject=89 at ares_parse_srv_reply
+[INCONSISTENCY mov write imm UAF] ip: main+0x5d59 (ares_parse_srv_reply) UAF write at: 0x7ffd8db7c318
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c344 ip: main+0x5d61 (ares_parse_srv_reply)
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2e8 left stack [0x5d,0x7ffd8db5e000]
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c320 ip: main+0x5d80 (ares_parse_srv_reply)
+[UNINITIALIZED mov read] ip: main+0x5d90 (ares_parse_srv_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c320 ip: main+0x5d93 (ares_parse_srv_reply)
+[FREE:internal] free(0x64f1d154e040) subject=86 at ares_parse_srv_reply
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c318 ip: main+0x5d9c (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x5db8 (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x5dbe (ares_parse_srv_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x5dd1 (ares_parse_srv_reply)
+[STACK PIVOT] ip: main+0x5de9 (ares_parse_srv_reply) RSP 0x7ffd8db7c388 left stack [0x5e,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x2b52 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:35) loaded: 0x28 from cell: 0x7ffd8db7c390 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2b62 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:35) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c398 cell_owner: 6 value_owner: 4
+[ALLOC:internal] malloc(0x10) -> 0x64f1d154e040 subject=96 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2e8 left stack [0x62,0x7ffd8db5e000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x3f06 (ares_parse_mx_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[ALLOC:internal] malloc(0xc) -> 0x64f1d154e060 subject=99 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2e8 left stack [0x65,0x7ffd8db5e000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x3f88 (ares_parse_mx_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4022 (ares_parse_mx_reply) add rdx, rax id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x402f (ares_parse_mx_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[UNINITIALIZED mov read] ip: main+0x4114 (ares_parse_mx_reply) co: 2 vo: -1
+[FREE:internal] free(0x64f1d154e060) subject=99 at ares_parse_mx_reply
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2e8 left stack [0x67,0x7ffd8db5e000]
+[UNINITIALIZED mov read] ip: main+0x4157 (ares_parse_mx_reply) co: 2 vo: -1
+[FREE:internal] free(0x64f1d154e040) subject=96 at ares_parse_mx_reply
+[STACK PIVOT] ip: main+0x41b0 (ares_parse_mx_reply) RSP 0x7ffd8db7c388 left stack [0x68,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x2b99 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:39) loaded: 0x28 from cell: 0x7ffd8db7c390 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2ba9 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:39) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c398 cell_owner: 6 value_owner: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x625f (ares_parse_txt_reply) UAF write at: 0x7ffd8db7c378
+[INCONSISTENCY mov write reg UAF] ip: main+0x6263 (ares_parse_txt_reply) UAF write at: 0x7ffd8db7c374
+[INCONSISTENCY mov write reg UAF] ip: main+0x6266 (ares_parse_txt_reply) UAF write at: 0x7ffd8db7c368
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c368 ip: main+0x626a (ares_parse_txt_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c374 ip: main+0x626e (ares_parse_txt_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x6271 (ares_parse_txt_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5dfa (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5dfe (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c2d4
+[INCONSISTENCY mov write reg UAF] ip: main+0x5e01 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c2d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x5e04 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c2c8
+[INCONSISTENCY mov write imm UAF] ip: main+0x5e0b (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c2e8
+[INCONSISTENCY mov write imm UAF] ip: main+0x5e13 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c2e0
+[INCONSISTENCY mov write imm UAF] ip: main+0x5e1b (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c328
+[INCONSISTENCY mov write imm UAF] ip: main+0x5e23 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c320
+[INCONSISTENCY mov read UAF] ip: main+0x5e2b (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2c8
+[INCONSISTENCY mov read UAF] ip: main+0x5e39 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d4
+[INCONSISTENCY mov read UAF] ip: main+0x5e49 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov read UAF] ip: main+0x5e5c (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5e6f (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c31c
+[INCONSISTENCY mov read UAF] ip: main+0x5e72 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov read UAF] ip: main+0x5e85 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5e98 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c318
+[INCONSISTENCY mov read UAF] ip: main+0x5e9b (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c31c
+[INCONSISTENCY mov read UAF] ip: main+0x5eab (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c318
+[INCONSISTENCY mov read UAF] ip: main+0x5ebb (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5ec3 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c340
+[INCONSISTENCY mov read UAF] ip: main+0x5ecf (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d4
+[INCONSISTENCY mov read UAF] ip: main+0x5ed2 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov read UAF] ip: main+0x5ed6 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+Store dangling pointer: 0x7ffd8db7c2e8 at: 0x7ffd8db7c270
+Store dangling pointer: 0x7ffd8db7c2f0 at: 0x7ffd8db7c268
+[ALLOC:internal] malloc(0x10) -> 0x64f1d154e040 subject=107 at ares_expand_name
+main+0x6a2e (ares_expand_name) Using expired pointer: 0x7ffd8db7c2e8 from 0x7ffd8db7c270
+first time found dangling pointer at: 9430 distance: 227
+main+0x6adb (ares_expand_name) Using expired pointer: 0x7ffd8db7c2f0 from 0x7ffd8db7c268
+first time found dangling pointer at: 9431 distance: 263
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2b8 left stack [0x6d,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x5ee5 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c334
+[INCONSISTENCY mov read UAF] ip: main+0x5ee8 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c334
+[INCONSISTENCY mov read UAF] ip: main+0x5ef6 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2f0
+[INCONSISTENCY mov read UAF] ip: main+0x5efe (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY mov read UAF] ip: main+0x5f05 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d4
+[INCONSISTENCY mov read UAF] ip: main+0x5f0b (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5f0f (ares__parse_txt_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY mov read UAF] ip: main+0x5f34 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2f0
+[INCONSISTENCY mov write imm UAF] ip: main+0x5f40 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c34c
+[INCONSISTENCY mov read UAF] ip: main+0x61d6 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c34c
+[INCONSISTENCY mov read UAF] ip: main+0x5f54 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d4
+[INCONSISTENCY mov read UAF] ip: main+0x5f57 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY mov read UAF] ip: main+0x5f5b (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+Store dangling pointer: 0x7ffd8db7c2e0 at: 0x7ffd8db7c270
+[ALLOC:internal] malloc(0xc) -> 0x64f1d154e060 subject=110 at ares_expand_name
+main+0x6a2e (ares_expand_name) Using expired pointer: 0x7ffd8db7c2e0 from 0x7ffd8db7c270
+first time found dangling pointer at: 9430 distance: 562
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2b8 left stack [0x70,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x5f6a (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c334
+[INCONSISTENCY mov read UAF] ip: main+0x5f6d (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c334
+[INCONSISTENCY mov read UAF] ip: main+0x5f77 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2f0
+[INCONSISTENCY mov read UAF] ip: main+0x5f7f (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY mov read UAF] ip: main+0x5f87 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d4
+[INCONSISTENCY mov read UAF] ip: main+0x5f8d (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5f91 (ares__parse_txt_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY mov read UAF] ip: main+0x5fa5 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY mov read UAF] ip: main+0x5fb4 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY mov write reg UAF] ip: main+0x5fc7 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c314
+[INCONSISTENCY mov read UAF] ip: main+0x5fca (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY mov read UAF] ip: main+0x5fdd (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY mov write reg UAF] ip: main+0x5ff0 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c310
+[INCONSISTENCY mov read UAF] ip: main+0x5ff3 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY mov read UAF] ip: main+0x6006 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY mov write reg UAF] ip: main+0x6019 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c30c
+[INCONSISTENCY mov read UAF] ip: main+0x6021 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c30c
+[INCONSISTENCY mov read UAF] ip: main+0x6027 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c340
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x602b (ares__parse_txt_reply) add rdx, rax id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY mov read UAF] ip: main+0x602e (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d4
+[INCONSISTENCY mov read UAF] ip: main+0x6034 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2d8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x6038 (ares__parse_txt_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+[INCONSISTENCY mov read UAF] ip: main+0x604c (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c310
+[INCONSISTENCY mov read UAF] ip: main+0x6056 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c314
+[INCONSISTENCY mov read UAF] ip: main+0x61a8 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c334
+[UNINITIALIZED mov read] ip: main+0x61b5 (ares__parse_txt_reply) co: 2 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x61b8 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2e0
+[FREE:internal] free(0x64f1d154e060) subject=110 at ares__parse_txt_reply
+[INCONSISTENCY mov write imm UAF] ip: main+0x61c1 (ares__parse_txt_reply) UAF write at: 0x7ffd8db7c2e0
+[INCONSISTENCY mov read UAF] ip: main+0x61c9 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c30c
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2b8 left stack [0x72,0x7ffd8db5e000]
+[INCONSISTENCY mov read UAF] ip: main+0x61e8 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2e8
+[UNINITIALIZED mov read] ip: main+0x61f8 (ares__parse_txt_reply) co: 2 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x61fb (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2e8
+[FREE:internal] free(0x64f1d154e040) subject=107 at ares__parse_txt_reply
+[INCONSISTENCY mov read UAF] ip: main+0x6204 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c2e0
+[INCONSISTENCY mov read UAF] ip: main+0x6220 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c334
+[INCONSISTENCY mov read UAF] ip: main+0x6226 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c328
+[INCONSISTENCY mov read UAF] ip: main+0x6239 (ares__parse_txt_reply) UAF read at: 0x7ffd8db7c334
+[STACK PIVOT] ip: main+0x6251 (ares__parse_txt_reply) RSP 0x7ffd8db7c358 left stack [0x73,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6285 (ares_parse_txt_reply) RSP 0x7ffd8db7c388 left stack [0x74,0x7ffd8db5e000]
+[CORRUPTED_PTR_LOAD] ip: main+0x2be0 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:43) loaded: 0x28 from cell: 0x7ffd8db7c390 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2bf0 (LLVMFuzzerTestOneInput @ ares-test-fuzz.c:43) loaded: 0x64f1d154e010 from cell: 0x7ffd8db7c398 cell_owner: 6 value_owner: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x53e4 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c328
+[INCONSISTENCY mov write reg UAF] ip: main+0x53e8 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c324
+[INCONSISTENCY mov write reg UAF] ip: main+0x53eb (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c318
+[INCONSISTENCY mov write imm UAF] ip: main+0x53ef (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c340
+[INCONSISTENCY mov write imm UAF] ip: main+0x53f7 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c338
+[INCONSISTENCY mov write imm UAF] ip: main+0x53ff (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c370
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c324 ip: main+0x5407 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5417 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x542a (ares_parse_soa_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x543d (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c364
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5440 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5453 (ares_parse_soa_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5466 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c360
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c364 ip: main+0x5469 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c360 ip: main+0x5479 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5489 (ares_parse_soa_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5491 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c378
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c324 ip: main+0x549d (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x54a0 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x54a4 (ares_parse_soa_reply)
+Store dangling pointer: 0x7ffd8db7c340 at: 0x7ffd8db7c2d0
+Store dangling pointer: 0x7ffd8db7c348 at: 0x7ffd8db7c2c8
+main+0x6d9d (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c348 from 0x7ffd8db7c2c8
+first time found dangling pointer at: 10323 distance: 1
+main+0x6da1 (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c340 from 0x7ffd8db7c2d0
+first time found dangling pointer at: 10322 distance: 3
+[ALLOC:internal] malloc(0x10) -> 0x64f1d154e040 subject=119 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2b8 left stack [0x79,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c308 left stack [0x7a,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x54b3 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c36c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x54b6 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c348 ip: main+0x54c0 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x54c8 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x54d7 (ares_parse_soa_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x54ea (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c35c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x54ed (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c324 ip: main+0x54f5 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x54fb (ares_parse_soa_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x54ff (ares_parse_soa_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c35c ip: main+0x5510 (ares_parse_soa_reply)
+[INCONSISTENCY mov write imm UAF] ip: main+0x5520 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c368
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c368 ip: main+0x596c (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c324 ip: main+0x5534 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5537 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x553b (ares_parse_soa_reply)
+Store dangling pointer: 0x7ffd8db7c338 at: 0x7ffd8db7c2d0
+main+0x6da1 (ares__expand_name_for_response) Using expired pointer: 0x7ffd8db7c338 from 0x7ffd8db7c2d0
+first time found dangling pointer at: 10322 distance: 406
+[ALLOC:internal] malloc(0xc) -> 0x64f1d154e060 subject=124 at ares_expand_name
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2b8 left stack [0x7e,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c308 left stack [0x7f,0x7ffd8db5e000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x554a (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c36c
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c36c ip: main+0x554d (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c348 ip: main+0x556b (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x5573 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c324 ip: main+0x557b (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x5581 (ares_parse_soa_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5585 (ares_parse_soa_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x55ac (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x55bb (ares_parse_soa_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x55ce (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c358
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x55d1 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x55e4 (ares_parse_soa_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x55f7 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c354
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x55fa (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x560d (ares_parse_soa_reply)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5620 (ares_parse_soa_reply) UAF write at: 0x7ffd8db7c350
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c350 ip: main+0x5628 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x562e (ares_parse_soa_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5632 (ares_parse_soa_reply) add rdx, rax id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c324 ip: main+0x5635 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x563b (ares_parse_soa_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x563f (ares_parse_soa_reply) add rax, rcx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c354 ip: main+0x5666 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c358 ip: main+0x5670 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c350 ip: main+0x5939 (ares_parse_soa_reply)
+[UNINITIALIZED mov read] ip: main+0x5949 (ares_parse_soa_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c338 ip: main+0x594c (ares_parse_soa_reply)
+[FREE:internal] free(0x64f1d154e060) subject=124 at ares_parse_soa_reply
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c324 ip: main+0x5955 (ares_parse_soa_reply)
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c328 ip: main+0x595b (ares_parse_soa_reply)
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x595f (ares_parse_soa_reply) add rax, rdx id before: 5 after: -1 [chunk metadata] value: 0x64f1d154e038
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c378 ip: main+0x5962 (ares_parse_soa_reply)
+[STACK PIVOT] ip: main+0x6be4 (ares_expand_name) RSP 0x7ffd8db7c2b8 left stack [0x82,0x7ffd8db5e000]
+[STACK PIVOT] ip: main+0x6dce (ares__expand_name_for_response) RSP 0x7ffd8db7c308 left stack [0x83,0x7ffd8db5e000]
+[UNINITIALIZED mov read] ip: main+0x555a (ares_parse_soa_reply) co: 2 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd8db7c338 ip: main+0x555d (ares_parse_soa_reply)
+main+0x555d (ares_parse_soa_reply) Read a dangling pointer 0x64f1d154e060 from 0x7ffd8db7c338
+[FREE:internal] free(0x64f1d154e060) subject=0 at ares_parse_soa_reply
+[DOUBLE FREE] free(0x64f1d154e060) — already freed

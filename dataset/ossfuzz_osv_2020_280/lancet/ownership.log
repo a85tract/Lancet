@@ -1,0 +1,115 @@
+[INCONSISTENCY mov write reg] ip: main+0x27f8 (main @ harness.c:29) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x27fe (main @ harness.c:29) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x284b (main @ harness.c:35) final_ea: 0x7fff7f0bb760 base: 0x7fff7f0bb760 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x2860 (main @ harness.c:35) co: 4 vo: 4, 4 write 4
+[ALLOC] malloc(0x2c) -> 0x65366c0a9010 subject=5 at main @ harness.c:48
+[INCONSISTENCY mov write reg] ip: main+0x28cc (main @ harness.c:48) co: 4 vo: 4, 4 write 4
+[CORRUPTED_PTR_LOAD] ip: main+0x3024 (ares_parse_a_reply) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb284 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x302a (ares_parse_a_reply) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb288 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x39c1 (ares__parse_into_addrinfo2) loaded: 0x7fff7f0bb298 from cell: 0x7fff7f0bb1a8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x39cf (ares__parse_into_addrinfo2) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb1b4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x39e2 (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x39f8 (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3a11 (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3a27 (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3a50 (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3a63 (ares__parse_into_addrinfo2) loaded: 0x7fff7f0bb298 from cell: 0x7fff7f0bb1a8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3a6a (ares__parse_into_addrinfo2) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb1b4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3a70 (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x4449 (ares__expand_name_for_response) loaded: 0x7fff7f0bb1e8 from cell: 0x7fff7f0bb158 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x444d (ares__expand_name_for_response) loaded: 0x7fff7f0bb298 from cell: 0x7fff7f0bb160 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x4451 (ares__expand_name_for_response) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb16c cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x4454 (ares__expand_name_for_response) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb170 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x4458 (ares__expand_name_for_response) loaded: 0x65366c0a901c from cell: 0x7fff7f0bb178 cell_owner: 8 value_owner: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x4094 (ares_expand_name) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb10c cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4097 (ares_expand_name) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb110 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x409b (ares_expand_name) loaded: 0x65366c0a901c from cell: 0x7fff7f0bb118 cell_owner: 9 value_owner: 8
+[UNINITIALIZED mov read] ip: main+0x40ca (ares_expand_name) co: 2 vo: -1
+[ALLOC:internal] malloc(0x1) -> 0x65366c0a9050 subject=10 at ares_expand_name
+[CORRUPTED_PTR_LOAD] ip: main+0x40da (ares_expand_name) loaded: 0x7fff7f0bb298 from cell: 0x7fff7f0bb100 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x40e1 (ares_expand_name) loaded: 0x7fff7f0bb298 from cell: 0x7fff7f0bb100 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x40f7 (ares_expand_name) loaded: 0x7fff7f0bb298 from cell: 0x7fff7f0bb100 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4112 (ares_expand_name) loaded: 0x65366c0a901c from cell: 0x7fff7f0bb118 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4135 (ares_expand_name) loaded: 0x7fff7f0bb1e8 from cell: 0x7fff7f0bb0f8 cell_owner: 9 value_owner: 8
+[STACK PIVOT] ip: main+0x4290 (ares_expand_name) RSP 0x7fff7f0bb148 left stack [0xc,0x7fff7f09c000]
+[STACK PIVOT] ip: main+0x447a (ares__expand_name_for_response) RSP 0x7fff7f0bb198 left stack [0xd,0x7fff7f09c000]
+[CORRUPTED_PTR_LOAD] ip: main+0x3aa6 (ares__parse_into_addrinfo2) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb1b4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3aaf (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3ac8 (ares__parse_into_addrinfo2) loaded: 0x7fff7f0bb298 from cell: 0x7fff7f0bb1a8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3af6 (ares__parse_into_addrinfo2) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb1b4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3afc (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[ALLOC:internal] malloc(0x1) -> 0x65366c0a9070 subject=15 at ares_expand_name
+[STACK PIVOT] ip: main+0x4290 (ares_expand_name) RSP 0x7fff7f0bb148 left stack [0x11,0x7fff7f09c000]
+[STACK PIVOT] ip: main+0x447a (ares__expand_name_for_response) RSP 0x7fff7f0bb198 left stack [0x12,0x7fff7f09c000]
+[CORRUPTED_PTR_LOAD] ip: main+0x3b38 (ares__parse_into_addrinfo2) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb1b4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3b41 (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3c31 (ares__parse_into_addrinfo2) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb1b4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3c3a (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3dbd (ares__parse_into_addrinfo2) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb1b4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3dc6 (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[INCONSISTENCY mov write reg UAF] ip: main+0x4766 (ares__append_addrinfo_node) UAF write at: 0x7fff7f0bb178
+[UNINITIALIZED mov read] ip: main+0x470d (ares__malloc_addrinfo_node) co: 2 vo: -1
+[ALLOC:internal] malloc(0x28) -> 0x65366c0a9090 subject=20 at ares__malloc_addrinfo_node
+[INCONSISTENCY mov write reg UAF] ip: main+0x4717 (ares__malloc_addrinfo_node) UAF write at: 0x7fff7f0bb158
+[INCONSISTENCY mov read UAF] ip: main+0x471b (ares__malloc_addrinfo_node) UAF read at: 0x7fff7f0bb158
+[INCONSISTENCY mov read UAF] ip: main+0x4729 (ares__malloc_addrinfo_node) UAF read at: 0x7fff7f0bb158
+[INCONSISTENCY mov read UAF] ip: main+0x4754 (ares__malloc_addrinfo_node) UAF read at: 0x7fff7f0bb158
+[STACK PIVOT] ip: main+0x4758 (ares__malloc_addrinfo_node) RSP 0x7fff7f0bb168 left stack [0x16,0x7fff7f09c000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x476f (ares__append_addrinfo_node) UAF write at: 0x7fff7f0bb180
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb178 ip: main+0x4773 (ares__append_addrinfo_node)
+[CORRUPTED_PTR_LOAD] ip: main+0x4777 (ares__append_addrinfo_node) loaded: 0x0 from cell: 0x7fff7f0bb1c8 cell_owner: 7 value_owner: 6
+[INCONSISTENCY mov write reg UAF] ip: main+0x477a (ares__append_addrinfo_node) UAF write at: 0x7fff7f0bb188
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb188 ip: main+0x477e (ares__append_addrinfo_node)
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb178 ip: main+0x4785 (ares__append_addrinfo_node)
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb180 ip: main+0x4789 (ares__append_addrinfo_node)
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb180 ip: main+0x4790 (ares__append_addrinfo_node)
+[STACK PIVOT] ip: main+0x47bf (ares__append_addrinfo_node) RSP 0x7fff7f0bb198 left stack [0x17,0x7fff7f09c000]
+[UNINITIALIZED mov read] ip: main+0x3e0e (ares__parse_into_addrinfo2) co: 2 vo: -1
+[ALLOC:internal] malloc(0x1c) -> 0x65366c0a90c0 subject=23 at ares__parse_into_addrinfo2
+[UNINITIALIZED mov read] ip: main+0x3f4e (ares__parse_into_addrinfo2) co: 2 vo: -1
+[FREE:internal] free(0x65366c0a9070) subject=15 at ares__parse_into_addrinfo2
+[FREE:internal] free(0x65366c0a9070) subject=0
+[DOUBLE FREE] free(0x65366c0a9070) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x3f63 (ares__parse_into_addrinfo2) loaded: 0x6c0a90100000002c from cell: 0x7fff7f0bb1b4 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3f6c (ares__parse_into_addrinfo2) loaded: 0x65366c0a9010 from cell: 0x7fff7f0bb1b8 cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3fa2 (ares__parse_into_addrinfo2) loaded: 0x7fff7f0bb2a0 from cell: 0x7fff7f0bb1a0 cell_owner: 7 value_owner: 6
+[INCONSISTENCY mov write reg UAF] ip: main+0x47c9 (ares__addrinfo_cat_nodes) UAF write at: 0x7fff7f0bb178
+[INCONSISTENCY mov write reg UAF] ip: main+0x47cd (ares__addrinfo_cat_nodes) UAF write at: 0x7fff7f0bb170
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb178 ip: main+0x47d1 (ares__addrinfo_cat_nodes)
+[UNINITIALIZED mov read] ip: main+0x47d5 (ares__addrinfo_cat_nodes) co: 6 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x47d8 (ares__addrinfo_cat_nodes) UAF write at: 0x7fff7f0bb188
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb188 ip: main+0x47dc (ares__addrinfo_cat_nodes)
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb178 ip: main+0x47e3 (ares__addrinfo_cat_nodes)
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb170 ip: main+0x47e7 (ares__addrinfo_cat_nodes)
+[CORRUPTED_PTR_LOAD] ip: main+0x3fb8 (ares__parse_into_addrinfo2) loaded: 0x100000000 from cell: 0x7fff7f0bb23c cell_owner: 7 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3fd9 (ares__parse_into_addrinfo2) loaded: 0x100000000 from cell: 0x7fff7f0bb244 cell_owner: 7 value_owner: 6
+[STACK PIVOT] ip: main+0x4023 (ares__parse_into_addrinfo2) RSP 0x7fff7f0bb258 left stack [0x19,0x7fff7f09c000]
+[UNINITIALIZED mov read] ip: main+0x307a (ares_parse_a_reply) co: 2 vo: -1
+[ALLOC:internal] malloc(0x20) -> 0x65366c0a93f0 subject=25 at ares_parse_a_reply
+[UNINITIALIZED mov read] ip: main+0x30e9 (ares_parse_a_reply) co: 2 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x30ec (ares_parse_a_reply) loaded: 0x0 from cell: 0x7fff7f0bb2e4 cell_owner: 6 value_owner: 4
+[ALLOC:internal] malloc(0x8) -> 0x65366c0a9070 subject=26 at ares_parse_a_reply
+[CORRUPTED_PTR_LOAD] ip: main+0x310d (ares_parse_a_reply) loaded: 0x6c0a907000000000 from cell: 0x7fff7f0bb2e4 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x317f (ares_parse_a_reply) loaded: 0x100000000 from cell: 0x7fff7f0bb2dc cell_owner: 6 value_owner: 4
+[UNINITIALIZED mov read] ip: main+0x31a1 (ares_parse_a_reply) co: 2 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x31a4 (ares_parse_a_reply) loaded: 0x1 from cell: 0x7fff7f0bb2e0 cell_owner: 6 value_owner: 4
+[ALLOC:internal] malloc(0x10) -> 0x65366c0a9420 subject=27 at ares_parse_a_reply
+[CORRUPTED_PTR_LOAD] ip: main+0x31f7 (ares_parse_a_reply) loaded: 0x1 from cell: 0x7fff7f0bb2e0 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x3264 (ares_parse_a_reply) loaded: 0x1 from cell: 0x7fff7f0bb2e0 cell_owner: 6 value_owner: 4
+[UNINITIALIZED mov read] ip: main+0x3275 (ares_parse_a_reply) co: 2 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x3278 (ares_parse_a_reply) loaded: 0x1 from cell: 0x7fff7f0bb2e0 cell_owner: 6 value_owner: 4
+[ALLOC:internal] malloc(0x4) -> 0x65366c0a9440 subject=28 at ares_parse_a_reply
+[CORRUPTED_PTR_LOAD] ip: main+0x33a3 (ares_parse_a_reply) loaded: 0x7fff7f0bb548 from cell: 0x7fff7f0bb278 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x33ad (ares_parse_a_reply) loaded: 0x7fff7f0bb548 from cell: 0x7fff7f0bb278 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x33c9 (ares_parse_a_reply) loaded: 0x7fff7f0bb4bc from cell: 0x7fff7f0bb268 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x33d3 (ares_parse_a_reply) loaded: 0x7fff7f0bb4bc from cell: 0x7fff7f0bb268 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x33da (ares_parse_a_reply) loaded: 0x1 from cell: 0x7fff7f0bb2e0 cell_owner: 6 value_owner: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x4488 (ares__freeaddrinfo_cnames) UAF write at: 0x7fff7f0bb238
+STACKREADUSEAFTERSCOPE at: 0x7fff7f0bb238 ip: main+0x44e3 (ares__freeaddrinfo_cnames)
+[STACK PIVOT] ip: main+0x44ec (ares__freeaddrinfo_cnames) RSP 0x7fff7f0bb258 left stack [0x1f,0x7fff7f09c000]
+[UNINITIALIZED mov read] ip: main+0x451b (ares__freeaddrinfo_nodes) co: 2 vo: -1
+[FREE:internal] free(0x65366c0a90c0) subject=23 at ares__freeaddrinfo_nodes
+[UNINITIALIZED mov read] ip: main+0x4532 (ares__freeaddrinfo_nodes) co: 2 vo: -1
+[FREE:internal] free(0x65366c0a9090) subject=20 at ares__freeaddrinfo_nodes
+[STACK PIVOT] ip: main+0x4547 (ares__freeaddrinfo_nodes) RSP 0x7fff7f0bb258 left stack [0x21,0x7fff7f09c000]
+[STACK PIVOT] ip: main+0x3462 (ares_parse_a_reply) RSP 0x7fff7f0bb318 left stack [0x22,0x7fff7f09c000]

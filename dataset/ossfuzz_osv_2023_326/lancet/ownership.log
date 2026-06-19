@@ -1,0 +1,210 @@
+[INCONSISTENCY mov write reg] ip: main+0x3a2e (main @ harness.cpp:40) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x3a34 (main @ harness.cpp:40) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x3a44 (main @ harness.cpp:40) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x3a90 (main @ harness.cpp:42) final_ea: 0x7ffcdb9df570 base: 0x7ffcdb9df570 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x3aa5 (main @ harness.cpp:42) co: 4 vo: 4, 4 write 4
+[ALLOC] malloc(0x32) -> 0x5646ef30c010 subject=5 at main @ harness.cpp:45
+[INCONSISTENCY mov write reg] ip: main+0x3af0 (main @ harness.cpp:45) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov read] ip: main+0x3895 (LLVMFuzzerTestOneInput @ harness.cpp:21) base: 0x7ffcdb9df350 pointee: 4 read from 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3895 (LLVMFuzzerTestOneInput @ harness.cpp:21) loaded: 0x32 from cell: 0x7ffcdb9df290 cell_owner: 6 value_owner: 4
+[INCONSISTENCY mov read] ip: main+0x389f (LLVMFuzzerTestOneInput @ harness.cpp:21) base: 0x7ffcdb9df350 pointee: 4 read from 6
+[CORRUPTED_PTR_LOAD] ip: main+0x389f (LLVMFuzzerTestOneInput @ harness.cpp:21) loaded: 0x32 from cell: 0x7ffcdb9df290 cell_owner: 6 value_owner: 4
+[ALLOC:internal] malloc(0x1d8) -> 0x5646ef30c050 subject=7 at _IO_fopen
+[INCONSISTENCY mov read] ip: main+0x3903 (LLVMFuzzerTestOneInput @ harness.cpp:25) base: 0x7ffcdb9df350 pointee: 4 read from 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3903 (LLVMFuzzerTestOneInput @ harness.cpp:25) loaded: 0x5646ef30c050 from cell: 0x7ffcdb9df2a8 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x3917 (LLVMFuzzerTestOneInput @ harness.cpp:26) loaded: 0x5646ef30c050 from cell: 0x7ffcdb9df2a8 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x391e (LLVMFuzzerTestOneInput @ harness.cpp:26) loaded: 0x32 from cell: 0x7ffcdb9df290 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x3925 (LLVMFuzzerTestOneInput @ harness.cpp:26) loaded: 0x5646ef30c010 from cell: 0x7ffcdb9df298 cell_owner: 6 value_owner: 4
+[ALLOC:internal] malloc(0x1000) -> 0x5646ef30c230 subject=8 at _IO_file_doallocate
+[CORRUPTED_PTR_LOAD] ip: main+0x3939 (LLVMFuzzerTestOneInput @ harness.cpp:27) loaded: 0x5646ef30c050 from cell: 0x7ffcdb9df2a8 cell_owner: 6 value_owner: 4
+[FREE:internal] free(0x5646ef30c230) subject=8 at _IO_setb
+[FREE:internal] free(0x5646ef30c050) subject=7 at _IO_fclose
+[FREE:internal] free(0x5646ef30c050) subject=0
+[DOUBLE FREE] free(0x5646ef30c050) — already freed
+[ALLOC:internal] malloc(0xa) -> 0x5646ef30c530 subject=9 at strdup
+Store dangling pointer: 0x5646ef30c530 at: 0x7ffcdb9df2b0
+[ALLOC:internal] malloc(0xe) -> 0x5646ef30c550 subject=10 at strdup
+Store dangling pointer: 0x5646ef30c550 at: 0x7ffcdb9df2b8
+[ALLOC:internal] malloc(0x3) -> 0x5646ef30c570 subject=11 at strdup
+Store dangling pointer: 0x5646ef30c570 at: 0x7ffcdb9df2c0
+[ALLOC:internal] malloc(0x3) -> 0x5646ef30c590 subject=12 at strdup
+Store dangling pointer: 0x5646ef30c590 at: 0x7ffcdb9df2c8
+[ALLOC:internal] malloc(0x1c) -> 0x5646ef30c5b0 subject=13 at strdup
+Store dangling pointer: 0x5646ef30c5b0 at: 0x7ffcdb9df2d0
+[INCONSISTENCY mov write reg] ip: main+0x3c0f (mosquitto_fuzz_main @ mosquitto.c:349) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x3c1f (mosquitto_fuzz_main @ mosquitto.c:350) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x1f205 (net__broker_init @ net.c:76) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x3c39 (mosquitto_fuzz_main @ mosquitto.c:355) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x8f23 (config__init_reload @ conf.c:247) loaded: 0xdb9df04000000000 from cell: 0x7ffcdb9def94 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8f26 (config__init_reload @ conf.c:247) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8f59 (config__init_reload @ conf.c:251) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8f61 (config__init_reload @ conf.c:252) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8f68 (config__init_reload @ conf.c:254) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x8f6c (config__init_reload @ conf.c:254) co: 14 vo: -1
+[INCONSISTENCY mov read] ip: main+0x1db8c (mosquitto__free @ memory_mosq.c:75) base: 0x7ffcdb9def80 pointee: 17 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x1db8c (mosquitto__free @ memory_mosq.c:75) loaded: 0x0 from cell: 0x7ffcdb9def78 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x8f78 (config__init_reload @ conf.c:254) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8f8c (config__init_reload @ conf.c:255) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x8f90 (config__init_reload @ conf.c:255) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x8f9c (config__init_reload @ conf.c:255) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8fb0 (config__init_reload @ conf.c:256) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x8fb4 (config__init_reload @ conf.c:256) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x8fc0 (config__init_reload @ conf.c:256) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8fcf (config__init_reload @ conf.c:258) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8fda (config__init_reload @ conf.c:259) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8fe5 (config__init_reload @ conf.c:260) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x8ff4 (config__init_reload @ conf.c:261) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9001 (config__init_reload @ conf.c:263) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x900c (config__init_reload @ conf.c:264) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9014 (config__init_reload @ conf.c:266) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x9018 (config__init_reload @ conf.c:266) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x9021 (config__init_reload @ conf.c:266) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x902d (config__init_reload @ conf.c:268) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9035 (config__init_reload @ conf.c:269) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9041 (config__init_reload @ conf.c:270) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x904c (config__init_reload @ conf.c:271) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x9050 (config__init_reload @ conf.c:271) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x9079 (config__init_reload @ conf.c:275) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x907d (config__init_reload @ conf.c:275) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x9086 (config__init_reload @ conf.c:275) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9092 (config__init_reload @ conf.c:287) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x909d (config__init_reload @ conf.c:288) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x90af (config__init_reload @ conf.c:289) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x90d3 (config__init_reload @ conf.c:291) co: 3 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x90f0 (config__init_reload @ conf.c:294) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9100 (config__init_reload @ conf.c:297) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9108 (config__init_reload @ conf.c:298) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x910c (config__init_reload @ conf.c:298) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x9115 (config__init_reload @ conf.c:298) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9121 (config__init_reload @ conf.c:299) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x912c (config__init_reload @ conf.c:300) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9137 (config__init_reload @ conf.c:301) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9144 (config__init_reload @ conf.c:302) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9152 (config__init_reload @ conf.c:303) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x915f (config__init_reload @ conf.c:304) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x916d (config__init_reload @ conf.c:305) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x917c (config__init_reload @ conf.c:306) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x918b (config__init_reload @ conf.c:307) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9196 (config__init_reload @ conf.c:308) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x919a (config__init_reload @ conf.c:308) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x91a6 (config__init_reload @ conf.c:308) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x91ba (config__init_reload @ conf.c:309) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x91be (config__init_reload @ conf.c:309) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x91ca (config__init_reload @ conf.c:309) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x91d9 (config__init_reload @ conf.c:310) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x91e8 (config__init_reload @ conf.c:311) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x91f3 (config__init_reload @ conf.c:312) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x91fe (config__init_reload @ conf.c:313) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9209 (config__init_reload @ conf.c:314) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x9217 (config__init_reload @ conf.c:315) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def98 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x3c4c (mosquitto_fuzz_main @ mosquitto.c:357) loaded: 0x7ffc00000005 from cell: 0x7ffcdb9df278 cell_owner: 14 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3c4f (mosquitto_fuzz_main @ mosquitto.c:357) loaded: 0x7ffcdb9df2b0 from cell: 0x7ffcdb9df270 cell_owner: 14 value_owner: 6
+main+0x9c7e (config__parse_args @ conf.c:526) Using expired pointer: 0x5646ef30c550 from 0x7ffcdb9df2b8
+first time found dangling pointer at: 117 distance: 339
+main+0x9c7e (config__parse_args @ conf.c:526) Using expired pointer: 0x5646ef30c570 from 0x7ffcdb9df2c0
+first time found dangling pointer at: 122 distance: 464
+main+0x9c7e (config__parse_args @ conf.c:526) Using expired pointer: 0x5646ef30c590 from 0x7ffcdb9df2c8
+first time found dangling pointer at: 127 distance: 555
+main+0x9cd6 (config__parse_args @ conf.c:528) Using expired pointer: 0x5646ef30c5b0 from 0x7ffcdb9df2d0
+first time found dangling pointer at: 132 distance: 565
+[INTRA_OBJECT_OVERFLOW] ip: main+0xa1e4 (config__read @ conf.c:698) byte write at: 0x7ffcdb9def6f offset: +0x26f cell_owner: 27 writer_pointee: 26
+[INCONSISTENCY mov read] ip: main+0xa1f5 (config__read @ conf.c:708) base: 0x7ffcdb9def80 pointee: 26 read from 27
+[CORRUPTED_PTR_LOAD] ip: main+0xa1f5 (config__read @ conf.c:708) loaded: 0x7ffcdb9df04000 from cell: 0x7ffcdb9def6f cell_owner: 27 value_owner: 26
+[INCONSISTENCY mov read] ip: main+0xa24f (config__read @ conf.c:719) base: 0x7ffcdb9def80 pointee: 26 read from 27
+[CORRUPTED_PTR_LOAD] ip: main+0xa24f (config__read @ conf.c:719) loaded: 0x7ffcdb9df04000 from cell: 0x7ffcdb9def6f cell_owner: 27 value_owner: 26
+[CORRUPTED_PTR_LOAD] ip: main+0xa2c1 (config__read @ conf.c:727) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9def70 cell_owner: 25 value_owner: 26
+[INTRA_OBJECT_OVERFLOW] ip: main+0xaa01 (config__read_file @ conf.c:2488) byte write at: 0x7ffcdb9decdf offset: +0x5f cell_owner: 28 writer_pointee: 27
+[CORRUPTED_PTR_LOAD] ip: main+0xaa1c (config__read_file @ conf.c:2498) loaded: 0x5646ef30c5b0 from cell: 0x7ffcdb9decd0 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0xaa64 (config__read_file @ conf.c:2506) loaded: 0x5646ef30c5b0 from cell: 0x7ffcdb9decd0 cell_owner: 28 value_owner: 27
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1df17 (mosquitto__fopen @ misc_mosq.c:49) byte write at: 0x7ffcdb9dec57 offset: +0xa7 cell_owner: 29 writer_pointee: 28
+[INCONSISTENCY mov read] ip: main+0x1df1a (mosquitto__fopen @ misc_mosq.c:136) base: 0x7ffcdb9dec70 pointee: 28 read from 29
+[CORRUPTED_PTR_LOAD] ip: main+0x1df1a (mosquitto__fopen @ misc_mosq.c:136) loaded: 0x5646c7ce20c300 from cell: 0x7ffcdb9dec57 cell_owner: 29 value_owner: 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1df55 (mosquitto__fopen @ misc_mosq.c:143) loaded: 0x5646ef30c5b0 from cell: 0x7ffcdb9dec60 cell_owner: 29 value_owner: 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1df59 (mosquitto__fopen @ misc_mosq.c:143) loaded: 0x5646c7ce20c3 from cell: 0x7ffcdb9dec58 cell_owner: 29 value_owner: 28
+[ALLOC:internal] malloc(0x1d8) -> 0x5646ef30c050 subject=30 at _IO_fopen
+[ALLOC] malloc(0x3e8) -> 0x5646ef30c5e0 subject=32 at mosquitto__malloc @ memory_mosq.c:93
+Store dangling pointer: 0x5646ef30c5e0 at: 0x7ffcdb9dec58
+main+0x1dc1c (mosquitto__malloc @ memory_mosq.c:96) Using expired pointer: 0x5646ef30c5e0 from 0x7ffcdb9dec58
+first time found dangling pointer at: 806 distance: 1
+[INCONSISTENCY mov write reg] ip: main+0x1dc37 (mosquitto__malloc @ memory_mosq.c:97) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x1dc59 (mosquitto__malloc @ memory_mosq.c:99) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0xaaf7 (config__read_file @ conf.c:2520) loaded: 0x7ffcdb9df040 from cell: 0x7ffcdb9dece0 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0xaaff (config__read_file @ conf.c:2520) loaded: 0x7ffcdb9def58 from cell: 0x7ffcdb9decc8 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0xab03 (config__read_file @ conf.c:2520) loaded: 0xdb9def5800000000 from cell: 0x7ffcdb9decc4 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0xab06 (config__read_file @ conf.c:2520) loaded: 0x7ffcdb9def54 from cell: 0x7ffcdb9decb8 cell_owner: 28 value_owner: 27
+[INCONSISTENCY mov read] ip: main+0x1e14b (fgets_extending @ misc_mosq.c:190) base: 0x7ffcdb9deb40 pointee: 33 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x1e14b (fgets_extending @ misc_mosq.c:190) loaded: 0x5646ef30c050 from cell: 0x7ffcdb9deb20 cell_owner: 34 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x1e156 (fgets_extending @ misc_mosq.c:190) base: 0x7ffcdb9deb40 pointee: 33 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x1e156 (fgets_extending @ misc_mosq.c:190) loaded: 0x7ffcdb9deca0 from cell: 0x7ffcdb9deb30 cell_owner: 34 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x1e161 (fgets_extending @ misc_mosq.c:190) base: 0x7ffcdb9deb40 pointee: 33 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x1e161 (fgets_extending @ misc_mosq.c:190) loaded: 0x7ffcdb9dec9c from cell: 0x7ffcdb9deb28 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e16c (fgets_extending @ misc_mosq.c:190) loaded: 0x7ffcdb9dec9c from cell: 0x7ffcdb9deb28 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e18b (fgets_extending @ misc_mosq.c:195) loaded: 0x7ffcdb9deca0 from cell: 0x7ffcdb9deb30 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e192 (fgets_extending @ misc_mosq.c:195) loaded: 0x564600000000 from cell: 0x7ffcdb9deb10 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e199 (fgets_extending @ misc_mosq.c:195) loaded: 0x7ffcdb9dec9c from cell: 0x7ffcdb9deb28 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e1a2 (fgets_extending @ misc_mosq.c:195) loaded: 0x5646ef30c050 from cell: 0x7ffcdb9deb20 cell_owner: 34 value_owner: 33
+[ALLOC:internal] malloc(0x1000) -> 0x5646ef30c9d0 subject=35 at _IO_file_doallocate
+[CORRUPTED_PTR_LOAD] ip: main+0x1e1af (fgets_extending @ misc_mosq.c:196) loaded: 0x5646ef30c050 from cell: 0x7ffcdb9deb20 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e1d9 (fgets_extending @ misc_mosq.c:200) loaded: 0x7ffcdb9deca0 from cell: 0x7ffcdb9deb30 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e201 (fgets_extending @ misc_mosq.c:204) loaded: 0x7ffcdb9deca0 from cell: 0x7ffcdb9deb30 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e230 (fgets_extending @ misc_mosq.c:209) loaded: 0x7ffcdb9dec9c from cell: 0x7ffcdb9deb28 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e23c (fgets_extending @ misc_mosq.c:210) loaded: 0x7ffcdb9dec9c from cell: 0x7ffcdb9deb28 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e24a (fgets_extending @ misc_mosq.c:211) loaded: 0x7ffcdb9deca0 from cell: 0x7ffcdb9deb30 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e251 (fgets_extending @ misc_mosq.c:211) loaded: 0x7ffcdb9dec9c from cell: 0x7ffcdb9deb28 cell_owner: 34 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x1e27d (fgets_extending @ misc_mosq.c:215) loaded: 0x7ffcdb9deca0 from cell: 0x7ffcdb9deb30 cell_owner: 34 value_owner: 33
+[UNINITIALIZED mov read] ip: main+0xb582 (config__read_file_core @ conf.c:946) co: 37 vo: -1
+[UNINITIALIZED mov read] ip: main+0xb595 (config__read_file_core @ conf.c:946) co: 37 vo: -1
+[UNINITIALIZED mov read] ip: main+0xb5a8 (config__read_file_core @ conf.c:946) co: 37 vo: -1
+[UNINITIALIZED mov read] ip: main+0xb5f1 (config__read_file_core @ conf.c:951) co: 37 vo: -1
+[UNINITIALIZED mov read] ip: main+0xb618 (config__read_file_core @ conf.c:951) co: 37 vo: -1
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1c28b (log__vprintf @ logging.c:232) byte write at: 0x7ffcdb9de627 offset: +0x47 cell_owner: 39 writer_pointee: 38
+[UNINITIALIZED mov read] ip: main+0x1c2b8 (log__vprintf @ logging.c:234) co: 14 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1c2e2 (log__vprintf @ logging.c:238) loaded: 0xdb9deb4000000008 from cell: 0x7ffcdb9dea3c cell_owner: 39 value_owner: 38
+[UNTRUSTEDPTRDEREF] ip: main+0x1c308 (log__vprintf) final_ea: 0x5646c7ce0228 base: 0x5646c7ce020c pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1c3c4 (log__vprintf @ logging.c:313) loaded: 0x7373622e01 from cell: 0x7ffcdb9de627 cell_owner: 39 value_owner: 38
+[CORRUPTED_PTR_LOAD] ip: main+0x1c3d1 (log__vprintf @ logging.c:314) loaded: 0x0 from cell: 0x7ffcdb9de618 cell_owner: 39 value_owner: 38
+[CORRUPTED_PTR_LOAD] ip: main+0x1c4fa (log__vprintf @ logging.c:333) loaded: 0x5646c7cdf899 from cell: 0x7ffcdb9dea30 cell_owner: 39 value_owner: 38
+[CORRUPTED_PTR_LOAD] ip: main+0x1c4fe (log__vprintf @ logging.c:333) loaded: 0x7ffcdb9deb10 from cell: 0x7ffcdb9dea28 cell_owner: 39 value_owner: 38
+[UNTRUSTEDPTRDEREF] ip: main+0x1c54e (log__vprintf @ logging.c:340) final_ea: 0x5646c7ceeff8 base: 0x5646c7c9554e pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x1c555 (log__vprintf @ logging.c:340) co: 3 vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x1dbb2 (mosquitto__free @ memory_mosq.c:78) co: 3 vo: 3, 3 write 3
+[FREE] free(0x5646ef30d9e0) subject=37 at mosquitto__free @ memory_mosq.c:80
+[FREE:internal] free(0x5646ef30c9d0) subject=35 at _IO_setb
+[FREE:internal] free(0x5646ef30c050) subject=30 at _IO_fclose
+[INCONSISTENCY mov read] ip: main+0x1c2fa (log__vprintf) base: 0x7ffcdb9debf0 pointee: 29 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x1c2fa (log__vprintf) loaded: 0x7 from cell: 0x7ffcdb9de7b0 cell_owner: 42 value_owner: 29
+[INCONSISTENCY mov read] ip: main+0x1c3c4 (log__vprintf @ logging.c:313) base: 0x7ffcdb9debf0 pointee: 29 read from 42
+[INCONSISTENCY mov read] ip: main+0x1c3d1 (log__vprintf @ logging.c:314) base: 0x7ffcdb9debf0 pointee: 29 read from 42
+[INCONSISTENCY mov read] ip: main+0x1c480 (log__vprintf @ logging.c:324) base: 0x7ffcdb9debf0 pointee: 29 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x1c480 (log__vprintf @ logging.c:324) loaded: 0xa from cell: 0x7ffcdb9de7d8 cell_owner: 42 value_owner: 29
+[INCONSISTENCY mov read] ip: main+0x1c491 (log__vprintf @ logging.c:325) base: 0x7ffcdb9debf0 pointee: 29 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x1c491 (log__vprintf @ logging.c:325) loaded: 0xa from cell: 0x7ffcdb9de7d8 cell_owner: 42 value_owner: 29
+[INCONSISTENCY mov read] ip: main+0x1c4a0 (log__vprintf @ logging.c:326) base: 0x7ffcdb9debf0 pointee: 29 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x1c4a0 (log__vprintf @ logging.c:326) loaded: 0xa from cell: 0x7ffcdb9de7d8 cell_owner: 42 value_owner: 29
+[INCONSISTENCY mov read] ip: main+0x1c4af (log__vprintf @ logging.c:327) base: 0x7ffcdb9debf0 pointee: 29 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x1c4af (log__vprintf @ logging.c:327) loaded: 0xa from cell: 0x7ffcdb9de7d8 cell_owner: 42 value_owner: 29
+[INCONSISTENCY mov read] ip: main+0x1c4be (log__vprintf @ logging.c:328) base: 0x7ffcdb9debf0 pointee: 29 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0x1c4be (log__vprintf @ logging.c:328) loaded: 0xa from cell: 0x7ffcdb9de7d8 cell_owner: 42 value_owner: 29
+[UNINITIALIZED mov read] ip: main+0x92a6 (config__cleanup @ conf.c:366) co: 14 vo: -1
+[UNINITIALIZED mov read] ip: main+0x935a (config__cleanup @ conf.c:371) co: 14 vo: -1
+[UNINITIALIZED mov read] ip: main+0x937e (config__cleanup @ conf.c:372) co: 14 vo: -1
+[UNINITIALIZED mov read] ip: main+0x93a2 (config__cleanup @ conf.c:373) co: 14 vo: -1
+[UNINITIALIZED mov read] ip: main+0x93df (config__cleanup @ conf.c:375) co: 14 vo: -1
+[UNINITIALIZED mov read] ip: main+0x971a (config__cleanup @ conf.c:426) co: 14 vo: -1
+[UNINITIALIZED mov read] ip: main+0x9c24 (config__cleanup_plugins @ conf.c:345) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x979a (config__cleanup @ conf.c:435) co: 14 vo: -1
+main+0x39d8 (LLVMFuzzerTestOneInput @ harness.cpp:35) Using expired pointer: 0x5646ef30c530 from 0x7ffcdb9df2b0
+first time found dangling pointer at: 112 distance: 2293
+[FREE] free(0x5646ef30c530) subject=9 at LLVMFuzzerTestOneInput @ harness.cpp:35
+[FREE] free(0x5646ef30c550) subject=10 at LLVMFuzzerTestOneInput @ harness.cpp:35
+[FREE] free(0x5646ef30c570) subject=11 at LLVMFuzzerTestOneInput @ harness.cpp:35
+[FREE] free(0x5646ef30c590) subject=12 at LLVMFuzzerTestOneInput @ harness.cpp:35
+[FREE] free(0x5646ef30c5b0) subject=13 at LLVMFuzzerTestOneInput @ harness.cpp:35
+[CORRUPTED_PTR_LOAD] ip: main+0x3a09 (LLVMFuzzerTestOneInput @ harness.cpp:38) loaded: 0x9c920e27b2893a00 from cell: 0x7ffcdb9df348 cell_owner: 6 value_owner: 4
+[STACK PIVOT] ip: main+0x3a1d (LLVMFuzzerTestOneInput @ harness.cpp:38) RSP 0x7ffcdb9df358 left stack [0x3b,0x7ffcdb9c1000]
+[FREE] free(0x5646ef30c010) subject=5 at main @ harness.cpp:51
+[STACK PIVOT] ip: main+0x3bbd (main @ harness.cpp:53) RSP 0x7ffcdb9df438 left stack [0x3c,0x7ffcdb9c1000]
+[STACK PIVOT] ip: main+0x3bbe (main @ harness.cpp:53) RSP 0x7ffcdb9df440 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x382e (__do_global_dtors_aux) final_ea: 0x5646c7ceeff0 base: 0x5646c7c7c82e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x3854 (__do_global_dtors_aux) RSP 0x7ffcdb9df310 left stack after RET
+[STACK PIVOT] ip: main+0x63944 (_fini) RSP 0x7ffcdb9df340 left stack after RET

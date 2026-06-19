@@ -1,0 +1,26 @@
+[INCONSISTENCY mov write reg] ip: main+0x11eb (main @ fastbin_dup_consolidate.c:32) co: 5 vo: 5, 5 write 5
+[ALLOC:internal] malloc(0x1000) -> 0x1b171010 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x40) -> 0x1b172020 subject=7 at main @ fastbin_dup_consolidate.c:39
+[ALLOC] malloc(0x40) -> 0x1b172070 subject=8 at main @ fastbin_dup_consolidate.c:39
+[ALLOC] malloc(0x40) -> 0x1b1720c0 subject=9 at main @ fastbin_dup_consolidate.c:39
+[ALLOC] malloc(0x40) -> 0x1b172110 subject=10 at main @ fastbin_dup_consolidate.c:39
+[ALLOC] malloc(0x40) -> 0x1b172160 subject=11 at main @ fastbin_dup_consolidate.c:39
+[ALLOC] malloc(0x40) -> 0x1b1721b0 subject=12 at main @ fastbin_dup_consolidate.c:39
+[ALLOC] malloc(0x40) -> 0x1b172200 subject=13 at main @ fastbin_dup_consolidate.c:39
+[ALLOC] malloc(0x40) -> 0x1b172250 subject=14 at main @ fastbin_dup_consolidate.c:41
+[FREE] free(0x1b172020) subject=7 at main @ fastbin_dup_consolidate.c:46
+[FREE:internal] free(0x1b172020) subject=0
+[DOUBLE FREE] free(0x1b172020) — already freed
+[FREE] free(0x1b172070) subject=8 at main @ fastbin_dup_consolidate.c:46
+[FREE] free(0x1b1720c0) subject=9 at main @ fastbin_dup_consolidate.c:46
+[FREE] free(0x1b172110) subject=10 at main @ fastbin_dup_consolidate.c:46
+[FREE] free(0x1b172160) subject=11 at main @ fastbin_dup_consolidate.c:46
+[FREE] free(0x1b1721b0) subject=12 at main @ fastbin_dup_consolidate.c:46
+[FREE] free(0x1b172200) subject=13 at main @ fastbin_dup_consolidate.c:46
+[FREE] free(0x1b172250) subject=14 at main @ fastbin_dup_consolidate.c:49
+[ALLOC] malloc(0x400) -> 0x1b1725a0 subject=15 at main @ fastbin_dup_consolidate.c:54
+main+0x132a (main @ fastbin_dup_consolidate.c:61) Read a dangling pointer 0x1b172250 from 0x7fff50759668
+[ALLOC:internal] malloc(0x14) -> 0x1b1729b0 subject=16 at gettext
+[ALLOC:internal] malloc(0x2) -> 0x1b1729d0 subject=17 at gettext
+[FREE:internal] free(0x1b1729b0) subject=16 at gettext
+[FREE:internal] free(0x1b1729d0) subject=17 at gettext

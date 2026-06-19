@@ -1,0 +1,15 @@
+[INCONSISTENCY mov write reg] ip: main+0x120b (main @ unsafe_unlink.c:10) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x420) -> 0x1eed1010 subject=6 at main @ unsafe_unlink.c:22
+[INCONSISTENCY mov write reg] ip: main+0x128b (main @ unsafe_unlink.c:22) co: 4 vo: 4, 4 write 4
+[ALLOC] malloc(0x420) -> 0x1eed1440 subject=7 at main @ unsafe_unlink.c:23
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1308 (main @ unsafe_unlink.c:29) sub rax, 0x8 id before: 6 after: -1 [chunk metadata] value: 0x1eed1008
+[UNTRUSTEDPTRDEREF] ip: main+0x130c (main @ unsafe_unlink.c:29) final_ea: 0x1eed1008 base: 0x1eed1008 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1342 (main @ unsafe_unlink.c:31) sub rdx, 0x18 id before: 4 after: 3 value: 0x404040
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x13f2 (main @ unsafe_unlink.c:39) add rax, rdx id before: 7 after: -1 [chunk metadata] value: 0x1eed1430
+[UNTRUSTEDPTRDEREF] ip: main+0x1428 (main @ unsafe_unlink.c:43) final_ea: 0x1eed1430 base: 0x1eed1430 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x145c (main @ unsafe_unlink.c:45) final_ea: 0x1eed1438 base: 0x1eed1438 pointee: -1 base_vo: -1
+[FREE] free(0x1eed1440) subject=7 at main @ unsafe_unlink.c:49
+[STACK PIVOT] ip: main+0x1574 (main @ unsafe_unlink.c:63) RSP 0x7fff9df43a38 left stack [0x9,0x7fff9df25000]
+[STACK PIVOT] ip: main+0x1575 (main @ unsafe_unlink.c:63) RSP 0x7fff9df43a40 left stack after RET
+[STACK PIVOT] ip: main+0x11de (__do_global_dtors_aux) RSP 0x7fff9df43920 left stack after RET
+[STACK PIVOT] ip: main+0x1584 (_fini) RSP 0x7fff9df43950 left stack after RET

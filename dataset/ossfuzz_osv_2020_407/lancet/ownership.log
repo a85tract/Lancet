@@ -1,0 +1,379 @@
+[INCONSISTENCY mov write reg] ip: main+0x4c55 (main @ fuzz_filter_harness.c:21) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x4c58 (main @ fuzz_filter_harness.c:21) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x4c99 (main @ fuzz_filter_harness.c:27) final_ea: 0x7ffd6a2bfa60 base: 0x7ffd6a2bfa60 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x64a0d27ee010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x4cae (main @ fuzz_filter_harness.c:27) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x64a0d27ee1f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x110) -> 0x64a0d27ef200 subject=7 at main @ fuzz_filter_harness.c:43
+[FREE:internal] free(0x64a0d27ee1f0) subject=6 at _IO_setb
+[FREE:internal] free(0x64a0d27ee010) subject=5 at _IO_fclose
+[FREE:internal] free(0x64a0d27ee010) subject=0
+[DOUBLE FREE] free(0x64a0d27ee010) — already freed
+[INCONSISTENCY mov read] ip: main+0x4e74 (LLVMFuzzerTestOneInput @ fuzz_filter.c:17) base: 0x7ffd6a2bf8e0 pointee: 4 read from 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4e74 (LLVMFuzzerTestOneInput @ fuzz_filter.c:17) loaded: 0x110 from cell: 0x7ffd6a2bf8b0 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x4e85 (LLVMFuzzerTestOneInput @ fuzz_filter.c:22) loaded: 0x110 from cell: 0x7ffd6a2bf8b0 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x4e8d (LLVMFuzzerTestOneInput @ fuzz_filter.c:22) loaded: 0x64a0d27ef200 from cell: 0x7ffd6a2bf8b8 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1e3b7 (pcap_open_dead @ pcap.c:3964) loaded: 0x300000ffff from cell: 0x7ffd6a2bf898 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x1e3ba (pcap_open_dead @ pcap.c:3964) loaded: 0x6a2bf8e000000030 from cell: 0x7ffd6a2bf89c cell_owner: 9 value_owner: 8
+[INCONSISTENCY mov read] ip: main+0x1e270 (pcap_open_dead_with_tstamp_precision @ pcap.c:3904) base: 0x7ffd6a2bf880 pointee: 9 read from 10
+[CORRUPTED_PTR_LOAD] ip: main+0x1e270 (pcap_open_dead_with_tstamp_precision @ pcap.c:3904) loaded: 0xffff00000000 from cell: 0x7ffd6a2bf864 cell_owner: 10 value_owner: 9
+[ALLOC] malloc(0x288) -> 0x64a0d27ee4f0 subject=11 at pcap_open_dead_with_tstamp_precision @ pcap.c:3920
+Store dangling pointer: 0x64a0d27ee4f0 at: 0x7ffd6a2bf878
+[INCONSISTENCY mov read] ip: main+0x1e28e (pcap_open_dead_with_tstamp_precision @ pcap.c:3921) base: 0x7ffd6a2bf880 pointee: 9 read from 10
+main+0x1e28e (pcap_open_dead_with_tstamp_precision @ pcap.c:3921) Using expired pointer: 0x64a0d27ee4f0 from 0x7ffd6a2bf878
+first time found dangling pointer at: 123 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x1e28e (pcap_open_dead_with_tstamp_precision @ pcap.c:3921) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1e29f (pcap_open_dead_with_tstamp_precision @ pcap.c:3923) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2b5 (pcap_open_dead_with_tstamp_precision @ pcap.c:3924) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2b9 (pcap_open_dead_with_tstamp_precision @ pcap.c:3924) loaded: 0x300000ffff from cell: 0x7ffd6a2bf868 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e2bc (pcap_open_dead_with_tstamp_precision @ pcap.c:3924) UAF write at: 0x64a0d27ee550
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2bf (pcap_open_dead_with_tstamp_precision @ pcap.c:3925) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2c3 (pcap_open_dead_with_tstamp_precision @ pcap.c:3925) loaded: 0xd27ee01000000030 from cell: 0x7ffd6a2bf86c cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e2c6 (pcap_open_dead_with_tstamp_precision @ pcap.c:3925) UAF write at: 0x64a0d27ee554
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2c9 (pcap_open_dead_with_tstamp_precision @ pcap.c:3926) loaded: 0xffff00000000 from cell: 0x7ffd6a2bf864 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2cc (pcap_open_dead_with_tstamp_precision @ pcap.c:3926) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e2d0 (pcap_open_dead_with_tstamp_precision @ pcap.c:3926) UAF write at: 0x64a0d27ee58c
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2d6 (pcap_open_dead_with_tstamp_precision @ pcap.c:3927) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e2e1 (pcap_open_dead_with_tstamp_precision @ pcap.c:3927) UAF write at: 0x64a0d27ee718
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2e8 (pcap_open_dead_with_tstamp_precision @ pcap.c:3928) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e2f3 (pcap_open_dead_with_tstamp_precision @ pcap.c:3928) UAF write at: 0x64a0d27ee4f0
+[CORRUPTED_PTR_LOAD] ip: main+0x1e2f6 (pcap_open_dead_with_tstamp_precision @ pcap.c:3929) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e301 (pcap_open_dead_with_tstamp_precision @ pcap.c:3929) UAF write at: 0x64a0d27ee720
+[CORRUPTED_PTR_LOAD] ip: main+0x1e308 (pcap_open_dead_with_tstamp_precision @ pcap.c:3930) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e313 (pcap_open_dead_with_tstamp_precision @ pcap.c:3930) UAF write at: 0x64a0d27ee730
+[CORRUPTED_PTR_LOAD] ip: main+0x1e31a (pcap_open_dead_with_tstamp_precision @ pcap.c:3931) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e325 (pcap_open_dead_with_tstamp_precision @ pcap.c:3931) UAF write at: 0x64a0d27ee738
+[CORRUPTED_PTR_LOAD] ip: main+0x1e32c (pcap_open_dead_with_tstamp_precision @ pcap.c:3932) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e337 (pcap_open_dead_with_tstamp_precision @ pcap.c:3932) UAF write at: 0x64a0d27ee740
+[CORRUPTED_PTR_LOAD] ip: main+0x1e33e (pcap_open_dead_with_tstamp_precision @ pcap.c:3933) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e349 (pcap_open_dead_with_tstamp_precision @ pcap.c:3933) UAF write at: 0x64a0d27ee748
+[CORRUPTED_PTR_LOAD] ip: main+0x1e350 (pcap_open_dead_with_tstamp_precision @ pcap.c:3934) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e35b (pcap_open_dead_with_tstamp_precision @ pcap.c:3934) UAF write at: 0x64a0d27ee750
+[CORRUPTED_PTR_LOAD] ip: main+0x1e362 (pcap_open_dead_with_tstamp_precision @ pcap.c:3935) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e36d (pcap_open_dead_with_tstamp_precision @ pcap.c:3935) UAF write at: 0x64a0d27ee758
+[CORRUPTED_PTR_LOAD] ip: main+0x1e374 (pcap_open_dead_with_tstamp_precision @ pcap.c:3950) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e37f (pcap_open_dead_with_tstamp_precision @ pcap.c:3950) UAF write at: 0x64a0d27ee770
+[CORRUPTED_PTR_LOAD] ip: main+0x1e386 (pcap_open_dead_with_tstamp_precision @ pcap.c:3955) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write imm UAF] ip: main+0x1e38a (pcap_open_dead_with_tstamp_precision @ pcap.c:3955) UAF write at: 0x64a0d27ee5a4
+[CORRUPTED_PTR_LOAD] ip: main+0x1e394 (pcap_open_dead_with_tstamp_precision @ pcap.c:3957) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[INCONSISTENCY mov write imm UAF] ip: main+0x1e398 (pcap_open_dead_with_tstamp_precision @ pcap.c:3957) UAF write at: 0x64a0d27ee560
+[CORRUPTED_PTR_LOAD] ip: main+0x1e39f (pcap_open_dead_with_tstamp_precision @ pcap.c:3958) loaded: 0x64a0d27ee4f0 from cell: 0x7ffd6a2bf878 cell_owner: 10 value_owner: 9
+[STACK PIVOT] ip: main+0x1e3a3 (pcap_open_dead_with_tstamp_precision @ pcap.c:3959) RSP 0x7ffd6a2bf888 left stack [0xd,0x7ffd6a2a0000]
+[STACK PIVOT] ip: main+0x1e3cb (pcap_open_dead @ pcap.c:3966) RSP 0x7ffd6a2bf8a8 left stack [0xe,0x7ffd6a2a0000]
+[CORRUPTED_PTR_LOAD] ip: main+0x4eca (LLVMFuzzerTestOneInput @ fuzz_filter.c:27) loaded: 0x110 from cell: 0x7ffd6a2bf8b0 cell_owner: 8 value_owner: 4
+[ALLOC] malloc(0x110) -> 0x64a0d27ee780 subject=14 at LLVMFuzzerTestOneInput @ fuzz_filter.c:27
+Store dangling pointer: 0x64a0d27ee780 at: 0x7ffd6a2bf8d0
+[CORRUPTED_PTR_LOAD] ip: main+0x4eda (LLVMFuzzerTestOneInput @ fuzz_filter.c:28) loaded: 0x110 from cell: 0x7ffd6a2bf8b0 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x4ede (LLVMFuzzerTestOneInput @ fuzz_filter.c:28) loaded: 0x64a0d27ef200 from cell: 0x7ffd6a2bf8b8 cell_owner: 8 value_owner: 4
+main+0x4ee2 (LLVMFuzzerTestOneInput @ fuzz_filter.c:28) Using expired pointer: 0x64a0d27ee780 from 0x7ffd6a2bf8d0
+first time found dangling pointer at: 189 distance: 3
+[CORRUPTED_PTR_LOAD] ip: main+0x4ef1 (LLVMFuzzerTestOneInput @ fuzz_filter.c:30) loaded: 0x110 from cell: 0x7ffd6a2bf8b0 cell_owner: 8 value_owner: 4
+[INCONSISTENCY mov write imm UAF] ip: main+0x4f00 (LLVMFuzzerTestOneInput @ fuzz_filter.c:30) UAF write at: 0x64a0d27ee88f
+[INCONSISTENCY mov read UAF] ip: main+0x54ad (pcap_compile @ gencode.c:678) UAF read at: 0x64a0d27ee560
+[INCONSISTENCY mov write reg UAF] ip: main+0x553e (pcap_compile @ gencode.c:720) UAF write at: 0x7ffd6a2bf878
+first time found dangling pointer at: 123 distance: 471
+[CORRUPTED_PTR_LOAD] ip: main+0x11ff2 (init_regs @ gencode.c:7542) loaded: 0x7ffd6a2bf7b0 from cell: 0x7ffd6a2bf548 cell_owner: 16 value_owner: 15
+[CORRUPTED_PTR_LOAD] ip: main+0x12007 (init_regs @ gencode.c:7543) loaded: 0x7ffd6a2bf7b0 from cell: 0x7ffd6a2bf548 cell_owner: 16 value_owner: 15
+[STACK PIVOT] ip: main+0x1202b (init_regs @ gencode.c:7544) RSP 0x7ffd6a2bf558 left stack [0x12,0x7ffd6a2a0000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d63d (pcap_snapshot @ pcap.c:3067) UAF write at: 0x7ffd6a2bf548
+first time found dangling pointer at: 628 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf548 ip: main+0x1d641 (pcap_snapshot @ pcap.c:3068)
+first time found dangling pointer at: 628 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x1d645 (pcap_snapshot @ pcap.c:3068) UAF read at: 0x64a0d27ee560
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf548 ip: main+0x1d653 (pcap_snapshot @ pcap.c:3070)
+first time found dangling pointer at: 628 distance: 5
+[INCONSISTENCY mov read UAF] ip: main+0x1d657 (pcap_snapshot @ pcap.c:3070) UAF read at: 0x64a0d27ee550
+[CORRUPTED_PTR_LOAD] ip: main+0x32a8c (pcap_alloc @ scanner.c:5581) loaded: 0x0 from cell: 0x7ffd6a2bf510 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x32a94 (pcap_alloc @ scanner.c:5583) loaded: 0x98 from cell: 0x7ffd6a2bf518 cell_owner: 19 value_owner: 18
+[ALLOC] malloc(0x98) -> 0x64a0d27ee8a0 subject=20 at pcap_alloc @ scanner.c:5583
+[STACK PIVOT] ip: main+0x32aa0 (pcap_alloc @ scanner.c:5584) RSP 0x7ffd6a2bf538 left stack [0x16,0x7ffd6a2a0000]
+Store dangling pointer: 0x64a0d27ee8a0 at: 0x7ffd6a2bf590
+main+0x32794 (pcap_lex_init @ scanner.c:5444) Using expired pointer: 0x64a0d27ee8a0 from 0x7ffd6a2bf590
+first time found dangling pointer at: 671 distance: 2
+[INCONSISTENCY mov write reg UAF] ip: main+0x328c0 (yy_init_globals @ scanner.c:5490) UAF write at: 0x7ffd6a2bf518
+first time found dangling pointer at: 691 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf518 ip: main+0x328c4 (yy_init_globals @ scanner.c:5491)
+first time found dangling pointer at: 691 distance: 1
+[INCONSISTENCY mov write reg UAF] ip: main+0x328c8 (yy_init_globals @ scanner.c:5491) UAF write at: 0x7ffd6a2bf528
+first time found dangling pointer at: 693 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x328cc (yy_init_globals @ scanner.c:5496)
+first time found dangling pointer at: 693 distance: 1
+[INCONSISTENCY mov write imm UAF] ip: main+0x328d0 (yy_init_globals @ scanner.c:5496) UAF write at: 0x64a0d27ee8c8
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x328d8 (yy_init_globals @ scanner.c:5497)
+first time found dangling pointer at: 693 distance: 3
+[INCONSISTENCY mov write imm UAF] ip: main+0x328dc (yy_init_globals @ scanner.c:5497) UAF write at: 0x64a0d27ee8b8
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x328e4 (yy_init_globals @ scanner.c:5498)
+first time found dangling pointer at: 693 distance: 5
+[INCONSISTENCY mov write imm UAF] ip: main+0x328e8 (yy_init_globals @ scanner.c:5498) UAF write at: 0x64a0d27ee8c0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x328f0 (yy_init_globals @ scanner.c:5499)
+first time found dangling pointer at: 693 distance: 7
+[INCONSISTENCY mov write imm UAF] ip: main+0x328f4 (yy_init_globals @ scanner.c:5499) UAF write at: 0x64a0d27ee8e0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x328fc (yy_init_globals @ scanner.c:5500)
+first time found dangling pointer at: 693 distance: 9
+[INCONSISTENCY mov write imm UAF] ip: main+0x32900 (yy_init_globals @ scanner.c:5500) UAF write at: 0x64a0d27ee8e8
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x32907 (yy_init_globals @ scanner.c:5501)
+first time found dangling pointer at: 693 distance: 11
+[INCONSISTENCY mov write imm UAF] ip: main+0x3290b (yy_init_globals @ scanner.c:5501) UAF write at: 0x64a0d27ee8ec
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x32912 (yy_init_globals @ scanner.c:5503)
+first time found dangling pointer at: 693 distance: 13
+[INCONSISTENCY mov write imm UAF] ip: main+0x32916 (yy_init_globals @ scanner.c:5503) UAF write at: 0x64a0d27ee8f4
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x3291d (yy_init_globals @ scanner.c:5504)
+first time found dangling pointer at: 693 distance: 15
+[INCONSISTENCY mov write imm UAF] ip: main+0x32921 (yy_init_globals @ scanner.c:5504) UAF write at: 0x64a0d27ee8f8
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x32928 (yy_init_globals @ scanner.c:5505)
+first time found dangling pointer at: 693 distance: 17
+[INCONSISTENCY mov write imm UAF] ip: main+0x3292c (yy_init_globals @ scanner.c:5505) UAF write at: 0x64a0d27ee900
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x32934 (yy_init_globals @ scanner.c:5512)
+first time found dangling pointer at: 693 distance: 19
+[INCONSISTENCY mov write imm UAF] ip: main+0x32938 (yy_init_globals @ scanner.c:5512) UAF write at: 0x64a0d27ee8a8
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf528 ip: main+0x32940 (yy_init_globals @ scanner.c:5513)
+first time found dangling pointer at: 693 distance: 21
+[INCONSISTENCY mov write imm UAF] ip: main+0x32944 (yy_init_globals @ scanner.c:5513) UAF write at: 0x64a0d27ee8b0
+[STACK PIVOT] ip: main+0x327d6 (pcap_lex_init @ scanner.c:5453) RSP 0x7ffd6a2bf558 left stack [0x17,0x7ffd6a2a0000]
+[CORRUPTED_PTR_LOAD] ip: main+0x322c4 (pcap__scan_bytes @ scanner.c:5220) loaded: 0xd27ee7800000010f from cell: 0x7ffd6a2bf504 cell_owner: 24 value_owner: 23
+[INCONSISTENCY mov write reg UAF] ip: main+0x322cc (pcap__scan_bytes @ scanner.c:5220) UAF write at: 0x7ffd6a2bf520
+[CORRUPTED_PTR_LOAD] ip: main+0x322d0 (pcap__scan_bytes @ scanner.c:5221) loaded: 0x64a0d27ee8a0 from cell: 0x7ffd6a2bf4f8 cell_owner: 24 value_owner: 23
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf520 ip: main+0x322d4 (pcap__scan_bytes @ scanner.c:5221)
+[ALLOC] malloc(0x111) -> 0x64a0d27ee940 subject=26 at pcap_alloc @ scanner.c:5583
+[STACK PIVOT] ip: main+0x32aa0 (pcap_alloc @ scanner.c:5584) RSP 0x7ffd6a2bf4e8 left stack [0x1c,0x7ffd6a2a0000]
+Store dangling pointer: 0x64a0d27ee940 at: 0x7ffd6a2bf518
+[INCONSISTENCY mov write reg UAF] ip: main+0x322e3 (pcap__scan_bytes @ scanner.c:5221) UAF write at: 0x7ffd6a2bf518
+first time found dangling pointer at: 691 distance: 89
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf518 ip: main+0x322e7 (pcap__scan_bytes @ scanner.c:5222)
+first time found dangling pointer at: 691 distance: 90
+main+0x322e7 (pcap__scan_bytes @ scanner.c:5222) Using expired pointer: 0x64a0d27ee940 from 0x7ffd6a2bf518
+first time found dangling pointer at: 691 distance: 90
+[INCONSISTENCY mov write imm UAF] ip: main+0x32304 (pcap__scan_bytes @ scanner.c:5225) UAF write at: 0x7ffd6a2bf52c
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf52c ip: main+0x32330 (pcap__scan_bytes @ scanner.c:5225)
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf52c ip: main+0x3230d (pcap__scan_bytes @ scanner.c:5226)
+[CORRUPTED_PTR_LOAD] ip: main+0x32313 (pcap__scan_bytes @ scanner.c:5226) loaded: 0x64a0d27ee780 from cell: 0x7ffd6a2bf508 cell_owner: 24 value_owner: 23
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf52c ip: main+0x3231a (pcap__scan_bytes @ scanner.c:5226)
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf518 ip: main+0x32320 (pcap__scan_bytes @ scanner.c:5226)
+first time found dangling pointer at: 691 distance: 103
+[INCONSISTENCY mov read UAF] ip: main+0x32327 (pcap__scan_bytes @ scanner.c:5226) UAF read at: 0x64a0d27ee780
+[CORRUPTED_PTR_LOAD] ip: main+0x32338 (pcap__scan_bytes @ scanner.c:5228) loaded: 0xd27ee7800000010f from cell: 0x7ffd6a2bf504 cell_owner: 24 value_owner: 23
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf518 ip: main+0x32341 (pcap__scan_bytes @ scanner.c:5228)
+first time found dangling pointer at: 691 distance: 993
+[INCONSISTENCY mov write imm UAF] ip: main+0x32348 (pcap__scan_bytes @ scanner.c:5228) UAF write at: 0x64a0d27eea50
+[CORRUPTED_PTR_LOAD] ip: main+0x3234b (pcap__scan_bytes @ scanner.c:5228) loaded: 0xd27ee7800000010f from cell: 0x7ffd6a2bf504 cell_owner: 24 value_owner: 23
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf518 ip: main+0x32351 (pcap__scan_bytes @ scanner.c:5228)
+first time found dangling pointer at: 691 distance: 998
+[INCONSISTENCY mov read UAF] ip: main+0x32358 (pcap__scan_bytes @ scanner.c:5228) UAF read at: 0x64a0d27eea50
+[CORRUPTED_PTR_LOAD] ip: main+0x3235d (pcap__scan_bytes @ scanner.c:5230) loaded: 0x64a0d27ee8a0 from cell: 0x7ffd6a2bf4f8 cell_owner: 24 value_owner: 23
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf520 ip: main+0x32361 (pcap__scan_bytes @ scanner.c:5230)
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf518 ip: main+0x32365 (pcap__scan_bytes @ scanner.c:5230)
+first time found dangling pointer at: 691 distance: 1004
+[INCONSISTENCY mov write reg UAF] ip: main+0x32167 (pcap__scan_buffer @ scanner.c:5163) UAF write at: 0x7ffd6a2bf4c8
+first time found dangling pointer at: 1703 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x3216b (pcap__scan_buffer @ scanner.c:5163) UAF write at: 0x7ffd6a2bf4c0
+first time found dangling pointer at: 770 distance: 934
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4c0 ip: main+0x32173 (pcap__scan_buffer @ scanner.c:5166)
+first time found dangling pointer at: 770 distance: 936
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4c0 ip: main+0x3217a (pcap__scan_buffer @ scanner.c:5167)
+first time found dangling pointer at: 770 distance: 938
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4c8 ip: main+0x32182 (pcap__scan_buffer @ scanner.c:5167)
+first time found dangling pointer at: 1703 distance: 7
+[INCONSISTENCY mov read UAF] ip: main+0x32189 (pcap__scan_buffer @ scanner.c:5167) UAF read at: 0x64a0d27eea4f
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4c0 ip: main+0x32190 (pcap__scan_buffer @ scanner.c:5168)
+first time found dangling pointer at: 770 distance: 945
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4c8 ip: main+0x32198 (pcap__scan_buffer @ scanner.c:5168)
+first time found dangling pointer at: 1703 distance: 14
+[INCONSISTENCY mov read UAF] ip: main+0x3219f (pcap__scan_buffer @ scanner.c:5168) UAF read at: 0x64a0d27eea50
+[ALLOC] malloc(0x40) -> 0x64a0d27eea60 subject=30 at pcap_alloc @ scanner.c:5583
+[STACK PIVOT] ip: main+0x32aa0 (pcap_alloc @ scanner.c:5584) RSP 0x7ffd6a2bf4a8 left stack [0x20,0x7ffd6a2a0000]
+Store dangling pointer: 0x64a0d27eea60 at: 0x7ffd6a2bf4d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x321c1 (pcap__scan_buffer @ scanner.c:5172) UAF write at: 0x7ffd6a2bf4d8
+first time found dangling pointer at: 772 distance: 969
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x321c5 (pcap__scan_buffer @ scanner.c:5173)
+first time found dangling pointer at: 772 distance: 970
+main+0x321c5 (pcap__scan_buffer @ scanner.c:5173) Using expired pointer: 0x64a0d27eea60 from 0x7ffd6a2bf4d8
+first time found dangling pointer at: 772 distance: 970
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4c0 ip: main+0x321e2 (pcap__scan_buffer @ scanner.c:5176)
+first time found dangling pointer at: 770 distance: 974
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x321eb (pcap__scan_buffer @ scanner.c:5176)
+first time found dangling pointer at: 772 distance: 975
+[INCONSISTENCY mov write reg UAF] ip: main+0x321ef (pcap__scan_buffer @ scanner.c:5176) UAF write at: 0x64a0d27eea78
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x321f2 (pcap__scan_buffer @ scanner.c:5177)
+first time found dangling pointer at: 772 distance: 977
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4c8 ip: main+0x321f6 (pcap__scan_buffer @ scanner.c:5177)
+first time found dangling pointer at: 1703 distance: 47
+[INCONSISTENCY mov write reg UAF] ip: main+0x321fa (pcap__scan_buffer @ scanner.c:5177) UAF write at: 0x64a0d27eea68
+first time found dangling pointer at: 1751 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x321fe (pcap__scan_buffer @ scanner.c:5177)
+first time found dangling pointer at: 772 distance: 980
+[INCONSISTENCY mov read UAF] ip: main+0x32202 (pcap__scan_buffer @ scanner.c:5177) UAF read at: 0x64a0d27eea68
+first time found dangling pointer at: 1751 distance: 2
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x32206 (pcap__scan_buffer @ scanner.c:5177)
+first time found dangling pointer at: 772 distance: 982
+[INCONSISTENCY mov write reg UAF] ip: main+0x3220a (pcap__scan_buffer @ scanner.c:5177) UAF write at: 0x64a0d27eea70
+first time found dangling pointer at: 1755 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x3220e (pcap__scan_buffer @ scanner.c:5178)
+first time found dangling pointer at: 772 distance: 984
+[INCONSISTENCY mov write imm UAF] ip: main+0x32212 (pcap__scan_buffer @ scanner.c:5178) UAF write at: 0x64a0d27eea80
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x32219 (pcap__scan_buffer @ scanner.c:5179)
+first time found dangling pointer at: 772 distance: 986
+[INCONSISTENCY mov write imm UAF] ip: main+0x3221d (pcap__scan_buffer @ scanner.c:5179) UAF write at: 0x64a0d27eea60
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x32224 (pcap__scan_buffer @ scanner.c:5180)
+first time found dangling pointer at: 772 distance: 988
+[INCONSISTENCY mov read UAF] ip: main+0x32228 (pcap__scan_buffer @ scanner.c:5180) UAF read at: 0x64a0d27eea78
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x3222b (pcap__scan_buffer @ scanner.c:5180)
+first time found dangling pointer at: 772 distance: 990
+[INCONSISTENCY mov write reg UAF] ip: main+0x3222f (pcap__scan_buffer @ scanner.c:5180) UAF write at: 0x64a0d27eea7c
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x32232 (pcap__scan_buffer @ scanner.c:5181)
+first time found dangling pointer at: 772 distance: 992
+[INCONSISTENCY mov write imm UAF] ip: main+0x32236 (pcap__scan_buffer @ scanner.c:5181) UAF write at: 0x64a0d27eea84
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x3223d (pcap__scan_buffer @ scanner.c:5182)
+first time found dangling pointer at: 772 distance: 994
+[INCONSISTENCY mov write imm UAF] ip: main+0x32241 (pcap__scan_buffer @ scanner.c:5182) UAF write at: 0x64a0d27eea88
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x32248 (pcap__scan_buffer @ scanner.c:5183)
+first time found dangling pointer at: 772 distance: 996
+[INCONSISTENCY mov write imm UAF] ip: main+0x3224c (pcap__scan_buffer @ scanner.c:5183) UAF write at: 0x64a0d27eea94
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x32253 (pcap__scan_buffer @ scanner.c:5184)
+first time found dangling pointer at: 772 distance: 998
+[INCONSISTENCY mov write imm UAF] ip: main+0x32257 (pcap__scan_buffer @ scanner.c:5184) UAF write at: 0x64a0d27eea98
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x32262 (pcap__scan_buffer @ scanner.c:5186)
+first time found dangling pointer at: 772 distance: 1001
+[CORRUPTED_PTR_LOAD] ip: main+0x31ff2 (pcap_ensure_buffer_stack @ scanner.c:5115) loaded: 0x64a0d27ee8a0 from cell: 0x7ffd6a2bf448 cell_owner: 33 value_owner: 32
+[INCONSISTENCY mov read UAF] ip: main+0x31ffe (pcap_ensure_buffer_stack @ scanner.c:5117) UAF read at: 0x64a0d27ee8c8
+[CORRUPTED_PTR_LOAD] ip: main+0x3201f (pcap_ensure_buffer_stack @ scanner.c:5124) loaded: 0x64a0d27ee8a0 from cell: 0x7ffd6a2bf448 cell_owner: 33 value_owner: 32
+[ALLOC] malloc(0x8) -> 0x64a0d27eeab0 subject=35 at pcap_alloc @ scanner.c:5583
+[STACK PIVOT] ip: main+0x32aa0 (pcap_alloc @ scanner.c:5584) RSP 0x7ffd6a2bf438 left stack [0x25,0x7ffd6a2a0000]
+Store dangling pointer: 0x64a0d27eeab0 at: 0x64a0d27ee8c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x32032 (pcap_ensure_buffer_stack @ scanner.c:5124) UAF write at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x3203a (pcap_ensure_buffer_stack @ scanner.c:5127) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 2
+main+0x3203a (pcap_ensure_buffer_stack @ scanner.c:5127) Using expired pointer: 0x64a0d27eeab0 from 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 2
+[INCONSISTENCY mov read UAF] ip: main+0x32069 (pcap_ensure_buffer_stack @ scanner.c:5130) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 8
+[INCONSISTENCY mov write reg UAF] ip: main+0x32082 (pcap_ensure_buffer_stack @ scanner.c:5132) UAF write at: 0x64a0d27ee8c0
+[INCONSISTENCY mov write imm UAF] ip: main+0x3208a (pcap_ensure_buffer_stack @ scanner.c:5133) UAF write at: 0x64a0d27ee8b8
+[STACK PIVOT] ip: main+0x32159 (pcap_ensure_buffer_stack @ scanner.c:5154) RSP 0x7ffd6a2bf478 left stack [0x26,0x7ffd6a2a0000]
+[INCONSISTENCY mov read UAF] ip: main+0x3191c (pcap__switch_to_buffer @ scanner.c:4917) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 23
+[INCONSISTENCY mov read UAF] ip: main+0x31929 (pcap__switch_to_buffer @ scanner.c:4917) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 27
+[INCONSISTENCY mov read UAF] ip: main+0x31931 (pcap__switch_to_buffer @ scanner.c:4917) UAF read at: 0x64a0d27ee8b8
+[INCONSISTENCY mov read UAF] ip: main+0x3193c (pcap__switch_to_buffer @ scanner.c:4917) UAF read at: 0x64a0d27eeab0
+[INCONSISTENCY mov read UAF] ip: main+0x31954 (pcap__switch_to_buffer @ scanner.c:4920) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 37
+[INCONSISTENCY mov read UAF] ip: main+0x31961 (pcap__switch_to_buffer @ scanner.c:4920) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 41
+[INCONSISTENCY mov read UAF] ip: main+0x31969 (pcap__switch_to_buffer @ scanner.c:4920) UAF read at: 0x64a0d27ee8b8
+[INCONSISTENCY mov read UAF] ip: main+0x31974 (pcap__switch_to_buffer @ scanner.c:4920) UAF read at: 0x64a0d27eeab0
+[INCONSISTENCY mov read UAF] ip: main+0x319dc (pcap__switch_to_buffer @ scanner.c:4928) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 50
+[INCONSISTENCY mov read UAF] ip: main+0x319e4 (pcap__switch_to_buffer @ scanner.c:4928) UAF read at: 0x64a0d27ee8b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x319f3 (pcap__switch_to_buffer @ scanner.c:4928) UAF write at: 0x64a0d27eeab0
+first time found dangling pointer at: 1878 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x31a1a (pcap__load_buffer_state @ scanner.c:4940) UAF write at: 0x7ffd6a2bf458
+first time found dangling pointer at: 1885 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf458 ip: main+0x31a1e (pcap__load_buffer_state @ scanner.c:4941)
+first time found dangling pointer at: 1885 distance: 1
+[INCONSISTENCY mov write reg UAF] ip: main+0x31a22 (pcap__load_buffer_state @ scanner.c:4941) UAF write at: 0x7ffd6a2bf468
+first time found dangling pointer at: 1794 distance: 93
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a26 (pcap__load_buffer_state @ scanner.c:4942)
+first time found dangling pointer at: 1794 distance: 94
+[INCONSISTENCY mov read UAF] ip: main+0x31a2a (pcap__load_buffer_state @ scanner.c:4942) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 67
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a2e (pcap__load_buffer_state @ scanner.c:4942)
+first time found dangling pointer at: 1794 distance: 96
+[INCONSISTENCY mov read UAF] ip: main+0x31a32 (pcap__load_buffer_state @ scanner.c:4942) UAF read at: 0x64a0d27ee8b8
+[INCONSISTENCY mov read UAF] ip: main+0x31a3d (pcap__load_buffer_state @ scanner.c:4942) UAF read at: 0x64a0d27eeab0
+first time found dangling pointer at: 1878 distance: 16
+[INCONSISTENCY mov read UAF] ip: main+0x31a40 (pcap__load_buffer_state @ scanner.c:4942) UAF read at: 0x64a0d27eea7c
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a43 (pcap__load_buffer_state @ scanner.c:4942)
+first time found dangling pointer at: 1794 distance: 102
+[INCONSISTENCY mov write reg UAF] ip: main+0x31a47 (pcap__load_buffer_state @ scanner.c:4942) UAF write at: 0x64a0d27ee8d4
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a4a (pcap__load_buffer_state @ scanner.c:4943)
+first time found dangling pointer at: 1794 distance: 104
+[INCONSISTENCY mov read UAF] ip: main+0x31a4e (pcap__load_buffer_state @ scanner.c:4943) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 77
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a52 (pcap__load_buffer_state @ scanner.c:4943)
+first time found dangling pointer at: 1794 distance: 106
+[INCONSISTENCY mov read UAF] ip: main+0x31a56 (pcap__load_buffer_state @ scanner.c:4943) UAF read at: 0x64a0d27ee8b8
+[INCONSISTENCY mov read UAF] ip: main+0x31a61 (pcap__load_buffer_state @ scanner.c:4943) UAF read at: 0x64a0d27eeab0
+first time found dangling pointer at: 1878 distance: 26
+[INCONSISTENCY mov read UAF] ip: main+0x31a64 (pcap__load_buffer_state @ scanner.c:4943) UAF read at: 0x64a0d27eea70
+first time found dangling pointer at: 1755 distance: 150
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a68 (pcap__load_buffer_state @ scanner.c:4943)
+first time found dangling pointer at: 1794 distance: 112
+[INCONSISTENCY mov write reg UAF] ip: main+0x31a6c (pcap__load_buffer_state @ scanner.c:4943) UAF write at: 0x64a0d27ee8e0
+first time found dangling pointer at: 1907 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a70 (pcap__load_buffer_state @ scanner.c:4943)
+first time found dangling pointer at: 1794 distance: 114
+[INCONSISTENCY mov read UAF] ip: main+0x31a74 (pcap__load_buffer_state @ scanner.c:4943) UAF read at: 0x64a0d27ee8e0
+first time found dangling pointer at: 1907 distance: 2
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a78 (pcap__load_buffer_state @ scanner.c:4943)
+first time found dangling pointer at: 1794 distance: 116
+[INCONSISTENCY mov write reg UAF] ip: main+0x31a7c (pcap__load_buffer_state @ scanner.c:4943) UAF write at: 0x64a0d27ee920
+first time found dangling pointer at: 1911 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a83 (pcap__load_buffer_state @ scanner.c:4944)
+first time found dangling pointer at: 1794 distance: 118
+[INCONSISTENCY mov read UAF] ip: main+0x31a87 (pcap__load_buffer_state @ scanner.c:4944) UAF read at: 0x64a0d27ee8c8
+first time found dangling pointer at: 1822 distance: 91
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31a8b (pcap__load_buffer_state @ scanner.c:4944)
+first time found dangling pointer at: 1794 distance: 120
+[INCONSISTENCY mov read UAF] ip: main+0x31a8f (pcap__load_buffer_state @ scanner.c:4944) UAF read at: 0x64a0d27ee8b8
+[INCONSISTENCY mov read UAF] ip: main+0x31a9a (pcap__load_buffer_state @ scanner.c:4944) UAF read at: 0x64a0d27eeab0
+first time found dangling pointer at: 1878 distance: 40
+[INCONSISTENCY mov read UAF] ip: main+0x31a9d (pcap__load_buffer_state @ scanner.c:4944) UAF read at: 0x64a0d27eea60
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31aa0 (pcap__load_buffer_state @ scanner.c:4944)
+first time found dangling pointer at: 1794 distance: 126
+[INCONSISTENCY mov write reg UAF] ip: main+0x31aa4 (pcap__load_buffer_state @ scanner.c:4944) UAF write at: 0x64a0d27ee8a8
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31aa8 (pcap__load_buffer_state @ scanner.c:4945)
+first time found dangling pointer at: 1794 distance: 128
+[INCONSISTENCY mov read UAF] ip: main+0x31aac (pcap__load_buffer_state @ scanner.c:4945) UAF read at: 0x64a0d27ee8e0
+first time found dangling pointer at: 1907 distance: 16
+[INCONSISTENCY mov read UAF] ip: main+0x31ab0 (pcap__load_buffer_state @ scanner.c:4945) UAF read at: 0x64a0d27ee940
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf468 ip: main+0x31ab3 (pcap__load_buffer_state @ scanner.c:4945)
+first time found dangling pointer at: 1794 distance: 131
+[INCONSISTENCY mov write imm UAF] ip: main+0x31a06 (pcap__switch_to_buffer @ scanner.c:4936) UAF write at: 0x64a0d27ee8f0
+[STACK PIVOT] ip: main+0x31a10 (pcap__switch_to_buffer @ scanner.c:4937) RSP 0x7ffd6a2bf4a8 left stack [0x27,0x7ffd6a2a0000]
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf4d8 ip: main+0x32271 (pcap__scan_buffer @ scanner.c:5188)
+first time found dangling pointer at: 772 distance: 1163
+[STACK PIVOT] ip: main+0x32275 (pcap__scan_buffer @ scanner.c:5189) RSP 0x7ffd6a2bf4e8 left stack [0x28,0x7ffd6a2a0000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x32374 (pcap__scan_bytes @ scanner.c:5230) UAF write at: 0x7ffd6a2bf510
+first time found dangling pointer at: 1938 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf510 ip: main+0x32378 (pcap__scan_bytes @ scanner.c:5231)
+first time found dangling pointer at: 1938 distance: 1
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf510 ip: main+0x32395 (pcap__scan_bytes @ scanner.c:5237)
+first time found dangling pointer at: 1938 distance: 3
+[INCONSISTENCY mov write imm UAF] ip: main+0x32399 (pcap__scan_bytes @ scanner.c:5237) UAF write at: 0x64a0d27eea80
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf510 ip: main+0x323a0 (pcap__scan_bytes @ scanner.c:5239)
+first time found dangling pointer at: 1938 distance: 5
+[STACK PIVOT] ip: main+0x323a4 (pcap__scan_bytes @ scanner.c:5240) RSP 0x7ffd6a2bf538 left stack [0x29,0x7ffd6a2a0000]
+[STACK PIVOT] ip: main+0x322ab (pcap__scan_string @ scanner.c:5203) RSP 0x7ffd6a2bf558 left stack [0x2a,0x7ffd6a2a0000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x32565 (pcap_set_extra @ scanner.c:5351) UAF write at: 0x7ffd6a2bf548
+first time found dangling pointer at: 628 distance: 1332
+STACKREADUSEAFTERSCOPE at: 0x7ffd6a2bf548 ip: main+0x32569 (pcap_set_extra @ scanner.c:5352)
+first time found dangling pointer at: 628 distance: 1333
+[INCONSISTENCY mov write reg UAF] ip: main+0x32571 (pcap_set_extra @ scanner.c:5352) UAF write at: 0x64a0d27ee8a0
+[INCONSISTENCY mov read UAF] ip: main+0x5fab (init_linktype @ gencode.c:1072) UAF read at: 0x64a0d27ee538
+[INCONSISTENCY mov write reg UAF] ip: main+0x1cef4 (pcap_datalink @ pcap.c:2612) UAF write at: 0x7ffd6a2bf518
+first time found dangling pointer at: 691 distance: 1301
+[INCONSISTENCY mov read UAF] ip: main+0x1cef8 (pcap_datalink @ pcap.c:2613) UAF read at: 0x7ffd6a2bf518
+first time found dangling pointer at: 691 distance: 1302
+[INCONSISTENCY mov read UAF] ip: main+0x1cefc (pcap_datalink @ pcap.c:2613) UAF read at: 0x64a0d27ee560
+[INCONSISTENCY mov read UAF] ip: main+0x1cf0a (pcap_datalink @ pcap.c:2615) UAF read at: 0x7ffd6a2bf518
+first time found dangling pointer at: 691 distance: 1306
+[INCONSISTENCY mov read UAF] ip: main+0x1cf0e (pcap_datalink @ pcap.c:2615) UAF read at: 0x64a0d27ee554
+[UNTRUSTEDPTRDEREF] ip: main+0x6273 (init_linktype @ gencode.c:1135) final_ea: 0x64a0acd2926c base: 0xc0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x4ffc (bpf_error @ gencode.c:435) UAF write at: 0x7ffd6a2bf480
+first time found dangling pointer at: 1731 distance: 406
+[INCONSISTENCY mov write reg UAF] ip: main+0x5003 (bpf_error @ gencode.c:435) UAF write at: 0x7ffd6a2bf488
+first time found dangling pointer at: 1781 distance: 357
+[INCONSISTENCY mov write reg UAF] ip: main+0x500a (bpf_error @ gencode.c:435) UAF write at: 0x7ffd6a2bf490
+[INCONSISTENCY mov write reg UAF] ip: main+0x5011 (bpf_error @ gencode.c:435) UAF write at: 0x7ffd6a2bf498
+first time found dangling pointer at: 1733 distance: 407
+[INCONSISTENCY mov read UAF] ip: main+0x5069 (bpf_error @ gencode.c:439) UAF read at: 0x7ffd6a2bf448
+first time found dangling pointer at: 1792 distance: 357
+[CORRUPTED_PTR_LOAD] ip: main+0x5069 (bpf_error @ gencode.c:439) loaded: 0x7ffd6a2bf7b0 from cell: 0x7ffd6a2bf448 cell_owner: 43 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x5070 (bpf_error @ gencode.c:439) UAF read at: 0x7ffd6a2bf878
+first time found dangling pointer at: 123 distance: 2027
+[INCONSISTENCY mov read UAF] ip: main+0x5085 (bpf_error @ gencode.c:439) UAF read at: 0x7ffd6a2bf440
+[CORRUPTED_PTR_LOAD] ip: main+0x5085 (bpf_error @ gencode.c:439) loaded: 0x64a0acd2918f from cell: 0x7ffd6a2bf440 cell_owner: 43 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x509c (bpf_error @ gencode.c:442) UAF read at: 0x7ffd6a2bf448
+first time found dangling pointer at: 1792 distance: 368
+[CORRUPTED_PTR_LOAD] ip: main+0x509c (bpf_error @ gencode.c:442) loaded: 0x7ffd6a2bf7b0 from cell: 0x7ffd6a2bf448 cell_owner: 43 value_owner: 42

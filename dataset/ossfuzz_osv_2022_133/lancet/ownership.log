@@ -1,0 +1,1106 @@
+[INCONSISTENCY mov write reg] ip: main+0x3978 (main @ harness.c:36) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x397e (main @ harness.c:36) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x39cb (main @ harness.c:44) final_ea: 0x7ffc6c7932a0 base: 0x7ffc6c7932a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x3a04 (main @ harness.c:48) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x3a13 (main @ harness.c:50) final_ea: 0x7ffc6c7932a0 base: 0x7ffc6c7932a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x3a28 (main @ harness.c:50) co: 4 vo: 4, 4 write 4
+[ALLOC] malloc(0x29) -> 0x55c8bf21e010 subject=5 at main @ harness.c:56
+[INCONSISTENCY mov write reg] ip: main+0x3a56 (main @ harness.c:56) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x55c8bf21e050 subject=6 at _IO_file_doallocate
+[INCONSISTENCY mov read] ip: main+0x7fc3 (coap_pdu_init @ pdu.c:96) base: 0x7ffc6c793060 pointee: 4 read from 7
+[CORRUPTED_PTR_LOAD] ip: main+0x7fc3 (coap_pdu_init @ pdu.c:96) loaded: 0x0 from cell: 0x7ffc6c79304c cell_owner: 7 value_owner: 4
+[INCONSISTENCY mov read] ip: main+0x7ff1 (coap_pdu_init @ pdu.c:97) base: 0x7ffc6c793060 pointee: 4 read from 7
+[CORRUPTED_PTR_LOAD] ip: main+0x7ff1 (coap_pdu_init @ pdu.c:97) loaded: 0x0 from cell: 0x7ffc6c793048 cell_owner: 7 value_owner: 4
+[INCONSISTENCY mov read] ip: main+0x8022 (coap_pdu_init @ pdu.c:98) base: 0x7ffc6c793060 pointee: 4 read from 7
+[CORRUPTED_PTR_LOAD] ip: main+0x8022 (coap_pdu_init @ pdu.c:98) loaded: 0x0 from cell: 0x7ffc6c793044 cell_owner: 7 value_owner: 4
+[INCONSISTENCY mov read] ip: main+0x8028 (coap_pdu_init @ pdu.c:98) base: 0x7ffc6c793060 pointee: 4 read from 7
+[CORRUPTED_PTR_LOAD] ip: main+0x8028 (coap_pdu_init @ pdu.c:98) loaded: 0x0 from cell: 0x7ffc6c793044 cell_owner: 7 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x68c2 (coap_malloc_type @ mem.c:345) loaded: 0x68 from cell: 0x7ffc6c793010 cell_owner: 8 value_owner: 7
+[ALLOC] malloc(0x68) -> 0x55c8bf21f060 subject=9 at coap_malloc_type @ mem.c:345
+[STACK PIVOT] ip: main+0x68ce (coap_malloc_type @ mem.c:346) RSP 0x7ffc6c793028 left stack [0xb,0x7ffc6c774000]
+[CORRUPTED_PTR_LOAD] ip: main+0x8085 (coap_pdu_init @ pdu.c:121) loaded: 0x29 from cell: 0x7ffc6c793038 cell_owner: 7 value_owner: 4
+[ALLOC] malloc(0x2f) -> 0x55c8bf21f0d0 subject=12 at coap_malloc_type @ mem.c:345
+[STACK PIVOT] ip: main+0x68ce (coap_malloc_type @ mem.c:346) RSP 0x7ffc6c793028 left stack [0xe,0x7ffc6c774000]
+[CORRUPTED_PTR_LOAD] ip: main+0x80fd (coap_pdu_init @ pdu.c:129) loaded: 0x29 from cell: 0x7ffc6c793038 cell_owner: 7 value_owner: 4
+[STACK PIVOT] ip: main+0x7fa8 (coap_pdu_clear @ pdu.c:62) RSP 0x7ffc6c793028 left stack [0x10,0x7ffc6c774000]
+[CORRUPTED_PTR_LOAD] ip: main+0x8114 (coap_pdu_init @ pdu.c:130) loaded: 0x0 from cell: 0x7ffc6c793044 cell_owner: 7 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x811e (coap_pdu_init @ pdu.c:131) loaded: 0xbf21f0d000000000 from cell: 0x7ffc6c79304c cell_owner: 7 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x8127 (coap_pdu_init @ pdu.c:132) loaded: 0x0 from cell: 0x7ffc6c793048 cell_owner: 7 value_owner: 4
+[STACK PIVOT] ip: main+0x8131 (coap_pdu_init @ pdu.c:134) RSP 0x7ffc6c793068 left stack [0x11,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x3d97 (coap_set_log_level @ coap_debug.c:81) UAF write at: 0x7ffc6c79305c
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79305c ip: main+0x3d9a (coap_set_log_level @ coap_debug.c:82)
+[INCONSISTENCY mov write reg] ip: main+0x3d9d (coap_set_log_level @ coap_debug.c:82) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov read] ip: main+0x9ce9 (coap_pdu_parse_header_size @ pdu.c:790) base: 0x7ffc6c793020 pointee: 17 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x9ce9 (coap_pdu_parse_header_size @ pdu.c:790) loaded: 0x55c8bf21e010 from cell: 0x7ffc6c793000 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov write imm UAF] ip: main+0x9d18 (coap_pdu_parse_header_size @ pdu.c:791) UAF write at: 0x7ffc6c793018
+[INCONSISTENCY mov read] ip: main+0x9d20 (coap_pdu_parse_header_size @ pdu.c:793) base: 0x7ffc6c793020 pointee: 17 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x9d20 (coap_pdu_parse_header_size @ pdu.c:793) loaded: 0x2900000001 from cell: 0x7ffc6c79300c cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read] ip: main+0x9d26 (coap_pdu_parse_header_size @ pdu.c:793) base: 0x7ffc6c793020 pointee: 17 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x9d26 (coap_pdu_parse_header_size @ pdu.c:793) loaded: 0x2900000001 from cell: 0x7ffc6c79300c cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read] ip: main+0x9d73 (coap_pdu_parse_header_size @ pdu.c:803) base: 0x7ffc6c793020 pointee: 17 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x9d73 (coap_pdu_parse_header_size @ pdu.c:803) loaded: 0x2900000001 from cell: 0x7ffc6c79300c cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov write imm UAF] ip: main+0x9d7f (coap_pdu_parse_header_size @ pdu.c:804) UAF write at: 0x7ffc6c793018
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793018 ip: main+0x9d87 (coap_pdu_parse_header_size @ pdu.c:807)
+[STACK PIVOT] ip: main+0x9d8b (coap_pdu_parse_header_size @ pdu.c:808) RSP 0x7ffc6c793028 left stack [0x14,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x85e9 (coap_pdu_resize @ pdu.c:243) RSP 0x7ffc6c793028 left stack [0x16,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x9f9c (coap_pdu_parse_header @ pdu.c:844) UAF write at: 0x7ffc6c793018
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793018 ip: main+0x9fe4 (coap_pdu_parse_header @ pdu.c:847)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793018 ip: main+0xa01f (coap_pdu_parse_header @ pdu.c:851)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793018 ip: main+0xa037 (coap_pdu_parse_header @ pdu.c:852)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793018 ip: main+0xa04a (coap_pdu_parse_header @ pdu.c:853)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793018 ip: main+0xa05f (coap_pdu_parse_header @ pdu.c:854)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793018 ip: main+0xa072 (coap_pdu_parse_header @ pdu.c:854)
+[STACK PIVOT] ip: main+0xa1ad (coap_pdu_parse_header @ pdu.c:872) RSP 0x7ffc6c793028 left stack [0x18,0x7ffc6c774000]
+[INCONSISTENCY mov write imm UAF] ip: main+0xa717 (coap_pdu_parse_opt @ pdu.c:997) UAF write at: 0x7ffc6c79301c
+[CORRUPTED_PTR_LOAD] ip: main+0x6936 (coap_opt_parse @ option.c:43) loaded: 0x55c8bf21f0d6 from cell: 0x7ffc6c792f28 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x693e (coap_opt_parse @ option.c:45) loaded: 0x55c8bf21f0d6 from cell: 0x7ffc6c792f28 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x696d (coap_opt_parse @ option.c:45) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x699c (coap_opt_parse @ option.c:47) loaded: 0x25 from cell: 0x7ffc6c792f20 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x69ad (coap_opt_parse @ option.c:50) loaded: 0x55c8bf21f0d6 from cell: 0x7ffc6c792f28 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x69ba (coap_opt_parse @ option.c:50) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x69c1 (coap_opt_parse @ option.c:51) loaded: 0x55c8bf21f0d6 from cell: 0x7ffc6c792f28 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x69d1 (coap_opt_parse @ option.c:51) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x69d9 (coap_opt_parse @ option.c:53) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x6b49 (coap_opt_parse @ option.c:79) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x6c7c (coap_opt_parse @ option.c:100) loaded: 0x25 from cell: 0x7ffc6c792f20 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x6cb7 (coap_opt_parse @ option.c:103) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x6cbb (coap_opt_parse @ option.c:103) loaded: 0x55c8bf21f0d7 from cell: 0x7ffc6c792f28 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x6cc3 (coap_opt_parse @ option.c:104) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x6ccb (coap_opt_parse @ option.c:104) loaded: 0x24 from cell: 0x7ffc6c792f20 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x6cfb (coap_opt_parse @ option.c:112) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 25 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0x6d03 (coap_opt_parse @ option.c:112) loaded: 0x55c8bf21f0d7 from cell: 0x7ffc6c792f28 cell_owner: 25 value_owner: 24
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f48 left stack [0x1b,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x9cd4 (next_option_safe @ pdu.c:785) RSP 0x7ffc6c792f98 left stack [0x1c,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x70f3 (coap_opt_length @ option.c:215) UAF write at: 0x7ffc6c792f78
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0x70f7 (coap_opt_length @ option.c:218)
+[INCONSISTENCY mov write reg UAF] ip: main+0x7104 (coap_opt_length @ option.c:218) UAF write at: 0x7ffc6c792f8c
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0x7107 (coap_opt_length @ option.c:219)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f8c ip: main+0x7170 (coap_opt_length @ option.c:235)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f8c ip: main+0x7176 (coap_opt_length @ option.c:235)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f8c ip: main+0x717c (coap_opt_length @ option.c:235)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f8c ip: main+0x7182 (coap_opt_length @ option.c:235)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f8c ip: main+0x71e7 (coap_opt_length @ option.c:248)
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792f98 left stack [0x1e,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xa2d3 (coap_pdu_parse_opt_base @ pdu.c:929) UAF write at: 0x7ffc6c792f78
+[INCONSISTENCY mov write imm UAF] ip: main+0xa2dd (coap_pdu_parse_opt_base @ pdu.c:930) UAF write at: 0x7ffc6c792f8c
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0xa2e4 (coap_pdu_parse_opt_base @ pdu.c:932)
+[UNTRUSTEDPTRDEREF] ip: main+0xa316 (coap_pdu_parse_opt_base @ pdu.c:932) final_ea: 0x55c8935b62ac base: 0xc pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f74 ip: main+0xa34f (coap_pdu_parse_opt_base @ pdu.c:934)
+[INCONSISTENCY mov write imm UAF] ip: main+0xa362 (coap_pdu_parse_opt_base @ pdu.c:934) UAF write at: 0x7ffc6c792f8c
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f8c ip: main+0xa581 (coap_pdu_parse_opt_base @ pdu.c:958)
+[CORRUPTED_PTR_LOAD] ip: main+0x65a8 (coap_ticks @ coap_time.c:113) loaded: 0x7ffc6c792ea0 from cell: 0x7ffc6c792638 cell_owner: 31 value_owner: 30
+[STACK PIVOT] ip: main+0x65b0 (coap_ticks @ coap_time.c:114) RSP 0x7ffc6c792668 left stack [0x21,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x5c0e (coap_log_impl @ coap_debug.c:950) UAF read at: 0x7ffc6c792ea0
+[INCONSISTENCY mov write reg UAF] ip: main+0x3dae (print_timestamp @ coap_debug.c:93) UAF write at: 0x7ffc6c792638
+[INCONSISTENCY mov write reg UAF] ip: main+0x3db2 (print_timestamp @ coap_debug.c:93) UAF write at: 0x7ffc6c792630
+[INCONSISTENCY mov write reg UAF] ip: main+0x3dc6 (print_timestamp @ coap_debug.c:96) UAF write at: 0x7ffc6c792648
+[ALLOC:internal] malloc(0xf) -> 0x55c8bf21f110 subject=34 at strdup
+[ALLOC:internal] malloc(0x1d8) -> 0x55c8bf21f130 subject=35 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x55c8bf21f310 subject=36 at _IO_file_doallocate
+[ALLOC:internal] malloc(0x11) -> 0x55c8bf220320 subject=37 at tzset
+[FREE:internal] free(0x55c8bf21f310) subject=36 at _IO_setb
+[FREE:internal] free(0x55c8bf21f130) subject=35 at _IO_fclose
+[FREE:internal] free(0x55c8bf21f130) subject=0
+[DOUBLE FREE] free(0x55c8bf21f130) — already freed
+[ALLOC:internal] malloc(0x14) -> 0x55c8bf21f610 subject=38 at adjtime
+[INCONSISTENCY mov write reg UAF] ip: main+0x3dd6 (print_timestamp @ coap_debug.c:97) UAF write at: 0x7ffc6c792650
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792650 ip: main+0x3dda (print_timestamp @ coap_debug.c:98)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792630 ip: main+0x3dde (print_timestamp @ coap_debug.c:98)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792638 ip: main+0x3de2 (print_timestamp @ coap_debug.c:98)
+[INCONSISTENCY mov write reg UAF] ip: main+0x3df8 (print_timestamp @ coap_debug.c:98) UAF write at: 0x7ffc6c792658
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792658 ip: main+0x3dfc (print_timestamp @ coap_debug.c:99)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792630 ip: main+0x3e04 (print_timestamp @ coap_debug.c:99)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792630 ip: main+0x3e57 (print_timestamp @ coap_debug.c:100)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792638 ip: main+0x3e5f (print_timestamp @ coap_debug.c:100)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792658 ip: main+0x3e63 (print_timestamp @ coap_debug.c:100)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792658 ip: main+0x3e87 (print_timestamp @ coap_debug.c:103)
+[STACK PIVOT] ip: main+0x3e8b (print_timestamp @ coap_debug.c:104) RSP 0x7ffc6c792668 left stack [0x28,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x5c29 (coap_log_impl @ coap_debug.c:950) UAF write at: 0x7ffc6c792ec0
+[INCONSISTENCY mov read UAF] ip: main+0x5c30 (coap_log_impl @ coap_debug.c:951) UAF read at: 0x7ffc6c792ec0
+[INCONSISTENCY mov read UAF] ip: main+0x5c3a (coap_log_impl @ coap_debug.c:952) UAF read at: 0x7ffc6c792ec0
+[INCONSISTENCY mov read UAF] ip: main+0x5c4a (coap_log_impl @ coap_debug.c:952) UAF read at: 0x7ffc6c792ec8
+[INCONSISTENCY mov read UAF] ip: main+0x5c6a (coap_log_impl @ coap_debug.c:954) UAF read at: 0x7ffc6c79267c
+[INCONSISTENCY mov read UAF] ip: main+0x5c73 (coap_log_impl @ coap_debug.c:955) UAF read at: 0x7ffc6c79267c
+[INCONSISTENCY mov read UAF] ip: main+0x5c8e (coap_log_impl @ coap_debug.c:955) UAF read at: 0x7ffc6c792ec8
+[INCONSISTENCY mov write imm UAF] ip: main+0x5cac (coap_log_impl @ coap_debug.c:957) UAF write at: 0x7ffc6c792e88
+[INCONSISTENCY mov write imm UAF] ip: main+0x5cb6 (coap_log_impl @ coap_debug.c:957) UAF write at: 0x7ffc6c792e8c
+[INCONSISTENCY mov write reg UAF] ip: main+0x5cc4 (coap_log_impl @ coap_debug.c:957) UAF write at: 0x7ffc6c792e90
+[INCONSISTENCY mov write reg UAF] ip: main+0x5cd2 (coap_log_impl @ coap_debug.c:957) UAF write at: 0x7ffc6c792e98
+[INCONSISTENCY mov read UAF] ip: main+0x5ce0 (coap_log_impl @ coap_debug.c:958) UAF read at: 0x7ffc6c792670
+[INCONSISTENCY mov read UAF] ip: main+0x5ce7 (coap_log_impl @ coap_debug.c:958) UAF read at: 0x7ffc6c792ec8
+[INCONSISTENCY mov read UAF] ip: main+0x5cf9 (coap_log_impl @ coap_debug.c:960) UAF read at: 0x7ffc6c792ec8
+[STACK PIVOT] ip: main+0x5d0b (coap_log_impl @ coap_debug.c:962) RSP 0x7ffc6c792f88 left stack [0x29,0x7ffc6c774000]
+[INCONSISTENCY mov write imm UAF] ip: main+0xa9b7 (coap_pdu_parse_opt @ pdu.c:1042) UAF write at: 0x7ffc6c79301c
+[INCONSISTENCY mov write reg UAF] ip: main+0x9b72 (next_option_safe @ pdu.c:763) UAF write at: 0x7ffc6c792f68
+[INCONSISTENCY mov write reg UAF] ip: main+0x9b76 (next_option_safe @ pdu.c:763) UAF write at: 0x7ffc6c792f60
+[INCONSISTENCY mov write reg UAF] ip: main+0x9b7a (next_option_safe @ pdu.c:763) UAF write at: 0x7ffc6c792f58
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f68 ip: main+0x9b7e (next_option_safe @ pdu.c:767)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f68 ip: main+0x9bad (next_option_safe @ pdu.c:767)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f60 ip: main+0x9be1 (next_option_safe @ pdu.c:768)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f60 ip: main+0x9c10 (next_option_safe @ pdu.c:770)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f68 ip: main+0x9c17 (next_option_safe @ pdu.c:770)
+[INCONSISTENCY mov write reg UAF] ip: main+0x692a (coap_opt_parse @ option.c:41) UAF write at: 0x7ffc6c792f28
+[INCONSISTENCY mov write reg UAF] ip: main+0x692e (coap_opt_parse @ option.c:41) UAF write at: 0x7ffc6c792f20
+Store dangling pointer: 0x7ffc6c792f70 at: 0x7ffc6c792f18
+[INCONSISTENCY mov write reg UAF] ip: main+0x6932 (coap_opt_parse @ option.c:41) UAF write at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x6936 (coap_opt_parse @ option.c:43) UAF read at: 0x7ffc6c792f28
+[INCONSISTENCY mov write reg UAF] ip: main+0x693a (coap_opt_parse @ option.c:43) UAF write at: 0x7ffc6c792f38
+[INCONSISTENCY mov read UAF] ip: main+0x693e (coap_opt_parse @ option.c:45) UAF read at: 0x7ffc6c792f28
+[INCONSISTENCY mov read UAF] ip: main+0x696d (coap_opt_parse @ option.c:45) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 5
+main+0x696d (coap_opt_parse @ option.c:45) Using expired pointer: 0x7ffc6c792f70 from 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 5
+[INCONSISTENCY mov read UAF] ip: main+0x699c (coap_opt_parse @ option.c:47) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0x69ad (coap_opt_parse @ option.c:50) UAF read at: 0x7ffc6c792f28
+[INCONSISTENCY mov read UAF] ip: main+0x69ba (coap_opt_parse @ option.c:50) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 13
+[INCONSISTENCY mov read UAF] ip: main+0x69c1 (coap_opt_parse @ option.c:51) UAF read at: 0x7ffc6c792f28
+[INCONSISTENCY mov read UAF] ip: main+0x69d1 (coap_opt_parse @ option.c:51) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 20
+[INCONSISTENCY mov write reg UAF] ip: main+0x69d5 (coap_opt_parse @ option.c:51) UAF write at: 0x7ffc6c792f78
+[INCONSISTENCY mov read UAF] ip: main+0x69d9 (coap_opt_parse @ option.c:53) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 22
+[INCONSISTENCY mov read UAF] ip: main+0x69dd (coap_opt_parse @ option.c:53) UAF read at: 0x7ffc6c792f70
+[INCONSISTENCY mov read UAF] ip: main+0x6adf (coap_opt_parse @ option.c:71) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0x6b1d (coap_opt_parse @ option.c:71) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0x6b2e (coap_opt_parse @ option.c:72) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 37
+[INCONSISTENCY mov read UAF] ip: main+0x6b32 (coap_opt_parse @ option.c:72) UAF read at: 0x7ffc6c792f70
+[INCONSISTENCY mov read UAF] ip: main+0x6b35 (coap_opt_parse @ option.c:72) UAF read at: 0x7ffc6c792f28
+[INCONSISTENCY mov read UAF] ip: main+0x6b41 (coap_opt_parse @ option.c:72) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 43
+[INCONSISTENCY mov read UAF] ip: main+0x6b49 (coap_opt_parse @ option.c:79) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 46
+[INCONSISTENCY mov read UAF] ip: main+0x6b4d (coap_opt_parse @ option.c:79) UAF read at: 0x7ffc6c792f78
+[INCONSISTENCY mov read UAF] ip: main+0x6c0f (coap_opt_parse @ option.c:91) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0x6c4d (coap_opt_parse @ option.c:91) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0x6c5e (coap_opt_parse @ option.c:92) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 60
+[INCONSISTENCY mov read UAF] ip: main+0x6c62 (coap_opt_parse @ option.c:92) UAF read at: 0x7ffc6c792f78
+[INCONSISTENCY mov read UAF] ip: main+0x6c66 (coap_opt_parse @ option.c:92) UAF read at: 0x7ffc6c792f28
+[INCONSISTENCY mov read UAF] ip: main+0x6c73 (coap_opt_parse @ option.c:92) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 66
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c77 (coap_opt_parse @ option.c:92) UAF write at: 0x7ffc6c792f78
+[INCONSISTENCY mov read UAF] ip: main+0x6c7c (coap_opt_parse @ option.c:100) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0x6cb7 (coap_opt_parse @ option.c:103) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 73
+[INCONSISTENCY mov read UAF] ip: main+0x6cbb (coap_opt_parse @ option.c:103) UAF read at: 0x7ffc6c792f28
+[INCONSISTENCY mov write reg UAF] ip: main+0x6cbf (coap_opt_parse @ option.c:103) UAF write at: 0x7ffc6c792f80
+[INCONSISTENCY mov read UAF] ip: main+0x6cc3 (coap_opt_parse @ option.c:104) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 76
+[INCONSISTENCY mov read UAF] ip: main+0x6cc7 (coap_opt_parse @ option.c:104) UAF read at: 0x7ffc6c792f78
+[INCONSISTENCY mov read UAF] ip: main+0x6ccb (coap_opt_parse @ option.c:104) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0x6cfb (coap_opt_parse @ option.c:112) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 80
+[INCONSISTENCY mov read UAF] ip: main+0x6cff (coap_opt_parse @ option.c:112) UAF read at: 0x7ffc6c792f78
+[INCONSISTENCY mov read UAF] ip: main+0x6d03 (coap_opt_parse @ option.c:112) UAF read at: 0x7ffc6c792f28
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f48 left stack [0x2c,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x9c2d (next_option_safe @ pdu.c:770) UAF write at: 0x7ffc6c792f88
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f88 ip: main+0x9c31 (next_option_safe @ pdu.c:771)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f60 ip: main+0x9c3c (next_option_safe @ pdu.c:772)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f88 ip: main+0x9c43 (next_option_safe @ pdu.c:772)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f58 ip: main+0x9c71 (next_option_safe @ pdu.c:776)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f70 ip: main+0x9c7b (next_option_safe @ pdu.c:776)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f58 ip: main+0x9c92 (next_option_safe @ pdu.c:779)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f70 ip: main+0x9c99 (next_option_safe @ pdu.c:779)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f58 ip: main+0x9c9f (next_option_safe @ pdu.c:779)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f68 ip: main+0x9ca6 (next_option_safe @ pdu.c:780)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f88 ip: main+0x9cad (next_option_safe @ pdu.c:780)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f68 ip: main+0x9cb4 (next_option_safe @ pdu.c:780)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f60 ip: main+0x9cbb (next_option_safe @ pdu.c:781)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f60 ip: main+0x9cc9 (next_option_safe @ pdu.c:781)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f88 ip: main+0x9cd0 (next_option_safe @ pdu.c:784)
+[STACK PIVOT] ip: main+0x9cd4 (next_option_safe @ pdu.c:785) RSP 0x7ffc6c792f98 left stack [0x2d,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0x71d1 (coap_opt_length @ option.c:243)
+[INCONSISTENCY mov write reg UAF] ip: main+0x71d9 (coap_opt_length @ option.c:243) UAF write at: 0x7ffc6c792f78
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792f98 left stack [0x2f,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f74 ip: main+0xa4f1 (coap_pdu_parse_opt_base @ pdu.c:951)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f74 ip: main+0xa4f8 (coap_pdu_parse_opt_base @ pdu.c:951)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79301c ip: main+0xa9d6 (coap_pdu_parse_opt @ pdu.c:1046)
+[INCONSISTENCY mov write imm UAF] ip: main+0xa9e0 (coap_pdu_parse_opt @ pdu.c:1059) UAF write at: 0x7ffc6c79300c
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79300c ip: main+0xac7f (coap_pdu_parse_opt @ pdu.c:1059)
+[STACK PIVOT] ip: main+0xa606 (write_prefix @ pdu.c:972) RSP 0x7ffc6c792f98 left stack [0x31,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xaa5c (coap_pdu_parse_opt @ pdu.c:1066) UAF write at: 0x7ffc6c793008
+[INCONSISTENCY mov write reg UAF] ip: main+0xaa68 (coap_pdu_parse_opt @ pdu.c:1068) UAF write at: 0x7ffc6c793000
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f48 left stack [0x34,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x9cd4 (next_option_safe @ pdu.c:785) RSP 0x7ffc6c792f98 left stack [0x35,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792f98 left stack [0x37,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793008 ip: main+0xaaf9 (coap_pdu_parse_opt @ pdu.c:1075)
+[INCONSISTENCY mov write reg UAF] ip: main+0xab2b (coap_pdu_parse_opt @ pdu.c:1075) UAF write at: 0x7ffc6c793008
+[INCONSISTENCY mov write reg UAF] ip: main+0xab93 (coap_pdu_parse_opt @ pdu.c:1085) UAF write at: 0x7ffc6c793010
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793010 ip: main+0xabd4 (coap_pdu_parse_opt @ pdu.c:1086)
+[INCONSISTENCY mov write reg UAF] ip: main+0xabdc (coap_pdu_parse_opt @ pdu.c:1086) UAF write at: 0x7ffc6c793010
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793008 ip: main+0xab99 (coap_pdu_parse_opt @ pdu.c:1087)
+[INCONSISTENCY mov write reg UAF] ip: main+0xabcc (coap_pdu_parse_opt @ pdu.c:1087) UAF write at: 0x7ffc6c793008
+[CORRUPTED_PTR_LOAD] ip: main+0x6adf (coap_opt_parse @ option.c:71) loaded: 0x24 from cell: 0x7ffc6c792f20 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6b1d (coap_opt_parse @ option.c:71) loaded: 0x23 from cell: 0x7ffc6c792f20 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6b2e (coap_opt_parse @ option.c:72) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6b35 (coap_opt_parse @ option.c:72) loaded: 0x55c8bf21f0d8 from cell: 0x7ffc6c792f28 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6b41 (coap_opt_parse @ option.c:72) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6c0f (coap_opt_parse @ option.c:91) loaded: 0x23 from cell: 0x7ffc6c792f20 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6c4d (coap_opt_parse @ option.c:91) loaded: 0x22 from cell: 0x7ffc6c792f20 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6c5e (coap_opt_parse @ option.c:92) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6c66 (coap_opt_parse @ option.c:92) loaded: 0x55c8bf21f0d9 from cell: 0x7ffc6c792f28 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x6c73 (coap_opt_parse @ option.c:92) loaded: 0x7ffc6c792f70 from cell: 0x7ffc6c792f18 cell_owner: 56 value_owner: 55
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f48 left stack [0x3a,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x9cd4 (next_option_safe @ pdu.c:785) RSP 0x7ffc6c792f98 left stack [0x3b,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792f98 left stack [0x3d,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793008 ip: main+0xab56 (coap_pdu_parse_opt @ pdu.c:1083)
+[INCONSISTENCY mov write reg UAF] ip: main+0xab88 (coap_pdu_parse_opt @ pdu.c:1083) UAF write at: 0x7ffc6c793008
+[INCONSISTENCY mov write reg UAF] ip: main+0x5b05 (coap_log_impl @ coap_debug.c:916) UAF write at: 0x7ffc6c79268c
+[INCONSISTENCY mov write reg UAF] ip: main+0x5b0b (coap_log_impl @ coap_debug.c:916) UAF write at: 0x7ffc6c792680
+[INCONSISTENCY mov write reg UAF] ip: main+0x5b12 (coap_log_impl @ coap_debug.c:916) UAF write at: 0x7ffc6c792ef0
+[INCONSISTENCY mov write reg UAF] ip: main+0x5b19 (coap_log_impl @ coap_debug.c:916) UAF write at: 0x7ffc6c792ef8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5b20 (coap_log_impl @ coap_debug.c:916) UAF write at: 0x7ffc6c792f00
+[INCONSISTENCY mov write reg UAF] ip: main+0x5b27 (coap_log_impl @ coap_debug.c:916) UAF write at: 0x7ffc6c792f08
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79268c ip: main+0x5b58 (coap_log_impl @ coap_debug.c:918)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79268c ip: main+0x5bdf (coap_log_impl @ coap_debug.c:947)
+[INCONSISTENCY mov write reg UAF] ip: main+0x5bf8 (coap_log_impl @ coap_debug.c:947) UAF write at: 0x7ffc6c792ed8
+Store dangling pointer: 0x7ffc6c792eb0 at: 0x7ffc6c792648
+[INCONSISTENCY mov write reg UAF] ip: main+0x651b (coap_ticks @ coap_time.c:84) UAF write at: 0x7ffc6c792648
+first time found dangling pointer at: 3191 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x6530 (coap_ticks @ coap_time.c:96) UAF read at: 0x7ffc6c792658
+[INCONSISTENCY mov write reg UAF] ip: main+0x6588 (coap_ticks @ coap_time.c:96) UAF write at: 0x7ffc6c792668
+[INCONSISTENCY mov read UAF] ip: main+0x658c (coap_ticks @ coap_time.c:113) UAF read at: 0x7ffc6c792650
+[INCONSISTENCY mov read UAF] ip: main+0x65a1 (coap_ticks @ coap_time.c:113) UAF read at: 0x7ffc6c792668
+[INCONSISTENCY mov read UAF] ip: main+0x65a8 (coap_ticks @ coap_time.c:113) UAF read at: 0x7ffc6c792648
+first time found dangling pointer at: 3191 distance: 26
+main+0x65a8 (coap_ticks @ coap_time.c:113) Using expired pointer: 0x7ffc6c792eb0 from 0x7ffc6c792648
+first time found dangling pointer at: 3191 distance: 26
+[INCONSISTENCY mov write reg UAF] ip: main+0x65ac (coap_ticks @ coap_time.c:113) UAF write at: 0x7ffc6c792eb0
+[STACK PIVOT] ip: main+0x65b0 (coap_ticks @ coap_time.c:114) RSP 0x7ffc6c792678 left stack [0x40,0x7ffc6c774000]
+Store dangling pointer: 0x7ffc6c792690 at: 0x7ffc6c792648
+[INCONSISTENCY mov write reg UAF] ip: main+0x3db6 (print_timestamp @ coap_debug.c:93) UAF write at: 0x7ffc6c792638
+[INCONSISTENCY mov read UAF] ip: main+0x3dba (print_timestamp @ coap_debug.c:96) UAF read at: 0x7ffc6c792638
+[INCONSISTENCY mov write reg UAF] ip: main+0x65ba (coap_ticks_to_rt @ coap_time.c:117) UAF write at: 0x7ffc6c792618
+[INCONSISTENCY mov read UAF] ip: main+0x65be (coap_ticks_to_rt @ coap_time.c:118) UAF read at: 0x7ffc6c792618
+[FREE:internal] free(0x55c8bf21f110) subject=34 at adjtime
+[ALLOC:internal] malloc(0xf) -> 0x55c8bf21f110 subject=65 at strdup
+main+0x3de2 (print_timestamp @ coap_debug.c:98) Using expired pointer: 0x7ffc6c792690 from 0x7ffc6c792648
+first time found dangling pointer at: 3191 distance: 67
+[INCONSISTENCY mov read UAF] ip: main+0x3e0a (print_timestamp @ coap_debug.c:101) UAF read at: 0x7ffc6c792638
+[INCONSISTENCY mov write reg UAF] ip: main+0x65eb (coap_ticks_to_rt_us @ coap_time.c:121) UAF write at: 0x7ffc6c792618
+[INCONSISTENCY mov read UAF] ip: main+0x65fd (coap_ticks_to_rt_us @ coap_time.c:122) UAF read at: 0x7ffc6c792618
+[STACK PIVOT] ip: main+0x3e8b (print_timestamp @ coap_debug.c:104) RSP 0x7ffc6c792678 left stack [0x43,0x7ffc6c774000]
+Store dangling pointer: 0x7ffc6c792ee0 at: 0x7ffc6c792ea8
+[STACK PIVOT] ip: main+0x5d0b (coap_log_impl @ coap_debug.c:962) RSP 0x7ffc6c792f98 left stack [0x44,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xa592 (write_prefix @ pdu.c:962) UAF write at: 0x7ffc6c792f88
+[INCONSISTENCY mov write reg UAF] ip: main+0xa596 (write_prefix @ pdu.c:962) UAF write at: 0x7ffc6c792f80
+[INCONSISTENCY mov write reg UAF] ip: main+0xa59a (write_prefix @ pdu.c:962) UAF write at: 0x7ffc6c792f78
+[INCONSISTENCY mov write reg UAF] ip: main+0xa59e (write_prefix @ pdu.c:962) UAF write at: 0x7ffc6c792f70
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f80 ip: main+0xa5a2 (write_prefix @ pdu.c:964)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f70 ip: main+0xa5a9 (write_prefix @ pdu.c:964)
+[STACK PIVOT] ip: main+0xa606 (write_prefix @ pdu.c:972) RSP 0x7ffc6c792f98 left stack [0x46,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f48 left stack [0x49,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x9cd4 (next_option_safe @ pdu.c:785) RSP 0x7ffc6c792f98 left stack [0x4a,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792f98 left stack [0x4c,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f48 left stack [0x4f,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x9cd4 (next_option_safe @ pdu.c:785) RSP 0x7ffc6c792f98 left stack [0x50,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792f98 left stack [0x52,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x65b0 (coap_ticks @ coap_time.c:114) RSP 0x7ffc6c792678 left stack [0x55,0x7ffc6c774000]
+[FREE:internal] free(0x55c8bf21f110) subject=65 at adjtime
+[ALLOC:internal] malloc(0xf) -> 0x55c8bf21f110 subject=86 at strdup
+[STACK PIVOT] ip: main+0x3e8b (print_timestamp @ coap_debug.c:104) RSP 0x7ffc6c792678 left stack [0x58,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x5d0b (coap_log_impl @ coap_debug.c:962) RSP 0x7ffc6c792f98 left stack [0x59,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79301c ip: main+0xad33 (coap_pdu_parse_opt @ pdu.c:1116)
+[STACK PIVOT] ip: main+0xad36 (coap_pdu_parse_opt @ pdu.c:1117) RSP 0x7ffc6c793028 left stack [0x5a,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0xae4b (coap_pdu_parse @ pdu.c:1142) RSP 0x7ffc6c793068 left stack [0x5b,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xc8c7 (coap_get_query @ uri.c:561) UAF write at: 0x7ffc6c792fc8
+[INCONSISTENCY mov write imm UAF] ip: main+0xc8ce (coap_get_query @ uri.c:565) UAF write at: 0x7ffc6c793058
+[INCONSISTENCY mov write imm UAF] ip: main+0xc8d6 (coap_get_query @ uri.c:566) UAF write at: 0x7ffc6c793050
+Store dangling pointer: 0x7ffc6c792fd4 at: 0x7ffc6c792fa8
+[INCONSISTENCY mov write reg UAF] ip: main+0x78ff (coap_option_filter_clear @ option.c:492) UAF write at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x7903 (coap_option_filter_clear @ option.c:493) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 1
+main+0x7903 (coap_option_filter_clear @ option.c:493) Using expired pointer: 0x7ffc6c792fd4 from 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 1
+[STACK PIVOT] ip: main+0x791a (coap_option_filter_clear @ option.c:494) RSP 0x7ffc6c792fb8 left stack [0x5e,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x7928 (coap_option_filter_set @ option.c:497) UAF write at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 19
+[INCONSISTENCY mov read UAF] ip: main+0x7932 (coap_option_filter_set @ option.c:498) UAF read at: 0x7ffc6c792fa4
+[INCONSISTENCY mov read UAF] ip: main+0x7936 (coap_option_filter_set @ option.c:498) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 23
+[INCONSISTENCY mov write reg UAF] ip: main+0x772e (coap_option_filter_op @ option.c:434) UAF write at: 0x7ffc6c792f68
+first time found dangling pointer at: 4514 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x7734 (coap_option_filter_op @ option.c:434) UAF write at: 0x7ffc6c792f60
+[INCONSISTENCY mov write imm UAF] ip: main+0x773b (coap_option_filter_op @ option.c:435) UAF write at: 0x7ffc6c792f88
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f68 ip: main+0x7743 (coap_option_filter_op @ option.c:436)
+first time found dangling pointer at: 4514 distance: 5
+[INCONSISTENCY mov write reg UAF] ip: main+0x7747 (coap_option_filter_op @ option.c:436) UAF write at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x774b (coap_option_filter_op @ option.c:437) UAF write at: 0x7ffc6c792f84
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f64 ip: main+0x7751 (coap_option_filter_op @ option.c:439)
+[INCONSISTENCY mov read UAF] ip: main+0x7714 (is_long_option @ option.c:407) UAF read at: 0x7ffc6c792f4c
+[INCONSISTENCY mov write imm UAF] ip: main+0x77cd (coap_option_filter_op @ option.c:453) UAF write at: 0x7ffc6c792f84
+[INCONSISTENCY mov write imm UAF] ip: main+0x77d3 (coap_option_filter_op @ option.c:455) UAF write at: 0x7ffc6c792f86
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f88 ip: main+0x783e (coap_option_filter_op @ option.c:455)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0x77db (coap_option_filter_op @ option.c:458)
+first time found dangling pointer at: 4520 distance: 21
+[INCONSISTENCY mov read UAF] ip: main+0x77df (coap_option_filter_op @ option.c:458) UAF read at: 0x7ffc6c792fd4
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f60 ip: main+0x7845 (coap_option_filter_op @ option.c:469)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f60 ip: main+0x784b (coap_option_filter_op @ option.c:469)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0x785b (coap_option_filter_op @ option.c:475)
+first time found dangling pointer at: 4520 distance: 79
+[INCONSISTENCY mov read UAF] ip: main+0x785f (coap_option_filter_op @ option.c:475) UAF read at: 0x7ffc6c792fd4
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f84 ip: main+0x7869 (coap_option_filter_op @ option.c:475)
+[INCONSISTENCY mov write reg UAF] ip: main+0x666f (coap_fls @ encode.c:20) UAF write at: 0x7ffc6c792f4c
+[INCONSISTENCY mov read UAF] ip: main+0x6672 (coap_fls @ encode.c:21) UAF read at: 0x7ffc6c792f4c
+[INCONSISTENCY mov write reg UAF] ip: main+0x6687 (coap_flsll @ encode.c:27) UAF write at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 2657
+[INCONSISTENCY mov write imm UAF] ip: main+0x668b (coap_flsll @ encode.c:29) UAF write at: 0x7ffc6c792f2c
+[INCONSISTENCY mov read UAF] ip: main+0x669c (coap_flsll @ encode.c:29) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 2660
+[INCONSISTENCY mov read UAF] ip: main+0x66a3 (coap_flsll @ encode.c:31) UAF read at: 0x7ffc6c792f2c
+[STACK PIVOT] ip: main+0x667d (coap_fls @ encode.c:22) RSP 0x7ffc6c792f58 left stack [0x62,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x7878 (coap_option_filter_op @ option.c:475) UAF write at: 0x7ffc6c792f88
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f88 ip: main+0x787c (coap_option_filter_op @ option.c:476)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f64 ip: main+0x788a (coap_option_filter_op @ option.c:480)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f88 ip: main+0x78b0 (coap_option_filter_op @ option.c:483)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f64 ip: main+0x78b8 (coap_option_filter_op @ option.c:483)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0x78be (coap_option_filter_op @ option.c:483)
+first time found dangling pointer at: 4520 distance: 163
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0x78c6 (coap_option_filter_op @ option.c:486)
+first time found dangling pointer at: 4520 distance: 165
+[INCONSISTENCY mov read UAF] ip: main+0x78ca (coap_option_filter_op @ option.c:486) UAF read at: 0x7ffc6c792fd4
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f88 ip: main+0x78cf (coap_option_filter_op @ option.c:486)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f78 ip: main+0x78e5 (coap_option_filter_op @ option.c:486)
+first time found dangling pointer at: 4520 distance: 176
+[STACK PIVOT] ip: main+0x78f1 (coap_option_filter_op @ option.c:489) RSP 0x7ffc6c792f98 left stack [0x63,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x7949 (coap_option_filter_set @ option.c:499) RSP 0x7ffc6c792fb8 left stack [0x64,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792fc8 ip: main+0xc90c (coap_get_query @ uri.c:571)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d1c (coap_option_iterator_init @ option.c:117) UAF write at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 231
+Store dangling pointer: 0x7ffc6c792fe0 at: 0x7ffc6c792fa0
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d20 (coap_option_iterator_init @ option.c:117) UAF write at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d24 (coap_option_iterator_init @ option.c:117) UAF write at: 0x7ffc6c792f98
+first time found dangling pointer at: 4715 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x6d28 (coap_option_iterator_init @ option.c:118) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 234
+[INCONSISTENCY mov read UAF] ip: main+0x6d57 (coap_option_iterator_init @ option.c:119) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 236
+[INCONSISTENCY mov read UAF] ip: main+0x6d8c (coap_option_iterator_init @ option.c:120) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 8
+main+0x6d8c (coap_option_iterator_init @ option.c:120) Using expired pointer: 0x7ffc6c792fe0 from 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x6dbb (coap_option_iterator_init @ option.c:122) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 10
+[INCONSISTENCY mov read UAF] ip: main+0x6dd1 (coap_option_iterator_init @ option.c:124) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 249
+[INCONSISTENCY mov read UAF] ip: main+0x6dd9 (coap_option_iterator_init @ option.c:124) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 251
+[INCONSISTENCY mov read UAF] ip: main+0x6de7 (coap_option_iterator_init @ option.c:124) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 23
+[INCONSISTENCY mov write reg UAF] ip: main+0x6deb (coap_option_iterator_init @ option.c:124) UAF write at: 0x7ffc6c792ff0
+[INCONSISTENCY mov read UAF] ip: main+0x6def (coap_option_iterator_init @ option.c:125) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 257
+[INCONSISTENCY mov read UAF] ip: main+0x6df7 (coap_option_iterator_init @ option.c:125) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 259
+[INCONSISTENCY mov read UAF] ip: main+0x6e02 (coap_option_iterator_init @ option.c:125) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 30
+[INCONSISTENCY mov read UAF] ip: main+0x6e06 (coap_option_iterator_init @ option.c:125) UAF read at: 0x7ffc6c792ff0
+[INCONSISTENCY mov read UAF] ip: main+0x6e24 (coap_option_iterator_init @ option.c:130) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 266
+[INCONSISTENCY mov read UAF] ip: main+0x6e2c (coap_option_iterator_init @ option.c:130) UAF read at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 268
+[INCONSISTENCY mov read UAF] ip: main+0x6e3a (coap_option_iterator_init @ option.c:130) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 40
+[INCONSISTENCY mov write reg UAF] ip: main+0x6e3e (coap_option_iterator_init @ option.c:130) UAF write at: 0x7ffc6c792fe0
+[INCONSISTENCY mov read UAF] ip: main+0x6e41 (coap_option_iterator_init @ option.c:132) UAF read at: 0x7ffc6c792f98
+first time found dangling pointer at: 4715 distance: 41
+[INCONSISTENCY mov read UAF] ip: main+0x6e48 (coap_option_iterator_init @ option.c:133) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 44
+[INCONSISTENCY mov read UAF] ip: main+0x6e50 (coap_option_iterator_init @ option.c:133) UAF read at: 0x7ffc6c792f98
+first time found dangling pointer at: 4715 distance: 45
+[INCONSISTENCY mov read UAF] ip: main+0x6e64 (coap_option_iterator_init @ option.c:134) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 53
+[INCONSISTENCY mov read UAF] ip: main+0x6e68 (coap_option_iterator_init @ option.c:134) UAF read at: 0x7ffc6c792fea
+[INCONSISTENCY mov read UAF] ip: main+0x6e72 (coap_option_iterator_init @ option.c:136) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 57
+[STACK PIVOT] ip: main+0x6e76 (coap_option_iterator_init @ option.c:137) RSP 0x7ffc6c792fb8 left stack [0x66,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x6f14 (coap_option_next @ option.c:152) UAF write at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 262
+[INCONSISTENCY mov write imm UAF] ip: main+0x6f18 (coap_option_next @ option.c:154) UAF write at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 301
+[INCONSISTENCY mov read UAF] ip: main+0x6f20 (coap_option_next @ option.c:158) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 264
+[INCONSISTENCY mov read UAF] ip: main+0x6f4f (coap_option_next @ option.c:160) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 266
+[INCONSISTENCY mov write reg UAF] ip: main+0x6e80 (opt_finished @ option.c:140) UAF write at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x6e84 (opt_finished @ option.c:141) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x6eb3 (opt_finished @ option.c:143) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0x6eb7 (opt_finished @ option.c:143) UAF read at: 0x7ffc6c792fea
+[INCONSISTENCY mov read UAF] ip: main+0x6ec2 (opt_finished @ option.c:143) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x6ec6 (opt_finished @ option.c:143) UAF read at: 0x7ffc6c792fe0
+[INCONSISTENCY mov read UAF] ip: main+0x6ece (opt_finished @ option.c:144) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 12
+[INCONSISTENCY mov read UAF] ip: main+0x6ed2 (opt_finished @ option.c:144) UAF read at: 0x7ffc6c792ff0
+[INCONSISTENCY mov read UAF] ip: main+0x6edb (opt_finished @ option.c:144) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 16
+[INCONSISTENCY mov read UAF] ip: main+0x6edf (opt_finished @ option.c:144) UAF read at: 0x7ffc6c792ff0
+[INCONSISTENCY mov read UAF] ip: main+0x6ef8 (opt_finished @ option.c:148) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 21
+[INCONSISTENCY mov read UAF] ip: main+0x6efc (opt_finished @ option.c:148) UAF read at: 0x7ffc6c792fea
+[STACK PIVOT] ip: main+0x6f06 (opt_finished @ option.c:149) RSP 0x7ffc6c792f68 left stack [0x69,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x6f69 (coap_option_next @ option.c:167) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 301
+[INCONSISTENCY mov read UAF] ip: main+0x6f6d (coap_option_next @ option.c:167) UAF read at: 0x7ffc6c792ff0
+[INCONSISTENCY mov write reg UAF] ip: main+0x6f71 (coap_option_next @ option.c:167) UAF write at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 341
+[INCONSISTENCY mov read UAF] ip: main+0x6f75 (coap_option_next @ option.c:171) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 304
+[INCONSISTENCY mov read UAF] ip: main+0x6f79 (coap_option_next @ option.c:171) UAF read at: 0x7ffc6c792fe0
+[INCONSISTENCY mov read UAF] ip: main+0x6f7c (coap_option_next @ option.c:171) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 306
+[INCONSISTENCY mov read UAF] ip: main+0x6f80 (coap_option_next @ option.c:171) UAF read at: 0x7ffc6c792ff0
+Store dangling pointer: 0x7ffc6c792f80 at: 0x7ffc6c792f38
+main+0x696d (coap_opt_parse @ option.c:45) Using expired pointer: 0x7ffc6c792f80 from 0x7ffc6c792f38
+first time found dangling pointer at: 4838 distance: 5
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f68 left stack [0x6b,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x6f93 (coap_option_next @ option.c:171) UAF write at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 187
+[INCONSISTENCY mov read UAF] ip: main+0x6f97 (coap_option_next @ option.c:172) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 188
+[INCONSISTENCY mov read UAF] ip: main+0x6fa2 (coap_option_next @ option.c:173) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 384
+[INCONSISTENCY mov read UAF] ip: main+0x6fa6 (coap_option_next @ option.c:173) UAF read at: 0x7ffc6c792fe0
+[INCONSISTENCY mov read UAF] ip: main+0x6fa9 (coap_option_next @ option.c:173) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 192
+[INCONSISTENCY mov read UAF] ip: main+0x6fd7 (coap_option_next @ option.c:175) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 388
+[INCONSISTENCY mov read UAF] ip: main+0x6fdb (coap_option_next @ option.c:175) UAF read at: 0x7ffc6c792ff0
+[INCONSISTENCY mov read UAF] ip: main+0x6fdf (coap_option_next @ option.c:175) UAF read at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 196
+[INCONSISTENCY mov read UAF] ip: main+0x6fe6 (coap_option_next @ option.c:175) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 392
+[INCONSISTENCY mov write reg UAF] ip: main+0x6fea (coap_option_next @ option.c:175) UAF write at: 0x7ffc6c792ff0
+[INCONSISTENCY mov read UAF] ip: main+0x6fee (coap_option_next @ option.c:176) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 394
+[INCONSISTENCY mov read UAF] ip: main+0x6ff2 (coap_option_next @ option.c:176) UAF read at: 0x7ffc6c792fe0
+[INCONSISTENCY mov read UAF] ip: main+0x6ffc (coap_option_next @ option.c:176) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 398
+[INCONSISTENCY mov write reg UAF] ip: main+0x7000 (coap_option_next @ option.c:176) UAF write at: 0x7ffc6c792fe0
+[INCONSISTENCY mov read UAF] ip: main+0x7003 (coap_option_next @ option.c:178) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 400
+[INCONSISTENCY mov read UAF] ip: main+0x7007 (coap_option_next @ option.c:178) UAF read at: 0x7ffc6c792fe8
+[INCONSISTENCY mov read UAF] ip: main+0x700b (coap_option_next @ option.c:178) UAF read at: 0x7ffc6c792f80
+[INCONSISTENCY mov read UAF] ip: main+0x7011 (coap_option_next @ option.c:178) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 404
+[INCONSISTENCY mov read UAF] ip: main+0x7019 (coap_option_next @ option.c:189) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 406
+[INCONSISTENCY mov read UAF] ip: main+0x701d (coap_option_next @ option.c:189) UAF read at: 0x7ffc6c792fea
+[INCONSISTENCY mov read UAF] ip: main+0x703f (coap_option_next @ option.c:190) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 412
+[INCONSISTENCY mov read UAF] ip: main+0x7043 (coap_option_next @ option.c:190) UAF read at: 0x7ffc6c792fe8
+[INCONSISTENCY mov read UAF] ip: main+0x704a (coap_option_next @ option.c:190) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 415
+Store dangling pointer: 0x7ffc6c792ff8 at: 0x7ffc6c792f58
+[INCONSISTENCY mov write reg UAF] ip: main+0x7986 (coap_option_filter_get @ option.c:507) UAF write at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 152
+[INCONSISTENCY mov read UAF] ip: main+0x7990 (coap_option_filter_get @ option.c:508) UAF read at: 0x7ffc6c792f54
+[INCONSISTENCY mov read UAF] ip: main+0x7994 (coap_option_filter_get @ option.c:508) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 156
+main+0x7994 (coap_option_filter_get @ option.c:508) Using expired pointer: 0x7ffc6c792ff8 from 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 156
+[INCONSISTENCY mov read UAF] ip: main+0x77eb (coap_option_filter_op @ option.c:458) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 71
+[INCONSISTENCY mov read UAF] ip: main+0x77ef (coap_option_filter_op @ option.c:458) UAF read at: 0x7ffc6c792f38
+first time found dangling pointer at: 4838 distance: 197
+[INCONSISTENCY mov read UAF] ip: main+0x77fa (coap_option_filter_op @ option.c:458) UAF read at: 0x7ffc6c793003
+[INCONSISTENCY mov read UAF] ip: main+0x7800 (coap_option_filter_op @ option.c:458) UAF read at: 0x7ffc6c792f14
+[STACK PIVOT] ip: main+0x78f1 (coap_option_filter_op @ option.c:489) RSP 0x7ffc6c792f48 left stack [0x6e,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x79a7 (coap_option_filter_get @ option.c:509) RSP 0x7ffc6c792f68 left stack [0x6f,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x705c (coap_option_next @ option.c:190) UAF write at: 0x7ffc6c792f9c
+[INCONSISTENCY mov read UAF] ip: main+0x705f (coap_option_next @ option.c:189) UAF read at: 0x7ffc6c792f9c
+[INCONSISTENCY mov read UAF] ip: main+0x7065 (coap_option_next @ option.c:192) UAF read at: 0x7ffc6c792f9c
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f68 left stack [0x71,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x78f1 (coap_option_filter_op @ option.c:489) RSP 0x7ffc6c792f48 left stack [0x74,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x79a7 (coap_option_filter_get @ option.c:509) RSP 0x7ffc6c792f68 left stack [0x75,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792f68 left stack [0x77,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x702a (coap_option_next @ option.c:180) UAF read at: 0x7ffc6c792f78
+first time found dangling pointer at: 4520 distance: 842
+[INCONSISTENCY mov read UAF] ip: main+0x702e (coap_option_next @ option.c:180) UAF read at: 0x7ffc6c792fea
+[STACK PIVOT] ip: main+0x7088 (coap_option_next @ option.c:199) RSP 0x7ffc6c792fb8 left stack [0x78,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xc996 (coap_get_query @ uri.c:572) UAF write at: 0x7ffc6c793030
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793030 ip: main+0xc99a (coap_get_query @ uri.c:572)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793050 ip: main+0xc9a5 (coap_get_query @ uri.c:583)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793050 ip: main+0xc9b1 (coap_get_query @ uri.c:585)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793058 ip: main+0xcb38 (coap_get_query @ uri.c:608)
+[STACK PIVOT] ip: main+0xcb3c (coap_get_query @ uri.c:609) RSP 0x7ffc6c793068 left stack [0x79,0x7ffc6c774000]
+[INCONSISTENCY mov write imm UAF] ip: main+0xcb55 (coap_get_uri_path @ uri.c:615) UAF write at: 0x7ffc6c793028
+[INCONSISTENCY mov write imm UAF] ip: main+0xcb5d (coap_get_uri_path @ uri.c:616) UAF write at: 0x7ffc6c793048
+[INCONSISTENCY mov write reg UAF] ip: main+0x7096 (coap_check_option @ option.c:203) UAF write at: 0x7ffc6c792f48
+Store dangling pointer: 0x7ffc6c792fd0 at: 0x7ffc6c792f38
+Store dangling pointer: 0x7ffc6c792f54 at: 0x7ffc6c792f18
+main+0x7903 (coap_option_filter_clear @ option.c:493) Using expired pointer: 0x7ffc6c792f54 from 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 3451
+[CORRUPTED_PTR_LOAD] ip: main+0x7903 (coap_option_filter_clear @ option.c:493) loaded: 0x7ffc6c792f54 from cell: 0x7ffc6c792f18 cell_owner: 123 value_owner: 122
+[STACK PIVOT] ip: main+0x791a (coap_option_filter_clear @ option.c:494) RSP 0x7ffc6c792f28 left stack [0x7d,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x70b0 (coap_check_option @ option.c:207) UAF read at: 0x7ffc6c792f44
+[STACK PIVOT] ip: main+0x667d (coap_fls @ encode.c:22) RSP 0x7ffc6c792ec8 left stack [0x81,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x78f1 (coap_option_filter_op @ option.c:489) RSP 0x7ffc6c792f08 left stack [0x82,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x7949 (coap_option_filter_set @ option.c:499) RSP 0x7ffc6c792f28 left stack [0x83,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x70c6 (coap_check_option @ option.c:209) UAF read at: 0x7ffc6c792f38
+first time found dangling pointer at: 4838 distance: 797
+main+0x70c6 (coap_check_option @ option.c:209) Using expired pointer: 0x7ffc6c792fd0 from 0x7ffc6c792f38
+first time found dangling pointer at: 4838 distance: 797
+[CORRUPTED_PTR_LOAD] ip: main+0x70c6 (coap_check_option @ option.c:209) loaded: 0x7ffc6c792fd0 from cell: 0x7ffc6c792f38 cell_owner: 122 value_owner: 121
+[INCONSISTENCY mov read UAF] ip: main+0x70ca (coap_check_option @ option.c:209) UAF read at: 0x7ffc6c792f48
+[STACK PIVOT] ip: main+0x6e76 (coap_option_iterator_init @ option.c:137) RSP 0x7ffc6c792f28 left stack [0x85,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x70d9 (coap_check_option @ option.c:211) UAF read at: 0x7ffc6c792f38
+first time found dangling pointer at: 4838 distance: 867
+[CORRUPTED_PTR_LOAD] ip: main+0x70d9 (coap_check_option @ option.c:211) loaded: 0x7ffc6c792fd0 from cell: 0x7ffc6c792f38 cell_owner: 122 value_owner: 121
+[STACK PIVOT] ip: main+0x6f06 (opt_finished @ option.c:149) RSP 0x7ffc6c792ed8 left stack [0x88,0x7ffc6c774000]
+Store dangling pointer: 0x7ffc6c792ef0 at: 0x7ffc6c792ea8
+main+0x696d (coap_opt_parse @ option.c:45) Using expired pointer: 0x7ffc6c792ef0 from 0x7ffc6c792ea8
+first time found dangling pointer at: 3356 distance: 2417
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792ed8 left stack [0x8a,0x7ffc6c774000]
+Store dangling pointer: 0x7ffc6c792fe8 at: 0x7ffc6c792ec8
+main+0x7994 (coap_option_filter_get @ option.c:508) Using expired pointer: 0x7ffc6c792fe8 from 0x7ffc6c792ec8
+first time found dangling pointer at: 5722 distance: 156
+[STACK PIVOT] ip: main+0x78f1 (coap_option_filter_op @ option.c:489) RSP 0x7ffc6c792eb8 left stack [0x8d,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x79a7 (coap_option_filter_get @ option.c:509) RSP 0x7ffc6c792ed8 left stack [0x8e,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792ed8 left stack [0x90,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x780b (coap_option_filter_op @ option.c:459) UAF read at: 0x7ffc6c792e80
+[STACK PIVOT] ip: main+0x78f1 (coap_option_filter_op @ option.c:489) RSP 0x7ffc6c792eb8 left stack [0x93,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x79a7 (coap_option_filter_get @ option.c:509) RSP 0x7ffc6c792ed8 left stack [0x94,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x7084 (coap_option_next @ option.c:198) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 4289
+[STACK PIVOT] ip: main+0x7088 (coap_option_next @ option.c:199) RSP 0x7ffc6c792f28 left stack [0x95,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x70e5 (coap_check_option @ option.c:212) RSP 0x7ffc6c792f68 left stack [0x96,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xcb80 (coap_get_uri_path @ uri.c:619) UAF write at: 0x7ffc6c793020
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793020 ip: main+0xcb84 (coap_get_uri_path @ uri.c:620)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793020 ip: main+0xcb8f (coap_get_uri_path @ uri.c:624)
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792f68 left stack [0x98,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793020 ip: main+0xcb9d (coap_get_uri_path @ uri.c:623)
+[INCONSISTENCY mov write reg UAF] ip: main+0x71f8 (coap_opt_value @ option.c:252) UAF write at: 0x7ffc6c792f48
+[INCONSISTENCY mov write imm UAF] ip: main+0x71fc (coap_opt_value @ option.c:253) UAF write at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 1517
+[INCONSISTENCY mov read UAF] ip: main+0x7204 (coap_opt_value @ option.c:255) UAF read at: 0x7ffc6c792f48
+[INCONSISTENCY mov read UAF] ip: main+0x7266 (coap_opt_value @ option.c:269) UAF read at: 0x7ffc6c792f48
+[INCONSISTENCY mov read UAF] ip: main+0x72be (coap_opt_value @ option.c:283) UAF read at: 0x7ffc6c792f48
+[INCONSISTENCY mov read UAF] ip: main+0x72c2 (coap_opt_value @ option.c:283) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 1543
+[STACK PIVOT] ip: main+0x72c9 (coap_opt_value @ option.c:284) RSP 0x7ffc6c792f68 left stack [0x9a,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xbf3b (coap_split_proxy_uri @ uri.c:246) UAF write at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 1557
+[INCONSISTENCY mov write reg UAF] ip: main+0xbf3f (coap_split_proxy_uri @ uri.c:246) UAF write at: 0x7ffc6c792f50
+[INCONSISTENCY mov write reg UAF] ip: main+0xbf43 (coap_split_proxy_uri @ uri.c:246) UAF write at: 0x7ffc6c792f48
+[INCONSISTENCY mov read UAF] ip: main+0xbf47 (coap_split_proxy_uri @ uri.c:247) UAF read at: 0x7ffc6c792f48
+[INCONSISTENCY mov read UAF] ip: main+0xbf4b (coap_split_proxy_uri @ uri.c:247) UAF read at: 0x7ffc6c792f50
+[INCONSISTENCY mov read UAF] ip: main+0xbf4f (coap_split_proxy_uri @ uri.c:247) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 1562
+[INCONSISTENCY mov write imm UAF] ip: main+0xb8f9 (coap_split_uri_sub @ uri.c:60) UAF write at: 0x7ffc6c792f1c
+[INCONSISTENCY mov write imm UAF] ip: main+0xb900 (coap_split_uri_sub @ uri.c:61) UAF write at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 4405
+[INCONSISTENCY mov read UAF] ip: main+0xb907 (coap_split_uri_sub @ uri.c:62) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xb907 (coap_split_uri_sub @ uri.c:62) loaded: 0x21 from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov write reg UAF] ip: main+0xb90b (coap_split_uri_sub @ uri.c:62) UAF write at: 0x7ffc6c792f08
+first time found dangling pointer at: 5646 distance: 723
+[INCONSISTENCY mov read UAF] ip: main+0xb90f (coap_split_uri_sub @ uri.c:64) UAF read at: 0x7ffc6c792ef8
+[CORRUPTED_PTR_LOAD] ip: main+0xb90f (coap_split_uri_sub @ uri.c:64) loaded: 0x55c8bf21f0da from cell: 0x7ffc6c792ef8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xb916 (coap_split_uri_sub @ uri.c:64) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 921
+[CORRUPTED_PTR_LOAD] ip: main+0xb916 (coap_split_uri_sub @ uri.c:64) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xb927 (coap_split_uri_sub @ uri.c:67) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 923
+[CORRUPTED_PTR_LOAD] ip: main+0xb927 (coap_split_uri_sub @ uri.c:67) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xb93d (coap_split_uri_sub @ uri.c:68) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 930
+[CORRUPTED_PTR_LOAD] ip: main+0xb93d (coap_split_uri_sub @ uri.c:68) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov write imm UAF] ip: main+0xb941 (coap_split_uri_sub @ uri.c:68) UAF write at: 0x7ffc6c792f90
+[INCONSISTENCY mov read UAF] ip: main+0xb947 (coap_split_uri_sub @ uri.c:71) UAF read at: 0x7ffc6c792ef8
+[CORRUPTED_PTR_LOAD] ip: main+0xb947 (coap_split_uri_sub @ uri.c:71) loaded: 0x55c8bf21f0da from cell: 0x7ffc6c792ef8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov write reg UAF] ip: main+0xb94b (coap_split_uri_sub @ uri.c:71) UAF write at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1421
+[INCONSISTENCY mov read UAF] ip: main+0xb94f (coap_split_uri_sub @ uri.c:72) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1422
+[INCONSISTENCY mov write reg UAF] ip: main+0xb97e (coap_split_uri_sub @ uri.c:79) UAF write at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xb993 (coap_split_uri_sub @ uri.c:80) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xb993 (coap_split_uri_sub @ uri.c:80) loaded: 0x21 from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xb99a (coap_split_uri_sub @ uri.c:80) UAF read at: 0x7ffc6c792f20
+[UNTRUSTEDPTRDEREF] ip: main+0xb99e (coap_split_uri_sub @ uri.c:80) final_ea: 0x55c8935b6920 base: 0x55c8935b6920 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xb9a5 (coap_split_uri_sub @ uri.c:80) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1435
+[INCONSISTENCY mov read UAF] ip: main+0xb9ac (coap_split_uri_sub @ uri.c:80) UAF read at: 0x7ffc6c792f20
+[UNTRUSTEDPTRDEREF] ip: main+0xb9b0 (coap_split_uri_sub @ uri.c:80) final_ea: 0x55c8935b6920 base: 0x55c8935b6920 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xb9f9 (coap_split_uri_sub @ uri.c:83) UAF read at: 0x7ffc6c792f20
+[UNTRUSTEDPTRDEREF] ip: main+0xb9fd (coap_split_uri_sub @ uri.c:83) final_ea: 0x55c8935b6924 base: 0x55c8935b6924 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xbb34 (coap_split_uri_sub @ uri.c:114) UAF read at: 0x7ffc6c792f20
+[UNTRUSTEDPTRDEREF] ip: main+0xbb38 (coap_split_uri_sub @ uri.c:114) final_ea: 0x55c8935b6924 base: 0x55c8935b6924 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xbb4b (coap_split_uri_sub @ uri.c:119) UAF read at: 0x7ffc6c792f18
+first time found dangling pointer at: 1962 distance: 4504
+[INCONSISTENCY mov read UAF] ip: main+0xbb55 (coap_split_uri_sub @ uri.c:121) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbb55 (coap_split_uri_sub @ uri.c:121) loaded: 0x1d from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbb5c (coap_split_uri_sub @ uri.c:121) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1507
+[INCONSISTENCY mov read UAF] ip: main+0xbb88 (coap_split_uri_sub @ uri.c:126) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 1023
+[CORRUPTED_PTR_LOAD] ip: main+0xbb88 (coap_split_uri_sub @ uri.c:126) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov write imm UAF] ip: main+0xbb8c (coap_split_uri_sub @ uri.c:126) UAF write at: 0x7ffc6c792fb8
+[INCONSISTENCY mov read UAF] ip: main+0xbb93 (coap_split_uri_sub @ uri.c:130) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbb93 (coap_split_uri_sub @ uri.c:130) loaded: 0x1d from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbb9a (coap_split_uri_sub @ uri.c:130) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1515
+[INCONSISTENCY mov write reg UAF] ip: main+0xbc07 (coap_split_uri_sub @ uri.c:139) UAF write at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbc1c (coap_split_uri_sub @ uri.c:140) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbc1c (coap_split_uri_sub @ uri.c:140) loaded: 0x1d from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbc23 (coap_split_uri_sub @ uri.c:140) UAF read at: 0x7ffc6c792f20
+[UNTRUSTEDPTRDEREF] ip: main+0xbc27 (coap_split_uri_sub @ uri.c:140) final_ea: 0x55c8935b692a base: 0x55c8935b692a pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xbc2e (coap_split_uri_sub @ uri.c:140) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1528
+[INCONSISTENCY mov read UAF] ip: main+0xbc35 (coap_split_uri_sub @ uri.c:140) UAF read at: 0x7ffc6c792f20
+[UNTRUSTEDPTRDEREF] ip: main+0xbc39 (coap_split_uri_sub @ uri.c:140) final_ea: 0x55c8935b692a base: 0x55c8935b692a pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xbc40 (coap_split_uri_sub @ uri.c:144) UAF read at: 0x7ffc6c792f20
+[UNTRUSTEDPTRDEREF] ip: main+0xbc44 (coap_split_uri_sub @ uri.c:144) final_ea: 0x55c8935b692d base: 0x55c8935b692d pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xbc57 (coap_split_uri_sub @ uri.c:150) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1577
+[INCONSISTENCY mov write reg UAF] ip: main+0xbc5b (coap_split_uri_sub @ uri.c:150) UAF write at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbc5f (coap_split_uri_sub @ uri.c:151) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbc5f (coap_split_uri_sub @ uri.c:151) loaded: 0x1a from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbc6a (coap_split_uri_sub @ uri.c:151) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1581
+[INCONSISTENCY mov read UAF] ip: main+0xbc86 (coap_split_uri_sub @ uri.c:154) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbc86 (coap_split_uri_sub @ uri.c:154) loaded: 0x1a from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbc8d (coap_split_uri_sub @ uri.c:154) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbc98 (coap_split_uri_sub @ uri.c:158) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbc98 (coap_split_uri_sub @ uri.c:158) loaded: 0xf from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbc9f (coap_split_uri_sub @ uri.c:158) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbcaa (coap_split_uri_sub @ uri.c:158) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1687
+[INCONSISTENCY mov read UAF] ip: main+0xbcc0 (coap_split_uri_sub @ uri.c:163) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbccb (coap_split_uri_sub @ uri.c:163) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 1205
+[CORRUPTED_PTR_LOAD] ip: main+0xbccb (coap_split_uri_sub @ uri.c:163) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbcd2 (coap_split_uri_sub @ uri.c:163) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 1207
+[CORRUPTED_PTR_LOAD] ip: main+0xbcd2 (coap_split_uri_sub @ uri.c:163) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbcd6 (coap_split_uri_sub @ uri.c:163) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1696
+[INCONSISTENCY mov read UAF] ip: main+0xbd50 (coap_split_uri_sub @ uri.c:180) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbd50 (coap_split_uri_sub @ uri.c:180) loaded: 0xe from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbd5b (coap_split_uri_sub @ uri.c:180) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbd6f (coap_split_uri_sub @ uri.c:181) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov write reg UAF] ip: main+0xbd73 (coap_split_uri_sub @ uri.c:181) UAF write at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1709
+[INCONSISTENCY mov read UAF] ip: main+0xbd88 (coap_split_uri_sub @ uri.c:184) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbd88 (coap_split_uri_sub @ uri.c:184) loaded: 0xd from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[UNTRUSTEDPTRDEREF] ip: main+0xbd94 (coap_split_uri_sub @ uri.c:184) final_ea: 0x7bf49dad96d8 base: 0x7bf49dad96d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xbd97 (coap_split_uri_sub @ uri.c:184) UAF read at: 0x7ffc6c792f20
+[UNTRUSTEDPTRDEREF] ip: main+0xbda7 (coap_split_uri_sub @ uri.c:184) final_ea: 0x7bf48adc292a base: 0x7bf48adc292a pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xbdb6 (coap_split_uri_sub @ uri.c:189) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1800
+[INCONSISTENCY mov write imm UAF] ip: main+0xbdc0 (coap_split_uri_sub @ uri.c:190) UAF write at: 0x7ffc6c792f14
+[INCONSISTENCY mov read UAF] ip: main+0xbdf1 (coap_split_uri_sub @ uri.c:192) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1805
+[INCONSISTENCY mov read UAF] ip: main+0xbdfb (coap_split_uri_sub @ uri.c:192) UAF read at: 0x7ffc6c792f14
+[INCONSISTENCY mov read UAF] ip: main+0xbdc9 (coap_split_uri_sub @ uri.c:193) UAF read at: 0x7ffc6c792f14
+[INCONSISTENCY mov read UAF] ip: main+0xbdd7 (coap_split_uri_sub @ uri.c:193) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1816
+[INCONSISTENCY mov write reg UAF] ip: main+0xbddf (coap_split_uri_sub @ uri.c:193) UAF write at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1818
+[INCONSISTENCY mov write reg UAF] ip: main+0xbdee (coap_split_uri_sub @ uri.c:193) UAF write at: 0x7ffc6c792f14
+[INCONSISTENCY mov read UAF] ip: main+0xbe04 (coap_split_uri_sub @ uri.c:196) UAF read at: 0x7ffc6c792f14
+[INCONSISTENCY mov read UAF] ip: main+0xbe19 (coap_split_uri_sub @ uri.c:201) UAF read at: 0x7ffc6c792f14
+[INCONSISTENCY mov read UAF] ip: main+0xbe1e (coap_split_uri_sub @ uri.c:201) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 1400
+[CORRUPTED_PTR_LOAD] ip: main+0xbe1e (coap_split_uri_sub @ uri.c:201) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbe29 (coap_split_uri_sub @ uri.c:207) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbe29 (coap_split_uri_sub @ uri.c:207) loaded: 0x9 from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbe34 (coap_split_uri_sub @ uri.c:210) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbe44 (coap_split_uri_sub @ uri.c:211) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe48 (coap_split_uri_sub @ uri.c:211) UAF write at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1899
+[INCONSISTENCY mov read UAF] ip: main+0xbe5d (coap_split_uri_sub @ uri.c:214) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbe5d (coap_split_uri_sub @ uri.c:214) loaded: 0x8 from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbe64 (coap_split_uri_sub @ uri.c:214) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbe6f (coap_split_uri_sub @ uri.c:219) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1940
+[INCONSISTENCY mov read UAF] ip: main+0xbe79 (coap_split_uri_sub @ uri.c:220) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0xbe84 (coap_split_uri_sub @ uri.c:220) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 1458
+[CORRUPTED_PTR_LOAD] ip: main+0xbe84 (coap_split_uri_sub @ uri.c:220) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe88 (coap_split_uri_sub @ uri.c:220) UAF write at: 0x7ffc6c792f98
+first time found dangling pointer at: 4715 distance: 2195
+[INCONSISTENCY mov read UAF] ip: main+0xbe8c (coap_split_uri_sub @ uri.c:220) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 1460
+[CORRUPTED_PTR_LOAD] ip: main+0xbe8c (coap_split_uri_sub @ uri.c:220) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbe90 (coap_split_uri_sub @ uri.c:220) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1949
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe94 (coap_split_uri_sub @ uri.c:220) UAF write at: 0x7ffc6c792fa0
+first time found dangling pointer at: 4714 distance: 2199
+[INCONSISTENCY mov read UAF] ip: main+0xbe98 (coap_split_uri_sub @ uri.c:221) UAF read at: 0x7ffc6c792f20
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe9c (coap_split_uri_sub @ uri.c:221) UAF write at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1952
+[INCONSISTENCY mov read UAF] ip: main+0xbea0 (coap_split_uri_sub @ uri.c:226) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbea0 (coap_split_uri_sub @ uri.c:226) loaded: 0x4 from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbea7 (coap_split_uri_sub @ uri.c:226) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1955
+[INCONSISTENCY mov read UAF] ip: main+0xbebc (coap_split_uri_sub @ uri.c:229) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 1473
+[CORRUPTED_PTR_LOAD] ip: main+0xbebc (coap_split_uri_sub @ uri.c:229) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbec0 (coap_split_uri_sub @ uri.c:229) UAF read at: 0x7ffc6c792ef0
+[CORRUPTED_PTR_LOAD] ip: main+0xbec0 (coap_split_uri_sub @ uri.c:229) loaded: 0x3 from cell: 0x7ffc6c792ef0 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov write reg UAF] ip: main+0xbec4 (coap_split_uri_sub @ uri.c:229) UAF write at: 0x7ffc6c792fa8
+first time found dangling pointer at: 4482 distance: 2444
+[INCONSISTENCY mov read UAF] ip: main+0xbec8 (coap_split_uri_sub @ uri.c:229) UAF read at: 0x7ffc6c792ee8
+first time found dangling pointer at: 5451 distance: 1476
+[CORRUPTED_PTR_LOAD] ip: main+0xbec8 (coap_split_uri_sub @ uri.c:229) loaded: 0x7ffc6c792f80 from cell: 0x7ffc6c792ee8 cell_owner: 155 value_owner: 154
+[INCONSISTENCY mov read UAF] ip: main+0xbecc (coap_split_uri_sub @ uri.c:229) UAF read at: 0x7ffc6c792f28
+first time found dangling pointer at: 4963 distance: 1965
+[INCONSISTENCY mov write reg UAF] ip: main+0xbed0 (coap_split_uri_sub @ uri.c:229) UAF write at: 0x7ffc6c792fb0
+[INCONSISTENCY mov write imm UAF] ip: main+0xbed4 (coap_split_uri_sub @ uri.c:230) UAF write at: 0x7ffc6c792ef0
+[INCONSISTENCY mov read UAF] ip: main+0xbee2 (coap_split_uri_sub @ uri.c:234) UAF read at: 0x7ffc6c792ef0
+[STACK PIVOT] ip: main+0xbefa (coap_split_uri_sub @ uri.c:238) RSP 0x7ffc6c792f38 left stack [0x9d,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0xbf60 (coap_split_proxy_uri @ uri.c:248) RSP 0x7ffc6c792f68 left stack [0x9e,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f98 ip: main+0xcbcf (coap_get_uri_path @ uri.c:627)
+first time found dangling pointer at: 4715 distance: 2227
+[INCONSISTENCY mov write reg UAF] ip: main+0xb536 (coap_new_string @ str.c:20) UAF write at: 0x7ffc6c792f48
+[INCONSISTENCY mov read UAF] ip: main+0xb53a (coap_new_string @ str.c:30) UAF read at: 0x7ffc6c792f48
+[INCONSISTENCY mov read UAF] ip: main+0xb569 (coap_new_string @ str.c:31) UAF read at: 0x7ffc6c792f48
+[INCONSISTENCY mov write reg UAF] ip: main+0x68bb (coap_malloc_type @ mem.c:343) UAF write at: 0x7ffc6c792f2c
+[INCONSISTENCY mov write reg UAF] ip: main+0x68be (coap_malloc_type @ mem.c:343) UAF write at: 0x7ffc6c792f20
+[INCONSISTENCY mov read UAF] ip: main+0x68c2 (coap_malloc_type @ mem.c:345) UAF read at: 0x7ffc6c792f20
+[ALLOC] malloc(0x15) -> 0x55c8bf21f630 subject=160 at coap_malloc_type @ mem.c:345
+[STACK PIVOT] ip: main+0x68ce (coap_malloc_type @ mem.c:346) RSP 0x7ffc6c792f38 left stack [0xa2,0x7ffc6c774000]
+Store dangling pointer: 0x55c8bf21f630 at: 0x7ffc6c792f58
+[INCONSISTENCY mov write reg UAF] ip: main+0xb57e (coap_new_string @ str.c:31) UAF write at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2178
+[INCONSISTENCY mov read UAF] ip: main+0xb582 (coap_new_string @ str.c:33) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2179
+main+0xb582 (coap_new_string @ str.c:33) Using expired pointer: 0x55c8bf21f630 from 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2179
+[INCONSISTENCY mov read UAF] ip: main+0xb5b3 (coap_new_string @ str.c:38) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2181
+[INCONSISTENCY mov read UAF] ip: main+0xb5c9 (coap_new_string @ str.c:39) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2188
+[INCONSISTENCY mov read UAF] ip: main+0xb5d1 (coap_new_string @ str.c:39) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2190
+Store dangling pointer: 0x55c8bf21f640 at: 0x55c8bf21f638
+[INCONSISTENCY mov write reg UAF] ip: main+0xb5d5 (coap_new_string @ str.c:39) UAF write at: 0x55c8bf21f638
+first time found dangling pointer at: 6983 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xb5d9 (coap_new_string @ str.c:40) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2192
+[INCONSISTENCY mov read UAF] ip: main+0xb5dd (coap_new_string @ str.c:40) UAF read at: 0x55c8bf21f638
+first time found dangling pointer at: 6983 distance: 2
+main+0xb5dd (coap_new_string @ str.c:40) Using expired pointer: 0x55c8bf21f640 from 0x55c8bf21f638
+first time found dangling pointer at: 6983 distance: 2
+[INCONSISTENCY mov read UAF] ip: main+0xb5e1 (coap_new_string @ str.c:40) UAF read at: 0x7ffc6c792f48
+[INCONSISTENCY mov write imm UAF] ip: main+0xb5e8 (coap_new_string @ str.c:40) UAF write at: 0x55c8bf21f644
+[INCONSISTENCY mov read UAF] ip: main+0xb5eb (coap_new_string @ str.c:41) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2197
+[INCONSISTENCY mov read UAF] ip: main+0xb5ef (coap_new_string @ str.c:41) UAF read at: 0x7ffc6c792f48
+[INCONSISTENCY mov write reg UAF] ip: main+0xb5f3 (coap_new_string @ str.c:41) UAF write at: 0x55c8bf21f630
+[INCONSISTENCY mov read UAF] ip: main+0xb5f6 (coap_new_string @ str.c:42) UAF read at: 0x7ffc6c792f58
+first time found dangling pointer at: 4792 distance: 2200
+[STACK PIVOT] ip: main+0xb5fa (coap_new_string @ str.c:43) RSP 0x7ffc6c792f68 left stack [0xa3,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xcbde (coap_get_uri_path @ uri.c:627) UAF write at: 0x7ffc6c793028
+first time found dangling pointer at: 6995 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793028 ip: main+0xcbe2 (coap_get_uri_path @ uri.c:628)
+first time found dangling pointer at: 6995 distance: 1
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792f98 ip: main+0xcbe9 (coap_get_uri_path @ uri.c:629)
+first time found dangling pointer at: 4715 distance: 2283
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792fa0 ip: main+0xcbf0 (coap_get_uri_path @ uri.c:629)
+first time found dangling pointer at: 4714 distance: 2285
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793028 ip: main+0xcbf7 (coap_get_uri_path @ uri.c:629)
+first time found dangling pointer at: 6995 distance: 5
+[INCONSISTENCY mov read UAF] ip: main+0xcbfb (coap_get_uri_path @ uri.c:629) UAF read at: 0x55c8bf21f638
+first time found dangling pointer at: 6983 distance: 18
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793028 ip: main+0xcc0a (coap_get_uri_path @ uri.c:631)
+first time found dangling pointer at: 6995 distance: 12
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793058 ip: main+0xce78 (coap_get_uri_path @ uri.c:678)
+[STACK PIVOT] ip: main+0xce7c (coap_get_uri_path @ uri.c:678) RSP 0x7ffc6c793068 left stack [0xa4,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x3cb3 (main @ harness.c:107) UAF read at: 0x55c8bf21f630
+[INCONSISTENCY mov write imm UAF] ip: main+0x4646 (coap_show_pdu @ coap_debug.c:531) UAF write at: 0x7ffc6c793048
+[INCONSISTENCY mov write imm UAF] ip: main+0x464e (coap_show_pdu @ coap_debug.c:532) UAF write at: 0x7ffc6c793044
+[INCONSISTENCY mov write imm UAF] ip: main+0x4655 (coap_show_pdu @ coap_debug.c:532) UAF write at: 0x7ffc6c793040
+[INCONSISTENCY mov write imm UAF] ip: main+0x465c (coap_show_pdu @ coap_debug.c:535) UAF write at: 0x7ffc6c793038
+[INCONSISTENCY mov write imm UAF] ip: main+0x4663 (coap_show_pdu @ coap_debug.c:540) UAF write at: 0x7ffc6c793030
+[INTRA_OBJECT_OVERFLOW] ip: main+0x42c2 (msg_code_string @ coap_debug.c:321) byte write at: 0x7ffc6c79237c offset: +0xc cell_owner: 165 writer_pointee: 164
+[INCONSISTENCY mov read] ip: main+0x42c6 (msg_code_string @ coap_debug.c:328) base: 0x7ffc6c792380 pointee: 164 read from 165
+[CORRUPTED_PTR_LOAD] ip: main+0x42c6 (msg_code_string @ coap_debug.c:328) loaded: 0x6c79306000000001 from cell: 0x7ffc6c79237c cell_owner: 165 value_owner: 164
+[CORRUPTED_PTR_LOAD] ip: main+0x42cd (msg_code_string @ coap_debug.c:329) loaded: 0x6c79306000000001 from cell: 0x7ffc6c79237c cell_owner: 165 value_owner: 164
+[STACK PIVOT] ip: main+0x435e (msg_code_string @ coap_debug.c:336) RSP 0x7ffc6c792388 left stack [0xa7,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79237c ip: main+0x428d (msg_type_string @ coap_debug.c:316)
+[INCONSISTENCY mov write imm UAF] ip: main+0x46e7 (coap_show_pdu @ coap_debug.c:554) UAF write at: 0x7ffc6c79303c
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79303c ip: main+0x475c (coap_show_pdu @ coap_debug.c:554)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4770 (coap_show_pdu @ coap_debug.c:559) UAF write at: 0x7ffc6c793030
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793030 ip: main+0x4784 (coap_show_pdu @ coap_debug.c:560)
+[CORRUPTED_PTR_LOAD] ip: main+0x6e41 (coap_option_iterator_init @ option.c:132) loaded: 0x0 from cell: 0x7ffc6c792368 cell_owner: 167 value_owner: 164
+[STACK PIVOT] ip: main+0x6e76 (coap_option_iterator_init @ option.c:137) RSP 0x7ffc6c792388 left stack [0xa9,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x47cf (coap_show_pdu @ coap_debug.c:565) UAF write at: 0x7ffc6c793030
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793030 ip: main+0x47e3 (coap_show_pdu @ coap_debug.c:566)
+[INCONSISTENCY mov read] ip: main+0x6e84 (opt_finished @ option.c:141) base: 0x7ffc6c792330 pointee: 169 read from 170
+[CORRUPTED_PTR_LOAD] ip: main+0x6e84 (opt_finished @ option.c:141) loaded: 0x7ffc6c7923b0 from cell: 0x7ffc6c792328 cell_owner: 170 value_owner: 169
+[CORRUPTED_PTR_LOAD] ip: main+0x6eb3 (opt_finished @ option.c:143) loaded: 0x7ffc6c7923b0 from cell: 0x7ffc6c792328 cell_owner: 170 value_owner: 169
+[UNINITIALIZED mov read] ip: main+0x6eb7 (opt_finished @ option.c:143) co: 164 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x6ec2 (opt_finished @ option.c:143) loaded: 0x7ffc6c7923b0 from cell: 0x7ffc6c792328 cell_owner: 170 value_owner: 169
+[CORRUPTED_PTR_LOAD] ip: main+0x6ece (opt_finished @ option.c:144) loaded: 0x7ffc6c7923b0 from cell: 0x7ffc6c792328 cell_owner: 170 value_owner: 169
+[CORRUPTED_PTR_LOAD] ip: main+0x6edb (opt_finished @ option.c:144) loaded: 0x7ffc6c7923b0 from cell: 0x7ffc6c792328 cell_owner: 170 value_owner: 169
+[CORRUPTED_PTR_LOAD] ip: main+0x6ef8 (opt_finished @ option.c:148) loaded: 0x7ffc6c7923b0 from cell: 0x7ffc6c792328 cell_owner: 170 value_owner: 169
+[UNINITIALIZED mov read] ip: main+0x6efc (opt_finished @ option.c:148) co: 164 vo: -1
+[STACK PIVOT] ip: main+0x6f06 (opt_finished @ option.c:149) RSP 0x7ffc6c792338 left stack [0xac,0x7ffc6c774000]
+[INTRA_OBJECT_OVERFLOW] ip: main+0x69be (coap_opt_parse @ option.c:50) byte write at: 0x7ffc6c792350 offset: +0x10 subject: 169 clobbers ptr 0x7ffc6c792390 (owner: 164)
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792338 left stack [0xae,0x7ffc6c774000]
+[UNINITIALIZED mov read] ip: main+0x7007 (coap_option_next @ option.c:178) co: 164 vo: -1
+[STACK PIVOT] ip: main+0x7088 (coap_option_next @ option.c:199) RSP 0x7ffc6c792388 left stack [0xaf,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x4e7b (coap_show_pdu @ coap_debug.c:567) UAF write at: 0x7ffc6c793020
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793020 ip: main+0x4e7f (coap_show_pdu @ coap_debug.c:567)
+[INCONSISTENCY mov write imm UAF] ip: main+0x4806 (coap_show_pdu @ coap_debug.c:568) UAF write at: 0x7ffc6c792bf0
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793040 ip: main+0x480d (coap_show_pdu @ coap_debug.c:569)
+[INCONSISTENCY mov write imm UAF] ip: main+0x4813 (coap_show_pdu @ coap_debug.c:570) UAF write at: 0x7ffc6c793040
+[INCONSISTENCY mov write imm UAF] ip: main+0x4da6 (coap_show_pdu @ coap_debug.c:664) UAF write at: 0x7ffc6c793044
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793020 ip: main+0x4db6 (coap_show_pdu @ coap_debug.c:670)
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792388 left stack [0xb1,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793020 ip: main+0x4dc4 (coap_show_pdu @ coap_debug.c:669)
+[STACK PIVOT] ip: main+0x72c9 (coap_opt_value @ option.c:284) RSP 0x7ffc6c792388 left stack [0xb3,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793044 ip: main+0x4dd3 (coap_show_pdu @ coap_debug.c:669)
+[INCONSISTENCY mov write reg UAF] ip: main+0x3e99 (print_readable @ coap_debug.c:142) UAF write at: 0x7ffc6c792358
+[INCONSISTENCY mov write reg UAF] ip: main+0x3e9d (print_readable @ coap_debug.c:142) UAF write at: 0x7ffc6c792350
+Store dangling pointer: 0x7ffc6c792bf0 at: 0x7ffc6c792348
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ea1 (print_readable @ coap_debug.c:142) UAF write at: 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ea5 (print_readable @ coap_debug.c:142) UAF write at: 0x7ffc6c792340
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ec1 (print_readable @ coap_debug.c:143) UAF write at: 0x7ffc6c792360
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ec5 (print_readable @ coap_debug.c:143) UAF write at: 0x7ffc6c792368
+[INCONSISTENCY mov write imm UAF] ip: main+0x3ec9 (print_readable @ coap_debug.c:143) UAF write at: 0x7ffc6c792370
+[INCONSISTENCY mov write imm UAF] ip: main+0x3ecd (print_readable @ coap_debug.c:144) UAF write at: 0x7ffc6c792378
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792358 ip: main+0x3ed5 (print_readable @ coap_debug.c:145)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792340 ip: main+0x3f0b (print_readable @ coap_debug.c:147)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792350 ip: main+0x4002 (print_readable @ coap_debug.c:151)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792348 ip: main+0x4013 (print_readable @ coap_debug.c:173)
+first time found dangling pointer at: 7537 distance: 16
+main+0x4013 (print_readable @ coap_debug.c:173) Using expired pointer: 0x7ffc6c792bf0 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 16
+[INCONSISTENCY mov write imm UAF] ip: main+0x4017 (print_readable @ coap_debug.c:173) UAF write at: 0x7ffc6c792bf0
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792378 ip: main+0x401a (print_readable @ coap_debug.c:174)
+[STACK PIVOT] ip: main+0x401e (print_readable @ coap_debug.c:175) RSP 0x7ffc6c792388 left stack [0xb5,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x4df0 (coap_show_pdu @ coap_debug.c:669) UAF write at: 0x7ffc6c793048
+[INCONSISTENCY mov write reg UAF] ip: main+0x4e03 (coap_show_pdu @ coap_debug.c:674) UAF write at: 0x7ffc6c793030
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0x4e07 (coap_show_pdu @ coap_debug.c:675)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79236c ip: main+0x4377 (msg_option_string @ coap_debug.c:391)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79236c ip: main+0x43cf (msg_option_string @ coap_debug.c:397)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79236c ip: main+0x43d5 (msg_option_string @ coap_debug.c:397)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79236c ip: main+0x442d (msg_option_string @ coap_debug.c:403)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c79236c ip: main+0x4485 (msg_option_string @ coap_debug.c:409)
+[INCONSISTENCY mov write imm UAF] ip: main+0x44da (msg_option_string @ coap_debug.c:417) UAF write at: 0x7ffc6c792378
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792378 ip: main+0x451d (msg_option_string @ coap_debug.c:417)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792378 ip: main+0x44e4 (msg_option_string @ coap_debug.c:418)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792368 ip: main+0x44fa (msg_option_string @ coap_debug.c:418)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792378 ip: main+0x4500 (msg_option_string @ coap_debug.c:419)
+[STACK PIVOT] ip: main+0x4554 (msg_option_string @ coap_debug.c:426) RSP 0x7ffc6c792388 left stack [0xb7,0x7ffc6c774000]
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793030 ip: main+0x4e40 (coap_show_pdu @ coap_debug.c:675)
+[STACK PIVOT] ip: main+0x6f06 (opt_finished @ option.c:149) RSP 0x7ffc6c792338 left stack [0xba,0x7ffc6c774000]
+Store dangling pointer: 0x7ffc6c792350 at: 0x7ffc6c792308
+main+0x696d (coap_opt_parse @ option.c:45) Using expired pointer: 0x7ffc6c792350 from 0x7ffc6c792308
+first time found dangling pointer at: 7701 distance: 5
+[STACK PIVOT] ip: main+0x6d0e (coap_opt_parse @ option.c:113) RSP 0x7ffc6c792338 left stack [0xbc,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x7088 (coap_option_next @ option.c:199) RSP 0x7ffc6c792388 left stack [0xbd,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x482b (coap_show_pdu @ coap_debug.c:572) UAF write at: 0x7ffc6c793030
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793030 ip: main+0x483f (coap_show_pdu @ coap_debug.c:573)
+[STACK PIVOT] ip: main+0x71ea (coap_opt_length @ option.c:249) RSP 0x7ffc6c792388 left stack [0xbf,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x72c9 (coap_opt_value @ option.c:284) RSP 0x7ffc6c792388 left stack [0xc1,0x7ffc6c774000]
+[UNTRUSTEDPTRDEREF] ip: main+0x3f2b (print_readable @ coap_debug.c:152) final_ea: 0x7bf49dad96d8 base: 0x7bf49dad96d8 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792358 ip: main+0x3f2e (print_readable @ coap_debug.c:152)
+[UNTRUSTEDPTRDEREF] ip: main+0x3f3e (print_readable @ coap_debug.c:152) final_ea: 0x7bf48adc2986 base: 0x7bf48adc2986 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792378 ip: main+0x3f4d (print_readable @ coap_debug.c:153)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792340 ip: main+0x3f55 (print_readable @ coap_debug.c:153)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792348 ip: main+0x3f5f (print_readable @ coap_debug.c:154)
+first time found dangling pointer at: 7537 distance: 492
+Store dangling pointer: 0x7ffc6c792bf1 at: 0x7ffc6c792348
+[INCONSISTENCY mov write reg UAF] ip: main+0x3f67 (print_readable @ coap_debug.c:154) UAF write at: 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 494
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792358 ip: main+0x3f6b (print_readable @ coap_debug.c:154)
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf1 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 524
+Store dangling pointer: 0x7ffc6c792bf2 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf2 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 556
+Store dangling pointer: 0x7ffc6c792bf3 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf3 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 588
+Store dangling pointer: 0x7ffc6c792bf4 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf4 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 620
+Store dangling pointer: 0x7ffc6c792bf5 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf5 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 652
+Store dangling pointer: 0x7ffc6c792bf6 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf6 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 684
+Store dangling pointer: 0x7ffc6c792bf7 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf7 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 716
+Store dangling pointer: 0x7ffc6c792bf8 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf8 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 748
+Store dangling pointer: 0x7ffc6c792bf9 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bf9 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 780
+Store dangling pointer: 0x7ffc6c792bfa at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bfa from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 812
+Store dangling pointer: 0x7ffc6c792bfb at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bfb from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 844
+Store dangling pointer: 0x7ffc6c792bfc at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bfc from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 876
+Store dangling pointer: 0x7ffc6c792bfd at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bfd from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 908
+Store dangling pointer: 0x7ffc6c792bfe at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bfe from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 940
+Store dangling pointer: 0x7ffc6c792bff at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792bff from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 972
+Store dangling pointer: 0x7ffc6c792c00 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c00 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1004
+Store dangling pointer: 0x7ffc6c792c01 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c01 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1036
+Store dangling pointer: 0x7ffc6c792c02 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c02 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1068
+Store dangling pointer: 0x7ffc6c792c03 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c03 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1100
+Store dangling pointer: 0x7ffc6c792c04 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c04 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1132
+Store dangling pointer: 0x7ffc6c792c05 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c05 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1164
+Store dangling pointer: 0x7ffc6c792c06 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c06 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1196
+Store dangling pointer: 0x7ffc6c792c07 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c07 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1228
+Store dangling pointer: 0x7ffc6c792c08 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c08 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1260
+Store dangling pointer: 0x7ffc6c792c09 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c09 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1292
+Store dangling pointer: 0x7ffc6c792c0a at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c0a from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1324
+Store dangling pointer: 0x7ffc6c792c0b at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c0b from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1356
+Store dangling pointer: 0x7ffc6c792c0c at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c0c from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1388
+Store dangling pointer: 0x7ffc6c792c0d at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c0d from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1420
+Store dangling pointer: 0x7ffc6c792c0e at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c0e from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1452
+Store dangling pointer: 0x7ffc6c792c0f at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c0f from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1484
+Store dangling pointer: 0x7ffc6c792c10 at: 0x7ffc6c792348
+main+0x3f5f (print_readable @ coap_debug.c:154) Using expired pointer: 0x7ffc6c792c10 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1516
+Store dangling pointer: 0x7ffc6c792c11 at: 0x7ffc6c792348
+main+0x4013 (print_readable @ coap_debug.c:173) Using expired pointer: 0x7ffc6c792c11 from 0x7ffc6c792348
+first time found dangling pointer at: 7537 distance: 1529
+[STACK PIVOT] ip: main+0x401e (print_readable @ coap_debug.c:175) RSP 0x7ffc6c792388 left stack [0xc3,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x4554 (msg_option_string @ coap_debug.c:426) RSP 0x7ffc6c792388 left stack [0xc5,0x7ffc6c774000]
+[INCONSISTENCY mov read UAF] ip: main+0x6eea (opt_finished @ option.c:145) UAF read at: 0x7ffc6c792328
+[STACK PIVOT] ip: main+0x6f06 (opt_finished @ option.c:149) RSP 0x7ffc6c792338 left stack [0xc8,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x7088 (coap_option_next @ option.c:199) RSP 0x7ffc6c792388 left stack [0xc9,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x4e99 (coap_show_pdu @ coap_debug.c:680) UAF write at: 0x7ffc6c793030
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793030 ip: main+0x4ead (coap_show_pdu @ coap_debug.c:681)
+[INCONSISTENCY mov write reg UAF] ip: main+0x9946 (coap_get_data @ pdu.c:672) UAF write at: 0x7ffc6c792368
+[INCONSISTENCY mov write reg UAF] ip: main+0x994a (coap_get_data @ pdu.c:672) UAF write at: 0x7ffc6c792360
+[INCONSISTENCY mov write reg UAF] ip: main+0x994e (coap_get_data @ pdu.c:672) UAF write at: 0x7ffc6c792358
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792358 ip: main+0x995a (coap_get_data @ pdu.c:676)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792360 ip: main+0x995e (coap_get_data @ pdu.c:676)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c792368 ip: main+0x9962 (coap_get_data @ pdu.c:676)
+[INCONSISTENCY mov write reg UAF] ip: main+0x997f (coap_get_data_large @ pdu.c:681) UAF write at: 0x7ffc6c792338
+[INCONSISTENCY mov write reg UAF] ip: main+0x9983 (coap_get_data_large @ pdu.c:681) UAF write at: 0x7ffc6c792330
+[INCONSISTENCY mov write reg UAF] ip: main+0x9987 (coap_get_data_large @ pdu.c:681) UAF write at: 0x7ffc6c792328
+Store dangling pointer: 0x7ffc6c792378 at: 0x7ffc6c792320
+[INCONSISTENCY mov write reg UAF] ip: main+0x998b (coap_get_data_large @ pdu.c:681) UAF write at: 0x7ffc6c792320
+first time found dangling pointer at: 9405 distance: 0
+Store dangling pointer: 0x7ffc6c792370 at: 0x7ffc6c792318
+[INCONSISTENCY mov write reg UAF] ip: main+0x998f (coap_get_data_large @ pdu.c:681) UAF write at: 0x7ffc6c792318
+first time found dangling pointer at: 9406 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x9993 (coap_get_data_large @ pdu.c:682) UAF read at: 0x7ffc6c792338
+[INCONSISTENCY mov read UAF] ip: main+0x99c2 (coap_get_data_large @ pdu.c:683) UAF read at: 0x7ffc6c792330
+[INCONSISTENCY mov read UAF] ip: main+0x99f1 (coap_get_data_large @ pdu.c:684) UAF read at: 0x7ffc6c792328
+[INCONSISTENCY mov read UAF] ip: main+0x9a20 (coap_get_data_large @ pdu.c:686) UAF read at: 0x7ffc6c792338
+[INCONSISTENCY mov read UAF] ip: main+0x9a28 (coap_get_data_large @ pdu.c:686) UAF read at: 0x7ffc6c792320
+first time found dangling pointer at: 9405 distance: 10
+main+0x9a28 (coap_get_data_large @ pdu.c:686) Using expired pointer: 0x7ffc6c792378 from 0x7ffc6c792320
+first time found dangling pointer at: 9405 distance: 10
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a2c (coap_get_data_large @ pdu.c:686) UAF write at: 0x7ffc6c792378
+[INCONSISTENCY mov read UAF] ip: main+0x9a2f (coap_get_data_large @ pdu.c:687) UAF read at: 0x7ffc6c792338
+[INCONSISTENCY mov read UAF] ip: main+0x9a37 (coap_get_data_large @ pdu.c:687) UAF read at: 0x7ffc6c792318
+first time found dangling pointer at: 9406 distance: 13
+main+0x9a37 (coap_get_data_large @ pdu.c:687) Using expired pointer: 0x7ffc6c792370 from 0x7ffc6c792318
+first time found dangling pointer at: 9406 distance: 13
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a3b (coap_get_data_large @ pdu.c:687) UAF write at: 0x7ffc6c792370
+[INCONSISTENCY mov read UAF] ip: main+0x9a3e (coap_get_data_large @ pdu.c:688) UAF read at: 0x7ffc6c792338
+[INCONSISTENCY mov read UAF] ip: main+0x9a73 (coap_get_data_large @ pdu.c:693) UAF read at: 0x7ffc6c792338
+[INCONSISTENCY mov read UAF] ip: main+0x9a7b (coap_get_data_large @ pdu.c:693) UAF read at: 0x7ffc6c792328
+[INCONSISTENCY mov read UAF] ip: main+0x9a82 (coap_get_data_large @ pdu.c:694) UAF read at: 0x7ffc6c792338
+[INCONSISTENCY mov read UAF] ip: main+0x9a8f (coap_get_data_large @ pdu.c:695) UAF read at: 0x7ffc6c792330
+[INCONSISTENCY mov read UAF] ip: main+0x9a9a (coap_get_data_large @ pdu.c:696) UAF read at: 0x7ffc6c792318
+first time found dangling pointer at: 9406 distance: 29
+[INCONSISTENCY mov write imm UAF] ip: main+0x9a9e (coap_get_data_large @ pdu.c:696) UAF write at: 0x7ffc6c792370
+[STACK PIVOT] ip: main+0x9af3 (coap_get_data_large @ pdu.c:705) RSP 0x7ffc6c792348 left stack [0xcc,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x9971 (coap_get_data @ pdu.c:677) RSP 0x7ffc6c792388 left stack [0xcd,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x539a (coap_show_pdu @ coap_debug.c:749) UAF write at: 0x7ffc6c793030
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793030 ip: main+0x539e (coap_show_pdu @ coap_debug.c:750)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793030 ip: main+0x53bd (coap_show_pdu @ coap_debug.c:751)
+[INCONSISTENCY mov write reg UAF] ip: main+0xae59 (coap_pdu_encode_header @ pdu.c:1145) UAF write at: 0x7ffc6c793048
+[INCONSISTENCY mov write reg UAF] ip: main+0xae5d (coap_pdu_encode_header @ pdu.c:1145) UAF write at: 0x7ffc6c793044
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793044 ip: main+0xae60 (coap_pdu_encode_header @ pdu.c:1146)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xae70 (coap_pdu_encode_header @ pdu.c:1147)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaea4 (coap_pdu_encode_header @ pdu.c:1148)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaedd (coap_pdu_encode_header @ pdu.c:1154)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaee8 (coap_pdu_encode_header @ pdu.c:1155)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaef2 (coap_pdu_encode_header @ pdu.c:1153)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaf03 (coap_pdu_encode_header @ pdu.c:1156)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaf0a (coap_pdu_encode_header @ pdu.c:1156)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaf18 (coap_pdu_encode_header @ pdu.c:1157)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaf24 (coap_pdu_encode_header @ pdu.c:1157)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaf32 (coap_pdu_encode_header @ pdu.c:1158)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaf39 (coap_pdu_encode_header @ pdu.c:1158)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xaf47 (coap_pdu_encode_header @ pdu.c:1159)
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793048 ip: main+0xb3b9 (coap_pdu_encode_header @ pdu.c:1220)
+[STACK PIVOT] ip: main+0xb3c4 (coap_pdu_encode_header @ pdu.c:1221) RSP 0x7ffc6c793068 left stack [0xcf,0x7ffc6c774000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xb608 (coap_delete_string @ str.c:45) UAF write at: 0x7ffc6c793058
+STACKREADUSEAFTERSCOPE at: 0x7ffc6c793058 ip: main+0xb60c (coap_delete_string @ str.c:46)
+[INCONSISTENCY mov write reg UAF] ip: main+0x6908 (coap_free_type @ mem.c:355) UAF write at: 0x7ffc6c79303c
+[INCONSISTENCY mov write reg UAF] ip: main+0x690b (coap_free_type @ mem.c:355) UAF write at: 0x7ffc6c793030
+[INCONSISTENCY mov read UAF] ip: main+0x690f (coap_free_type @ mem.c:357) UAF read at: 0x7ffc6c793030
+[STACK PIVOT] ip: main+0x691c (coap_free_type @ mem.c:358) RSP 0x7ffc6c793048 left stack [0xd2,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0xb61e (coap_delete_string @ str.c:47) RSP 0x7ffc6c793068 left stack [0xd3,0x7ffc6c774000]
+[CORRUPTED_PTR_LOAD] ip: main+0x690f (coap_free_type @ mem.c:357) loaded: 0x55c8bf21f630 from cell: 0x7ffc6c793030 cell_owner: 212 value_owner: 211
+[FREE] free(0x55c8bf21f630) subject=160 at coap_free_type @ mem.c:357
+[STACK PIVOT] ip: main+0x691c (coap_free_type @ mem.c:358) RSP 0x7ffc6c793048 left stack [0xd6,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0xb61e (coap_delete_string @ str.c:47) RSP 0x7ffc6c793068 left stack [0xd7,0x7ffc6c774000]
+[FREE] free(0x55c8bf21f0d0) subject=12 at coap_free_type @ mem.c:357
+[STACK PIVOT] ip: main+0x691c (coap_free_type @ mem.c:358) RSP 0x7ffc6c793048 left stack [0xda,0x7ffc6c774000]
+[FREE] free(0x55c8bf21f060) subject=9 at coap_free_type @ mem.c:357
+[STACK PIVOT] ip: main+0x691c (coap_free_type @ mem.c:358) RSP 0x7ffc6c793048 left stack [0xdc,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x820c (coap_delete_pdu @ pdu.c:157) RSP 0x7ffc6c793068 left stack [0xdd,0x7ffc6c774000]
+[FREE] free(0x55c8bf21e010) subject=5 at main @ harness.c:118
+[STACK PIVOT] ip: main+0x3d33 (main @ harness.c:121) RSP 0x7ffc6c793168 left stack [0xde,0x7ffc6c774000]
+[STACK PIVOT] ip: main+0x3d34 (main @ harness.c:121) RSP 0x7ffc6c793170 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x392e (__do_global_dtors_aux) final_ea: 0x55c8935bffe8 base: 0x55c89358d92e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x3954 (__do_global_dtors_aux) RSP 0x7ffc6c793050 left stack after RET
+[STACK PIVOT] ip: main+0x2a568 (_fini) RSP 0x7ffc6c793080 left stack after RET

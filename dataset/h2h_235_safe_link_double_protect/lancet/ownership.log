@@ -1,0 +1,26 @@
+[INCONSISTENCY mov write reg] ip: main+0xe9b (main @ safe_link_double_protect.c:29) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0xee7 (main @ safe_link_double_protect.c:36) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x38) -> 0x2d6292a0 subject=6 at main @ safe_link_double_protect.c:48
+[INCONSISTENCY mov write reg] ip: main+0xf7d (main @ safe_link_double_protect.c:48) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x38) -> 0x2d6292e0 subject=7 at main @ safe_link_double_protect.c:49
+[INCONSISTENCY mov write reg] ip: main+0xf8b (main @ safe_link_double_protect.c:49) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x18) -> 0x2d629320 subject=8 at main @ safe_link_double_protect.c:54
+[ALLOC] malloc(0x18) -> 0x2d629340 subject=9 at main @ safe_link_double_protect.c:55
+[ALLOC] malloc(0x28) -> 0x2d629360 subject=10 at main @ safe_link_double_protect.c:65
+[FREE] free(0x2d6292a0) subject=6 at main @ safe_link_double_protect.c:77
+[FREE] free(0x2d6292e0) subject=7 at main @ safe_link_double_protect.c:78
+main+0x10cb (main @ safe_link_double_protect.c:79) Read a dangling pointer 0x2d6292a0 from 0x7fffddfca6f8
+main+0x10cf (main @ safe_link_double_protect.c:79) Read a dangling pointer 0x2d6292e0 from 0x7fffddfca700
+[FREE] free(0x2d629320) subject=8 at main @ safe_link_double_protect.c:83
+[FREE] free(0x2d629340) subject=9 at main @ safe_link_double_protect.c:84
+main+0x1111 (main @ safe_link_double_protect.c:85) Read a dangling pointer 0x2d629320 from 0x7fffddfca708
+main+0x1115 (main @ safe_link_double_protect.c:85) Read a dangling pointer 0x2d629340 from 0x7fffddfca710
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1161 (main @ safe_link_double_protect.c:93) and rax, 0xfffffffffffff000 id before: 10 after: -1 [unmapped] value: 0x2d629000
+[ALLOC] malloc(0x38) -> 0x2d629360 subject=11 at main @ safe_link_double_protect.c:102
+[UNTRUSTEDPTRDEREF] ip: main+0x11ed (main @ safe_link_double_protect.c:103) final_ea: 0x2d6290a0 base: 0x2d6290a0 pointee: -1 base_vo: -1
+[ALLOC] malloc(0x18) -> 0x2d6290a0 subject=12 at main @ safe_link_double_protect.c:116
+[ALLOC] malloc(0x18) -> 0x7fffddfca730 subject=13 at main @ safe_link_double_protect.c:119
+[STACK PIVOT] ip: main+0x1385 (main @ safe_link_double_protect.c:128) RSP 0x7fffddfca758 left stack [0xf,0x7fffddfab000]
+[STACK PIVOT] ip: main+0x1386 (main @ safe_link_double_protect.c:128) RSP 0x7fffddfca760 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7fffddfca660 left stack after RET
+[STACK PIVOT] ip: main+0x1394 (_fini) RSP 0x7fffddfca660 left stack after RET

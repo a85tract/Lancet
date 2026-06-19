@@ -1,0 +1,506 @@
+[INCONSISTENCY mov write reg] ip: main+0x25b2 (prng_byte @ gen_poc.c:27) co: 2 vo: 2, 2 write 2
+[ALLOC] calloc(0x6d8) -> 0x62f71ed59010 subject=5 at tjInitCompress @ turbojpeg.c:521
+[UNTRUSTEDPTRDEREF] ip: main+0x2bab (_tjInitCompress @ turbojpeg.c:499) final_ea: 0x62f6f1112068 base: 0x62f6f10b7bab pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x2bd1 (_tjInitCompress @ turbojpeg.c:508) loaded: 0x62f71ed59010 from cell: 0x7ffe905fdc18 cell_owner: 6 value_owner: 4
+[ALLOC] malloc(0xa8) -> 0x62f71ed596f0 subject=8 at jinit_memory_mgr @ jmemmgr.c:1119
+[CORRUPTED_PTR_LOAD] ip: main+0x33548 (jinit_memory_mgr @ jmemmgr.c:1143) loaded: 0x0 from cell: 0x7ffe905fdbc8 cell_owner: 7 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x170ae (jpeg_CreateCompress @ jcapimin.c:91) final_ea: 0x62f6f1112088 base: 0x62f6f10cc0ae pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x32093 (alloc_small @ jmemmgr.c:297) loaded: 0x62f71ed596f0 from cell: 0x7ffe905fdb78 cell_owner: 10 value_owner: 9
+[UNTRUSTEDPTRDEREF] ip: main+0x321c4 (alloc_small @ jmemmgr.c:310) final_ea: 0x62f6f11242b0 base: 0x62f6f11242b0 pointee: -1 base_vo: -1
+[ALLOC] malloc(0x6d7) -> 0x62f71ed597a0 subject=11 at alloc_small @ jmemmgr.c:318
+[CORRUPTED_PTR_LOAD] ip: main+0x32169 (alloc_small @ jmemmgr.c:325) loaded: 0x62f71ed596f0 from cell: 0x7ffe905fdb78 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x321a3 (alloc_small @ jmemmgr.c:331) loaded: 0x62f71ed596f0 from cell: 0x7ffe905fdb78 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x11bff (jpeg_mem_dest_tj @ jdatadst-tj.c:181) loaded: 0x62f6f113c12a from cell: 0x7ffe905fdc20 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x11c17 (jpeg_mem_dest_tj @ jdatadst-tj.c:187) loaded: 0x1 from cell: 0x7ffe905fdc28 cell_owner: 6 value_owner: 4
+[STACK PIVOT] ip: main+0x2c07 (_tjInitCompress @ turbojpeg.c:514) RSP 0x7ffe905fdc48 left stack [0xd,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x4486 (tjCompress2 @ turbojpeg.c:703) UAF read at: 0x7ffe905fdc40
+[INCONSISTENCY mov write reg UAF] ip: main+0x44a5 (tjCompress2 @ turbojpeg.c:704) UAF write at: 0x7ffe905fdbf0
+[INCONSISTENCY mov write reg UAF] ip: main+0x44ab (tjCompress2 @ turbojpeg.c:704) UAF write at: 0x7ffe905fdbcc
+[INCONSISTENCY mov read UAF] ip: main+0x44b4 (tjCompress2 @ turbojpeg.c:707) UAF read at: 0x7ffe905fdbd8
+[INCONSISTENCY mov read UAF] ip: main+0x44bf (tjCompress2 @ turbojpeg.c:707) UAF read at: 0x7ffe905fdbe4
+[INCONSISTENCY mov read UAF] ip: main+0x44cc (tjCompress2 @ turbojpeg.c:707) UAF read at: 0x7ffe905fdbe0
+[INCONSISTENCY mov read UAF] ip: main+0x44d9 (tjCompress2 @ turbojpeg.c:707) UAF read at: 0x7ffe905fdbd4
+[INCONSISTENCY mov read UAF] ip: main+0x44e6 (tjCompress2 @ turbojpeg.c:708) UAF read at: 0x7ffe905fdbd0
+[INCONSISTENCY mov read UAF] ip: main+0x44f0 (tjCompress2 @ turbojpeg.c:708) UAF read at: 0x7ffe905fdc20
+[INCONSISTENCY mov read UAF] ip: main+0x44fb (tjCompress2 @ turbojpeg.c:709) UAF read at: 0x7ffe905fdc28
+[INCONSISTENCY mov read UAF] ip: main+0x4506 (tjCompress2 @ turbojpeg.c:709) UAF read at: 0x7ffe905fdc30
+[INCONSISTENCY mov read UAF] ip: main+0x4510 (tjCompress2 @ turbojpeg.c:710) UAF read at: 0x7ffe905fdc38
+[INCONSISTENCY mov read UAF] ip: main+0x451a (tjCompress2 @ turbojpeg.c:713) UAF read at: 0x7ffe905fdbe0
+[INCONSISTENCY mov read UAF] ip: main+0x4810 (tjCompress2 @ turbojpeg.c:713) UAF read at: 0x7ffe905fdbd0
+[INCONSISTENCY mov write reg UAF] ip: main+0x4821 (tjCompress2 @ turbojpeg.c:713) UAF write at: 0x7ffe905fdbe0
+[INCONSISTENCY mov read UAF] ip: main+0x4525 (tjCompress2 @ turbojpeg.c:715) UAF read at: 0x7ffe905fdbd4
+[ALLOC] malloc(0x80) -> 0x62f71ed59e80 subject=14 at tjCompress2 @ turbojpeg.c:715
+[INCONSISTENCY mov write reg UAF] ip: main+0x4532 (tjCompress2 @ turbojpeg.c:715) UAF write at: 0x7ffe905fdbe8
+[INCONSISTENCY mov read UAF] ip: main+0x453f (tjCompress2 @ turbojpeg.c:718) UAF read at: 0x7ffe905fdbf8
+[INCONSISTENCY mov write imm UAF] ip: main+0x4543 (tjCompress2 @ turbojpeg.c:698) UAF write at: 0x7ffe905fdbf4
+[INCONSISTENCY mov read UAF] ip: main+0x4564 (tjCompress2 @ turbojpeg.c:723) UAF read at: 0x7ffe905fdbf8
+[INCONSISTENCY mov read UAF] ip: main+0x4568 (tjCompress2 @ turbojpeg.c:723) UAF read at: 0x7ffe905fdbe4
+[INCONSISTENCY mov read UAF] ip: main+0x456e (tjCompress2 @ turbojpeg.c:724) UAF read at: 0x7ffe905fdbd4
+[INCONSISTENCY mov read UAF] ip: main+0x4574 (tjCompress2 @ turbojpeg.c:727) UAF read at: 0x7ffe905fdc40
+[INCONSISTENCY mov read UAF] ip: main+0x457e (tjCompress2 @ turbojpeg.c:728) UAF read at: 0x7ffe905fdc40
+[INCONSISTENCY mov read UAF] ip: main+0x4588 (tjCompress2 @ turbojpeg.c:729) UAF read at: 0x7ffe905fdc40
+[INCONSISTENCY mov read UAF] ip: main+0x4592 (tjCompress2 @ turbojpeg.c:732) UAF read at: 0x7ffe905fdc40
+[INCONSISTENCY mov read UAF] ip: main+0x4625 (tjCompress2 @ turbojpeg.c:735) UAF read at: 0x7ffe905fdbf8
+[INCONSISTENCY mov read UAF] ip: main+0x4629 (tjCompress2 @ turbojpeg.c:735) UAF read at: 0x7ffe905fdbcc
+[INCONSISTENCY mov read UAF] ip: main+0x462c (tjCompress2 @ turbojpeg.c:735) UAF read at: 0x7ffe905fdc28
+[INCONSISTENCY mov read UAF] ip: main+0x4630 (tjCompress2 @ turbojpeg.c:735) UAF read at: 0x7ffe905fdc20
+[ALLOC] malloc(0x1000) -> 0x62f71ed59f10 subject=16 at jpeg_mem_dest_tj @ jdatadst-tj.c:190
+[INCONSISTENCY mov read UAF] ip: main+0x463c (tjCompress2 @ turbojpeg.c:736) UAF read at: 0x7ffe905fdc40
+[INCONSISTENCY mov read UAF] ip: main+0x4640 (tjCompress2 @ turbojpeg.c:736) UAF read at: 0x7ffe905fdc38
+[INCONSISTENCY mov read UAF] ip: main+0x4646 (tjCompress2 @ turbojpeg.c:736) UAF read at: 0x7ffe905fdc30
+[INCONSISTENCY mov read UAF] ip: main+0x4649 (tjCompress2 @ turbojpeg.c:736) UAF read at: 0x7ffe905fdbd0
+[UNTRUSTEDPTRDEREF] ip: main+0x2cea (setCompDefaults @ turbojpeg.c:277) final_ea: 0x62f6f1111f00 base: 0x62f6f1111f00 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2cf7 (setCompDefaults @ turbojpeg.c:278) final_ea: 0x62f6f1112000 base: 0x62f6f1112000 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x32093 (alloc_small @ jmemmgr.c:297) base: 0x7ffe905fdae0 pointee: 18 read from 19
+[UNTRUSTEDPTRDEREF] ip: main+0x1de7e (jpeg_add_quant_table @ jcparam.c:54) final_ea: 0x62f6f1113a60 base: 0x62f6f1113a60 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1dd7e (jpeg_add_quant_table @ jcparam.c:54) final_ea: 0x62f6f1113960 base: 0x62f6f1113960 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1dc3f (add_huff_table) final_ea: 0x62f6f1113950 base: 0x62f6f1113940 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x32100 (alloc_small @ jmemmgr.c:312) base: 0x7ffe905fdae0 pointee: 18 read from 22
+[CORRUPTED_PTR_LOAD] ip: main+0x32100 (alloc_small @ jmemmgr.c:312) loaded: 0x0 from cell: 0x7ffe905fdaa0 cell_owner: 22 value_owner: 18
+[UNTRUSTEDPTRDEREF] ip: main+0x3210f (alloc_small @ jmemmgr.c:312) final_ea: 0x62f6f11242a0 base: 0x62f6f11242a0 pointee: -1 base_vo: -1
+[ALLOC] malloc(0x157) -> 0x62f71ed5af20 subject=23 at alloc_small @ jmemmgr.c:318
+[INCONSISTENCY mov read] ip: main+0x32169 (alloc_small @ jmemmgr.c:325) base: 0x7ffe905fdae0 pointee: 18 read from 22
+[INCONSISTENCY mov read] ip: main+0x32178 (alloc_small @ jmemmgr.c:330) base: 0x7ffe905fdae0 pointee: 18 read from 22
+[CORRUPTED_PTR_LOAD] ip: main+0x32178 (alloc_small @ jmemmgr.c:330) loaded: 0x62f71ed597a0 from cell: 0x7ffe905fda98 cell_owner: 22 value_owner: 18
+[INCONSISTENCY mov read] ip: main+0x32192 (alloc_small @ jmemmgr.c:333) base: 0x7ffe905fdae0 pointee: 18 read from 22
+[CORRUPTED_PTR_LOAD] ip: main+0x32192 (alloc_small @ jmemmgr.c:333) loaded: 0x62f71ed597a0 from cell: 0x7ffe905fda98 cell_owner: 22 value_owner: 18
+[ALLOC] malloc(0x157) -> 0x62f71ed5b080 subject=25 at alloc_small @ jmemmgr.c:318
+[ALLOC] malloc(0x157) -> 0x62f71ed5b1e0 subject=27 at alloc_small @ jmemmgr.c:318
+[UNTRUSTEDPTRDEREF] ip: main+0x1e440 (jpeg_default_colorspace @ jcparam.c:284) final_ea: 0x62f6f1113730 base: 0x62f6f1113718 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1e4e3 (jpeg_default_colorspace @ jcparam.c:316) RSP 0x7ffe905fdb58 left stack [0x1e,0x7ffe905de000]
+[UNTRUSTEDPTRDEREF] ip: main+0x1e181 (jpeg_set_colorspace @ jcparam.c:351) final_ea: 0x62f6f111370c base: 0x62f6f1113700 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2dab (setCompDefaults @ turbojpeg.c:327) final_ea: 0x62f6f1112060 base: 0x62f6f1112050 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2dcf (setCompDefaults @ turbojpeg.c:332) final_ea: 0x62f6f1112040 base: 0x62f6f1112030 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x32032 (alloc_small @ jmemmgr.c:270) UAF write at: 0x7ffe905fdaf8
+[ALLOC] malloc(0x3ef7) -> 0x62f71ed5b340 subject=31 at alloc_small @ jmemmgr.c:318
+[UNTRUSTEDPTRDEREF] ip: main+0x1d852 (jinit_c_master_control @ jcmaster.c:123) final_ea: 0x62f6f1112890 base: 0x62f6f10d2852 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x32093 (alloc_small @ jmemmgr.c:297) UAF read at: 0x7ffe905fdb08
+[INCONSISTENCY mov write reg UAF] ip: main+0x3209a (alloc_small @ jmemmgr.c:297) UAF write at: 0x7ffe905fdb00
+[UNTRUSTEDPTRDEREF] ip: main+0x19ff3 (jinit_color_converter @ jccolor.c:551) final_ea: 0x62f6f1113510 base: 0x62f6f11134f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a007 (jinit_color_converter @ jccolor.c:568) final_ea: 0x62f6f1113598 base: 0x62f6f1113580 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a033 (jinit_color_converter @ jccolor.c:590) final_ea: 0x62f6f1113544 base: 0x62f6f1113538 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x21489 (jinit_c_prep_controller @ jcprepct.c:322) UAF write at: 0x7ffe905fdb10
+[INCONSISTENCY mov read UAF] ip: main+0x214a2 (jinit_c_prep_controller @ jcprepct.c:341) UAF read at: 0x7ffe905fdb10
+[CORRUPTED_PTR_LOAD] ip: main+0x32870 (alloc_sarray @ jmemmgr.c:468) loaded: 0x62f71ed59010 from cell: 0x7ffe905fda88 cell_owner: 36 value_owner: 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32874 (alloc_sarray @ jmemmgr.c:468) loaded: 0x1ed5901000000001 from cell: 0x7ffe905fda84 cell_owner: 36 value_owner: 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32803 (alloc_sarray @ jmemmgr.c:475) loaded: 0x1ed5901000000001 from cell: 0x7ffe905fda84 cell_owner: 36 value_owner: 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32806 (alloc_sarray @ jmemmgr.c:475) loaded: 0x62f71ed59010 from cell: 0x7ffe905fda88 cell_owner: 36 value_owner: 26
+[ALLOC] malloc(0xb7) -> 0x62f71ed5f240 subject=38 at alloc_large @ jmemmgr.c:391
+[ALLOC] malloc(0xb7) -> 0x62f71ed5f300 subject=41 at alloc_large @ jmemmgr.c:391
+[ALLOC] malloc(0xb7) -> 0x62f71ed5f3c0 subject=44 at alloc_large @ jmemmgr.c:391
+[INCONSISTENCY mov read UAF] ip: main+0x4733c (jinit_huff_encoder @ jchuff.c:1105) UAF read at: 0x7ffe905fdb68
+[CORRUPTED_PTR_LOAD] ip: main+0x4733c (jinit_huff_encoder @ jchuff.c:1105) loaded: 0x62f71ed59010 from cell: 0x7ffe905fdb68 cell_owner: 17 value_owner: 5
+[STACK PIVOT] ip: main+0x47340 (jinit_huff_encoder @ jchuff.c:1105) RSP 0x7ffe905fdb78 left stack [0x31,0x7ffe905de000]
+[ALLOC] malloc(0x537) -> 0x62f71ed5f480 subject=51 at alloc_large @ jmemmgr.c:391
+[INCONSISTENCY mov write reg UAF] ip: main+0x3277a (alloc_sarray @ jmemmgr.c:437) UAF write at: 0x7ffe905fdb08
+[INCONSISTENCY mov write reg UAF] ip: main+0x32782 (alloc_sarray @ jmemmgr.c:437) UAF write at: 0x7ffe905fdb04
+[INCONSISTENCY mov read UAF] ip: main+0x32870 (alloc_sarray @ jmemmgr.c:468) UAF read at: 0x7ffe905fdb08
+[INCONSISTENCY mov read UAF] ip: main+0x32874 (alloc_sarray @ jmemmgr.c:468) UAF read at: 0x7ffe905fdb04
+[INCONSISTENCY mov read UAF] ip: main+0x32803 (alloc_sarray @ jmemmgr.c:475) UAF read at: 0x7ffe905fdb04
+[INCONSISTENCY mov read UAF] ip: main+0x32806 (alloc_sarray @ jmemmgr.c:475) UAF read at: 0x7ffe905fdb08
+[ALLOC] malloc(0x437) -> 0x62f71ed5f9c0 subject=55 at alloc_large @ jmemmgr.c:391
+[ALLOC] malloc(0x237) -> 0x62f71ed5fe00 subject=58 at alloc_large @ jmemmgr.c:391
+[ALLOC] malloc(0x237) -> 0x62f71ed60040 subject=61 at alloc_large @ jmemmgr.c:391
+[INCONSISTENCY mov read UAF] ip: main+0x1c7c8 (jinit_marker_writer @ jcmarker.c:664) UAF read at: 0x7ffe905fdb68
+[STACK PIVOT] ip: main+0x1c7cc (jinit_marker_writer @ jcmarker.c:664) RSP 0x7ffe905fdb78 left stack [0x40,0x7ffe905de000]
+[STACK PIVOT] ip: main+0x1a38a (jinit_compress_master @ jcinit.c:80) RSP 0x7ffe905fdb98 left stack [0x42,0x7ffe905de000]
+[UNTRUSTEDPTRDEREF] ip: main+0x1d4cb (select_scan_parameters @ jcmaster.c:347) final_ea: 0x62f6f11120b0 base: 0x62f6f10d24cb pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1d4eb (select_scan_parameters @ jcmaster.c:352) RSP 0x7ffe905fdb68 left stack [0x44,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x32100 (alloc_small @ jmemmgr.c:312) UAF read at: 0x7ffe905fdb00
+[INCONSISTENCY mov write reg UAF] ip: main+0x3210b (alloc_small @ jmemmgr.c:312) UAF write at: 0x7ffe905fdaf8
+[ALLOC] malloc(0x53bf) -> 0x62f71ed60280 subject=69 at alloc_small @ jmemmgr.c:318
+[INCONSISTENCY mov read UAF] ip: main+0x32169 (alloc_small @ jmemmgr.c:325) UAF read at: 0x7ffe905fdb08
+[INCONSISTENCY mov read UAF] ip: main+0x32178 (alloc_small @ jmemmgr.c:330) UAF read at: 0x7ffe905fdaf8
+[INCONSISTENCY mov read UAF] ip: main+0x32192 (alloc_small @ jmemmgr.c:333) UAF read at: 0x7ffe905fdaf8
+[INCONSISTENCY mov read UAF] ip: main+0x177e2 (rgb_ycc_start @ jccolor.c:238) UAF read at: 0x7ffe905fdb58
+[STACK PIVOT] ip: main+0x177e6 (rgb_ycc_start @ jccolor.c:238) RSP 0x7ffe905fdb68 left stack [0x47,0x7ffe905de000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x38109 (start_pass_fdctmgr @ jcdctmgr.c:244) UAF write at: 0x7ffe905fdb2c
+[INCONSISTENCY mov write reg UAF] ip: main+0x38117 (start_pass_fdctmgr @ jcdctmgr.c:244) UAF write at: 0x7ffe905fdb20
+[INCONSISTENCY mov read UAF] ip: main+0x38130 (start_pass_fdctmgr @ jcdctmgr.c:246) UAF read at: 0x7ffe905fdb20
+[INCONSISTENCY mov read UAF] ip: main+0x381e4 (start_pass_fdctmgr @ jcdctmgr.c:245) UAF read at: 0x7ffe905fdb2c
+[INCONSISTENCY mov write reg UAF] ip: main+0x46731 (jpeg_make_c_derived_tbl @ jchuff.c:223) UAF write at: 0x7ffe905fd598
+[INCONSISTENCY mov read UAF] ip: main+0x4674b (jpeg_make_c_derived_tbl @ jchuff.c:239) UAF read at: 0x7ffe905fd598
+[INCONSISTENCY mov write reg UAF] ip: main+0x46782 (jpeg_make_c_derived_tbl @ jchuff.c:258) UAF write at: 0x7ffe905fd5b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x4678c (jpeg_make_c_derived_tbl @ jchuff.c:258) UAF write at: 0x7ffe905fd5b0
+[INCONSISTENCY mov read UAF] ip: main+0x4683e (jpeg_make_c_derived_tbl @ jchuff.c:260) UAF read at: 0x7ffe905fd5b8
+[INCONSISTENCY mov write imm UAF] ip: main+0x46848 (jpeg_make_c_derived_tbl @ jchuff.c:260) UAF write at: 0x7ffe905fd5cc
+[INCONSISTENCY mov read UAF] ip: main+0x46850 (jpeg_make_c_derived_tbl @ jchuff.c:267) UAF read at: 0x7ffe905fd5c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x4685d (jpeg_make_c_derived_tbl @ jchuff.c:260) UAF write at: 0x7ffe905fd5b8
+[INCONSISTENCY mov read UAF] ip: main+0x46864 (jpeg_make_c_derived_tbl @ jchuff.c:260) UAF read at: 0x7ffe905fd5b0
+[INCONSISTENCY mov read UAF] ip: main+0x469ad (jpeg_make_c_derived_tbl @ jchuff.c:298) UAF read at: 0x7ffe905fd598
+[INCONSISTENCY mov write reg UAF] ip: main+0x469c7 (jpeg_make_c_derived_tbl @ jchuff.c:300) UAF write at: 0x7ffe905fd5a8
+[INCONSISTENCY mov write reg UAF] ip: main+0x469d3 (jpeg_make_c_derived_tbl @ jchuff.c:300) UAF write at: 0x7ffe905fd5b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x469dd (jpeg_make_c_derived_tbl @ jchuff.c:300) UAF write at: 0x7ffe905fd5a0
+[INCONSISTENCY mov read UAF] ip: main+0x469f0 (jpeg_make_c_derived_tbl @ jchuff.c:301) UAF read at: 0x7ffe905fd5b0
+[INCONSISTENCY mov read UAF] ip: main+0x469fd (jpeg_make_c_derived_tbl @ jchuff.c:302) UAF read at: 0x7ffe905fd5a8
+[INCONSISTENCY mov read UAF] ip: main+0x46a3d (jpeg_make_c_derived_tbl @ jchuff.c:300) UAF read at: 0x7ffe905fd5b8
+[CORRUPTED_PTR_LOAD] ip: main+0x4674b (jpeg_make_c_derived_tbl @ jchuff.c:239) loaded: 0x0 from cell: 0x7ffe905fd598 cell_owner: 77 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x468b0 (jpeg_make_c_derived_tbl @ jchuff.c:270) loaded: 0x505050404040302 from cell: 0x7ffe905fd5c1 cell_owner: 77 value_owner: 75
+[UNINITIALIZED mov read] ip: main+0x468b0 (jpeg_make_c_derived_tbl @ jchuff.c:270) co: 77 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x469ad (jpeg_make_c_derived_tbl @ jchuff.c:298) loaded: 0x0 from cell: 0x7ffe905fd598 cell_owner: 77 value_owner: 33
+[CORRUPTED_PTR_LOAD] ip: main+0x46a2c (jpeg_make_c_derived_tbl @ jchuff.c:305) loaded: 0x505050404040302 from cell: 0x7ffe905fd5c1 cell_owner: 77 value_owner: 75
+[UNINITIALIZED mov read] ip: main+0x46a2c (jpeg_make_c_derived_tbl @ jchuff.c:305) co: 77 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x372b4 (start_pass_coef @ jccoefct.c:127) UAF read at: 0x7ffe905fdb58
+[STACK PIVOT] ip: main+0x372b8 (start_pass_coef @ jccoefct.c:127) RSP 0x7ffe905fdb68 left stack [0x56,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x465e (tjCompress2 @ turbojpeg.c:739) UAF read at: 0x7ffe905fdbd4
+[INCONSISTENCY mov read UAF] ip: main+0x4669 (tjCompress2 @ turbojpeg.c:741) UAF read at: 0x7ffe905fdbe0
+[INCONSISTENCY mov read UAF] ip: main+0x466d (tjCompress2 @ turbojpeg.c:741) UAF read at: 0x7ffe905fdc40
+[INCONSISTENCY mov read UAF] ip: main+0x467a (tjCompress2 @ turbojpeg.c:741) UAF read at: 0x7ffe905fdbd8
+[INCONSISTENCY mov read UAF] ip: main+0x4688 (tjCompress2 @ turbojpeg.c:743) UAF read at: 0x7ffe905fdbe8
+[INCONSISTENCY mov read UAF] ip: main+0x473f (tjCompress2 @ turbojpeg.c:745) UAF read at: 0x7ffe905fdbf8
+[INCONSISTENCY mov read UAF] ip: main+0x4730 (tjCompress2 @ turbojpeg.c:746) UAF read at: 0x7ffe905fdbe8
+[UNTRUSTEDPTRDEREF] ip: main+0x1ad98 (emit_dqt @ jcmarker.c:175) final_ea: 0x62f6f1124160 base: 0x62f6f1124160 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x1d0c2 (pass_startup @ jcmaster.c:543) UAF read at: 0x7ffe905fdb68
+[STACK PIVOT] ip: main+0x1d0ca (pass_startup @ jcmaster.c:543) RSP 0x7ffe905fdb78 left stack [0x5b,0x7ffe905de000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x1a45c (process_data_simple_main @ jcmainct.c:81) UAF write at: 0x7ffe905fdb38
+[INCONSISTENCY mov read UAF] ip: main+0x1a4cd (process_data_simple_main @ jcmainct.c:87) UAF read at: 0x7ffe905fdb38
+[INCONSISTENCY mov write reg UAF] ip: main+0x20ef3 (pre_process_data @ jcprepct.c:135) UAF write at: 0x7ffe905fdaa8
+[INCONSISTENCY mov write reg UAF] ip: main+0x20efb (pre_process_data @ jcprepct.c:148) UAF write at: 0x7ffe905fdab0
+[INCONSISTENCY mov write reg UAF] ip: main+0x20f0d (pre_process_data @ jcprepct.c:141) UAF write at: 0x7ffe905fdad0
+[INCONSISTENCY mov write reg UAF] ip: main+0x20f13 (pre_process_data @ jcprepct.c:141) UAF write at: 0x7ffe905fdad8
+[INCONSISTENCY mov read UAF] ip: main+0x20f57 (pre_process_data @ jcprepct.c:141) UAF read at: 0x7ffe905fdad8
+[INCONSISTENCY mov read UAF] ip: main+0x20f5b (pre_process_data @ jcprepct.c:141) UAF read at: 0x7ffe905fdb20
+[INCONSISTENCY mov write reg UAF] ip: main+0x20f70 (pre_process_data @ jcprepct.c:145) UAF write at: 0x7ffe905fdac0
+[INCONSISTENCY mov read UAF] ip: main+0x20f74 (pre_process_data @ jcprepct.c:144) UAF read at: 0x7ffe905fdad0
+[INCONSISTENCY mov read UAF] ip: main+0x20f77 (pre_process_data @ jcprepct.c:147) UAF read at: 0x7ffe905fdab0
+[INCONSISTENCY mov write reg UAF] ip: main+0x20f7b (pre_process_data @ jcprepct.c:147) UAF write at: 0x7ffe905fdac8
+[UNTRUSTEDPTRDEREF] ip: main+0x17832 (rgb_ycc_convert @ jccolor.c:249) final_ea: 0x62f6f1113480 base: 0x62f6f1113480 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x17cf4 (rgb_ycc_convert) UAF write at: 0x7ffe905fda54
+[UNINITIALIZED mov read] ip: main+0x17d30 (rgb_ycc_convert @ jccolext.c:51) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x17d35 (rgb_ycc_convert @ jccolext.c:51) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x17d3d (rgb_ycc_convert @ jccolext.c:53) co: 4 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x17db7 (rgb_ycc_convert @ jccolext.c:44) UAF read at: 0x7ffe905fda54
+[INCONSISTENCY mov read UAF] ip: main+0x20f99 (pre_process_data @ jcprepct.c:151) UAF read at: 0x7ffe905fdac0
+[INCONSISTENCY mov read UAF] ip: main+0x20f9d (pre_process_data @ jcprepct.c:155) UAF read at: 0x7ffe905fdac8
+[INCONSISTENCY mov read UAF] ip: main+0x20fc2 (pre_process_data @ jcprepct.c:164) UAF read at: 0x7ffe905fdad8
+[INCONSISTENCY mov read UAF] ip: main+0x20fc9 (pre_process_data @ jcprepct.c:165) UAF read at: 0x7ffe905fdaa8
+[INCONSISTENCY mov read UAF] ip: main+0x20fcf (pre_process_data @ jcprepct.c:165) UAF read at: 0x7ffe905fdab0
+[INCONSISTENCY mov write reg UAF] ip: main+0x20fd3 (pre_process_data @ jcprepct.c:165) UAF write at: 0x7ffe905fdab8
+[INCONSISTENCY mov write reg UAF] ip: main+0x20fde (pre_process_data @ jcprepct.c:165) UAF write at: 0x7ffe905fdac0
+[INCONSISTENCY mov write reg UAF] ip: main+0x217bc (sep_downsample @ jcsample.c:124) UAF write at: 0x7ffe905fda48
+[INCONSISTENCY mov write reg UAF] ip: main+0x217c0 (sep_downsample @ jcsample.c:124) UAF write at: 0x7ffe905fda44
+[INCONSISTENCY mov write reg UAF] ip: main+0x217e1 (sep_downsample @ jcsample.c:132) UAF write at: 0x7ffe905fda38
+[INCONSISTENCY mov read UAF] ip: main+0x217e8 (sep_downsample @ jcsample.c:133) UAF read at: 0x7ffe905fda44
+[INCONSISTENCY mov read UAF] ip: main+0x217fb (sep_downsample @ jcsample.c:132) UAF read at: 0x7ffe905fda48
+[INCONSISTENCY mov read UAF] ip: main+0x21807 (sep_downsample @ jcsample.c:132) UAF read at: 0x7ffe905fda38
+[INCONSISTENCY mov write reg UAF] ip: main+0x21852 (int_downsample @ jcsample.c:149) UAF write at: 0x7ffe905fd9c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x2188b (int_downsample @ jcsample.c:159) UAF write at: 0x7ffe905fd9e8
+[INCONSISTENCY mov read UAF] ip: main+0x2190e (int_downsample @ jcsample.c:169) UAF read at: 0x7ffe905fd9e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x2191e (int_downsample @ jcsample.c:169) UAF write at: 0x7ffe905fd9d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x21926 (int_downsample @ jcsample.c:169) UAF write at: 0x7ffe905fd9c8
+[INCONSISTENCY mov read UAF] ip: main+0x21953 (int_downsample @ jcsample.c:170) UAF read at: 0x7ffe905fd9c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x21957 (int_downsample @ jcsample.c:170) UAF write at: 0x7ffe905fd9b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x2195e (int_downsample @ jcsample.c:171) UAF write at: 0x7ffe905fd9b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x21966 (int_downsample @ jcsample.c:171) UAF write at: 0x7ffe905fd9a8
+[INCONSISTENCY mov write reg UAF] ip: main+0x2196a (int_downsample @ jcsample.c:171) UAF write at: 0x7ffe905fd9a0
+[INCONSISTENCY mov write reg UAF] ip: main+0x21972 (int_downsample @ jcsample.c:171) UAF write at: 0x7ffe905fd9e0
+[INCONSISTENCY mov write reg UAF] ip: main+0x2197c (int_downsample @ jcsample.c:171) UAF write at: 0x7ffe905fd9d8
+[INCONSISTENCY mov read UAF] ip: main+0x21980 (int_downsample @ jcsample.c:175) UAF read at: 0x7ffe905fd9d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x21992 (int_downsample @ jcsample.c:174) UAF write at: 0x7ffe905fd9e8
+[INCONSISTENCY mov read UAF] ip: main+0x21b8d (int_downsample @ jcsample.c:174) UAF read at: 0x7ffe905fd9e8
+[INCONSISTENCY mov read UAF] ip: main+0x21b91 (int_downsample @ jcsample.c:180) UAF read at: 0x7ffe905fd9c8
+[INCONSISTENCY mov read UAF] ip: main+0x21ba9 (int_downsample @ jcsample.c:171) UAF read at: 0x7ffe905fd9e0
+[INCONSISTENCY mov read UAF] ip: main+0x21bb6 (int_downsample @ jcsample.c:169) UAF read at: 0x7ffe905fd9b0
+[INCONSISTENCY mov read UAF] ip: main+0x21bba (int_downsample @ jcsample.c:169) UAF read at: 0x7ffe905fd9a8
+[INCONSISTENCY mov read UAF] ip: main+0x21bbe (int_downsample @ jcsample.c:169) UAF read at: 0x7ffe905fd9a0
+[INCONSISTENCY mov read UAF] ip: main+0x21bc2 (int_downsample @ jcsample.c:169) UAF read at: 0x7ffe905fd9b8
+[INCONSISTENCY mov read UAF] ip: main+0x20fe5 (pre_process_data @ jcprepct.c:169) UAF read at: 0x7ffe905fdad8
+[INCONSISTENCY mov read UAF] ip: main+0x20ff1 (pre_process_data @ jcprepct.c:174) UAF read at: 0x7ffe905fdac0
+[INCONSISTENCY mov read UAF] ip: main+0x20ff5 (pre_process_data @ jcprepct.c:174) UAF read at: 0x7ffe905fdab8
+[INCONSISTENCY mov write reg UAF] ip: main+0x20ffb (pre_process_data @ jcprepct.c:169) UAF write at: 0x7ffe905fdac8
+[INCONSISTENCY mov read UAF] ip: main+0x20f4c (pre_process_data @ jcprepct.c:141) UAF read at: 0x7ffe905fdad0
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x21b80 (int_downsample @ jcsample.c:174) mov qword ptr [rbp-0x48], rax id before: 11 after: 31 value: 0x62f71ed5b4e8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x17d09 (rgb_ycc_convert @ jccolext.c:45) add r11, 0x8 id before: 14 after: -1 [chunk metadata] value: 0x62f71ed59f00
+[INCONSISTENCY mov read UAF] ip: main+0x20f30 (pre_process_data @ jcprepct.c:174) UAF read at: 0x7ffe905fdad8
+[INCONSISTENCY mov write reg UAF] ip: main+0x37975 (compress_data @ jccoefct.c:142) UAF write at: 0x7ffe905fdad0
+[INCONSISTENCY mov write reg UAF] ip: main+0x37982 (compress_data @ jccoefct.c:145) UAF write at: 0x7ffe905fdab4
+[INCONSISTENCY mov write reg UAF] ip: main+0x37988 (compress_data @ jccoefct.c:146) UAF write at: 0x7ffe905fdad8
+[INCONSISTENCY mov write reg UAF] ip: main+0x3798f (compress_data @ jccoefct.c:152) UAF write at: 0x7ffe905fdab0
+[INCONSISTENCY mov write reg UAF] ip: main+0x379b1 (compress_data @ jccoefct.c:154) UAF write at: 0x7ffe905fdaa8
+[INCONSISTENCY mov read UAF] ip: main+0x379cf (compress_data @ jccoefct.c:168) UAF read at: 0x7ffe905fdab4
+[INCONSISTENCY mov write reg UAF] ip: main+0x379f1 (compress_data @ jccoefct.c:170) UAF write at: 0x7ffe905fdadc
+[INCONSISTENCY mov write reg UAF] ip: main+0x37a02 (compress_data @ jccoefct.c:183) UAF write at: 0x7ffe905fdac0
+[INCONSISTENCY mov read UAF] ip: main+0x37a06 (compress_data @ jccoefct.c:183) UAF read at: 0x7ffe905fdab0
+[INCONSISTENCY mov write reg UAF] ip: main+0x37a0a (compress_data @ jccoefct.c:183) UAF write at: 0x7ffe905fdac4
+[INCONSISTENCY mov write reg UAF] ip: main+0x37a12 (compress_data @ jccoefct.c:183) UAF write at: 0x7ffe905fdab8
+[INCONSISTENCY mov read UAF] ip: main+0x37a38 (compress_data @ jccoefct.c:173) UAF read at: 0x7ffe905fdad8
+[INCONSISTENCY mov read UAF] ip: main+0x37a5b (compress_data @ jccoefct.c:175) UAF read at: 0x7ffe905fdad0
+[INCONSISTENCY mov read UAF] ip: main+0x37a74 (compress_data @ jccoefct.c:175) UAF read at: 0x7ffe905fdadc
+[INCONSISTENCY mov write reg UAF] ip: main+0x37a80 (compress_data @ jccoefct.c:175) UAF write at: 0x7ffe905fdae0
+[INCONSISTENCY mov write reg UAF] ip: main+0x37a83 (compress_data @ jccoefct.c:175) UAF write at: 0x7ffe905fdae8
+[INCONSISTENCY mov read UAF] ip: main+0x390ff (forward_DCT @ jcdctmgr.c:494) UAF read at: 0x7ffe905fda90
+[INCONSISTENCY mov write reg UAF] ip: main+0x39113 (forward_DCT @ jcdctmgr.c:497) UAF write at: 0x7ffe905fda48
+[INCONSISTENCY mov write reg UAF] ip: main+0x3911b (forward_DCT @ jcdctmgr.c:502) UAF write at: 0x7ffe905fda40
+[INCONSISTENCY mov write reg UAF] ip: main+0x39123 (forward_DCT @ jcdctmgr.c:507) UAF write at: 0x7ffe905fda38
+[INCONSISTENCY mov write reg UAF] ip: main+0x39135 (forward_DCT @ jcdctmgr.c:509) UAF write at: 0x7ffe905fda30
+[INCONSISTENCY mov read UAF] ip: main+0x39146 (forward_DCT @ jcdctmgr.c:511) UAF read at: 0x7ffe905fda38
+[INCONSISTENCY mov read UAF] ip: main+0x39151 (forward_DCT @ jcdctmgr.c:514) UAF read at: 0x7ffe905fda40
+[STACK PIVOT] ip: main+0x54545 (jpeg_fdct_islow @ jfdctint.c:286) RSP 0x7ffe905fda28 left stack [0x80,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x3915d (forward_DCT @ jcdctmgr.c:517) UAF read at: 0x7ffe905fda48
+[INCONSISTENCY mov read UAF] ip: main+0x39167 (forward_DCT @ jcdctmgr.c:509) UAF read at: 0x7ffe905fda30
+[INCONSISTENCY mov read UAF] ip: main+0x37a8e (compress_data @ jccoefct.c:179) UAF read at: 0x7ffe905fdae0
+[INCONSISTENCY mov read UAF] ip: main+0x37a92 (compress_data @ jccoefct.c:179) UAF read at: 0x7ffe905fdae8
+[STACK PIVOT] ip: main+0x54545 (jpeg_fdct_islow @ jfdctint.c:286) RSP 0x7ffe905fda28 left stack [0x83,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x37c50 (compress_data @ jccoefct.c:183) UAF read at: 0x7ffe905fdac0
+[INCONSISTENCY mov read UAF] ip: main+0x37c54 (compress_data @ jccoefct.c:183) UAF read at: 0x7ffe905fdab8
+[STACK PIVOT] ip: main+0x54545 (jpeg_fdct_islow @ jfdctint.c:286) RSP 0x7ffe905fda28 left stack [0x86,0x7ffe905de000]
+[STACK PIVOT] ip: main+0x54545 (jpeg_fdct_islow @ jfdctint.c:286) RSP 0x7ffe905fda28 left stack [0x89,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x37c73 (compress_data @ jccoefct.c:204) UAF read at: 0x7ffe905fdaa8
+[INCONSISTENCY mov write reg UAF] ip: main+0x37c77 (compress_data @ jccoefct.c:204) UAF write at: 0x7ffe905fdae8
+[INCONSISTENCY mov write reg UAF] ip: main+0x462c1 (encode_mcu_huff @ jchuff.c:658) UAF write at: 0x7ffe905fd808
+[INCONSISTENCY mov write reg UAF] ip: main+0x462d1 (encode_mcu_huff @ jchuff.c:667) UAF write at: 0x7ffe905fd850
+[INCONSISTENCY mov write reg UAF] ip: main+0x462de (encode_mcu_huff @ jchuff.c:664) UAF write at: 0x7ffe905fd820
+[INCONSISTENCY mov write reg UAF] ip: main+0x462e5 (encode_mcu_huff @ jchuff.c:665) UAF write at: 0x7ffe905fd828
+[INCONSISTENCY mov read UAF] ip: main+0x46313 (encode_mcu_huff @ jchuff.c:677) UAF read at: 0x7ffe905fd808
+Store dangling pointer: 0x7ffe905fd820 at: 0x7ffe905fd800
+[INCONSISTENCY mov write reg UAF] ip: main+0x464da (encode_mcu_huff @ jchuff.c:690) UAF write at: 0x7ffe905fd800
+first time found dangling pointer at: 39359 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x46514 (encode_mcu_huff @ jchuff.c:693) UAF read at: 0x7ffe905fd808
+[INCONSISTENCY mov read UAF] ip: main+0x4653d (encode_mcu_huff @ jchuff.c:693) UAF read at: 0x7ffe905fd800
+first time found dangling pointer at: 39359 distance: 12
+main+0x4653d (encode_mcu_huff @ jchuff.c:693) Using expired pointer: 0x7ffe905fd820 from 0x7ffe905fd800
+first time found dangling pointer at: 39359 distance: 12
+[INCONSISTENCY mov read UAF] ip: main+0x46544 (encode_mcu_huff @ jchuff.c:693) UAF read at: 0x7ffe905fd83c
+[INCONSISTENCY mov read UAF] ip: main+0x3a13c (encode_one_block @ jchuff.c:521) UAF read at: 0x7ffe905fd830
+[INCONSISTENCY mov read UAF] ip: main+0x3a140 (encode_one_block @ jchuff.c:522) UAF read at: 0x7ffe905fd838
+[INCONSISTENCY mov read UAF] ip: main+0x3a14a (encode_one_block @ jchuff.c:523) UAF read at: 0x7ffe905fd828
+[INCONSISTENCY mov write reg UAF] ip: main+0x3a152 (encode_one_block @ jchuff.c:518) UAF write at: 0x7ffe905fd59c
+[INCONSISTENCY mov write imm UAF] ip: main+0x3a166 (encode_one_block @ jchuff.c:519) UAF write at: 0x7ffe905fd598
+[INCONSISTENCY mov read UAF] ip: main+0x3a170 (encode_one_block @ jchuff.c:523) UAF read at: 0x7ffe905fd820
+[UNTRUSTEDPTRDEREF] ip: main+0x3a194 (encode_one_block @ jchuff.c:543) final_ea: 0x62f6f112437d base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3a3d4 (encode_one_block @ jchuff.c:599) final_ea: 0x62f6f112435c base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3ac42 (encode_one_block @ jchuff.c:599) final_ea: 0x62f6f1124355 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3a4d3 (encode_one_block @ jchuff.c:599) final_ea: 0x62f6f1124364 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x41a4a (encode_one_block @ jchuff.c:599) final_ea: 0x62f6f112435d base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x41b85 (encode_one_block @ jchuff.c:599) final_ea: 0x62f6f1124378 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x41cc0 (encode_one_block @ jchuff.c:599) final_ea: 0x62f6f1124353 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x41dfb (encode_one_block @ jchuff.c:600) final_ea: 0x62f6f1124384 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x41f36 (encode_one_block @ jchuff.c:600) final_ea: 0x62f6f1124365 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x42071 (encode_one_block @ jchuff.c:600) final_ea: 0x62f6f112439c base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x421ac (encode_one_block @ jchuff.c:600) final_ea: 0x62f6f1124360 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x422e7 (encode_one_block @ jchuff.c:600) final_ea: 0x62f6f1124388 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x42422 (encode_one_block @ jchuff.c:600) final_ea: 0x62f6f112436f base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x4255d (encode_one_block @ jchuff.c:601) final_ea: 0x62f6f112434e base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x42698 (encode_one_block @ jchuff.c:601) final_ea: 0x62f6f1124356 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x427d3 (encode_one_block @ jchuff.c:601) final_ea: 0x62f6f1124377 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x4290e (encode_one_block @ jchuff.c:601) final_ea: 0x62f6f1124375 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x42a49 (encode_one_block @ jchuff.c:601) final_ea: 0x62f6f112435e base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x42c4a (encode_one_block @ jchuff.c:601) final_ea: 0x62f6f112435b base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x42e51 (encode_one_block @ jchuff.c:602) final_ea: 0x62f6f112435f base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x43056 (encode_one_block @ jchuff.c:602) final_ea: 0x62f6f1124355 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x4325d (encode_one_block @ jchuff.c:602) final_ea: 0x62f6f1124361 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x43462 (encode_one_block @ jchuff.c:602) final_ea: 0x62f6f1124391 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x43669 (encode_one_block @ jchuff.c:602) final_ea: 0x62f6f11243a2 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x4386e (encode_one_block @ jchuff.c:602) final_ea: 0x62f6f1124348 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x43a75 (encode_one_block @ jchuff.c:603) final_ea: 0x62f6f1124348 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x43c7a (encode_one_block @ jchuff.c:603) final_ea: 0x62f6f112434a base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x43e81 (encode_one_block @ jchuff.c:603) final_ea: 0x62f6f1124382 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x44086 (encode_one_block @ jchuff.c:603) final_ea: 0x62f6f1124345 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x4428d (encode_one_block @ jchuff.c:603) final_ea: 0x62f6f112435c base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x44492 (encode_one_block @ jchuff.c:603) final_ea: 0x62f6f1124352 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x44699 (encode_one_block @ jchuff.c:604) final_ea: 0x62f6f1124347 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3a7a0 (encode_one_block @ jchuff.c:604) final_ea: 0x62f6f1124373 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x417f2 (encode_one_block @ jchuff.c:604) final_ea: 0x62f6f112434d base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x412aa (encode_one_block @ jchuff.c:604) final_ea: 0x62f6f1124341 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x40f8a (encode_one_block @ jchuff.c:604) final_ea: 0x62f6f112434d base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x40c6a (encode_one_block @ jchuff.c:604) final_ea: 0x62f6f1124353 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x40952 (encode_one_block @ jchuff.c:605) final_ea: 0x62f6f1124393 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x4063a (encode_one_block @ jchuff.c:605) final_ea: 0x62f6f112435c base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x40322 (encode_one_block @ jchuff.c:605) final_ea: 0x62f6f112434e base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x4000a (encode_one_block @ jchuff.c:605) final_ea: 0x62f6f1124394 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3fcf2 (encode_one_block @ jchuff.c:605) final_ea: 0x62f6f112436d base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3f9da (encode_one_block @ jchuff.c:605) final_ea: 0x62f6f1124357 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3f6c2 (encode_one_block @ jchuff.c:606) final_ea: 0x62f6f1124368 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3f3aa (encode_one_block @ jchuff.c:606) final_ea: 0x62f6f112437b base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3f092 (encode_one_block @ jchuff.c:606) final_ea: 0x62f6f1124342 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3ed7a (encode_one_block @ jchuff.c:606) final_ea: 0x62f6f112434b base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3ea62 (encode_one_block @ jchuff.c:606) final_ea: 0x62f6f1124379 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3e74a (encode_one_block @ jchuff.c:606) final_ea: 0x62f6f1124353 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x3e35d (encode_one_block @ jchuff.c:607) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3e36d (encode_one_block @ jchuff.c:607) final_ea: 0x62f6f112438e base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3e672 (encode_one_block @ jchuff.c:607) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3df7d (encode_one_block @ jchuff.c:607) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3df8d (encode_one_block @ jchuff.c:607) final_ea: 0x62f6f1124351 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3e292 (encode_one_block @ jchuff.c:607) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3db9d (encode_one_block @ jchuff.c:607) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3dbad (encode_one_block @ jchuff.c:607) final_ea: 0x62f6f1124353 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3deb2 (encode_one_block @ jchuff.c:607) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3d7bd (encode_one_block @ jchuff.c:607) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3d7cd (encode_one_block @ jchuff.c:607) final_ea: 0x62f6f112437b base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3dad2 (encode_one_block @ jchuff.c:607) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3d3dd (encode_one_block @ jchuff.c:607) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3d3ed (encode_one_block @ jchuff.c:607) final_ea: 0x62f6f1124352 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3d6f2 (encode_one_block @ jchuff.c:607) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3cffd (encode_one_block @ jchuff.c:607) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3d00d (encode_one_block @ jchuff.c:607) final_ea: 0x62f6f1124343 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3d312 (encode_one_block @ jchuff.c:607) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3cc1d (encode_one_block @ jchuff.c:608) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3cc2d (encode_one_block @ jchuff.c:608) final_ea: 0x62f6f1124356 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3cf32 (encode_one_block @ jchuff.c:608) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3c83d (encode_one_block @ jchuff.c:608) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3c84d (encode_one_block @ jchuff.c:608) final_ea: 0x62f6f1124379 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3cb52 (encode_one_block @ jchuff.c:608) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3c45d (encode_one_block @ jchuff.c:608) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3c46d (encode_one_block @ jchuff.c:608) final_ea: 0x62f6f1124360 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3c772 (encode_one_block @ jchuff.c:608) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3c07d (encode_one_block @ jchuff.c:608) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3c08d (encode_one_block @ jchuff.c:608) final_ea: 0x62f6f1124347 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3c392 (encode_one_block @ jchuff.c:608) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3bc9d (encode_one_block @ jchuff.c:608) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3bcad (encode_one_block @ jchuff.c:608) final_ea: 0x62f6f1124387 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3bfb2 (encode_one_block @ jchuff.c:608) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3b8bd (encode_one_block @ jchuff.c:608) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3b8cd (encode_one_block @ jchuff.c:608) final_ea: 0x62f6f1124345 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3bbd2 (encode_one_block @ jchuff.c:608) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov write reg UAF] ip: main+0x3b0fd (encode_one_block @ jchuff.c:609) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3b10d (encode_one_block @ jchuff.c:609) final_ea: 0x62f6f1124365 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3b412 (encode_one_block @ jchuff.c:609) UAF read at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3ad27 (encode_one_block @ jchuff.c:609) final_ea: 0x62f6f1124393 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3ab5c (encode_one_block @ jchuff.c:620) UAF read at: 0x7ffe905fd598
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ab62 (encode_one_block @ jchuff.c:618) UAF write at: 0x7ffe905fd830
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ab66 (encode_one_block @ jchuff.c:619) UAF write at: 0x7ffe905fd838
+[INCONSISTENCY mov write reg UAF] ip: main+0x3b0da (encode_one_block @ jchuff.c:620) UAF write at: 0x7ffe905fd820
+[INCONSISTENCY mov write reg UAF] ip: main+0x464fb (encode_mcu_huff @ jchuff.c:699) UAF write at: 0x7ffe905fd83c
+[INCONSISTENCY mov write reg UAF] ip: main+0x3b4dd (encode_one_block @ jchuff.c:609) UAF write at: 0x7ffe905fd594
+[UNTRUSTEDPTRDEREF] ip: main+0x3b4ed (encode_one_block @ jchuff.c:609) final_ea: 0x62f6f1124348 base: 0x62f6f1124340 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3b7f2 (encode_one_block @ jchuff.c:609) UAF read at: 0x7ffe905fd594
+[INCONSISTENCY mov read UAF] ip: main+0x46570 (encode_mcu_huff @ jchuff.c:705) UAF read at: 0x7ffe905fd828
+[INCONSISTENCY mov read UAF] ip: main+0x4657b (encode_mcu_huff @ jchuff.c:704) UAF read at: 0x7ffe905fd820
+[INCONSISTENCY mov read UAF] ip: main+0x4659f (encode_mcu_huff @ jchuff.c:706) UAF read at: 0x7ffe905fd808
+[INCONSISTENCY mov read UAF] ip: main+0x37c81 (compress_data @ jccoefct.c:204) UAF read at: 0x7ffe905fdae8
+[INCONSISTENCY mov read UAF] ip: main+0x37c91 (compress_data @ jccoefct.c:154) UAF read at: 0x7ffe905fdab4
+[STACK PIVOT] ip: main+0x54545 (jpeg_fdct_islow @ jfdctint.c:286) RSP 0x7ffe905fda28 left stack [0x91,0x7ffe905de000]
+[STACK PIVOT] ip: main+0x54545 (jpeg_fdct_islow @ jfdctint.c:286) RSP 0x7ffe905fda28 left stack [0x94,0x7ffe905de000]
+[STACK PIVOT] ip: main+0x54545 (jpeg_fdct_islow @ jfdctint.c:286) RSP 0x7ffe905fda28 left stack [0x97,0x7ffe905de000]
+[STACK PIVOT] ip: main+0x54545 (jpeg_fdct_islow @ jfdctint.c:286) RSP 0x7ffe905fda28 left stack [0x9a,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x37ca3 (compress_data @ jccoefct.c:153) UAF read at: 0x7ffe905fdab0
+[INCONSISTENCY mov write reg UAF] ip: main+0x3a09d (finish_pass_huff @ jchuff.c:736) UAF write at: 0x7ffe905fdb50
+[INCONSISTENCY mov write reg UAF] ip: main+0x3a0ba (finish_pass_huff @ jchuff.c:733) UAF write at: 0x7ffe905fdb20
+[INCONSISTENCY mov read UAF] ip: main+0x39f07 (flush_bits @ jchuff.c:474) UAF read at: 0x7ffe905fdb30
+[CORRUPTED_PTR_LOAD] ip: main+0x39f07 (flush_bits @ jchuff.c:474) loaded: 0x8ba795cfc6fcff38 from cell: 0x7ffe905fdb30 cell_owner: 98 value_owner: 5
+[INCONSISTENCY mov read UAF] ip: main+0x39f0b (flush_bits @ jchuff.c:475) UAF read at: 0x7ffe905fdb38
+[INCONSISTENCY mov read UAF] ip: main+0x39f0e (flush_bits @ jchuff.c:476) UAF read at: 0x7ffe905fdb28
+[INCONSISTENCY mov read UAF] ip: main+0x39f23 (flush_bits @ jchuff.c:476) UAF read at: 0x7ffe905fdb20
+[INCONSISTENCY mov write imm UAF] ip: main+0x39f6e (flush_bits @ jchuff.c:482) UAF write at: 0x7ffe905fdb30
+[INCONSISTENCY mov write imm UAF] ip: main+0x39f77 (flush_bits @ jchuff.c:483) UAF write at: 0x7ffe905fdb38
+[INCONSISTENCY mov write reg UAF] ip: main+0x3a074 (flush_bits @ jchuff.c:484) UAF write at: 0x7ffe905fdb20
+[INCONSISTENCY mov read UAF] ip: main+0x3a0e6 (finish_pass_huff @ jchuff.c:743) UAF read at: 0x7ffe905fdb20
+[INCONSISTENCY mov read UAF] ip: main+0x3a0f7 (finish_pass_huff @ jchuff.c:744) UAF read at: 0x7ffe905fdb28
+[CORRUPTED_PTR_LOAD] ip: main+0x1a700 (write_file_trailer @ jcmarker.c:605) loaded: 0x62f71ed59010 from cell: 0x7ffe905fdb88 cell_owner: 86 value_owner: 5
+[STACK PIVOT] ip: main+0x1a704 (write_file_trailer @ jcmarker.c:605) RSP 0x7ffe905fdb98 left stack [0xa2,0x7ffe905de000]
+[FREE] free(0x62f71ed60040) subject=61 at free_pool @ jmemmgr.c:1036
+[FREE:internal] free(0x62f71ed60040) subject=0
+[DOUBLE FREE] free(0x62f71ed60040) — already freed
+[FREE] free(0x62f71ed5fe00) subject=58 at free_pool @ jmemmgr.c:1036
+[FREE] free(0x62f71ed5f9c0) subject=55 at free_pool @ jmemmgr.c:1036
+[FREE] free(0x62f71ed5f480) subject=51 at free_pool @ jmemmgr.c:1036
+[FREE] free(0x62f71ed5f3c0) subject=44 at free_pool @ jmemmgr.c:1036
+[FREE] free(0x62f71ed5f300) subject=41 at free_pool @ jmemmgr.c:1036
+[FREE] free(0x62f71ed5f240) subject=38 at free_pool @ jmemmgr.c:1036
+[FREE] free(0x62f71ed5b340) subject=31 at free_pool @ jmemmgr.c:1049
+[FREE] free(0x62f71ed60280) subject=69 at free_pool @ jmemmgr.c:1049
+[STACK PIVOT] ip: main+0x1db43 (jpeg_abort @ jcomapi.c:57) RSP 0x7ffe905fdbb8 left stack [0xa3,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x4758 (tjCompress2 @ turbojpeg.c:751) UAF read at: 0x7ffe905fdbf8
+[INCONSISTENCY mov read UAF] ip: main+0x46ff (tjCompress2 @ turbojpeg.c:755) UAF read at: 0x7ffe905fdbe8
+[FREE] free(0x62f71ed59e80) subject=14 at tjCompress2 @ turbojpeg.c:755
+[INCONSISTENCY mov read UAF] ip: main+0x4708 (tjCompress2 @ turbojpeg.c:756) UAF read at: 0x7ffe905fdbf8
+[INCONSISTENCY mov write reg UAF] ip: main+0x4727 (tjCompress2 @ turbojpeg.c:756) UAF write at: 0x7ffe905fdbf4
+[INCONSISTENCY mov read UAF] ip: main+0x472a (tjCompress2 @ turbojpeg.c:759) UAF read at: 0x7ffe905fdc08
+[STACK PIVOT] ip: main+0x472e (tjCompress2 @ turbojpeg.c:759) RSP 0x7ffe905fdc18 left stack [0xa4,0x7ffe905de000]
+[UNTRUSTEDPTRDEREF] ip: main+0x3613 (tjBufSize @ turbojpeg.c:544) final_ea: 0x62f6f111205c base: 0x62f6f1112050 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x361e (tjBufSize @ turbojpeg.c:545) final_ea: 0x62f6f111203c base: 0x62f6f1112030 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x25cf (inject_com @ gen_poc.c:40) UAF write at: 0x7ffe905fdbf8
+[INCONSISTENCY mov write reg UAF] ip: main+0x25d3 (inject_com @ gen_poc.c:40) UAF write at: 0x7ffe905fdbf0
+[INCONSISTENCY mov write reg UAF] ip: main+0x25d7 (inject_com @ gen_poc.c:40) UAF write at: 0x7ffe905fdbe8
+[INCONSISTENCY mov write reg UAF] ip: main+0x25db (inject_com @ gen_poc.c:40) UAF write at: 0x7ffe905fdbe0
+[INCONSISTENCY mov write reg UAF] ip: main+0x25df (inject_com @ gen_poc.c:40) UAF write at: 0x7ffe905fdbd8
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbf0 ip: main+0x25e3 (inject_com @ gen_poc.c:41)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbd8 ip: main+0x25e7 (inject_com @ gen_poc.c:41)
+[INCONSISTENCY mov write reg UAF] ip: main+0x25f4 (inject_com @ gen_poc.c:41) UAF write at: 0x7ffe905fdc10
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc10 ip: main+0x25f8 (inject_com @ gen_poc.c:42)
+[ALLOC] malloc(0x10f14) -> 0x62f71ed65950 subject=165 at inject_com @ gen_poc.c:42
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x2607 (inject_com @ gen_poc.c:42)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x260e (inject_com @ gen_poc.c:43)
+[INCONSISTENCY mov write imm UAF] ip: main+0x2624 (inject_com @ gen_poc.c:45) UAF write at: 0x7ffe905fdc38
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbf8 ip: main+0x262c (inject_com @ gen_poc.c:46)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2630 (inject_com @ gen_poc.c:46) UAF write at: 0x7ffe905fdc30
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc30 ip: main+0x2634 (inject_com @ gen_poc.c:49)
+[INCONSISTENCY mov write reg UAF] ip: main+0x263c (inject_com @ gen_poc.c:49) UAF write at: 0x7ffe905fdc30
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x2640 (inject_com @ gen_poc.c:49)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x2647 (inject_com @ gen_poc.c:49)
+[INCONSISTENCY mov write reg UAF] ip: main+0x264f (inject_com @ gen_poc.c:49) UAF write at: 0x7ffe905fdc38
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc30 ip: main+0x265b (inject_com @ gen_poc.c:50)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2663 (inject_com @ gen_poc.c:50) UAF write at: 0x7ffe905fdc30
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x2667 (inject_com @ gen_poc.c:50)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x266e (inject_com @ gen_poc.c:50)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2676 (inject_com @ gen_poc.c:50) UAF write at: 0x7ffe905fdc38
+[INCONSISTENCY mov write imm UAF] ip: main+0x2682 (inject_com @ gen_poc.c:53) UAF write at: 0x7ffe905fdc28
+[INCONSISTENCY mov write imm UAF] ip: main+0x268a (inject_com @ gen_poc.c:54) UAF write at: 0x7ffe905fdc24
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc28 ip: main+0x2776 (inject_com @ gen_poc.c:55)
+[INCONSISTENCY mov write imm UAF] ip: main+0x2696 (inject_com @ gen_poc.c:56) UAF write at: 0x7ffe905fdc20
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbd8 ip: main+0x269d (inject_com @ gen_poc.c:57)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc20 ip: main+0x26a8 (inject_com @ gen_poc.c:57)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbd8 ip: main+0x26b0 (inject_com @ gen_poc.c:58)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc28 ip: main+0x26b6 (inject_com @ gen_poc.c:58)
+[INCONSISTENCY mov write reg UAF] ip: main+0x26c0 (inject_com @ gen_poc.c:58) UAF write at: 0x7ffe905fdc20
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc20 ip: main+0x26c3 (inject_com @ gen_poc.c:60)
+[INCONSISTENCY mov write reg UAF] ip: main+0x26c9 (inject_com @ gen_poc.c:60) UAF write at: 0x7ffe905fdc0c
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x26cc (inject_com @ gen_poc.c:61)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x26d3 (inject_com @ gen_poc.c:61)
+[INCONSISTENCY mov write reg UAF] ip: main+0x26db (inject_com @ gen_poc.c:61) UAF write at: 0x7ffe905fdc38
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x26e5 (inject_com @ gen_poc.c:62)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x26ec (inject_com @ gen_poc.c:62)
+[INCONSISTENCY mov write reg UAF] ip: main+0x26f4 (inject_com @ gen_poc.c:62) UAF write at: 0x7ffe905fdc38
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc0c ip: main+0x26fe (inject_com @ gen_poc.c:63)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x2706 (inject_com @ gen_poc.c:63)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x270d (inject_com @ gen_poc.c:63)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2715 (inject_com @ gen_poc.c:63) UAF write at: 0x7ffe905fdc38
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x2720 (inject_com @ gen_poc.c:64)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x2727 (inject_com @ gen_poc.c:64)
+[INCONSISTENCY mov write reg UAF] ip: main+0x272f (inject_com @ gen_poc.c:64) UAF write at: 0x7ffe905fdc38
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc0c ip: main+0x2736 (inject_com @ gen_poc.c:64)
+[INCONSISTENCY mov write imm UAF] ip: main+0x273b (inject_com @ gen_poc.c:66) UAF write at: 0x7ffe905fdc1c
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc1c ip: main+0x2763 (inject_com @ gen_poc.c:66)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x2744 (inject_com @ gen_poc.c:67)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x274b (inject_com @ gen_poc.c:67)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2753 (inject_com @ gen_poc.c:67) UAF write at: 0x7ffe905fdc38
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc1c ip: main+0x275a (inject_com @ gen_poc.c:67)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc20 ip: main+0x276b (inject_com @ gen_poc.c:69)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbf8 ip: main+0x27ad (inject_com @ gen_poc.c:74)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbf0 ip: main+0x27b1 (inject_com @ gen_poc.c:74)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc30 ip: main+0x27b8 (inject_com @ gen_poc.c:74)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc30 ip: main+0x2786 (inject_com @ gen_poc.c:75)
+[INCONSISTENCY mov write reg UAF] ip: main+0x278e (inject_com @ gen_poc.c:75) UAF write at: 0x7ffe905fdc30
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe8 ip: main+0x2792 (inject_com @ gen_poc.c:75)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x2799 (inject_com @ gen_poc.c:75)
+[INCONSISTENCY mov write reg UAF] ip: main+0x27a1 (inject_com @ gen_poc.c:75) UAF write at: 0x7ffe905fdc38
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x27b5 (inject_com @ gen_poc.c:74) mov byte ptr [rdx], al id before: 165 after: 16 value: 0x62f71ed5a424
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdbe0 ip: main+0x27be (inject_com @ gen_poc.c:77)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc38 ip: main+0x27c2 (inject_com @ gen_poc.c:77)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc24 ip: main+0x27c9 (inject_com @ gen_poc.c:78)
+[STACK PIVOT] ip: main+0x27cc (inject_com @ gen_poc.c:79) RSP 0x7ffe905fdc48 left stack [0xa7,0x7ffe905de000]
+[ALLOC:internal] malloc(0x1d8) -> 0x62f71ed5f480 subject=167 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x62f71ed5b340 subject=168 at _IO_file_doallocate
+[FREE:internal] free(0x62f71ed5b340) subject=168 at _IO_setb
+[FREE:internal] free(0x62f71ed5f480) subject=167 at _IO_fclose
+[FREE] free(0x62f71ed65950) subject=165 at main @ gen_poc.c:143
+[FREE] free(0x62f71ed59f10) subject=16 at main @ gen_poc.c:144
+[INCONSISTENCY mov write reg UAF] ip: main+0x34af (tjDestroy @ turbojpeg.c:454) UAF write at: 0x7ffe905fdc28
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc28 ip: main+0x34ea (tjDestroy @ turbojpeg.c:458)
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc28 ip: main+0x3528 (tjDestroy @ turbojpeg.c:458)
+[FREE] free(0x62f71ed597a0) subject=11 at free_pool @ jmemmgr.c:1049
+[FREE] free(0x62f71ed5af20) subject=23 at free_pool @ jmemmgr.c:1049
+[FREE] free(0x62f71ed5b080) subject=25 at free_pool @ jmemmgr.c:1049
+[FREE] free(0x62f71ed5b1e0) subject=27 at free_pool @ jmemmgr.c:1049
+[FREE] free(0x62f71ed596f0) subject=8 at self_destruct @ jmemmgr.c:1075
+[INCONSISTENCY mov read UAF] ip: main+0x324c0 (self_destruct @ jmemmgr.c:1079) UAF read at: 0x7ffe905fdbe8
+[STACK PIVOT] ip: main+0x324c4 (self_destruct @ jmemmgr.c:1079) RSP 0x7ffe905fdbf8 left stack [0xab,0x7ffe905de000]
+[INCONSISTENCY mov read UAF] ip: main+0x1db9b (jpeg_destroy @ jcomapi.c:80) UAF read at: 0x7ffe905fdc08
+[STACK PIVOT] ip: main+0x1db9f (jpeg_destroy @ jcomapi.c:80) RSP 0x7ffe905fdc18 left stack [0xac,0x7ffe905de000]
+STACKREADUSEAFTERSCOPE at: 0x7ffe905fdc28 ip: main+0x34fc (tjDestroy @ turbojpeg.c:460)
+[FREE] free(0x62f71ed59010) subject=5 at tjDestroy @ turbojpeg.c:460
+[STACK PIVOT] ip: main+0x2ae7 (main @ gen_poc.c:147) RSP 0x7ffe905fdfb8 left stack [0xad,0x7ffe905de000]
+[STACK PIVOT] ip: main+0x2ae8 (main @ gen_poc.c:147) RSP 0x7ffe905fdfc0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x255e (__do_global_dtors_aux) final_ea: 0x62f6f113bff0 base: 0x62f6f10b755e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x2584 (__do_global_dtors_aux) RSP 0x7ffe905fdea0 left stack after RET
+[STACK PIVOT] ip: main+0x5a1b4 (_fini) RSP 0x7ffe905fded0 left stack after RET

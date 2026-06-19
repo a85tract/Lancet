@@ -1,0 +1,59 @@
+[INCONSISTENCY mov write reg] ip: main+0x120e (main @ house_of_botcake.c:10) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x100) -> 0x3a805010 subject=6 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805120 subject=7 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805230 subject=8 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805340 subject=9 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805450 subject=10 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805560 subject=11 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805670 subject=12 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805780 subject=13 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805890 subject=14 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a8059a0 subject=15 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805ab0 subject=16 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805bc0 subject=17 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805cd0 subject=18 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805de0 subject=19 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a805ef0 subject=20 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a806000 subject=21 at main @ house_of_botcake.c:37
+[ALLOC] malloc(0x100) -> 0x3a806110 subject=22 at main @ house_of_botcake.c:39
+[ALLOC] malloc(0x100) -> 0x3a806220 subject=23 at main @ house_of_botcake.c:41
+[ALLOC] malloc(0x10) -> 0x3a806330 subject=24 at main @ house_of_botcake.c:44
+[FREE] free(0x3a805010) subject=6 at main @ house_of_botcake.c:50
+[FREE:internal] free(0x3a805010) subject=0
+[DOUBLE FREE] free(0x3a805010) — already freed
+[FREE] free(0x3a805120) subject=7 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805230) subject=8 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805340) subject=9 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805450) subject=10 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805560) subject=11 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805670) subject=12 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805780) subject=13 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805890) subject=14 at main @ house_of_botcake.c:50
+[FREE] free(0x3a8059a0) subject=15 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805ab0) subject=16 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805bc0) subject=17 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805cd0) subject=18 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805de0) subject=19 at main @ house_of_botcake.c:50
+[FREE] free(0x3a805ef0) subject=20 at main @ house_of_botcake.c:50
+[FREE] free(0x3a806000) subject=21 at main @ house_of_botcake.c:50
+[FREE] free(0x3a806220) subject=23 at main @ house_of_botcake.c:53
+[FREE] free(0x3a806110) subject=22 at main @ house_of_botcake.c:56
+[ALLOC] malloc(0x100) -> 0x3a806000 subject=25 at main @ house_of_botcake.c:59
+main+0x140d (main @ house_of_botcake.c:61) Read a dangling pointer 0x3a806220 from 0x7ffc0913df08
+[FREE] free(0x3a806220) subject=0 at main @ house_of_botcake.c:61
+[DOUBLE FREE] free(0x3a806220) — already freed
+[ALLOC] malloc(0x210) -> 0x3a806110 subject=26 at main @ house_of_botcake.c:69
+main+0x1478 (main @ house_of_botcake.c:72) Using expired pointer: 0x3a806220 from 0x7ffc0913df08
+first time found dangling pointer at: 517 distance: 35
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1494 (main @ house_of_botcake.c:72) add rax, 0x110 id before: 26 after: 0 [freed] value: 0x3a806220
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x149a (main @ house_of_botcake.c:72) xor rdx, rcx id before: 5 after: -1 [unmapped] value: 0x7ffc09107726
+[INCONSISTENCY mov write reg UAF] ip: main+0x149d (main @ house_of_botcake.c:72) UAF write at: 0x3a806220
+[ALLOC] malloc(0x100) -> 0x3a806220 subject=27 at main @ house_of_botcake.c:75
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x14c7 (main @ house_of_botcake.c:76) sub rax, 0x8 id before: 27 after: 26 value: 0x3a806218
+[ALLOC] malloc(0x100) -> 0x7ffc0913df20 subject=28 at main @ house_of_botcake.c:80
+[INCONSISTENCY mov read] ip: main+0x152e (main @ house_of_botcake.c:81) base: 0x7ffc0913dfd0 pointee: 28 read from 5
+[INCONSISTENCY mov read] ip: main+0x1544 (main @ house_of_botcake.c:83) base: 0x7ffc0913dfd0 pointee: 28 read from 5
+[STACK PIVOT] ip: main+0x15b1 (main @ house_of_botcake.c:86) RSP 0x7ffc0913dfd8 left stack [0x1e,0x7ffc09120000]
+[STACK PIVOT] ip: main+0x15b2 (main @ house_of_botcake.c:86) RSP 0x7ffc0913dfe0 left stack after RET
+[STACK PIVOT] ip: main+0x11de (__do_global_dtors_aux) RSP 0x7ffc0913dec0 left stack after RET
+[STACK PIVOT] ip: main+0x15c0 (_fini) RSP 0x7ffc0913def0 left stack after RET

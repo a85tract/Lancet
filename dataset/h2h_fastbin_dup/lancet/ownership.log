@@ -1,0 +1,27 @@
+[INCONSISTENCY mov write reg] ip: main+0x122b (main @ fastbin_dup.c:6) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x8) -> 0x1d9fc010 subject=6 at main @ fastbin_dup.c:15
+[ALLOC] malloc(0x8) -> 0x1d9fc030 subject=7 at main @ fastbin_dup.c:15
+[ALLOC] malloc(0x8) -> 0x1d9fc050 subject=8 at main @ fastbin_dup.c:15
+[ALLOC] malloc(0x8) -> 0x1d9fc070 subject=9 at main @ fastbin_dup.c:15
+[ALLOC] malloc(0x8) -> 0x1d9fc090 subject=10 at main @ fastbin_dup.c:15
+[ALLOC] malloc(0x8) -> 0x1d9fc0b0 subject=11 at main @ fastbin_dup.c:15
+[ALLOC] malloc(0x8) -> 0x1d9fc0d0 subject=12 at main @ fastbin_dup.c:15
+[ALLOC] calloc(0x8) -> 0x1d9fc0f0 subject=13 at main @ fastbin_dup.c:19
+[ALLOC] calloc(0x8) -> 0x1d9fc110 subject=14 at main @ fastbin_dup.c:20
+[ALLOC] calloc(0x8) -> 0x1d9fc130 subject=15 at main @ fastbin_dup.c:21
+[FREE] free(0x1d9fc010) subject=6 at main @ fastbin_dup.c:28
+[FREE:internal] free(0x1d9fc010) subject=0
+[DOUBLE FREE] free(0x1d9fc010) — already freed
+[FREE] free(0x1d9fc030) subject=7 at main @ fastbin_dup.c:28
+[FREE] free(0x1d9fc050) subject=8 at main @ fastbin_dup.c:28
+[FREE] free(0x1d9fc070) subject=9 at main @ fastbin_dup.c:28
+[FREE] free(0x1d9fc090) subject=10 at main @ fastbin_dup.c:28
+[FREE] free(0x1d9fc0b0) subject=11 at main @ fastbin_dup.c:28
+[FREE] free(0x1d9fc0d0) subject=12 at main @ fastbin_dup.c:28
+[FREE] free(0x1d9fc0f0) subject=13 at main @ fastbin_dup.c:32
+main+0x1381 (main @ fastbin_dup.c:34) Read a dangling pointer 0x1d9fc0f0 from 0x7ffd9f201718
+main+0x1385 (main @ fastbin_dup.c:34) Using expired pointer: 0x1d9fc0f0 from 0x7ffd9f201718
+first time found dangling pointer at: 273 distance: 1
+[FREE] free(0x1d9fc110) subject=14 at main @ fastbin_dup.c:38
+[FREE] free(0x1d9fc0f0) subject=0 at main @ fastbin_dup.c:42
+[DOUBLE FREE] free(0x1d9fc0f0) — already freed

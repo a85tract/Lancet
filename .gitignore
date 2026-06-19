@@ -29,7 +29,6 @@ dataset/*/poc/*.jp2
 dataset/*/poc/*.gsr105.jp2
 
 # Duplicate log (raw.log is the canonical copy)
-dataset/*/lancet/ownership.log
 
 # Keep these in dataset
 !dataset/*/lancet/raw.log

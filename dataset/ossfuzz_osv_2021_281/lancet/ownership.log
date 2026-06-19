@@ -1,0 +1,35 @@
+[ALLOC:internal] malloc(0x12000) -> 0x585102e2b010 subject=5 at _ZSt21__to_chars_bfloat16_tPcS_fSt12chars_format
+[INCONSISTENCY mov write reg] ip: main+0x549f (main @ harness_main.cpp:11) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x54a2 (main @ harness_main.cpp:11) co: 6 vo: 6, 6 write 6
+[ALLOC:internal] malloc(0x1d8) -> 0x585102e3d020 subject=7 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x585102e3d200 subject=8 at _IO_file_doallocate
+[ALLOC] malloc(0x34) -> 0x585102e3e210 subject=9 at main @ harness_main.cpp:24
+[FREE:internal] free(0x585102e3d200) subject=8 at _IO_setb
+[FREE:internal] free(0x585102e3d020) subject=7 at _IO_fclose
+[FREE:internal] free(0x585102e3d020) subject=0
+[DOUBLE FREE] free(0x585102e3d020) — already freed
+[UNTRUSTEDPTRDEREF] ip: main+0x5590 (main @ harness_main.cpp:31) final_ea: 0x5850f8936fe0 base: 0x5850f8932590 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x5597 (main @ harness_main.cpp:31) final_ea: 0x7b70e5c13660 base: 0x7b70e5c13660 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x11f0 (LLVMFuzzerTestOneInput @ verifier_fuzzer.cc:19) loaded: 0x585102e3e210 from cell: 0x7ffed49b1c88 cell_owner: 10 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x11f4 (LLVMFuzzerTestOneInput @ verifier_fuzzer.cc:19) loaded: 0x34 from cell: 0x7ffed49b1c80 cell_owner: 10 value_owner: 6
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1250 (_ZN11flatbuffers8VerifierC2EPKhmjjb @ flatbuffers.h:2234) byte write at: 0x7ffed49b1c1f offset: +0xf cell_owner: 11 writer_pointee: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x1253 (_ZN11flatbuffers8VerifierC2EPKhmjjb @ flatbuffers.h:2234) loaded: 0x7ffed49b1c50 from cell: 0x7ffed49b1c38 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x125b (_ZN11flatbuffers8VerifierC2EPKhmjjb @ flatbuffers.h:2227) loaded: 0x585102e3e210 from cell: 0x7ffed49b1c30 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x1262 (_ZN11flatbuffers8VerifierC2EPKhmjjb @ flatbuffers.h:2228) loaded: 0x34 from cell: 0x7ffed49b1c28 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x1271 (_ZN11flatbuffers8VerifierC2EPKhmjjb @ flatbuffers.h:2230) loaded: 0x3400000040 from cell: 0x7ffed49b1c24 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x127e (_ZN11flatbuffers8VerifierC2EPKhmjjb @ flatbuffers.h:2232) loaded: 0x40000f4240 from cell: 0x7ffed49b1c20 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x1310 (_ZN11flatbuffers8Verifier12VerifyBufferIN6MyGame7Example7MonsterEEEbPKc) loaded: 0x7ffed49b1c50 from cell: 0x7ffed49b1c18 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x1314 (_ZN11flatbuffers8Verifier12VerifyBufferIN6MyGame7Example7MonsterEEEbPKc @ flatbuffers.h:2386) loaded: 0x5850f893343b from cell: 0x7ffed49b1c10 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x1354 (_ZN11flatbuffers8Verifier21VerifyBufferFromStartIN6MyGame7Example7MonsterEEEbPKcm @ flatbuffers.h:2365) loaded: 0x7ffed49b1c50 from cell: 0x7ffed49b1bf0 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x135c (_ZN11flatbuffers8Verifier21VerifyBufferFromStartIN6MyGame7Example7MonsterEEEbPKcm @ flatbuffers.h:2366) loaded: 0x5850f893343b from cell: 0x7ffed49b1be8 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x1386 (_ZN11flatbuffers8Verifier21VerifyBufferFromStartIN6MyGame7Example7MonsterEEEbPKcm @ flatbuffers.h:2367) loaded: 0x5850f893343b from cell: 0x7ffed49b1be8 cell_owner: 14 value_owner: 13
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1444 (_ZN11flatbuffers19BufferHasIdentifierEPKvPKcb @ flatbuffers.h:2217) byte write at: 0x7ffed49b1b9f offset: +0xf cell_owner: 15 writer_pointee: 14
+[CORRUPTED_PTR_LOAD] ip: main+0x1447 (_ZN11flatbuffers19BufferHasIdentifierEPKvPKcb @ flatbuffers.h:2218) loaded: 0x585102e3e210 from cell: 0x7ffed49b1ba8 cell_owner: 15 value_owner: 14
+[CORRUPTED_PTR_LOAD] ip: main+0x145b (_ZN11flatbuffers19BufferHasIdentifierEPKvPKcb @ flatbuffers.h:2218) loaded: 0x5850f893343b from cell: 0x7ffed49b1ba0 cell_owner: 15 value_owner: 14
+[UNTRUSTEDPTRDEREF] ip: main+0x55c4 (main @ harness_main.cpp:33) final_ea: 0x5850f8936fe0 base: 0x5850f89325c4 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x55cb (main @ harness_main.cpp:33) final_ea: 0x7b70e5c13660 base: 0x7b70e5c13660 pointee: -1 base_vo: -1
+[FREE] free(0x585102e3e210) subject=9 at main @ harness_main.cpp:34
+[STACK PIVOT] ip: main+0x55f6 (main @ harness_main.cpp:36) RSP 0x7ffed49b1ce0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x119e (__do_global_dtors_aux) final_ea: 0x5850f8936fd0 base: 0x5850f892e19e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x11c4 (__do_global_dtors_aux) RSP 0x7ffed49b1ba0 left stack after RET
+[STACK PIVOT] ip: main+0x5604 (_fini) RSP 0x7ffed49b1bd0 left stack after RET

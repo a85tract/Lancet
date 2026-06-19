@@ -1,0 +1,167 @@
+[INCONSISTENCY mov write reg] ip: main+0x2b5d (main @ harness_main.c:6) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x2b60 (main @ harness_main.c:6) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x2ba1 (main @ harness_main.c:11) final_ea: 0x7ffd93a6fbf0 base: 0x7ffd93a6fbf0 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x6343c6c15010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x2bb6 (main @ harness_main.c:11) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x6343c6c151f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x8) -> 0x6343c6c16200 subject=7 at main @ harness_main.c:19
+[FREE:internal] free(0x6343c6c151f0) subject=6 at _IO_setb
+[FREE:internal] free(0x6343c6c15010) subject=5 at _IO_fclose
+[FREE:internal] free(0x6343c6c15010) subject=0
+[DOUBLE FREE] free(0x6343c6c15010) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x1410 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:17) loaded: 0x8 from cell: 0x7ffd93a6f990 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1417 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:17) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[ALLOC] malloc(0x10) -> 0x6343c6c154f0 subject=10 at FUZZ_dataProducer_create @ fuzz_data_producer.c:9
+Store dangling pointer: 0x6343c6c154f0 at: 0x7ffd93a6f978
+[INCONSISTENCY mov read] ip: main+0x2204 (FUZZ_dataProducer_create @ fuzz_data_producer.c:11) base: 0x7ffd93a6f980 pointee: 8 read from 9
+main+0x2204 (FUZZ_dataProducer_create @ fuzz_data_producer.c:11) Using expired pointer: 0x6343c6c154f0 from 0x7ffd93a6f978
+first time found dangling pointer at: 79 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x2204 (FUZZ_dataProducer_create @ fuzz_data_producer.c:11) loaded: 0x6343c6c154f0 from cell: 0x7ffd93a6f978 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x2245 (FUZZ_dataProducer_create @ fuzz_data_producer.c:13) loaded: 0x6343c6c154f0 from cell: 0x7ffd93a6f978 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x2249 (FUZZ_dataProducer_create @ fuzz_data_producer.c:13) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f968 cell_owner: 9 value_owner: 8
+[INCONSISTENCY mov write reg UAF] ip: main+0x224d (FUZZ_dataProducer_create @ fuzz_data_producer.c:13) UAF write at: 0x6343c6c154f0
+[CORRUPTED_PTR_LOAD] ip: main+0x2250 (FUZZ_dataProducer_create @ fuzz_data_producer.c:14) loaded: 0x6343c6c154f0 from cell: 0x7ffd93a6f978 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x2254 (FUZZ_dataProducer_create @ fuzz_data_producer.c:14) loaded: 0x8 from cell: 0x7ffd93a6f960 cell_owner: 9 value_owner: 8
+[INCONSISTENCY mov write reg UAF] ip: main+0x2258 (FUZZ_dataProducer_create @ fuzz_data_producer.c:14) UAF write at: 0x6343c6c154f8
+[CORRUPTED_PTR_LOAD] ip: main+0x225c (FUZZ_dataProducer_create @ fuzz_data_producer.c:15) loaded: 0x6343c6c154f0 from cell: 0x7ffd93a6f978 cell_owner: 9 value_owner: 8
+[STACK PIVOT] ip: main+0x2260 (FUZZ_dataProducer_create @ fuzz_data_producer.c:16) RSP 0x7ffd93a6f988 left stack [0xc,0x7ffd93a50000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x2289 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:20) UAF write at: 0x7ffd93a6f968
+first time found dangling pointer at: 98 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f968 ip: main+0x228d (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:21)
+first time found dangling pointer at: 98 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x2291 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:21) UAF read at: 0x6343c6c154f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x2294 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:21) UAF write at: 0x7ffd93a6f978
+first time found dangling pointer at: 79 distance: 22
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f968 ip: main+0x2298 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:22)
+first time found dangling pointer at: 98 distance: 4
+[INCONSISTENCY mov read UAF] ip: main+0x229c (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:22) UAF read at: 0x6343c6c154f8
+[INCONSISTENCY mov write reg UAF] ip: main+0x22a0 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:22) UAF write at: 0x7ffd93a6f970
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f970 ip: main+0x22a4 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:23)
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f970 ip: main+0x22b2 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:25)
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f968 ip: main+0x22e4 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:29)
+first time found dangling pointer at: 98 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0x22e8 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:29) UAF read at: 0x6343c6c154f8
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f968 ip: main+0x22f0 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:29)
+first time found dangling pointer at: 98 distance: 14
+[INCONSISTENCY mov write reg UAF] ip: main+0x22f4 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:29) UAF write at: 0x6343c6c154f8
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f970 ip: main+0x22f8 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:30)
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f978 ip: main+0x2300 (FUZZ_dataProducer_retrieve32 @ fuzz_data_producer.c:30)
+first time found dangling pointer at: 79 distance: 37
+[INCONSISTENCY mov write reg UAF] ip: main+0x2575 (FUZZ_dataProducer_remainingBytes @ fuzz_data_producer.c:75) UAF write at: 0x7ffd93a6f978
+first time found dangling pointer at: 79 distance: 51
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f978 ip: main+0x2579 (FUZZ_dataProducer_remainingBytes @ fuzz_data_producer.c:76)
+first time found dangling pointer at: 79 distance: 52
+[INCONSISTENCY mov read UAF] ip: main+0x257d (FUZZ_dataProducer_remainingBytes @ fuzz_data_producer.c:76) UAF read at: 0x6343c6c154f8
+[INCONSISTENCY mov write reg UAF] ip: main+0x2317 (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:35) UAF write at: 0x7ffd93a6f96c
+[INCONSISTENCY mov write reg UAF] ip: main+0x231a (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:35) UAF write at: 0x7ffd93a6f968
+first time found dangling pointer at: 98 distance: 48
+[INCONSISTENCY mov write reg UAF] ip: main+0x231d (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:35) UAF write at: 0x7ffd93a6f964
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f964 ip: main+0x2320 (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:36)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2326 (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:36) UAF write at: 0x7ffd93a6f97c
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f97c ip: main+0x2329 (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:37)
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f97c ip: main+0x2334 (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:40)
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f96c ip: main+0x233a (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:40)
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f968 ip: main+0x2344 (FUZZ_getRange_from_uint32 @ fuzz_data_producer.c:40)
+first time found dangling pointer at: 98 distance: 60
+[INCONSISTENCY mov write reg UAF] ip: main+0x2cb4 (LZ4_compressBound @ lz4.c:688) UAF write at: 0x7ffd93a6f97c
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f97c ip: main+0x2cb7 (LZ4_compressBound @ lz4.c:688)
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f97c ip: main+0x2cce (LZ4_compressBound @ lz4.c:688)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2cd1 (LZ4_compressBound @ lz4.c:688) UAF write at: 0x7ffd93a6f974
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f97c ip: main+0x2cd4 (LZ4_compressBound @ lz4.c:688)
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f974 ip: main+0x2ce1 (LZ4_compressBound @ lz4.c:688)
+[INCONSISTENCY mov write reg UAF] ip: main+0x2ce9 (LZ4_compressBound @ lz4.c:688) UAF write at: 0x7ffd93a6f978
+first time found dangling pointer at: 79 distance: 103
+STACKREADUSEAFTERSCOPE at: 0x7ffd93a6f978 ip: main+0x2cec (LZ4_compressBound)
+first time found dangling pointer at: 79 distance: 104
+[ALLOC] malloc(0x10013) -> 0x6343c6c16220 subject=12 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:25
+[ALLOC] malloc(0xffff) -> 0x6343c6c26240 subject=13 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:27
+[ALLOC] malloc(0x4) -> 0x6343c6c15510 subject=14 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:30
+Store dangling pointer: 0x6343c6c15510 at: 0x7ffd93a6fa10
+main+0x154b (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:33) Using expired pointer: 0x6343c6c15510 from 0x7ffd93a6fa10
+first time found dangling pointer at: 222 distance: 3
+[CORRUPTED_PTR_LOAD] ip: main+0x159f (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:36) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x2b39b (LZ4_compress_fast @ lz4.c:1384) loaded: 0x7ffd93a6b910 from cell: 0x7ffd93a6b908 cell_owner: 16 value_owner: 15
+[CORRUPTED_PTR_LOAD] ip: main+0x2b3a2 (LZ4_compress_fast @ lz4.c:1384) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f948 cell_owner: 16 value_owner: 15
+[CORRUPTED_PTR_LOAD] ip: main+0x2b3a6 (LZ4_compress_fast @ lz4.c:1384) loaded: 0x6343c6c2621f from cell: 0x7ffd93a6f940 cell_owner: 16 value_owner: 15
+[CORRUPTED_PTR_LOAD] ip: main+0x2b3aa (LZ4_compress_fast @ lz4.c:1384) loaded: 0xc6c2621f00000004 from cell: 0x7ffd93a6f93c cell_owner: 16 value_owner: 15
+[CORRUPTED_PTR_LOAD] ip: main+0x2b3ad (LZ4_compress_fast @ lz4.c:1384) loaded: 0x400000014 from cell: 0x7ffd93a6f938 cell_owner: 16 value_owner: 15
+[CORRUPTED_PTR_LOAD] ip: main+0x2b3b1 (LZ4_compress_fast @ lz4.c:1384) loaded: 0x1400000001 from cell: 0x7ffd93a6f934 cell_owner: 16 value_owner: 15
+[CORRUPTED_PTR_LOAD] ip: main+0x2d47 (LZ4_compress_fast_extState @ lz4.c:1306) loaded: 0x7ffd93a6b910 from cell: 0x7ffd93a69928 cell_owner: 17 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x12ce0 (LZ4_initStream @ lz4.c:1466) base: 0x7ffd93a694c0 pointee: 17 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x12ce0 (LZ4_initStream @ lz4.c:1466) loaded: 0x7ffd93a6b910 from cell: 0x7ffd93a694b0 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read] ip: main+0x12cf8 (LZ4_initStream @ lz4.c:1467) base: 0x7ffd93a694c0 pointee: 17 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x12cf8 (LZ4_initStream @ lz4.c:1467) loaded: 0x4020 from cell: 0x7ffd93a694a8 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x12d13 (LZ4_initStream @ lz4.c:1468) loaded: 0x7ffd93a6b910 from cell: 0x7ffd93a694b0 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x12d42 (LZ4_initStream @ lz4.c:1469) loaded: 0x7ffd93a6b910 from cell: 0x7ffd93a694b0 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x12d52 (LZ4_initStream @ lz4.c:1470) loaded: 0x7ffd93a6b910 from cell: 0x7ffd93a694b0 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x2d91 (LZ4_compress_fast_extState @ lz4.c:1308) loaded: 0x1400000001 from cell: 0x7ffd93a6990c cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x2da8 (LZ4_compress_fast_extState @ lz4.c:1309) loaded: 0x1400000001 from cell: 0x7ffd93a6990c cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x2dc2 (LZ4_compress_fast_extState @ lz4.c:1310) loaded: 0x400000014 from cell: 0x7ffd93a69910 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x2dce (LZ4_compress_fast_extState @ lz4.c:1310) loaded: 0xc6c2621f00000004 from cell: 0x7ffd93a69914 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x2de9 (LZ4_compress_fast_extState @ lz4.c:1311) loaded: 0xc6c2621f00000004 from cell: 0x7ffd93a69914 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x2e00 (LZ4_compress_fast_extState @ lz4.c:1312) loaded: 0x6343c6c16200 from cell: 0x7ffd93a69920 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x2e07 (LZ4_compress_fast_extState @ lz4.c:1312) loaded: 0x6343c6c2621f from cell: 0x7ffd93a69918 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x2e0e (LZ4_compress_fast_extState @ lz4.c:1312) loaded: 0xc6c2621f00000004 from cell: 0x7ffd93a69914 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x2e14 (LZ4_compress_fast_extState @ lz4.c:1312) loaded: 0x1400000001 from cell: 0x7ffd93a6990c cell_owner: 17 value_owner: 16
+[UNINITIALIZED mov read] ip: main+0x3055 (LZ4_compress_fast_extState @ lz4.c:884) co: 16 vo: -1
+[UNINITIALIZED mov read] ip: main+0x3086 (LZ4_compress_fast_extState @ lz4.c:888) co: 16 vo: -1
+[UNINITIALIZED mov read] ip: main+0x30c2 (LZ4_compress_fast_extState @ lz4.c:890) co: 16 vo: -1
+[UNINITIALIZED mov read] ip: main+0x310a (LZ4_compress_fast_extState @ lz4.c:892) co: 16 vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x3221 (LZ4_compress_fast_extState @ lz4.c:900) add rax, 0xfffffffffffffff4 id before: 7 after: -1 [unmapped] value: 0x6343c6c161f8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x3237 (LZ4_compress_fast_extState @ lz4.c:901) add rax, 0xfffffffffffffffb id before: 7 after: -1 [unmapped] value: 0x6343c6c161ff
+Store dangling pointer: 0x6343c6c15514 at: 0x7ffd93a6f6c0
+main+0x540d2 (LZ4_decompress_safe @ lz4.c:1798) Using expired pointer: 0x6343c6c15514 from 0x7ffd93a6f6c0
+first time found dangling pointer at: 640 distance: 36
+Store dangling pointer: 0x6343c6c154f4 at: 0x7ffd93a6f698
+[CORRUPTED_PTR_LOAD] ip: main+0x1663 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:42) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[ALLOC] malloc(0x0) -> 0x6343c6c15530 subject=20 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:46
+Store dangling pointer: 0x6343c6c15530 at: 0x7ffd93a6fa00
+main+0x16c3 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:47) Using expired pointer: 0x6343c6c15530 from 0x7ffd93a6fa00
+first time found dangling pointer at: 822 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x17b8 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:52) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[FREE] free(0x6343c6c15530) subject=-1 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:53
+[ALLOC] malloc(0x0) -> 0x6343c6c15530 subject=22 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:57
+[INCONSISTENCY mov read] ip: main+0x6ccdf (LZ4_decompress_safe_partial_usingDict @ lz4.c:2486) base: 0x7ffd93a6f970 pointee: 15 read from 23
+[CORRUPTED_PTR_LOAD] ip: main+0x6ccdf (LZ4_decompress_safe_partial_usingDict @ lz4.c:2486) loaded: 0x6343c6c15530 from cell: 0x7ffd93a6f958 cell_owner: 23 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6cce3 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2486) base: 0x7ffd93a6f970 pointee: 15 read from 23
+[CORRUPTED_PTR_LOAD] ip: main+0x6cce3 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2486) loaded: 0xc6c1553000000005 from cell: 0x7ffd93a6f954 cell_owner: 23 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6cce6 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2486) base: 0x7ffd93a6f970 pointee: 15 read from 23
+[CORRUPTED_PTR_LOAD] ip: main+0x6cce6 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2486) loaded: 0x500000000 from cell: 0x7ffd93a6f950 cell_owner: 23 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6cce9 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2486) base: 0x7ffd93a6f970 pointee: 15 read from 23
+[CORRUPTED_PTR_LOAD] ip: main+0x6cce9 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2486) loaded: 0x0 from cell: 0x7ffd93a6f94c cell_owner: 23 value_owner: 15
+[CORRUPTED_PTR_LOAD] ip: main+0x565fc (LZ4_decompress_safe_partial @ lz4.c:2210) loaded: 0x500000000 from cell: 0x7ffd93a6f590 cell_owner: 21 value_owner: 23
+[CORRUPTED_PTR_LOAD] ip: main+0x5661f (LZ4_decompress_safe_partial @ lz4.c:2210) loaded: 0x0 from cell: 0x7ffd93a6f58c cell_owner: 21 value_owner: 23
+[CORRUPTED_PTR_LOAD] ip: main+0x56637 (LZ4_decompress_safe_partial @ lz4.c:2211) loaded: 0x6343c6c2621f from cell: 0x7ffd93a6f5a0 cell_owner: 21 value_owner: 23
+[CORRUPTED_PTR_LOAD] ip: main+0x5663e (LZ4_decompress_safe_partial @ lz4.c:2211) loaded: 0x6343c6c15530 from cell: 0x7ffd93a6f598 cell_owner: 21 value_owner: 23
+[CORRUPTED_PTR_LOAD] ip: main+0x56645 (LZ4_decompress_safe_partial @ lz4.c:2211) loaded: 0xc6c1553000000005 from cell: 0x7ffd93a6f594 cell_owner: 21 value_owner: 23
+[CORRUPTED_PTR_LOAD] ip: main+0x56651 (LZ4_decompress_safe_partial @ lz4.c:2213) loaded: 0x6343c6c15530 from cell: 0x7ffd93a6f598 cell_owner: 21 value_owner: 23
+[CORRUPTED_PTR_LOAD] ip: main+0x1935 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:63) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[FREE] free(0x6343c6c15530) subject=-1 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:64
+[ALLOC] malloc(0x0) -> 0x6343c6c15530 subject=25 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:68
+[INCONSISTENCY mov read] ip: main+0x6ccfa (LZ4_decompress_safe_partial_usingDict @ lz4.c:2487) base: 0x7ffd93a6f970 pointee: 15 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x6ccfa (LZ4_decompress_safe_partial_usingDict @ lz4.c:2487) loaded: 0x6343c6c25e1f from cell: 0x7ffd93a6f940 cell_owner: 26 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6cdbe (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) base: 0x7ffd93a6f970 pointee: 15 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x6cdbe (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) loaded: 0x6343c6c15530 from cell: 0x7ffd93a6f958 cell_owner: 26 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6cdc2 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) base: 0x7ffd93a6f970 pointee: 15 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x6cdc2 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) loaded: 0xc6c1553000000005 from cell: 0x7ffd93a6f954 cell_owner: 26 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6cdc5 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) base: 0x7ffd93a6f970 pointee: 15 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x6cdc5 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) loaded: 0x500000000 from cell: 0x7ffd93a6f950 cell_owner: 26 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6cdc8 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) base: 0x7ffd93a6f970 pointee: 15 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x6cdc8 (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) loaded: 0x0 from cell: 0x7ffd93a6f94c cell_owner: 26 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6cdcc (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) base: 0x7ffd93a6f970 pointee: 15 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x6cdcc (LZ4_decompress_safe_partial_usingDict @ lz4.c:2495) loaded: 0x6343c6c25e1f from cell: 0x7ffd93a6f940 cell_owner: 26 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0x6018b (LZ4_decompress_safe_partial_forceExtDict @ lz4.c:2284) base: 0x7ffd93a6f920 pointee: 21 read from 26
+[INCONSISTENCY mov read] ip: main+0x6021a (LZ4_decompress_safe_partial_forceExtDict @ lz4.c:2288) base: 0x7ffd93a6f920 pointee: 21 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x1ac9 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:74) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[FREE] free(0x6343c6c15530) subject=-1 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:75
+[ALLOC] malloc(0x0) -> 0x6343c6c15530 subject=28 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:79
+[CORRUPTED_PTR_LOAD] ip: main+0x1c60 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:85) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[FREE] free(0x6343c6c15530) subject=-1 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:86
+[ALLOC] malloc(0x0) -> 0x6343c6c15530 subject=31 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:90
+[CORRUPTED_PTR_LOAD] ip: main+0x1df7 (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:96) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[FREE] free(0x6343c6c15530) subject=-1 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:97
+[ALLOC] malloc(0x0) -> 0x6343c6c15530 subject=34 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:101
+[CORRUPTED_PTR_LOAD] ip: main+0x1f8e (LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:107) loaded: 0x6343c6c16200 from cell: 0x7ffd93a6f998 cell_owner: 8 value_owner: 4
+[FREE] free(0x6343c6c15530) subject=-1 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:108
+[FREE] free(0x6343c6c2621f) subject=12 at LLVMFuzzerTestOneInput @ round_trip_fuzzer.c:111
+[INVALID FREE] free(0x6343c6c2621f) — not in allocation map

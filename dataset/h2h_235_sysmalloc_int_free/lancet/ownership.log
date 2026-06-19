@@ -1,0 +1,12 @@
+[ALLOC] malloc(0x10) -> 0x3cb132a0 subject=6 at main @ sysmalloc_int_free.c:64
+[INCONSISTENCY mov write reg] ip: main+0xf66 (main @ sysmalloc_int_free.c:64) co: 5 vo: 5, 5 write 5
+[UNTRUSTEDPTRDEREF] ip: main+0xf6e (main @ sysmalloc_int_free.c:65) final_ea: 0x3cb132b8 base: 0x3cb132a0 pointee: 6 base_vo: 6 src_subject: 6 src_base: 0x3cb132a0
+[ALLOC] malloc(0xbd0) -> 0x3cb132c0 subject=7 at main @ sysmalloc_int_free.c:76
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1008 (main @ sysmalloc_int_free.c:79) add rax, rdx id before: 7 after: -1 [unmapped] value: 0x3cb13e98
+[UNTRUSTEDPTRDEREF] ip: main+0x1013 (main @ sysmalloc_int_free.c:81) final_ea: 0x3cb13e98 base: 0x3cb13e98 pointee: -1 base_vo: -1
+[ALLOC] malloc(0x160) -> 0x3cb34010 subject=8 at main @ sysmalloc_int_free.c:129
+[ALLOC] malloc(0x140) -> 0x3cb13ea0 subject=9 at main @ sysmalloc_int_free.c:160
+[STACK PIVOT] ip: main+0x124c (main @ sysmalloc_int_free.c:179) RSP 0x7ffe9ff8d7a8 left stack [0xb,0x7ffe9ff6e000]
+[STACK PIVOT] ip: main+0x124d (main @ sysmalloc_int_free.c:179) RSP 0x7ffe9ff8d7b0 left stack after RET
+[STACK PIVOT] ip: main+0xe2e (__do_global_dtors_aux) RSP 0x7ffe9ff8d6b0 left stack after RET
+[STACK PIVOT] ip: main+0x125c (_fini) RSP 0x7ffe9ff8d6b0 left stack after RET

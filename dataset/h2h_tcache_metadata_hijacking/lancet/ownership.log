@@ -1,0 +1,13 @@
+[INCONSISTENCY mov write reg] ip: main+0x120b (main @ tcache_metadata_hijacking.c:6) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x420) -> 0x2a09d010 subject=6 at main @ tcache_metadata_hijacking.c:27
+[INCONSISTENCY mov write reg] ip: main+0x12ca (main @ tcache_metadata_hijacking.c:27) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x10) -> 0x2a09d440 subject=7 at main @ tcache_metadata_hijacking.c:29
+[FREE] free(0x2a09d440) subject=7 at main @ tcache_metadata_hijacking.c:30
+[FREE:internal] free(0x2a09d440) subject=0
+[DOUBLE FREE] free(0x2a09d440) — already freed
+main+0x1312 (main @ tcache_metadata_hijacking.c:32) Read a dangling pointer 0x2a09d440 from 0x7ffe66090330
+[ALLOC] malloc(0x10) -> 0x7ffe66090340 subject=8 at main @ tcache_metadata_hijacking.c:39
+[STACK PIVOT] ip: main+0x13bf (main @ tcache_metadata_hijacking.c:42) RSP 0x7ffe66090378 left stack [0xa,0x7ffe66072000]
+[STACK PIVOT] ip: main+0x13c0 (main @ tcache_metadata_hijacking.c:42) RSP 0x7ffe66090380 left stack after RET
+[STACK PIVOT] ip: main+0x11de (__do_global_dtors_aux) RSP 0x7ffe66090260 left stack after RET
+[STACK PIVOT] ip: main+0x13d0 (_fini) RSP 0x7ffe66090290 left stack after RET

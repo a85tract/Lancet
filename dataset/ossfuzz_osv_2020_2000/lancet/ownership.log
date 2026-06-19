@@ -1,0 +1,907 @@
+[INCONSISTENCY mov write reg] ip: main+0x3348 (main @ harness.c:11) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x334b (main @ harness.c:11) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x338c (main @ harness.c:16) final_ea: 0x7ffe04403b60 base: 0x7ffe04403b60 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x59baec12b010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x33a1 (main @ harness.c:16) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x59baec12b1f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x151) -> 0x59baec12c200 subject=7 at main @ harness.c:24
+[FREE:internal] free(0x59baec12b1f0) subject=6 at _IO_setb
+[FREE:internal] free(0x59baec12b010) subject=5 at _IO_fclose
+[FREE:internal] free(0x59baec12b010) subject=0
+[DOUBLE FREE] free(0x59baec12b010) — already freed
+[UNTRUSTEDPTRDEREF] ip: main+0x26f3 (LLVMFuzzerTestOneInput @ fuzzer_connect.c:192) final_ea: 0x59baca39c2c8 base: 0x59baca39c2c8 pointee: -1 base_vo: -1
+[INTRA_OBJECT_OVERFLOW] ip: main+0x34db (usrsctp_init @ user_socket.c:110) byte write at: 0x7ffe0440352e offset: +0x1e cell_owner: 9 writer_pointee: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x34f0 (usrsctp_init @ user_socket.c:112) loaded: 0x59baca2ef49f from cell: 0x7ffe04403520 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x34f4 (usrsctp_init @ user_socket.c:112) loaded: 0x0 from cell: 0x7ffe04403518 cell_owner: 9 value_owner: 8
+[UNINITIALIZED mov read] ip: main+0xae5db (sctp_init_sysctls @ sctp_sysctl.c:85) co: 3 vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x4f935 (sctp_pcb_init @ sctp_pcb.c:6551) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x4f93f (sctp_pcb_init @ sctp_pcb.c:6552) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read] ip: main+0x7fbc6 (sctp_hashinit_flags @ sctputil.c:7321) base: 0x7ffe044034a0 pointee: 12 read from 13
+[CORRUPTED_PTR_LOAD] ip: main+0x7fbc6 (sctp_hashinit_flags @ sctputil.c:7321) loaded: 0x11436e4e00007c00 from cell: 0x7ffe04403494 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x7fc0a (sctp_hashinit_flags @ sctputil.c:7329) loaded: 0x1 from cell: 0x7ffe04403470 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x7fc0e (sctp_hashinit_flags @ sctputil.c:7329) loaded: 0x11436e4e00007c00 from cell: 0x7ffe04403494 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x7fc20 (sctp_hashinit_flags @ sctputil.c:7329) loaded: 0x1 from cell: 0x7ffe04403470 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x7fc3d (sctp_hashinit_flags @ sctputil.c:7334) loaded: 0xca3b0cd000000001 from cell: 0x7ffe0440347c cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x7fc62 (sctp_hashinit_flags @ sctputil.c:7336) loaded: 0xca3b0cd000000001 from cell: 0x7ffe0440347c cell_owner: 13 value_owner: 12
+[ALLOC] malloc(0x20000) -> 0x75b7254db010 subject=15 at sctp_hashinit_flags @ sctputil.c:7337
+[CORRUPTED_PTR_LOAD] ip: main+0x7fcf6 (sctp_hashinit_flags @ sctputil.c:7351) loaded: 0x59baca3b0cd0 from cell: 0x7ffe04403480 cell_owner: 13 value_owner: 12
+[INCONSISTENCY mov write reg] ip: main+0x4f973 (sctp_pcb_init @ sctp_pcb.c:6585) co: 3 vo: 3, 3 write 3
+[ALLOC] malloc(0x2000) -> 0x59baec12c360 subject=17 at sctp_hashinit_flags @ sctputil.c:7337
+[INCONSISTENCY mov write reg] ip: main+0x4f99c (sctp_pcb_init @ sctp_pcb.c:6587) co: 3 vo: 3, 3 write 3
+[ALLOC] malloc(0x2000) -> 0x59baec12e370 subject=19 at sctp_hashinit_flags @ sctputil.c:7337
+[INCONSISTENCY mov write reg] ip: main+0x4f9c5 (sctp_pcb_init @ sctp_pcb.c:6589) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x4f9d2 (sctp_pcb_init @ sctp_pcb.c:6591) co: 3 vo: 3, 3 write 3
+[ALLOC] malloc(0x10) -> 0x59baec12b4f0 subject=21 at sctp_hashinit_flags @ sctputil.c:7337
+Store dangling pointer: 0x59baec12b4f0 at: 0x7ffe04403468
+main+0x7fc99 (sctp_hashinit_flags @ sctputil.c:7346) Using expired pointer: 0x59baec12b4f0 from 0x7ffe04403468
+first time found dangling pointer at: 1768 distance: 3
+[INCONSISTENCY mov write reg] ip: main+0x4f9f9 (sctp_pcb_init @ sctp_pcb.c:6592) co: 3 vo: 3, 3 write 3
+[ALLOC] malloc(0x10) -> 0x59baec12b510 subject=23 at sctp_hashinit_flags @ sctputil.c:7337
+Store dangling pointer: 0x59baec12b510 at: 0x7ffe04403468
+main+0x7fc99 (sctp_hashinit_flags @ sctputil.c:7346) Using expired pointer: 0x59baec12b510 from 0x7ffe04403468
+first time found dangling pointer at: 1768 distance: 73
+[INCONSISTENCY mov write reg] ip: main+0x4fa21 (sctp_pcb_init @ sctp_pcb.c:6595) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0xbff7 (sctp_startup_iterator @ sctp_bsd_addr.c:187) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read] ip: main+0x58db0 (sctp_userspace_thread_create @ sctp_userspace.c:79) base: 0x7ffe04403490 pointee: 24 read from 25
+[INCONSISTENCY mov read] ip: main+0x58db4 (sctp_userspace_thread_create @ sctp_userspace.c:79) base: 0x7ffe04403490 pointee: 24 read from 25
+[ALLOC:internal] calloc(0x110) -> 0x59baec12b530 subject=27 at _dl_allocate_tls
+[INCONSISTENCY mov read] ip: main+0xc12b (sctp_init_vrf_list @ sctp_bsd_addr.c:643) base: 0x7ffe044034a0 pointee: 24 read from 30
+[CORRUPTED_PTR_LOAD] ip: main+0xc12b (sctp_init_vrf_list @ sctp_bsd_addr.c:643) loaded: 0x44034d000000000 from cell: 0x7ffe0440349c cell_owner: 30 value_owner: 24
+[CORRUPTED_PTR_LOAD] ip: main+0xc13a (sctp_init_vrf_list @ sctp_bsd_addr.c:648) loaded: 0x44034d000000000 from cell: 0x7ffe0440349c cell_owner: 30 value_owner: 24
+[INCONSISTENCY mov read] ip: main+0x40f03 (sctp_allocate_vrf @ sctp_pcb.c:212) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f03 (sctp_allocate_vrf @ sctp_pcb.c:212) loaded: 0xca345dc400000000 from cell: 0x7ffe04403474 cell_owner: 31 value_owner: 30
+[INCONSISTENCY mov read UAF] ip: main+0x41087 (sctp_find_vrf @ sctp_pcb.c:282) UAF read at: 0x59baec12b4f0
+[INCONSISTENCY mov read] ip: main+0x40f0f (sctp_allocate_vrf @ sctp_pcb.c:213) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f0f (sctp_allocate_vrf @ sctp_pcb.c:213) loaded: 0x0 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[ALLOC] malloc(0x40) -> 0x59baec12b650 subject=33 at sctp_allocate_vrf @ sctp_pcb.c:217
+Store dangling pointer: 0x59baec12b650 at: 0x7ffe04403468
+[INCONSISTENCY mov read] ip: main+0x40f44 (sctp_allocate_vrf @ sctp_pcb.c:219) base: 0x7ffe04403480 pointee: 25 read from 31
+main+0x40f44 (sctp_allocate_vrf @ sctp_pcb.c:219) Using expired pointer: 0x59baec12b650 from 0x7ffe04403468
+first time found dangling pointer at: 1768 distance: 590
+[CORRUPTED_PTR_LOAD] ip: main+0x40f44 (sctp_allocate_vrf @ sctp_pcb.c:219) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0x40f5c (sctp_allocate_vrf @ sctp_pcb.c:227) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f5c (sctp_allocate_vrf @ sctp_pcb.c:227) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0x40f6c (sctp_allocate_vrf @ sctp_pcb.c:228) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f6c (sctp_allocate_vrf @ sctp_pcb.c:228) loaded: 0xca345dc400000000 from cell: 0x7ffe04403474 cell_owner: 31 value_owner: 30
+[INCONSISTENCY mov read] ip: main+0x40f6f (sctp_allocate_vrf @ sctp_pcb.c:228) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f6f (sctp_allocate_vrf @ sctp_pcb.c:228) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov write reg UAF] ip: main+0x40f73 (sctp_allocate_vrf @ sctp_pcb.c:228) UAF write at: 0x59baec12b670
+[INCONSISTENCY mov read] ip: main+0x40f76 (sctp_allocate_vrf @ sctp_pcb.c:229) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f76 (sctp_allocate_vrf @ sctp_pcb.c:229) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov write imm UAF] ip: main+0x40f7a (sctp_allocate_vrf @ sctp_pcb.c:229) UAF write at: 0x59baec12b668
+[INCONSISTENCY mov read] ip: main+0x40f82 (sctp_allocate_vrf @ sctp_pcb.c:230) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f82 (sctp_allocate_vrf @ sctp_pcb.c:230) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov write imm UAF] ip: main+0x40f86 (sctp_allocate_vrf @ sctp_pcb.c:230) UAF write at: 0x59baec12b67c
+[INCONSISTENCY mov read] ip: main+0x40f8d (sctp_allocate_vrf @ sctp_pcb.c:231) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f8d (sctp_allocate_vrf @ sctp_pcb.c:231) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov write imm UAF] ip: main+0x40f91 (sctp_allocate_vrf @ sctp_pcb.c:231) UAF write at: 0x59baec12b688
+[INCONSISTENCY mov read] ip: main+0x40f98 (sctp_allocate_vrf @ sctp_pcb.c:235) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40f98 (sctp_allocate_vrf @ sctp_pcb.c:235) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+Store dangling pointer: 0x59baec12b680 at: 0x7ffe04403430
+[CORRUPTED_PTR_LOAD] ip: main+0x58ddc (sctp_userspace_set_threadname @ sctp_userspace.c:90) loaded: 0x59baca39c5d2 from cell: 0x75b7229fee68 cell_owner: 36 value_owner: 35
+[ALLOC] malloc(0x80) -> 0x59baec12b6a0 subject=37 at sctp_hashinit_flags @ sctputil.c:7337
+Store dangling pointer: 0x59baec12b6a0 at: 0x7ffe04403418
+main+0x7fc99 (sctp_hashinit_flags @ sctputil.c:7346) Using expired pointer: 0x59baec12b6a0 from 0x7ffe04403418
+first time found dangling pointer at: 2475 distance: 11
+main+0x7fcf6 (sctp_hashinit_flags @ sctputil.c:7351) Using expired pointer: 0x59baec12b680 from 0x7ffe04403430
+first time found dangling pointer at: 2385 distance: 107
+[INCONSISTENCY mov write reg UAF] ip: main+0x7fcfa (sctp_hashinit_flags @ sctputil.c:7351) UAF write at: 0x59baec12b680
+[INCONSISTENCY mov read] ip: main+0x40fb9 (sctp_allocate_vrf @ sctp_pcb.c:235) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40fb9 (sctp_allocate_vrf @ sctp_pcb.c:235) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov write reg UAF] ip: main+0x40fbd (sctp_allocate_vrf @ sctp_pcb.c:235) UAF write at: 0x59baec12b660
+first time found dangling pointer at: 2502 distance: 0
+[INCONSISTENCY mov read] ip: main+0x40fc1 (sctp_allocate_vrf @ sctp_pcb.c:237) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40fc1 (sctp_allocate_vrf @ sctp_pcb.c:237) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read UAF] ip: main+0x40fc5 (sctp_allocate_vrf @ sctp_pcb.c:237) UAF read at: 0x59baec12b660
+first time found dangling pointer at: 2502 distance: 2
+[INCONSISTENCY mov read] ip: main+0x40fed (sctp_allocate_vrf @ sctp_pcb.c:247) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x40fed (sctp_allocate_vrf @ sctp_pcb.c:247) loaded: 0xca345dc400000000 from cell: 0x7ffe04403474 cell_owner: 31 value_owner: 30
+[INCONSISTENCY mov read] ip: main+0x41003 (sctp_allocate_vrf @ sctp_pcb.c:248) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x41003 (sctp_allocate_vrf @ sctp_pcb.c:248) loaded: 0x59baec12b4f0 from cell: 0x7ffe04403460 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read UAF] ip: main+0x41007 (sctp_allocate_vrf @ sctp_pcb.c:248) UAF read at: 0x59baec12b4f0
+[INCONSISTENCY mov read] ip: main+0x4100a (sctp_allocate_vrf @ sctp_pcb.c:248) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x4100a (sctp_allocate_vrf @ sctp_pcb.c:248) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov write reg UAF] ip: main+0x4100e (sctp_allocate_vrf @ sctp_pcb.c:248) UAF write at: 0x59baec12b650
+[INCONSISTENCY mov read] ip: main+0x4102a (sctp_allocate_vrf @ sctp_pcb.c:248) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x4102a (sctp_allocate_vrf @ sctp_pcb.c:248) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0x4102e (sctp_allocate_vrf @ sctp_pcb.c:248) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x4102e (sctp_allocate_vrf @ sctp_pcb.c:248) loaded: 0x59baec12b4f0 from cell: 0x7ffe04403460 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov write reg UAF] ip: main+0x41032 (sctp_allocate_vrf @ sctp_pcb.c:248) UAF write at: 0x59baec12b4f0
+first time found dangling pointer at: 2520 distance: 0
+[INCONSISTENCY mov read] ip: main+0x41035 (sctp_allocate_vrf @ sctp_pcb.c:248) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x41035 (sctp_allocate_vrf @ sctp_pcb.c:248) loaded: 0x59baec12b4f0 from cell: 0x7ffe04403460 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0x41039 (sctp_allocate_vrf @ sctp_pcb.c:248) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x41039 (sctp_allocate_vrf @ sctp_pcb.c:248) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov write reg UAF] ip: main+0x4103d (sctp_allocate_vrf @ sctp_pcb.c:248) UAF write at: 0x59baec12b658
+first time found dangling pointer at: 2523 distance: 0
+[INCONSISTENCY mov read] ip: main+0x41049 (sctp_allocate_vrf @ sctp_pcb.c:250) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x41049 (sctp_allocate_vrf @ sctp_pcb.c:250) loaded: 0x59baec12b650 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0x41051 (sctp_allocate_vrf @ sctp_pcb.c:251) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0x41051 (sctp_allocate_vrf @ sctp_pcb.c:251) loaded: 0x59baec12b650 from cell: 0x7ffe04403478 cell_owner: 31 value_owner: 25
+[CORRUPTED_PTR_LOAD] ip: main+0xc142 (sctp_init_vrf_list @ sctp_bsd_addr.c:653) loaded: 0x44034d000000000 from cell: 0x7ffe0440349c cell_owner: 30 value_owner: 24
+[ALLOC:internal] malloc(0x2000) -> 0x59baec130380 subject=41 at if_indextoname
+[ALLOC:internal] malloc(0xbfc) -> 0x59baec132390 subject=42 at if_indextoname
+[ALLOC:internal] malloc(0xd98) -> 0x59baec132fa0 subject=43 at if_indextoname
+[ALLOC:internal] malloc(0x34) -> 0x59baec12b730 subject=44 at if_indextoname
+[FREE:internal] free(0x59baec130380) subject=41 at if_indextoname
+[ALLOC:internal] malloc(0x2000) -> 0x59baec130380 subject=45 at if_indextoname
+[ALLOC:internal] malloc(0x388) -> 0x59baec12b770 subject=46 at if_indextoname
+[ALLOC:internal] malloc(0x34) -> 0x59baec12bb00 subject=47 at if_indextoname
+[FREE:internal] free(0x59baec130380) subject=45 at if_indextoname
+[ALLOC:internal] calloc(0xc48) -> 0x59baec130380 subject=48 at if_indextoname
+[FREE:internal] free(0x59baec132390) subject=42 at if_indextoname
+[FREE:internal] free(0x59baec132fa0) subject=43 at if_indextoname
+[FREE:internal] free(0x59baec12b730) subject=44 at if_indextoname
+[FREE:internal] free(0x59baec12b770) subject=46 at if_indextoname
+[FREE:internal] free(0x59baec12bb00) subject=47 at if_indextoname
+[INCONSISTENCY mov read] ip: main+0xc167 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:425) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc167 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:425) loaded: 0x0 from cell: 0x7ffe04403478 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc176 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:428) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc176 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:428) loaded: 0x59baec130380 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc17e (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:428) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc17e (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:428) loaded: 0x59baec130380 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc189 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:429) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc189 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:429) loaded: 0x59baec130380 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc19d (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:443) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc19d (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:443) loaded: 0x59baec130380 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc1b1 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:443) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc1b1 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:443) loaded: 0x59baec130380 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc2eb (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:428) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc2eb (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:428) loaded: 0x59baec130380 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc1ca (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:449) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc1ca (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:449) loaded: 0x59baec130660 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc24e (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:456) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc24e (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:456) loaded: 0x59baec130660 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc262 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:457) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc262 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:457) loaded: 0x59baec130660 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc280 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:462) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc280 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:462) loaded: 0x44034a000000000 from cell: 0x7ffe0440347c cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc286 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:464) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc286 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:464) loaded: 0x59baec130660 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc293 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:464) base: 0x7ffe04403480 pointee: 25 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0xc293 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:464) loaded: 0xec12b6a000000000 from cell: 0x7ffe04403444 cell_owner: 40 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc298 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:466) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc298 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:466) loaded: 0x59baec130660 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc2a0 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:468) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc2a0 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:468) loaded: 0x59baec130660 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc2a8 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:469) base: 0x7ffe04403480 pointee: 25 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0xc2a8 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:469) loaded: 0xec12b4f000000000 from cell: 0x7ffe0440345c cell_owner: 40 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0x4185b (sctp_add_addr_to_vrf @ sctp_pcb.c:538) base: 0x7ffe04403410 pointee: 34 read from 40
+[INCONSISTENCY mov read] ip: main+0x4185e (sctp_add_addr_to_vrf @ sctp_pcb.c:538) base: 0x7ffe04403410 pointee: 34 read from 40
+[INCONSISTENCY mov read] ip: main+0x41861 (sctp_add_addr_to_vrf @ sctp_pcb.c:538) base: 0x7ffe04403410 pointee: 34 read from 40
+[ALLOC] malloc(0x68) -> 0x59baec12bb40 subject=50 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+Store dangling pointer: 0x59baec12bb40 at: 0x7ffe044033c8
+[INCONSISTENCY mov read] ip: main+0x41906 (sctp_add_addr_to_vrf @ sctp_pcb.c:553) base: 0x7ffe04403410 pointee: 34 read from 49
+main+0x41906 (sctp_add_addr_to_vrf @ sctp_pcb.c:553) Using expired pointer: 0x59baec12bb40 from 0x7ffe044033c8
+first time found dangling pointer at: 2689 distance: 3
+[CORRUPTED_PTR_LOAD] ip: main+0x41906 (sctp_add_addr_to_vrf @ sctp_pcb.c:553) loaded: 0x59baec12bb40 from cell: 0x7ffe044033c8 cell_owner: 49 value_owner: 34
+[ALLOC] malloc(0x68) -> 0x59baec12bbb0 subject=51 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12bbb0 at: 0x7ffe044033b8
+[INCONSISTENCY mov read] ip: main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) base: 0x7ffe04403410 pointee: 34 read from 49
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12bbb0 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 3
+[CORRUPTED_PTR_LOAD] ip: main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033b8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x4196f (sctp_add_addr_to_vrf @ sctp_pcb.c:569) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x4196f (sctp_add_addr_to_vrf @ sctp_pcb.c:569) loaded: 0x0 from cell: 0x7ffe044033f8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41973 (sctp_add_addr_to_vrf @ sctp_pcb.c:569) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41973 (sctp_add_addr_to_vrf @ sctp_pcb.c:569) loaded: 0x1 from cell: 0x7ffe044033f4 cell_owner: 49 value_owner: 34
+Store dangling pointer: 0x59baec12b518 at: 0x7ffe04403318
+main+0x41107 (sctp_find_ifn @ sctp_pcb.c:264) Using expired pointer: 0x59baec12b518 from 0x7ffe04403318
+first time found dangling pointer at: 2719 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x4110b (sctp_find_ifn @ sctp_pcb.c:264) UAF read at: 0x59baec12b518
+[INCONSISTENCY mov read] ip: main+0x4197f (sctp_add_addr_to_vrf @ sctp_pcb.c:570) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x4197f (sctp_add_addr_to_vrf @ sctp_pcb.c:570) loaded: 0x0 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x4199b (sctp_add_addr_to_vrf @ sctp_pcb.c:573) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x4199b (sctp_add_addr_to_vrf @ sctp_pcb.c:573) loaded: 0x0 from cell: 0x7ffe04403404 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x419a7 (sctp_add_addr_to_vrf @ sctp_pcb.c:574) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x419a7 (sctp_add_addr_to_vrf @ sctp_pcb.c:574) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a05 (sctp_add_addr_to_vrf @ sctp_pcb.c:584) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a05 (sctp_add_addr_to_vrf @ sctp_pcb.c:584) loaded: 0x0 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a10 (sctp_add_addr_to_vrf @ sctp_pcb.c:588) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a10 (sctp_add_addr_to_vrf @ sctp_pcb.c:588) loaded: 0x59baec12bb40 from cell: 0x7ffe044033c8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a20 (sctp_add_addr_to_vrf @ sctp_pcb.c:590) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a20 (sctp_add_addr_to_vrf @ sctp_pcb.c:590) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x41a3e (sctp_add_addr_to_vrf @ sctp_pcb.c:590) UAF write at: 0x59baec12bba0
+[INCONSISTENCY mov read] ip: main+0x41a46 (sctp_add_addr_to_vrf @ sctp_pcb.c:591) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a46 (sctp_add_addr_to_vrf @ sctp_pcb.c:591) loaded: 0x1 from cell: 0x7ffe044033f4 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a49 (sctp_add_addr_to_vrf @ sctp_pcb.c:591) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a49 (sctp_add_addr_to_vrf @ sctp_pcb.c:591) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41a4d (sctp_add_addr_to_vrf @ sctp_pcb.c:591) UAF write at: 0x59baec12bb80
+[INCONSISTENCY mov read] ip: main+0x41a50 (sctp_add_addr_to_vrf @ sctp_pcb.c:592) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a50 (sctp_add_addr_to_vrf @ sctp_pcb.c:592) loaded: 0x0 from cell: 0x7ffe044033f8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a54 (sctp_add_addr_to_vrf @ sctp_pcb.c:592) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a54 (sctp_add_addr_to_vrf @ sctp_pcb.c:592) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41a58 (sctp_add_addr_to_vrf @ sctp_pcb.c:592) UAF write at: 0x59baec12bb70
+[INCONSISTENCY mov read] ip: main+0x41a5c (sctp_add_addr_to_vrf @ sctp_pcb.c:593) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a5c (sctp_add_addr_to_vrf @ sctp_pcb.c:593) loaded: 0x100000000 from cell: 0x7ffe044033f0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a5f (sctp_add_addr_to_vrf @ sctp_pcb.c:593) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a5f (sctp_add_addr_to_vrf @ sctp_pcb.c:593) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41a63 (sctp_add_addr_to_vrf @ sctp_pcb.c:593) UAF write at: 0x59baec12bb7c
+[INCONSISTENCY mov read] ip: main+0x41a66 (sctp_add_addr_to_vrf @ sctp_pcb.c:594) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a66 (sctp_add_addr_to_vrf @ sctp_pcb.c:594) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x41a6a (sctp_add_addr_to_vrf @ sctp_pcb.c:594) UAF write at: 0x59baec12bb84
+[INCONSISTENCY mov read] ip: main+0x41a71 (sctp_add_addr_to_vrf @ sctp_pcb.c:595) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a71 (sctp_add_addr_to_vrf @ sctp_pcb.c:595) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a75 (sctp_add_addr_to_vrf @ sctp_pcb.c:595) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a75 (sctp_add_addr_to_vrf @ sctp_pcb.c:595) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41a79 (sctp_add_addr_to_vrf @ sctp_pcb.c:595) UAF write at: 0x59baec12bb48
+first time found dangling pointer at: 2789 distance: 0
+[INCONSISTENCY mov read] ip: main+0x41a7d (sctp_add_addr_to_vrf @ sctp_pcb.c:596) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a7d (sctp_add_addr_to_vrf @ sctp_pcb.c:596) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a86 (sctp_add_addr_to_vrf @ sctp_pcb.c:597) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a86 (sctp_add_addr_to_vrf @ sctp_pcb.c:597) loaded: 0x1 from cell: 0x7ffe044033f4 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41a89 (sctp_add_addr_to_vrf @ sctp_pcb.c:597) base: 0x7ffe04403410 pointee: 34 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0x58e1e (sctp_userspace_get_mtu_from_ifn @ sctp_userspace.c:105) loaded: 0x59ba00000001 from cell: 0x7ffe04403338 cell_owner: 52 value_owner: 49
+[CORRUPTED_PTR_LOAD] ip: main+0x58e34 (sctp_userspace_get_mtu_from_ifn @ sctp_userspace.c:107) loaded: 0x100000002 from cell: 0x7ffe04403334 cell_owner: 52 value_owner: 49
+[INCONSISTENCY mov read] ip: main+0x41a97 (sctp_add_addr_to_vrf @ sctp_pcb.c:597) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a97 (sctp_add_addr_to_vrf @ sctp_pcb.c:597) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41a9b (sctp_add_addr_to_vrf @ sctp_pcb.c:597) UAF write at: 0x59baec12bb78
+[INCONSISTENCY mov read] ip: main+0x41a9e (sctp_add_addr_to_vrf @ sctp_pcb.c:598) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41a9e (sctp_add_addr_to_vrf @ sctp_pcb.c:598) loaded: 0x59baec130704 from cell: 0x7ffe044033e8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41aa9 (sctp_add_addr_to_vrf @ sctp_pcb.c:599) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41aa9 (sctp_add_addr_to_vrf @ sctp_pcb.c:599) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41ab1 (sctp_add_addr_to_vrf @ sctp_pcb.c:599) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41ab1 (sctp_add_addr_to_vrf @ sctp_pcb.c:599) loaded: 0x59baec130704 from cell: 0x7ffe044033e8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41b1d (sctp_add_addr_to_vrf @ sctp_pcb.c:603) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b1d (sctp_add_addr_to_vrf @ sctp_pcb.c:603) loaded: 0x1 from cell: 0x7ffe044033f4 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41b32 (sctp_add_addr_to_vrf @ sctp_pcb.c:604) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b32 (sctp_add_addr_to_vrf @ sctp_pcb.c:604) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x41b36 (sctp_add_addr_to_vrf @ sctp_pcb.c:604) UAF write at: 0x59baec12bb40
+[INCONSISTENCY mov read] ip: main+0x41b42 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b42 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) loaded: 0x59baec12b518 from cell: 0x7ffe044033a8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41b46 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) UAF read at: 0x59baec12b518
+[INCONSISTENCY mov read] ip: main+0x41b49 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b49 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41b4d (sctp_add_addr_to_vrf @ sctp_pcb.c:605) UAF write at: 0x59baec12bb60
+[INCONSISTENCY mov read] ip: main+0x41b6e (sctp_add_addr_to_vrf @ sctp_pcb.c:605) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b6e (sctp_add_addr_to_vrf @ sctp_pcb.c:605) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41b72 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b72 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) loaded: 0x59baec12b518 from cell: 0x7ffe044033a8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41b76 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) UAF write at: 0x59baec12b518
+first time found dangling pointer at: 2871 distance: 0
+[INCONSISTENCY mov read] ip: main+0x41b79 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b79 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) loaded: 0x59baec12b518 from cell: 0x7ffe044033a8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41b7d (sctp_add_addr_to_vrf @ sctp_pcb.c:605) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b7d (sctp_add_addr_to_vrf @ sctp_pcb.c:605) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41b81 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) UAF write at: 0x59baec12bb68
+first time found dangling pointer at: 2874 distance: 0
+[INCONSISTENCY mov read] ip: main+0x41b8a (sctp_add_addr_to_vrf @ sctp_pcb.c:606) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b8a (sctp_add_addr_to_vrf @ sctp_pcb.c:606) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41b8e (sctp_add_addr_to_vrf @ sctp_pcb.c:606) UAF read at: 0x59baec12b668
+[INCONSISTENCY mov read] ip: main+0x41b92 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41b92 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41b96 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) UAF write at: 0x59baec12bb50
+[INCONSISTENCY mov read] ip: main+0x41bb8 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41bb8 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41bbc (sctp_add_addr_to_vrf @ sctp_pcb.c:606) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41bbc (sctp_add_addr_to_vrf @ sctp_pcb.c:606) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41bc0 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) UAF write at: 0x59baec12b668
+first time found dangling pointer at: 2884 distance: 0
+[INCONSISTENCY mov read] ip: main+0x41bc4 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41bc4 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41bcc (sctp_add_addr_to_vrf @ sctp_pcb.c:606) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41bcc (sctp_add_addr_to_vrf @ sctp_pcb.c:606) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+Store dangling pointer: 0x59baec12b668 at: 0x59baec12bb58
+[INCONSISTENCY mov write reg UAF] ip: main+0x41bd0 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) UAF write at: 0x59baec12bb58
+first time found dangling pointer at: 2888 distance: 0
+[INCONSISTENCY mov read] ip: main+0x41be3 (sctp_add_addr_to_vrf @ sctp_pcb.c:610) base: 0x7ffe04403410 pointee: 34 read from 40
+[INCONSISTENCY mov read] ip: main+0x41be7 (sctp_add_addr_to_vrf @ sctp_pcb.c:610) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41be7 (sctp_add_addr_to_vrf @ sctp_pcb.c:610) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41beb (sctp_add_addr_to_vrf @ sctp_pcb.c:610) UAF read at: 0x59baec12b670
+[INCONSISTENCY mov read UAF] ip: main+0x7cbaa (sctp_find_ifa_by_addr @ sctputil.c:5874) UAF read at: 0x59baec12b660
+first time found dangling pointer at: 2502 distance: 457
+Store dangling pointer: 0x59baec12b718 at: 0x7ffe04403310
+main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) Using expired pointer: 0x59baec12b718 from 0x7ffe04403310
+first time found dangling pointer at: 2965 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x7cc7a (sctp_find_ifa_by_addr @ sctputil.c:5886) UAF read at: 0x59baec12b718
+[INCONSISTENCY mov read] ip: main+0x41bfc (sctp_add_addr_to_vrf @ sctp_pcb.c:611) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41bfc (sctp_add_addr_to_vrf @ sctp_pcb.c:611) loaded: 0x0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41e46 (sctp_add_addr_to_vrf @ sctp_pcb.c:661) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e46 (sctp_add_addr_to_vrf @ sctp_pcb.c:661) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033b8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41e4e (sctp_add_addr_to_vrf @ sctp_pcb.c:662) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e4e (sctp_add_addr_to_vrf @ sctp_pcb.c:662) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x41e6c (sctp_add_addr_to_vrf @ sctp_pcb.c:662) UAF write at: 0x59baec12bc10
+[INCONSISTENCY mov read] ip: main+0x41e74 (sctp_add_addr_to_vrf @ sctp_pcb.c:663) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e74 (sctp_add_addr_to_vrf @ sctp_pcb.c:663) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41e78 (sctp_add_addr_to_vrf @ sctp_pcb.c:663) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e78 (sctp_add_addr_to_vrf @ sctp_pcb.c:663) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41e7c (sctp_add_addr_to_vrf @ sctp_pcb.c:663) UAF write at: 0x59baec12bbd0
+first time found dangling pointer at: 2997 distance: 0
+[INCONSISTENCY mov read] ip: main+0x41e80 (sctp_add_addr_to_vrf @ sctp_pcb.c:664) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e80 (sctp_add_addr_to_vrf @ sctp_pcb.c:664) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41e89 (sctp_add_addr_to_vrf @ sctp_pcb.c:665) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e89 (sctp_add_addr_to_vrf @ sctp_pcb.c:665) loaded: 0x0 from cell: 0x7ffe04403404 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41e8c (sctp_add_addr_to_vrf @ sctp_pcb.c:665) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e8c (sctp_add_addr_to_vrf @ sctp_pcb.c:665) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41e90 (sctp_add_addr_to_vrf @ sctp_pcb.c:665) UAF write at: 0x59baec12bc0c
+[INCONSISTENCY mov read] ip: main+0x41e93 (sctp_add_addr_to_vrf @ sctp_pcb.c:666) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e93 (sctp_add_addr_to_vrf @ sctp_pcb.c:666) loaded: 0x0 from cell: 0x7ffe044033e0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41e97 (sctp_add_addr_to_vrf @ sctp_pcb.c:666) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41e97 (sctp_add_addr_to_vrf @ sctp_pcb.c:666) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41e9b (sctp_add_addr_to_vrf @ sctp_pcb.c:666) UAF write at: 0x59baec12bbd8
+[INCONSISTENCY mov read] ip: main+0x41e9f (sctp_add_addr_to_vrf @ sctp_pcb.c:670) base: 0x7ffe04403410 pointee: 34 read from 40
+[INCONSISTENCY mov read] ip: main+0x41ee2 (sctp_add_addr_to_vrf @ sctp_pcb.c:673) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41ee2 (sctp_add_addr_to_vrf @ sctp_pcb.c:673) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41ee6 (sctp_add_addr_to_vrf @ sctp_pcb.c:673) base: 0x7ffe04403410 pointee: 34 read from 40
+[INCONSISTENCY mov write reg UAF] ip: main+0x41eed (sctp_add_addr_to_vrf @ sctp_pcb.c:673) UAF write at: 0x59baec12bbe0
+[INCONSISTENCY mov write reg UAF] ip: main+0x41ef5 (sctp_add_addr_to_vrf @ sctp_pcb.c:673) UAF write at: 0x59baec12bbe8
+[INCONSISTENCY mov read] ip: main+0x41f49 (sctp_add_addr_to_vrf @ sctp_pcb.c:691) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41f49 (sctp_add_addr_to_vrf @ sctp_pcb.c:691) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x41f4d (sctp_add_addr_to_vrf @ sctp_pcb.c:691) UAF write at: 0x59baec12bc08
+[INCONSISTENCY mov read] ip: main+0x41f54 (sctp_add_addr_to_vrf @ sctp_pcb.c:692) base: 0x7ffe04403410 pointee: 34 read from 40
+[INCONSISTENCY mov read] ip: main+0x41f57 (sctp_add_addr_to_vrf @ sctp_pcb.c:692) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41f57 (sctp_add_addr_to_vrf @ sctp_pcb.c:692) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41f5b (sctp_add_addr_to_vrf @ sctp_pcb.c:692) UAF write at: 0x59baec12bc04
+[INCONSISTENCY mov read] ip: main+0x41f5e (sctp_add_addr_to_vrf @ sctp_pcb.c:694) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41f5e (sctp_add_addr_to_vrf @ sctp_pcb.c:694) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41f62 (sctp_add_addr_to_vrf @ sctp_pcb.c:694) UAF read at: 0x59baec12bbe0
+[INCONSISTENCY mov read] ip: main+0x41fa2 (sctp_add_addr_to_vrf @ sctp_pcb.c:700) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41fa2 (sctp_add_addr_to_vrf @ sctp_pcb.c:700) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+Store dangling pointer: 0x59baec12bbe0 at: 0x7ffe04403398
+[INCONSISTENCY mov read] ip: main+0x41fae (sctp_add_addr_to_vrf @ sctp_pcb.c:701) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41fae (sctp_add_addr_to_vrf @ sctp_pcb.c:701) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41fb2 (sctp_add_addr_to_vrf @ sctp_pcb.c:701) UAF read at: 0x59baec12bbd0
+first time found dangling pointer at: 2997 distance: 35
+[INCONSISTENCY mov read] ip: main+0x41fe5 (sctp_add_addr_to_vrf @ sctp_pcb.c:703) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41fe5 (sctp_add_addr_to_vrf @ sctp_pcb.c:703) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x41fe9 (sctp_add_addr_to_vrf @ sctp_pcb.c:703) UAF write at: 0x59baec12bc10
+[INCONSISTENCY mov read] ip: main+0x41fed (sctp_add_addr_to_vrf @ sctp_pcb.c:705) base: 0x7ffe04403410 pointee: 34 read from 49
+main+0x41fed (sctp_add_addr_to_vrf @ sctp_pcb.c:705) Using expired pointer: 0x59baec12bbe0 from 0x7ffe04403398
+first time found dangling pointer at: 3030 distance: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x41fed (sctp_add_addr_to_vrf @ sctp_pcb.c:705) loaded: 0x59baec12bbe0 from cell: 0x7ffe04403398 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41ff1 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) UAF read at: 0x59baec12bbe4
+[INCONSISTENCY mov read] ip: main+0x41ffe (sctp_add_addr_to_vrf @ sctp_pcb.c:705) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x41ffe (sctp_add_addr_to_vrf @ sctp_pcb.c:705) loaded: 0x59baec12bbe0 from cell: 0x7ffe04403398 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42002 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) UAF read at: 0x59baec12bbe4
+[INCONSISTENCY mov read] ip: main+0x42033 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42033 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) loaded: 0x59baec12bbe0 from cell: 0x7ffe04403398 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42037 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) UAF read at: 0x59baec12bbe4
+[INCONSISTENCY mov read] ip: main+0x42061 (sctp_add_addr_to_vrf @ sctp_pcb.c:708) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42061 (sctp_add_addr_to_vrf @ sctp_pcb.c:708) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42065 (sctp_add_addr_to_vrf @ sctp_pcb.c:708) UAF read at: 0x59baec12bb90
+[INCONSISTENCY mov write reg UAF] ip: main+0x4206b (sctp_add_addr_to_vrf @ sctp_pcb.c:708) UAF write at: 0x59baec12bb90
+[INCONSISTENCY mov read] ip: main+0x4206e (sctp_add_addr_to_vrf @ sctp_pcb.c:709) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x4206e (sctp_add_addr_to_vrf @ sctp_pcb.c:709) loaded: 0x75b700000001 from cell: 0x7ffe044033a0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x42211 (sctp_add_addr_to_vrf @ sctp_pcb.c:744) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42211 (sctp_add_addr_to_vrf @ sctp_pcb.c:744) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x7ca3c (sctp_get_ifa_hash_val @ sctputil.c:5802) UAF read at: 0x59baec12bbe0
+[INCONSISTENCY mov read UAF] ip: main+0x7ca7e (sctp_get_ifa_hash_val @ sctputil.c:5809) UAF read at: 0x59baec12bbe4
+[INCONSISTENCY mov read UAF] ip: main+0x7ca85 (sctp_get_ifa_hash_val @ sctputil.c:5809) UAF read at: 0x59baec12bbe4
+[INCONSISTENCY mov read] ip: main+0x42221 (sctp_add_addr_to_vrf @ sctp_pcb.c:746) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42221 (sctp_add_addr_to_vrf @ sctp_pcb.c:746) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42225 (sctp_add_addr_to_vrf @ sctp_pcb.c:746) UAF read at: 0x59baec12bc11
+[INCONSISTENCY mov read] ip: main+0x42232 (sctp_add_addr_to_vrf @ sctp_pcb.c:747) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42232 (sctp_add_addr_to_vrf @ sctp_pcb.c:747) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42236 (sctp_add_addr_to_vrf @ sctp_pcb.c:747) UAF read at: 0x59baec12bc10
+[INCONSISTENCY mov read] ip: main+0x4224b (sctp_add_addr_to_vrf @ sctp_pcb.c:750) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x4224b (sctp_add_addr_to_vrf @ sctp_pcb.c:750) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x4224f (sctp_add_addr_to_vrf @ sctp_pcb.c:750) UAF read at: 0x59baec12b660
+first time found dangling pointer at: 2502 distance: 594
+[INCONSISTENCY mov read] ip: main+0x42253 (sctp_add_addr_to_vrf @ sctp_pcb.c:750) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42253 (sctp_add_addr_to_vrf @ sctp_pcb.c:750) loaded: 0xec12b5180100017f from cell: 0x7ffe044033a4 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x42256 (sctp_add_addr_to_vrf @ sctp_pcb.c:750) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42256 (sctp_add_addr_to_vrf @ sctp_pcb.c:750) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x42269 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42269 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) loaded: 0x59baec12b718 from cell: 0x7ffe044033b0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x4226d (sctp_add_addr_to_vrf @ sctp_pcb.c:751) UAF read at: 0x59baec12b718
+[INCONSISTENCY mov read] ip: main+0x42270 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42270 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x42274 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) UAF write at: 0x59baec12bbc0
+[INCONSISTENCY mov read] ip: main+0x42295 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42295 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x42299 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42299 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) loaded: 0x59baec12b718 from cell: 0x7ffe044033b0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x4229d (sctp_add_addr_to_vrf @ sctp_pcb.c:751) UAF write at: 0x59baec12b718
+first time found dangling pointer at: 3111 distance: 0
+[INCONSISTENCY mov read] ip: main+0x422a0 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422a0 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) loaded: 0x59baec12b718 from cell: 0x7ffe044033b0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x422a4 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422a4 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x422a8 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) UAF write at: 0x59baec12bbc8
+first time found dangling pointer at: 3114 distance: 0
+[INCONSISTENCY mov read] ip: main+0x422ac (sctp_add_addr_to_vrf @ sctp_pcb.c:752) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422ac (sctp_add_addr_to_vrf @ sctp_pcb.c:752) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x422b0 (sctp_add_addr_to_vrf @ sctp_pcb.c:752) UAF write at: 0x59baec12bc00
+[INCONSISTENCY mov read] ip: main+0x422b7 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422b7 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x422bb (sctp_add_addr_to_vrf @ sctp_pcb.c:753) UAF read at: 0x59baec12bb40
+[INCONSISTENCY mov read] ip: main+0x422be (sctp_add_addr_to_vrf @ sctp_pcb.c:753) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422be (sctp_add_addr_to_vrf @ sctp_pcb.c:753) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x422c2 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) UAF write at: 0x59baec12bbb0
+[INCONSISTENCY mov read] ip: main+0x422de (sctp_add_addr_to_vrf @ sctp_pcb.c:753) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422de (sctp_add_addr_to_vrf @ sctp_pcb.c:753) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x422e2 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422e2 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x422e6 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) UAF write at: 0x59baec12bb40
+first time found dangling pointer at: 3125 distance: 0
+[INCONSISTENCY mov read] ip: main+0x422e9 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422e9 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x422ed (sctp_add_addr_to_vrf @ sctp_pcb.c:753) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422ed (sctp_add_addr_to_vrf @ sctp_pcb.c:753) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x422f1 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) UAF write at: 0x59baec12bbb8
+first time found dangling pointer at: 3128 distance: 0
+[INCONSISTENCY mov read] ip: main+0x422f5 (sctp_add_addr_to_vrf @ sctp_pcb.c:754) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x422f5 (sctp_add_addr_to_vrf @ sctp_pcb.c:754) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x422f9 (sctp_add_addr_to_vrf @ sctp_pcb.c:754) UAF read at: 0x59baec12bb88
+[INCONSISTENCY mov write reg UAF] ip: main+0x422ff (sctp_add_addr_to_vrf @ sctp_pcb.c:754) UAF write at: 0x59baec12bb88
+[INCONSISTENCY mov read] ip: main+0x42302 (sctp_add_addr_to_vrf @ sctp_pcb.c:755) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42302 (sctp_add_addr_to_vrf @ sctp_pcb.c:755) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42306 (sctp_add_addr_to_vrf @ sctp_pcb.c:755) UAF read at: 0x59baec12b67c
+[INCONSISTENCY mov write reg UAF] ip: main+0x4230c (sctp_add_addr_to_vrf @ sctp_pcb.c:755) UAF write at: 0x59baec12b67c
+[INCONSISTENCY mov read] ip: main+0x42317 (sctp_add_addr_to_vrf @ sctp_pcb.c:757) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42317 (sctp_add_addr_to_vrf @ sctp_pcb.c:757) loaded: 0x100017f00000002 from cell: 0x7ffe044033a0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x42321 (sctp_add_addr_to_vrf @ sctp_pcb.c:758) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42321 (sctp_add_addr_to_vrf @ sctp_pcb.c:758) loaded: 0x100017f00000002 from cell: 0x7ffe044033a0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x42324 (sctp_add_addr_to_vrf @ sctp_pcb.c:758) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x42324 (sctp_add_addr_to_vrf @ sctp_pcb.c:758) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x42328 (sctp_add_addr_to_vrf @ sctp_pcb.c:758) UAF write at: 0x59baec12bb94
+[INCONSISTENCY mov read] ip: main+0x4233e (sctp_add_addr_to_vrf @ sctp_pcb.c:761) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x4233e (sctp_add_addr_to_vrf @ sctp_pcb.c:761) loaded: 0x0 from cell: 0x7ffe044033c8 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x42352 (sctp_add_addr_to_vrf @ sctp_pcb.c:765) base: 0x7ffe04403410 pointee: 34 read from 40
+[INCONSISTENCY mov read] ip: main+0x424c2 (sctp_add_addr_to_vrf @ sctp_pcb.c:799) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x424c2 (sctp_add_addr_to_vrf @ sctp_pcb.c:799) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x424c6 (sctp_add_addr_to_vrf @ sctp_pcb.c:799) UAF read at: 0x59baec12bc08
+[INCONSISTENCY mov write reg UAF] ip: main+0x424cc (sctp_add_addr_to_vrf @ sctp_pcb.c:799) UAF write at: 0x59baec12bc08
+[INCONSISTENCY mov read] ip: main+0x424cf (sctp_add_addr_to_vrf @ sctp_pcb.c:801) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x424cf (sctp_add_addr_to_vrf @ sctp_pcb.c:801) loaded: 0x59baec12bbb0 from cell: 0x7ffe044033c0 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x424d7 (sctp_add_addr_to_vrf @ sctp_pcb.c:802) base: 0x7ffe04403410 pointee: 34 read from 49
+[CORRUPTED_PTR_LOAD] ip: main+0x424d7 (sctp_add_addr_to_vrf @ sctp_pcb.c:802) loaded: 0x59baec12bbb0 from cell: 0x7ffe04403408 cell_owner: 49 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0xc2ce (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:471) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc2ce (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:471) loaded: 0x59baec12bbb0 from cell: 0x7ffe04403460 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc2d9 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:472) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc2d9 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:472) loaded: 0x59baec12bbb0 from cell: 0x7ffe04403460 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read UAF] ip: main+0xc2dd (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:472) UAF read at: 0x59baec12bc08
+[INCONSISTENCY mov write reg UAF] ip: main+0xc2e3 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:472) UAF write at: 0x59baec12bc08
+[CORRUPTED_PTR_LOAD] ip: main+0x4185b (sctp_add_addr_to_vrf @ sctp_pcb.c:538) loaded: 0x59ba00000000 from cell: 0x7ffe04403430 cell_owner: 40 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0x4185e (sctp_add_addr_to_vrf @ sctp_pcb.c:538) loaded: 0x100000000 from cell: 0x7ffe04403428 cell_owner: 40 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0x41861 (sctp_add_addr_to_vrf @ sctp_pcb.c:538) loaded: 0x59baec130750 from cell: 0x7ffe04403420 cell_owner: 40 value_owner: 34
+[ALLOC] malloc(0x68) -> 0x59baec12bc20 subject=55 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+Store dangling pointer: 0x59baec12bc20 at: 0x7ffe044033c8
+main+0x41906 (sctp_add_addr_to_vrf @ sctp_pcb.c:553) Using expired pointer: 0x59baec12bc20 from 0x7ffe044033c8
+first time found dangling pointer at: 2689 distance: 561
+[ALLOC] malloc(0x68) -> 0x59baec12bc90 subject=56 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12bc90 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12bc90 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 561
+[CORRUPTED_PTR_LOAD] ip: main+0x410f2 (sctp_find_ifn @ sctp_pcb.c:263) loaded: 0x2 from cell: 0x7ffe0440332c cell_owner: 53 value_owner: 54
+[CORRUPTED_PTR_LOAD] ip: main+0x4106e (sctp_find_vrf @ sctp_pcb.c:281) loaded: 0x0 from cell: 0x7ffe04403334 cell_owner: 53 value_owner: 54
+[CORRUPTED_PTR_LOAD] ip: main+0x41099 (sctp_find_vrf @ sctp_pcb.c:283) loaded: 0x0 from cell: 0x7ffe04403334 cell_owner: 53 value_owner: 54
+[CORRUPTED_PTR_LOAD] ip: main+0x41a89 (sctp_add_addr_to_vrf @ sctp_pcb.c:597) loaded: 0x59baec130750 from cell: 0x7ffe04403420 cell_owner: 40 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41ba4 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) base: 0x7ffe04403410 pointee: 34 read from 54
+[CORRUPTED_PTR_LOAD] ip: main+0x41ba4 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) loaded: 0x59baec12bc20 from cell: 0x7ffe044033d0 cell_owner: 54 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41bac (sctp_add_addr_to_vrf @ sctp_pcb.c:606) base: 0x7ffe04403410 pointee: 34 read from 54
+[CORRUPTED_PTR_LOAD] ip: main+0x41bac (sctp_add_addr_to_vrf @ sctp_pcb.c:606) loaded: 0x59baec12b650 from cell: 0x7ffe044033d8 cell_owner: 54 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41bb0 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) UAF read at: 0x59baec12b668
+first time found dangling pointer at: 2884 distance: 559
+Store dangling pointer: 0x59baec12bc30 at: 0x59baec12bb58
+[INCONSISTENCY mov write reg UAF] ip: main+0x41bb4 (sctp_add_addr_to_vrf @ sctp_pcb.c:606) UAF write at: 0x59baec12bb58
+first time found dangling pointer at: 2888 distance: 556
+[CORRUPTED_PTR_LOAD] ip: main+0x41be3 (sctp_add_addr_to_vrf @ sctp_pcb.c:610) loaded: 0x59baec130750 from cell: 0x7ffe04403420 cell_owner: 40 value_owner: 34
+Store dangling pointer: 0x59baec12b6a8 at: 0x7ffe04403310
+main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) Using expired pointer: 0x59baec12b6a8 from 0x7ffe04403310
+first time found dangling pointer at: 2965 distance: 564
+[CORRUPTED_PTR_LOAD] ip: main+0x41e9f (sctp_add_addr_to_vrf @ sctp_pcb.c:670) loaded: 0x59baec130750 from cell: 0x7ffe04403420 cell_owner: 40 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0x41ee6 (sctp_add_addr_to_vrf @ sctp_pcb.c:673) loaded: 0x59baec130750 from cell: 0x7ffe04403420 cell_owner: 40 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0x41f54 (sctp_add_addr_to_vrf @ sctp_pcb.c:692) loaded: 0x100000000 from cell: 0x7ffe04403428 cell_owner: 40 value_owner: 34
+Store dangling pointer: 0x59baec12bcc0 at: 0x7ffe04403398
+[INCONSISTENCY mov read] ip: main+0x41fd4 (sctp_add_addr_to_vrf @ sctp_pcb.c:702) base: 0x7ffe04403410 pointee: 34 read from 54
+main+0x41fd4 (sctp_add_addr_to_vrf @ sctp_pcb.c:702) Using expired pointer: 0x59baec12bcc0 from 0x7ffe04403398
+first time found dangling pointer at: 3030 distance: 573
+[CORRUPTED_PTR_LOAD] ip: main+0x41fd4 (sctp_add_addr_to_vrf @ sctp_pcb.c:702) loaded: 0x59baec12bcc0 from cell: 0x7ffe04403398 cell_owner: 54 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41fd8 (sctp_add_addr_to_vrf @ sctp_pcb.c:702) UAF read at: 0x59baec12bcc4
+[INCONSISTENCY mov read] ip: main+0x42046 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) base: 0x7ffe04403410 pointee: 34 read from 54
+[CORRUPTED_PTR_LOAD] ip: main+0x42046 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) loaded: 0x59baec12bcc0 from cell: 0x7ffe04403398 cell_owner: 54 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x4204a (sctp_add_addr_to_vrf @ sctp_pcb.c:705) UAF read at: 0x59baec12bcc5
+[INCONSISTENCY mov read] ip: main+0x42059 (sctp_add_addr_to_vrf @ sctp_pcb.c:706) base: 0x7ffe04403410 pointee: 34 read from 54
+[CORRUPTED_PTR_LOAD] ip: main+0x42059 (sctp_add_addr_to_vrf @ sctp_pcb.c:706) loaded: 0x59baec12bc90 from cell: 0x7ffe044033c0 cell_owner: 54 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x4205d (sctp_add_addr_to_vrf @ sctp_pcb.c:706) UAF write at: 0x59baec12bcf1
+[CORRUPTED_PTR_LOAD] ip: main+0x42352 (sctp_add_addr_to_vrf @ sctp_pcb.c:765) loaded: 0x59ba00000000 from cell: 0x7ffe04403430 cell_owner: 40 value_owner: 34
+[ALLOC] malloc(0x68) -> 0x59baec12bd00 subject=60 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+Store dangling pointer: 0x59baec12bd00 at: 0x7ffe044033c8
+main+0x41906 (sctp_add_addr_to_vrf @ sctp_pcb.c:553) Using expired pointer: 0x59baec12bd00 from 0x7ffe044033c8
+first time found dangling pointer at: 2689 distance: 1128
+[ALLOC] malloc(0x68) -> 0x59baec12bd70 subject=61 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12bd70 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12bd70 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 1128
+[INCONSISTENCY mov read UAF] ip: main+0x41121 (sctp_find_ifn @ sctp_pcb.c:265) UAF read at: 0x59baec12bb80
+[INCONSISTENCY mov read UAF] ip: main+0x4113e (sctp_find_ifn @ sctp_pcb.c:268) UAF read at: 0x59baec12bb70
+[INCONSISTENCY mov read UAF] ip: main+0x4117c (sctp_find_ifn @ sctp_pcb.c:264) UAF read at: 0x59baec12bb60
+[INCONSISTENCY mov read] ip: main+0x41b5b (sctp_add_addr_to_vrf @ sctp_pcb.c:605) base: 0x7ffe04403410 pointee: 34 read from 59
+[CORRUPTED_PTR_LOAD] ip: main+0x41b5b (sctp_add_addr_to_vrf @ sctp_pcb.c:605) loaded: 0x59baec12bd00 from cell: 0x7ffe044033d0 cell_owner: 59 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41b63 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) base: 0x7ffe04403410 pointee: 34 read from 59
+[CORRUPTED_PTR_LOAD] ip: main+0x41b63 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) loaded: 0x59baec12b518 from cell: 0x7ffe044033a8 cell_owner: 59 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x41b67 (sctp_add_addr_to_vrf @ sctp_pcb.c:605) UAF read at: 0x59baec12b518
+first time found dangling pointer at: 2871 distance: 1140
+Store dangling pointer: 0x59baec12bd20 at: 0x59baec12bb68
+[INCONSISTENCY mov write reg UAF] ip: main+0x41b6a (sctp_add_addr_to_vrf @ sctp_pcb.c:605) UAF write at: 0x59baec12bb68
+first time found dangling pointer at: 2874 distance: 1138
+Store dangling pointer: 0x59baec12bd10 at: 0x59baec12bc38
+Store dangling pointer: 0x59baec12b6d8 at: 0x7ffe04403310
+main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) Using expired pointer: 0x59baec12b6d8 from 0x7ffe04403310
+first time found dangling pointer at: 2965 distance: 1150
+Store dangling pointer: 0x59baec12bda0 at: 0x7ffe04403398
+main+0x41fd4 (sctp_add_addr_to_vrf @ sctp_pcb.c:702) Using expired pointer: 0x59baec12bda0 from 0x7ffe04403398
+first time found dangling pointer at: 3030 distance: 1159
+[INCONSISTENCY mov read] ip: main+0x42243 (sctp_add_addr_to_vrf @ sctp_pcb.c:748) base: 0x7ffe04403410 pointee: 34 read from 59
+[CORRUPTED_PTR_LOAD] ip: main+0x42243 (sctp_add_addr_to_vrf @ sctp_pcb.c:748) loaded: 0x59baec12bd70 from cell: 0x7ffe044033c0 cell_owner: 59 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x42247 (sctp_add_addr_to_vrf @ sctp_pcb.c:748) UAF write at: 0x59baec12bdd2
+[ALLOC] malloc(0x68) -> 0x59baec12bde0 subject=65 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+Store dangling pointer: 0x59baec12bde0 at: 0x7ffe044033c8
+main+0x41906 (sctp_add_addr_to_vrf @ sctp_pcb.c:553) Using expired pointer: 0x59baec12bde0 from 0x7ffe044033c8
+first time found dangling pointer at: 2689 distance: 1714
+[ALLOC] malloc(0x68) -> 0x59baec12be50 subject=66 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12be50 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12be50 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 1714
+Store dangling pointer: 0x59baec12be00 at: 0x59baec12bc48
+Store dangling pointer: 0x59baec12bdf0 at: 0x59baec12bd18
+Store dangling pointer: 0x59baec12b700 at: 0x7ffe04403310
+main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) Using expired pointer: 0x59baec12b700 from 0x7ffe04403310
+first time found dangling pointer at: 2965 distance: 1736
+Store dangling pointer: 0x59baec12be80 at: 0x7ffe04403398
+main+0x41fd4 (sctp_add_addr_to_vrf @ sctp_pcb.c:702) Using expired pointer: 0x59baec12be80 from 0x7ffe04403398
+first time found dangling pointer at: 3030 distance: 1745
+[INCONSISTENCY mov read] ip: main+0x42011 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) base: 0x7ffe04403410 pointee: 34 read from 64
+[CORRUPTED_PTR_LOAD] ip: main+0x42011 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) loaded: 0x59baec12be80 from cell: 0x7ffe04403398 cell_owner: 64 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42015 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) UAF read at: 0x59baec12be85
+[INCONSISTENCY mov read] ip: main+0x42022 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) base: 0x7ffe04403410 pointee: 34 read from 64
+[CORRUPTED_PTR_LOAD] ip: main+0x42022 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) loaded: 0x59baec12be80 from cell: 0x7ffe04403398 cell_owner: 64 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42026 (sctp_add_addr_to_vrf @ sctp_pcb.c:705) UAF read at: 0x59baec12be85
+[INCONSISTENCY mov read] ip: main+0xc1de (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc1de (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) loaded: 0x59baec130940 from cell: 0x7ffe04403470 cell_owner: 31 value_owner: 25
+[INCONSISTENCY mov read] ip: main+0xc1ee (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) base: 0x7ffe04403480 pointee: 25 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0xc1ee (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) loaded: 0x59baec130980 from cell: 0x7ffe04403450 cell_owner: 40 value_owner: 25
+[INTRA_OBJECT_OVERFLOW] ip: main+0xc1f7 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) byte write at: 0x7ffe0440344b offset: +0x2b cell_owner: 40 writer_pointee: 25
+[INCONSISTENCY mov read] ip: main+0xc200 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) base: 0x7ffe04403480 pointee: 25 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0xc200 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) loaded: 0x59baec130980 from cell: 0x7ffe04403450 cell_owner: 40 value_owner: 25
+[INTRA_OBJECT_OVERFLOW] ip: main+0xc20a (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) byte write at: 0x7ffe0440344b offset: +0x2b cell_owner: 40 writer_pointee: 25
+[INCONSISTENCY mov read] ip: main+0xc213 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) base: 0x7ffe04403480 pointee: 25 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0xc213 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) loaded: 0x59baec130980 from cell: 0x7ffe04403450 cell_owner: 40 value_owner: 25
+[INTRA_OBJECT_OVERFLOW] ip: main+0xc21d (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) byte write at: 0x7ffe0440344b offset: +0x2b cell_owner: 40 writer_pointee: 25
+[INCONSISTENCY mov read] ip: main+0xc226 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) base: 0x7ffe04403480 pointee: 25 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0xc226 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) loaded: 0x59baec130980 from cell: 0x7ffe04403450 cell_owner: 40 value_owner: 25
+[INTRA_OBJECT_OVERFLOW] ip: main+0xc231 (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) byte write at: 0x7ffe0440344b offset: +0x2b cell_owner: 40 writer_pointee: 25
+[INCONSISTENCY mov read] ip: main+0xc23f (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) base: 0x7ffe04403480 pointee: 25 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0xc23f (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:450) loaded: 0xec13098000000000 from cell: 0x7ffe0440344c cell_owner: 40 value_owner: 25
+[ALLOC] malloc(0x68) -> 0x59baec12bec0 subject=70 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+Store dangling pointer: 0x59baec12bec0 at: 0x7ffe044033c8
+main+0x41906 (sctp_add_addr_to_vrf @ sctp_pcb.c:553) Using expired pointer: 0x59baec12bec0 from 0x7ffe044033c8
+first time found dangling pointer at: 2689 distance: 2330
+[ALLOC] malloc(0x68) -> 0x59baec12bf30 subject=71 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12bf30 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12bf30 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 2330
+[INCONSISTENCY mov read] ip: main+0x4198a (sctp_add_addr_to_vrf @ sctp_pcb.c:571) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x4198a (sctp_add_addr_to_vrf @ sctp_pcb.c:571) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x4198e (sctp_add_addr_to_vrf @ sctp_pcb.c:571) UAF read at: 0x59baec12bb48
+first time found dangling pointer at: 2789 distance: 2291
+[INCONSISTENCY mov read] ip: main+0x7cb32 (sctp_find_ifa_by_addr @ sctputil.c:5859) base: 0x7ffe04403340 pointee: 69 read from 72
+[CORRUPTED_PTR_LOAD] ip: main+0x7cb32 (sctp_find_ifa_by_addr @ sctputil.c:5859) loaded: 0x1 from cell: 0x7ffe04403328 cell_owner: 72 value_owner: 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7cb59 (sctp_find_ifa_by_addr @ sctputil.c:5865) loaded: 0xec13097800000000 from cell: 0x7ffe0440332c cell_owner: 72 value_owner: 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7cb9a (sctp_find_ifa_by_addr @ sctputil.c:5872) loaded: 0x59baec130978 from cell: 0x7ffe04403330 cell_owner: 72 value_owner: 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7cd50 (sctp_find_ifa_by_addr @ sctputil.c:5916) loaded: 0x1 from cell: 0x7ffe04403328 cell_owner: 72 value_owner: 69
+[INCONSISTENCY mov read] ip: main+0x41eba (sctp_add_addr_to_vrf) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x41eba (sctp_add_addr_to_vrf) loaded: 0x44033c00000000a from cell: 0x7ffe04403364 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41efe (sctp_add_addr_to_vrf @ sctp_pcb.c:678) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x41efe (sctp_add_addr_to_vrf @ sctp_pcb.c:678) loaded: 0x59baec12bf30 from cell: 0x7ffe044033c0 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x41f02 (sctp_add_addr_to_vrf @ sctp_pcb.c:678) base: 0x7ffe04403410 pointee: 34 read from 40
+[CORRUPTED_PTR_LOAD] ip: main+0x41f02 (sctp_add_addr_to_vrf @ sctp_pcb.c:678) loaded: 0x59baec130978 from cell: 0x7ffe04403420 cell_owner: 40 value_owner: 34
+[INCONSISTENCY mov write reg UAF] ip: main+0x41f09 (sctp_add_addr_to_vrf @ sctp_pcb.c:678) UAF write at: 0x59baec12bf60
+[INCONSISTENCY mov write reg UAF] ip: main+0x41f11 (sctp_add_addr_to_vrf @ sctp_pcb.c:678) UAF write at: 0x59baec12bf68
+[INCONSISTENCY mov write reg UAF] ip: main+0x41f19 (sctp_add_addr_to_vrf @ sctp_pcb.c:678) UAF write at: 0x59baec12bf70
+[INCONSISTENCY mov write reg UAF] ip: main+0x41f20 (sctp_add_addr_to_vrf @ sctp_pcb.c:678) UAF write at: 0x59baec12bf78
+[INCONSISTENCY mov read] ip: main+0x41f7a (sctp_add_addr_to_vrf) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x41f7a (sctp_add_addr_to_vrf) loaded: 0xa0000000a from cell: 0x7ffe04403360 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x42084 (sctp_add_addr_to_vrf @ sctp_pcb.c:720) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x42084 (sctp_add_addr_to_vrf @ sctp_pcb.c:720) loaded: 0x59baec12bf30 from cell: 0x7ffe044033c0 cell_owner: 69 value_owner: 34
+Store dangling pointer: 0x59baec12bf60 at: 0x7ffe04403390
+[INCONSISTENCY mov read] ip: main+0x42090 (sctp_add_addr_to_vrf @ sctp_pcb.c:721) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x42090 (sctp_add_addr_to_vrf @ sctp_pcb.c:721) loaded: 0x59baec12bf30 from cell: 0x7ffe044033c0 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42094 (sctp_add_addr_to_vrf @ sctp_pcb.c:721) UAF read at: 0x59baec12bf50
+first time found dangling pointer at: 5204 distance: 47
+[INCONSISTENCY mov read] ip: main+0x4215a (sctp_add_addr_to_vrf @ sctp_pcb.c:723) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x4215a (sctp_add_addr_to_vrf @ sctp_pcb.c:723) loaded: 0x59baec12bf30 from cell: 0x7ffe044033c0 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x4215e (sctp_add_addr_to_vrf @ sctp_pcb.c:723) UAF write at: 0x59baec12bf90
+[INCONSISTENCY mov read] ip: main+0x42162 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) base: 0x7ffe04403410 pointee: 34 read from 69
+main+0x42162 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) Using expired pointer: 0x59baec12bf60 from 0x7ffe04403390
+first time found dangling pointer at: 5249 distance: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x42162 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) loaded: 0x59baec12bf60 from cell: 0x7ffe04403390 cell_owner: 69 value_owner: 34
+Store dangling pointer: 0x59baec12bf68 at: 0x7ffe04403378
+[INCONSISTENCY mov read] ip: main+0x42171 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) base: 0x7ffe04403410 pointee: 34 read from 69
+main+0x42171 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) Using expired pointer: 0x59baec12bf68 from 0x7ffe04403378
+first time found dangling pointer at: 5263 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x42171 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) loaded: 0x59baec12bf68 from cell: 0x7ffe04403378 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x42178 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) UAF read at: 0x59baec12bf68
+[INCONSISTENCY mov read] ip: main+0x4218c (sctp_add_addr_to_vrf @ sctp_pcb.c:725) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x4218c (sctp_add_addr_to_vrf @ sctp_pcb.c:725) loaded: 0x75b700000000 from cell: 0x7ffe04403350 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x421a6 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x421a6 (sctp_add_addr_to_vrf @ sctp_pcb.c:725) loaded: 0x100000000000 from cell: 0x7ffe04403354 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x421bc (sctp_add_addr_to_vrf @ sctp_pcb.c:725) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x421bc (sctp_add_addr_to_vrf @ sctp_pcb.c:725) loaded: 0xec12bf6800000000 from cell: 0x7ffe04403374 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x421d1 (sctp_add_addr_to_vrf @ sctp_pcb.c:728) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x421d1 (sctp_add_addr_to_vrf @ sctp_pcb.c:728) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x421d5 (sctp_add_addr_to_vrf @ sctp_pcb.c:728) UAF read at: 0x59baec12bb8c
+[INCONSISTENCY mov write reg UAF] ip: main+0x421db (sctp_add_addr_to_vrf @ sctp_pcb.c:728) UAF write at: 0x59baec12bb8c
+[INCONSISTENCY mov read] ip: main+0x421de (sctp_add_addr_to_vrf @ sctp_pcb.c:729) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x421de (sctp_add_addr_to_vrf @ sctp_pcb.c:729) loaded: 0x10010ac00000000 from cell: 0x7ffe044033a0 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x7caa1 (sctp_get_ifa_hash_val @ sctputil.c:5820) UAF read at: 0x59baec12bf68
+[INCONSISTENCY mov read] ip: main+0x422cf (sctp_add_addr_to_vrf @ sctp_pcb.c:753) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x422cf (sctp_add_addr_to_vrf @ sctp_pcb.c:753) loaded: 0x59baec12bf30 from cell: 0x7ffe044033c0 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x422d3 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x422d3 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) loaded: 0x59baec12bb40 from cell: 0x7ffe044033d0 cell_owner: 69 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x422d7 (sctp_add_addr_to_vrf @ sctp_pcb.c:753) UAF read at: 0x59baec12bb40
+first time found dangling pointer at: 3125 distance: 2244
+[INCONSISTENCY mov write reg UAF] ip: main+0x422da (sctp_add_addr_to_vrf @ sctp_pcb.c:753) UAF write at: 0x59baec12bbb8
+first time found dangling pointer at: 3128 distance: 2242
+[INCONSISTENCY mov read] ip: main+0x42349 (sctp_add_addr_to_vrf @ sctp_pcb.c:762) base: 0x7ffe04403410 pointee: 34 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x42349 (sctp_add_addr_to_vrf @ sctp_pcb.c:762) loaded: 0x59baec12bec0 from cell: 0x7ffe044033c8 cell_owner: 69 value_owner: 34
+[FREE] free(0x59baec12bec0) subject=70 at sctp_add_addr_to_vrf @ sctp_pcb.c:762
+[ALLOC] malloc(0x68) -> 0x59baec12bec0 subject=74 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+[ALLOC] malloc(0x68) -> 0x59baec12bfa0 subject=75 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12bfa0 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12bfa0 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 2825
+Store dangling pointer: 0x59baec12b6e8 at: 0x7ffe04403310
+main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) Using expired pointer: 0x59baec12b6e8 from 0x7ffe04403310
+first time found dangling pointer at: 2965 distance: 2703
+Store dangling pointer: 0x59baec12bfd0 at: 0x7ffe04403390
+[INCONSISTENCY mov read] ip: main+0x420b6 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) base: 0x7ffe04403410 pointee: 34 read from 73
+main+0x420b6 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12bfd0 from 0x7ffe04403390
+first time found dangling pointer at: 5249 distance: 505
+[CORRUPTED_PTR_LOAD] ip: main+0x420b6 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) loaded: 0x59baec12bfd0 from cell: 0x7ffe04403390 cell_owner: 73 value_owner: 34
+Store dangling pointer: 0x59baec12bfd8 at: 0x7ffe04403388
+[INCONSISTENCY mov read] ip: main+0x420c5 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) base: 0x7ffe04403410 pointee: 34 read from 73
+main+0x420c5 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12bfd8 from 0x7ffe04403388
+first time found dangling pointer at: 5756 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x420c5 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) loaded: 0x59baec12bfd8 from cell: 0x7ffe04403388 cell_owner: 73 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x420ce (sctp_add_addr_to_vrf @ sctp_pcb.c:722) UAF read at: 0x59baec12bfd8
+[INTRA_OBJECT_OVERFLOW] ip: main+0x420d1 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) byte write at: 0x7ffe0440335f offset: +0xf cell_owner: 73 writer_pointee: 34
+[INCONSISTENCY mov read] ip: main+0x4214d (sctp_add_addr_to_vrf @ sctp_pcb.c:722) base: 0x7ffe04403410 pointee: 34 read from 73
+[CORRUPTED_PTR_LOAD] ip: main+0x4214d (sctp_add_addr_to_vrf @ sctp_pcb.c:722) loaded: 0xec12bfd800000000 from cell: 0x7ffe04403384 cell_owner: 73 value_owner: 34
+[FREE] free(0x59baec12bec0) subject=74 at sctp_add_addr_to_vrf @ sctp_pcb.c:762
+[ALLOC] malloc(0x68) -> 0x59baec12bec0 subject=78 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+[ALLOC] malloc(0x68) -> 0x59baec12c010 subject=79 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12c010 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12c010 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 3334
+[CORRUPTED_PTR_LOAD] ip: main+0x7cc8c (sctp_find_ifa_by_addr @ sctputil.c:5887) loaded: 0x59baec130ae8 from cell: 0x7ffe04403330 cell_owner: 80 value_owner: 77
+[INCONSISTENCY mov read UAF] ip: main+0x7cc97 (sctp_find_ifa_by_addr @ sctputil.c:5887) UAF read at: 0x59baec12bbe0
+[INCONSISTENCY mov read UAF] ip: main+0x7cd43 (sctp_find_ifa_by_addr @ sctputil.c:5886) UAF read at: 0x59baec12bbc0
+Store dangling pointer: 0x59baec12c040 at: 0x7ffe04403390
+main+0x420b6 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12c040 from 0x7ffe04403390
+first time found dangling pointer at: 5249 distance: 1027
+Store dangling pointer: 0x59baec12c048 at: 0x7ffe04403388
+main+0x420c5 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12c048 from 0x7ffe04403388
+first time found dangling pointer at: 5756 distance: 523
+[INCONSISTENCY mov read] ip: main+0x42282 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) base: 0x7ffe04403410 pointee: 34 read from 77
+[CORRUPTED_PTR_LOAD] ip: main+0x42282 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) loaded: 0x59baec12c010 from cell: 0x7ffe044033c0 cell_owner: 77 value_owner: 34
+[INCONSISTENCY mov read] ip: main+0x4228a (sctp_add_addr_to_vrf @ sctp_pcb.c:751) base: 0x7ffe04403410 pointee: 34 read from 77
+[CORRUPTED_PTR_LOAD] ip: main+0x4228a (sctp_add_addr_to_vrf @ sctp_pcb.c:751) loaded: 0x59baec12b718 from cell: 0x7ffe044033b0 cell_owner: 77 value_owner: 34
+[INCONSISTENCY mov read UAF] ip: main+0x4228e (sctp_add_addr_to_vrf @ sctp_pcb.c:751) UAF read at: 0x59baec12b718
+first time found dangling pointer at: 3111 distance: 3276
+Store dangling pointer: 0x59baec12c020 at: 0x59baec12bbc8
+[INCONSISTENCY mov write reg UAF] ip: main+0x42291 (sctp_add_addr_to_vrf @ sctp_pcb.c:751) UAF write at: 0x59baec12bbc8
+first time found dangling pointer at: 3114 distance: 3274
+[FREE] free(0x59baec12bec0) subject=78 at sctp_add_addr_to_vrf @ sctp_pcb.c:762
+[ALLOC] malloc(0x68) -> 0x59baec12bec0 subject=82 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+[ALLOC] malloc(0x68) -> 0x59baec12c080 subject=83 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12c080 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12c080 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 3861
+Store dangling pointer: 0x59baec12c0b0 at: 0x7ffe04403390
+main+0x420b6 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12c0b0 from 0x7ffe04403390
+first time found dangling pointer at: 5249 distance: 1554
+Store dangling pointer: 0x59baec12c0b8 at: 0x7ffe04403388
+main+0x420c5 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12c0b8 from 0x7ffe04403388
+first time found dangling pointer at: 5756 distance: 1050
+[INCONSISTENCY mov read] ip: main+0x421c9 (sctp_add_addr_to_vrf @ sctp_pcb.c:726) base: 0x7ffe04403410 pointee: 34 read from 81
+[CORRUPTED_PTR_LOAD] ip: main+0x421c9 (sctp_add_addr_to_vrf @ sctp_pcb.c:726) loaded: 0x59baec12c080 from cell: 0x7ffe044033c0 cell_owner: 81 value_owner: 34
+[INCONSISTENCY mov write imm UAF] ip: main+0x421cd (sctp_add_addr_to_vrf @ sctp_pcb.c:726) UAF write at: 0x59baec12c0e1
+Store dangling pointer: 0x59baec12c090 at: 0x59baec12bd88
+[FREE] free(0x59baec12bec0) subject=82 at sctp_add_addr_to_vrf @ sctp_pcb.c:762
+[ALLOC] malloc(0x68) -> 0x59baec12bec0 subject=86 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+[ALLOC] malloc(0x68) -> 0x59baec12c0f0 subject=87 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12c0f0 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12c0f0 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 4384
+Store dangling pointer: 0x59baec12b708 at: 0x7ffe04403310
+main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) Using expired pointer: 0x59baec12b708 from 0x7ffe04403310
+first time found dangling pointer at: 2965 distance: 4248
+Store dangling pointer: 0x59baec12c120 at: 0x7ffe04403390
+main+0x420b6 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12c120 from 0x7ffe04403390
+first time found dangling pointer at: 5249 distance: 2050
+Store dangling pointer: 0x59baec12c128 at: 0x7ffe04403388
+main+0x420c5 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12c128 from 0x7ffe04403388
+first time found dangling pointer at: 5756 distance: 1546
+[FREE] free(0x59baec12bec0) subject=86 at sctp_add_addr_to_vrf @ sctp_pcb.c:762
+[ALLOC] malloc(0x68) -> 0x59baec12bec0 subject=90 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+[ALLOC] malloc(0x68) -> 0x59baec12c160 subject=91 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec12c160 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec12c160 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 4879
+[CORRUPTED_PTR_LOAD] ip: main+0x7cca8 (sctp_find_ifa_by_addr @ sctputil.c:5890) loaded: 0x59baec130d10 from cell: 0x7ffe04403330 cell_owner: 92 value_owner: 89
+[CORRUPTED_PTR_LOAD] ip: main+0x7ccd6 (sctp_find_ifa_by_addr @ sctputil.c:5899) loaded: 0x59baec130d10 from cell: 0x7ffe04403330 cell_owner: 92 value_owner: 89
+[CORRUPTED_PTR_LOAD] ip: main+0x7cce6 (sctp_find_ifa_by_addr @ sctputil.c:5900) loaded: 0x59baec130d10 from cell: 0x7ffe04403330 cell_owner: 92 value_owner: 89
+[CORRUPTED_PTR_LOAD] ip: main+0x7cd0a (sctp_find_ifa_by_addr @ sctputil.c:5908) loaded: 0x59baec130d10 from cell: 0x7ffe04403330 cell_owner: 92 value_owner: 89
+Store dangling pointer: 0x59baec12c190 at: 0x7ffe04403390
+main+0x420b6 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12c190 from 0x7ffe04403390
+first time found dangling pointer at: 5249 distance: 2601
+Store dangling pointer: 0x59baec12c198 at: 0x7ffe04403388
+main+0x420c5 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec12c198 from 0x7ffe04403388
+first time found dangling pointer at: 5756 distance: 2097
+Store dangling pointer: 0x59baec12c170 at: 0x59baec12bf48
+[FREE] free(0x59baec12bec0) subject=90 at sctp_add_addr_to_vrf @ sctp_pcb.c:762
+[ALLOC] malloc(0x68) -> 0x59baec12bec0 subject=94 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+[ALLOC] malloc(0x68) -> 0x59baec130fd0 subject=95 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec130fd0 at: 0x7ffe044033b8
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec130fd0 from 0x7ffe044033b8
+first time found dangling pointer at: 2698 distance: 5431
+Store dangling pointer: 0x59baec12b6c8 at: 0x7ffe04403310
+main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) Using expired pointer: 0x59baec12b6c8 from 0x7ffe04403310
+first time found dangling pointer at: 2965 distance: 5295
+Store dangling pointer: 0x59baec131000 at: 0x7ffe04403390
+main+0x420b6 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec131000 from 0x7ffe04403390
+first time found dangling pointer at: 5249 distance: 3097
+Store dangling pointer: 0x59baec131008 at: 0x7ffe04403388
+main+0x420c5 (sctp_add_addr_to_vrf @ sctp_pcb.c:722) Using expired pointer: 0x59baec131008 from 0x7ffe04403388
+first time found dangling pointer at: 5756 distance: 2593
+[FREE] free(0x59baec12bec0) subject=94 at sctp_add_addr_to_vrf @ sctp_pcb.c:762
+[INCONSISTENCY mov read] ip: main+0xc2fb (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:475) base: 0x7ffe04403480 pointee: 25 read from 31
+[CORRUPTED_PTR_LOAD] ip: main+0xc2fb (sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:475) loaded: 0x59baec130380 from cell: 0x7ffe04403468 cell_owner: 31 value_owner: 25
+[FREE] free(0x59baec130380) subject=48 at sctp_init_ifns_for_vrf @ sctp_bsd_addr.c:475
+[INCONSISTENCY mov write reg] ip: main+0x4fbef (sctp_pcb_init @ sctp_pcb.c:6703) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x4fc04 (sctp_pcb_init @ sctp_pcb.c:6709) loaded: 0x440350000000001 from cell: 0x7ffe044034cc cell_owner: 12 value_owner: 11
+[CORRUPTED_PTR_LOAD] ip: main+0x58db0 (sctp_userspace_thread_create @ sctp_userspace.c:79) loaded: 0x59baca3b13c8 from cell: 0x7ffe044034a8 cell_owner: 99 value_owner: 98
+[CORRUPTED_PTR_LOAD] ip: main+0x58db4 (sctp_userspace_thread_create @ sctp_userspace.c:79) loaded: 0x59baca2f9940 from cell: 0x7ffe044034a0 cell_owner: 99 value_owner: 98
+[ALLOC:internal] calloc(0x110) -> 0x59baec130380 subject=101 at _dl_allocate_tls
+[INCONSISTENCY mov write reg UAF] ip: main+0xc948 (user_sctp_timer_iterate @ sctp_callout.c:197) UAF write at: 0x75b720ffee88
+[INCONSISTENCY mov write reg UAF] ip: main+0x58dd8 (sctp_userspace_set_threadname @ sctp_userspace.c:85) UAF write at: 0x75b720ffee48
+[INCONSISTENCY mov read UAF] ip: main+0x58ddc (sctp_userspace_set_threadname @ sctp_userspace.c:90) UAF read at: 0x75b720ffee48
+[INCONSISTENCY mov write imm UAF] ip: main+0xc958 (user_sctp_timer_iterate @ sctp_callout.c:205) UAF write at: 0x75b720ffee68
+[INCONSISTENCY mov write imm UAF] ip: main+0xc960 (user_sctp_timer_iterate @ sctp_callout.c:206) UAF write at: 0x75b720ffee70
+[INCONSISTENCY mov read UAF] ip: main+0xc968 (user_sctp_timer_iterate @ sctp_callout.c:208) UAF read at: 0x75b720ffee68
+[INCONSISTENCY mov write reg UAF] ip: main+0xc96c (user_sctp_timer_iterate @ sctp_callout.c:208) UAF write at: 0x75b720ffee78
+[INCONSISTENCY mov read UAF] ip: main+0xc970 (user_sctp_timer_iterate @ sctp_callout.c:208) UAF read at: 0x75b720ffee70
+[INCONSISTENCY mov write reg UAF] ip: main+0xc974 (user_sctp_timer_iterate @ sctp_callout.c:208) UAF write at: 0x75b720ffee80
+[INCONSISTENCY mov write reg UAF] ip: main+0x92c8 (usrsctp_register_address @ user_socket.c:3143) UAF write at: 0x7ffe04403528
+[INCONSISTENCY mov write imm UAF] ip: main+0x92dc (usrsctp_register_address @ user_socket.c:3147) UAF write at: 0x7ffe04403518
+[INCONSISTENCY mov write imm UAF] ip: main+0x92e2 (usrsctp_register_address @ user_socket.c:3151) UAF write at: 0x7ffe0440351a
+[ALLOC] malloc(0x68) -> 0x59baec12bec0 subject=108 at sctp_add_addr_to_vrf @ sctp_pcb.c:551
+[ALLOC] malloc(0x68) -> 0x59baec1304a0 subject=109 at sctp_add_addr_to_vrf @ sctp_pcb.c:559
+Store dangling pointer: 0x59baec1304a0 at: 0x7ffe04403498
+main+0x4193b (sctp_add_addr_to_vrf @ sctp_pcb.c:560) Using expired pointer: 0x59baec1304a0 from 0x7ffe04403498
+first time found dangling pointer at: 1779 distance: 7004
+[INCONSISTENCY mov read] ip: main+0x410f2 (sctp_find_ifn @ sctp_pcb.c:263) base: 0x7ffe04403420 pointee: 40 read from 97
+[INCONSISTENCY mov read] ip: main+0x41107 (sctp_find_ifn @ sctp_pcb.c:264) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x41107 (sctp_find_ifn @ sctp_pcb.c:264) loaded: 0x59baec12b518 from cell: 0x7ffe044033f8 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x41112 (sctp_find_ifn @ sctp_pcb.c:264) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x41112 (sctp_find_ifn @ sctp_pcb.c:264) loaded: 0x59baec12bd00 from cell: 0x7ffe04403400 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x4111d (sctp_find_ifn @ sctp_pcb.c:265) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x4111d (sctp_find_ifn @ sctp_pcb.c:265) loaded: 0x59baec12bd00 from cell: 0x7ffe04403400 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x4113a (sctp_find_ifn @ sctp_pcb.c:268) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x4113a (sctp_find_ifn @ sctp_pcb.c:268) loaded: 0x59baec12bd00 from cell: 0x7ffe04403400 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x41178 (sctp_find_ifn @ sctp_pcb.c:264) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x41178 (sctp_find_ifn @ sctp_pcb.c:264) loaded: 0x59baec12bd00 from cell: 0x7ffe04403400 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x41191 (sctp_find_ifn @ sctp_pcb.c:273) base: 0x7ffe04403420 pointee: 40 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x41191 (sctp_find_ifn @ sctp_pcb.c:273) loaded: 0x0 from cell: 0x7ffe04403418 cell_owner: 34 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x4106e (sctp_find_vrf @ sctp_pcb.c:281) base: 0x7ffe04403420 pointee: 40 read from 34
+[INCONSISTENCY mov read] ip: main+0x41083 (sctp_find_vrf @ sctp_pcb.c:282) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x41083 (sctp_find_vrf @ sctp_pcb.c:282) loaded: 0x59baec12b4f0 from cell: 0x7ffe04403408 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x4108e (sctp_find_vrf @ sctp_pcb.c:282) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x4108e (sctp_find_vrf @ sctp_pcb.c:282) loaded: 0x59baec12b650 from cell: 0x7ffe04403400 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x41099 (sctp_find_vrf @ sctp_pcb.c:283) base: 0x7ffe04403420 pointee: 40 read from 34
+[INCONSISTENCY mov read] ip: main+0x4109c (sctp_find_vrf @ sctp_pcb.c:283) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x4109c (sctp_find_vrf @ sctp_pcb.c:283) loaded: 0x59baec12b650 from cell: 0x7ffe04403400 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x410a9 (sctp_find_vrf @ sctp_pcb.c:284) base: 0x7ffe04403420 pointee: 40 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x410a9 (sctp_find_vrf @ sctp_pcb.c:284) loaded: 0x59baec12b650 from cell: 0x7ffe04403400 cell_owner: 97 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x410d3 (sctp_find_vrf @ sctp_pcb.c:288) base: 0x7ffe04403420 pointee: 40 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x410d3 (sctp_find_vrf @ sctp_pcb.c:288) loaded: 0x59baec12b650 from cell: 0x7ffe04403418 cell_owner: 34 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x58e1e (sctp_userspace_get_mtu_from_ifn @ sctp_userspace.c:105) base: 0x7ffe04403420 pointee: 40 read from 34
+[INCONSISTENCY mov read] ip: main+0x58ea5 (sctp_userspace_get_mtu_from_ifn @ sctp_userspace.c:118) base: 0x7ffe04403420 pointee: 40 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x58ea5 (sctp_userspace_get_mtu_from_ifn @ sctp_userspace.c:118) loaded: 0x44034f000000000 from cell: 0x7ffe0440341c cell_owner: 34 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cb59 (sctp_find_ifa_by_addr @ sctputil.c:5865) base: 0x7ffe04403420 pointee: 40 read from 111
+[INCONSISTENCY mov read] ip: main+0x7cb65 (sctp_find_ifa_by_addr @ sctputil.c:5866) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cb65 (sctp_find_ifa_by_addr @ sctputil.c:5866) loaded: 0x59baec12b650 from cell: 0x7ffe044033f8 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cb9a (sctp_find_ifa_by_addr @ sctputil.c:5872) base: 0x7ffe04403420 pointee: 40 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x7ca38 (sctp_get_ifa_hash_val @ sctputil.c:5802) loaded: 0x7ffe04403518 from cell: 0x7ffe044033c0 cell_owner: 97 value_owner: 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cad5 (sctp_get_ifa_hash_val @ sctputil.c:5840) loaded: 0x7ffe04403518 from cell: 0x7ffe044033c0 cell_owner: 97 value_owner: 111
+[INCONSISTENCY mov read] ip: main+0x7cba6 (sctp_find_ifa_by_addr @ sctputil.c:5874) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cba6 (sctp_find_ifa_by_addr @ sctputil.c:5874) loaded: 0x59baec12b650 from cell: 0x7ffe044033f8 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cbae (sctp_find_ifa_by_addr @ sctputil.c:5874) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cbae (sctp_find_ifa_by_addr @ sctputil.c:5874) loaded: 0x1 from cell: 0x7ffe044033ec cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cbb1 (sctp_find_ifa_by_addr @ sctputil.c:5874) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cbb1 (sctp_find_ifa_by_addr @ sctputil.c:5874) loaded: 0x59baec12b650 from cell: 0x7ffe044033f8 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cbc4 (sctp_find_ifa_by_addr @ sctputil.c:5875) loaded: 0x59baec12b6a8 from cell: 0x7ffe044033f0 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cc76 (sctp_find_ifa_by_addr @ sctputil.c:5886) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cc76 (sctp_find_ifa_by_addr @ sctputil.c:5886) loaded: 0x59baec12b6a8 from cell: 0x7ffe044033f0 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cc81 (sctp_find_ifa_by_addr @ sctputil.c:5886) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cc81 (sctp_find_ifa_by_addr @ sctputil.c:5886) loaded: 0x59baec12bc90 from cell: 0x7ffe04403400 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cc8c (sctp_find_ifa_by_addr @ sctputil.c:5887) base: 0x7ffe04403420 pointee: 40 read from 34
+[INCONSISTENCY mov read] ip: main+0x7cc93 (sctp_find_ifa_by_addr @ sctputil.c:5887) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cc93 (sctp_find_ifa_by_addr @ sctputil.c:5887) loaded: 0x59baec12bc90 from cell: 0x7ffe04403400 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cd3f (sctp_find_ifa_by_addr @ sctputil.c:5886) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cd3f (sctp_find_ifa_by_addr @ sctputil.c:5886) loaded: 0x59baec12bc90 from cell: 0x7ffe04403400 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cd50 (sctp_find_ifa_by_addr @ sctputil.c:5916) base: 0x7ffe04403420 pointee: 40 read from 111
+[INCONSISTENCY mov read] ip: main+0x7cd6d (sctp_find_ifa_by_addr @ sctputil.c:5918) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cd6d (sctp_find_ifa_by_addr @ sctputil.c:5918) loaded: 0x0 from cell: 0x7ffe04403400 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cd75 (sctp_find_ifa_by_addr @ sctputil.c:5919) base: 0x7ffe04403420 pointee: 40 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x7cd75 (sctp_find_ifa_by_addr @ sctputil.c:5919) loaded: 0x0 from cell: 0x7ffe04403418 cell_owner: 34 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x41ece (sctp_add_addr_to_vrf) base: 0x7ffe044034f0 pointee: 10 read from 107
+[CORRUPTED_PTR_LOAD] ip: main+0x41ece (sctp_add_addr_to_vrf) loaded: 0x12b6a00000007b from cell: 0x7ffe04403444 cell_owner: 107 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x41f28 (sctp_add_addr_to_vrf @ sctp_pcb.c:683) base: 0x7ffe044034f0 pointee: 10 read from 99
+[CORRUPTED_PTR_LOAD] ip: main+0x41f28 (sctp_add_addr_to_vrf @ sctp_pcb.c:683) loaded: 0x59baec1304a0 from cell: 0x7ffe044034a0 cell_owner: 99 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x41f2c (sctp_add_addr_to_vrf @ sctp_pcb.c:683) base: 0x7ffe044034f0 pointee: 10 read from 106
+[INCONSISTENCY mov write reg UAF] ip: main+0x41f33 (sctp_add_addr_to_vrf @ sctp_pcb.c:683) UAF write at: 0x59baec1304d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x41f3b (sctp_add_addr_to_vrf @ sctp_pcb.c:683) UAF write at: 0x59baec1304d8
+[INCONSISTENCY mov read] ip: main+0x41f8e (sctp_add_addr_to_vrf) base: 0x7ffe044034f0 pointee: 10 read from 107
+[CORRUPTED_PTR_LOAD] ip: main+0x41f8e (sctp_add_addr_to_vrf) loaded: 0x7b0000007b from cell: 0x7ffe04403440 cell_owner: 107 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x421f4 (sctp_add_addr_to_vrf @ sctp_pcb.c:736) base: 0x7ffe044034f0 pointee: 10 read from 25
+[CORRUPTED_PTR_LOAD] ip: main+0x421f4 (sctp_add_addr_to_vrf @ sctp_pcb.c:736) loaded: 0x75b700000001 from cell: 0x7ffe04403480 cell_owner: 25 value_owner: 10
+Store dangling pointer: 0x59baec1304d0 at: 0x7ffe04403410
+[INCONSISTENCY mov read] ip: main+0x7ca38 (sctp_get_ifa_hash_val @ sctputil.c:5802) base: 0x7ffe04403420 pointee: 40 read from 34
+main+0x7ca38 (sctp_get_ifa_hash_val @ sctputil.c:5802) Using expired pointer: 0x59baec1304d0 from 0x7ffe04403410
+first time found dangling pointer at: 9174 distance: 1
+[INCONSISTENCY mov read] ip: main+0x7ca50 (sctp_get_ifa_hash_val) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7ca50 (sctp_get_ifa_hash_val) loaded: 0x7b from cell: 0x7ffe044033e4 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7ca61 (sctp_get_ifa_hash_val) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7ca61 (sctp_get_ifa_hash_val) loaded: 0x7b from cell: 0x7ffe044033e4 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cad5 (sctp_get_ifa_hash_val @ sctputil.c:5840) base: 0x7ffe04403420 pointee: 40 read from 34
+[INCONSISTENCY mov read] ip: main+0x7cadd (sctp_get_ifa_hash_val @ sctputil.c:5841) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cadd (sctp_get_ifa_hash_val @ sctputil.c:5841) loaded: 0x59baec1304d0 from cell: 0x7ffe044033f0 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read UAF] ip: main+0x7cae1 (sctp_get_ifa_hash_val @ sctputil.c:5841) UAF read at: 0x59baec1304d8
+[INCONSISTENCY mov read] ip: main+0x7cae9 (sctp_get_ifa_hash_val @ sctputil.c:5842) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7cae9 (sctp_get_ifa_hash_val @ sctputil.c:5842) loaded: 0x1 from cell: 0x7ffe044033e8 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7caed (sctp_get_ifa_hash_val @ sctputil.c:5842) base: 0x7ffe04403420 pointee: 40 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x7caed (sctp_get_ifa_hash_val @ sctputil.c:5842) loaded: 0x1 from cell: 0x7ffe044033e8 cell_owner: 111 value_owner: 40
+[INCONSISTENCY mov read] ip: main+0x7cb0c (sctp_get_ifa_hash_val @ sctputil.c:5849) base: 0x7ffe04403420 pointee: 40 read from 34
+[CORRUPTED_PTR_LOAD] ip: main+0x7cb0c (sctp_get_ifa_hash_val @ sctputil.c:5849) loaded: 0x44034f000000001 from cell: 0x7ffe0440341c cell_owner: 34 value_owner: 40
+Store dangling pointer: 0x59baec1304b0 at: 0x59baec12bca8
+[INCONSISTENCY mov write reg UAF] ip: main+0x70444 (sctp_msecs_to_ticks @ sctputil.c:805) UAF write at: 0x75b720ffee4c
+[UNINITIALIZED mov read] ip: main+0x7044e (sctp_msecs_to_ticks @ sctputil.c:809) co: 2 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x7045a (sctp_msecs_to_ticks @ sctputil.c:810) UAF read at: 0x75b720ffee4c
+[INCONSISTENCY mov write reg UAF] ip: main+0x7045d (sctp_msecs_to_ticks @ sctputil.c:810) UAF write at: 0x75b720ffee3c
+[INCONSISTENCY mov read UAF] ip: main+0x704b1 (sctp_msecs_to_ticks @ sctputil.c:819) UAF read at: 0x75b720ffee3c
+[INCONSISTENCY mov write reg] ip: main+0x295d (LLVMFuzzerTestOneInput @ fuzzer_connect.c:267) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x2963 (LLVMFuzzerTestOneInput @ fuzzer_connect.c:271) loaded: 0x151 from cell: 0x7ffe04403550 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x296d (LLVMFuzzerTestOneInput @ fuzzer_connect.c:271) loaded: 0x151 from cell: 0x7ffe04403550 cell_owner: 8 value_owner: 4
+[OVERLAP] new alloc [0x75b720ffee30, 0x75b720ffee50) overlaps live subject 105 [0x75b720ffee40, 0x75b720ffee50)
+[INCONSISTENCY mov write reg UAF] ip: main+0xc798 (sctp_handle_tick @ sctp_callout.c:155) UAF write at: 0x75b720ffee4c
+[INCONSISTENCY mov read UAF] ip: main+0xc7ae (sctp_handle_tick @ sctp_callout.c:162) UAF read at: 0x75b720ffee4c
+[INCONSISTENCY mov write reg] ip: main+0xc7b7 (sctp_handle_tick @ sctp_callout.c:162) co: 3 vo: 3, 3 write 3
+[UNINITIALIZED mov read] ip: main+0xc7c4 (sctp_handle_tick @ sctp_callout.c:163) co: 3 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xc7cb (sctp_handle_tick @ sctp_callout.c:163) UAF write at: 0x75b720ffee40
+[INCONSISTENCY mov read UAF] ip: main+0xc7cf (sctp_handle_tick @ sctp_callout.c:164) UAF read at: 0x75b720ffee40
+[INCONSISTENCY mov read UAF] ip: main+0x627d (usrsctp_socket @ user_socket.c:1338) UAF read at: 0x7ffe04403540
+[INCONSISTENCY mov read UAF] ip: main+0x62a0 (usrsctp_socket @ user_socket.c:1342) UAF read at: 0x7ffe04403524
+[INCONSISTENCY mov write reg UAF] ip: main+0x5fd8 (socreate @ user_socket.c:1237) UAF write at: 0x7ffe044034d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5fdb (socreate @ user_socket.c:1237) UAF write at: 0x7ffe044034d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x5fdf (socreate @ user_socket.c:1237) UAF write at: 0x7ffe044034cc
+[INCONSISTENCY mov write reg UAF] ip: main+0x5fe2 (socreate @ user_socket.c:1237) UAF write at: 0x7ffe044034c8
+[INCONSISTENCY mov read UAF] ip: main+0x5fe5 (socreate @ user_socket.c:1241) UAF read at: 0x7ffe044034d8
+[INCONSISTENCY mov read UAF] ip: main+0x600f (socreate @ user_socket.c:1244) UAF read at: 0x7ffe044034cc
+[INCONSISTENCY mov read UAF] ip: main+0x602f (socreate @ user_socket.c:1247) UAF read at: 0x7ffe044034c8
+[ALLOC] malloc(0x248) -> 0x59baec130510 subject=119 at soalloc @ user_socket.c:206
+Store dangling pointer: 0x59baec130510 at: 0x7ffe04403490
+[INCONSISTENCY mov read] ip: main+0x4406 (soalloc @ user_socket.c:208) base: 0x7ffe044034a0 pointee: 117 read from 118
+main+0x4406 (soalloc @ user_socket.c:208) Using expired pointer: 0x59baec130510 from 0x7ffe04403490
+first time found dangling pointer at: 9220 distance: 237
+[CORRUPTED_PTR_LOAD] ip: main+0x4406 (soalloc @ user_socket.c:208) loaded: 0x59baec130510 from cell: 0x7ffe04403490 cell_owner: 118 value_owner: 117
+[INCONSISTENCY mov read] ip: main+0x441e (soalloc @ user_socket.c:211) base: 0x7ffe044034a0 pointee: 99 read from 118
+[CORRUPTED_PTR_LOAD] ip: main+0x441e (soalloc @ user_socket.c:211) loaded: 0x59baec130510 from cell: 0x7ffe04403490 cell_owner: 118 value_owner: 117
+[INCONSISTENCY mov read] ip: main+0x442e (soalloc @ user_socket.c:214) base: 0x7ffe044034a0 pointee: 99 read from 118
+[CORRUPTED_PTR_LOAD] ip: main+0x442e (soalloc @ user_socket.c:214) loaded: 0x59baec130510 from cell: 0x7ffe04403490 cell_owner: 118 value_owner: 117
+[INCONSISTENCY mov read] ip: main+0x4446 (soalloc @ user_socket.c:215) base: 0x7ffe044034a0 pointee: 99 read from 118
+[CORRUPTED_PTR_LOAD] ip: main+0x4446 (soalloc @ user_socket.c:215) loaded: 0x59baec130510 from cell: 0x7ffe04403490 cell_owner: 118 value_owner: 117
+[INCONSISTENCY mov read] ip: main+0x445e (soalloc @ user_socket.c:216) base: 0x7ffe044034a0 pointee: 99 read from 118
+[CORRUPTED_PTR_LOAD] ip: main+0x445e (soalloc @ user_socket.c:216) loaded: 0x59baec130510 from cell: 0x7ffe04403490 cell_owner: 118 value_owner: 117
+[INCONSISTENCY mov read] ip: main+0x4472 (soalloc @ user_socket.c:217) base: 0x7ffe044034a0 pointee: 99 read from 118
+[CORRUPTED_PTR_LOAD] ip: main+0x4472 (soalloc @ user_socket.c:217) loaded: 0x59baec130510 from cell: 0x7ffe04403490 cell_owner: 118 value_owner: 117
+[INCONSISTENCY mov read] ip: main+0x4486 (soalloc @ user_socket.c:218) base: 0x7ffe044034a0 pointee: 99 read from 118
+[CORRUPTED_PTR_LOAD] ip: main+0x4486 (soalloc @ user_socket.c:218) loaded: 0x59baec130510 from cell: 0x7ffe04403490 cell_owner: 118 value_owner: 117
+[INCONSISTENCY mov read] ip: main+0x4497 (soalloc @ user_socket.c:222) base: 0x7ffe044034a0 pointee: 99 read from 118
+[CORRUPTED_PTR_LOAD] ip: main+0x4497 (soalloc @ user_socket.c:222) loaded: 0x59baec130510 from cell: 0x7ffe04403490 cell_owner: 118 value_owner: 117
+[INCONSISTENCY mov write imm UAF] ip: main+0x449b (soalloc @ user_socket.c:222) UAF write at: 0x59baec1305b8
+[INCONSISTENCY mov read] ip: main+0x44a6 (soalloc @ user_socket.c:222) base: 0x7ffe044034a0 pointee: 99 read from 118
+[CRASH] signal at PC: 0x75b737c7a207 fault_addr: 0x75b737c7a207

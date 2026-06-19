@@ -1,0 +1,7 @@
+[UNTRUSTEDPTRDEREF] ip: main+0x39820 (main @ main.c:39) final_ea: 0x6379b3ae1fb8 base: 0x6379b3909820 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x39827 (main @ main.c:39) final_ea: 0x700432e13670 base: 0x700432e13670 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1000) -> 0x6379d218e010 subject=5 at _IO_file_doallocate
+[STACK PIVOT] ip: main+0x39870 (main @ main.c:44) RSP 0x7ffd1797b8f0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x396ce (__do_global_dtors_aux) final_ea: 0x6379b3ae1ff0 base: 0x6379b39096ce pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x396f4 (__do_global_dtors_aux) RSP 0x7ffd1797b7c0 left stack after RET
+[STACK PIVOT] ip: main+0x18972c (_fini) RSP 0x7ffd1797b7f0 left stack after RET

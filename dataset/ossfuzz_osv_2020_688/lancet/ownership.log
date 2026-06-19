@@ -1,0 +1,1627 @@
+[INCONSISTENCY mov write reg] ip: main+0xc835 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0xc838 (main) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0xc854 (main) final_ea: 0x7fff387a7f40 base: 0x7fff387a7f40 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x61fbdc124010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0xc869 (main) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x61fbdc1241f0 subject=6 at _IO_file_doallocate
+[ALLOC:internal] malloc(0xa3) -> 0x61fbdc125200 subject=7 at main
+[FREE:internal] free(0x61fbdc1241f0) subject=6 at _IO_setb
+[FREE:internal] free(0x61fbdc124010) subject=5 at _IO_fclose
+[FREE:internal] free(0x61fbdc124010) subject=0
+[DOUBLE FREE] free(0x61fbdc124010) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0xc929 (LLVMFuzzerTestOneInput @ harness.cc:8) loaded: 0xa3 from cell: 0x7fff387a7da0 cell_owner: 8 value_owner: 4
+[ALLOC] malloc(0xa4) -> 0x61fbdc1244f0 subject=9 at LLVMFuzzerTestOneInput @ harness.cc:8
+Store dangling pointer: 0x61fbdc1244f0 at: 0x7fff387a7db0
+main+0xc93d (LLVMFuzzerTestOneInput @ harness.cc:9) Using expired pointer: 0x61fbdc1244f0 from 0x7fff387a7db0
+first time found dangling pointer at: 76 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0xc94b (LLVMFuzzerTestOneInput @ harness.cc:10) loaded: 0xa3 from cell: 0x7fff387a7da0 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0xc94f (LLVMFuzzerTestOneInput @ harness.cc:10) loaded: 0x61fbdc125200 from cell: 0x7fff387a7da8 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0xc966 (LLVMFuzzerTestOneInput @ harness.cc:11) loaded: 0xa3 from cell: 0x7fff387a7da0 cell_owner: 8 value_owner: 4
+[INCONSISTENCY mov write imm UAF] ip: main+0xc96d (LLVMFuzzerTestOneInput @ harness.cc:11) UAF write at: 0x61fbdc124593
+[CORRUPTED_PTR_LOAD] ip: main+0x156ef (icalparser_parse_string @ icalparser.c:1347) loaded: 0x61fbdc1244f0 from cell: 0x7fff387a7d58 cell_owner: 10 value_owner: 8
+[ALLOC] malloc(0x88) -> 0x61fbdc1245a0 subject=12 at icalparser_new @ icalparser.c:104
+Store dangling pointer: 0x61fbdc1245a0 at: 0x7fff387a7d38
+[INCONSISTENCY mov read] ip: main+0x1349a (icalparser_new @ icalparser.c:104) base: 0x7fff387a7d40 pointee: 10 read from 11
+main+0x1349a (icalparser_new @ icalparser.c:104) Using expired pointer: 0x61fbdc1245a0 from 0x7fff387a7d38
+first time found dangling pointer at: 188 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x1349a (icalparser_new @ icalparser.c:104) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x134b2 (icalparser_new @ icalparser.c:109) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x134b6 (icalparser_new @ icalparser.c:109) UAF write at: 0x61fbdc124600
+[ALLOC] malloc(0x28) -> 0x61fbdc124630 subject=14 at pvl_newlist @ pvl.c:65
+Store dangling pointer: 0x61fbdc124630 at: 0x7fff387a7d18
+[INCONSISTENCY mov read] ip: main+0x26c7e (pvl_newlist @ pvl.c:65) base: 0x7fff387a7d20 pointee: 11 read from 13
+main+0x26c7e (pvl_newlist @ pvl.c:65) Using expired pointer: 0x61fbdc124630 from 0x7fff387a7d18
+first time found dangling pointer at: 202 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x26c7e (pvl_newlist @ pvl.c:65) loaded: 0x61fbdc124630 from cell: 0x7fff387a7d18 cell_owner: 13 value_owner: 11
+[CORRUPTED_PTR_LOAD] ip: main+0x26c9d (pvl_newlist @ pvl.c:70) loaded: 0x61fbdc124630 from cell: 0x7fff387a7d18 cell_owner: 13 value_owner: 11
+[INCONSISTENCY mov write reg UAF] ip: main+0x26ca1 (pvl_newlist @ pvl.c:70) UAF write at: 0x61fbdc124630
+[INCONSISTENCY mov write reg] ip: main+0x26cac (pvl_newlist @ pvl.c:71) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x26cb2 (pvl_newlist @ pvl.c:72) loaded: 0x61fbdc124630 from cell: 0x7fff387a7d18 cell_owner: 13 value_owner: 11
+[INCONSISTENCY mov write imm UAF] ip: main+0x26cb6 (pvl_newlist @ pvl.c:72) UAF write at: 0x61fbdc124638
+[CORRUPTED_PTR_LOAD] ip: main+0x26cbe (pvl_newlist @ pvl.c:73) loaded: 0x61fbdc124630 from cell: 0x7fff387a7d18 cell_owner: 13 value_owner: 11
+[INCONSISTENCY mov write imm UAF] ip: main+0x26cc2 (pvl_newlist @ pvl.c:73) UAF write at: 0x61fbdc124640
+[CORRUPTED_PTR_LOAD] ip: main+0x26cca (pvl_newlist @ pvl.c:74) loaded: 0x61fbdc124630 from cell: 0x7fff387a7d18 cell_owner: 13 value_owner: 11
+[INCONSISTENCY mov write imm UAF] ip: main+0x26cce (pvl_newlist @ pvl.c:74) UAF write at: 0x61fbdc124648
+[CORRUPTED_PTR_LOAD] ip: main+0x26cd5 (pvl_newlist @ pvl.c:75) loaded: 0x61fbdc124630 from cell: 0x7fff387a7d18 cell_owner: 13 value_owner: 11
+[INCONSISTENCY mov write imm UAF] ip: main+0x26cd9 (pvl_newlist @ pvl.c:75) UAF write at: 0x61fbdc124650
+[CORRUPTED_PTR_LOAD] ip: main+0x26ce1 (pvl_newlist @ pvl.c:77) loaded: 0x61fbdc124630 from cell: 0x7fff387a7d18 cell_owner: 13 value_owner: 11
+[STACK PIVOT] ip: main+0x26ce5 (pvl_newlist @ pvl.c:78) RSP 0x7fff387a7d28 left stack [0x10,0x7fff38789000]
+[CORRUPTED_PTR_LOAD] ip: main+0x134c3 (icalparser_new @ icalparser.c:110) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write reg UAF] ip: main+0x134c7 (icalparser_new @ icalparser.c:110) UAF write at: 0x61fbdc124618
+first time found dangling pointer at: 223 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0x134cb (icalparser_new @ icalparser.c:111) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x134cf (icalparser_new @ icalparser.c:111) UAF write at: 0x61fbdc12460c
+[CORRUPTED_PTR_LOAD] ip: main+0x134d6 (icalparser_new @ icalparser.c:112) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x134da (icalparser_new @ icalparser.c:112) UAF write at: 0x61fbdc124614
+[CORRUPTED_PTR_LOAD] ip: main+0x134e1 (icalparser_new @ icalparser.c:113) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x134e5 (icalparser_new @ icalparser.c:113) UAF write at: 0x61fbdc1245a8
+[CORRUPTED_PTR_LOAD] ip: main+0x134ed (icalparser_new @ icalparser.c:114) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x134f1 (icalparser_new @ icalparser.c:114) UAF write at: 0x61fbdc1245a0
+[CORRUPTED_PTR_LOAD] ip: main+0x134f7 (icalparser_new @ icalparser.c:115) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x134fb (icalparser_new @ icalparser.c:115) UAF write at: 0x61fbdc1245a4
+[CORRUPTED_PTR_LOAD] ip: main+0x13502 (icalparser_new @ icalparser.c:116) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x13506 (icalparser_new @ icalparser.c:116) UAF write at: 0x61fbdc124610
+[CORRUPTED_PTR_LOAD] ip: main+0x1350d (icalparser_new @ icalparser.c:117) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x13527 (icalparser_new @ icalparser.c:119) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7d38 cell_owner: 11 value_owner: 10
+[STACK PIVOT] ip: main+0x1352b (icalparser_new @ icalparser.c:120) RSP 0x7fff387a7d48 left stack [0x11,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x135aa (icalparser_set_gen_data @ icalparser.c:140) UAF write at: 0x7fff387a7d38
+first time found dangling pointer at: 188 distance: 68
+[INCONSISTENCY mov write reg UAF] ip: main+0x135ae (icalparser_set_gen_data @ icalparser.c:140) UAF write at: 0x7fff387a7d30
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d38 ip: main+0x135b2 (icalparser_set_gen_data @ icalparser.c:141)
+first time found dangling pointer at: 188 distance: 70
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d30 ip: main+0x135b6 (icalparser_set_gen_data @ icalparser.c:141)
+[INCONSISTENCY mov write reg UAF] ip: main+0x135ba (icalparser_set_gen_data @ icalparser.c:141) UAF write at: 0x61fbdc124620
+[INCONSISTENCY mov write imm UAF] ip: main+0x12a15 (icalerror_set_error_state @ icalerror.c:230) UAF write at: 0x7fff387a7d3c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d3c ip: main+0x12a58 (icalerror_set_error_state @ icalerror.c:230)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d3c ip: main+0x12a1e (icalerror_set_error_state @ icalerror.c:231)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d3c ip: main+0x12a3a (icalerror_set_error_state @ icalerror.c:232)
+[INCONSISTENCY mov write imm UAF] ip: main+0x141ba (icalparser_parse @ icalparser.c:635) UAF write at: 0x7fff387a7d38
+first time found dangling pointer at: 188 distance: 265
+[CORRUPTED_PTR_LOAD] ip: main+0x13de5 (icalparser_get_line @ icalparser.c:486) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7cc8 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read UAF] ip: main+0x13de9 (icalparser_get_line @ icalparser.c:486) UAF read at: 0x61fbdc1245a8
+[CORRUPTED_PTR_LOAD] ip: main+0x12fa5 (icalmemory_new_buffer @ icalmemory.c:268) loaded: 0x50 from cell: 0x7fff387a7c98 cell_owner: 19 value_owner: 18
+[ALLOC] malloc(0x50) -> 0x61fbdc124660 subject=20 at icalmemory_new_buffer @ icalmemory.c:268
+Store dangling pointer: 0x61fbdc124660 at: 0x7fff387a7ca8
+main+0x12fb5 (icalmemory_new_buffer @ icalmemory.c:270) Using expired pointer: 0x61fbdc124660 from 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x12fcd (icalmemory_new_buffer @ icalmemory.c:275) loaded: 0x50 from cell: 0x7fff387a7c98 cell_owner: 19 value_owner: 18
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7cb8 left stack [0x16,0x7fff38789000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x13e0d (icalparser_get_line @ icalparser.c:489) UAF write at: 0x61fbdc124660
+[CORRUPTED_PTR_LOAD] ip: main+0x13e10 (icalparser_get_line @ icalparser.c:505) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7cc8 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read UAF] ip: main+0x13e14 (icalparser_get_line @ icalparser.c:505) UAF read at: 0x61fbdc1245b0
+[CORRUPTED_PTR_LOAD] ip: main+0x13f05 (icalparser_get_line @ icalparser.c:538) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7cc8 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read UAF] ip: main+0x13f09 (icalparser_get_line @ icalparser.c:538) UAF read at: 0x61fbdc1245a8
+[CORRUPTED_PTR_LOAD] ip: main+0x13f11 (icalparser_get_line @ icalparser.c:538) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7cc8 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov write imm UAF] ip: main+0x13f15 (icalparser_get_line @ icalparser.c:538) UAF write at: 0x61fbdc1245ff
+[CORRUPTED_PTR_LOAD] ip: main+0x13f1a (icalparser_get_line @ icalparser.c:541) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7cc8 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read UAF] ip: main+0x13f1e (icalparser_get_line @ icalparser.c:541) UAF read at: 0x61fbdc124620
+[CORRUPTED_PTR_LOAD] ip: main+0x13f25 (icalparser_get_line @ icalparser.c:541) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7cc8 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read UAF] ip: main+0x13f29 (icalparser_get_line @ icalparser.c:541) UAF read at: 0x61fbdc1245a8
+[CORRUPTED_PTR_LOAD] ip: main+0x13f2d (icalparser_get_line @ icalparser.c:541) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7cc8 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x13f35 (icalparser_get_line @ icalparser.c:541) loaded: 0x61fbcb9ed52d from cell: 0x7fff387a7cc0 cell_owner: 18 value_owner: 17
+Store dangling pointer: 0x61fbdc1245b0 at: 0x7fff387a7c88
+[INCONSISTENCY mov write imm UAF] ip: main+0x15545 (icalparser_string_line_generator @ icalparser.c:1284) UAF write at: 0x7fff387a7cac
+[INCONSISTENCY mov write reg UAF] ip: main+0x15550 (icalparser_string_line_generator @ icalparser.c:1287) UAF write at: 0x7fff387a7c98
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x15554 (icalparser_string_line_generator @ icalparser.c:1289)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x15560 (icalparser_string_line_generator @ icalparser.c:1290)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x15568 (icalparser_string_line_generator @ icalparser.c:1290)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x1556f (icalparser_string_line_generator @ icalparser.c:1293)
+[INCONSISTENCY mov read UAF] ip: main+0x15576 (icalparser_string_line_generator @ icalparser.c:1293) UAF read at: 0x61fbdc1244f0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x155b3 (icalparser_string_line_generator @ icalparser.c:1301)
+[INCONSISTENCY mov read UAF] ip: main+0x155ba (icalparser_string_line_generator @ icalparser.c:1301) UAF read at: 0x61fbdc1244f0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x155cb (icalparser_string_line_generator @ icalparser.c:1305)
+Store dangling pointer: 0x61fbdc1244ff at: 0x7fff387a7c90
+[INCONSISTENCY mov write reg UAF] ip: main+0x155df (icalparser_string_line_generator @ icalparser.c:1305) UAF write at: 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c90 ip: main+0x155e3 (icalparser_string_line_generator @ icalparser.c:1307)
+first time found dangling pointer at: 807 distance: 1
+main+0x155e3 (icalparser_string_line_generator @ icalparser.c:1307) Using expired pointer: 0x61fbdc1244ff from 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x15643 (icalparser_string_line_generator @ icalparser.c:1319)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c90 ip: main+0x1564a (icalparser_string_line_generator @ icalparser.c:1319)
+first time found dangling pointer at: 807 distance: 6
+main+0x1564a (icalparser_string_line_generator @ icalparser.c:1319) Read a dangling pointer 0x61fbdc124500 from 0x7fff387a7c90
+[INCONSISTENCY mov write reg UAF] ip: main+0x15651 (icalparser_string_line_generator @ icalparser.c:1319) UAF write at: 0x7fff387a7ca0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x1566f (icalparser_string_line_generator @ icalparser.c:1326)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ca0 ip: main+0x15676 (icalparser_string_line_generator @ icalparser.c:1326)
+main+0x1567a (icalparser_string_line_generator @ icalparser.c:1326) Using expired pointer: 0x61fbdc1245b0 from 0x7fff387a7c88
+first time found dangling pointer at: 776 distance: 47
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cac ip: main+0x15689 (icalparser_string_line_generator @ icalparser.c:1328)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ca0 ip: main+0x156a5 (icalparser_string_line_generator @ icalparser.c:1331)
+[INCONSISTENCY mov write imm UAF] ip: main+0x156ac (icalparser_string_line_generator @ icalparser.c:1331) UAF write at: 0x61fbdc1245c0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x156af (icalparser_string_line_generator @ icalparser.c:1333)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ca0 ip: main+0x156b6 (icalparser_string_line_generator @ icalparser.c:1333)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x156bd (icalparser_string_line_generator @ icalparser.c:1333)
+[STACK PIVOT] ip: main+0x156c8 (icalparser_string_line_generator @ icalparser.c:1336) RSP 0x7fff387a7cb8 left stack [0x18,0x7fff38789000]
+[CORRUPTED_PTR_LOAD] ip: main+0x13fb5 (icalparser_get_line @ icalparser.c:569) loaded: 0x61fbdc1245a0 from cell: 0x7fff387a7cc8 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read UAF] ip: main+0x13fb9 (icalparser_get_line @ icalparser.c:569) UAF read at: 0x61fbdc1245a0
+[INCONSISTENCY mov write imm UAF] ip: main+0x14014 (icalparser_get_line @ icalparser.c:588) UAF write at: 0x61fbdc124660
+[INCONSISTENCY mov read UAF] ip: main+0x14030 (icalparser_get_line @ icalparser.c:591) UAF read at: 0x61fbdc124660
+[STACK PIVOT] ip: main+0x1405d (icalparser_get_line @ icalparser.c:597) RSP 0x7fff387a7cf8 left stack [0x19,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x1420c (icalparser_parse @ icalparser.c:644) UAF write at: 0x7fff387a7d18
+first time found dangling pointer at: 202 distance: 673
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d18 ip: main+0x14210 (icalparser_parse @ icalparser.c:646)
+first time found dangling pointer at: 202 distance: 674
+[INCONSISTENCY mov write imm UAF] ip: main+0x143c6 (icalparser_add_line @ icalparser.c:694) UAF write at: 0x7fff387a7cd4
+[INCONSISTENCY mov write imm UAF] ip: main+0x143cd (icalparser_add_line @ icalparser.c:695) UAF write at: 0x7fff387a7cd0
+[INCONSISTENCY mov read UAF] ip: main+0x14190 (line_is_blank @ icalparser.c:619) UAF read at: 0x61fbdc124660
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce8 ip: main+0x153ef (icalparser_add_line @ icalparser.c:1238)
+first time found dangling pointer at: 749 distance: 170
+[STACK PIVOT] ip: main+0x153f3 (icalparser_add_line @ icalparser.c:1238) RSP 0x7fff387a7cf8 left stack [0x1b,0x7fff38789000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x14368 (icalparser_parse @ icalparser.c:678) UAF write at: 0x7fff387a7d34
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d18 ip: main+0x1436f (icalparser_parse @ icalparser.c:679)
+first time found dangling pointer at: 202 distance: 724
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d18 ip: main+0x14376 (icalparser_parse @ icalparser.c:680)
+first time found dangling pointer at: 202 distance: 726
+[INCONSISTENCY mov write reg UAF] ip: main+0x1303d (icalmemory_free_buffer @ icalmemory.c:293) UAF write at: 0x7fff387a7ce8
+first time found dangling pointer at: 749 distance: 186
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce8 ip: main+0x13041 (icalmemory_free_buffer @ icalmemory.c:294)
+first time found dangling pointer at: 749 distance: 187
+[FREE] free(0x61fbdc124660) subject=20 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7cf8 left stack [0x1d,0x7fff38789000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x14382 (icalparser_parse @ icalparser.c:681) UAF write at: 0x7fff387a7d34
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7d34 ip: main+0x14389 (icalparser_parse @ icalparser.c:683)
+[INCONSISTENCY mov write reg UAF] ip: main+0x13ddd (icalparser_get_line @ icalparser.c:483) UAF write at: 0x7fff387a7cc8
+first time found dangling pointer at: 718 distance: 238
+[INCONSISTENCY mov write reg UAF] ip: main+0x13de1 (icalparser_get_line @ icalparser.c:483) UAF write at: 0x7fff387a7cc0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13de5 (icalparser_get_line @ icalparser.c:486)
+first time found dangling pointer at: 718 distance: 240
+[INCONSISTENCY mov write reg UAF] ip: main+0x13ded (icalparser_get_line @ icalparser.c:486) UAF write at: 0x7fff387a7cd8
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x13df1 (icalparser_get_line @ icalparser.c:488)
+[INCONSISTENCY mov write reg UAF] ip: main+0x12fa1 (icalmemory_new_buffer @ icalmemory.c:267) UAF write at: 0x7fff387a7c98
+[INCONSISTENCY mov read UAF] ip: main+0x12fa5 (icalmemory_new_buffer @ icalmemory.c:268) UAF read at: 0x7fff387a7c98
+[ALLOC] malloc(0x50) -> 0x61fbdc124660 subject=31 at icalmemory_new_buffer @ icalmemory.c:268
+[INCONSISTENCY mov write reg UAF] ip: main+0x12fb1 (icalmemory_new_buffer @ icalmemory.c:268) UAF write at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 238
+[INCONSISTENCY mov read UAF] ip: main+0x12fb5 (icalmemory_new_buffer @ icalmemory.c:270) UAF read at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 239
+[INCONSISTENCY mov read UAF] ip: main+0x12fcd (icalmemory_new_buffer @ icalmemory.c:275) UAF read at: 0x7fff387a7c98
+[INCONSISTENCY mov read UAF] ip: main+0x12fd1 (icalmemory_new_buffer @ icalmemory.c:275) UAF read at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 242
+[INCONSISTENCY mov read UAF] ip: main+0x12fe2 (icalmemory_new_buffer @ icalmemory.c:277) UAF read at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 248
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7cb8 left stack [0x21,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13dfd (icalparser_get_line @ icalparser.c:488) UAF write at: 0x7fff387a7ce8
+first time found dangling pointer at: 749 distance: 238
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce8 ip: main+0x13e01 (icalparser_get_line @ icalparser.c:488)
+first time found dangling pointer at: 749 distance: 239
+[INCONSISTENCY mov write reg UAF] ip: main+0x13e05 (icalparser_get_line @ icalparser.c:488) UAF write at: 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 238
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce8 ip: main+0x13e09 (icalparser_get_line @ icalparser.c:489)
+first time found dangling pointer at: 749 distance: 241
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e10 (icalparser_get_line @ icalparser.c:505)
+first time found dangling pointer at: 718 distance: 274
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e20 (icalparser_get_line @ icalparser.c:510)
+first time found dangling pointer at: 718 distance: 278
+[INCONSISTENCY mov read UAF] ip: main+0x13e24 (icalparser_get_line @ icalparser.c:510) UAF read at: 0x61fbdc1245a8
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e2c (icalparser_get_line @ icalparser.c:510)
+first time found dangling pointer at: 718 distance: 281
+[INCONSISTENCY mov read UAF] ip: main+0x13e30 (icalparser_get_line @ icalparser.c:510) UAF read at: 0x61fbdc1245ff
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e77 (icalparser_get_line @ icalparser.c:515)
+first time found dangling pointer at: 718 distance: 285
+[INCONSISTENCY mov write imm UAF] ip: main+0x13e7b (icalparser_get_line @ icalparser.c:515) UAF write at: 0x61fbdc1245a0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e81 (icalparser_get_line @ icalparser.c:519)
+first time found dangling pointer at: 718 distance: 287
+[INCONSISTENCY mov read UAF] ip: main+0x13e85 (icalparser_get_line @ icalparser.c:519) UAF read at: 0x61fbdc1245a4
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13ee1 (icalparser_get_line @ icalparser.c:532)
+first time found dangling pointer at: 718 distance: 291
+Store dangling pointer: 0x7fff387a7ce8 at: 0x7fff387a7c78
+[INCONSISTENCY mov write reg UAF] ip: main+0x1305c (icalmemory_append_string @ icalmemory.c:298) UAF write at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 0
+Store dangling pointer: 0x7fff387a7ce0 at: 0x7fff387a7c70
+[INCONSISTENCY mov write reg UAF] ip: main+0x13060 (icalmemory_append_string @ icalmemory.c:298) UAF write at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 0
+Store dangling pointer: 0x7fff387a7cd8 at: 0x7fff387a7c68
+[INCONSISTENCY mov write reg UAF] ip: main+0x13064 (icalmemory_append_string @ icalmemory.c:298) UAF write at: 0x7fff387a7c68
+first time found dangling pointer at: 1022 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13068 (icalmemory_append_string @ icalmemory.c:298) UAF write at: 0x7fff387a7c60
+first time found dangling pointer at: 1023 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x1306c (icalmemory_append_string @ icalmemory.c:305) UAF read at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 4
+main+0x1306c (icalmemory_append_string @ icalmemory.c:305) Using expired pointer: 0x7fff387a7ce8 from 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 4
+[INCONSISTENCY mov read UAF] ip: main+0x13082 (icalmemory_append_string @ icalmemory.c:306) UAF read at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 6
+[INCONSISTENCY mov read UAF] ip: main+0x13086 (icalmemory_append_string @ icalmemory.c:306) UAF read at: 0x7fff387a7ce8
+first time found dangling pointer at: 749 distance: 278
+[INCONSISTENCY mov read UAF] ip: main+0x1309d (icalmemory_append_string @ icalmemory.c:307) UAF read at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 9
+main+0x1309d (icalmemory_append_string @ icalmemory.c:307) Using expired pointer: 0x7fff387a7ce0 from 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 9
+[INCONSISTENCY mov read UAF] ip: main+0x130b3 (icalmemory_append_string @ icalmemory.c:308) UAF read at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0x130b7 (icalmemory_append_string @ icalmemory.c:308) UAF read at: 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 282
+[INCONSISTENCY mov read UAF] ip: main+0x130ce (icalmemory_append_string @ icalmemory.c:309) UAF read at: 0x7fff387a7c68
+first time found dangling pointer at: 1022 distance: 14
+main+0x130ce (icalmemory_append_string @ icalmemory.c:309) Using expired pointer: 0x7fff387a7cd8 from 0x7fff387a7c68
+first time found dangling pointer at: 1022 distance: 14
+[INCONSISTENCY mov read UAF] ip: main+0x130e4 (icalmemory_append_string @ icalmemory.c:310) UAF read at: 0x7fff387a7c68
+first time found dangling pointer at: 1022 distance: 16
+[INCONSISTENCY mov read UAF] ip: main+0x130e8 (icalmemory_append_string @ icalmemory.c:310) UAF read at: 0x7fff387a7cd8
+[INCONSISTENCY mov read UAF] ip: main+0x130ff (icalmemory_append_string @ icalmemory.c:311) UAF read at: 0x7fff387a7c60
+first time found dangling pointer at: 1023 distance: 19
+[INCONSISTENCY mov read UAF] ip: main+0x13115 (icalmemory_append_string @ icalmemory.c:314) UAF read at: 0x7fff387a7c60
+first time found dangling pointer at: 1023 distance: 21
+[INCONSISTENCY mov write reg UAF] ip: main+0x13121 (icalmemory_append_string @ icalmemory.c:314) UAF write at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 313
+[INCONSISTENCY mov read UAF] ip: main+0x13125 (icalmemory_append_string @ icalmemory.c:315) UAF read at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 29
+[INCONSISTENCY mov read UAF] ip: main+0x13129 (icalmemory_append_string @ icalmemory.c:315) UAF read at: 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 300
+[INCONSISTENCY mov read UAF] ip: main+0x1312f (icalmemory_append_string @ icalmemory.c:315) UAF read at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 33
+[INCONSISTENCY mov read UAF] ip: main+0x13133 (icalmemory_append_string @ icalmemory.c:315) UAF read at: 0x7fff387a7ce8
+first time found dangling pointer at: 749 distance: 305
+[INCONSISTENCY mov write reg UAF] ip: main+0x1313f (icalmemory_append_string @ icalmemory.c:315) UAF write at: 0x7fff387a7ca0
+[INCONSISTENCY mov read UAF] ip: main+0x13143 (icalmemory_append_string @ icalmemory.c:316) UAF read at: 0x7fff387a7ca0
+[INCONSISTENCY mov read UAF] ip: main+0x13147 (icalmemory_append_string @ icalmemory.c:316) UAF read at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 324
+[INCONSISTENCY mov write reg UAF] ip: main+0x1314e (icalmemory_append_string @ icalmemory.c:316) UAF write at: 0x7fff387a7c98
+[INCONSISTENCY mov read UAF] ip: main+0x13152 (icalmemory_append_string @ icalmemory.c:318) UAF read at: 0x7fff387a7c68
+first time found dangling pointer at: 1022 distance: 41
+[INCONSISTENCY mov read UAF] ip: main+0x13156 (icalmemory_append_string @ icalmemory.c:318) UAF read at: 0x7fff387a7cd8
+[INCONSISTENCY mov read UAF] ip: main+0x13159 (icalmemory_append_string @ icalmemory.c:318) UAF read at: 0x7fff387a7c98
+[INCONSISTENCY mov read UAF] ip: main+0x131ba (icalmemory_append_string @ icalmemory.c:330) UAF read at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 46
+[INCONSISTENCY mov read UAF] ip: main+0x131be (icalmemory_append_string @ icalmemory.c:330) UAF read at: 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 317
+[INCONSISTENCY mov read UAF] ip: main+0x131c1 (icalmemory_append_string @ icalmemory.c:330) UAF read at: 0x7fff387a7c60
+first time found dangling pointer at: 1023 distance: 46
+[INCONSISTENCY mov read UAF] ip: main+0x131d0 (icalmemory_append_string @ icalmemory.c:332) UAF read at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 54
+[INCONSISTENCY mov read UAF] ip: main+0x131d4 (icalmemory_append_string @ icalmemory.c:332) UAF read at: 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 325
+[INCONSISTENCY mov read UAF] ip: main+0x131d7 (icalmemory_append_string @ icalmemory.c:332) UAF read at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 341
+[INCONSISTENCY mov read UAF] ip: main+0x131de (icalmemory_append_string @ icalmemory.c:332) UAF read at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 58
+[INCONSISTENCY mov write reg UAF] ip: main+0x131e2 (icalmemory_append_string @ icalmemory.c:332) UAF write at: 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 329
+[STACK PIVOT] ip: main+0x131e5 (icalmemory_append_string @ icalmemory.c:333) RSP 0x7fff387a7cb8 left stack [0x23,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13efd (icalparser_get_line @ icalparser.c:535)
+first time found dangling pointer at: 718 distance: 365
+[INCONSISTENCY mov write imm UAF] ip: main+0x13f01 (icalparser_get_line @ icalparser.c:535) UAF write at: 0x61fbdc1245b0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13f05 (icalparser_get_line @ icalparser.c:538)
+first time found dangling pointer at: 718 distance: 367
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13f11 (icalparser_get_line @ icalparser.c:538)
+first time found dangling pointer at: 718 distance: 370
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13f1a (icalparser_get_line @ icalparser.c:541)
+first time found dangling pointer at: 718 distance: 372
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13f25 (icalparser_get_line @ icalparser.c:541)
+first time found dangling pointer at: 718 distance: 374
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13f2d (icalparser_get_line @ icalparser.c:541)
+first time found dangling pointer at: 718 distance: 376
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc0 ip: main+0x13f35 (icalparser_get_line @ icalparser.c:541)
+[INCONSISTENCY mov write reg UAF] ip: main+0x15539 (icalparser_string_line_generator @ icalparser.c:1283) UAF write at: 0x7fff387a7c88
+first time found dangling pointer at: 776 distance: 327
+[INCONSISTENCY mov write reg UAF] ip: main+0x1553d (icalparser_string_line_generator @ icalparser.c:1283) UAF write at: 0x7fff387a7c80
+[INCONSISTENCY mov write reg UAF] ip: main+0x15541 (icalparser_string_line_generator @ icalparser.c:1283) UAF write at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 85
+[INCONSISTENCY mov read UAF] ip: main+0x1554c (icalparser_string_line_generator @ icalparser.c:1287) UAF read at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 87
+main+0x15558 (icalparser_string_line_generator @ icalparser.c:1289) Using expired pointer: 0x61fbdc124500 from 0x7fff387a7d60
+first time found dangling pointer at: 789 distance: 321
+Store dangling pointer: 0x61fbdc12450c at: 0x7fff387a7c90
+main+0x155e3 (icalparser_string_line_generator @ icalparser.c:1307) Using expired pointer: 0x61fbdc12450c from 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 319
+main+0x1564a (icalparser_string_line_generator @ icalparser.c:1319) Read a dangling pointer 0x61fbdc12450d from 0x7fff387a7c90
+[INCONSISTENCY mov read UAF] ip: main+0x15655 (icalparser_string_line_generator @ icalparser.c:1322) UAF read at: 0x7fff387a7c80
+[INCONSISTENCY mov read UAF] ip: main+0x1567a (icalparser_string_line_generator @ icalparser.c:1326) UAF read at: 0x7fff387a7c88
+first time found dangling pointer at: 776 distance: 365
+[INCONSISTENCY mov read UAF] ip: main+0x156a1 (icalparser_string_line_generator @ icalparser.c:1331) UAF read at: 0x7fff387a7c88
+first time found dangling pointer at: 776 distance: 373
+[INCONSISTENCY mov read UAF] ip: main+0x156c4 (icalparser_string_line_generator @ icalparser.c:1335) UAF read at: 0x7fff387a7c88
+first time found dangling pointer at: 776 distance: 383
+[STACK PIVOT] ip: main+0x156c8 (icalparser_string_line_generator @ icalparser.c:1336) RSP 0x7fff387a7cb8 left stack [0x25,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce8 ip: main+0x13f70 (icalparser_get_line @ icalparser.c:564)
+first time found dangling pointer at: 749 distance: 415
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x13f78 (icalparser_get_line @ icalparser.c:564)
+first time found dangling pointer at: 751 distance: 415
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x13f81 (icalparser_get_line @ icalparser.c:564)
+first time found dangling pointer at: 751 distance: 418
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13f90 (icalparser_get_line @ icalparser.c:565)
+first time found dangling pointer at: 718 distance: 456
+[INCONSISTENCY mov read UAF] ip: main+0x13f94 (icalparser_get_line @ icalparser.c:565) UAF read at: 0x61fbdc1245b0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13f9c (icalparser_get_line @ icalparser.c:565)
+first time found dangling pointer at: 718 distance: 460
+[INCONSISTENCY mov read UAF] ip: main+0x13fa0 (icalparser_get_line @ icalparser.c:565) UAF read at: 0x61fbdc1245b0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13fb5 (icalparser_get_line @ icalparser.c:569)
+first time found dangling pointer at: 718 distance: 464
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce8 ip: main+0x13fc9 (icalparser_get_line @ icalparser.c:581)
+first time found dangling pointer at: 749 distance: 438
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x13fd1 (icalparser_get_line @ icalparser.c:581)
+first time found dangling pointer at: 751 distance: 438
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x13fda (icalparser_get_line @ icalparser.c:581)
+first time found dangling pointer at: 751 distance: 441
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x13fe9 (icalparser_get_line @ icalparser.c:582)
+first time found dangling pointer at: 751 distance: 446
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x13ff4 (icalparser_get_line @ icalparser.c:583)
+first time found dangling pointer at: 751 distance: 449
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x1402c (icalparser_get_line @ icalparser.c:591)
+first time found dangling pointer at: 751 distance: 455
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x1404c (icalparser_get_line @ icalparser.c:591)
+first time found dangling pointer at: 751 distance: 459
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce8 ip: main+0x14050 (icalparser_get_line @ icalparser.c:591)
+first time found dangling pointer at: 749 distance: 462
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x14019 (icalparser_get_line @ icalparser.c:592)
+first time found dangling pointer at: 751 distance: 463
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x14020 (icalparser_get_line @ icalparser.c:593)
+first time found dangling pointer at: 751 distance: 465
+[INCONSISTENCY mov write reg UAF] ip: main+0x14028 (icalparser_get_line @ icalparser.c:593) UAF write at: 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 467
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce0 ip: main+0x14037 (icalparser_get_line @ icalparser.c:591)
+first time found dangling pointer at: 751 distance: 485
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ce8 ip: main+0x14059 (icalparser_get_line @ icalparser.c:596)
+first time found dangling pointer at: 749 distance: 496
+[STACK PIVOT] ip: main+0x1405d (icalparser_get_line @ icalparser.c:597) RSP 0x7fff387a7cf8 left stack [0x26,0x7fff38789000]
+[CORRUPTED_PTR_LOAD] ip: main+0x13710 (parser_get_prop_name @ icalparser.c:198) loaded: 0x61fbdc124660 from cell: 0x7fff387a7a58 cell_owner: 39 value_owner: 38
+[CORRUPTED_PTR_LOAD] ip: main+0x1372a (parser_get_prop_name @ icalparser.c:199) loaded: 0x61fbdc124660 from cell: 0x7fff387a7a58 cell_owner: 39 value_owner: 38
+[CORRUPTED_PTR_LOAD] ip: main+0x13775 (parser_get_prop_name @ icalparser.c:207) loaded: 0x61fbdc124660 from cell: 0x7fff387a7a58 cell_owner: 39 value_owner: 38
+[CORRUPTED_PTR_LOAD] ip: main+0x1366a (make_segment @ icalparser.c:177) loaded: 0x61fbdc124665 from cell: 0x7fff387a7a10 cell_owner: 40 value_owner: 39
+[ALLOC] malloc(0x6) -> 0x61fbdc1246c0 subject=42 at icalmemory_new_buffer @ icalmemory.c:268
+Store dangling pointer: 0x61fbdc1246c0 at: 0x7fff387a79f8
+main+0x12fb5 (icalmemory_new_buffer @ icalmemory.c:270) Using expired pointer: 0x61fbdc1246c0 from 0x7fff387a79f8
+first time found dangling pointer at: 1815 distance: 1
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7a08 left stack [0x2c,0x7fff38789000]
+[CORRUPTED_PTR_LOAD] ip: main+0x1368e (make_segment @ icalparser.c:180) loaded: 0x61fbdc124660 from cell: 0x7fff387a7a18 cell_owner: 40 value_owner: 39
+[INCONSISTENCY mov write imm UAF] ip: main+0x136ac (make_segment @ icalparser.c:181) UAF write at: 0x61fbdc1246c5
+Store dangling pointer: 0x61fbdc1246c5 at: 0x7fff387a7a38
+main+0x136cc (make_segment @ icalparser.c:184) Using expired pointer: 0x61fbdc1246c5 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 2
+[INCONSISTENCY mov read UAF] ip: main+0x136da (make_segment @ icalparser.c:184) UAF read at: 0x61fbdc1246c5
+[INCONSISTENCY mov write imm UAF] ip: main+0x136c4 (make_segment @ icalparser.c:185) UAF write at: 0x61fbdc1246c5
+main+0x136cc (make_segment @ icalparser.c:184) Read a dangling pointer 0x61fbdc1246c4 from 0x7fff387a7a38
+main+0x136d6 (make_segment @ icalparser.c:184) Using expired pointer: 0x61fbdc1246c4 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 15
+[INCONSISTENCY mov read UAF] ip: main+0x136e5 (make_segment @ icalparser.c:184) UAF read at: 0x61fbdc1246c4
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a48 left stack [0x2d,0x7fff38789000]
+[CORRUPTED_PTR_LOAD] ip: main+0x13790 (parser_get_prop_name @ icalparser.c:208) loaded: 0x7fff387a7bd0 from cell: 0x7fff387a7a50 cell_owner: 39 value_owner: 38
+[STACK PIVOT] ip: main+0x137c3 (parser_get_prop_name @ icalparser.c:215) RSP 0x7fff387a7a88 left stack [0x2e,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x14460 (icalparser_add_line @ icalparser.c:718) UAF write at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14464 (icalparser_add_line @ icalparser.c:720)
+first time found dangling pointer at: 1884 distance: 1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x1446b (icalparser_add_line @ icalparser.c:720)
+first time found dangling pointer at: 1884 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0x1446f (icalparser_add_line @ icalparser.c:720) UAF read at: 0x61fbdc1246c0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x144ff (icalparser_add_line @ icalparser.c:743)
+first time found dangling pointer at: 1884 distance: 7
+[INCONSISTENCY mov read UAF] ip: main+0x14524 (icalparser_add_line @ icalparser.c:747) UAF read at: 0x61fbdc12460c
+[INCONSISTENCY mov write reg UAF] ip: main+0x14531 (icalparser_add_line @ icalparser.c:747) UAF write at: 0x61fbdc12460c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14534 (icalparser_add_line @ icalparser.c:748)
+first time found dangling pointer at: 1884 distance: 21
+[FREE] free(0x61fbdc1246c0) subject=42 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0x30,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13b7e (parser_get_next_value @ icalparser.c:379) UAF write at: 0x7fff387a7a3c
+[INCONSISTENCY mov write imm UAF] ip: main+0x13b81 (parser_get_next_value @ icalparser.c:380) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 59
+[INCONSISTENCY mov write reg UAF] ip: main+0x13b95 (parser_get_next_value @ icalparser.c:383) UAF write at: 0x7fff387a7a60
+[INCONSISTENCY mov write imm UAF] ip: main+0x13b99 (parser_get_next_value @ icalparser.c:384) UAF write at: 0x7fff387a7a6c
+[INCONSISTENCY mov write reg UAF] ip: main+0x13bcc (parser_get_next_value @ icalparser.c:391) UAF write at: 0x7fff387a7a70
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a6c ip: main+0x13cac (parser_get_next_value @ icalparser.c:392)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x13bd5 (parser_get_next_value @ icalparser.c:394)
+[INCONSISTENCY mov write reg UAF] ip: main+0x135ce (parser_get_next_char @ icalparser.c:148) UAF write at: 0x7fff387a79f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x135d2 (parser_get_next_char @ icalparser.c:148) UAF write at: 0x7fff387a79f8
+first time found dangling pointer at: 1815 distance: 146
+[INCONSISTENCY mov write imm UAF] ip: main+0x135d8 (parser_get_next_char @ icalparser.c:149) UAF write at: 0x7fff387a7a1c
+[INCONSISTENCY mov read UAF] ip: main+0x135df (parser_get_next_char @ icalparser.c:150) UAF read at: 0x7fff387a79f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x135e3 (parser_get_next_char @ icalparser.c:150) UAF write at: 0x7fff387a7a10
+[INCONSISTENCY mov read UAF] ip: main+0x135e7 (parser_get_next_char @ icalparser.c:151) UAF read at: 0x7fff387a7a10
+[INCONSISTENCY mov write imm UAF] ip: main+0x135f1 (parser_get_next_char @ icalparser.c:152) UAF write at: 0x7fff387a7a0e
+[INCONSISTENCY mov read UAF] ip: main+0x13649 (parser_get_next_char @ icalparser.c:154) UAF read at: 0x7fff387a7a0f
+[INCONSISTENCY mov read UAF] ip: main+0x135f7 (parser_get_next_char @ icalparser.c:155) UAF read at: 0x7fff387a7a0e
+[INCONSISTENCY mov read UAF] ip: main+0x13633 (parser_get_next_char @ icalparser.c:166) UAF read at: 0x7fff387a7a0f
+[INCONSISTENCY mov read UAF] ip: main+0x1363f (parser_get_next_char @ icalparser.c:167) UAF read at: 0x7fff387a7a10
+[INCONSISTENCY mov read UAF] ip: main+0x135fd (parser_get_next_char @ icalparser.c:155) UAF read at: 0x7fff387a7a0e
+[INCONSISTENCY mov read UAF] ip: main+0x13603 (parser_get_next_char @ icalparser.c:156) UAF read at: 0x7fff387a79f8
+first time found dangling pointer at: 1815 distance: 172
+[INCONSISTENCY mov read UAF] ip: main+0x13609 (parser_get_next_char @ icalparser.c:156) UAF read at: 0x7fff387a7a0f
+[INCONSISTENCY mov read UAF] ip: main+0x1361e (parser_get_next_char @ icalparser.c:159) UAF read at: 0x7fff387a7a1c
+[INCONSISTENCY mov read UAF] ip: main+0x13624 (parser_get_next_char @ icalparser.c:159) UAF read at: 0x7fff387a7a0f
+[INCONSISTENCY mov write reg UAF] ip: main+0x13beb (parser_get_next_value @ icalparser.c:394) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 279
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a3c ip: main+0x13bef (parser_get_next_value @ icalparser.c:402)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a3c ip: main+0x13c56 (parser_get_next_value @ icalparser.c:414)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13c74 (parser_get_next_value @ icalparser.c:426)
+first time found dangling pointer at: 1875 distance: 284
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13c8a (parser_get_next_value @ icalparser.c:426)
+first time found dangling pointer at: 1875 distance: 286
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13cb9 (parser_get_next_value @ icalparser.c:436)
+first time found dangling pointer at: 1875 distance: 288
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a60 ip: main+0x13cc4 (parser_get_next_value @ icalparser.c:437)
+[INCONSISTENCY mov write reg UAF] ip: main+0x13ccb (parser_get_next_value @ icalparser.c:437) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 293
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13cd3 (parser_get_next_value @ icalparser.c:438)
+first time found dangling pointer at: 1875 distance: 295
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13ceb (parser_get_next_value @ icalparser.c:443)
+first time found dangling pointer at: 1875 distance: 298
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13cfc (parser_get_next_value @ icalparser.c:447)
+first time found dangling pointer at: 1875 distance: 301
+[INCONSISTENCY mov write reg UAF] ip: main+0x13662 (make_segment @ icalparser.c:175) UAF write at: 0x7fff387a79f8
+first time found dangling pointer at: 1815 distance: 370
+[INCONSISTENCY mov write reg UAF] ip: main+0x13666 (make_segment @ icalparser.c:175) UAF write at: 0x7fff387a79f0
+[INCONSISTENCY mov read UAF] ip: main+0x1366a (make_segment @ icalparser.c:177) UAF read at: 0x7fff387a79f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13672 (make_segment @ icalparser.c:177) UAF write at: 0x7fff387a7a10
+[INCONSISTENCY mov read UAF] ip: main+0x13676 (make_segment @ icalparser.c:179) UAF read at: 0x7fff387a7a10
+[ALLOC] malloc(0xa) -> 0x61fbdc1246c0 subject=51 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a79e8 left stack [0x35,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13686 (make_segment @ icalparser.c:179) UAF write at: 0x7fff387a7a08
+[INCONSISTENCY mov read UAF] ip: main+0x1368a (make_segment @ icalparser.c:180) UAF read at: 0x7fff387a7a10
+[INCONSISTENCY mov read UAF] ip: main+0x1368e (make_segment @ icalparser.c:180) UAF read at: 0x7fff387a79f8
+first time found dangling pointer at: 1815 distance: 404
+[INCONSISTENCY mov read UAF] ip: main+0x13692 (make_segment @ icalparser.c:180) UAF read at: 0x7fff387a7a08
+[INCONSISTENCY mov read UAF] ip: main+0x136a1 (make_segment @ icalparser.c:181) UAF read at: 0x7fff387a7a10
+[INCONSISTENCY mov read UAF] ip: main+0x136a5 (make_segment @ icalparser.c:181) UAF read at: 0x7fff387a7a08
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x136a9 (make_segment @ icalparser.c:181) add rax, rdx id before: 51 after: 0 [freed] value: 0x61fbdc1246c9
+[INCONSISTENCY mov read UAF] ip: main+0x136af (make_segment @ icalparser.c:183) UAF read at: 0x7fff387a7a10
+[INCONSISTENCY mov read UAF] ip: main+0x136b3 (make_segment @ icalparser.c:183) UAF read at: 0x7fff387a7a08
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x136b7 (make_segment @ icalparser.c:183) add rax, rdx id before: 51 after: 0 [freed] value: 0x61fbdc1246c9
+Store dangling pointer: 0x61fbdc1246c9 at: 0x7fff387a7a18
+[INCONSISTENCY mov write reg UAF] ip: main+0x136ba (make_segment @ icalparser.c:183) UAF write at: 0x7fff387a7a18
+first time found dangling pointer at: 2233 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x136cc (make_segment @ icalparser.c:184) UAF read at: 0x7fff387a7a18
+first time found dangling pointer at: 2233 distance: 2
+main+0x136cc (make_segment @ icalparser.c:184) Using expired pointer: 0x61fbdc1246c9 from 0x7fff387a7a18
+first time found dangling pointer at: 2233 distance: 2
+[INCONSISTENCY mov read UAF] ip: main+0x136d6 (make_segment @ icalparser.c:184) UAF read at: 0x7fff387a7a18
+first time found dangling pointer at: 2233 distance: 5
+[INCONSISTENCY mov read UAF] ip: main+0x136c0 (make_segment @ icalparser.c:185) UAF read at: 0x7fff387a7a18
+first time found dangling pointer at: 2233 distance: 9
+main+0x136cc (make_segment @ icalparser.c:184) Read a dangling pointer 0x61fbdc1246c8 from 0x7fff387a7a18
+main+0x136d6 (make_segment @ icalparser.c:184) Using expired pointer: 0x61fbdc1246c8 from 0x7fff387a7a18
+first time found dangling pointer at: 2233 distance: 15
+[INCONSISTENCY mov read UAF] ip: main+0x136e1 (make_segment @ icalparser.c:184) UAF read at: 0x7fff387a7a18
+first time found dangling pointer at: 2233 distance: 19
+[INCONSISTENCY mov read UAF] ip: main+0x136f6 (make_segment @ icalparser.c:189) UAF read at: 0x7fff387a7a08
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a28 left stack [0x36,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13d0f (parser_get_next_value @ icalparser.c:447) UAF write at: 0x7fff387a7a58
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x13d13 (parser_get_next_value @ icalparser.c:448)
+[STACK PIVOT] ip: main+0x13d17 (parser_get_next_value @ icalparser.c:449) RSP 0x7fff387a7a88 left stack [0x37,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x1455f (icalparser_add_line @ icalparser.c:749) UAF write at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 384
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14563 (icalparser_add_line @ icalparser.c:751)
+first time found dangling pointer at: 1884 distance: 385
+[INCONSISTENCY mov write reg UAF] ip: main+0xf44b (icalcomponent_string_to_kind @ icalcomponent.c:1241) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 1375
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0xf44f (icalcomponent_string_to_kind @ icalcomponent.c:1244)
+first time found dangling pointer at: 901 distance: 1376
+[INCONSISTENCY mov write imm UAF] ip: main+0xf460 (icalcomponent_string_to_kind @ icalcomponent.c:1248) UAF write at: 0x7fff387a7a7c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0xf4f5 (icalcomponent_string_to_kind @ icalcomponent.c:1248)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0xf46c (icalcomponent_string_to_kind @ icalcomponent.c:1249)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0xf498 (icalcomponent_string_to_kind @ icalcomponent.c:1249)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0xf4b9 (icalcomponent_string_to_kind @ icalcomponent.c:1249)
+first time found dangling pointer at: 901 distance: 1414
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0xf4cf (icalcomponent_string_to_kind @ icalcomponent.c:1250)
+[UNTRUSTEDPTRDEREF] ip: main+0xf4ec (icalcomponent_string_to_kind @ icalcomponent.c:1250) final_ea: 0x61fbcba1b128 base: 0x48 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0xf522 (icalcomponent_string_to_kind @ icalcomponent.c:1255) RSP 0x7fff387a7a88 left stack [0x39,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xcb57 (icalcomponent_new @ icalcomponent.c:113) UAF write at: 0x7fff387a7a7c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0xcb5a (icalcomponent_new @ icalcomponent.c:114)
+[INCONSISTENCY mov write reg UAF] ip: main+0xcab4 (icalcomponent_new_impl @ icalcomponent.c:87) UAF write at: 0x7fff387a7a4c
+[INCONSISTENCY mov read UAF] ip: main+0xcab7 (icalcomponent_new_impl @ icalcomponent.c:90) UAF read at: 0x7fff387a7a4c
+[INCONSISTENCY mov write reg UAF] ip: main+0xf34d (icalcomponent_kind_is_valid @ icalcomponent.c:1215) UAF write at: 0x7fff387a7a1c
+[INCONSISTENCY mov write imm UAF] ip: main+0xf350 (icalcomponent_kind_is_valid @ icalcomponent.c:1216) UAF write at: 0x7fff387a7a2c
+[INCONSISTENCY mov read UAF] ip: main+0xf357 (icalcomponent_kind_is_valid @ icalcomponent.c:1219) UAF read at: 0x7fff387a7a2c
+[INCONSISTENCY mov read UAF] ip: main+0xf377 (icalcomponent_kind_is_valid @ icalcomponent.c:1219) UAF read at: 0x7fff387a7a1c
+[INCONSISTENCY mov read UAF] ip: main+0xf383 (icalcomponent_kind_is_valid @ icalcomponent.c:1222) UAF read at: 0x7fff387a7a2c
+[INCONSISTENCY mov write reg UAF] ip: main+0xf389 (icalcomponent_kind_is_valid @ icalcomponent.c:1222) UAF write at: 0x7fff387a7a2c
+[ALLOC] malloc(0x50) -> 0x61fbdc1246e0 subject=59 at icalcomponent_new_impl @ icalcomponent.c:93
+Store dangling pointer: 0x61fbdc1246e0 at: 0x7fff387a7a58
+[INCONSISTENCY mov write reg UAF] ip: main+0xcad6 (icalcomponent_new_impl @ icalcomponent.c:93) UAF write at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xcada (icalcomponent_new_impl @ icalcomponent.c:93) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 1
+main+0xcada (icalcomponent_new_impl @ icalcomponent.c:93) Using expired pointer: 0x61fbdc1246e0 from 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0xcaf2 (icalcomponent_new_impl @ icalcomponent.c:98) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0xcb08 (icalcomponent_new_impl @ icalcomponent.c:100) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0xcb0c (icalcomponent_new_impl @ icalcomponent.c:100) UAF write at: 0x61fbdc1246e0
+[INCONSISTENCY mov write imm UAF] ip: main+0xcb12 (icalcomponent_new_impl @ icalcomponent.c:100) UAF write at: 0x61fbdc1246e4
+[INCONSISTENCY mov read UAF] ip: main+0xcb16 (icalcomponent_new_impl @ icalcomponent.c:102) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 13
+[INCONSISTENCY mov read UAF] ip: main+0xcb1a (icalcomponent_new_impl @ icalcomponent.c:102) UAF read at: 0x7fff387a7a4c
+[INCONSISTENCY mov write reg UAF] ip: main+0xcb1d (icalcomponent_new_impl @ icalcomponent.c:102) UAF write at: 0x61fbdc1246e8
+[ALLOC] malloc(0x28) -> 0x61fbdc124740 subject=61 at pvl_newlist @ pvl.c:65
+Store dangling pointer: 0x61fbdc124740 at: 0x7fff387a7a28
+[INCONSISTENCY mov write reg UAF] ip: main+0x26c7a (pvl_newlist @ pvl.c:65) UAF write at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 783
+[INCONSISTENCY mov read UAF] ip: main+0x26c7e (pvl_newlist @ pvl.c:65) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 784
+main+0x26c7e (pvl_newlist @ pvl.c:65) Using expired pointer: 0x61fbdc124740 from 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 784
+[INCONSISTENCY mov read UAF] ip: main+0x26c9d (pvl_newlist @ pvl.c:70) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 787
+[INCONSISTENCY mov read UAF] ip: main+0x26cb2 (pvl_newlist @ pvl.c:72) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 792
+[INCONSISTENCY mov read UAF] ip: main+0x26cbe (pvl_newlist @ pvl.c:73) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 794
+[INCONSISTENCY mov read UAF] ip: main+0x26cca (pvl_newlist @ pvl.c:74) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 796
+[INCONSISTENCY mov read UAF] ip: main+0x26cd5 (pvl_newlist @ pvl.c:75) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 798
+[INCONSISTENCY mov read UAF] ip: main+0x26ce1 (pvl_newlist @ pvl.c:77) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 800
+[STACK PIVOT] ip: main+0x26ce5 (pvl_newlist @ pvl.c:78) RSP 0x7fff387a7a38 left stack [0x3f,0x7fff38789000]
+[INCONSISTENCY mov read UAF] ip: main+0xcb25 (icalcomponent_new_impl @ icalcomponent.c:103) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 45
+[INCONSISTENCY mov write reg UAF] ip: main+0xcb29 (icalcomponent_new_impl @ icalcomponent.c:103) UAF write at: 0x61fbdc1246f8
+first time found dangling pointer at: 2632 distance: 0
+[ALLOC] malloc(0x28) -> 0x61fbdc124770 subject=64 at pvl_newlist @ pvl.c:65
+Store dangling pointer: 0x61fbdc124770 at: 0x7fff387a7a28
+main+0x26c7e (pvl_newlist @ pvl.c:65) Using expired pointer: 0x61fbdc124770 from 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 815
+[STACK PIVOT] ip: main+0x26ce5 (pvl_newlist @ pvl.c:78) RSP 0x7fff387a7a38 left stack [0x42,0x7fff38789000]
+[INCONSISTENCY mov read UAF] ip: main+0xcb32 (icalcomponent_new_impl @ icalcomponent.c:104) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 76
+[INCONSISTENCY mov write reg UAF] ip: main+0xcb36 (icalcomponent_new_impl @ icalcomponent.c:104) UAF write at: 0x61fbdc124708
+first time found dangling pointer at: 2663 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xcb3a (icalcomponent_new_impl @ icalcomponent.c:105) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 78
+[INCONSISTENCY mov write imm UAF] ip: main+0xcb3e (icalcomponent_new_impl @ icalcomponent.c:105) UAF write at: 0x61fbdc124728
+[INCONSISTENCY mov read UAF] ip: main+0xcb45 (icalcomponent_new_impl @ icalcomponent.c:107) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 80
+[STACK PIVOT] ip: main+0xcb49 (icalcomponent_new_impl @ icalcomponent.c:108) RSP 0x7fff387a7a68 left stack [0x43,0x7fff38789000]
+[STACK PIVOT] ip: main+0xcb64 (icalcomponent_new @ icalcomponent.c:115) RSP 0x7fff387a7a88 left stack [0x44,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x14582 (icalparser_add_line @ icalparser.c:753) UAF write at: 0x7fff387a7cc0
+first time found dangling pointer at: 2671 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc0 ip: main+0x14586 (icalparser_add_line @ icalparser.c:755)
+first time found dangling pointer at: 2671 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x145be (icalparser_add_line @ icalparser.c:761) UAF read at: 0x61fbdc124618
+first time found dangling pointer at: 223 distance: 2452
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc0 ip: main+0x145c2 (icalparser_add_line @ icalparser.c:761)
+first time found dangling pointer at: 2671 distance: 5
+[INCONSISTENCY mov read UAF] ip: main+0x26e77 (pvl_push @ pvl.c:176) UAF read at: 0x61fbdc124640
+[INCONSISTENCY mov write reg UAF] ip: main+0x26d26 (pvl_new_element @ pvl.c:105) UAF write at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 852
+[INCONSISTENCY mov write reg UAF] ip: main+0x26d2a (pvl_new_element @ pvl.c:105) UAF write at: 0x7fff387a7a30
+[ALLOC] malloc(0x20) -> 0x61fbdc1247a0 subject=70 at pvl_new_element @ pvl.c:108
+Store dangling pointer: 0x61fbdc1247a0 at: 0x7fff387a7a48
+[INCONSISTENCY mov write reg UAF] ip: main+0x26d3c (pvl_new_element @ pvl.c:108) UAF write at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x26d40 (pvl_new_element @ pvl.c:108) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 1
+main+0x26d40 (pvl_new_element @ pvl.c:108) Using expired pointer: 0x61fbdc1247a0 from 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 1
+[INCONSISTENCY mov write reg] ip: main+0x26d62 (pvl_new_element @ pvl.c:113) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read UAF] ip: main+0x26d68 (pvl_new_element @ pvl.c:113) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 6
+[INCONSISTENCY mov write reg UAF] ip: main+0x26d6c (pvl_new_element @ pvl.c:113) UAF write at: 0x61fbdc1247a0
+[INCONSISTENCY mov read UAF] ip: main+0x26d6e (pvl_new_element @ pvl.c:114) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x26d72 (pvl_new_element @ pvl.c:114) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 868
+[INCONSISTENCY mov write reg UAF] ip: main+0x26d76 (pvl_new_element @ pvl.c:114) UAF write at: 0x61fbdc1247a8
+first time found dangling pointer at: 2713 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x26d7a (pvl_new_element @ pvl.c:115) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0x26d7e (pvl_new_element @ pvl.c:115) UAF read at: 0x7fff387a7a30
+[INCONSISTENCY mov write reg UAF] ip: main+0x26d82 (pvl_new_element @ pvl.c:115) UAF write at: 0x61fbdc1247b0
+[INCONSISTENCY mov read UAF] ip: main+0x26d86 (pvl_new_element @ pvl.c:116) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 14
+[INCONSISTENCY mov read UAF] ip: main+0x26d8a (pvl_new_element @ pvl.c:116) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 890
+[CORRUPTED_PTR_LOAD] ip: main+0x26d8a (pvl_new_element @ pvl.c:116) loaded: 0x0 from cell: 0x7fff387a7a28 cell_owner: 69 value_owner: 68
+[INCONSISTENCY mov write reg UAF] ip: main+0x26d8e (pvl_new_element @ pvl.c:116) UAF write at: 0x61fbdc1247b8
+[INCONSISTENCY mov read UAF] ip: main+0x26d92 (pvl_new_element @ pvl.c:118) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 17
+[STACK PIVOT] ip: main+0x26d96 (pvl_new_element @ pvl.c:119) RSP 0x7fff387a7a58 left stack [0x48,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x26e8c (pvl_push @ pvl.c:176) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 848
+[INCONSISTENCY mov read UAF] ip: main+0x26e94 (pvl_push @ pvl.c:183) UAF read at: 0x61fbdc124640
+[INCONSISTENCY mov read UAF] ip: main+0x26eb1 (pvl_push @ pvl.c:187) UAF read at: 0x61fbdc124638
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x26ebe (pvl_push @ pvl.c:188)
+first time found dangling pointer at: 1875 distance: 858
+[INCONSISTENCY mov write reg UAF] ip: main+0x26ec2 (pvl_push @ pvl.c:188) UAF write at: 0x61fbdc124638
+first time found dangling pointer at: 2734 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x26eca (pvl_push @ pvl.c:191)
+first time found dangling pointer at: 1875 distance: 861
+[INCONSISTENCY mov write reg UAF] ip: main+0x26ece (pvl_push @ pvl.c:191) UAF write at: 0x61fbdc124640
+first time found dangling pointer at: 2737 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x26ed6 (pvl_push @ pvl.c:193) UAF read at: 0x61fbdc124648
+[INCONSISTENCY mov write reg UAF] ip: main+0x26ee0 (pvl_push @ pvl.c:193) UAF write at: 0x61fbdc124648
+[STACK PIVOT] ip: main+0x26ee4 (pvl_push @ pvl.c:194) RSP 0x7fff387a7a88 left stack [0x49,0x7fff38789000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x145d8 (icalparser_add_line @ icalparser.c:763) UAF write at: 0x61fbdc124614
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x145df (icalparser_add_line @ icalparser.c:765)
+first time found dangling pointer at: 1884 distance: 864
+[FREE] free(0x61fbdc1246c0) subject=51 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0x4b,0x7fff38789000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x145eb (icalparser_add_line @ icalparser.c:766) UAF write at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 880
+[STACK PIVOT] ip: main+0x153f3 (icalparser_add_line @ icalparser.c:1238) RSP 0x7fff387a7cf8 left stack [0x4c,0x7fff38789000]
+[FREE] free(0x61fbdc124660) subject=31 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7cf8 left stack [0x4e,0x7fff38789000]
+[ALLOC] malloc(0x50) -> 0x61fbdc124660 subject=80 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7cb8 left stack [0x52,0x7fff38789000]
+[STACK PIVOT] ip: main+0x131e5 (icalmemory_append_string @ icalmemory.c:333) RSP 0x7fff387a7cb8 left stack [0x54,0x7fff38789000]
+main+0x15558 (icalparser_string_line_generator @ icalparser.c:1289) Using expired pointer: 0x61fbdc12450d from 0x7fff387a7d60
+first time found dangling pointer at: 789 distance: 2169
+Store dangling pointer: 0x61fbdc124579 at: 0x7fff387a7c90
+main+0x155e3 (icalparser_string_line_generator @ icalparser.c:1307) Using expired pointer: 0x61fbdc124579 from 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 2167
+main+0x1564a (icalparser_string_line_generator @ icalparser.c:1319) Read a dangling pointer 0x61fbdc12457a from 0x7fff387a7c90
+[INCONSISTENCY mov read UAF] ip: main+0x15663 (icalparser_string_line_generator @ icalparser.c:1323) UAF read at: 0x7fff387a7c80
+[INCONSISTENCY mov write reg UAF] ip: main+0x1566b (icalparser_string_line_generator @ icalparser.c:1323) UAF write at: 0x7fff387a7ca0
+Store dangling pointer: 0x61fbdc12455c at: 0x7fff387a7d60
+[STACK PIVOT] ip: main+0x156c8 (icalparser_string_line_generator @ icalparser.c:1336) RSP 0x7fff387a7cb8 left stack [0x56,0x7fff38789000]
+[STACK PIVOT] ip: main+0x1405d (icalparser_get_line @ icalparser.c:597) RSP 0x7fff387a7cf8 left stack [0x57,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x1413f (line_is_blank @ icalparser.c:616) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 2224
+[INCONSISTENCY mov write imm UAF] ip: main+0x14143 (line_is_blank @ icalparser.c:617) UAF write at: 0x7fff387a7a7c
+[INCONSISTENCY mov write imm UAF] ip: main+0x1414a (line_is_blank @ icalparser.c:619) UAF write at: 0x7fff387a7a7c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x14183 (line_is_blank @ icalparser.c:619)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x14189 (line_is_blank @ icalparser.c:619)
+first time found dangling pointer at: 901 distance: 2230
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x14153 (line_is_blank @ icalparser.c:620)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x14159 (line_is_blank @ icalparser.c:620)
+first time found dangling pointer at: 901 distance: 2237
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7b ip: main+0x14166 (line_is_blank @ icalparser.c:622)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7b ip: main+0x1416c (line_is_blank @ icalparser.c:622)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7b ip: main+0x14172 (line_is_blank @ icalparser.c:622)
+[INCONSISTENCY mov write reg UAF] ip: main+0x13708 (parser_get_prop_name @ icalparser.c:193) UAF write at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 578
+[INCONSISTENCY mov write reg UAF] ip: main+0x1370c (parser_get_prop_name @ icalparser.c:193) UAF write at: 0x7fff387a7a50
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x13710 (parser_get_prop_name @ icalparser.c:198)
+first time found dangling pointer at: 2586 distance: 580
+[INCONSISTENCY mov write reg UAF] ip: main+0x13726 (parser_get_prop_name @ icalparser.c:198) UAF write at: 0x7fff387a7a70
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x1372a (parser_get_prop_name @ icalparser.c:199)
+first time found dangling pointer at: 2586 distance: 847
+[INCONSISTENCY mov read UAF] ip: main+0x1362d (parser_get_next_char @ icalparser.c:161) UAF read at: 0x7fff387a7a30
+[INCONSISTENCY mov write reg UAF] ip: main+0x13740 (parser_get_prop_name @ icalparser.c:199) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 2665
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x13744 (parser_get_prop_name @ icalparser.c:200)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x1374b (parser_get_prop_name @ icalparser.c:200)
+first time found dangling pointer at: 901 distance: 2668
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13759 (parser_get_prop_name @ icalparser.c:206)
+first time found dangling pointer at: 901 distance: 2670
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x13760 (parser_get_prop_name @ icalparser.c:206)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13771 (parser_get_prop_name @ icalparser.c:207)
+first time found dangling pointer at: 901 distance: 2674
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x13775 (parser_get_prop_name @ icalparser.c:207)
+first time found dangling pointer at: 2586 distance: 990
+[ALLOC] malloc(0x6) -> 0x61fbdc1246c0 subject=91 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7a08 left stack [0x5d,0x7fff38789000]
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a48 left stack [0x5e,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13784 (parser_get_prop_name @ icalparser.c:207) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 1788
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13788 (parser_get_prop_name @ icalparser.c:208)
+first time found dangling pointer at: 901 distance: 2763
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13790 (parser_get_prop_name @ icalparser.c:208)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x137bf (parser_get_prop_name @ icalparser.c:214)
+first time found dangling pointer at: 1875 distance: 1794
+[STACK PIVOT] ip: main+0x137c3 (parser_get_prop_name @ icalparser.c:215) RSP 0x7fff387a7a88 left stack [0x5f,0x7fff38789000]
+[FREE] free(0x61fbdc1246c0) subject=91 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0x61,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13b76 (parser_get_next_value @ icalparser.c:379) UAF write at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 1016
+[INCONSISTENCY mov write reg UAF] ip: main+0x13b7a (parser_get_next_value @ icalparser.c:379) UAF write at: 0x7fff387a7a40
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a48 ip: main+0x13b89 (parser_get_next_value @ icalparser.c:383)
+first time found dangling pointer at: 2703 distance: 1020
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a48 ip: main+0x13ba0 (parser_get_next_value @ icalparser.c:386)
+first time found dangling pointer at: 2703 distance: 1027
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a48 ip: main+0x13bc8 (parser_get_next_value @ icalparser.c:391)
+first time found dangling pointer at: 2703 distance: 1031
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a48 ip: main+0x13cc0 (parser_get_next_value @ icalparser.c:437)
+first time found dangling pointer at: 2703 distance: 1187
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a40 ip: main+0x13ccf (parser_get_next_value @ icalparser.c:438)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a48 ip: main+0x13d00 (parser_get_next_value @ icalparser.c:447)
+first time found dangling pointer at: 2703 distance: 1199
+[ALLOC] malloc(0x7) -> 0x61fbdc1246c0 subject=100 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a79e8 left stack [0x66,0x7fff38789000]
+[CORRUPTED_PTR_LOAD] ip: main+0x136da (make_segment @ icalparser.c:184) loaded: 0x54 from cell: 0x61fbdc1246c5 cell_owner: 100 value_owner: 91
+[CORRUPTED_PTR_LOAD] ip: main+0x136e5 (make_segment @ icalparser.c:184) loaded: 0x54 from cell: 0x61fbdc1246c5 cell_owner: 100 value_owner: 91
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a28 left stack [0x67,0x7fff38789000]
+[STACK PIVOT] ip: main+0x13d17 (parser_get_next_value @ icalparser.c:449) RSP 0x7fff387a7a88 left stack [0x68,0x7fff38789000]
+[STACK PIVOT] ip: main+0xf522 (icalcomponent_string_to_kind @ icalcomponent.c:1255) RSP 0x7fff387a7a88 left stack [0x6a,0x7fff38789000]
+[ALLOC] malloc(0x50) -> 0x61fbdc1247d0 subject=108 at icalcomponent_new_impl @ icalcomponent.c:93
+Store dangling pointer: 0x61fbdc1247d0 at: 0x7fff387a7a58
+main+0xcada (icalcomponent_new_impl @ icalcomponent.c:93) Using expired pointer: 0x61fbdc1247d0 from 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 1522
+[ALLOC] malloc(0x28) -> 0x61fbdc124830 subject=110 at pvl_newlist @ pvl.c:65
+Store dangling pointer: 0x61fbdc124830 at: 0x7fff387a7a28
+main+0x26c7e (pvl_newlist @ pvl.c:65) Using expired pointer: 0x61fbdc124830 from 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 2305
+[STACK PIVOT] ip: main+0x26ce5 (pvl_newlist @ pvl.c:78) RSP 0x7fff387a7a38 left stack [0x70,0x7fff38789000]
+[ALLOC] malloc(0x28) -> 0x61fbdc124860 subject=113 at pvl_newlist @ pvl.c:65
+Store dangling pointer: 0x61fbdc124860 at: 0x7fff387a7a28
+main+0x26c7e (pvl_newlist @ pvl.c:65) Using expired pointer: 0x61fbdc124860 from 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 2336
+[STACK PIVOT] ip: main+0x26ce5 (pvl_newlist @ pvl.c:78) RSP 0x7fff387a7a38 left stack [0x73,0x7fff38789000]
+[STACK PIVOT] ip: main+0xcb49 (icalcomponent_new_impl @ icalcomponent.c:108) RSP 0x7fff387a7a68 left stack [0x74,0x7fff38789000]
+[STACK PIVOT] ip: main+0xcb64 (icalcomponent_new @ icalcomponent.c:115) RSP 0x7fff387a7a88 left stack [0x75,0x7fff38789000]
+[ALLOC] malloc(0x20) -> 0x61fbdc124890 subject=119 at pvl_new_element @ pvl.c:108
+Store dangling pointer: 0x61fbdc124890 at: 0x7fff387a7a48
+main+0x26d40 (pvl_new_element @ pvl.c:108) Using expired pointer: 0x61fbdc124890 from 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 1522
+[STACK PIVOT] ip: main+0x26d96 (pvl_new_element @ pvl.c:119) RSP 0x7fff387a7a58 left stack [0x79,0x7fff38789000]
+[INCONSISTENCY mov read UAF] ip: main+0x26ea1 (pvl_push @ pvl.c:184) UAF read at: 0x61fbdc124640
+first time found dangling pointer at: 2737 distance: 1513
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x26ea5 (pvl_push @ pvl.c:184)
+first time found dangling pointer at: 1875 distance: 2376
+[INCONSISTENCY mov write reg UAF] ip: main+0x26ea9 (pvl_push @ pvl.c:184) UAF write at: 0x61fbdc1247b0
+first time found dangling pointer at: 4252 distance: 0
+[STACK PIVOT] ip: main+0x26ee4 (pvl_push @ pvl.c:194) RSP 0x7fff387a7a88 left stack [0x7a,0x7fff38789000]
+[FREE] free(0x61fbdc1246c0) subject=100 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0x7c,0x7fff38789000]
+[STACK PIVOT] ip: main+0x153f3 (icalparser_add_line @ icalparser.c:1238) RSP 0x7fff387a7cf8 left stack [0x7d,0x7fff38789000]
+[FREE] free(0x61fbdc124660) subject=80 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7cf8 left stack [0x7f,0x7fff38789000]
+[ALLOC] malloc(0x50) -> 0x61fbdc124660 subject=129 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7cb8 left stack [0x83,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e39 (icalparser_get_line @ icalparser.c:511)
+first time found dangling pointer at: 718 distance: 3655
+[INCONSISTENCY mov read UAF] ip: main+0x13e3d (icalparser_get_line @ icalparser.c:511) UAF read at: 0x61fbdc1245a8
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e45 (icalparser_get_line @ icalparser.c:511)
+first time found dangling pointer at: 718 distance: 3658
+[INCONSISTENCY mov read UAF] ip: main+0x13e49 (icalparser_get_line @ icalparser.c:511) UAF read at: 0x61fbdc1245fe
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e52 (icalparser_get_line @ icalparser.c:512)
+first time found dangling pointer at: 718 distance: 3662
+[INCONSISTENCY mov read UAF] ip: main+0x13e56 (icalparser_get_line @ icalparser.c:512) UAF read at: 0x61fbdc1245a8
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e5e (icalparser_get_line @ icalparser.c:512)
+first time found dangling pointer at: 718 distance: 3665
+[INCONSISTENCY mov read UAF] ip: main+0x13e62 (icalparser_get_line @ icalparser.c:512) UAF read at: 0x61fbdc1245fe
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x13e6b (icalparser_get_line @ icalparser.c:513)
+first time found dangling pointer at: 718 distance: 3669
+[INCONSISTENCY mov write imm UAF] ip: main+0x13e6f (icalparser_get_line @ icalparser.c:513) UAF write at: 0x61fbdc1245a0
+[STACK PIVOT] ip: main+0x131e5 (icalmemory_append_string @ icalmemory.c:333) RSP 0x7fff387a7cb8 left stack [0x85,0x7fff38789000]
+main+0x15558 (icalparser_string_line_generator @ icalparser.c:1289) Using expired pointer: 0x61fbdc12455c from 0x7fff387a7d60
+first time found dangling pointer at: 789 distance: 3706
+[STACK PIVOT] ip: main+0x156c8 (icalparser_string_line_generator @ icalparser.c:1336) RSP 0x7fff387a7cb8 left stack [0x87,0x7fff38789000]
+[INCONSISTENCY mov read UAF] ip: main+0x1315f (icalmemory_append_string @ icalmemory.c:320) UAF read at: 0x7fff387a7c68
+first time found dangling pointer at: 1022 distance: 3617
+[INCONSISTENCY mov read UAF] ip: main+0x13163 (icalmemory_append_string @ icalmemory.c:320) UAF read at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 2756
+[INCONSISTENCY mov read UAF] ip: main+0x1316a (icalmemory_append_string @ icalmemory.c:320) UAF read at: 0x7fff387a7c98
+[INCONSISTENCY mov read UAF] ip: main+0x13171 (icalmemory_append_string @ icalmemory.c:320) UAF read at: 0x7fff387a7c68
+first time found dangling pointer at: 1022 distance: 3622
+[INCONSISTENCY mov write reg UAF] ip: main+0x13175 (icalmemory_append_string @ icalmemory.c:320) UAF write at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 2761
+[INCONSISTENCY mov read UAF] ip: main+0x13178 (icalmemory_append_string @ icalmemory.c:322) UAF read at: 0x7fff387a7c68
+first time found dangling pointer at: 1022 distance: 3624
+[INCONSISTENCY mov read UAF] ip: main+0x1317c (icalmemory_append_string @ icalmemory.c:322) UAF read at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 2763
+[INCONSISTENCY mov read UAF] ip: main+0x1317f (icalmemory_append_string @ icalmemory.c:322) UAF read at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 3628
+[INCONSISTENCY mov read UAF] ip: main+0x13183 (icalmemory_append_string @ icalmemory.c:322) UAF read at: 0x7fff387a7ce8
+first time found dangling pointer at: 749 distance: 3900
+Store dangling pointer: 0x61fbdc1248c0 at: 0x7fff387a7c90
+[INCONSISTENCY mov write reg UAF] ip: main+0x13191 (icalmemory_append_string @ icalmemory.c:322) UAF write at: 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 3848
+[INCONSISTENCY mov read UAF] ip: main+0x13195 (icalmemory_append_string @ icalmemory.c:324) UAF read at: 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 3849
+main+0x13195 (icalmemory_append_string @ icalmemory.c:324) Using expired pointer: 0x61fbdc1248c0 from 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 3849
+[INCONSISTENCY mov read UAF] ip: main+0x13199 (icalmemory_append_string @ icalmemory.c:324) UAF read at: 0x7fff387a7ca0
+Store dangling pointer: 0x61fbdc12490f at: 0x7fff387a7c88
+[INCONSISTENCY mov write reg UAF] ip: main+0x131a0 (icalmemory_append_string @ icalmemory.c:324) UAF write at: 0x7fff387a7c88
+first time found dangling pointer at: 776 distance: 3883
+[INCONSISTENCY mov read UAF] ip: main+0x131a4 (icalmemory_append_string @ icalmemory.c:326) UAF read at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 3639
+[INCONSISTENCY mov read UAF] ip: main+0x131a8 (icalmemory_append_string @ icalmemory.c:326) UAF read at: 0x7fff387a7c88
+first time found dangling pointer at: 776 distance: 3885
+main+0x131a8 (icalmemory_append_string @ icalmemory.c:326) Using expired pointer: 0x61fbdc12490f from 0x7fff387a7c88
+first time found dangling pointer at: 776 distance: 3885
+[INCONSISTENCY mov write reg UAF] ip: main+0x131ac (icalmemory_append_string @ icalmemory.c:326) UAF write at: 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 3911
+[INCONSISTENCY mov read UAF] ip: main+0x131af (icalmemory_append_string @ icalmemory.c:327) UAF read at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 3643
+[INCONSISTENCY mov read UAF] ip: main+0x131b3 (icalmemory_append_string @ icalmemory.c:327) UAF read at: 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 3857
+[INCONSISTENCY mov write reg UAF] ip: main+0x131b7 (icalmemory_append_string @ icalmemory.c:327) UAF write at: 0x7fff387a7ce8
+first time found dangling pointer at: 749 distance: 3916
+Store dangling pointer: 0x61fbdc12492d at: 0x7fff387a7ce0
+[STACK PIVOT] ip: main+0x131e5 (icalmemory_append_string @ icalmemory.c:333) RSP 0x7fff387a7cb8 left stack [0x8a,0x7fff38789000]
+main+0x15558 (icalparser_string_line_generator @ icalparser.c:1289) Using expired pointer: 0x61fbdc12457a from 0x7fff387a7d60
+first time found dangling pointer at: 789 distance: 3920
+Store dangling pointer: 0x61fbdc124584 at: 0x7fff387a7c90
+main+0x155e3 (icalparser_string_line_generator @ icalparser.c:1307) Using expired pointer: 0x61fbdc124584 from 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 3918
+main+0x1564a (icalparser_string_line_generator @ icalparser.c:1319) Read a dangling pointer 0x61fbdc124585 from 0x7fff387a7c90
+[STACK PIVOT] ip: main+0x156c8 (icalparser_string_line_generator @ icalparser.c:1336) RSP 0x7fff387a7cb8 left stack [0x8c,0x7fff38789000]
+main+0x13f78 (icalparser_get_line @ icalparser.c:564) Using expired pointer: 0x61fbdc12492d from 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 4014
+[INCONSISTENCY mov read UAF] ip: main+0x13f89 (icalparser_get_line @ icalparser.c:564) UAF read at: 0x61fbdc12492c
+[INCONSISTENCY mov read UAF] ip: main+0x13fe2 (icalparser_get_line @ icalparser.c:581) UAF read at: 0x61fbdc12492c
+[INCONSISTENCY mov write imm UAF] ip: main+0x13ff1 (icalparser_get_line @ icalparser.c:582) UAF write at: 0x61fbdc12492c
+[INCONSISTENCY mov read UAF] ip: main+0x13ffc (icalparser_get_line @ icalparser.c:583) UAF read at: 0x61fbdc12492b
+[INCONSISTENCY mov write imm UAF] ip: main+0x1401d (icalparser_get_line @ icalparser.c:592) UAF write at: 0x61fbdc12492d
+Store dangling pointer: 0x61fbdc12492c at: 0x7fff387a7ce0
+main+0x1402c (icalparser_get_line @ icalparser.c:591) Using expired pointer: 0x61fbdc12492c from 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 4067
+Store dangling pointer: 0x61fbdc12492b at: 0x7fff387a7ce0
+main+0x1402c (icalparser_get_line @ icalparser.c:591) Using expired pointer: 0x61fbdc12492b from 0x7fff387a7ce0
+first time found dangling pointer at: 751 distance: 4080
+[INCONSISTENCY mov read UAF] ip: main+0x1403b (icalparser_get_line @ icalparser.c:591) UAF read at: 0x61fbdc12492b
+[STACK PIVOT] ip: main+0x1405d (icalparser_get_line @ icalparser.c:597) RSP 0x7fff387a7cf8 left stack [0x8d,0x7fff38789000]
+[INCONSISTENCY mov read UAF] ip: main+0x14160 (line_is_blank @ icalparser.c:620) UAF read at: 0x61fbdc1248c0
+[INCONSISTENCY mov read UAF] ip: main+0x135eb (parser_get_next_char @ icalparser.c:151) UAF read at: 0x61fbdc1248c0
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c1 from 0x7fff387a7a30
+[INCONSISTENCY mov read UAF] ip: main+0x13643 (parser_get_next_char @ icalparser.c:167) UAF read at: 0x61fbdc1248c1
+main+0x1362d (parser_get_next_char @ icalparser.c:161) Using expired pointer: 0x61fbdc1248c1 from 0x7fff387a7a30
+first time found dangling pointer at: 4928 distance: 31
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c2 from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c3 from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c4 from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c5 from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c6 from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c7 from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c8 from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248c9 from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248ca from 0x7fff387a7a30
+main+0x1363f (parser_get_next_char @ icalparser.c:167) Read a dangling pointer 0x61fbdc1248cb from 0x7fff387a7a30
+main+0x1362d (parser_get_next_char @ icalparser.c:161) Read a dangling pointer 0x61fbdc124919 from 0x7fff387a7a30
+main+0x13759 (parser_get_prop_name @ icalparser.c:206) Using expired pointer: 0x61fbdc124919 from 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 4345
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x13767 (parser_get_prop_name @ icalparser.c:206)
+first time found dangling pointer at: 4963 distance: 287
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x1376b (parser_get_prop_name @ icalparser.c:206)
+first time found dangling pointer at: 901 distance: 4350
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x13799 (parser_get_prop_name @ icalparser.c:210)
+first time found dangling pointer at: 4963 distance: 290
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x1379d (parser_get_prop_name @ icalparser.c:210)
+first time found dangling pointer at: 2586 distance: 2668
+[ALLOC] malloc(0x2) -> 0x61fbdc1246c0 subject=145 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7a08 left stack [0x93,0x7fff38789000]
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a48 left stack [0x94,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x137ac (parser_get_prop_name @ icalparser.c:210) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 3466
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x137b0 (parser_get_prop_name @ icalparser.c:211)
+first time found dangling pointer at: 4963 distance: 379
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x137b8 (parser_get_prop_name @ icalparser.c:211)
+[STACK PIVOT] ip: main+0x137c3 (parser_get_prop_name @ icalparser.c:215) RSP 0x7fff387a7a88 left stack [0x95,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x145fd (icalparser_add_line @ icalparser.c:769)
+first time found dangling pointer at: 1884 distance: 3481
+[INCONSISTENCY mov read UAF] ip: main+0x1483b (icalparser_add_line @ icalparser.c:823) UAF read at: 0x61fbdc124618
+first time found dangling pointer at: 223 distance: 5152
+[INCONSISTENCY mov write reg UAF] ip: main+0x27508 (pvl_tail @ pvl.c:491) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 3506
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x2750c (pvl_tail @ pvl.c:492)
+first time found dangling pointer at: 1875 distance: 3507
+[INCONSISTENCY mov read UAF] ip: main+0x27510 (pvl_tail @ pvl.c:492) UAF read at: 0x61fbdc124640
+first time found dangling pointer at: 2737 distance: 2646
+[INCONSISTENCY mov write reg UAF] ip: main+0x2751e (pvl_data @ pvl.c:497) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 3516
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x27522 (pvl_data @ pvl.c:498)
+first time found dangling pointer at: 1875 distance: 3517
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x27530 (pvl_data @ pvl.c:502)
+first time found dangling pointer at: 1875 distance: 3519
+[INCONSISTENCY mov read UAF] ip: main+0x27534 (pvl_data @ pvl.c:502) UAF read at: 0x61fbdc124898
+first time found dangling pointer at: 4234 distance: 1161
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14880 (icalparser_add_line @ icalparser.c:838)
+first time found dangling pointer at: 1884 distance: 3516
+[INCONSISTENCY mov write reg UAF] ip: main+0x36412 (icalproperty_string_to_kind @ icalderivedproperty.c:6314) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 4506
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x36416 (icalproperty_string_to_kind @ icalderivedproperty.c:6317)
+first time found dangling pointer at: 901 distance: 4507
+[INCONSISTENCY mov write imm UAF] ip: main+0x36427 (icalproperty_string_to_kind @ icalderivedproperty.c:6321) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 3535
+[INCONSISTENCY mov write imm UAF] ip: main+0x3642e (icalproperty_string_to_kind @ icalderivedproperty.c:6322) UAF write at: 0x7fff387a7a7c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x364ba (icalproperty_string_to_kind @ icalderivedproperty.c:6322)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x3643a (icalproperty_string_to_kind @ icalderivedproperty.c:6323)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x36460 (icalproperty_string_to_kind @ icalderivedproperty.c:6323)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x36481 (icalproperty_string_to_kind @ icalderivedproperty.c:6323)
+first time found dangling pointer at: 901 distance: 4535
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x36494 (icalproperty_string_to_kind @ icalderivedproperty.c:6324)
+[UNTRUSTEDPTRDEREF] ip: main+0x364b1 (icalproperty_string_to_kind @ icalderivedproperty.c:6324) final_ea: 0x61fbcba2d9a0 base: 0x1080 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x364f1 (icalproperty_string_to_kind @ icalderivedproperty.c:6333) RSP 0x7fff387a7a88 left stack [0x97,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x1488c (icalparser_add_line @ icalparser.c:838) UAF write at: 0x7fff387a7c8c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c8c ip: main+0x1488f (icalparser_add_line @ icalparser.c:840)
+[INCONSISTENCY mov write reg UAF] ip: main+0x158a2 (icalproperty_new @ icalproperty.c:87) UAF write at: 0x7fff387a7a7c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x158a5 (icalproperty_new @ icalproperty.c:88)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x158b2 (icalproperty_new @ icalproperty.c:92)
+[INCONSISTENCY mov write reg UAF] ip: main+0x15817 (icalproperty_new_impl @ icalproperty.c:65) UAF write at: 0x7fff387a7a4c
+[INCONSISTENCY mov read UAF] ip: main+0x1581a (icalproperty_new_impl @ icalproperty.c:68) UAF read at: 0x7fff387a7a4c
+[INCONSISTENCY mov write reg UAF] ip: main+0x3632d (icalproperty_kind_is_valid @ icalderivedproperty.c:6281) UAF write at: 0x7fff387a7a1c
+[INCONSISTENCY mov write imm UAF] ip: main+0x36330 (icalproperty_kind_is_valid @ icalderivedproperty.c:6282) UAF write at: 0x7fff387a7a2c
+[INCONSISTENCY mov write imm UAF] ip: main+0x36337 (icalproperty_kind_is_valid @ icalderivedproperty.c:6283) UAF write at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 5664
+[INCONSISTENCY mov read UAF] ip: main+0x3633e (icalproperty_kind_is_valid @ icalderivedproperty.c:6285) UAF read at: 0x7fff387a7a1c
+[INCONSISTENCY mov read UAF] ip: main+0x3634f (icalproperty_kind_is_valid @ icalderivedproperty.c:6291) UAF read at: 0x7fff387a7a2c
+[INCONSISTENCY mov read UAF] ip: main+0x3636f (icalproperty_kind_is_valid @ icalderivedproperty.c:6291) UAF read at: 0x7fff387a7a1c
+[INCONSISTENCY mov read UAF] ip: main+0x3637b (icalproperty_kind_is_valid @ icalderivedproperty.c:6294) UAF read at: 0x7fff387a7a2c
+[INCONSISTENCY mov write reg UAF] ip: main+0x36381 (icalproperty_kind_is_valid @ icalderivedproperty.c:6294) UAF write at: 0x7fff387a7a2c
+[INCONSISTENCY mov read UAF] ip: main+0x36384 (icalproperty_kind_is_valid @ icalderivedproperty.c:6294) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 5682
+[ALLOC] malloc(0x38) -> 0x61fbdc1249e0 subject=153 at icalproperty_new_impl @ icalproperty.c:71
+Store dangling pointer: 0x61fbdc1249e0 at: 0x7fff387a7a58
+[INCONSISTENCY mov write reg UAF] ip: main+0x15839 (icalproperty_new_impl @ icalproperty.c:71) UAF write at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 5944
+[INCONSISTENCY mov read UAF] ip: main+0x1583d (icalproperty_new_impl @ icalproperty.c:71) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 5945
+main+0x1583d (icalproperty_new_impl @ icalproperty.c:71) Using expired pointer: 0x61fbdc1249e0 from 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 5945
+[INCONSISTENCY mov read UAF] ip: main+0x15855 (icalproperty_new_impl @ icalproperty.c:76) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 5947
+[INCONSISTENCY mov read UAF] ip: main+0x1586b (icalproperty_new_impl @ icalproperty.c:78) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 5954
+[INCONSISTENCY mov write imm UAF] ip: main+0x1586f (icalproperty_new_impl @ icalproperty.c:78) UAF write at: 0x61fbdc1249e0
+[INCONSISTENCY mov write imm UAF] ip: main+0x15875 (icalproperty_new_impl @ icalproperty.c:78) UAF write at: 0x61fbdc1249e4
+[INCONSISTENCY mov read UAF] ip: main+0x15879 (icalproperty_new_impl @ icalproperty.c:80) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 5957
+[INCONSISTENCY mov read UAF] ip: main+0x1587d (icalproperty_new_impl @ icalproperty.c:80) UAF read at: 0x7fff387a7a4c
+[INCONSISTENCY mov write reg UAF] ip: main+0x15880 (icalproperty_new_impl @ icalproperty.c:80) UAF write at: 0x61fbdc1249e8
+[ALLOC] malloc(0x28) -> 0x61fbdc124a20 subject=155 at pvl_newlist @ pvl.c:65
+Store dangling pointer: 0x61fbdc124a20 at: 0x7fff387a7a28
+main+0x26c7e (pvl_newlist @ pvl.c:65) Using expired pointer: 0x61fbdc124a20 from 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 6728
+[STACK PIVOT] ip: main+0x26ce5 (pvl_newlist @ pvl.c:78) RSP 0x7fff387a7a38 left stack [0x9d,0x7fff38789000]
+[INCONSISTENCY mov read UAF] ip: main+0x15888 (icalproperty_new_impl @ icalproperty.c:81) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 5989
+[INCONSISTENCY mov write reg UAF] ip: main+0x1588c (icalproperty_new_impl @ icalproperty.c:81) UAF write at: 0x61fbdc1249f8
+first time found dangling pointer at: 8576 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x15890 (icalproperty_new_impl @ icalproperty.c:83) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 5991
+[STACK PIVOT] ip: main+0x15894 (icalproperty_new_impl @ icalproperty.c:84) RSP 0x7fff387a7a68 left stack [0x9e,0x7fff38789000]
+[STACK PIVOT] ip: main+0x158bc (icalproperty_new @ icalproperty.c:93) RSP 0x7fff387a7a88 left stack [0x9f,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x14899 (icalparser_add_line @ icalparser.c:840) UAF write at: 0x7fff387a7cc8
+first time found dangling pointer at: 718 distance: 7864
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x1489d (icalparser_add_line @ icalparser.c:842)
+first time found dangling pointer at: 718 distance: 7865
+[INCONSISTENCY mov read UAF] ip: main+0x148ab (icalparser_add_line @ icalparser.c:843) UAF read at: 0x61fbdc124618
+first time found dangling pointer at: 223 distance: 8363
+[INCONSISTENCY mov write reg UAF] ip: main+0x148bf (icalparser_add_line @ icalparser.c:843) UAF write at: 0x7fff387a7c78
+first time found dangling pointer at: 1020 distance: 7589
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c8c ip: main+0x148c3 (icalparser_add_line @ icalparser.c:845)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x148c9 (icalparser_add_line @ icalparser.c:846)
+first time found dangling pointer at: 1884 distance: 6728
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x148cd (icalparser_add_line @ icalparser.c:846)
+first time found dangling pointer at: 718 distance: 7895
+[INCONSISTENCY mov read UAF] ip: main+0x16ed1 (icalproperty_set_x_name @ icalproperty.c:883) UAF read at: 0x61fbdc1249f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x12f83 (icalmemory_strdup @ icalmemory.c:257) UAF write at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 6052
+[INCONSISTENCY mov read UAF] ip: main+0x12f87 (icalmemory_strdup @ icalmemory.c:258) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 6053
+[ALLOC:internal] malloc(0x2) -> 0x61fbdc124a50 subject=161 at strdup
+[STACK PIVOT] ip: main+0x12f93 (icalmemory_strdup @ icalmemory.c:259) RSP 0x7fff387a7a68 left stack [0xa3,0x7fff38789000]
+Store dangling pointer: 0x61fbdc124a50 at: 0x61fbdc1249f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x16efa (icalproperty_set_x_name @ icalproperty.c:887) UAF write at: 0x61fbdc1249f0
+first time found dangling pointer at: 8647 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x16f02 (icalproperty_set_x_name @ icalproperty.c:889) UAF read at: 0x61fbdc1249f0
+first time found dangling pointer at: 8647 distance: 2
+main+0x16f02 (icalproperty_set_x_name @ icalproperty.c:889) Using expired pointer: 0x61fbdc124a50 from 0x61fbdc1249f0
+first time found dangling pointer at: 8647 distance: 2
+[STACK PIVOT] ip: main+0x16f15 (icalproperty_set_x_name @ icalproperty.c:892) RSP 0x7fff387a7a88 left stack [0xa4,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x148dc (icalparser_add_line @ icalparser.c:849)
+first time found dangling pointer at: 718 distance: 7936
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c78 ip: main+0x148e0 (icalparser_add_line @ icalparser.c:849)
+first time found dangling pointer at: 1020 distance: 7635
+[INCONSISTENCY mov read] ip: main+0x1705d (icalproperty_set_parent @ icalproperty.c:944) base: 0x7fff387a7a60 pointee: 164 read from 165
+[CORRUPTED_PTR_LOAD] ip: main+0x1705d (icalproperty_set_parent @ icalproperty.c:944) loaded: 0x61fbdc1249e0 from cell: 0x7fff387a7a58 cell_owner: 165 value_owner: 164
+[INCONSISTENCY mov read UAF] ip: main+0x17070 (icalproperty_set_parent @ icalproperty.c:946) UAF read at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 6096
+[CORRUPTED_PTR_LOAD] ip: main+0x17070 (icalproperty_set_parent @ icalproperty.c:946) loaded: 0x61fbdc1249e0 from cell: 0x7fff387a7a58 cell_owner: 165 value_owner: 164
+[INCONSISTENCY mov read UAF] ip: main+0x17074 (icalproperty_set_parent @ icalproperty.c:946) UAF read at: 0x7fff387a7a50
+first time found dangling pointer at: 8679 distance: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x17074 (icalproperty_set_parent @ icalproperty.c:946) loaded: 0x61fbdc1247d0 from cell: 0x7fff387a7a50 cell_owner: 165 value_owner: 164
+[INCONSISTENCY mov write reg UAF] ip: main+0x17078 (icalproperty_set_parent @ icalproperty.c:946) UAF write at: 0x61fbdc124a10
+first time found dangling pointer at: 8684 distance: 0
+[STACK PIVOT] ip: main+0x1707c (icalproperty_set_parent @ icalproperty.c:947) RSP 0x7fff387a7a68 left stack [0xa7,0x7fff38789000]
+[INCONSISTENCY mov read UAF] ip: main+0xd2db (icalcomponent_add_property @ icalcomponent.c:351) UAF read at: 0x61fbdc1247e8
+first time found dangling pointer at: 4153 distance: 4535
+[INCONSISTENCY mov write reg UAF] ip: main+0x26e6b (pvl_push @ pvl.c:175) UAF write at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 5994
+[INCONSISTENCY mov write reg UAF] ip: main+0x26e6f (pvl_push @ pvl.c:175) UAF write at: 0x7fff387a7a40
+first time found dangling pointer at: 8698 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x26e73 (pvl_push @ pvl.c:176) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 5996
+[INCONSISTENCY mov read UAF] ip: main+0x26e7b (pvl_push @ pvl.c:176) UAF read at: 0x7fff387a7a40
+first time found dangling pointer at: 8698 distance: 3
+[INCONSISTENCY mov write reg UAF] ip: main+0x26d2e (pvl_new_element @ pvl.c:105) UAF write at: 0x7fff387a7a08
+[ALLOC] malloc(0x20) -> 0x61fbdc124a70 subject=169 at pvl_new_element @ pvl.c:108
+Store dangling pointer: 0x61fbdc124a70 at: 0x7fff387a7a28
+main+0x26d40 (pvl_new_element @ pvl.c:108) Using expired pointer: 0x61fbdc124a70 from 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 6889
+[STACK PIVOT] ip: main+0x26d96 (pvl_new_element @ pvl.c:119) RSP 0x7fff387a7a38 left stack [0xab,0x7fff38789000]
+[INCONSISTENCY mov read UAF] ip: main+0x26e90 (pvl_push @ pvl.c:183) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 6034
+[INCONSISTENCY mov read UAF] ip: main+0x26ead (pvl_push @ pvl.c:187) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 6038
+[INCONSISTENCY mov read UAF] ip: main+0x26eba (pvl_push @ pvl.c:188) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 6042
+[INCONSISTENCY mov read UAF] ip: main+0x26ec6 (pvl_push @ pvl.c:191) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 6045
+[INCONSISTENCY mov read UAF] ip: main+0x26ed2 (pvl_push @ pvl.c:193) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 6048
+[INCONSISTENCY mov read UAF] ip: main+0x26edc (pvl_push @ pvl.c:193) UAF read at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 6051
+[STACK PIVOT] ip: main+0x26ee4 (pvl_push @ pvl.c:194) RSP 0x7fff387a7a68 left stack [0xac,0x7fff38789000]
+[STACK PIVOT] ip: main+0xd2ee (icalcomponent_add_property @ icalcomponent.c:352) RSP 0x7fff387a7a88 left stack [0xad,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cc8 ip: main+0x148ef (icalparser_add_line @ icalparser.c:853)
+first time found dangling pointer at: 718 distance: 8043
+[INCONSISTENCY mov write reg UAF] ip: main+0x162cf (icalproperty_isa @ icalproperty.c:465) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 6892
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x162d3 (icalproperty_isa @ icalproperty.c:466)
+first time found dangling pointer at: 1875 distance: 6893
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x162da (icalproperty_isa @ icalproperty.c:467)
+first time found dangling pointer at: 1875 distance: 6895
+[INCONSISTENCY mov read UAF] ip: main+0x162de (icalproperty_isa @ icalproperty.c:467) UAF read at: 0x61fbdc1249e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x36570 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6350) UAF write at: 0x7fff387a7a6c
+[INCONSISTENCY mov write imm UAF] ip: main+0x36573 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6353) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 6906
+[INCONSISTENCY mov write imm UAF] ip: main+0x3657a (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6354) UAF write at: 0x7fff387a7a7c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x365d3 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6354)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x36583 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6355)
+[INCONSISTENCY mov write reg UAF] ip: main+0x365a0 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6355) UAF write at: 0x7fff387a7a70
+first time found dangling pointer at: 4963 distance: 3832
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x365a4 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6357)
+first time found dangling pointer at: 4963 distance: 3833
+[UNTRUSTEDPTRDEREF] ip: main+0x365a8 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6357) final_ea: 0x61fbcba2c920 base: 0x61fbcba2c920 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a6c ip: main+0x365aa (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6357)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x365af (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6360)
+first time found dangling pointer at: 4963 distance: 4909
+[UNTRUSTEDPTRDEREF] ip: main+0x365b3 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6360) final_ea: 0x61fbcba2d9b4 base: 0x61fbcba2d9a0 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x365bd (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6361)
+first time found dangling pointer at: 4963 distance: 4913
+[UNTRUSTEDPTRDEREF] ip: main+0x365c1 (icalproperty_kind_to_value_kind @ icalderivedproperty.c:6361) final_ea: 0x61fbcba2d9b4 base: 0x61fbcba2d9a0 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14908 (icalparser_add_line @ icalparser.c:868)
+first time found dangling pointer at: 1884 distance: 7998
+[FREE] free(0x61fbdc1246c0) subject=145 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0xaf,0x7fff38789000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x14914 (icalparser_add_line @ icalparser.c:869) UAF write at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 8014
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd4 ip: main+0x15024 (icalparser_add_line @ icalparser.c:877)
+main+0x14990 (icalparser_add_line @ icalparser.c:878) Using expired pointer: 0x61fbdc1248c2 from 0x7fff387a7bd0
+first time found dangling pointer at: 5345 distance: 4557
+[INCONSISTENCY mov read UAF] ip: main+0x1499b (icalparser_add_line @ icalparser.c:878) UAF read at: 0x61fbdc1248c1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x149a6 (icalparser_add_line @ icalparser.c:885)
+first time found dangling pointer at: 1884 distance: 8023
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0xb1,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13d25 (parser_get_next_parameter @ icalparser.c:452) UAF write at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 7346
+[INCONSISTENCY mov write reg UAF] ip: main+0x13d29 (parser_get_next_parameter @ icalparser.c:452) UAF write at: 0x7fff387a7a50
+first time found dangling pointer at: 8679 distance: 1254
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x13d2d (parser_get_next_parameter @ icalparser.c:457)
+first time found dangling pointer at: 2586 distance: 7348
+[INCONSISTENCY mov write reg UAF] ip: main+0x13d43 (parser_get_next_parameter @ icalparser.c:457) UAF write at: 0x7fff387a7a70
+first time found dangling pointer at: 4963 distance: 4995
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x13d47 (parser_get_next_parameter @ icalparser.c:458)
+first time found dangling pointer at: 2586 distance: 7373
+[INCONSISTENCY mov write reg UAF] ip: main+0x13d5d (parser_get_next_parameter @ icalparser.c:458) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 8107
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13d61 (parser_get_next_parameter @ icalparser.c:463)
+first time found dangling pointer at: 1875 distance: 8108
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x13d72 (parser_get_next_parameter @ icalparser.c:464)
+first time found dangling pointer at: 2586 distance: 7399
+[INCONSISTENCY mov write reg UAF] ip: main+0x13d88 (parser_get_next_parameter @ icalparser.c:464) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 8134
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13d8c (parser_get_next_parameter @ icalparser.c:467)
+first time found dangling pointer at: 1875 distance: 8135
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13d93 (parser_get_next_parameter @ icalparser.c:468)
+first time found dangling pointer at: 1875 distance: 8137
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x13d97 (parser_get_next_parameter @ icalparser.c:468)
+first time found dangling pointer at: 2586 distance: 7427
+[ALLOC] malloc(0x58) -> 0x61fbdc124660 subject=180 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7a08 left stack [0xb6,0x7fff38789000]
+Store dangling pointer: 0x61fbdc1246b7 at: 0x7fff387a7a38
+main+0x136cc (make_segment @ icalparser.c:184) Using expired pointer: 0x61fbdc1246b7 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8227
+main+0x136cc (make_segment @ icalparser.c:184) Read a dangling pointer 0x61fbdc1246b6 from 0x7fff387a7a38
+main+0x136d6 (make_segment @ icalparser.c:184) Using expired pointer: 0x61fbdc1246b6 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8240
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a48 left stack [0xb7,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13da6 (parser_get_next_parameter @ icalparser.c:468) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 9199
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13daa (parser_get_next_parameter @ icalparser.c:469)
+first time found dangling pointer at: 1875 distance: 8226
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13db2 (parser_get_next_parameter @ icalparser.c:469)
+first time found dangling pointer at: 8679 distance: 1424
+Store dangling pointer: 0x61fbdc12491a at: 0x7fff387a7bd0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13db9 (parser_get_next_parameter @ icalparser.c:470)
+first time found dangling pointer at: 901 distance: 9204
+[STACK PIVOT] ip: main+0x13dcf (parser_get_next_parameter @ icalparser.c:475) RSP 0x7fff387a7a88 left stack [0xb8,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x149cb (icalparser_add_line @ icalparser.c:886) UAF write at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 8225
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x149cf (icalparser_add_line @ icalparser.c:887)
+first time found dangling pointer at: 1884 distance: 8226
+[INCONSISTENCY mov write reg UAF] ip: main+0x13364 (strstriplt) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 9216
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13368 (strstriplt @ icalparser.c:76)
+first time found dangling pointer at: 901 distance: 9217
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13373 (strstriplt @ icalparser.c:79)
+first time found dangling pointer at: 901 distance: 9219
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13382 (strstriplt @ icalparser.c:82)
+first time found dangling pointer at: 901 distance: 9223
+[INCONSISTENCY mov write reg UAF] ip: main+0x1338e (strstriplt @ icalparser.c:82) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 8254
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x133a7 (strstriplt @ icalparser.c:85)
+first time found dangling pointer at: 901 distance: 9230
+[UNTRUSTEDPTRDEREF] ip: main+0x133b7 (strstriplt @ icalparser.c:85) final_ea: 0x7a90c3a336d8 base: 0x7a90c3a336d8 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x133ba (strstriplt @ icalparser.c:85)
+first time found dangling pointer at: 1875 distance: 8264
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x133c2 (strstriplt @ icalparser.c:85)
+first time found dangling pointer at: 901 distance: 9240
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x133c6 (strstriplt @ icalparser.c:85) add rdx, rcx id before: 180 after: 0 [freed] value: 0x61fbdc1246b6
+[INCONSISTENCY mov read UAF] ip: main+0x133c9 (strstriplt @ icalparser.c:85) UAF read at: 0x61fbdc1246b6
+[UNTRUSTEDPTRDEREF] ip: main+0x133d5 (strstriplt @ icalparser.c:85) final_ea: 0x7a90b27c292a base: 0x7a90b27c292a pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x133e4 (strstriplt @ icalparser.c:88)
+first time found dangling pointer at: 901 distance: 9251
+[INCONSISTENCY mov write imm UAF] ip: main+0x133f3 (strstriplt @ icalparser.c:91) UAF write at: 0x7fff387a7a74
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13400 (strstriplt @ icalparser.c:92)
+first time found dangling pointer at: 901 distance: 9257
+[UNTRUSTEDPTRDEREF] ip: main+0x13410 (strstriplt @ icalparser.c:92) final_ea: 0x7a90c3a336d8 base: 0x7a90c3a336d8 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a74 ip: main+0x13413 (strstriplt @ icalparser.c:92)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13419 (strstriplt @ icalparser.c:92)
+first time found dangling pointer at: 901 distance: 9267
+[UNTRUSTEDPTRDEREF] ip: main+0x1342c (strstriplt @ icalparser.c:92) final_ea: 0x7a90b27c2968 base: 0x7a90b27c2968 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a74 ip: main+0x1343b (strstriplt @ icalparser.c:95)
+[STACK PIVOT] ip: main+0x13476 (strstriplt @ icalparser.c:98) RSP 0x7fff387a7a88 left stack [0xba,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x149db (icalparser_add_line @ icalparser.c:888)
+first time found dangling pointer at: 1884 distance: 8299
+[INCONSISTENCY mov write imm UAF] ip: main+0x149e6 (icalparser_add_line @ icalparser.c:889) UAF write at: 0x7fff387a7cb8
+[INCONSISTENCY mov write reg UAF] ip: main+0x14a00 (icalparser_add_line @ icalparser.c:893) UAF write at: 0x7fff387a7cb0
+[INCONSISTENCY mov write reg UAF] ip: main+0x14a0b (icalparser_add_line @ icalparser.c:894) UAF write at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 9454
+[INCONSISTENCY mov write imm UAF] ip: main+0x14a0f (icalparser_add_line @ icalparser.c:896) UAF write at: 0x7fff387a7ca0
+[INCONSISTENCY mov read UAF] ip: main+0x14a1e (icalparser_add_line @ icalparser.c:898) UAF read at: 0x61fbdc124618
+first time found dangling pointer at: 223 distance: 9970
+[INCONSISTENCY mov write reg UAF] ip: main+0x14a32 (icalparser_add_line @ icalparser.c:898) UAF write at: 0x7fff387a7c70
+first time found dangling pointer at: 1021 distance: 9195
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14a44 (icalparser_add_line @ icalparser.c:900)
+first time found dangling pointer at: 1884 distance: 8335
+[INCONSISTENCY mov write reg UAF] ip: main+0x138a7 (parser_get_param_name_stack @ icalparser.c:247) UAF write at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 7643
+[INCONSISTENCY mov write reg UAF] ip: main+0x138ab (parser_get_param_name_stack @ icalparser.c:247) UAF write at: 0x7fff387a7a50
+first time found dangling pointer at: 8679 distance: 1551
+[INCONSISTENCY mov write reg UAF] ip: main+0x138af (parser_get_param_name_stack @ icalparser.c:247) UAF write at: 0x7fff387a7a48
+first time found dangling pointer at: 2703 distance: 7528
+[INCONSISTENCY mov write reg UAF] ip: main+0x138b3 (parser_get_param_name_stack @ icalparser.c:247) UAF write at: 0x7fff387a7a40
+first time found dangling pointer at: 8698 distance: 1534
+[INCONSISTENCY mov write reg UAF] ip: main+0x138b7 (parser_get_param_name_stack @ icalparser.c:247) UAF write at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8389
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x138bb (parser_get_param_name_stack @ icalparser.c:252)
+first time found dangling pointer at: 2586 distance: 7648
+[INCONSISTENCY mov write reg UAF] ip: main+0x138d1 (parser_get_param_name_stack @ icalparser.c:252) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 8383
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x138d5 (parser_get_param_name_stack @ icalparser.c:254)
+first time found dangling pointer at: 1875 distance: 8384
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x138e6 (parser_get_param_name_stack @ icalparser.c:258)
+first time found dangling pointer at: 1875 distance: 8386
+[INCONSISTENCY mov write reg UAF] ip: main+0x138ee (parser_get_param_name_stack @ icalparser.c:258) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 9362
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x138f7 (parser_get_param_name_stack @ icalparser.c:263)
+first time found dangling pointer at: 1875 distance: 8390
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13940 (parser_get_param_name_stack @ icalparser.c:275)
+first time found dangling pointer at: 1875 distance: 8394
+[INCONSISTENCY mov write reg UAF] ip: main+0x1394c (parser_get_param_name_stack @ icalparser.c:275) UAF write at: 0x7fff387a7a70
+first time found dangling pointer at: 4963 distance: 5311
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a48 ip: main+0x13950 (parser_get_param_name_stack @ icalparser.c:280)
+first time found dangling pointer at: 2703 distance: 7572
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13958 (parser_get_param_name_stack @ icalparser.c:280)
+first time found dangling pointer at: 901 distance: 9376
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a38 ip: main+0x1395e (parser_get_param_name_stack @ icalparser.c:280)
+first time found dangling pointer at: 1844 distance: 8435
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x13966 (parser_get_param_name_stack @ icalparser.c:280)
+first time found dangling pointer at: 4963 distance: 5318
+[STACK PIVOT] ip: main+0x139ce (parser_get_param_name_stack @ icalparser.c:293) RSP 0x7fff387a7a88 left stack [0xbc,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14a69 (icalparser_add_line @ icalparser.c:902)
+first time found dangling pointer at: 1884 distance: 8406
+[INCONSISTENCY mov write reg UAF] ip: main+0x139dd (parser_get_param_name_heap @ icalparser.c:296) UAF write at: 0x7fff387a7a58
+first time found dangling pointer at: 2586 distance: 7713
+[INCONSISTENCY mov write reg UAF] ip: main+0x139e1 (parser_get_param_name_heap @ icalparser.c:296) UAF write at: 0x7fff387a7a50
+first time found dangling pointer at: 8679 distance: 1621
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x139e5 (parser_get_param_name_heap @ icalparser.c:304)
+first time found dangling pointer at: 2586 distance: 7715
+[INCONSISTENCY mov write reg UAF] ip: main+0x139fb (parser_get_param_name_heap @ icalparser.c:304) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 9424
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x139ff (parser_get_param_name_heap @ icalparser.c:306)
+first time found dangling pointer at: 901 distance: 9425
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13a10 (parser_get_param_name_heap @ icalparser.c:310)
+first time found dangling pointer at: 901 distance: 9427
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a58 ip: main+0x13a14 (parser_get_param_name_heap @ icalparser.c:310)
+first time found dangling pointer at: 2586 distance: 7743
+[ALLOC] malloc(0x5) -> 0x61fbdc1246c0 subject=191 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7a08 left stack [0xc1,0x7fff38789000]
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a48 left stack [0xc2,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a23 (parser_get_param_name_heap @ icalparser.c:310) UAF write at: 0x7fff387a7a60
+first time found dangling pointer at: 2685 distance: 7731
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a68 ip: main+0x13a27 (parser_get_param_name_heap @ icalparser.c:311)
+first time found dangling pointer at: 901 distance: 9516
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13a2f (parser_get_param_name_heap @ icalparser.c:311)
+first time found dangling pointer at: 8679 distance: 1740
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13a36 (parser_get_param_name_heap @ icalparser.c:312)
+first time found dangling pointer at: 8679 distance: 1742
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13ab7 (parser_get_param_name_heap @ icalparser.c:323)
+first time found dangling pointer at: 8679 distance: 1747
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13abe (parser_get_param_name_heap @ icalparser.c:323)
+first time found dangling pointer at: 8679 distance: 1749
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13ad1 (parser_get_param_name_heap @ icalparser.c:323)
+first time found dangling pointer at: 8679 distance: 1756
+[ALLOC] malloc(0x53) -> 0x61fbdc124aa0 subject=196 at icalmemory_new_buffer @ icalmemory.c:268
+Store dangling pointer: 0x61fbdc124aa0 at: 0x7fff387a79f8
+main+0x12fb5 (icalmemory_new_buffer @ icalmemory.c:270) Using expired pointer: 0x61fbdc124aa0 from 0x7fff387a79f8
+first time found dangling pointer at: 1815 distance: 8649
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7a08 left stack [0xc6,0x7fff38789000]
+Store dangling pointer: 0x61fbdc124af2 at: 0x7fff387a7a38
+main+0x136cc (make_segment @ icalparser.c:184) Using expired pointer: 0x61fbdc124af2 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8650
+main+0x136cc (make_segment @ icalparser.c:184) Read a dangling pointer 0x61fbdc124af1 from 0x7fff387a7a38
+main+0x136d6 (make_segment @ icalparser.c:184) Using expired pointer: 0x61fbdc124af1 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8663
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a48 left stack [0xc7,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13ae3 (parser_get_param_name_heap @ icalparser.c:323)
+first time found dangling pointer at: 8679 distance: 1844
+[INTRA_OBJECT_OVERFLOW] ip: main+0x13ae7 (parser_get_param_name_heap @ icalparser.c:323) at: 0x7fff387a7bc0 offset: +0x130 subject: 141 clobbers ptr 0x61fbdc124665 (owner: 180)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a50 ip: main+0x13aea (parser_get_param_name_heap @ icalparser.c:326)
+first time found dangling pointer at: 8679 distance: 1846
+[INCONSISTENCY mov write reg UAF] ip: main+0x137d1 (parser_decode_param_value @ icalparser.c:219) UAF write at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 8705
+[INCONSISTENCY mov read UAF] ip: main+0x137d5 (parser_decode_param_value @ icalparser.c:222) UAF read at: 0x7fff387a7a28
+first time found dangling pointer at: 1828 distance: 8706
+[INCONSISTENCY mov write reg UAF] ip: main+0x137d9 (parser_decode_param_value @ icalparser.c:222) UAF write at: 0x7fff387a7a30
+first time found dangling pointer at: 4928 distance: 5607
+[INCONSISTENCY mov read UAF] ip: main+0x137dd (parser_decode_param_value @ icalparser.c:222) UAF read at: 0x7fff387a7a30
+first time found dangling pointer at: 4928 distance: 5608
+[INCONSISTENCY mov write reg UAF] ip: main+0x137e1 (parser_decode_param_value @ icalparser.c:222) UAF write at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8693
+[INCONSISTENCY mov read UAF] ip: main+0x1386c (parser_decode_param_value @ icalparser.c:222) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8695
+[INCONSISTENCY mov read UAF] ip: main+0x13870 (parser_decode_param_value @ icalparser.c:222) UAF read at: 0x61fbdc124aa0
+[INCONSISTENCY mov read UAF] ip: main+0x137ea (parser_decode_param_value @ icalparser.c:223) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8699
+[INCONSISTENCY mov read UAF] ip: main+0x137ee (parser_decode_param_value @ icalparser.c:223) UAF read at: 0x61fbdc124aa0
+[INCONSISTENCY mov read UAF] ip: main+0x13855 (parser_decode_param_value @ icalparser.c:238) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8703
+[INCONSISTENCY mov read UAF] ip: main+0x13859 (parser_decode_param_value @ icalparser.c:238) UAF read at: 0x61fbdc124aa0
+[INCONSISTENCY mov read UAF] ip: main+0x1385c (parser_decode_param_value @ icalparser.c:238) UAF read at: 0x7fff387a7a30
+first time found dangling pointer at: 4928 distance: 5621
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa1 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa1 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8713
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa2 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa2 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8727
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa3 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa3 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8741
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa4 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa4 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8755
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa5 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa5 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8769
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa6 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa6 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8783
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa7 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa7 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8797
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa8 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa8 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8811
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aa9 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aa9 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8825
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aaa from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aaa from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8839
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aab from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aab from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8853
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aac from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aac from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8867
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aad from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aad from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8881
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aae from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aae from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8895
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aaf from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aaf from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8909
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab0 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab0 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8923
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab1 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab1 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8937
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab2 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab2 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8951
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab3 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab3 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8965
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab4 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab4 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8979
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab5 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab5 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 8993
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab6 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab6 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9007
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab7 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab7 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9021
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab8 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab8 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9035
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ab9 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ab9 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9049
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aba from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aba from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9063
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124abb from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124abb from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9077
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124abc from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124abc from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9091
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124abd from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124abd from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9105
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124abe from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124abe from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9119
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124abf from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124abf from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9133
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac0 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac0 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9147
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac1 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac1 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9161
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac2 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac2 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9175
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac3 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac3 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9189
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac4 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac4 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9203
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac5 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac5 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9217
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac6 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac6 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9231
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac7 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac7 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9245
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac8 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac8 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9259
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ac9 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ac9 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9273
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124aca from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124aca from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9287
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124acb from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124acb from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9301
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124acc from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124acc from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9315
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124acd from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124acd from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9329
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ace from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ace from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9343
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124acf from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124acf from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9357
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad0 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad0 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9371
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad1 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad1 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9385
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad2 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad2 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9399
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad3 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad3 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9413
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad4 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad4 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9427
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad5 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad5 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9441
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad6 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad6 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9455
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad7 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad7 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9469
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad8 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad8 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9483
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ad9 from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ad9 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9497
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ada from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ada from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9511
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124adb from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124adb from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9525
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124adc from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124adc from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9539
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124add from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124add from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9553
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124ade from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124ade from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9567
+main+0x1386c (parser_decode_param_value @ icalparser.c:222) Read a dangling pointer 0x61fbdc124adf from 0x7fff387a7a38
+main+0x137ea (parser_decode_param_value @ icalparser.c:223) Using expired pointer: 0x61fbdc124adf from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 9581
+[INCONSISTENCY mov read UAF] ip: main+0x1388c (parser_decode_param_value @ icalparser.c:242) UAF read at: 0x7fff387a7a30
+first time found dangling pointer at: 4928 distance: 6508
+[INCONSISTENCY mov read UAF] ip: main+0x13890 (parser_decode_param_value @ icalparser.c:242) UAF read at: 0x61fbdc124af2
+[STACK PIVOT] ip: main+0x13899 (parser_decode_param_value @ icalparser.c:243) RSP 0x7fff387a7a48 left stack [0xc9,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a60 ip: main+0x13af9 (parser_get_param_name_heap @ icalparser.c:328)
+first time found dangling pointer at: 2685 distance: 8759
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x13afd (parser_get_param_name_heap @ icalparser.c:329)
+first time found dangling pointer at: 1875 distance: 9570
+[STACK PIVOT] ip: main+0x13b01 (parser_get_param_name_heap @ icalparser.c:329) RSP 0x7fff387a7a88 left stack [0xca,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x14a78 (icalparser_add_line @ icalparser.c:902) UAF write at: 0x7fff387a7cb8
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cb8 ip: main+0x14a7c (icalparser_add_line @ icalparser.c:904)
+[INCONSISTENCY mov write reg UAF] ip: main+0x14a80 (icalparser_add_line @ icalparser.c:904) UAF write at: 0x7fff387a7cb0
+[INCONSISTENCY mov write reg UAF] ip: main+0x14a8b (icalparser_add_line @ icalparser.c:905) UAF write at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 10716
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cb8 ip: main+0x14a8f (icalparser_add_line @ icalparser.c:907)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cb0 ip: main+0x14abf (icalparser_add_line @ icalparser.c:916)
+[INCONSISTENCY mov write imm UAF] ip: main+0x3ac67 (icalparameter_string_to_kind @ icalderivedparameter.c:2437) UAF write at: 0x7fff387a7a60
+first time found dangling pointer at: 2685 distance: 8780
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ac72 (icalparameter_string_to_kind @ icalderivedparameter.c:2438) UAF write at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 10566
+Store dangling pointer: 0x7fff387a7a60 at: 0x7fff387a79e8
+[INCONSISTENCY mov read UAF] ip: main+0x3ac29 (icalparameter_compare_kind_map @ icalderivedparameter.c:2425) UAF read at: 0x7fff387a79e0
+[CORRUPTED_PTR_LOAD] ip: main+0x3ac29 (icalparameter_compare_kind_map @ icalderivedparameter.c:2425) loaded: 0x61fbcba333b0 from cell: 0x7fff387a79e0 cell_owner: 203 value_owner: 202
+[UNTRUSTEDPTRDEREF] ip: main+0x3ac2d (icalparameter_compare_kind_map @ icalderivedparameter.c:2425) final_ea: 0x61fbcba333b8 base: 0x61fbcba333b0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x3ac31 (icalparameter_compare_kind_map @ icalderivedparameter.c:2425) UAF read at: 0x7fff387a79e8
+first time found dangling pointer at: 11481 distance: 4
+main+0x3ac31 (icalparameter_compare_kind_map @ icalderivedparameter.c:2425) Using expired pointer: 0x7fff387a7a60 from 0x7fff387a79e8
+first time found dangling pointer at: 11481 distance: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x3ac31 (icalparameter_compare_kind_map @ icalderivedparameter.c:2425) loaded: 0x7fff387a7a60 from cell: 0x7fff387a79e8 cell_owner: 203 value_owner: 202
+[INCONSISTENCY mov read UAF] ip: main+0x3ac35 (icalparameter_compare_kind_map @ icalderivedparameter.c:2425) UAF read at: 0x7fff387a7a68
+first time found dangling pointer at: 901 distance: 10585
+[STACK PIVOT] ip: main+0x3ac44 (icalparameter_compare_kind_map @ icalderivedparameter.c:2426) RSP 0x7fff387a79f8 left stack [0xcd,0x7fff38789000]
+[STACK PIVOT] ip: main+0x3ac45 (icalparameter_compare_kind_map @ icalderivedparameter.c:2426) RSP 0x7fff387a7a00 left stack after RET
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ac21 (icalparameter_compare_kind_map @ icalderivedparameter.c:2424) UAF write at: 0x7fff387a79e8
+first time found dangling pointer at: 11481 distance: 15
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ac25 (icalparameter_compare_kind_map @ icalderivedparameter.c:2424) UAF write at: 0x7fff387a79e0
+[STACK PIVOT] ip: main+0x3ac44 (icalparameter_compare_kind_map @ icalderivedparameter.c:2426) RSP 0x7fff387a79f8 left stack [0xd0,0x7fff38789000]
+[STACK PIVOT] ip: main+0x3ac45 (icalparameter_compare_kind_map @ icalderivedparameter.c:2426) RSP 0x7fff387a7a00 left stack after RET
+[STACK PIVOT] ip: main+0x3ac44 (icalparameter_compare_kind_map @ icalderivedparameter.c:2426) RSP 0x7fff387a79f8 left stack [0xd3,0x7fff38789000]
+[STACK PIVOT] ip: main+0x3ac45 (icalparameter_compare_kind_map @ icalderivedparameter.c:2426) RSP 0x7fff387a7a00 left stack after RET
+[INCONSISTENCY mov write reg UAF] ip: main+0x3ac9a (icalparameter_string_to_kind @ icalderivedparameter.c:2440) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 9647
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x3ac9e (icalparameter_string_to_kind @ icalderivedparameter.c:2444)
+first time found dangling pointer at: 1875 distance: 9648
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x3aca5 (icalparameter_string_to_kind @ icalderivedparameter.c:2445)
+first time found dangling pointer at: 1875 distance: 9650
+[UNTRUSTEDPTRDEREF] ip: main+0x3aca9 (icalparameter_string_to_kind @ icalderivedparameter.c:2445) final_ea: 0x61fbcba334f0 base: 0x61fbcba334f0 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x3ace9 (icalparameter_string_to_kind @ icalderivedparameter.c:2457) RSP 0x7fff387a7a88 left stack [0xd5,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x14acb (icalparser_add_line @ icalparser.c:916) UAF write at: 0x7fff387a7c6c
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c6c ip: main+0x14ad1 (icalparser_add_line @ icalparser.c:918)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c6c ip: main+0x14b1e (icalparser_add_line @ icalparser.c:924)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c6c ip: main+0x14bcd (icalparser_add_line @ icalparser.c:945)
+main+0x14bda (icalparser_add_line @ icalparser.c:945) Using expired pointer: 0x61fbdc12491a from 0x7fff387a7bd0
+first time found dangling pointer at: 5345 distance: 6192
+[INCONSISTENCY mov read UAF] ip: main+0x14be5 (icalparser_add_line @ icalparser.c:945) UAF read at: 0x61fbdc124919
+[INCONSISTENCY mov write imm UAF] ip: main+0x14bf0 (icalparser_add_line @ icalparser.c:958) UAF write at: 0x7fff387a7c98
+[INCONSISTENCY mov write reg UAF] ip: main+0x14bff (icalparser_add_line @ icalparser.c:959) UAF write at: 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 10737
+[INCONSISTENCY mov write reg UAF] ip: main+0x14c1c (icalparser_add_line @ icalparser.c:960) UAF write at: 0x7fff387a7c60
+first time found dangling pointer at: 1023 distance: 10545
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c90 ip: main+0x14c23 (icalparser_add_line @ icalparser.c:964)
+first time found dangling pointer at: 807 distance: 10762
+main+0x1362d (parser_get_next_char @ icalparser.c:161) Read a dangling pointer 0x61fbdc12491c from 0x7fff387a7a70
+[INCONSISTENCY mov write reg UAF] ip: main+0x14c39 (icalparser_add_line @ icalparser.c:964) UAF write at: 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 10786
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c90 ip: main+0x14c3d (icalparser_add_line @ icalparser.c:966)
+first time found dangling pointer at: 807 distance: 10787
+main+0x14c3d (icalparser_add_line @ icalparser.c:966) Using expired pointer: 0x61fbdc12491c from 0x7fff387a7c90
+first time found dangling pointer at: 807 distance: 10787
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c90 ip: main+0x14c44 (icalparser_add_line @ icalparser.c:967)
+first time found dangling pointer at: 807 distance: 10789
+[INCONSISTENCY mov write reg UAF] ip: main+0x14c48 (icalparser_add_line @ icalparser.c:967) UAF write at: 0x7fff387a7c98
+first time found dangling pointer at: 11597 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c90 ip: main+0x14c4c (icalparser_add_line @ icalparser.c:969)
+first time found dangling pointer at: 807 distance: 10791
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x14c53 (icalparser_add_line @ icalparser.c:971)
+first time found dangling pointer at: 11597 distance: 31
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c60 ip: main+0x14c5a (icalparser_add_line @ icalparser.c:971)
+first time found dangling pointer at: 1023 distance: 10607
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x14c7c (icalparser_add_line @ icalparser.c:986)
+first time found dangling pointer at: 11597 distance: 35
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x14c83 (icalparser_add_line @ icalparser.c:986)
+first time found dangling pointer at: 11597 distance: 37
+[INCONSISTENCY mov read UAF] ip: main+0x14c8b (icalparser_add_line @ icalparser.c:986) UAF read at: 0x61fbdc12491d
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cb0 ip: main+0x14c92 (icalparser_add_line @ icalparser.c:987)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c98 ip: main+0x14cb3 (icalparser_add_line @ icalparser.c:989)
+first time found dangling pointer at: 11597 distance: 51
+Store dangling pointer: 0x61fbdc12491d at: 0x7fff387a7bd0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14cc2 (icalparser_add_line @ icalparser.c:991)
+first time found dangling pointer at: 1884 distance: 9767
+[FREE] free(0x61fbdc124660) subject=180 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0xd7,0x7fff38789000]
+main+0x14cce (icalparser_add_line @ icalparser.c:992) Using expired pointer: 0x61fbdc12491d from 0x7fff387a7bd0
+first time found dangling pointer at: 5345 distance: 6322
+main+0x14cd9 (icalparser_add_line @ icalparser.c:992) Using expired pointer: 0x61fbdc1248c6 from 0x7fff387a7c58
+first time found dangling pointer at: 11647 distance: 22
+[ALLOC] malloc(0x57) -> 0x61fbdc124660 subject=217 at icalmemory_new_buffer @ icalmemory.c:268
+[STACK PIVOT] ip: main+0x12fe6 (icalmemory_new_buffer @ icalmemory.c:278) RSP 0x7fff387a7a48 left stack [0xdb,0x7fff38789000]
+[STACK PIVOT] ip: main+0x136fa (make_segment @ icalparser.c:190) RSP 0x7fff387a7a88 left stack [0xdc,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x14ceb (icalparser_add_line @ icalparser.c:992) UAF write at: 0x7fff387a7cd8
+first time found dangling pointer at: 1884 distance: 9872
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14cfd (icalparser_add_line @ icalparser.c:996)
+first time found dangling pointer at: 1884 distance: 9875
+[STACK PIVOT] ip: main+0x139ce (parser_get_param_name_stack @ icalparser.c:293) RSP 0x7fff387a7a88 left stack [0xde,0x7fff38789000]
+[FREE] free(0x61fbdc124aa0) subject=196 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0xe0,0x7fff38789000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x14d36 (icalparser_add_line @ icalparser.c:1000) UAF write at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 11089
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cb8 ip: main+0x14d3e (icalparser_add_line @ icalparser.c:1002)
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cb8 ip: main+0x14d45 (icalparser_add_line @ icalparser.c:1003)
+[FREE] free(0x61fbdc1246c0) subject=191 at icalmemory_free_buffer @ icalmemory.c:294
+[STACK PIVOT] ip: main+0x1304e (icalmemory_free_buffer @ icalmemory.c:295) RSP 0x7fff387a7a88 left stack [0xe2,0x7fff38789000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x14d51 (icalparser_add_line @ icalparser.c:1004) UAF write at: 0x7fff387a7cb0
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7cd8 ip: main+0x14d60 (icalparser_add_line @ icalparser.c:1006)
+first time found dangling pointer at: 1884 distance: 9962
+[STACK PIVOT] ip: main+0x13b01 (parser_get_param_name_heap @ icalparser.c:329) RSP 0x7fff387a7a88 left stack [0xe4,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x14d6f (icalparser_add_line @ icalparser.c:1006) UAF write at: 0x7fff387a7cb8
+[INCONSISTENCY mov write reg UAF] ip: main+0x14d7a (icalparser_add_line @ icalparser.c:1007) UAF write at: 0x7fff387a7ca8
+first time found dangling pointer at: 736 distance: 11154
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7ca8 ip: main+0x14d7e (icalparser_add_line @ icalparser.c:1009)
+first time found dangling pointer at: 736 distance: 11155
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7c6c ip: main+0x14d82 (icalparser_add_line @ icalparser.c:1009)
+[INCONSISTENCY mov write imm UAF] ip: main+0x3ae97 (icalparameter_new_from_value_string @ icalderivedparameter.c:2508) UAF write at: 0x7fff387a7a70
+first time found dangling pointer at: 4963 distance: 6939
+[INCONSISTENCY mov write imm UAF] ip: main+0x3ae9f (icalparameter_new_from_value_string @ icalderivedparameter.c:2509) UAF write at: 0x7fff387a7a7c
+[ALLOC] malloc(0x30) -> 0x61fbdc124b00 subject=230 at icalparameter_new_impl @ icalparameter.c:40
+Store dangling pointer: 0x61fbdc124b00 at: 0x7fff387a7a38
+[INCONSISTENCY mov write reg UAF] ip: main+0x3f4c3 (icalparameter_new_impl @ icalparameter.c:40) UAF write at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 10074
+[INCONSISTENCY mov read UAF] ip: main+0x3f4c7 (icalparameter_new_impl @ icalparameter.c:40) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 10075
+main+0x3f4c7 (icalparameter_new_impl @ icalparameter.c:40) Using expired pointer: 0x61fbdc124b00 from 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 10075
+[INCONSISTENCY mov read UAF] ip: main+0x3f4df (icalparameter_new_impl @ icalparameter.c:45) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 10077
+[INCONSISTENCY mov read UAF] ip: main+0x3f4f5 (icalparameter_new_impl @ icalparameter.c:47) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 10084
+[INCONSISTENCY mov write imm UAF] ip: main+0x3f4fd (icalparameter_new_impl @ icalparameter.c:47) UAF write at: 0x61fbdc124b04
+[INCONSISTENCY mov write imm UAF] ip: main+0x3f503 (icalparameter_new_impl @ icalparameter.c:47) UAF write at: 0x61fbdc124b08
+[INCONSISTENCY mov read UAF] ip: main+0x3f507 (icalparameter_new_impl @ icalparameter.c:49) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 10088
+[INCONSISTENCY mov read UAF] ip: main+0x3f50b (icalparameter_new_impl @ icalparameter.c:49) UAF read at: 0x7fff387a7a2c
+[CORRUPTED_PTR_LOAD] ip: main+0x3f50b (icalparameter_new_impl @ icalparameter.c:49) loaded: 0xdc1246b60000001b from cell: 0x7fff387a7a2c cell_owner: 229 value_owner: 228
+[INCONSISTENCY mov write reg UAF] ip: main+0x3f50e (icalparameter_new_impl @ icalparameter.c:49) UAF write at: 0x61fbdc124b00
+[INCONSISTENCY mov read UAF] ip: main+0x3f510 (icalparameter_new_impl @ icalparameter.c:51) UAF read at: 0x7fff387a7a38
+first time found dangling pointer at: 1844 distance: 10091
+[STACK PIVOT] ip: main+0x3f514 (icalparameter_new_impl @ icalparameter.c:52) RSP 0x7fff387a7a48 left stack [0xe8,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x3aecb (icalparameter_new_from_value_string @ icalderivedparameter.c:2516) UAF write at: 0x7fff387a7a70
+first time found dangling pointer at: 4963 distance: 6975
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x3aecf (icalparameter_new_from_value_string @ icalderivedparameter.c:2517)
+first time found dangling pointer at: 4963 distance: 6976
+[INCONSISTENCY mov write imm UAF] ip: main+0x3aee0 (icalparameter_new_from_value_string @ icalderivedparameter.c:2521) UAF write at: 0x7fff387a7a6c
+[INCONSISTENCY mov write imm UAF] ip: main+0x3aee7 (icalparameter_new_from_value_string @ icalderivedparameter.c:2522) UAF write at: 0x7fff387a7a78
+first time found dangling pointer at: 1875 distance: 10067
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x3af63 (icalparameter_new_from_value_string @ icalderivedparameter.c:2522)
+first time found dangling pointer at: 1875 distance: 10069
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a78 ip: main+0x3aef0 (icalparameter_new_from_value_string @ icalderivedparameter.c:2523)
+first time found dangling pointer at: 1875 distance: 10072
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a7c ip: main+0x3af6b (icalparameter_new_from_value_string @ icalderivedparameter.c:2533)
+[ALLOC:internal] malloc(0x6) -> 0x61fbdc1246c0 subject=233 at strdup
+[STACK PIVOT] ip: main+0x12f93 (icalmemory_strdup @ icalmemory.c:259) RSP 0x7fff387a7a48 left stack [0xeb,0x7fff38789000]
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x3af92 (icalparameter_new_from_value_string @ icalderivedparameter.c:2544)
+first time found dangling pointer at: 4963 distance: 7766
+[INCONSISTENCY mov write reg UAF] ip: main+0x3af96 (icalparameter_new_from_value_string @ icalderivedparameter.c:2544) UAF write at: 0x61fbdc124b10
+STACKREADUSEAFTERSCOPE at: 0x7fff387a7a70 ip: main+0x3af9a (icalparameter_new_from_value_string @ icalderivedparameter.c:2547)
+first time found dangling pointer at: 4963 distance: 7768
+[STACK PIVOT] ip: main+0x3af9e (icalparameter_new_from_value_string @ icalderivedparameter.c:2548) RSP 0x7fff387a7a88 left stack [0xec,0x7fff38789000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x14d92 (icalparser_add_line @ icalparser.c:1009) UAF write at: 0x7fff387a7ca0
+first time found dangling pointer at: 12734 distance: 0
+[FREE] free(0x61fbdc124aa0) subject=0 at icalmemory_free_buffer @ icalmemory.c:294
+[DOUBLE FREE] free(0x61fbdc124aa0) — already freed

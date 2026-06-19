@@ -1,0 +1,177 @@
+[INCONSISTENCY mov write reg] ip: main+0x4ed1 (main @ harness.c:28) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x4ed4 (main @ harness.c:28) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x4f15 (main @ harness.c:34) final_ea: 0x7fffd2a0c110 base: 0x7fffd2a0c110 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x5f62c7142010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x4f2a (main @ harness.c:34) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x5f62c71421f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x5) -> 0x5f62c7143200 subject=7 at main @ harness.c:53
+[FREE:internal] free(0x5f62c71421f0) subject=6 at _IO_setb
+[FREE:internal] free(0x5f62c7142010) subject=5 at _IO_fclose
+[FREE:internal] free(0x5f62c7142010) subject=0
+[DOUBLE FREE] free(0x5f62c7142010) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x530c (curl_global_init @ easy.c:217) loaded: 0x3 from cell: 0x7fffd2a0bf78 cell_owner: 8 value_owner: 4
+[INTRA_OBJECT_OVERFLOW] ip: main+0x5261 (global_init @ easy.c:136) byte write at: 0x7fffd2a0bf54 offset: +0x4 cell_owner: 9 writer_pointee: 8
+[INCONSISTENCY mov write reg] ip: main+0x526d (global_init @ easy.c:137) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read] ip: main+0x527e (global_init @ easy.c:140) base: 0x7fffd2a0bf60 pointee: 8 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x527e (global_init @ easy.c:140) loaded: 0x300007f01 from cell: 0x7fffd2a0bf54 cell_owner: 9 value_owner: 8
+[UNTRUSTEDPTRDEREF] ip: main+0x5284 (global_init @ easy.c:142) final_ea: 0x5f62b9b31fc0 base: 0x5f62b9a8a284 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x528b (global_init @ easy.c:142) co: 2 vo: 2, 2 write 2
+[UNTRUSTEDPTRDEREF] ip: main+0x5292 (global_init @ easy.c:143) final_ea: 0x5f62b9b31f78 base: 0x5f62b9a8a292 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x5299 (global_init @ easy.c:143) co: 2 vo: 2, 2 write 2
+[UNTRUSTEDPTRDEREF] ip: main+0x52a0 (global_init @ easy.c:144) final_ea: 0x5f62b9b31fd0 base: 0x5f62b9a8a2a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x52a7 (global_init @ easy.c:144) co: 2 vo: 2, 2 write 2
+[UNTRUSTEDPTRDEREF] ip: main+0x52ae (global_init @ easy.c:145) final_ea: 0x5f62b9b31fe8 base: 0x5f62b9a8a2ae pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x52b5 (global_init @ easy.c:145) co: 2 vo: 2, 2 write 2
+[UNTRUSTEDPTRDEREF] ip: main+0x52bc (global_init @ easy.c:146) final_ea: 0x5f62b9b31fb0 base: 0x5f62b9a8a2bc pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x52c3 (global_init @ easy.c:146) co: 2 vo: 2, 2 write 2
+[CORRUPTED_PTR_LOAD] ip: main+0x52d3 (global_init @ easy.c:195) loaded: 0x3 from cell: 0x7fffd2a0bf58 cell_owner: 9 value_owner: 8
+[INCONSISTENCY mov write reg] ip: main+0x52d7 (global_init @ easy.c:195) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x52fa (global_init @ easy.c:208) RSP 0x7fffd2a0bf68 left stack [0xb,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x531d (curl_global_init @ easy.c:218) RSP 0x7fffd2a0bf88 left stack [0xc,0x7fffd29ed000]
+[ALLOC] calloc(0x68) -> 0x5f62c71424f0 subject=12 at curl_url @ urlapi.c:1132
+Store dangling pointer: 0x5f62c71424f0 at: 0x7fffd2a0bfb0
+main+0x5097 (main @ harness.c:69) Using expired pointer: 0x5f62c71424f0 from 0x7fffd2a0bfb0
+first time found dangling pointer at: 153 distance: 1
+[INCONSISTENCY mov write imm UAF] ip: main+0x33465 (curl_url_set @ urlapi.c:1411) UAF write at: 0x7fffd2a0bf78
+[INCONSISTENCY mov write imm UAF] ip: main+0x3346d (curl_url_set @ urlapi.c:1412) UAF write at: 0x7fffd2a0bf70
+[INCONSISTENCY mov read] ip: main+0x30a49 (Curl_is_absolute_url @ urlapi.c:243) base: 0x7fffd2a0beb0 pointee: 13 read from 14
+[CORRUPTED_PTR_LOAD] ip: main+0x30a49 (Curl_is_absolute_url @ urlapi.c:243) loaded: 0x0 from cell: 0x7fffd2a0be90 cell_owner: 14 value_owner: 13
+[INCONSISTENCY mov read] ip: main+0x30aa1 (Curl_is_absolute_url @ urlapi.c:249) base: 0x7fffd2a0beb0 pointee: 13 read from 14
+[CORRUPTED_PTR_LOAD] ip: main+0x30aa1 (Curl_is_absolute_url @ urlapi.c:249) loaded: 0x0 from cell: 0x7fffd2a0bea8 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x30a61 (Curl_is_absolute_url @ urlapi.c:250) loaded: 0x5f62c7143200 from cell: 0x7fffd2a0be98 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x30a65 (Curl_is_absolute_url @ urlapi.c:250) loaded: 0x0 from cell: 0x7fffd2a0bea8 cell_owner: 14 value_owner: 13
+[UNTRUSTEDPTRDEREF] ip: main+0x43359 (Curl_isalnum @ curl_ctype.c:81) final_ea: 0x5f62b9b06986 base: 0x46 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x30aa8 (Curl_is_absolute_url @ urlapi.c:260) loaded: 0x2 from cell: 0x7fffd2a0bea8 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x30aaf (Curl_is_absolute_url @ urlapi.c:260) loaded: 0x5f62c7143200 from cell: 0x7fffd2a0be98 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x30ab3 (Curl_is_absolute_url @ urlapi.c:260) loaded: 0x2 from cell: 0x7fffd2a0bea8 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x30ac1 (Curl_is_absolute_url @ urlapi.c:260) loaded: 0x2 from cell: 0x7fffd2a0bea8 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x30ac9 (Curl_is_absolute_url @ urlapi.c:260) loaded: 0x5f62c7143200 from cell: 0x7fffd2a0be98 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0x30ad7 (Curl_is_absolute_url @ urlapi.c:261) loaded: 0x0 from cell: 0x7fffd2a0be90 cell_owner: 14 value_owner: 13
+[STACK PIVOT] ip: main+0x30b32 (Curl_is_absolute_url @ urlapi.c:270) RSP 0x7fffd2a0beb8 left stack [0x10,0x7fffd29ed000]
+[ALLOC] calloc(0x68) -> 0x5f62c7142560 subject=16 at curl_url @ urlapi.c:1132
+Store dangling pointer: 0x5f62c7142560 at: 0x7fffd2a0bef8
+main+0x3384c (curl_url_set @ urlapi.c:1539) Using expired pointer: 0x5f62c7142560 from 0x7fffd2a0bef8
+first time found dangling pointer at: 347 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x3199a (seturl @ urlapi.c:812) loaded: 0x5f62c7143200 from cell: 0x7fffd2a0bd88 cell_owner: 18 value_owner: 17
+[ALLOC] malloc(0xa) -> 0x5f62c71425d0 subject=19 at seturl @ urlapi.c:817
+[CORRUPTED_PTR_LOAD] ip: main+0x319db (seturl @ urlapi.c:817) loaded: 0x5f62c7142560 from cell: 0x7fffd2a0bd80 cell_owner: 18 value_owner: 17
+Store dangling pointer: 0x5f62c71425d0 at: 0x5f62c71425b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x319e2 (seturl @ urlapi.c:817) UAF write at: 0x5f62c71425b0
+first time found dangling pointer at: 400 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0x319e6 (seturl @ urlapi.c:817) loaded: 0x5f62c7142560 from cell: 0x7fffd2a0bd80 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov read UAF] ip: main+0x319ed (seturl @ urlapi.c:817) UAF read at: 0x5f62c71425b0
+first time found dangling pointer at: 400 distance: 2
+main+0x319ed (seturl @ urlapi.c:817) Using expired pointer: 0x5f62c71425d0 from 0x5f62c71425b0
+first time found dangling pointer at: 400 distance: 2
+Store dangling pointer: 0x5f62c71425d5 at: 0x7fffd2a0bde0
+main+0x31a1c (seturl @ urlapi.c:822) Using expired pointer: 0x5f62c71425d5 from 0x7fffd2a0bde0
+first time found dangling pointer at: 410 distance: 1
+[INCONSISTENCY mov write imm UAF] ip: main+0x31a23 (seturl @ urlapi.c:822) UAF write at: 0x5f62c71425d5
+[CORRUPTED_PTR_LOAD] ip: main+0x31a2d (seturl @ urlapi.c:824) loaded: 0x5f62c7143200 from cell: 0x7fffd2a0bd88 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x30a50 (Curl_is_absolute_url @ urlapi.c:244) loaded: 0x7fffd2a0bdb0 from cell: 0x7fffd2a0bd40 cell_owner: 20 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x30ade (Curl_is_absolute_url @ urlapi.c:262) loaded: 0x7fffd2a0bdb0 from cell: 0x7fffd2a0bd40 cell_owner: 20 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x30aee (Curl_is_absolute_url @ urlapi.c:264) loaded: 0x5f62c7143200 from cell: 0x7fffd2a0bd48 cell_owner: 20 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x30b08 (Curl_is_absolute_url @ urlapi.c:264) loaded: 0x7fffd2a0bdb0 from cell: 0x7fffd2a0bd40 cell_owner: 20 value_owner: 18
+[STACK PIVOT] ip: main+0x30b32 (Curl_is_absolute_url @ urlapi.c:270) RSP 0x7fffd2a0bd68 left stack [0x16,0x7fffd29ed000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x31d46 (seturl @ urlapi.c:933) UAF write at: 0x5f62c71425d0
+[CORRUPTED_PTR_LOAD] ip: main+0x31d62 (seturl @ urlapi.c:937) loaded: 0x5f62c7143200 from cell: 0x7fffd2a0bd88 cell_owner: 18 value_owner: 17
+[INCONSISTENCY mov write reg UAF] ip: main+0x2b78f (Curl_builtin_scheme @ url.c:1814) UAF write at: 0x7fffd2a0bd48
+[INCONSISTENCY mov write reg UAF] ip: main+0x2b79a (Curl_builtin_scheme @ url.c:1819) UAF write at: 0x7fffd2a0bd58
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0bd58 ip: main+0x2b7c5 (Curl_builtin_scheme @ url.c:1819)
+[UNTRUSTEDPTRDEREF] ip: main+0x2b7c9 (Curl_builtin_scheme @ url.c:1819) final_ea: 0x5f62b9b319e0 base: 0x5f62b9b319e0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x2b7cc (Curl_builtin_scheme @ url.c:1819) UAF write at: 0x7fffd2a0bd50
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0bd50 ip: main+0x2b7d0 (Curl_builtin_scheme @ url.c:1819)
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0bd50 ip: main+0x2b7a0 (Curl_builtin_scheme @ url.c:1820)
+[UNTRUSTEDPTRDEREF] ip: main+0x2b7a4 (Curl_builtin_scheme @ url.c:1820) final_ea: 0x5f62b9b30e80 base: 0x5f62b9b30e80 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0bd48 ip: main+0x2b7a7 (Curl_builtin_scheme @ url.c:1820)
+[INCONSISTENCY mov write reg UAF] ip: main+0x23f6e (Curl_strcasecompare @ strcase.c:181) UAF write at: 0x7fffd2a0bd20
+[INCONSISTENCY mov write reg UAF] ip: main+0x23f72 (Curl_strcasecompare @ strcase.c:181) UAF write at: 0x7fffd2a0bd18
+[INCONSISTENCY mov read UAF] ip: main+0x23faa (Curl_strcasecompare @ strcase.c:182) UAF read at: 0x7fffd2a0bd20
+[UNTRUSTEDPTRDEREF] ip: main+0x23fae (Curl_strcasecompare @ strcase.c:182) final_ea: 0x5f62b9b07dc0 base: 0x5f62b9b07dc0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x23fb5 (Curl_strcasecompare @ strcase.c:182) UAF read at: 0x7fffd2a0bd18
+[INCONSISTENCY mov read UAF] ip: main+0x23f78 (Curl_strcasecompare @ strcase.c:183) UAF read at: 0x7fffd2a0bd20
+[UNTRUSTEDPTRDEREF] ip: main+0x23f7c (Curl_strcasecompare @ strcase.c:183) final_ea: 0x5f62b9b07dc0 base: 0x5f62b9b07dc0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x23f8b (Curl_strcasecompare @ strcase.c:183) UAF read at: 0x7fffd2a0bd18
+[INCONSISTENCY mov read UAF] ip: main+0x23fc3 (Curl_strcasecompare @ strcase.c:192) UAF read at: 0x7fffd2a0bd20
+[UNTRUSTEDPTRDEREF] ip: main+0x23fc7 (Curl_strcasecompare @ strcase.c:192) final_ea: 0x5f62b9b07dc0 base: 0x5f62b9b07dc0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x23fd6 (Curl_strcasecompare @ strcase.c:192) UAF read at: 0x7fffd2a0bd18
+[INCONSISTENCY mov read UAF] ip: main+0x23fef (Curl_strcasecompare @ strcase.c:193) UAF read at: 0x7fffd2a0bd28
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x19,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x1b,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x1d,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x1f,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x21,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x23,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x25,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x27,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x29,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x2b,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x2d,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x23ff3 (Curl_strcasecompare @ strcase.c:193) RSP 0x7fffd2a0bd38 left stack [0x2f,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x2b7dc (Curl_builtin_scheme @ url.c:1824) RSP 0x7fffd2a0bd68 left stack [0x30,0x7fffd29ed000]
+[CORRUPTED_PTR_LOAD] ip: main+0x31dc5 (seturl @ urlapi.c:948) loaded: 0xc714256000000200 from cell: 0x7fffd2a0bd7c cell_owner: 18 value_owner: 17
+[STACK PIVOT] ip: main+0x3255f (seturl @ urlapi.c:1113) RSP 0x7fffd2a0be78 left stack [0x31,0x7fffd29ed000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x3054d (free_urlhandle @ urlapi.c:77) UAF write at: 0x7fffd2a0be68
+first time found dangling pointer at: 2103 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x3055b (free_urlhandle @ urlapi.c:78)
+first time found dangling pointer at: 2103 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0x3055f (free_urlhandle @ urlapi.c:78) UAF read at: 0x5f62c7142560
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x30571 (free_urlhandle @ urlapi.c:79)
+first time found dangling pointer at: 2103 distance: 9
+[INCONSISTENCY mov read UAF] ip: main+0x30575 (free_urlhandle @ urlapi.c:79) UAF read at: 0x5f62c7142568
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x30588 (free_urlhandle @ urlapi.c:80)
+first time found dangling pointer at: 2103 distance: 15
+[INCONSISTENCY mov read UAF] ip: main+0x3058c (free_urlhandle @ urlapi.c:80) UAF read at: 0x5f62c7142570
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x3059f (free_urlhandle @ urlapi.c:81)
+first time found dangling pointer at: 2103 distance: 21
+[INCONSISTENCY mov read UAF] ip: main+0x305a3 (free_urlhandle @ urlapi.c:81) UAF read at: 0x5f62c7142578
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x305b6 (free_urlhandle @ urlapi.c:82)
+first time found dangling pointer at: 2103 distance: 27
+[INCONSISTENCY mov read UAF] ip: main+0x305ba (free_urlhandle @ urlapi.c:82) UAF read at: 0x5f62c7142580
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x305cd (free_urlhandle @ urlapi.c:83)
+first time found dangling pointer at: 2103 distance: 33
+[INCONSISTENCY mov read UAF] ip: main+0x305d1 (free_urlhandle @ urlapi.c:83) UAF read at: 0x5f62c7142588
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x305e4 (free_urlhandle @ urlapi.c:84)
+first time found dangling pointer at: 2103 distance: 39
+[INCONSISTENCY mov read UAF] ip: main+0x305e8 (free_urlhandle @ urlapi.c:84) UAF read at: 0x5f62c7142590
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x305fb (free_urlhandle @ urlapi.c:85)
+first time found dangling pointer at: 2103 distance: 45
+[INCONSISTENCY mov read UAF] ip: main+0x305ff (free_urlhandle @ urlapi.c:85) UAF read at: 0x5f62c7142598
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x30612 (free_urlhandle @ urlapi.c:86)
+first time found dangling pointer at: 2103 distance: 51
+[INCONSISTENCY mov read UAF] ip: main+0x30616 (free_urlhandle @ urlapi.c:86) UAF read at: 0x5f62c71425a0
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x30629 (free_urlhandle @ urlapi.c:87)
+first time found dangling pointer at: 2103 distance: 57
+[INCONSISTENCY mov read UAF] ip: main+0x3062d (free_urlhandle @ urlapi.c:87) UAF read at: 0x5f62c71425a8
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x30640 (free_urlhandle @ urlapi.c:88)
+first time found dangling pointer at: 2103 distance: 63
+[INCONSISTENCY mov read UAF] ip: main+0x30644 (free_urlhandle @ urlapi.c:88) UAF read at: 0x5f62c71425b0
+first time found dangling pointer at: 400 distance: 1767
+[FREE] free(0x5f62c71425d0) subject=19 at free_urlhandle @ urlapi.c:88
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0be68 ip: main+0x30657 (free_urlhandle @ urlapi.c:89)
+first time found dangling pointer at: 2103 distance: 69
+[INCONSISTENCY mov read UAF] ip: main+0x3065b (free_urlhandle @ urlapi.c:89) UAF read at: 0x5f62c71425b8
+[STACK PIVOT] ip: main+0x30665 (free_urlhandle @ urlapi.c:90) RSP 0x7fffd2a0be78 left stack [0x33,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x325bc (parseurl @ urlapi.c:1126) RSP 0x7fffd2a0beb8 left stack [0x34,0x7fffd29ed000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x325ea (curl_url_cleanup @ urlapi.c:1136) UAF write at: 0x7fffd2a0bea8
+first time found dangling pointer at: 2199 distance: 0
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0bea8 ip: main+0x325ee (curl_url_cleanup @ urlapi.c:1137)
+first time found dangling pointer at: 2199 distance: 1
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0bea8 ip: main+0x325f5 (curl_url_cleanup @ urlapi.c:1138)
+first time found dangling pointer at: 2199 distance: 3
+[STACK PIVOT] ip: main+0x30665 (free_urlhandle @ urlapi.c:90) RSP 0x7fffd2a0be98 left stack [0x37,0x7fffd29ed000]
+STACKREADUSEAFTERSCOPE at: 0x7fffd2a0bea8 ip: main+0x3260b (curl_url_cleanup @ urlapi.c:1139)
+first time found dangling pointer at: 2199 distance: 88
+[FREE] free(0x5f62c7142560) subject=16 at curl_url_cleanup @ urlapi.c:1139
+[STACK PIVOT] ip: main+0x32615 (curl_url_cleanup @ urlapi.c:1141) RSP 0x7fffd2a0beb8 left stack [0x38,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x33eaf (curl_url_set @ urlapi.c:1685) RSP 0x7fffd2a0bf88 left stack [0x39,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x30665 (free_urlhandle @ urlapi.c:90) RSP 0x7fffd2a0bf68 left stack [0x3c,0x7fffd29ed000]
+[FREE] free(0x5f62c71424f0) subject=12 at curl_url_cleanup @ urlapi.c:1139
+[STACK PIVOT] ip: main+0x32615 (curl_url_cleanup @ urlapi.c:1141) RSP 0x7fffd2a0bf88 left stack [0x3d,0x7fffd29ed000]
+[INCONSISTENCY mov write reg] ip: main+0x53f2 (curl_global_cleanup @ easy.c:261) co: 3 vo: 3, 3 write 3
+[FREE] free(0x5f62c7143200) subject=7 at main @ harness.c:78
+[STACK PIVOT] ip: main+0x5121 (main @ harness.c:82) RSP 0x7fffd2a0bfd8 left stack [0x3e,0x7fffd29ed000]
+[STACK PIVOT] ip: main+0x5122 (main @ harness.c:82) RSP 0x7fffd2a0bfe0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x4d5e (__do_global_dtors_aux) final_ea: 0x5f62b9b31ff0 base: 0x5f62b9a89d5e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x4d84 (__do_global_dtors_aux) RSP 0x7fffd2a0bea0 left stack after RET
+[STACK PIVOT] ip: main+0x7b508 (_fini) RSP 0x7fffd2a0bed0 left stack after RET

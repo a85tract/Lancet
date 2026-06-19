@@ -1,0 +1,31 @@
+[INCONSISTENCY mov write reg] ip: main+0x122b (main @ safe_link_double_protect.c:29) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1277 (main @ safe_link_double_protect.c:36) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x60) -> 0x3f8af010 subject=6 at main @ safe_link_double_protect.c:44
+[FREE] free(0x3f8af010) subject=6 at main @ safe_link_double_protect.c:44
+[FREE:internal] free(0x3f8af010) subject=0
+[DOUBLE FREE] free(0x3f8af010) — already freed
+[ALLOC] malloc(0x28) -> 0x3f8af380 subject=7 at main @ safe_link_double_protect.c:51
+[INCONSISTENCY mov write reg] ip: main+0x131f (main @ safe_link_double_protect.c:51) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x28) -> 0x3f8af3b0 subject=8 at main @ safe_link_double_protect.c:52
+[INCONSISTENCY mov write reg] ip: main+0x132d (main @ safe_link_double_protect.c:52) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x18) -> 0x3f8af3e0 subject=9 at main @ safe_link_double_protect.c:57
+[ALLOC] malloc(0x18) -> 0x3f8af400 subject=10 at main @ safe_link_double_protect.c:58
+[ALLOC] malloc(0x28) -> 0x3f8af420 subject=11 at main @ safe_link_double_protect.c:68
+[FREE] free(0x3f8af380) subject=7 at main @ safe_link_double_protect.c:80
+[FREE] free(0x3f8af3b0) subject=8 at main @ safe_link_double_protect.c:81
+main+0x146d (main @ safe_link_double_protect.c:82) Read a dangling pointer 0x3f8af380 from 0x7ffec5bee698
+main+0x1471 (main @ safe_link_double_protect.c:82) Read a dangling pointer 0x3f8af3b0 from 0x7ffec5bee6a0
+[FREE] free(0x3f8af3e0) subject=9 at main @ safe_link_double_protect.c:86
+[FREE] free(0x3f8af400) subject=10 at main @ safe_link_double_protect.c:87
+main+0x14b3 (main @ safe_link_double_protect.c:88) Read a dangling pointer 0x3f8af3e0 from 0x7ffec5bee6a8
+main+0x14b7 (main @ safe_link_double_protect.c:88) Read a dangling pointer 0x3f8af400 from 0x7ffec5bee6b0
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1503 (main @ safe_link_double_protect.c:96) and rax, 0xfffffffffffff000 id before: 11 after: -1 [chunk metadata] value: 0x3f8af000
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1542 (main @ safe_link_double_protect.c:101) xor rdx, rax id before: 5 after: 1 value: 0x7ffec5bd1e7f
+[ALLOC] malloc(0x28) -> 0x3f8af420 subject=12 at main @ safe_link_double_protect.c:105
+[UNTRUSTEDPTRDEREF] ip: main+0x1596 (main @ safe_link_double_protect.c:106) final_ea: 0x3f8af120 base: 0x3f8af120 pointee: -1 base_vo: -1
+[ALLOC] malloc(0x18) -> 0x3f8af120 subject=13 at main @ safe_link_double_protect.c:119
+[ALLOC] malloc(0x18) -> 0x7ffec5bee6d0 subject=14 at main @ safe_link_double_protect.c:122
+[STACK PIVOT] ip: main+0x172e (main @ safe_link_double_protect.c:131) RSP 0x7ffec5bee6f8 left stack [0x10,0x7ffec5bd0000]
+[STACK PIVOT] ip: main+0x172f (main @ safe_link_double_protect.c:131) RSP 0x7ffec5bee700 left stack after RET
+[STACK PIVOT] ip: main+0x11fe (__do_global_dtors_aux) RSP 0x7ffec5bee5e0 left stack after RET
+[STACK PIVOT] ip: main+0x173c (_fini) RSP 0x7ffec5bee610 left stack after RET

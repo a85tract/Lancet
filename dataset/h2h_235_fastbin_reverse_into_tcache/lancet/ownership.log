@@ -1,0 +1,48 @@
+[INCONSISTENCY mov write reg] ip: main+0xe9e (main @ fastbin_reverse_into_tcache.c:8) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x40) -> 0x159b52a0 subject=6 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b52f0 subject=7 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b5340 subject=8 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b5390 subject=9 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b53e0 subject=10 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b5430 subject=11 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b5480 subject=12 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b54d0 subject=13 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b5520 subject=14 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b5570 subject=15 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b55c0 subject=16 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b5610 subject=17 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b5660 subject=18 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x159b56b0 subject=19 at main @ fastbin_reverse_into_tcache.c:24
+[FREE] free(0x159b52a0) subject=6 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x159b52f0) subject=7 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x159b5340) subject=8 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x159b5390) subject=9 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x159b53e0) subject=10 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x159b5430) subject=11 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x159b5480) subject=12 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x159b54d0) subject=13 at main @ fastbin_reverse_into_tcache.c:37
+[FREE] free(0x159b5520) subject=14 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x159b5570) subject=15 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x159b55c0) subject=16 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x159b5610) subject=17 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x159b5660) subject=18 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x159b56b0) subject=19 at main @ fastbin_reverse_into_tcache.c:48
+main+0x1012 (main @ fastbin_reverse_into_tcache.c:57) Read a dangling pointer 0x159b54d0 from 0x7ffe63c1c260
+main+0x1037 (main @ fastbin_reverse_into_tcache.c:65) Using expired pointer: 0x159b54d0 from 0x7ffe63c1c260
+first time found dangling pointer at: 379 distance: 9
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1042 (main @ fastbin_reverse_into_tcache.c:65) xor rax, rdx id before: 5 after: 1 value: 0x7ffe63c09bc5
+[INCONSISTENCY mov write reg UAF] ip: main+0x104f (main @ fastbin_reverse_into_tcache.c:65) UAF write at: 0x159b54d0
+[ALLOC] malloc(0x40) -> 0x159b5480 subject=20 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x159b5430 subject=21 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x159b53e0 subject=22 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x159b5390 subject=23 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x159b5340 subject=24 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x159b52f0 subject=25 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x159b52a0 subject=26 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x159b56b0 subject=27 at main @ fastbin_reverse_into_tcache.c:95
+[ALLOC] malloc(0x40) -> 0x7ffe63c1c280 subject=28 at main @ fastbin_reverse_into_tcache.c:99
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x11c2 (main @ fastbin_reverse_into_tcache.c:103) add rax, 0x10 id before: 5 after: 28 value: 0x7ffe63c1c280
+[STACK PIVOT] ip: main+0x120d (main @ fastbin_reverse_into_tcache.c:106) RSP 0x7ffe63c1c328 left stack [0x1e,0x7ffe63bfe000]
+[STACK PIVOT] ip: main+0x120e (main @ fastbin_reverse_into_tcache.c:106) RSP 0x7ffe63c1c330 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7ffe63c1c230 left stack after RET
+[STACK PIVOT] ip: main+0x121c (_fini) RSP 0x7ffe63c1c230 left stack after RET

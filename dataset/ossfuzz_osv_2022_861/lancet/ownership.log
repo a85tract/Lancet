@@ -1,0 +1,369 @@
+[ALLOC:internal] malloc(0x12000) -> 0x63eaf11a7010 subject=4 at _ZSt21__to_chars_bfloat16_tPcS_fSt12chars_format
+[INCONSISTENCY mov write reg] ip: main+0x5d985 (main) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x5d988 (main) co: 5 vo: 5, 5 write 5
+[ALLOC:internal] malloc(0x1d8) -> 0x63eaf11b9020 subject=6 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x63eaf11b9200 subject=7 at _IO_file_doallocate
+[ALLOC:internal] malloc(0x2a) -> 0x63eaf11ba210 subject=8 at main
+[FREE:internal] free(0x63eaf11b9200) subject=7 at _IO_setb
+[FREE:internal] free(0x63eaf11b9020) subject=6 at _IO_fclose
+[FREE:internal] free(0x63eaf11b9020) subject=0
+[DOUBLE FREE] free(0x63eaf11b9020) — already freed
+[ALLOC:internal] malloc(0x1d8) -> 0x63eaf11b9020 subject=10 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x5dcb6 (LLVMFuzzerTestOneInput @ harness.cpp:31) co: 3 vo: 3, 3 write 3
+[ALLOC:internal] malloc(0x460) -> 0x63eaf11b9500 subject=12 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0x61551 (GEOS_init_r @ geos_ts_c.cpp:261) UAF write at: 0x63eaf11b9500
+[INCONSISTENCY mov write imm UAF] ip: main+0x6155c (GEOS_init_r @ geos_ts_c.cpp:264) UAF write at: 0x63eaf11b9918
+[INCONSISTENCY mov write imm UAF] ip: main+0x61567 (GEOS_init_r @ geos_ts_c.cpp:267) UAF write at: 0x63eaf11b9930
+[INCONSISTENCY mov write imm UAF] ip: main+0x61572 (GEOS_init_r @ tuple:191) UAF write at: 0x63eaf11b9958
+[INCONSISTENCY mov write imm UAF] ip: main+0x6157d (GEOS_init_r @ string_fortified.h:59) UAF write at: 0x63eaf11b9508
+[INCONSISTENCY mov write imm UAF] ip: main+0x61585 (GEOS_init_r) UAF write at: 0x63eaf11b9900
+[INCONSISTENCY mov write reg] ip: main+0xc5c35 (_ZN4geos4geom15GeometryFactory18getDefaultInstanceEv @ GeometryFactory.cpp:82) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg UAF] ip: main+0x615ba (GEOS_init_r @ geos_ts_c.cpp:273) UAF write at: 0x63eaf11b9500
+[ALLOC:internal] malloc(0x60) -> 0x63eaf11b9970 subject=13 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0xc10ff (_ZN4geos4geom8GeometryC2EPKNS0_15GeometryFactoryE @ Geometry.cpp:116) UAF write at: 0x63eaf11b9970
+[INCONSISTENCY mov write reg UAF] ip: main+0xc1102 (_ZN4geos4geom8GeometryC2EPKNS0_15GeometryFactoryE @ Geometry.cpp:115) UAF write at: 0x63eaf11b9980
+[INCONSISTENCY mov write imm UAF] ip: main+0xc1106 (_ZN4geos4geom8GeometryC2EPKNS0_15GeometryFactoryE @ Geometry.cpp:116) UAF write at: 0x63eaf11b9988
+[UNINITIALIZED mov read] ip: main+0xc1116 (_ZN4geos4geom8GeometryC2EPKNS0_15GeometryFactoryE @ Geometry.cpp:121) co: 3 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xc1119 (_ZN4geos4geom8GeometryC2EPKNS0_15GeometryFactoryE @ Geometry.cpp:121) UAF write at: 0x63eaf11b9978
+[INCONSISTENCY mov write reg UAF] ip: main+0xd5496 (_ZN4geos4geom5PointC2ERKNS0_12CoordinateXYEPKNS0_15GeometryFactoryE @ Point.cpp:65) UAF write at: 0x63eaf11b9970
+[INCONSISTENCY mov write imm UAF] ip: main+0xbcc6c (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ stl_vector.h:100) UAF write at: 0x63eaf11b99a0
+[INCONSISTENCY mov write imm UAF] ip: main+0xbcc78 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ CoordinateSequence.cpp:100) UAF write at: 0x63eaf11b99a8
+[INCONSISTENCY mov read UAF] ip: main+0xbe5b9 (_ZNSt6vectorIdSaIdEE7reserveEm @ stl_vector.h:1080) UAF read at: 0x63eaf11b9990
+[INCONSISTENCY mov read UAF] ip: main+0xbe5bc (_ZNSt6vectorIdSaIdEE7reserveEm @ stl_vector.h:1080) UAF read at: 0x63eaf11b99a0
+[INCONSISTENCY mov read UAF] ip: main+0xbe5e0 (_ZNSt6vectorIdSaIdEE7reserveEm @ stl_vector.h:992) UAF read at: 0x63eaf11b9998
+[ALLOC:internal] malloc(0x18) -> 0x63eaf11b99e0 subject=16 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0xbe5f7 (_ZNSt6vectorIdSaIdEE7reserveEm @ new_allocator.h:151) UAF read at: 0x63eaf11b9990
+[INCONSISTENCY mov read UAF] ip: main+0xbe5fa (_ZNSt6vectorIdSaIdEE7reserveEm @ stl_uninitialized.h:1118) UAF read at: 0x63eaf11b9998
+Store dangling pointer: 0x63eaf11b99e0 at: 0x63eaf11b9990
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe60e (_ZNSt6vectorIdSaIdEE7reserveEm @ stl_vector.h:389) UAF write at: 0x63eaf11b9990
+first time found dangling pointer at: 283 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe617 (_ZNSt6vectorIdSaIdEE7reserveEm @ vector.tcc:97) UAF write at: 0x63eaf11b9998
+first time found dangling pointer at: 286 distance: 0
+Store dangling pointer: 0x63eaf11b99f8 at: 0x63eaf11b99a0
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe61b (_ZNSt6vectorIdSaIdEE7reserveEm @ vector.tcc:98) UAF write at: 0x63eaf11b99a0
+first time found dangling pointer at: 287 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xbcca2 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ CoordinateSequence.h:927) UAF read at: 0x63eaf11b99a8
+[INCONSISTENCY mov read UAF] ip: main+0xbcca6 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ CoordinateSequence.h:927) UAF read at: 0x63eaf11b9990
+first time found dangling pointer at: 283 distance: 18
+main+0xbcca6 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ CoordinateSequence.h:927) Using expired pointer: 0x63eaf11b99e0 from 0x63eaf11b9990
+first time found dangling pointer at: 283 distance: 18
+[INCONSISTENCY mov read UAF] ip: main+0xbcd17 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ CoordinateSequence.h:496) UAF read at: 0x63eaf11b9998
+first time found dangling pointer at: 286 distance: 19
+[INCONSISTENCY mov read UAF] ip: main+0xbcd59 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ stl_vector.h:1080) UAF read at: 0x63eaf11b99a0
+first time found dangling pointer at: 287 distance: 38
+main+0xbcd59 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ stl_vector.h:1080) Using expired pointer: 0x63eaf11b99f8 from 0x63eaf11b99a0
+first time found dangling pointer at: 287 distance: 38
+[INCONSISTENCY mov read UAF] ip: main+0x7da54 (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ vector.tcc:535) UAF read at: 0x63eaf11b9998
+first time found dangling pointer at: 286 distance: 61
+[INCONSISTENCY mov read UAF] ip: main+0x7da58 (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ vector.tcc:535) UAF read at: 0x63eaf11b99a0
+first time found dangling pointer at: 287 distance: 61
+[INCONSISTENCY mov write reg UAF] ip: main+0x7dbf1 (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ stl_algobase.h:930) UAF write at: 0x63eaf11b9998
+first time found dangling pointer at: 286 distance: 105
+[INCONSISTENCY mov write reg UAF] ip: main+0x7dc1f (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd) UAF write at: 0x63eaf11b9998
+first time found dangling pointer at: 286 distance: 110
+[INCONSISTENCY mov read UAF] ip: main+0xbccce (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ stl_vector.h:873) UAF read at: 0x63eaf11b99a8
+[INCONSISTENCY mov read UAF] ip: main+0xbccd2 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ CoordinateSequence.h:927) UAF read at: 0x63eaf11b9990
+first time found dangling pointer at: 283 distance: 125
+[INCONSISTENCY mov read UAF] ip: main+0xbcde8 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ CoordinateSequence.h:244) UAF read at: 0x63eaf11b99ab
+[UNTRUSTEDPTRDEREF] ip: main+0xbcdf8 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ Coordinate.h:293) final_ea: 0x63eabc2afb58 base: 0x63eabc099df8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xbce02 (_ZN4geos4geom18CoordinateSequenceC2ERKSt16initializer_listINS0_12CoordinateXYEE @ Coordinate.h:293) UAF write at: 0x63eaf11b99f0
+Store dangling pointer: 0x63eaf11b9970 at: 0x7ffe077c74d8
+main+0x615d8 (GEOS_init_r @ unique_ptr.h:414) Using expired pointer: 0x63eaf11b9970 from 0x7ffe077c74d8
+first time found dangling pointer at: 447 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x615dd (GEOS_init_r @ unique_ptr.h:217) UAF read at: 0x63eaf11b9958
+[INCONSISTENCY mov write reg UAF] ip: main+0x615ed (GEOS_init_r @ unique_ptr.h:218) UAF write at: 0x63eaf11b9958
+first time found dangling pointer at: 458 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x616a5 (GEOS_init_r @ geos_ts_c.cpp:275) UAF write at: 0x63eaf11b9948
+[INCONSISTENCY mov write imm UAF] ip: main+0x616ac (GEOS_init_r @ geos_ts_c.cpp:288) UAF write at: 0x63eaf11b9918
+[INCONSISTENCY mov write reg UAF] ip: main+0x616b7 (GEOS_init_r @ Machine.h:25) UAF write at: 0x63eaf11b994c
+[INCONSISTENCY mov write imm UAF] ip: main+0x616bd (GEOS_init_r @ geos_ts_c.cpp:299) UAF write at: 0x63eaf11b9940
+[INCONSISTENCY mov write imm UAF] ip: main+0x616c8 (GEOS_init_r @ geos_ts_c.cpp:279) UAF write at: 0x63eaf11b9950
+[INCONSISTENCY mov read UAF] ip: main+0x6174a (initGEOS_r @ geos_ts_c.cpp:582) UAF read at: 0x63eaf11b9950
+[INCONSISTENCY mov write reg UAF] ip: main+0x61754 (initGEOS_r @ geos_ts_c.cpp:286) UAF write at: 0x63eaf11b9908
+[INCONSISTENCY mov write imm UAF] ip: main+0x6175b (initGEOS_r @ geos_ts_c.cpp:287) UAF write at: 0x63eaf11b9910
+[INCONSISTENCY mov write imm UAF] ip: main+0x61766 (initGEOS_r @ geos_ts_c.cpp:288) UAF write at: 0x63eaf11b9918
+[INCONSISTENCY mov write reg UAF] ip: main+0x61771 (initGEOS_r @ geos_ts_c.cpp:297) UAF write at: 0x63eaf11b9920
+[INCONSISTENCY mov write imm UAF] ip: main+0x61778 (initGEOS_r @ geos_ts_c.cpp:298) UAF write at: 0x63eaf11b9928
+[INCONSISTENCY mov write imm UAF] ip: main+0x61783 (initGEOS_r @ geos_ts_c.cpp:299) UAF write at: 0x63eaf11b9940
+Store dangling pointer: 0x63eaf11b9500 at: 0x63eabc348118
+[INCONSISTENCY mov write reg] ip: main+0x5de1e (initGEOS @ geos_c.cpp:114) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x5dce0 (LLVMFuzzerTestOneInput @ harness.cpp:36) loaded: 0x2a from cell: 0x7ffe077c7550 cell_owner: 9 value_owner: 5
+[ALLOC] malloc(0x2b) -> 0x63eaf11b9a00 subject=18 at LLVMFuzzerTestOneInput @ harness.cpp:36
+Store dangling pointer: 0x63eaf11b9a00 at: 0x7ffe077c7568
+main+0x5dcf4 (LLVMFuzzerTestOneInput @ harness.cpp:37) Using expired pointer: 0x63eaf11b9a00 from 0x7ffe077c7568
+first time found dangling pointer at: 511 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x5dd05 (LLVMFuzzerTestOneInput @ harness.cpp:38) loaded: 0x2a from cell: 0x7ffe077c7550 cell_owner: 9 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x5dd09 (LLVMFuzzerTestOneInput @ harness.cpp:38) loaded: 0x63eaf11ba210 from cell: 0x7ffe077c7558 cell_owner: 9 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x5dd20 (LLVMFuzzerTestOneInput @ harness.cpp:39) loaded: 0x2a from cell: 0x7ffe077c7550 cell_owner: 9 value_owner: 5
+[INCONSISTENCY mov write imm UAF] ip: main+0x5dd27 (LLVMFuzzerTestOneInput @ harness.cpp:39) UAF write at: 0x63eaf11b9a2a
+main+0x5e407 (GEOSGeomFromWKT @ geos_c.cpp:426) Using expired pointer: 0x63eaf11b9500 from 0x63eabc348118
+first time found dangling pointer at: 499 distance: 32
+[INCONSISTENCY mov read UAF] ip: main+0x638ab (GEOSGeomFromWKT_r @ geos_ts_c.cpp:517) UAF read at: 0x63eaf11b9950
+[INCONSISTENCY mov read UAF] ip: main+0x638bc (GEOSGeomFromWKT_r @ geos_ts_c.cpp:451) UAF read at: 0x63eaf11b9930
+[ALLOC:internal] malloc(0x2b) -> 0x63eaf11b9a40 subject=20 at _Znwm
+Store dangling pointer: 0x63eaf11b9a40 at: 0x7ffe077c74e0
+[INCONSISTENCY mov read] ip: main+0x63a16 (GEOSGeomFromWKT_r @ basic_string.h:223) base: 0x7ffe077c74a0 pointee: 19 read from 11
+main+0x63a16 (GEOSGeomFromWKT_r @ basic_string.h:223) Using expired pointer: 0x63eaf11b9a40 from 0x7ffe077c74e0
+first time found dangling pointer at: 575 distance: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x63a16 (GEOSGeomFromWKT_r @ basic_string.h:223) loaded: 0x63eaf11b9a40 from cell: 0x7ffe077c74e0 cell_owner: 11 value_owner: 19
+[INCONSISTENCY mov write imm UAF] ip: main+0x63939 (GEOSGeomFromWKT_r @ char_traits.h:358) UAF write at: 0x63eaf11b9a6a
+[INCONSISTENCY mov read UAF] ip: main+0x6393d (GEOSGeomFromWKT_r @ geos_ts_c.cpp:1168) UAF read at: 0x63eaf11b9500
+[CORRUPTED_PTR_LOAD] ip: main+0x25c424 (_ZN4geos2io15StringTokenizerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ StringTokenizer.cpp:39) loaded: 0x63eaf11b9a40 from cell: 0x7ffe077c74e0 cell_owner: 11 value_owner: 19
+[INCONSISTENCY mov read] ip: main+0x1234b0 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ WKTReader.cpp:308) base: 0x7ffe077c74c0 pointee: 19 read from 11
+[CORRUPTED_PTR_LOAD] ip: main+0x1234b0 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ WKTReader.cpp:308) loaded: 0x2b00000000 from cell: 0x7ffe077c74d4 cell_owner: 11 value_owner: 19
+[CORRUPTED_PTR_LOAD] ip: main+0x25c497 (_ZN4geos2io15StringTokenizer9nextTokenEv @ basic_string.h:189) loaded: 0x63eaf11b9a40 from cell: 0x7ffe077c74e0 cell_owner: 11 value_owner: 19
+[CORRUPTED_PTR_LOAD] ip: main+0x25c4a3 (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:83) loaded: 0x2a from cell: 0x7ffe077c74e8 cell_owner: 11 value_owner: 19
+[INCONSISTENCY mov read UAF] ip: main+0x25c4b3 (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:86) UAF read at: 0x63eaf11b9a40
+[CORRUPTED_PTR_LOAD] ip: main+0x25c626 (_ZN4geos2io15StringTokenizer9nextTokenEv @ stl_iterator.h:1148) loaded: 0x63eaf11b9a40 from cell: 0x7ffe077c74e0 cell_owner: 11 value_owner: 19
+[ALLOC:internal] malloc(0x1f) -> 0x63eaf11b9a80 subject=25 at _Znwm
+Store dangling pointer: 0x63eaf11b9a52 at: 0x7ffe077c7460
+main+0x25c5cd (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:45) Read a dangling pointer 0x63eaf11b9a80 from 0x7ffe077c7260
+[UNINITIALIZED mov read] ip: main+0x25c5dc (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:122) co: 24 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x25c5e1 (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:122) UAF read at: 0x63eaf11b9a80
+[ALLOC:internal] malloc(0x1f) -> 0x63eaf11b9ab0 subject=26 at _Znwm
+main+0x25c54f (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:102) Using expired pointer: 0x63eaf11b9a80 from 0x7ffe077c7260
+first time found dangling pointer at: 763 distance: 16
+[FREE] free(0x63eaf11b9a80) subject=25 at _ZN4geos2io15StringTokenizer9nextTokenEv @ new_allocator.h:172
+[UNTRUSTEDPTRDEREF] ip: main+0x120408 (_ZN4geos2io9WKTReader11getNextWordB5cxx11EPNS0_15StringTokenizerE @ WKTReader.cpp:277) final_ea: 0x63eabc2b3a98 base: 0x63eabc2b3a8c pointee: -1 base_vo: -1
+main+0x25c89a (_ZNK4geos2io15StringTokenizer7getSValB5cxx11Ev @ basic_string.h:193) Read a dangling pointer 0x63eaf11b9ab0 from 0x7ffe077c7438
+[ALLOC:internal] malloc(0x13) -> 0x63eaf11b9ae0 subject=28 at _Znwm
+Store dangling pointer: 0x63eaf11b9ae0 at: 0x7ffe077c72c0
+main+0x25c91a (_ZNK4geos2io15StringTokenizer7getSValB5cxx11Ev @ basic_string.h:223) Using expired pointer: 0x63eaf11b9ae0 from 0x7ffe077c72c0
+first time found dangling pointer at: 830 distance: 10
+[INCONSISTENCY mov write imm UAF] ip: main+0x25c8ba (_ZNK4geos2io15StringTokenizer7getSValB5cxx11Ev @ basic_string.h:218) UAF write at: 0x63eaf11b9af2
+[INCONSISTENCY mov read UAF] ip: main+0x1204d0 (_ZN4geos2io9WKTReader11getNextWordB5cxx11EPNS0_15StringTokenizerE @ WKTReader.cpp:289) UAF read at: 0x63eaf11b9ae0
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1202ca (_ZN4geos2io9WKTReader17readOrdinateFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_11OrdinateSetE @ basic_string.h:189) byte write at: 0x7ffe077c72c0 offset: +0x0 cell_owner: 23 writer_pointee: 29
+[INCONSISTENCY mov read UAF] ip: main+0x1fbdf2 (_ZN4geos4util8endsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc @ string.cpp:37) UAF read at: 0x63eaf11b9af1
+[INCONSISTENCY mov read] ip: main+0x120328 (_ZN4geos2io9WKTReader17readOrdinateFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_11OrdinateSetE @ WKTReader.cpp:204) base: 0x7ffe077c72b0 pointee: 29 read from 23
+[CORRUPTED_PTR_LOAD] ip: main+0x120328 (_ZN4geos2io9WKTReader17readOrdinateFlagsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_11OrdinateSetE @ WKTReader.cpp:204) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c72d8 cell_owner: 23 value_owner: 29
+[CORRUPTED_PTR_LOAD] ip: main+0x11fdcf (_ZN4geos2io9WKTReader10isTypeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_) loaded: 0x5 from cell: 0x7ffe077c7378 cell_owner: 22 value_owner: 23
+[INCONSISTENCY mov read] ip: main+0x11fe04 (_ZN4geos2io9WKTReader10isTypeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ @ WKTReader.cpp:189) base: 0x7ffe077c7250 pointee: 30 read from 23
+[CORRUPTED_PTR_LOAD] ip: main+0x11fe04 (_ZN4geos2io9WKTReader10isTypeNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ @ WKTReader.cpp:189) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c72c8 cell_owner: 23 value_owner: 30
+[CORRUPTED_PTR_LOAD] ip: main+0x123543 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ basic_string.h:803) loaded: 0x7ffe077c7380 from cell: 0x7ffe077c7370 cell_owner: 22 value_owner: 23
+[INTRA_OBJECT_OVERFLOW] ip: main+0x12363f (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE) byte write at: 0x7ffe077c7388 offset: +0x78 subject: 22 clobbers ptr 0x7ffe077c73f0 (owner: 21)
+[INTRA_OBJECT_OVERFLOW] ip: main+0x11faa7 (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC4IS3_EEPKcRKS3_ @ basic_string.h:641) at: 0x7ffe077c72d8 offset: +0x8 subject: 40 clobbers ptr 0x7ffe077c74c0 (owner: 19)
+[ALLOC:internal] malloc(0x13) -> 0x63eaf11b9b00 subject=45 at _Znwm
+Store dangling pointer: 0x63eaf11b9b00 at: 0x7ffe077c7370
+main+0x11fb4d (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC4IS3_EEPKcRKS3_ @ basic_string.h:223) Using expired pointer: 0x63eaf11b9b00 from 0x7ffe077c7370
+first time found dangling pointer at: 1840 distance: 11
+[INCONSISTENCY mov write imm UAF] ip: main+0x11fae7 (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC4IS3_EEPKcRKS3_ @ basic_string.h:218) UAF write at: 0x63eaf11b9b12
+[FREE:internal] free(0x63eaf11b9b00) subject=45 at _ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE
+[UNINITIALIZED mov read] ip: main+0x1205e7 (_ZN4geos2io9WKTReader20getNextEmptyOrOpenerB5cxx11EPNS0_15StringTokenizerERNS0_11OrdinateSetE @ OrdinateSet.h:101) co: 22 vo: -1
+main+0x25c474 (_ZN4geos2io15StringTokenizer9nextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a52 from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 1306
+Store dangling pointer: 0x63eaf11b9a53 at: 0x7ffe077c7460
+[INCONSISTENCY mov read UAF] ip: main+0x25c4f1 (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:90) UAF read at: 0x63eaf11b9a52
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1204a5 (_ZN4geos2io9WKTReader11getNextWordB5cxx11EPNS0_15StringTokenizerE @ basic_string.h:230) byte write at: 0x7ffe077c7290 offset: +0x0 cell_owner: 27 writer_pointee: 46
+[CORRUPTED_PTR_LOAD] ip: main+0x12061c (_ZN4geos2io9WKTReader20getNextEmptyOrOpenerB5cxx11EPNS0_15StringTokenizerERNS0_11OrdinateSetE) loaded: 0x7ffe077c0028 from cell: 0x7ffe077c7290 cell_owner: 27 value_owner: 46
+main+0x25c474 (_ZN4geos2io15StringTokenizer9nextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a53 from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 1446
+Store dangling pointer: 0x63eaf11b9a58 at: 0x7ffe077c7460
+main+0x25c89a (_ZNK4geos2io15StringTokenizer7getSValB5cxx11Ev @ basic_string.h:193) Using expired pointer: 0x63eaf11b9ab0 from 0x7ffe077c7438
+first time found dangling pointer at: 820 distance: 1386
+[CORRUPTED_PTR_LOAD] ip: main+0x1204d0 (_ZN4geos2io9WKTReader11getNextWordB5cxx11EPNS0_15StringTokenizerE @ WKTReader.cpp:289) loaded: 0x544e494f50 from cell: 0x7ffe077c7110 cell_owner: 52 value_owner: 50
+[INCONSISTENCY mov read] ip: main+0x1237c0 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ WKTReader.cpp:389) base: 0x7ffe077c7150 pointee: 51 read from 49
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1203ee (_ZN4geos2io9WKTReader11getNextWordB5cxx11EPNS0_15StringTokenizerE @ WKTReader.cpp:275) at: 0x7ffe077c6fb8 offset: +0x28 subject: 59 clobbers ptr 0x7ffe077c7230 (owner: 47)
+main+0x25c474 (_ZN4geos2io15StringTokenizer9nextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a58 from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 1858
+Store dangling pointer: 0x63eaf11b9a59 at: 0x7ffe077c7460
+main+0x25c474 (_ZN4geos2io15StringTokenizer9nextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a59 from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 1987
+Store dangling pointer: 0x63eaf11b9a5a at: 0x7ffe077c7460
+[INCONSISTENCY mov read] ip: main+0x25c4f4 (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:132) base: 0x7ffe077c6ef0 pointee: 63 read from 60
+[CORRUPTED_PTR_LOAD] ip: main+0x25c4f4 (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:132) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c6f28 cell_owner: 60 value_owner: 63
+[UNTRUSTEDPTRDEREF] ip: main+0x11fbf4 (_ZN4geos2io9WKTReader13getNextNumberEPNS0_15StringTokenizerE @ WKTReader.cpp:158) final_ea: 0x63eabc2b39e0 base: 0x63eabc2b39d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x11fc00 (_ZN4geos2io9WKTReader13getNextNumberEPNS0_15StringTokenizerE @ WKTReader.cpp:164) base: 0x7ffe077c6f60 pointee: 62 read from 59
+[CORRUPTED_PTR_LOAD] ip: main+0x11fc00 (_ZN4geos2io9WKTReader13getNextNumberEPNS0_15StringTokenizerE @ WKTReader.cpp:164) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c6fa8 cell_owner: 59 value_owner: 62
+main+0x25c474 (_ZN4geos2io15StringTokenizer9nextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a5a from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 2102
+Store dangling pointer: 0x63eaf11b9a5b at: 0x7ffe077c7460
+main+0x25c474 (_ZN4geos2io15StringTokenizer9nextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a5b from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 2145
+Store dangling pointer: 0x63eaf11b9a5c at: 0x7ffe077c7460
+[UNINITIALIZED mov read] ip: main+0x11fc8e (_ZNK4geos2io9WKTReader20getPreciseCoordinateEPNS0_15StringTokenizerERNS0_11OrdinateSetERNS_4geom14CoordinateXYZME @ WKTReader.cpp:120) co: 49 vo: -1
+main+0x25c6a2 (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a5c from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 2264
+[CORRUPTED_PTR_LOAD] ip: main+0x25c6c5 (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ basic_string.h:189) loaded: 0x63eaf11b9a40 from cell: 0x7ffe077c74e0 cell_owner: 11 value_owner: 19
+[CORRUPTED_PTR_LOAD] ip: main+0x25c6d1 (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ StringTokenizer.cpp:141) loaded: 0x2a from cell: 0x7ffe077c74e8 cell_owner: 11 value_owner: 19
+[CORRUPTED_PTR_LOAD] ip: main+0x25c702 (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ StringTokenizer.cpp:150) loaded: 0x63eaf11b9a40 from cell: 0x7ffe077c74e0 cell_owner: 11 value_owner: 19
+[INCONSISTENCY mov read UAF] ip: main+0x25c705 (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ StringTokenizer.cpp:150) UAF read at: 0x63eaf11b9a5c
+[INCONSISTENCY mov read] ip: main+0x25c716 (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ basic_string.h:803) base: 0x7ffe077c6f80 pointee: 67 read from 59
+[CORRUPTED_PTR_LOAD] ip: main+0x25c716 (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ basic_string.h:803) loaded: 0x7ffe077c6fa0 from cell: 0x7ffe077c6f90 cell_owner: 59 value_owner: 67
+[INCONSISTENCY mov read] ip: main+0x25c72e (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ StringTokenizer.cpp:184) base: 0x7ffe077c6f80 pointee: 67 read from 59
+[CORRUPTED_PTR_LOAD] ip: main+0x25c72e (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ StringTokenizer.cpp:184) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c6fb8 cell_owner: 59 value_owner: 67
+[UNINITIALIZED mov read] ip: main+0x11fcb1 (_ZNK4geos2io9WKTReader20getPreciseCoordinateEPNS0_15StringTokenizerERNS0_11OrdinateSetERNS_4geom14CoordinateXYZME @ WKTReader.cpp:139) co: 19 vo: -1
+[ALLOC:internal] malloc(0x20) -> 0x63eaf11b9a80 subject=68 at _Znwm
+[UNTRUSTEDPTRDEREF] ip: main+0xb8928 (_ZN4geos4geom18CoordinateSequence10initializeEv @ CoordinateSequence.cpp:146) final_ea: 0x63eabc2afb58 base: 0x63eabc095928 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x18) -> 0x63eaf11b9b00 subject=71 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x7dcf6 (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ new_allocator.h:151) base: 0x7ffe077c6fe0 pointee: 70 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7dcf6 (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ new_allocator.h:151) loaded: 0x63eabc2b3b40 from cell: 0x7ffe077c6ff8 cell_owner: 69 value_owner: 70
+[INCONSISTENCY mov read] ip: main+0x7dcfb (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ vector.tcc:592) base: 0x7ffe077c6fe0 pointee: 70 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7dcfb (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ vector.tcc:592) loaded: 0x0 from cell: 0x7ffe077c6ff0 cell_owner: 69 value_owner: 70
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x7dd99 (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ stl_algobase.h:435) add rbx, r15 id before: 71 after: 0 [freed] value: 0x63eaf11b9b18
+Store dangling pointer: 0x63eaf11b9b18 at: 0x63eaf11b9a88
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x7ddda (_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd @ vector.tcc:625) add r15, rax id before: 71 after: 0 [freed] value: 0x63eaf11b9b18
+[INTRA_OBJECT_OVERFLOW] ip: main+0x25c481 (_ZN4geos2io15StringTokenizer9nextTokenEv @ StringTokenizer.cpp:81) at: 0x7ffe077c6f58 offset: +0x38 subject: 74 clobbers ptr 0x7ffe077c74c0 (owner: 19)
+Store dangling pointer: 0x63eaf11b9a5d at: 0x7ffe077c7460
+[INCONSISTENCY mov read] ip: main+0x120c48 (_ZNK4geos2io9WKTReader14getCoordinatesEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ basic_string.h:223) base: 0x7ffe077c7040 pointee: 57 read from 56
+[INCONSISTENCY mov read] ip: main+0x1212b8 (_ZNK4geos2io9WKTReader14getCoordinatesEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ CoordinateSequence.h:900) base: 0x7ffe077c7040 pointee: 57 read from 55
+[INCONSISTENCY mov read] ip: main+0x1212ca (_ZNK4geos2io9WKTReader14getCoordinatesEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ basic_string.h:223) base: 0x7ffe077c7040 pointee: 57 read from 56
+[INCONSISTENCY mov read] ip: main+0x120cdd (_ZNK4geos2io9WKTReader14getCoordinatesEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ WKTReader.cpp:103) base: 0x7ffe077c7040 pointee: 57 read from 56
+[INCONSISTENCY mov read] ip: main+0x120ce5 (_ZNK4geos2io9WKTReader14getCoordinatesEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ basic_string.h:3731) base: 0x7ffe077c7040 pointee: 57 read from 56
+[CORRUPTED_PTR_LOAD] ip: main+0x120ce5 (_ZNK4geos2io9WKTReader14getCoordinatesEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ basic_string.h:3731) loaded: 0x1 from cell: 0x7ffe077c70c8 cell_owner: 56 value_owner: 57
+[INCONSISTENCY mov read] ip: main+0x120d26 (_ZNK4geos2io9WKTReader14getCoordinatesEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ WKTReader.cpp:110) base: 0x7ffe077c7040 pointee: 57 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x120d26 (_ZNK4geos2io9WKTReader14getCoordinatesEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ WKTReader.cpp:110) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c7108 cell_owner: 52 value_owner: 57
+[ALLOC:internal] malloc(0x60) -> 0x63eaf11b9b20 subject=76 at _Znwm
+main+0xd5b5c (_ZN4geos4geom5PointC1EONS0_18CoordinateSequenceEPKNS0_15GeometryFactoryE @ stl_vector.h:993) Using expired pointer: 0x63eaf11b9b18 from 0x63eaf11b9a88
+first time found dangling pointer at: 3194 distance: 250
+[INCONSISTENCY mov write reg UAF] ip: main+0xd5b70 (_ZN4geos4geom5PointC1EONS0_18CoordinateSequenceEPKNS0_15GeometryFactoryE @ Point.cpp:48) UAF write at: 0x63eaf11b9b20
+[INCONSISTENCY mov write imm UAF] ip: main+0xd5b73 (_ZN4geos4geom5PointC1EONS0_18CoordinateSequenceEPKNS0_15GeometryFactoryE @ CoordinateSequence.h:56) UAF write at: 0x63eaf11b9b50
+[ALLOC:internal] malloc(0x18) -> 0x63eaf11b9b90 subject=78 at _Znwm
+Store dangling pointer: 0x63eaf11b9ba8 at: 0x63eaf11b9b50
+[INCONSISTENCY mov write reg UAF] ip: main+0xd5baf (_ZN4geos4geom5PointC1EONS0_18CoordinateSequenceEPKNS0_15GeometryFactoryE @ stl_vector.h:400) UAF write at: 0x63eaf11b9b50
+first time found dangling pointer at: 3463 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xd5be2 (_ZN4geos4geom5PointC1EONS0_18CoordinateSequenceEPKNS0_15GeometryFactoryE @ stl_algobase.h:441) UAF write at: 0x63eaf11b9b48
+first time found dangling pointer at: 3478 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xd5bf1 (_ZN4geos4geom5PointC1EONS0_18CoordinateSequenceEPKNS0_15GeometryFactoryE) UAF write at: 0x63eaf11b9b58
+[INCONSISTENCY mov read] ip: main+0xd5c44 (_ZN4geos4geom5PointC1EONS0_18CoordinateSequenceEPKNS0_15GeometryFactoryE @ Point.cpp:53) base: 0x7ffe077c7080 pointee: 77 read from 56
+[CORRUPTED_PTR_LOAD] ip: main+0xd5c44 (_ZN4geos4geom5PointC1EONS0_18CoordinateSequenceEPKNS0_15GeometryFactoryE @ Point.cpp:53) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c70b8 cell_owner: 56 value_owner: 77
+Store dangling pointer: 0x63eaf11b9b20 at: 0x7ffe077c7180
+[INCONSISTENCY mov read] ip: main+0xc925c (_ZNK4geos4geom15GeometryFactory11createPointEOSt10unique_ptrINS0_18CoordinateSequenceESt14default_deleteIS3_EE @ GeometryFactory.cpp:245) base: 0x7ffe077c70f0 pointee: 75 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0xc925c (_ZNK4geos4geom15GeometryFactory11createPointEOSt10unique_ptrINS0_18CoordinateSequenceESt14default_deleteIS3_EE @ GeometryFactory.cpp:245) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c7118 cell_owner: 52 value_owner: 75
+[INCONSISTENCY mov read] ip: main+0x123596 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ WKTReader.cpp:382) base: 0x7ffe077c7150 pointee: 51 read from 49
+[FREE] free(0x63eaf11b9b00) subject=71 at _ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ new_allocator.h:172
+[FREE:internal] free(0x63eaf11b9a80) subject=68 at _ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE
+[INCONSISTENCY mov read] ip: main+0x1235c3 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ unique_ptr.h:99) base: 0x7ffe077c7150 pointee: 51 read from 49
+main+0x1235c3 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ unique_ptr.h:99) Using expired pointer: 0x63eaf11b9b20 from 0x7ffe077c7180
+first time found dangling pointer at: 3514 distance: 27
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1235d3 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ WKTReader.cpp:374) at: 0x7ffe077c7260 offset: +0x10 subject: 46 clobbers ptr 0x7ffe077c7290 (owner: 27)
+[INCONSISTENCY mov read] ip: main+0x1235d7 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ tuple:302) base: 0x7ffe077c7150 pointee: 51 read from 49
+[INCONSISTENCY mov read] ip: main+0x1235f8 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ WKTReader.cpp:376) base: 0x7ffe077c7150 pointee: 51 read from 48
+[CORRUPTED_PTR_LOAD] ip: main+0x1235f8 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ WKTReader.cpp:376) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c71d8 cell_owner: 48 value_owner: 51
+[UNINITIALIZED mov read] ip: main+0x124d6d (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ stl_vector.h:1298) co: 47 vo: -1
+[UNINITIALIZED mov read] ip: main+0xa49ec (_ZNSt6vectorISt10unique_ptrIN4geos4geom8GeometryESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_) co: 47 vo: -1
+[UNINITIALIZED mov read] ip: main+0xa49f0 (_ZNSt6vectorISt10unique_ptrIN4geos4geom8GeometryESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_ @ stl_vector.h:1896) co: 47 vo: -1
+[ALLOC:internal] malloc(0x8) -> 0x63eaf11b9b00 subject=80 at _Znwm
+Store dangling pointer: 0x63eaf11b9b08 at: 0x7ffe077c71c8
+main+0xa4aa6 (_ZNSt6vectorISt10unique_ptrIN4geos4geom8GeometryESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_ @ new_allocator.h:172) Using expired pointer: 0x63eaf11b9b08 from 0x7ffe077c71c8
+first time found dangling pointer at: 3609 distance: 12
+[INCONSISTENCY mov read] ip: main+0x124fe0 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ stl_vector.h:1233) base: 0x7ffe077c7220 pointee: 47 read from 46
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1209ea (_ZN4geos2io9WKTReader20getNextCloserOrCommaB5cxx11EPNS0_15StringTokenizerE @ WKTReader.cpp:255) at: 0x7ffe077c71e8 offset: +0x28 subject: 81 clobbers ptr 0x7ffe077c7240 (owner: 47)
+main+0x25c474 (_ZN4geos2io15StringTokenizer9nextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a5d from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 3003
+Store dangling pointer: 0x63eaf11b9a5e at: 0x7ffe077c7460
+[INCONSISTENCY mov read] ip: main+0x124dae (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ basic_string.h:223) base: 0x7ffe077c7220 pointee: 47 read from 46
+[INCONSISTENCY mov read] ip: main+0x125030 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ char_traits.h:351) base: 0x7ffe077c7220 pointee: 47 read from 29
+[INCONSISTENCY mov read] ip: main+0x125042 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ basic_string.h:223) base: 0x7ffe077c7220 pointee: 47 read from 46
+[INCONSISTENCY mov read] ip: main+0x124e34 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ WKTReader.cpp:657) base: 0x7ffe077c7220 pointee: 47 read from 46
+[CORRUPTED_PTR_LOAD] ip: main+0x124e34 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ WKTReader.cpp:657) loaded: 0x1 from cell: 0x7ffe077c7288 cell_owner: 46 value_owner: 47
+[INCONSISTENCY mov read] ip: main+0x124f30 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ basic_string.h:2608) base: 0x7ffe077c7220 pointee: 47 read from 46
+[ALLOC:internal] malloc(0x60) -> 0x63eaf11b9bb0 subject=84 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x124e62 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ stl_vector.h:107) base: 0x7ffe077c7220 pointee: 47 read from 46
+[CORRUPTED_PTR_LOAD] ip: main+0x124e62 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ stl_vector.h:107) loaded: 0x63eaf11b9b08 from cell: 0x7ffe077c7250 cell_owner: 46 value_owner: 47
+[INCONSISTENCY mov write reg UAF] ip: main+0xc3d32 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ GeometryCollection.cpp:68) UAF write at: 0x63eaf11b9bb0
+[CORRUPTED_PTR_LOAD] ip: main+0xc3d36 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ stl_vector.h:620) loaded: 0x63eaf11b9b08 from cell: 0x7ffe077c7270 cell_owner: 46 value_owner: 47
+[INCONSISTENCY mov write reg UAF] ip: main+0xc3d45 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ stl_vector.h:107) UAF write at: 0x63eaf11b9be0
+first time found dangling pointer at: 3837 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0xc3d49 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ GeometryCollection.cpp:67) UAF write at: 0x63eaf11b9be8
+[INCONSISTENCY mov write imm UAF] ip: main+0xc3d50 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE) UAF write at: 0x63eaf11b9beb
+[INCONSISTENCY mov read UAF] ip: main+0xc3a07 (_ZNK4geos4geom18GeometryCollection23computeEnvelopeInternalEv @ stl_iterator.h:1077) UAF read at: 0x63eaf11b9bd8
+[INCONSISTENCY mov read UAF] ip: main+0xc3a0b (_ZNK4geos4geom18GeometryCollection23computeEnvelopeInternalEv) UAF read at: 0x63eaf11b9bd0
+[INCONSISTENCY mov read UAF] ip: main+0xc3a3a (_ZNK4geos4geom18GeometryCollection23computeEnvelopeInternalEv @ GeometryCollection.cpp:358) UAF read at: 0x63eaf11b9b20
+[INCONSISTENCY mov read UAF] ip: main+0xc3d60 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ GeometryCollection.cpp:71) UAF read at: 0x63eaf11b9bd8
+first time found dangling pointer at: 3849 distance: 34
+[INCONSISTENCY mov read UAF] ip: main+0xc3d64 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ stl_iterator.h:1077) UAF read at: 0x63eaf11b9bd0
+[INCONSISTENCY mov read UAF] ip: main+0xc3dc1 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ GeometryCollection.cpp:75) UAF read at: 0x63eaf11b9bb8
+[INCONSISTENCY mov read UAF] ip: main+0xc3dd6 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ GeometryCollection.cpp:83) UAF read at: 0x63eaf11b9b20
+[INCONSISTENCY mov write reg UAF] ip: main+0x7ace4 (_ZN4geos4geom8Geometry7setSRIDEi @ Geometry.h:283) UAF write at: 0x63eaf11b9b28
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xc3ddc (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ GeometryCollection.cpp:82) add rbx, 0x8 id before: 80 after: 0 [freed] value: 0x63eaf11b9b08
+[INCONSISTENCY mov read] ip: main+0xc3de5 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ GeometryCollection.cpp:76) base: 0x7ffe077c71b0 pointee: 85 read from 81
+[CORRUPTED_PTR_LOAD] ip: main+0xc3de5 (_ZN4geos4geom18GeometryCollectionC1EOSt6vectorISt10unique_ptrINS0_8GeometryESt14default_deleteIS4_EESaIS7_EERKNS0_15GeometryFactoryE @ GeometryCollection.cpp:76) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c71e8 cell_owner: 81 value_owner: 85
+Store dangling pointer: 0x63eaf11b9bb0 at: 0x7ffe077c7348
+[INCONSISTENCY mov read] ip: main+0x124e92 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ unique_ptr.h:176) base: 0x7ffe077c7220 pointee: 47 read from 46
+[INCONSISTENCY mov read] ip: main+0x124e97 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ stl_vector.h:735) base: 0x7ffe077c7220 pointee: 47 read from 46
+[CORRUPTED_PTR_LOAD] ip: main+0x124e97 (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ stl_vector.h:735) loaded: 0x0 from cell: 0x7ffe077c7268 cell_owner: 46 value_owner: 24
+[INCONSISTENCY mov read] ip: main+0x124edd (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ new_allocator.h:172) base: 0x7ffe077c7220 pointee: 47 read from 46
+[INCONSISTENCY mov read] ip: main+0x124efa (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ WKTReader.cpp:660) base: 0x7ffe077c7220 pointee: 47 read from 23
+[CORRUPTED_PTR_LOAD] ip: main+0x124efa (_ZNK4geos2io9WKTReader26readGeometryCollectionTextEPNS0_15StringTokenizerERNS0_11OrdinateSetE @ WKTReader.cpp:660) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c72c8 cell_owner: 23 value_owner: 47
+main+0x123807 (_ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE @ unique_ptr.h:430) Using expired pointer: 0x63eaf11b9bb0 from 0x7ffe077c7348
+first time found dangling pointer at: 3925 distance: 24
+[FREE:internal] free(0x63eaf11b9ae0) subject=28 at _ZNK4geos2io9WKTReader22readGeometryTaggedTextEPNS0_15StringTokenizerERNS0_11OrdinateSetEPKNS_4geom14GeometryTypeIdE
+main+0x25c6a2 (_ZN4geos2io15StringTokenizer13peekNextTokenEv @ stl_iterator.h:1228) Using expired pointer: 0x63eaf11b9a5e from 0x7ffe077c7460
+first time found dangling pointer at: 668 distance: 3317
+Store dangling pointer: 0x63eaf11b9a5f at: 0x7ffe077c7460
+[ALLOC:internal] malloc(0x90) -> 0x63eaf11b9c20 subject=89 at __cxa_allocate_exception
+[ALLOC:internal] malloc(0x26) -> 0x63eaf11b9a80 subject=91 at _Znwm
+[ALLOC:internal] malloc(0x1f) -> 0x63eaf11b9cc0 subject=93 at _Znwm
+[ALLOC:internal] malloc(0x3d) -> 0x63eaf11b9cf0 subject=94 at _Znwm
+[FREE:internal] free(0x63eaf11b9cc0) subject=93 at _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm
+main+0x119228 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ basic_string.h:193) Read a dangling pointer 0x63eaf11b9cf0 from 0x7ffe077c7350
+[ALLOC:internal] malloc(0x4e) -> 0x63eaf11b9d40 subject=95 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x119266 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ basic_string.h:803) base: 0x7ffe077c7330 pointee: 92 read from 88
+main+0x119266 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ basic_string.h:803) Using expired pointer: 0x63eaf11b9cf0 from 0x7ffe077c7370
+first time found dangling pointer at: 1840 distance: 2381
+[CORRUPTED_PTR_LOAD] ip: main+0x119266 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ basic_string.h:803) loaded: 0x63eaf11b9cf0 from cell: 0x7ffe077c7370 cell_owner: 88 value_owner: 92
+[INCONSISTENCY mov read] ip: main+0x119270 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ basic_string.h:264) base: 0x7ffe077c7330 pointee: 92 read from 87
+[CORRUPTED_PTR_LOAD] ip: main+0x119270 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ basic_string.h:264) loaded: 0x3c from cell: 0x7ffe077c7380 cell_owner: 87 value_owner: 92
+[FREE] free(0x63eaf11b9cf0) subject=94 at _ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ new_allocator.h:172
+[INCONSISTENCY mov write reg UAF] ip: main+0x1192a1 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ GEOSException.h:53) UAF write at: 0x63eaf11b9ca0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1192be (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ ParseException.cpp:37) UAF write at: 0x63eaf11b9ca0
+[INCONSISTENCY mov read] ip: main+0x1192c1 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ ParseException.cpp:39) base: 0x7ffe077c7330 pointee: 92 read from 87
+[CORRUPTED_PTR_LOAD] ip: main+0x1192c1 (_ZN4geos2io14ParseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ ParseException.cpp:39) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c7398 cell_owner: 87 value_owner: 92
+[FREE:internal] free(0x63eaf11b9a80) subject=91 at _ZNK4geos2io9WKTReader4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold
+[INCONSISTENCY mov read] ip: main+0x4113e (_ZNK4geos2io9WKTReader4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold @ WKTReader.cpp:65) base: 0x7ffe077c73e0 pointee: 21 read from 14
+[CORRUPTED_PTR_LOAD] ip: main+0x4113e (_ZNK4geos2io9WKTReader4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold @ WKTReader.cpp:65) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c7468 cell_owner: 14 value_owner: 21
+[INCONSISTENCY mov read UAF] ip: main+0x4118c (_ZNK4geos2io9WKTReader4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold @ unique_ptr.h:475) UAF read at: 0x63eaf11b9bb0
+[INCONSISTENCY mov read UAF] ip: main+0xc4322 (_ZN4geos4geom18GeometryCollectionD0Ev @ stl_vector.h:735) UAF read at: 0x63eaf11b9bd8
+first time found dangling pointer at: 3849 distance: 428
+[INCONSISTENCY mov read UAF] ip: main+0xc4326 (_ZN4geos4geom18GeometryCollectionD0Ev) UAF read at: 0x63eaf11b9bd0
+[INCONSISTENCY mov write reg UAF] ip: main+0xc432a (_ZN4geos4geom18GeometryCollectionD0Ev @ GeometryCollection.h:81) UAF write at: 0x63eaf11b9bb0
+[INCONSISTENCY mov read UAF] ip: main+0xc4340 (_ZN4geos4geom18GeometryCollectionD0Ev @ unique_ptr.h:475) UAF read at: 0x63eaf11b9b20
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xc4343 (_ZN4geos4geom18GeometryCollectionD0Ev @ stl_construct.h:162) add rbx, 0x8 id before: 80 after: 0 [freed] value: 0x63eaf11b9b08
+[INCONSISTENCY mov write reg UAF] ip: main+0x7baff (_ZN4geos4geom5PointD0Ev) UAF write at: 0x63eaf11b9b20
+[INCONSISTENCY mov read UAF] ip: main+0x7bb02 (_ZN4geos4geom5PointD0Ev @ CoordinateSequence.h:56) UAF read at: 0x63eaf11b9b40
+main+0x7bb02 (_ZN4geos4geom5PointD0Ev @ CoordinateSequence.h:56) Read a dangling pointer 0x63eaf11b9b90 from 0x63eaf11b9b40
+[INCONSISTENCY mov read UAF] ip: main+0x7bb0b (_ZN4geos4geom5PointD0Ev @ alloc_traits.h:516) UAF read at: 0x63eaf11b9b50
+first time found dangling pointer at: 3463 distance: 834
+main+0x7bb0b (_ZN4geos4geom5PointD0Ev @ alloc_traits.h:516) Using expired pointer: 0x63eaf11b9ba8 from 0x63eaf11b9b50
+first time found dangling pointer at: 3463 distance: 834
+[FREE] free(0x63eaf11b9b90) subject=78 at _ZN4geos4geom5PointD0Ev @ new_allocator.h:172
+[INCONSISTENCY mov write reg UAF] ip: main+0xc17ef (_ZN4geos4geom8GeometryD2Ev @ Geometry.cpp:739) UAF write at: 0x63eaf11b9b20
+[INCONSISTENCY mov read UAF] ip: main+0xc17f2 (_ZN4geos4geom8GeometryD2Ev @ Geometry.cpp:741) UAF read at: 0x63eaf11b9b30
+[FREE] free(0x63eaf11b9b20) subject=76 at _ZN4geos4geom18GeometryCollectionD0Ev @ unique_ptr.h:99
+[INCONSISTENCY mov read UAF] ip: main+0xc434f (_ZN4geos4geom18GeometryCollectionD0Ev @ stl_construct.h:162) UAF read at: 0x63eaf11b9bd0
+[INCONSISTENCY mov read UAF] ip: main+0xc4359 (_ZN4geos4geom18GeometryCollectionD0Ev @ alloc_traits.h:516) UAF read at: 0x63eaf11b9be0
+first time found dangling pointer at: 3837 distance: 490
+[FREE] free(0x63eaf11b9b00) subject=80 at _ZN4geos4geom18GeometryCollectionD0Ev @ new_allocator.h:172
+[FREE] free(0x63eaf11b9bb0) subject=84 at _ZNK4geos2io9WKTReader4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold @ unique_ptr.h:475
+[FREE:internal] free(0x63eaf11b9ab0) subject=26 at _ZNK4geos2io9WKTReader4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold
+[INCONSISTENCY mov read] ip: main+0x411a4 (_ZNK4geos2io9WKTReader4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold @ WKTReader.cpp:69) base: 0x7ffe077c73e0 pointee: 21 read from 14
+[CORRUPTED_PTR_LOAD] ip: main+0x411a4 (_ZNK4geos2io9WKTReader4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold @ WKTReader.cpp:69) loaded: 0xcbf72a04ad0e1e00 from cell: 0x7ffe077c7468 cell_owner: 14 value_owner: 21
+[FREE] free(0x63eaf11b9a40) subject=20 at GEOSGeomFromWKT_r.cold @ basic_string.h:803
+[INCONSISTENCY mov read UAF] ip: main+0x1d3d0 (GEOSGeomFromWKT_r.cold @ geos_ts_c.cpp:526) UAF read at: 0x63eaf11b9ca0
+Store dangling pointer: 0x63eaf11b9d58 at: 0x7ffe077c73e0
+Store dangling pointer: 0x63eaf11b9c30 at: 0x7ffe077c73f0
+[INTRA_OBJECT_OVERFLOW] ip: main+0x7ca28 (_ZN20GEOSContextHandle_HS13ERROR_MESSAGEEPKcz @ geos_ts_c.cpp:365) at: 0x7ffe077c73c8 offset: +0x18 subject: 96 clobbers ptr 0x7ffe077c74c0 (owner: 19)
+[INCONSISTENCY mov read UAF] ip: main+0x7ca2f (_ZN20GEOSContextHandle_HS13ERROR_MESSAGEEPKcz @ geos_ts_c.cpp:367) UAF read at: 0x63eaf11b9920
+[INCONSISTENCY mov read UAF] ip: main+0x7ca88 (_ZN20GEOSContextHandle_HS13ERROR_MESSAGEEPKcz @ geos_ts_c.cpp:384) UAF read at: 0x63eaf11b9920
+Store dangling pointer: 0x63eaf11b9508 at: 0x7ffe077c72f8
+[ALLOC:internal] malloc(0x1000) -> 0x63eaf11ba250 subject=98 at _IO_file_doallocate
+[INCONSISTENCY mov read] ip: main+0x5dc3f (_Z12log_and_exitPKcz @ harness.cpp:24) base: 0x7ffe077c73a0 pointee: 90 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x5dc3f (_Z12log_and_exitPKcz @ harness.cpp:24) loaded: 0x63eabc2ab224 from cell: 0x7ffe077c72c8 cell_owner: 97 value_owner: 96
+[STACK PIVOT] ip: main+0x5dc7d (_Z12log_and_exitPKcz @ harness.cpp:27) RSP 0x7ffe077c73a8 left stack [0x64,0x7ffe077a7000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xf9feb (_ZN4geos2io14ParseExceptionD2Ev @ GEOSException.h:37) UAF write at: 0x63eaf11b9ca0
+[FREE:internal] free(0x63eaf11b9d40) subject=95 at _ZNSt13runtime_errorD2Ev
+[FREE] free(0x63eaf11b9c20) subject=89 at GEOSGeomFromWKT_r.cold @ geos_ts_c.cpp:525
+[FREE] free(0x63eaf11b9a00) subject=18 at LLVMFuzzerTestOneInput @ harness.cpp:53
+[STACK PIVOT] ip: main+0x5ddd1 (LLVMFuzzerTestOneInput @ harness.cpp:55) RSP 0x7ffe077c7598 left stack [0x65,0x7ffe077a7000]
+[FREE:internal] free(0x63eaf11ba210) subject=8 at main
+[STACK PIVOT] ip: main+0x5da63 (main) RSP 0x7ffe077c75d8 left stack [0x66,0x7ffe077a7000]
+[STACK PIVOT] ip: main+0x5da64 (main) RSP 0x7ffe077c75e0 left stack after RET
+[STACK PIVOT] ip: main+0xc4604 (_ZN4geos4geom15GeometryFactoryD2Ev @ GeometryFactory.cpp:167) RSP 0x7ffe077c7570 left stack after RET
+[STACK PIVOT] ip: main+0xc1f34 (_ZN4geos4geom8Geometry21GeometryChangedFilterD2Ev @ GeometryComponentFilter.h:56) RSP 0x7ffe077c7570 left stack after RET
+[STACK PIVOT] ip: main+0x811b4 (~MonoValentEndPointBoundaryNodeRule @ BoundaryNodeRule.cpp:129) RSP 0x7ffe077c7570 left stack after RET
+[STACK PIVOT] ip: main+0x811c4 (~MultiValentEndPointBoundaryNodeRule @ BoundaryNodeRule.cpp:108) RSP 0x7ffe077c7570 left stack after RET
+[STACK PIVOT] ip: main+0x811d4 (~EndPointBoundaryNodeRule @ BoundaryNodeRule.cpp:86) RSP 0x7ffe077c7570 left stack after RET
+[STACK PIVOT] ip: main+0x811e4 (~Mod2BoundaryNodeRule @ BoundaryNodeRule.cpp:44) RSP 0x7ffe077c7570 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x5d93e (__do_global_dtors_aux) final_ea: 0x63eabc347fa8 base: 0x63eabc03a93e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x5d964 (__do_global_dtors_aux) RSP 0x7ffe077c74a0 left stack after RET
+[STACK PIVOT] ip: main+0x2cd380 (_fini) RSP 0x7ffe077c74d0 left stack after RET

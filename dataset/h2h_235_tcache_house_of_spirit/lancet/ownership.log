@@ -1,0 +1,10 @@
+[INCONSISTENCY mov write reg] ip: main+0xe7b (main @ tcache_house_of_spirit.c:6) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x1) -> 0x3adc72a0 subject=6 at main @ tcache_house_of_spirit.c:18
+[INCONSISTENCY mov write reg] ip: main+0xf83 (main @ tcache_house_of_spirit.c:34) co: 5 vo: 5, 5 write 5
+[FREE] free(0x7fff14e49f30) subject=5 at main @ tcache_house_of_spirit.c:37
+[INVALID FREE] free(0x7fff14e49f30) — not in allocation map
+[ALLOC] malloc(0x30) -> 0x7fff14e49f30 subject=7 at main @ tcache_house_of_spirit.c:40
+[STACK PIVOT] ip: main+0x1041 (main @ tcache_house_of_spirit.c:44) RSP 0x7fff14e49f88 left stack [0x9,0x7fff14e2b000]
+[STACK PIVOT] ip: main+0x1042 (main @ tcache_house_of_spirit.c:44) RSP 0x7fff14e49f90 left stack after RET
+[STACK PIVOT] ip: main+0xe4e (__do_global_dtors_aux) RSP 0x7fff14e49e90 left stack after RET
+[STACK PIVOT] ip: main+0x1050 (_fini) RSP 0x7fff14e49e90 left stack after RET

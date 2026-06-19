@@ -1,0 +1,46 @@
+[INCONSISTENCY mov write reg] ip: main+0x1237 (main @ house_of_lore.c:32) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x123d (main @ house_of_lore.c:32) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x124d (main @ house_of_lore.c:32) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x100) -> 0x10900010 subject=6 at main @ house_of_lore.c:44
+[INCONSISTENCY mov write reg] ip: main+0x1301 (main @ house_of_lore.c:44) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x100) -> 0x10900120 subject=7 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x10900230 subject=8 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x10900340 subject=9 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x10900450 subject=10 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x10900560 subject=11 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x10900670 subject=12 at main @ house_of_lore.c:49
+[ALLOC] malloc(0x100) -> 0x10900780 subject=13 at main @ house_of_lore.c:49
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x138d (main @ house_of_lore.c:52) sub rax, 0x10 id before: 6 after: -1 [chunk metadata] value: 0x10900000
+[ALLOC] malloc(0x3e8) -> 0x10900890 subject=14 at main @ house_of_lore.c:83
+[FREE] free(0x10900120) subject=7 at main @ house_of_lore.c:88
+[FREE:internal] free(0x10900120) subject=0
+[DOUBLE FREE] free(0x10900120) — already freed
+[FREE] free(0x10900230) subject=8 at main @ house_of_lore.c:88
+[FREE] free(0x10900340) subject=9 at main @ house_of_lore.c:88
+[FREE] free(0x10900450) subject=10 at main @ house_of_lore.c:88
+[FREE] free(0x10900560) subject=11 at main @ house_of_lore.c:88
+[FREE] free(0x10900670) subject=12 at main @ house_of_lore.c:88
+[FREE] free(0x10900780) subject=13 at main @ house_of_lore.c:88
+[FREE] free(0x10900010) subject=6 at main @ house_of_lore.c:90
+main+0x1649 (main @ house_of_lore.c:93) Read a dangling pointer 0x10900010 from 0x7ffdd98707f8
+[INCONSISTENCY mov read UAF] ip: main+0x1650 (main @ house_of_lore.c:93) UAF read at: 0x10900010
+main+0x1674 (main @ house_of_lore.c:94) Using expired pointer: 0x10900010 from 0x7ffdd98707f8
+first time found dangling pointer at: 471 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0x167f (main @ house_of_lore.c:94) UAF read at: 0x10900018
+[ALLOC] malloc(0x4b0) -> 0x10900f80 subject=15 at main @ house_of_lore.c:99
+[INCONSISTENCY mov read UAF] ip: main+0x1745 (main @ house_of_lore.c:103) UAF read at: 0x10900010
+[INCONSISTENCY mov read UAF] ip: main+0x1774 (main @ house_of_lore.c:104) UAF read at: 0x10900018
+[INCONSISTENCY mov write reg UAF] ip: main+0x17ca (main @ house_of_lore.c:110) UAF write at: 0x10900018
+[ALLOC] malloc(0x100) -> 0x10900010 subject=16 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x10900780 subject=17 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x10900670 subject=18 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x10900560 subject=19 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x10900450 subject=20 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x10900340 subject=21 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x10900230 subject=22 at main @ house_of_lore.c:114
+[ALLOC] malloc(0x100) -> 0x10900120 subject=23 at main @ house_of_lore.c:120
+[ALLOC] malloc(0x100) -> 0x10901440 subject=24 at main @ house_of_lore.c:123
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1936 (main @ house_of_lore.c:133) add rdx, rax id before: 24 after: 1 value: 0x7ffdd98709a8
+[STACK PIVOT] ip: main+0x1994 (main @ house_of_lore.c:137) RSP 0x7ffdd98709a8 left stack [0x1a,0x7ffdd9852000]
+[STACK PIVOT] ip: main+0x11de (__do_global_dtors_aux) RSP 0x7ffdd9870888 left stack after RET
+[STACK PIVOT] ip: main+0x19a4 (_fini) RSP 0x7ffdd98708b8 left stack after RET

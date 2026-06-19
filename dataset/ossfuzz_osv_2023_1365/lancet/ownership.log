@@ -1,0 +1,36 @@
+[INCONSISTENCY mov write reg] ip: main+0x1307 (main @ gen_poc.c:88) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x130a (main @ gen_poc.c:88) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1315 (main @ gen_poc.c:89) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x1323 (main @ gen_poc.c:93) final_ea: 0x7ffd65e42e90 base: 0x7ffd65e42e88 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x1327 (main @ gen_poc.c:93) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1d8) -> 0x5dd849523010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x1341 (main @ gen_poc.c:95) co: 4 vo: 4, 4 write 4
+[CORRUPTED_PTR_LOAD] ip: main+0x11fc (write_be32 @ gen_poc.c:67) loaded: 0x4952301000000002 from cell: 0x7ffd65e42d04 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1204 (write_be32 @ gen_poc.c:67) loaded: 0x5dd849523010 from cell: 0x7ffd65e42d08 cell_owner: 6 value_owner: 4
+[ALLOC:internal] malloc(0x1000) -> 0x5dd8495231f0 subject=7 at _IO_file_doallocate
+[CORRUPTED_PTR_LOAD] ip: main+0x1212 (write_be32 @ gen_poc.c:68) loaded: 0x4952301000000002 from cell: 0x7ffd65e42d04 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x121b (write_be32 @ gen_poc.c:68) loaded: 0x5dd849523010 from cell: 0x7ffd65e42d08 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1229 (write_be32 @ gen_poc.c:69) loaded: 0x4952301000000002 from cell: 0x7ffd65e42d04 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1232 (write_be32 @ gen_poc.c:69) loaded: 0x5dd849523010 from cell: 0x7ffd65e42d08 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1240 (write_be32 @ gen_poc.c:70) loaded: 0x4952301000000002 from cell: 0x7ffd65e42d04 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1246 (write_be32 @ gen_poc.c:70) loaded: 0x5dd849523010 from cell: 0x7ffd65e42d08 cell_owner: 6 value_owner: 4
+[STACK PIVOT] ip: main+0x1255 (write_be32 @ gen_poc.c:71) RSP 0x7ffd65e42d18 left stack [0x9,0x7ffd65e25000]
+[STACK PIVOT] ip: main+0x1255 (write_be32 @ gen_poc.c:71) RSP 0x7ffd65e42d18 left stack [0xb,0x7ffd65e25000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x1277 (write_fuzz_string @ gen_poc.c:78) UAF write at: 0x7ffd65e42d08
+[INCONSISTENCY mov write imm UAF] ip: main+0x127b (write_fuzz_string @ gen_poc.c:79) UAF write at: 0x7ffd65e42d00
+STACKREADUSEAFTERSCOPE at: 0x7ffd65e42d00 ip: main+0x12cc (write_fuzz_string @ gen_poc.c:79)
+STACKREADUSEAFTERSCOPE at: 0x7ffd65e42d00 ip: main+0x1289 (write_fuzz_string @ gen_poc.c:80)
+[UNTRUSTEDPTRDEREF] ip: main+0x1290 (write_fuzz_string @ gen_poc.c:80) final_ea: 0x5dd81c6a3019 base: 0x5dd81c6a3019 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffd65e42d00 ip: main+0x12a8 (write_fuzz_string @ gen_poc.c:81)
+[UNTRUSTEDPTRDEREF] ip: main+0x12af (write_fuzz_string @ gen_poc.c:81) final_ea: 0x5dd81c6a3019 base: 0x5dd81c6a3019 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x12f9 (write_fuzz_string @ gen_poc.c:86) RSP 0x7ffd65e42d18 left stack [0xd,0x7ffd65e25000]
+[STACK PIVOT] ip: main+0x12f9 (write_fuzz_string @ gen_poc.c:86) RSP 0x7ffd65e42d18 left stack [0xf,0x7ffd65e25000]
+[FREE:internal] free(0x5dd8495231f0) subject=7 at _IO_setb
+[FREE:internal] free(0x5dd849523010) subject=5 at _IO_fclose
+[FREE:internal] free(0x5dd849523010) subject=0
+[DOUBLE FREE] free(0x5dd849523010) — already freed
+[STACK PIVOT] ip: main+0x13f6 (main @ gen_poc.c:162) RSP 0x7ffd65e42d58 left stack [0x10,0x7ffd65e25000]
+[STACK PIVOT] ip: main+0x13f7 (main @ gen_poc.c:162) RSP 0x7ffd65e42d60 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x11ae (__do_global_dtors_aux) final_ea: 0x5dd81c6a4ff8 base: 0x5dd81c6a21ae pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x11d4 (__do_global_dtors_aux) RSP 0x7ffd65e42c40 left stack after RET
+[STACK PIVOT] ip: main+0x1404 (_fini) RSP 0x7ffd65e42c70 left stack after RET

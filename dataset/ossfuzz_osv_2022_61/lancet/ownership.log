@@ -1,0 +1,1090 @@
+[ALLOC:internal] malloc(0x12000) -> 0x5ac37e1f7010 subject=4 at _ZSt21__to_chars_bfloat16_tPcS_fSt12chars_format
+[ALLOC:internal] malloc(0x28) -> 0x5ac37e209020 subject=5 at xmlNewMutex
+[ALLOC:internal] malloc(0x68) -> 0x5ac37e209050 subject=6 at xmlNewRMutex
+[ALLOC:internal] malloc(0x28) -> 0x5ac37e2090c0 subject=7 at xmlNewMutex
+[ALLOC:internal] malloc(0x190) -> 0x5ac37e2090f0 subject=8 at xmlInitCharEncodingHandlers
+[ALLOC:internal] malloc(0x6) -> 0x5ac37e209290 subject=9 at xmlCharStrdup
+[ALLOC:internal] malloc(0x38) -> 0x5ac37e2092b0 subject=10 at xmlNewCharEncodingHandler
+[ALLOC:internal] malloc(0x9) -> 0x5ac37e2092f0 subject=11 at xmlCharStrdup
+[ALLOC:internal] malloc(0x38) -> 0x5ac37e209310 subject=12 at xmlNewCharEncodingHandler
+[ALLOC:internal] malloc(0x9) -> 0x5ac37e209350 subject=13 at xmlCharStrdup
+[ALLOC:internal] malloc(0x38) -> 0x5ac37e209370 subject=14 at xmlNewCharEncodingHandler
+[ALLOC:internal] malloc(0x7) -> 0x5ac37e2093b0 subject=15 at xmlCharStrdup
+[ALLOC:internal] malloc(0x38) -> 0x5ac37e2093d0 subject=16 at xmlNewCharEncodingHandler
+[ALLOC:internal] malloc(0xb) -> 0x5ac37e209410 subject=17 at xmlCharStrdup
+[ALLOC:internal] malloc(0x38) -> 0x5ac37e209430 subject=18 at xmlNewCharEncodingHandler
+[ALLOC:internal] malloc(0x6) -> 0x5ac37e209470 subject=19 at xmlCharStrdup
+[ALLOC:internal] malloc(0x38) -> 0x5ac37e209490 subject=20 at xmlNewCharEncodingHandler
+[ALLOC:internal] malloc(0x9) -> 0x5ac37e2094d0 subject=21 at xmlCharStrdup
+[ALLOC:internal] malloc(0x38) -> 0x5ac37e2094f0 subject=22 at xmlNewCharEncodingHandler
+[ALLOC:internal] malloc(0x5) -> 0x5ac37e209530 subject=23 at xmlCharStrdup
+[ALLOC:internal] malloc(0x38) -> 0x5ac37e209550 subject=24 at xmlNewCharEncodingHandler
+[UNTRUSTEDPTRDEREF] ip: main+0x11f441 (main) final_ea: 0x5ac3676f9680 base: 0x5ac36430a441 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x11f44f (main) final_ea: 0x7f4f8c094cb0 base: 0x7f4f8c094ca8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x11f453 (main) final_ea: 0x7f4f8c094cb8 base: 0x7f4f8c094ca8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x11f457 (main) co: 25 vo: 25, 25 write 25
+[INCONSISTENCY mov write reg] ip: main+0x11f462 (main) co: 25 vo: 25, 25 write 25
+[INCONSISTENCY mov write reg] ip: main+0x11f471 (main) co: 25 vo: 25, 25 write 25
+[INCONSISTENCY mov write reg] ip: main+0x11f47f (main) co: 25 vo: 25, 25 write 25
+[UNTRUSTEDPTRDEREF] ip: main+0x11f486 (main) final_ea: 0x5ac3676f9720 base: 0x5ac36430a486 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x11f491 (main) co: 25 vo: 25, 25 write 25
+[UNTRUSTEDPTRDEREF] ip: main+0x11f64c (main) final_ea: 0x7f4f8c094c58 base: 0x7f4f8c094c70 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x11f68a (main) final_ea: 0x7f4f8c094c58 base: 0x7f4f8c094c70 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x11f699 (main) final_ea: 0x5ac3676f87e8 base: 0x5ac36430a699 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x11f6b5 (main) final_ea: 0x5ac3676f87e8 base: 0x5ac36430a6b5 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x5ac37e209590 subject=26 at _IO_fopen
+[ALLOC:internal] malloc(0x2000) -> 0x5ac37e209770 subject=27 at _Znwm
+[UNTRUSTEDPTRDEREF] ip: main+0x11f6ee (main) final_ea: 0x7f4f8c094cc8 base: 0x7f4f8c094ce0 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x11c) -> 0x5ac37e20b780 subject=28 at _Znwm
+[ALLOC:internal] malloc(0x1d8) -> 0x5ac37e20b8b0 subject=30 at _IO_fopen
+[CORRUPTED_PTR_LOAD] ip: main+0x11f9eb (LLVMFuzzerTestOneInput @ clamav_dbload_fuzzer.cpp:121) loaded: 0x5ac37e20b8b0 from cell: 0x7ffd7d86bf08 cell_owner: 29 value_owner: 25
+[CORRUPTED_PTR_LOAD] ip: main+0x11f9ef (LLVMFuzzerTestOneInput @ clamav_dbload_fuzzer.cpp:121) loaded: 0x11c from cell: 0x7ffd7d86bee0 cell_owner: 29 value_owner: 25
+[CORRUPTED_PTR_LOAD] ip: main+0x11f9f3 (LLVMFuzzerTestOneInput @ clamav_dbload_fuzzer.cpp:121) loaded: 0x5ac37e20b780 from cell: 0x7ffd7d86bee8 cell_owner: 29 value_owner: 25
+[ALLOC:internal] malloc(0x1000) -> 0x5ac37e20ba90 subject=31 at _IO_file_doallocate
+[CORRUPTED_PTR_LOAD] ip: main+0x11fa07 (LLVMFuzzerTestOneInput @ clamav_dbload_fuzzer.cpp:122) loaded: 0x5ac37e20b8b0 from cell: 0x7ffd7d86bf08 cell_owner: 29 value_owner: 25
+[FREE:internal] free(0x5ac37e20ba90) subject=31 at _IO_setb
+[FREE:internal] free(0x5ac37e20b8b0) subject=30 at _IO_fclose
+[FREE:internal] free(0x5ac37e20b8b0) subject=0
+[DOUBLE FREE] free(0x5ac37e20b8b0) — already freed
+[ALLOC] calloc(0x4a0) -> 0x5ac37e20bd90 subject=32 at cli_calloc @ others_common.c:234
+[INCONSISTENCY mov write imm UAF] ip: main+0x13ad95 (cl_engine_new @ others.c:463) UAF write at: 0x5ac37e20bdc8
+[INCONSISTENCY mov write imm UAF] ip: main+0x13adce (cl_engine_new @ others.c:475) UAF write at: 0x5ac37e20c1b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13ade3 (cl_engine_new @ others.c:477) UAF write at: 0x5ac37e20c180
+[INCONSISTENCY mov write imm UAF] ip: main+0x13adea (cl_engine_new @ others.c:480) UAF write at: 0x5ac37e20c188
+[INCONSISTENCY mov write imm UAF] ip: main+0x13adf4 (cl_engine_new @ others.c:481) UAF write at: 0x5ac37e20bd90
+[INCONSISTENCY mov write reg UAF] ip: main+0x13ae04 (cl_engine_new @ others.c:482) UAF write at: 0x5ac37e20bda4
+[INCONSISTENCY mov write imm UAF] ip: main+0x13ae08 (cl_engine_new @ others.c:484) UAF write at: 0x5ac37e20bdac
+[ALLOC] calloc(0x78) -> 0x5ac37e20c240 subject=33 at cli_calloc @ others_common.c:234
+Store dangling pointer: 0x5ac37e20c240 at: 0x5ac37e20bdf0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13ae1e (cl_engine_new @ others.c:494) UAF write at: 0x5ac37e20bdf0
+first time found dangling pointer at: 238 distance: 0
+[ALLOC] calloc(0x2c) -> 0x5ac37e20c2c0 subject=35 at cli_calloc @ others_common.c:234
+Store dangling pointer: 0x5ac37e20c2e8 at: 0x7ffd7d86be70
+Store dangling pointer: 0x5ac37e20c2e4 at: 0x7ffd7d86be68
+Store dangling pointer: 0x5ac37e20c2e0 at: 0x7ffd7d86be60
+Store dangling pointer: 0x5ac37e20c2dc at: 0x7ffd7d86be58
+Store dangling pointer: 0x5ac37e20c2d8 at: 0x7ffd7d86be50
+Store dangling pointer: 0x5ac37e20c2d4 at: 0x7ffd7d86be48
+Store dangling pointer: 0x5ac37e20c2d0 at: 0x7ffd7d86be40
+Store dangling pointer: 0x5ac37e20c2cc at: 0x7ffd7d86be38
+Store dangling pointer: 0x5ac37e20c2c8 at: 0x7ffd7d86be30
+Store dangling pointer: 0x5ac37e20c2c4 at: 0x7ffd7d86be28
+[UNTRUSTEDPTRDEREF] ip: main+0x234d90 (cli_dconf_init @ dconf.c:171) final_ea: 0x5ac367686364 base: 0x18 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x234d9b (cli_dconf_init) final_ea: 0x5ac367686360 base: 0x18 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x234da2 (cli_dconf_init @ dconf.c:169) final_ea: 0x5ac367686368 base: 0x18 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x234ed0 (cli_dconf_init @ dconf.c:174) final_ea: 0x5ac367686544 base: 0x1f8 pointee: -1 base_vo: -1
+main+0x234ed6 (cli_dconf_init @ dconf.c:174) Using expired pointer: 0x5ac37e20c2c4 from 0x7ffd7d86be28
+first time found dangling pointer at: 303 distance: 317
+[UNTRUSTEDPTRDEREF] ip: main+0x234ee5 (cli_dconf_init @ dconf.c:177) final_ea: 0x5ac36768655c base: 0x210 pointee: -1 base_vo: -1
+main+0x234eeb (cli_dconf_init @ dconf.c:177) Using expired pointer: 0x5ac37e20c2c8 from 0x7ffd7d86be30
+first time found dangling pointer at: 300 distance: 347
+[UNTRUSTEDPTRDEREF] ip: main+0x234efa (cli_dconf_init @ dconf.c:180) final_ea: 0x5ac367686574 base: 0x228 pointee: -1 base_vo: -1
+main+0x234f00 (cli_dconf_init @ dconf.c:180) Using expired pointer: 0x5ac37e20c2cc from 0x7ffd7d86be38
+first time found dangling pointer at: 298 distance: 382
+[UNTRUSTEDPTRDEREF] ip: main+0x234f0f (cli_dconf_init @ dconf.c:183) final_ea: 0x5ac3676867fc base: 0x4b0 pointee: -1 base_vo: -1
+main+0x234f15 (cli_dconf_init @ dconf.c:183) Using expired pointer: 0x5ac37e20c2d0 from 0x7ffd7d86be40
+first time found dangling pointer at: 296 distance: 1207
+[UNTRUSTEDPTRDEREF] ip: main+0x234f24 (cli_dconf_init @ dconf.c:186) final_ea: 0x5ac3676868ec base: 0x5a0 pointee: -1 base_vo: -1
+main+0x234f2a (cli_dconf_init @ dconf.c:186) Using expired pointer: 0x5ac37e20c2d4 from 0x7ffd7d86be48
+first time found dangling pointer at: 294 distance: 1554
+[UNTRUSTEDPTRDEREF] ip: main+0x234f39 (cli_dconf_init @ dconf.c:189) final_ea: 0x5ac36768691c base: 0x5d0 pointee: -1 base_vo: -1
+main+0x234f3f (cli_dconf_init @ dconf.c:189) Using expired pointer: 0x5ac37e20c2d8 from 0x7ffd7d86be50
+first time found dangling pointer at: 292 distance: 1639
+[UNTRUSTEDPTRDEREF] ip: main+0x234f4e (cli_dconf_init @ dconf.c:192) final_ea: 0x5ac367686a6c base: 0x720 pointee: -1 base_vo: -1
+main+0x234f54 (cli_dconf_init @ dconf.c:192) Using expired pointer: 0x5ac37e20c2dc from 0x7ffd7d86be58
+first time found dangling pointer at: 290 distance: 2138
+[UNTRUSTEDPTRDEREF] ip: main+0x234f63 (cli_dconf_init @ dconf.c:195) final_ea: 0x5ac367686a9c base: 0x750 pointee: -1 base_vo: -1
+main+0x234f69 (cli_dconf_init @ dconf.c:195) Using expired pointer: 0x5ac37e20c2e0 from 0x7ffd7d86be60
+first time found dangling pointer at: 288 distance: 2221
+[UNTRUSTEDPTRDEREF] ip: main+0x234f78 (cli_dconf_init @ dconf.c:198) final_ea: 0x5ac367686afc base: 0x7b0 pointee: -1 base_vo: -1
+main+0x234f7e (cli_dconf_init @ dconf.c:198) Using expired pointer: 0x5ac37e20c2e4 from 0x7ffd7d86be68
+first time found dangling pointer at: 286 distance: 2401
+[UNTRUSTEDPTRDEREF] ip: main+0x234eac (cli_dconf_init @ dconf.c:201) final_ea: 0x5ac367686b2c base: 0x7e0 pointee: -1 base_vo: -1
+main+0x234eb2 (cli_dconf_init @ dconf.c:201) Using expired pointer: 0x5ac37e20c2e8 from 0x7ffd7d86be70
+first time found dangling pointer at: 284 distance: 2506
+Store dangling pointer: 0x5ac37e20c2c0 at: 0x5ac37e20be38
+[INCONSISTENCY mov write reg UAF] ip: main+0x13ae30 (cl_engine_new @ others.c:504) UAF write at: 0x5ac37e20be38
+first time found dangling pointer at: 2892 distance: 0
+[ALLOC] calloc(0x18) -> 0x5ac37e20c300 subject=36 at cli_calloc @ others_common.c:234
+Store dangling pointer: 0x5ac37e20c300 at: 0x5ac37e20be50
+[INCONSISTENCY mov write reg UAF] ip: main+0x13ae4f (cl_engine_new @ others.c:515) UAF write at: 0x5ac37e20be50
+first time found dangling pointer at: 2925 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x136aa4 (crtmgr_init @ crtmgr.c:253) UAF write at: 0x5ac37e20be98
+[INCONSISTENCY mov write imm UAF] ip: main+0x136aab (crtmgr_init @ crtmgr.c:254) UAF write at: 0x5ac37e20bea0
+[ALLOC] calloc(0x60) -> 0x5ac37e20c320 subject=37 at cli_calloc @ others_common.c:234
+Store dangling pointer: 0x5ac37e20bd90 at: 0x5ac37e20c350
+[INCONSISTENCY mov write reg UAF] ip: main+0x13af4f (cl_engine_new @ others.c:557) UAF write at: 0x5ac37e20c350
+first time found dangling pointer at: 3001 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13af5d (cl_engine_new @ others.c:558) UAF write at: 0x5ac37e20c33c
+[INCONSISTENCY mov write imm UAF] ip: main+0x13af61 (cl_engine_new @ others.c:560) UAF write at: 0x5ac37e20c344
+Store dangling pointer: 0x5ac37e20c320 at: 0x5ac37e20c1b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x13af6c (cl_engine_new) UAF write at: 0x5ac37e20c1b8
+first time found dangling pointer at: 3006 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x13af73 (cl_engine_new @ others.c:566) UAF write at: 0x5ac37e20c1c0
+[INCONSISTENCY mov write imm UAF] ip: main+0x13af7e (cl_engine_new @ others.c:567) UAF write at: 0x5ac37e20c1d8
+[INCONSISTENCY mov write reg UAF] ip: main+0x13af90 (cl_engine_new @ others.c:568) UAF write at: 0x5ac37e20c1e0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13af9e (cl_engine_new @ others.c:569) UAF write at: 0x5ac37e20c1c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x13afac (cl_engine_new @ others.c:570) UAF write at: 0x5ac37e20c1d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13afba (cl_engine_new @ others.c:571) UAF write at: 0x5ac37e20c1e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x13afc8 (cl_engine_new @ others.c:572) UAF write at: 0x5ac37e20c1f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13afd6 (cl_engine_new @ others.c:573) UAF write at: 0x5ac37e20c1f8
+[INCONSISTENCY mov write reg UAF] ip: main+0x13afe7 (cl_engine_new @ others.c:576) UAF write at: 0x5ac37e20c200
+[INCONSISTENCY mov write imm UAF] ip: main+0x13afee (cl_engine_new @ others.c:580) UAF write at: 0x5ac37e20c208
+[INCONSISTENCY mov write imm UAF] ip: main+0x13b00d (cl_engine_new @ others.c:588) UAF write at: 0x5ac37e20c220
+[ALLOC] calloc(0x20) -> 0x5ac37e20c390 subject=38 at cli_calloc @ others_common.c:234
+Store dangling pointer: 0x5ac37e20c390 at: 0x5ac37e20c228
+[INCONSISTENCY mov write reg UAF] ip: main+0x129f38 (cli_yara_init @ readdb.c:4219) UAF write at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x1dd947 (yr_arena_create @ yara_arena.c:232) UAF write at: 0x5ac37e20c390
+[ALLOC] malloc(0x18) -> 0x5ac37e20c3c0 subject=39 at cli_malloc @ others_common.c:215
+[ALLOC] malloc(0x40) -> 0x5ac37e20c3e0 subject=40 at cli_malloc @ others_common.c:215
+[ALLOC] malloc(0x400) -> 0x5ac37e20c430 subject=41 at cli_malloc @ others_common.c:215
+Store dangling pointer: 0x5ac37e20c430 at: 0x5ac37e20c3e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1dd984 (yr_arena_create @ yara_arena.c:85) UAF write at: 0x5ac37e20c3e8
+first time found dangling pointer at: 3166 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1dd98d (yr_arena_create @ yara_arena.c:93) UAF write at: 0x5ac37e20c3f0
+[INCONSISTENCY mov write imm UAF] ip: main+0x1dd99e (yr_arena_create @ yara_arena.c:97) UAF write at: 0x5ac37e20c418
+Store dangling pointer: 0x5ac37e20c3e0 at: 0x5ac37e20c3c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1dd9a6 (yr_arena_create @ yara_arena.c:246) UAF write at: 0x5ac37e20c3c8
+first time found dangling pointer at: 3174 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1dd9aa (yr_arena_create @ yara_arena.c:247) UAF write at: 0x5ac37e20c3d0
+first time found dangling pointer at: 3175 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1dd9b4 (yr_arena_create @ yara_arena.c:248) UAF write at: 0x5ac37e20c3c0
+Store dangling pointer: 0x5ac37e20c3c0 at: 0x5ac37e20c390
+[INCONSISTENCY mov write reg UAF] ip: main+0x1dd9b6 (yr_arena_create @ yara_arena.c:250) UAF write at: 0x5ac37e20c390
+first time found dangling pointer at: 3179 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x129f7d (cli_yara_init @ readdb.c:4230) UAF read at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 117
+main+0x129f7d (cli_yara_init @ readdb.c:4230) Using expired pointer: 0x5ac37e20c390 from 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 117
+[ALLOC] malloc(0x138c0) -> 0x5ac37e20c840 subject=42 at cli_malloc @ others_common.c:215
+[INCONSISTENCY mov write reg UAF] ip: main+0x1dd377 (yr_hash_table_create @ yara_hash.c:105) UAF write at: 0x5ac37e20c840
+Store dangling pointer: 0x5ac37e20c840 at: 0x5ac37e20c398
+[INCONSISTENCY mov write reg UAF] ip: main+0x1dd391 (yr_hash_table_create @ yara_hash.c:110) UAF write at: 0x5ac37e20c398
+first time found dangling pointer at: 3240 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x129fa6 (cli_yara_init @ readdb.c:4238) UAF read at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 175
+[ALLOC] malloc(0x138c0) -> 0x5ac37e220110 subject=43 at cli_malloc @ others_common.c:215
+[INCONSISTENCY mov read UAF] ip: main+0x129fcf (cli_yara_init @ readdb.c:4249) UAF read at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 233
+[ALLOC] malloc(0x138c0) -> 0x5ac37e2339e0 subject=44 at cli_malloc @ others_common.c:215
+Store dangling pointer: 0x5ac37e20c358 at: 0x7ffd7d86bdf0
+main+0x11fa2d (LLVMFuzzerTestOneInput @ clamav_dbload_fuzzer.cpp:128) Using expired pointer: 0x5ac37e20bd90 from 0x7ffd7d86bf00
+first time found dangling pointer at: 3420 distance: 4
+[INCONSISTENCY mov read UAF] ip: main+0x1305a0 (cl_load @ readdb.c:5128) UAF read at: 0x5ac37e20bd99
+[INCONSISTENCY mov read UAF] ip: main+0x1305ce (cl_load @ readdb.c:5167) UAF read at: 0x5ac37e20be30
+[INCONSISTENCY mov read UAF] ip: main+0x1305d8 (cl_load @ readdb.c:5167) UAF read at: 0x5ac37e20be38
+first time found dangling pointer at: 2892 distance: 560
+main+0x1305d8 (cl_load @ readdb.c:5167) Using expired pointer: 0x5ac37e20c2c0 from 0x5ac37e20be38
+first time found dangling pointer at: 2892 distance: 560
+[INCONSISTENCY mov read UAF] ip: main+0x1305df (cl_load @ readdb.c:5167) UAF read at: 0x5ac37e20c2dc
+[INCONSISTENCY mov read UAF] ip: main+0x1a3fa1 (phishing_init @ phishcheck.c:830) UAF read at: 0x5ac37e20be30
+[ALLOC] malloc(0x28) -> 0x5ac37e2472b0 subject=47 at cli_malloc @ others_common.c:215
+[INCONSISTENCY mov write reg UAF] ip: main+0x1a3fc5 (phishing_init @ phishcheck.c:831) UAF write at: 0x5ac37e20be30
+[ALLOC] malloc(0x17f) -> 0x5ac37e2472e0 subject=51 at cli_malloc @ others_common.c:215
+[ALLOC] calloc(0x2f0) -> 0x5ac37e247470 subject=52 at cli_calloc @ others_common.c:234
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd0d9 (p_ere @ regcomp.c:282) final_ea: 0x5ac3656fa590 base: 0x5ac3656fa590 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd0f6 (p_ere @ regcomp.c:324) final_ea: 0x5ac3656fa590 base: 0x5ac3656fa590 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd115 (p_ere) final_ea: 0x5ac36570e878 base: 0x5ac36570e790 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd2c1 (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd2c8 (p_ere @ regcomp.c:1335) loaded: 0x1 from cell: 0x7ffd7d86bbf0 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd2cc (p_ere @ regcomp.c:1335) loaded: 0x7ffd7d86bc88 from cell: 0x7ffd7d86bc10 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd583 (p_ere @ regcomp.c:1340) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd0c7 (p_ere) loaded: 0x7ffd7d86bc80 from cell: 0x7ffd7d86bc08 cell_owner: 53 value_owner: 50
+[UNTRUSTEDPTRDEREF] ip: main+0x1d0450 (ordinary @ regcomp.c:924) final_ea: 0x7f4f9eaf2700 base: 0x7f4f9eaf2700 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d0457 (ordinary @ regcomp.c:924) final_ea: 0x7f4f8bbc2900 base: 0x7f4f8bbc28c0 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd361 (p_ere) loaded: 0x656fa59000000080 from cell: 0x7ffd7d86bc34 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd365 (p_ere) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86bc28 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd7b4 (p_ere @ regcomp.c:407) loaded: 0x7ffd7d86bc80 from cell: 0x7ffd7d86bc08 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cefaa (doinsert @ regcomp.c:1365) loaded: 0x0 from cell: 0x7ffd7d86bcb8 cell_owner: 50 value_owner: 45
+[UNINITIALIZED mov read] ip: main+0x1cefbb (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cefd2 (doinsert @ regcomp.c:1365) loaded: 0x0 from cell: 0x7ffd7d86bcc0 cell_owner: 50 value_owner: 45
+[UNINITIALIZED mov read] ip: main+0x1cefe3 (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1ceffa (doinsert @ regcomp.c:1365) loaded: 0x0 from cell: 0x7ffd7d86bcc8 cell_owner: 50 value_owner: 45
+[UNINITIALIZED mov read] ip: main+0x1cf00b (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf022 (doinsert @ regcomp.c:1365) loaded: 0x0 from cell: 0x7ffd7d86bcd0 cell_owner: 50 value_owner: 45
+[UNINITIALIZED mov read] ip: main+0x1cf033 (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf04a (doinsert @ regcomp.c:1365) loaded: 0x0 from cell: 0x7ffd7d86bcd8 cell_owner: 50 value_owner: 45
+[UNINITIALIZED mov read] ip: main+0x1cf05b (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1cf072 (doinsert @ regcomp.c:1365) co: 50 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1cf083 (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1cf09a (doinsert @ regcomp.c:1365) co: 50 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1cf0ab (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1cf0c2 (doinsert @ regcomp.c:1365) co: 50 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1cf0d9 (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1cf0f0 (doinsert @ regcomp.c:1365) co: 50 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1cf107 (doinsert @ regcomp.c:1368) co: 50 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd9c0 (p_ere) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86bc28 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd9d8 (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd9e2 (p_ere @ regcomp.c:1335) loaded: 0x7ffd7d86bc88 from cell: 0x7ffd7d86bc10 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdbed (p_ere @ regcomp.c:1340) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdc16 (p_ere) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86bc28 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdc1e (p_ere @ regcomp.c:1328) loaded: 0x656fa59000000080 from cell: 0x7ffd7d86bc34 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdc32 (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdc3c (p_ere @ regcomp.c:1335) loaded: 0x7ffd7d86bc88 from cell: 0x7ffd7d86bc10 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cde43 (p_ere) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd1e6 (p_ere) loaded: 0x7ffd7d86bc80 from cell: 0x7ffd7d86bc08 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd438 (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd43f (p_ere @ regcomp.c:1335) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd5e2 (p_ere @ regcomp.c:1340) loaded: 0x7ffd7d86bc88 from cell: 0x7ffd7d86bc10 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd5e9 (p_ere @ regcomp.c:1340) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd600 (p_ere @ regcomp.c:335) final_ea: 0x5ac3656fa594 base: 0x5ac3656fa594 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d0480 (ordinary) final_ea: 0x7f4f9eaf26f8 base: 0x7f4f9eaf26f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d0483 (ordinary) final_ea: 0x7f4f8bbc2160 base: 0x7f4f8bbc1fc0 pointee: -1 base_vo: -1
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1d04f8 (ordinary @ regcomp.c:907) byte write at: 0x7ffd7d86baf5 offset: +0x15 cell_owner: 56 writer_pointee: 55
+[ALLOC:internal] malloc(0x100) -> 0x5ac37e247770 subject=58
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf1fa (p_bracket) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86ba98 cell_owner: 57 value_owner: 56
+[ALLOC:internal] malloc(0x100) -> 0x5ac37e247880 subject=60
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf223 (p_bracket) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86ba98 cell_owner: 57 value_owner: 56
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf38d (p_bracket) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86ba98 cell_owner: 57 value_owner: 56
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf404 (p_bracket @ regcomp.c:669) loaded: 0x68005d68 from cell: 0x7ffd7d86baf5 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf4e0 (p_bracket @ regcomp.c:675) loaded: 0x68005d68 from cell: 0x7ffd7d86baf5 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x1d0de1 (p_b_symbol @ regcomp.c:839) loaded: 0x68005d68 from cell: 0x7ffd7d86baf5 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf5b8 (p_bracket) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86ba98 cell_owner: 57 value_owner: 56
+[CORRUPTED_PTR_LOAD] ip: main+0x1cf5ce (p_bracket @ regcomp.c:768) loaded: 0x68005d from cell: 0x7ffd7d86baf6 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfbfa (p_bracket @ regcomp.c:679) loaded: 0x68005d from cell: 0x7ffd7d86baf6 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfc6a (p_bracket @ regcomp.c:691) loaded: 0x0 from cell: 0x5ac37e24797f cell_owner: 61 value_owner: 60
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfc79 (p_bracket) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86ba98 cell_owner: 57 value_owner: 56
+[UNTRUSTEDPTRDEREF] ip: main+0x1cfc7d (p_bracket @ regcomp.c:691) final_ea: 0x7f4f9eaf2700 base: 0x7f4f9eaf2700 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cfc82 (p_bracket @ regcomp.c:691) final_ea: 0x7f4f8bbc2991 base: 0x7f4f8bbc28c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cfc89 (p_bracket @ regcomp.c:883) final_ea: 0x7f4f8bbc2990 base: 0x7f4f8bbc28c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cfcac (p_bracket) final_ea: 0x7f4f9eaf26f8 base: 0x7f4f9eaf26f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cfcaf (p_bracket) final_ea: 0x7f4f8bbc2160 base: 0x7f4f8bbc1fc0 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfcb4 (p_bracket) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86ba98 cell_owner: 57 value_owner: 56
+[CORRUPTED_PTR_LOAD] ip: main+0x1cff16 (p_bracket @ regcomp.c:1179) loaded: 0x0 from cell: 0x5ac37e247880 cell_owner: 61 value_owner: 60
+[CORRUPTED_PTR_LOAD] ip: main+0x1cff1b (p_bracket @ regcomp.c:1179) loaded: 0x0 from cell: 0x5ac37e247884 cell_owner: 61 value_owner: 60
+[CORRUPTED_PTR_LOAD] ip: main+0x1cff59 (p_bracket @ regcomp.c:1179) loaded: 0x0 from cell: 0x5ac37e247888 cell_owner: 61 value_owner: 60
+[CORRUPTED_PTR_LOAD] ip: main+0x1cff5f (p_bracket @ regcomp.c:1179) loaded: 0x0 from cell: 0x5ac37e24788c cell_owner: 61 value_owner: 60
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfa74 (p_bracket @ regcomp.c:780) loaded: 0x5ac37e247790 from cell: 0x7ffd7d86ba90 cell_owner: 64 value_owner: 63
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfc75 (p_bracket) loaded: 0x5ac37e247790 from cell: 0x7ffd7d86ba90 cell_owner: 64 value_owner: 63
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfcb8 (p_bracket) loaded: 0x5ac37e247790 from cell: 0x7ffd7d86ba90 cell_owner: 64 value_owner: 63
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfcc6 (p_bracket) loaded: 0x7ffd7d86bc02 from cell: 0x7ffd7d86baa0 cell_owner: 64 value_owner: 63
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfc21 (p_bracket @ regcomp.c:699) loaded: 0x7e2477907e247401 from cell: 0x7ffd7d86ba8c cell_owner: 64 value_owner: 63
+[CORRUPTED_PTR_LOAD] ip: main+0x1d01c4 (p_bracket @ regcomp.c:1138) loaded: 0x0 from cell: 0x5ac37e247880 cell_owner: 61 value_owner: 60
+[CORRUPTED_PTR_LOAD] ip: main+0x1d01cc (p_bracket @ regcomp.c:1138) loaded: 0x0 from cell: 0x5ac37e247880 cell_owner: 61 value_owner: 60
+[CORRUPTED_PTR_LOAD] ip: main+0x1d0175 (p_bracket @ regcomp.c:1140) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86ba98 cell_owner: 67 value_owner: 66
+[CORRUPTED_PTR_LOAD] ip: main+0x1d0179 (p_bracket) loaded: 0x5ac37e2477b0 from cell: 0x7ffd7d86ba90 cell_owner: 67 value_owner: 66
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd3a3 (p_ere @ regcomp.c:286) final_ea: 0x5ac3656fa598 base: 0x5ac3656fa598 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd6e1 (p_ere @ regcomp.c:342) final_ea: 0x5ac3656fa5a6 base: 0x5ac3656fa5a6 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd610 (p_ere) loaded: 0x656fa59000000080 from cell: 0x7ffd7d86bc34 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd614 (p_ere) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86bc28 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd61c (p_ere @ regcomp.c:332) loaded: 0x7ffd7d86bc88 from cell: 0x7ffd7d86bc10 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd62e (p_ere) loaded: 0x7ffd7d86bc80 from cell: 0x7ffd7d86bc08 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd63d (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd644 (p_ere @ regcomp.c:1335) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd6bc (p_ere @ regcomp.c:1340) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd85d (p_ere @ regcomp.c:407) loaded: 0x7ffd7d86bc80 from cell: 0x7ffd7d86bc08 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cda51 (p_ere) loaded: 0x656fa59000000080 from cell: 0x7ffd7d86bc34 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cda55 (p_ere) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86bc28 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cda6d (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cda80 (p_ere) loaded: 0x7ffd7d86bc88 from cell: 0x7ffd7d86bc10 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdccf (p_ere @ regcomp.c:1340) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdcee (p_ere) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdd0c (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdd8a (p_ere @ regcomp.c:1340) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdd9a (p_ere) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cddb5 (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1ce0c3 (p_ere) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[UNTRUSTEDPTRDEREF] ip: main+0x1cf404 (p_bracket @ regcomp.c:669) final_ea: 0x5ac3656fa5ab base: 0x5ac3656fa5ab pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cf4e0 (p_bracket @ regcomp.c:675) final_ea: 0x5ac3656fa5ab base: 0x5ac3656fa5ab pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d0de1 (p_b_symbol @ regcomp.c:839) final_ea: 0x5ac3656fa5ab base: 0x5ac3656fa5ab pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cf5ce (p_bracket @ regcomp.c:768) final_ea: 0x5ac3656fa5ac base: 0x5ac3656fa5ac pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cf5e8 (p_bracket @ regcomp.c:768) final_ea: 0x5ac3656fa5ad base: 0x5ac3656fa5ad pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cf5f6 (p_bracket @ regcomp.c:771) final_ea: 0x5ac3656fa5ad base: 0x5ac3656fa5ad pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cfbfa (p_bracket @ regcomp.c:679) final_ea: 0x5ac3656fa5ae base: 0x5ac3656fa5ae pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd74f (p_ere) loaded: 0x656fa59000000080 from cell: 0x7ffd7d86bc34 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd753 (p_ere) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86bc28 cell_owner: 53 value_owner: 50
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd757 (p_ere @ regcomp.c:402) final_ea: 0x7f4f9eaf2700 base: 0x7f4f9eaf2700 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd75a (p_ere @ regcomp.c:402) final_ea: 0x5ac3656fa5b0 base: 0x5ac3656fa5b0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd75d (p_ere @ regcomp.c:402) final_ea: 0x7f4f8bbc2923 base: 0x7f4f8bbc28c0 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd880 (p_ere) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86bc28 cell_owner: 53 value_owner: 50
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd890 (p_ere @ regcomp.c:631) final_ea: 0x7f4f9eaf2700 base: 0x7f4f9eaf2700 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd893 (p_ere @ regcomp.c:631) final_ea: 0x5ac3656fa5b0 base: 0x5ac3656fa5b0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd897 (p_ere @ regcomp.c:631) final_ea: 0x7f4f8bbc2923 base: 0x7f4f8bbc28c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd8b0 (p_ere @ regcomp.c:632) final_ea: 0x5ac3656fa5b0 base: 0x5ac3656fa5b0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd8eb (p_ere @ regcomp.c:430) final_ea: 0x5ac3656fa5b1 base: 0x5ac3656fa5b1 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd8fc (p_ere @ regcomp.c:431) final_ea: 0x7f4f9eaf2700 base: 0x7f4f9eaf2700 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd8ff (p_ere @ regcomp.c:431) final_ea: 0x5ac3656fa5b2 base: 0x5ac3656fa5b1 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd909 (p_ere @ regcomp.c:431) final_ea: 0x7f4f8bbc2927 base: 0x7f4f8bbc28c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd936 (p_ere @ regcomp.c:632) final_ea: 0x5ac3656fa5b2 base: 0x5ac3656fa5b3 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd946 (p_ere @ regcomp.c:631) final_ea: 0x7f4f9eaf2700 base: 0x7f4f9eaf2700 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd949 (p_ere @ regcomp.c:631) final_ea: 0x5ac3656fa5b3 base: 0x5ac3656fa5b3 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd94d (p_ere @ regcomp.c:631) final_ea: 0x7f4f8bbc29bb base: 0x7f4f8bbc28c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d06bf (repeat) final_ea: 0x5ac36570ea74 base: 0x5ac36570ea4c pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdab6 (p_ere) loaded: 0x7ffd7d86bc70 from cell: 0x7ffd7d86bc28 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cdac4 (p_ere @ regcomp.c:439) loaded: 0x656fa59000000080 from cell: 0x7ffd7d86bc34 cell_owner: 53 value_owner: 50
+[UNTRUSTEDPTRDEREF] ip: main+0x1cdaca (p_ere @ regcomp.c:439) final_ea: 0x5ac3656fa5b3 base: 0x5ac3656fa5b3 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cd2ad (p_ere @ regcomp.c:386) final_ea: 0x5ac3656fa5b6 base: 0x5ac3656fa5b6 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x1cf1b7 (p_bracket @ regcomp.c:658) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[INCONSISTENCY mov read] ip: main+0x1cf5b8 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[INCONSISTENCY mov read] ip: main+0x1cfa38 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[INCONSISTENCY mov read] ip: main+0x1cfa63 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[CORRUPTED_PTR_LOAD] ip: main+0x1cfa63 (p_bracket) loaded: 0x5ac37e247830 from cell: 0x7ffd7d86bae0 cell_owner: 107 value_owner: 102
+[INCONSISTENCY mov read] ip: main+0x1cfc75 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[INCONSISTENCY mov read] ip: main+0x1cfc79 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[INCONSISTENCY mov read] ip: main+0x1cfc21 (p_bracket @ regcomp.c:699) base: 0x7ffd7d86bb20 pointee: 102 read from 108
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1d016d (p_bracket @ regcomp.c:1134) byte write at: 0x7ffd7d86badc offset: +0x1c cell_owner: 108 writer_pointee: 102
+[INCONSISTENCY mov read] ip: main+0x1d0175 (p_bracket @ regcomp.c:1140) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[INCONSISTENCY mov read] ip: main+0x1d0179 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[INCONSISTENCY mov read] ip: main+0x1d0180 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[CORRUPTED_PTR_LOAD] ip: main+0x1d0180 (p_bracket) loaded: 0x5ac37e247850 from cell: 0x7ffd7d86baf0 cell_owner: 107 value_owner: 102
+[INCONSISTENCY mov read] ip: main+0x1d02a9 (p_bracket @ regcomp.c:1109) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[CORRUPTED_PTR_LOAD] ip: main+0x1d02a9 (p_bracket @ regcomp.c:1109) loaded: 0x5ac37e247850 from cell: 0x7ffd7d86baf0 cell_owner: 107 value_owner: 102
+[INCONSISTENCY mov read] ip: main+0x1d02d2 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 108
+[CORRUPTED_PTR_LOAD] ip: main+0x1d02d2 (p_bracket) loaded: 0x5ac37e2472e0 from cell: 0x7ffd7d86bad0 cell_owner: 108 value_owner: 102
+[INCONSISTENCY mov read] ip: main+0x1d02e5 (p_bracket) base: 0x7ffd7d86bb20 pointee: 102 read from 108
+[CORRUPTED_PTR_LOAD] ip: main+0x1d02e5 (p_bracket) loaded: 0x5ac37e2472e0 from cell: 0x7ffd7d86bad0 cell_owner: 108 value_owner: 102
+[INCONSISTENCY mov read] ip: main+0x1d09b8 (repeat) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[INCONSISTENCY mov read] ip: main+0x1d0a1e (repeat) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[CORRUPTED_PTR_LOAD] ip: main+0x1d0a1e (repeat) loaded: 0x36 from cell: 0x7ffd7d86bae8 cell_owner: 107 value_owner: 102
+[INCONSISTENCY mov read] ip: main+0x1d0a22 (repeat) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[CORRUPTED_PTR_LOAD] ip: main+0x1d0a22 (repeat) loaded: 0x1 from cell: 0x7ffd7d86bae0 cell_owner: 107 value_owner: 102
+[INCONSISTENCY mov read] ip: main+0x1d0a58 (repeat) base: 0x7ffd7d86bb20 pointee: 102 read from 107
+[CORRUPTED_PTR_LOAD] ip: main+0x1d09b8 (repeat) loaded: 0x3b from cell: 0x7ffd7d86bae0 cell_owner: 107 value_owner: 102
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd141 (p_ere) loaded: 0x7ffd7d86bc90 from cell: 0x7ffd7d86bc20 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd14c (p_ere @ regcomp.c:1335) loaded: 0x7ffd7d86bc88 from cell: 0x7ffd7d86bc10 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd534 (p_ere @ regcomp.c:1340) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cd386 (p_ere) loaded: 0x7ffd7d86bc98 from cell: 0x7ffd7d86bc18 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1ce131 (p_ere) loaded: 0x7ffd7d86bc88 from cell: 0x7ffd7d86bc10 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1ce135 (p_ere) loaded: 0x0 from cell: 0x7ffd7d86bbf8 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1ce139 (p_ere @ regcomp.c:302) loaded: 0x0 from cell: 0x7ffd7d86bbe0 cell_owner: 53 value_owner: 50
+[CORRUPTED_PTR_LOAD] ip: main+0x1cccc0 (cli_regcomp_real @ regcomp.c:1247) loaded: 0x0 from cell: 0x5ac37e247900 cell_owner: 61 value_owner: 60
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1cccca (cli_regcomp_real @ regcomp.c:1246) add rax, rdi id before: 61 after: -1 [chunk metadata] value: 0x5ac37e247980
+[CORRUPTED_PTR_LOAD] ip: main+0x1ccd20 (cli_regcomp_real @ regcomp.c:1265) loaded: 0x2020202020202020 from cell: 0x5ac37e2478b0 cell_owner: 61 value_owner: 60
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1ccd2d (cli_regcomp_real @ regcomp.c:1264) add rsi, rcx id before: 61 after: -1 [chunk metadata] value: 0x5ac37e247980
+[CORRUPTED_PTR_LOAD] ip: main+0x1ccd66 (cli_regcomp_real @ regcomp.c:1447) loaded: 0x5ac37e2472b0 from cell: 0x7ffd7d86bd50 cell_owner: 50 value_owner: 45
+[UNINITIALIZED mov read] ip: main+0x1ccda4 (cli_regcomp_real @ regcomp.c:1454) co: 122 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1ccddd (cli_regcomp_real @ regcomp.c:1470) co: 122 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1ccda4 (cli_regcomp_real @ regcomp.c:1454) loaded: 0x68000003 from cell: 0x5ac37e247b28 cell_owner: 122 value_owner: 105
+[CORRUPTED_PTR_LOAD] ip: main+0x1ccddd (cli_regcomp_real @ regcomp.c:1470) loaded: 0x88000001 from cell: 0x5ac37e247b50 cell_owner: 122 value_owner: 105
+[ALLOC] malloc(0x2) -> 0x5ac37e247470 subject=123 at cli_malloc @ others_common.c:215
+[CORRUPTED_PTR_LOAD] ip: main+0x1ccfc2 (cli_regcomp_real @ regcomp.c:1505) loaded: 0x1000002e from cell: 0x5ac37e247b30 cell_owner: 122 value_owner: 105
+[UNINITIALIZED mov read] ip: main+0x1ccf23 (cli_regcomp_real @ regcomp.c:1530) co: 122 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1ccf23 (cli_regcomp_real @ regcomp.c:1530) loaded: 0x68000003 from cell: 0x5ac37e247b28 cell_owner: 122 value_owner: 105
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1ccf17 (cli_regcomp_real @ regcomp.c:1541) add rdx, 0xffffffffffffffff id before: 122 after: 0 [freed] value: 0x5ac37e247cd8
+[INCONSISTENCY mov read UAF] ip: main+0x130601 (cl_load @ readdb.c:5171) UAF read at: 0x5ac37e20c124
+[INCONSISTENCY mov read UAF] ip: main+0x157cf3 (cli_bytecode_init @ bytecode.c:2764) UAF read at: 0x5ac37e20bf30
+Store dangling pointer: 0x5ac37e20c120 at: 0x7ffd7d86bce0
+[INCONSISTENCY mov write imm UAF] ip: main+0x157d18 (cli_bytecode_init @ bytecode.c:2765) UAF write at: 0x5ac37e20c124
+[INCONSISTENCY mov read UAF] ip: main+0x13061d (cl_load @ readdb.c:5178) UAF read at: 0x5ac37e20be78
+[INCONSISTENCY mov read UAF] ip: main+0x13572a (cli_cache_init @ cache.c:538) UAF read at: 0x5ac37e20bdc0
+[ALLOC] malloc(0x4800) -> 0x5ac37e247ce0 subject=126 at cli_malloc @ others_common.c:215
+[ALLOC] calloc(0x4000) -> 0x5ac37e24c4f0 subject=127 at cli_calloc @ others_common.c:234
+[INCONSISTENCY mov write reg UAF] ip: main+0x1357b6 (cli_cache_init @ cache.c:81) UAF write at: 0x5ac37e247ce0
+[INCONSISTENCY mov write imm UAF] ip: main+0x1357ba (cli_cache_init @ cache.c:82) UAF write at: 0x5ac37e247ce8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x135801 (cli_cache_init) jmp 0xffffffffffffffd7 id before: 127 after: -1 [chunk metadata] value: 0x5ac37e2504f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x135760 (cli_cache_init @ cache.c:92) UAF write at: 0x5ac37e247cf0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13576b (cli_cache_init @ cache.c:93) UAF write at: 0x5ac37e247cf8
+[ALLOC] calloc(0x4000) -> 0x5ac37e250500 subject=128 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e254510 subject=129 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e258520 subject=130 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e25c530 subject=131 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e260540 subject=132 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e264550 subject=133 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e268560 subject=134 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e26c570 subject=135 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e270580 subject=136 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e274590 subject=137 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2785a0 subject=138 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e27c5b0 subject=139 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2805c0 subject=140 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2845d0 subject=141 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2885e0 subject=142 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e28c5f0 subject=143 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e290600 subject=144 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e294610 subject=145 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e298620 subject=146 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e29c630 subject=147 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2a0640 subject=148 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2a4650 subject=149 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2a8660 subject=150 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2ac670 subject=151 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2b0680 subject=152 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2b4690 subject=153 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2b86a0 subject=154 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2bc6b0 subject=155 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2c06c0 subject=156 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2c46d0 subject=157 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2c86e0 subject=158 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2cc6f0 subject=159 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2d0700 subject=160 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2d4710 subject=161 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2d8720 subject=162 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2dc730 subject=163 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2e0740 subject=164 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2e4750 subject=165 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2e8760 subject=166 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2ec770 subject=167 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2f0780 subject=168 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2f4790 subject=169 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2f87a0 subject=170 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e2fc7b0 subject=171 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3007c0 subject=172 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3047d0 subject=173 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3087e0 subject=174 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e30c7f0 subject=175 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e310800 subject=176 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e314810 subject=177 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e318820 subject=178 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e31c830 subject=179 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e320840 subject=180 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e324850 subject=181 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e328860 subject=182 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e32c870 subject=183 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e330880 subject=184 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e334890 subject=185 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3388a0 subject=186 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e33c8b0 subject=187 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3408c0 subject=188 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3448d0 subject=189 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3488e0 subject=190 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e34c8f0 subject=191 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e350900 subject=192 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e354910 subject=193 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e358920 subject=194 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e35c930 subject=195 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e360940 subject=196 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e364950 subject=197 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e368960 subject=198 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e36c970 subject=199 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e370980 subject=200 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e374990 subject=201 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3789a0 subject=202 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e37c9b0 subject=203 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3809c0 subject=204 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3849d0 subject=205 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3889e0 subject=206 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e38c9f0 subject=207 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e390a00 subject=208 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e394a10 subject=209 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e398a20 subject=210 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e39ca30 subject=211 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3a0a40 subject=212 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3a4a50 subject=213 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3a8a60 subject=214 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3aca70 subject=215 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3b0a80 subject=216 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3b4a90 subject=217 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3b8aa0 subject=218 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3bcab0 subject=219 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3c0ac0 subject=220 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3c4ad0 subject=221 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3c8ae0 subject=222 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3ccaf0 subject=223 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3d0b00 subject=224 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3d4b10 subject=225 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3d8b20 subject=226 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3dcb30 subject=227 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3e0b40 subject=228 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3e4b50 subject=229 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3e8b60 subject=230 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3ecb70 subject=231 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3f0b80 subject=232 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3f4b90 subject=233 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3f8ba0 subject=234 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e3fcbb0 subject=235 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e400bc0 subject=236 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e404bd0 subject=237 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e408be0 subject=238 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e40cbf0 subject=239 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e410c00 subject=240 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e414c10 subject=241 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e418c20 subject=242 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e41cc30 subject=243 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e420c40 subject=244 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e424c50 subject=245 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e428c60 subject=246 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e42cc70 subject=247 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e430c80 subject=248 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e434c90 subject=249 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e438ca0 subject=250 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e43ccb0 subject=251 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e440cc0 subject=252 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e444cd0 subject=253 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e448ce0 subject=254 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e44ccf0 subject=255 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e450d00 subject=256 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e454d10 subject=257 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e458d20 subject=258 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e45cd30 subject=259 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e460d40 subject=260 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e464d50 subject=261 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e468d60 subject=262 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e46cd70 subject=263 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e470d80 subject=264 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e474d90 subject=265 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e478da0 subject=266 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e47cdb0 subject=267 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e480dc0 subject=268 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e484dd0 subject=269 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e488de0 subject=270 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e48cdf0 subject=271 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e490e00 subject=272 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e494e10 subject=273 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e498e20 subject=274 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e49ce30 subject=275 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4a0e40 subject=276 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4a4e50 subject=277 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4a8e60 subject=278 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4ace70 subject=279 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4b0e80 subject=280 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4b4e90 subject=281 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4b8ea0 subject=282 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4bceb0 subject=283 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4c0ec0 subject=284 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4c4ed0 subject=285 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4c8ee0 subject=286 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4ccef0 subject=287 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4d0f00 subject=288 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4d4f10 subject=289 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4d8f20 subject=290 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4dcf30 subject=291 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4e0f40 subject=292 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4e4f50 subject=293 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4e8f60 subject=294 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4ecf70 subject=295 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4f0f80 subject=296 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4f4f90 subject=297 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4f8fa0 subject=298 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e4fcfb0 subject=299 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e500fc0 subject=300 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e504fd0 subject=301 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e508fe0 subject=302 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e50cff0 subject=303 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e511000 subject=304 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e515010 subject=305 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e519020 subject=306 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e51d030 subject=307 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e521040 subject=308 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e525050 subject=309 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e529060 subject=310 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e52d070 subject=311 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e531080 subject=312 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e535090 subject=313 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5390a0 subject=314 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e53d0b0 subject=315 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5410c0 subject=316 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5450d0 subject=317 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5490e0 subject=318 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e54d0f0 subject=319 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e551100 subject=320 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e555110 subject=321 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e559120 subject=322 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e55d130 subject=323 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e561140 subject=324 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e565150 subject=325 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e569160 subject=326 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e56d170 subject=327 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e571180 subject=328 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e575190 subject=329 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5791a0 subject=330 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e57d1b0 subject=331 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5811c0 subject=332 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5851d0 subject=333 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5891e0 subject=334 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e58d1f0 subject=335 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e591200 subject=336 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e595210 subject=337 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e599220 subject=338 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e59d230 subject=339 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5a1240 subject=340 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5a5250 subject=341 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5a9260 subject=342 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5ad270 subject=343 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5b1280 subject=344 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5b5290 subject=345 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5b92a0 subject=346 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5bd2b0 subject=347 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5c12c0 subject=348 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5c52d0 subject=349 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5c92e0 subject=350 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5cd2f0 subject=351 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5d1300 subject=352 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5d5310 subject=353 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5d9320 subject=354 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5dd330 subject=355 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5e1340 subject=356 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5e5350 subject=357 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5e9360 subject=358 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5ed370 subject=359 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5f1380 subject=360 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5f5390 subject=361 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5f93a0 subject=362 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e5fd3b0 subject=363 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e6013c0 subject=364 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e6053d0 subject=365 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e6093e0 subject=366 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e60d3f0 subject=367 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e611400 subject=368 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e615410 subject=369 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e619420 subject=370 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e61d430 subject=371 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e621440 subject=372 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e625450 subject=373 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e629460 subject=374 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e62d470 subject=375 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e631480 subject=376 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e635490 subject=377 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e6394a0 subject=378 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e63d4b0 subject=379 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e6414c0 subject=380 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e6454d0 subject=381 at cli_calloc @ others_common.c:234
+[ALLOC] calloc(0x4000) -> 0x5ac37e6494e0 subject=382 at cli_calloc @ others_common.c:234
+Store dangling pointer: 0x5ac37e247ce0 at: 0x5ac37e20be78
+[INCONSISTENCY mov write reg UAF] ip: main+0x135894 (cli_cache_init @ cache.c:567) UAF write at: 0x5ac37e20be78
+first time found dangling pointer at: 28153 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x131179 (count_signatures @ readdb.c:4856) UAF read at: 0x5ac37e20c180
+[ALLOC:internal] malloc(0x1d8) -> 0x5ac37e20b8b0 subject=383 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x5ac37e64d4f0 subject=384 at _IO_file_doallocate
+[UNTRUSTEDPTRDEREF] ip: main+0x135621 (count_line_based_signatures @ readdb.c:4806) final_ea: 0x7f4f9eaf2700 base: 0x7f4f9eaf2700 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x135627 (count_line_based_signatures @ readdb.c:4806) final_ea: 0x7f4f8bbc2947 base: 0x7f4f8bbc28c0 pointee: -1 base_vo: -1
+[FREE:internal] free(0x5ac37e64d4f0) subject=384 at _IO_setb
+[FREE:internal] free(0x5ac37e20b8b0) subject=383 at _IO_fclose
+[ALLOC:internal] malloc(0x1d8) -> 0x5ac37e20b8b0 subject=386 at _IO_fopen
+[INCONSISTENCY mov read UAF] ip: main+0x12c0cb (cli_loadcrt @ readdb.c:3182) UAF read at: 0x5ac37e20be38
+first time found dangling pointer at: 2892 distance: 26820
+[INCONSISTENCY mov read UAF] ip: main+0x12c0d2 (cli_loadcrt @ readdb.c:3182) UAF read at: 0x5ac37e20c2c2
+[INCONSISTENCY mov read UAF] ip: main+0x12c0e7 (cli_loadcrt @ readdb.c:3187) UAF read at: 0x5ac37e20bdc0
+[ALLOC:internal] malloc(0x1000) -> 0x5ac37e64d4f0 subject=388 at _IO_file_doallocate
+[INTRA_OBJECT_OVERFLOW] ip: main+0x12c146 (cli_loadcrt) at: 0x7ffd7d869cd0 offset: +0x0 subject: 125 clobbers ptr 0x5ac37e20b8b0 (owner: 386)
+Store dangling pointer: 0x5ac37e20be98 at: 0x7ffd7d869cd0
+[INCONSISTENCY mov read] ip: main+0x12c1c0 (cli_loadcrt @ readdb.c:3198) base: 0x7ffd7d869d20 pointee: 125 read from 387
+[UNINITIALIZED mov read] ip: main+0x1273d5 (cli_chomp @ str.c:295) co: 387 vo: -1
+[INCONSISTENCY mov read] ip: main+0x12c1d1 (cli_loadcrt @ readdb.c:3202) base: 0x7ffd7d869d20 pointee: 125 read from 387
+[INCONSISTENCY mov read UAF] ip: main+0x12c5a5 (cli_loadcrt @ readdb.c:3349) UAF read at: 0x5ac37e20bea0
+[UNTRUSTEDPTRDEREF] ip: main+0x13ac63 (cl_strerror @ others.c:344) final_ea: 0x5ac3656cc3b8 base: 0x5ac3656cc3a8 pointee: -1 base_vo: -1
+[FREE:internal] free(0x5ac37e64d4f0) subject=388 at _IO_setb
+[FREE:internal] free(0x5ac37e20b8b0) subject=386 at _IO_fclose
+[INCONSISTENCY mov read UAF] ip: main+0x12abd6 (cli_load @ readdb.c:4740) UAF read at: 0x5ac37e20bef0
+[INCONSISTENCY mov read UAF] ip: main+0x130fa2 (cl_load @ readdb.c:5201) UAF read at: 0x5ac37e20bef0
+[ALLOC:internal] malloc(0x1000) -> 0x5ac37e64d4f0 subject=392 at _IO_file_doallocate
+[INCONSISTENCY mov read UAF] ip: main+0x1320c6 (cl_engine_free @ readdb.c:5457) UAF read at: 0x5ac37e20bd90
+[INCONSISTENCY mov write reg UAF] ip: main+0x1320d1 (cl_engine_free @ readdb.c:5458) UAF write at: 0x5ac37e20bd90
+[INCONSISTENCY mov read UAF] ip: main+0x1320e8 (cl_engine_free @ readdb.c:5467) UAF read at: 0x5ac37e20c1d8
+[INCONSISTENCY mov read UAF] ip: main+0x132102 (cl_engine_free @ readdb.c:5471) UAF read at: 0x5ac37e20c1b8
+first time found dangling pointer at: 3006 distance: 27145
+main+0x132102 (cl_engine_free @ readdb.c:5471) Using expired pointer: 0x5ac37e20c320 from 0x5ac37e20c1b8
+first time found dangling pointer at: 3006 distance: 27145
+[INCONSISTENCY mov read UAF] ip: main+0x132124 (cl_engine_free @ readdb.c:5480) UAF read at: 0x5ac37e20c1b8
+first time found dangling pointer at: 3006 distance: 27154
+[FREE] free(0x5ac37e20c320) subject=37 at cl_engine_free @ readdb.c:5481
+[INCONSISTENCY mov read UAF] ip: main+0x132136 (cl_engine_free @ readdb.c:5486) UAF read at: 0x5ac37e20bdf0
+first time found dangling pointer at: 238 distance: 29927
+main+0x132136 (cl_engine_free @ readdb.c:5486) Using expired pointer: 0x5ac37e20c240 from 0x5ac37e20bdf0
+first time found dangling pointer at: 238 distance: 29927
+[INCONSISTENCY mov read UAF] ip: main+0x13215e (cl_engine_free @ readdb.c:5488) UAF read at: 0x5ac37e20c240
+[INCONSISTENCY mov read UAF] ip: main+0x1321be (cl_engine_free @ readdb.c:5507) UAF read at: 0x5ac37e20be38
+first time found dangling pointer at: 2892 distance: 27372
+[INCONSISTENCY mov read UAF] ip: main+0x1321cb (cl_engine_free @ readdb.c:5508) UAF read at: 0x5ac37e20c2e0
+[INCONSISTENCY mov read UAF] ip: main+0x1321d1 (cl_engine_free @ readdb.c:5509) UAF read at: 0x5ac37e20bf20
+[INCONSISTENCY mov read UAF] ip: main+0x1321eb (cl_engine_free @ readdb.c:5516) UAF read at: 0x5ac37e20c2dc
+[INCONSISTENCY mov read UAF] ip: main+0x1321fc (cl_engine_free @ readdb.c:5524) UAF read at: 0x5ac37e20be58
+[INCONSISTENCY mov read UAF] ip: main+0x132260 (cl_engine_free @ readdb.c:5563) UAF read at: 0x5ac37e20c240
+[INCONSISTENCY mov read UAF] ip: main+0x13249a (cl_engine_free @ readdb.c:5563) UAF read at: 0x5ac37e20bdf0
+first time found dangling pointer at: 238 distance: 30055
+[INCONSISTENCY mov read UAF] ip: main+0x1324a4 (cl_engine_free @ readdb.c:5598) UAF read at: 0x5ac37e20bdf0
+first time found dangling pointer at: 238 distance: 30167
+[FREE] free(0x5ac37e20c240) subject=33 at cl_engine_free @ readdb.c:5598
+[INCONSISTENCY mov read UAF] ip: main+0x1324ae (cl_engine_free @ readdb.c:5599) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x1324d4 (cl_engine_free @ readdb.c:5602) UAF read at: 0x5ac37e20bdf8
+[INCONSISTENCY mov read UAF] ip: main+0x1324ee (cl_engine_free @ readdb.c:5606) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x13250f (cl_engine_free @ readdb.c:5608) UAF read at: 0x5ac37e20be00
+[INCONSISTENCY mov read UAF] ip: main+0x132529 (cl_engine_free @ readdb.c:5612) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x13254a (cl_engine_free @ readdb.c:5614) UAF read at: 0x5ac37e20be08
+[INCONSISTENCY mov read UAF] ip: main+0x132564 (cl_engine_free @ readdb.c:5618) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132585 (cl_engine_free @ readdb.c:5620) UAF read at: 0x5ac37e20be10
+[INCONSISTENCY mov read UAF] ip: main+0x1325a2 (cl_engine_free @ readdb.c:5624) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x136b57 (crtmgr_free @ crtmgr.c:280) UAF read at: 0x5ac37e20bea0
+[INCONSISTENCY mov read UAF] ip: main+0x1325d0 (cl_engine_free @ readdb.c:5627) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132619 (cl_engine_free @ readdb.c:5629) UAF read at: 0x5ac37e20be18
+[INCONSISTENCY mov read UAF] ip: main+0x132643 (cl_engine_free @ readdb.c:5638) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132678 (cl_engine_free @ readdb.c:5640) UAF read at: 0x5ac37e20be80
+[INCONSISTENCY mov read UAF] ip: main+0x1326b2 (cl_engine_free @ readdb.c:5649) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x1326d3 (cl_engine_free @ readdb.c:5651) UAF read at: 0x5ac37e20be38
+first time found dangling pointer at: 2892 distance: 27571
+[INCONSISTENCY mov read UAF] ip: main+0x1326e4 (cl_engine_free @ readdb.c:5652) UAF read at: 0x5ac37e20c2e0
+[INCONSISTENCY mov read UAF] ip: main+0x1326f6 (cl_engine_free @ readdb.c:5653) UAF read at: 0x5ac37e20bf20
+[INCONSISTENCY mov read UAF] ip: main+0x13276f (cl_engine_free @ readdb.c:5661) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x13279a (cl_engine_free @ readdb.c:5663) UAF read at: 0x5ac37e20bf20
+[INCONSISTENCY mov read UAF] ip: main+0x1327a7 (cl_engine_free @ readdb.c:5666) UAF read at: 0x5ac37e20c128
+[INCONSISTENCY mov read UAF] ip: main+0x1327b4 (cl_engine_free @ readdb.c:5666) UAF read at: 0x5ac37e20c130
+[INCONSISTENCY mov read UAF] ip: main+0x1327c1 (cl_engine_free @ readdb.c:5666) UAF read at: 0x5ac37e20c138
+[INCONSISTENCY mov read UAF] ip: main+0x1327ce (cl_engine_free @ readdb.c:5666) UAF read at: 0x5ac37e20c140
+[INCONSISTENCY mov read UAF] ip: main+0x1327db (cl_engine_free @ readdb.c:5666) UAF read at: 0x5ac37e20c148
+[INCONSISTENCY mov read UAF] ip: main+0x1327e8 (cl_engine_free @ readdb.c:5666) UAF read at: 0x5ac37e20c150
+[INCONSISTENCY mov read UAF] ip: main+0x1327f5 (cl_engine_free @ readdb.c:5666) UAF read at: 0x5ac37e20c158
+[INCONSISTENCY mov read UAF] ip: main+0x132802 (cl_engine_free @ readdb.c:5668) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132823 (cl_engine_free @ readdb.c:5671) UAF read at: 0x5ac37e20be38
+first time found dangling pointer at: 2892 distance: 27623
+[INCONSISTENCY mov read UAF] ip: main+0x13282b (cl_engine_free @ readdb.c:5671) UAF read at: 0x5ac37e20c2dc
+[INCONSISTENCY mov read UAF] ip: main+0x1a40ea (phishing_done @ phishcheck.c:861) UAF read at: 0x5ac37e20be30
+[FREE] free(0x5ac37e247990) subject=122 at cli_regfree @ regfree.c:67
+[FREE] free(0x5ac37e247770) subject=59 at cli_regfree @ regfree.c:69
+[FREE] free(0x5ac37e247880) subject=61 at cli_regfree @ regfree.c:71
+[FREE] free(0x5ac37e247470) subject=123 at cli_regfree @ regfree.c:73
+[FREE] free(0x5ac37e2472e0) subject=51 at phishing_done @ phishcheck.c:823
+[INCONSISTENCY mov read UAF] ip: main+0x1a319e (allow_list_done @ phish_allow_list.c:75) UAF read at: 0x5ac37e20be20
+[INCONSISTENCY mov read UAF] ip: main+0x1a304e (domain_list_done @ phish_domaincheck_db.c:74) UAF read at: 0x5ac37e20be28
+[FREE] free(0x5ac37e2472b0) subject=47 at phishing_done @ phishcheck.c:870
+[INCONSISTENCY mov read UAF] ip: main+0x132839 (cl_engine_free @ readdb.c:5673) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x13285a (cl_engine_free @ readdb.c:5676) UAF read at: 0x5ac37e20be38
+first time found dangling pointer at: 2892 distance: 27808
+[FREE] free(0x5ac37e20c2c0) subject=35 at cl_engine_free @ readdb.c:5676
+[INCONSISTENCY mov read UAF] ip: main+0x132867 (cl_engine_free @ readdb.c:5677) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132888 (cl_engine_free @ readdb.c:5680) UAF read at: 0x5ac37e20be50
+first time found dangling pointer at: 2925 distance: 27781
+main+0x132888 (cl_engine_free @ readdb.c:5680) Using expired pointer: 0x5ac37e20c300 from 0x5ac37e20be50
+first time found dangling pointer at: 2925 distance: 27781
+[INCONSISTENCY mov read UAF] ip: main+0x132899 (cl_engine_free @ readdb.c:5682) UAF read at: 0x5ac37e20c300
+[INCONSISTENCY mov read UAF] ip: main+0x1328e1 (cl_engine_free @ readdb.c:5682) UAF read at: 0x5ac37e20c308
+[INCONSISTENCY mov read UAF] ip: main+0x132921 (cl_engine_free @ readdb.c:5682) UAF read at: 0x5ac37e20c310
+[FREE] free(0x5ac37e20c300) subject=36 at cl_engine_free @ readdb.c:5684
+[INCONSISTENCY mov read UAF] ip: main+0x132966 (cl_engine_free @ readdb.c:5686) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132987 (cl_engine_free @ readdb.c:5688) UAF read at: 0x5ac37e20be68
+[INCONSISTENCY mov read UAF] ip: main+0x132999 (cl_engine_free @ readdb.c:5691) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x1329ba (cl_engine_free @ readdb.c:5693) UAF read at: 0x5ac37e20be70
+[INCONSISTENCY mov read UAF] ip: main+0x132b8b (cl_engine_free @ readdb.c:5716) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132bb6 (cl_engine_free @ readdb.c:5718) UAF read at: 0x5ac37e20bdb0
+[INCONSISTENCY mov read UAF] ip: main+0x132bc5 (cl_engine_free @ readdb.c:5721) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132be6 (cl_engine_free @ readdb.c:5723) UAF read at: 0x5ac37e20be78
+first time found dangling pointer at: 28153 distance: 2589
+main+0x132be6 (cl_engine_free @ readdb.c:5723) Using expired pointer: 0x5ac37e247ce0 from 0x5ac37e20be78
+first time found dangling pointer at: 28153 distance: 2589
+[INCONSISTENCY mov read UAF] ip: main+0x13590f (cli_cache_destroy @ cache.c:577) UAF read at: 0x5ac37e20be78
+first time found dangling pointer at: 28153 distance: 2601
+[INCONSISTENCY mov read UAF] ip: main+0x13591b (cli_cache_destroy @ cache.c:580) UAF read at: 0x5ac37e20bdc0
+[INCONSISTENCY mov read UAF] ip: main+0x135930 (cli_cache_destroy @ cache.c:105) UAF read at: 0x5ac37e247ce0
+[FREE] free(0x5ac37e24c4f0) subject=127 at cli_cache_destroy @ cache.c:105
+[INCONSISTENCY mov write imm UAF] ip: main+0x135939 (cli_cache_destroy @ cache.c:106) UAF write at: 0x5ac37e247ce0
+[FREE] free(0x5ac37e250500) subject=128 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e254510) subject=129 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e258520) subject=130 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e25c530) subject=131 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e260540) subject=132 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e264550) subject=133 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e268560) subject=134 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e26c570) subject=135 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e270580) subject=136 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e274590) subject=137 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2785a0) subject=138 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e27c5b0) subject=139 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2805c0) subject=140 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2845d0) subject=141 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2885e0) subject=142 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e28c5f0) subject=143 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e290600) subject=144 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e294610) subject=145 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e298620) subject=146 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e29c630) subject=147 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2a0640) subject=148 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2a4650) subject=149 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2a8660) subject=150 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2ac670) subject=151 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2b0680) subject=152 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2b4690) subject=153 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2b86a0) subject=154 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2bc6b0) subject=155 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2c06c0) subject=156 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2c46d0) subject=157 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2c86e0) subject=158 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2cc6f0) subject=159 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2d0700) subject=160 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2d4710) subject=161 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2d8720) subject=162 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2dc730) subject=163 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2e0740) subject=164 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2e4750) subject=165 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2e8760) subject=166 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2ec770) subject=167 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2f0780) subject=168 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2f4790) subject=169 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2f87a0) subject=170 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e2fc7b0) subject=171 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3007c0) subject=172 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3047d0) subject=173 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3087e0) subject=174 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e30c7f0) subject=175 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e310800) subject=176 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e314810) subject=177 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e318820) subject=178 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e31c830) subject=179 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e320840) subject=180 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e324850) subject=181 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e328860) subject=182 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e32c870) subject=183 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e330880) subject=184 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e334890) subject=185 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3388a0) subject=186 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e33c8b0) subject=187 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3408c0) subject=188 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3448d0) subject=189 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3488e0) subject=190 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e34c8f0) subject=191 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e350900) subject=192 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e354910) subject=193 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e358920) subject=194 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e35c930) subject=195 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e360940) subject=196 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e364950) subject=197 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e368960) subject=198 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e36c970) subject=199 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e370980) subject=200 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e374990) subject=201 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3789a0) subject=202 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e37c9b0) subject=203 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3809c0) subject=204 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3849d0) subject=205 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3889e0) subject=206 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e38c9f0) subject=207 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e390a00) subject=208 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e394a10) subject=209 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e398a20) subject=210 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e39ca30) subject=211 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3a0a40) subject=212 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3a4a50) subject=213 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3a8a60) subject=214 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3aca70) subject=215 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3b0a80) subject=216 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3b4a90) subject=217 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3b8aa0) subject=218 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3bcab0) subject=219 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3c0ac0) subject=220 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3c4ad0) subject=221 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3c8ae0) subject=222 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3ccaf0) subject=223 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3d0b00) subject=224 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3d4b10) subject=225 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3d8b20) subject=226 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3dcb30) subject=227 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3e0b40) subject=228 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3e4b50) subject=229 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3e8b60) subject=230 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3ecb70) subject=231 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3f0b80) subject=232 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3f4b90) subject=233 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3f8ba0) subject=234 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e3fcbb0) subject=235 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e400bc0) subject=236 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e404bd0) subject=237 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e408be0) subject=238 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e40cbf0) subject=239 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e410c00) subject=240 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e414c10) subject=241 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e418c20) subject=242 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e41cc30) subject=243 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e420c40) subject=244 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e424c50) subject=245 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e428c60) subject=246 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e42cc70) subject=247 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e430c80) subject=248 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e434c90) subject=249 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e438ca0) subject=250 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e43ccb0) subject=251 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e440cc0) subject=252 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e444cd0) subject=253 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e448ce0) subject=254 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e44ccf0) subject=255 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e450d00) subject=256 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e454d10) subject=257 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e458d20) subject=258 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e45cd30) subject=259 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e460d40) subject=260 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e464d50) subject=261 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e468d60) subject=262 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e46cd70) subject=263 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e470d80) subject=264 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e474d90) subject=265 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e478da0) subject=266 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e47cdb0) subject=267 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e480dc0) subject=268 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e484dd0) subject=269 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e488de0) subject=270 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e48cdf0) subject=271 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e490e00) subject=272 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e494e10) subject=273 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e498e20) subject=274 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e49ce30) subject=275 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4a0e40) subject=276 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4a4e50) subject=277 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4a8e60) subject=278 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4ace70) subject=279 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4b0e80) subject=280 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4b4e90) subject=281 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4b8ea0) subject=282 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4bceb0) subject=283 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4c0ec0) subject=284 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4c4ed0) subject=285 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4c8ee0) subject=286 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4ccef0) subject=287 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4d0f00) subject=288 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4d4f10) subject=289 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4d8f20) subject=290 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4dcf30) subject=291 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4e0f40) subject=292 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4e4f50) subject=293 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4e8f60) subject=294 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4ecf70) subject=295 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4f0f80) subject=296 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4f4f90) subject=297 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4f8fa0) subject=298 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e4fcfb0) subject=299 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e500fc0) subject=300 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e504fd0) subject=301 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e508fe0) subject=302 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e50cff0) subject=303 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e511000) subject=304 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e515010) subject=305 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e519020) subject=306 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e51d030) subject=307 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e521040) subject=308 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e525050) subject=309 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e529060) subject=310 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e52d070) subject=311 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e531080) subject=312 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e535090) subject=313 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5390a0) subject=314 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e53d0b0) subject=315 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5410c0) subject=316 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5450d0) subject=317 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5490e0) subject=318 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e54d0f0) subject=319 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e551100) subject=320 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e555110) subject=321 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e559120) subject=322 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e55d130) subject=323 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e561140) subject=324 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e565150) subject=325 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e569160) subject=326 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e56d170) subject=327 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e571180) subject=328 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e575190) subject=329 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5791a0) subject=330 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e57d1b0) subject=331 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5811c0) subject=332 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5851d0) subject=333 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5891e0) subject=334 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e58d1f0) subject=335 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e591200) subject=336 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e595210) subject=337 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e599220) subject=338 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e59d230) subject=339 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5a1240) subject=340 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5a5250) subject=341 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5a9260) subject=342 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5ad270) subject=343 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5b1280) subject=344 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5b5290) subject=345 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5b92a0) subject=346 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5bd2b0) subject=347 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5c12c0) subject=348 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5c52d0) subject=349 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5c92e0) subject=350 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5cd2f0) subject=351 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5d1300) subject=352 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5d5310) subject=353 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5d9320) subject=354 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5dd330) subject=355 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5e1340) subject=356 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5e5350) subject=357 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5e9360) subject=358 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5ed370) subject=359 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5f1380) subject=360 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5f5390) subject=361 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5f93a0) subject=362 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e5fd3b0) subject=363 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e6013c0) subject=364 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e6053d0) subject=365 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e6093e0) subject=366 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e60d3f0) subject=367 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e611400) subject=368 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e615410) subject=369 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e619420) subject=370 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e61d430) subject=371 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e621440) subject=372 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e625450) subject=373 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e629460) subject=374 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e62d470) subject=375 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e631480) subject=376 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e635490) subject=377 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e6394a0) subject=378 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e63d4b0) subject=379 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e6414c0) subject=380 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e6454d0) subject=381 at cli_cache_destroy @ cache.c:105
+[FREE] free(0x5ac37e6494e0) subject=382 at cli_cache_destroy @ cache.c:105
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x135949 (cli_cache_destroy @ cache.c:584) jnz 0xffffffffffffffdf id before: 126 after: 0 [freed] value: 0x5ac37e24c500
+[FREE] free(0x5ac37e247ce0) subject=126 at cl_engine_free @ readdb.c:5724
+[INCONSISTENCY mov read UAF] ip: main+0x132bf9 (cl_engine_free @ readdb.c:5726) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x138b0d (cli_ftfree @ filetypes.c:168) UAF read at: 0x5ac37e20be40
+[INCONSISTENCY mov read UAF] ip: main+0x138b46 (cli_ftfree @ filetypes.c:178) UAF read at: 0x5ac37e20be48
+[INCONSISTENCY mov read UAF] ip: main+0x132c22 (cl_engine_free @ readdb.c:5729) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132c43 (cl_engine_free @ readdb.c:5731) UAF read at: 0x5ac37e20be60
+[INCONSISTENCY mov read UAF] ip: main+0x132c62 (cl_engine_free @ readdb.c:5735) UAF read at: 0x5ac37e20bf10
+[INCONSISTENCY mov read UAF] ip: main+0x132c83 (cl_engine_free @ readdb.c:5737) UAF read at: 0x5ac37e20be58
+[INCONSISTENCY mov read UAF] ip: main+0x12a059 (cli_yara_free @ readdb.c:4266) UAF read at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 28358
+[INCONSISTENCY mov read UAF] ip: main+0x12a069 (cli_yara_free @ readdb.c:4267) UAF read at: 0x5ac37e20c3a8
+[FREE] free(0x5ac37e2339e0) subject=44 at cli_yara_free @ readdb.c:4268
+[INCONSISTENCY mov read UAF] ip: main+0x12a07c (cli_yara_free @ readdb.c:4269) UAF read at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 28903
+[INCONSISTENCY mov write imm UAF] ip: main+0x12a083 (cli_yara_free @ readdb.c:4269) UAF write at: 0x5ac37e20c3a8
+[INCONSISTENCY mov read UAF] ip: main+0x12a08b (cli_yara_free @ readdb.c:4271) UAF read at: 0x5ac37e20c398
+first time found dangling pointer at: 3240 distance: 28741
+main+0x12a08b (cli_yara_free @ readdb.c:4271) Using expired pointer: 0x5ac37e20c840 from 0x5ac37e20c398
+first time found dangling pointer at: 3240 distance: 28741
+[INCONSISTENCY mov read UAF] ip: main+0x1dd3c1 (yr_hash_table_destroy @ yara_hash.c:124) UAF read at: 0x5ac37e20c840
+[FREE] free(0x5ac37e20c840) subject=42 at cli_yara_free @ readdb.c:4272
+[INCONSISTENCY mov read UAF] ip: main+0x12a09e (cli_yara_free @ readdb.c:4273) UAF read at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 28935
+[INCONSISTENCY mov write imm UAF] ip: main+0x12a0a5 (cli_yara_free @ readdb.c:4273) UAF write at: 0x5ac37e20c398
+first time found dangling pointer at: 3240 distance: 28772
+[INCONSISTENCY mov read UAF] ip: main+0x12a0ad (cli_yara_free @ readdb.c:4275) UAF read at: 0x5ac37e20c3a0
+[FREE] free(0x5ac37e220110) subject=43 at cli_yara_free @ readdb.c:4276
+[INCONSISTENCY mov read UAF] ip: main+0x12a0c0 (cli_yara_free @ readdb.c:4277) UAF read at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 28967
+[INCONSISTENCY mov write imm UAF] ip: main+0x12a0c7 (cli_yara_free @ readdb.c:4277) UAF write at: 0x5ac37e20c3a0
+[INCONSISTENCY mov read UAF] ip: main+0x12a0cf (cli_yara_free @ readdb.c:4279) UAF read at: 0x5ac37e20c390
+first time found dangling pointer at: 3179 distance: 28866
+main+0x12a0cf (cli_yara_free @ readdb.c:4279) Using expired pointer: 0x5ac37e20c3c0 from 0x5ac37e20c390
+first time found dangling pointer at: 3179 distance: 28866
+[INCONSISTENCY mov read UAF] ip: main+0x1dd9ee (yr_arena_destroy @ yara_arena.c:275) UAF read at: 0x5ac37e20c3c8
+first time found dangling pointer at: 3174 distance: 28883
+main+0x1dd9ee (yr_arena_destroy @ yara_arena.c:275) Using expired pointer: 0x5ac37e20c3e0 from 0x5ac37e20c3c8
+first time found dangling pointer at: 3174 distance: 28883
+[INCONSISTENCY mov read UAF] ip: main+0x1dda2a (yr_arena_destroy @ yara_arena.c:280) UAF read at: 0x5ac37e20c400
+[INCONSISTENCY mov read UAF] ip: main+0x1dda2f (yr_arena_destroy @ yara_arena.c:279) UAF read at: 0x5ac37e20c410
+[INCONSISTENCY mov read UAF] ip: main+0x1dda10 (yr_arena_destroy @ yara_arena.c:289) UAF read at: 0x5ac37e20c3e8
+first time found dangling pointer at: 3166 distance: 28898
+main+0x1dda10 (yr_arena_destroy @ yara_arena.c:289) Using expired pointer: 0x5ac37e20c430 from 0x5ac37e20c3e8
+first time found dangling pointer at: 3166 distance: 28898
+[FREE] free(0x5ac37e20c430) subject=41 at yr_arena_destroy @ yara_arena.c:289
+[FREE] free(0x5ac37e20c3e0) subject=40 at yr_arena_destroy @ yara_arena.c:290
+[FREE] free(0x5ac37e20c3c0) subject=39 at cli_yara_free @ readdb.c:4280
+[INCONSISTENCY mov read UAF] ip: main+0x12a0df (cli_yara_free @ readdb.c:4281) UAF read at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 29002
+[INCONSISTENCY mov write imm UAF] ip: main+0x12a0e6 (cli_yara_free @ readdb.c:4281) UAF write at: 0x5ac37e20c390
+first time found dangling pointer at: 3179 distance: 28900
+[FREE] free(0x5ac37e20c390) subject=38 at cli_yara_free @ readdb.c:4283
+[INCONSISTENCY mov write imm UAF] ip: main+0x12a0f2 (cli_yara_free @ readdb.c:4284) UAF write at: 0x5ac37e20c228
+first time found dangling pointer at: 3076 distance: 29005
+[INCONSISTENCY mov read UAF] ip: main+0x132e99 (cl_engine_free @ readdb.c:5775) UAF read at: 0x5ac37e20bf10
+[FREE] free(0x5ac37e20bd90) subject=32 at cl_engine_free @ readdb.c:5778
+[STACK PIVOT] ip: main+0x11fac0 (LLVMFuzzerTestOneInput @ clamav_dbload_fuzzer.cpp:151) RSP 0x7ffd7d86bf18 left stack [0x18d,0x7ffd7d84c000]
+[FREE:internal] free(0x5ac37e20b780) subject=28 at main
+[UNTRUSTEDPTRDEREF] ip: main+0x11f54b (main) final_ea: 0x5ac3676f87e8 base: 0x5ac36430a54b pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x11f560 (main) final_ea: 0x5ac3676f87e8 base: 0x5ac36430a560 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x11f572 (main) final_ea: 0x5ac3676f99f0 base: 0x5ac36430a572 pointee: -1 base_vo: -1
+[FREE:internal] free(0x5ac37e209770) subject=27 at _ZNSt13basic_filebufIcSt11char_traitsIcEE26_M_destroy_internal_bufferEv
+[FREE:internal] free(0x5ac37e209590) subject=26 at _IO_fclose
+[UNTRUSTEDPTRDEREF] ip: main+0x11f595 (main) final_ea: 0x5ac3676f93d8 base: 0x5ac36430a595 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x11f5b3 (main) final_ea: 0x7f4f8c094c58 base: 0x7f4f8c094c70 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x11f766 (main) RSP 0x7ffd7d86c1a0 left stack after RET
+[INCONSISTENCY mov write reg UAF] ip: main+0x11fb84 (_ZN11ClamAVStateD2Ev @ clamav_dbload_fuzzer.cpp:98) UAF write at: 0x7ffd7d86c118
+[INCONSISTENCY mov read UAF] ip: main+0x11fb88 (_ZN11ClamAVStateD2Ev @ clamav_dbload_fuzzer.cpp:100) UAF read at: 0x7ffd7d86c118
+[UNINITIALIZED mov read] ip: main+0x11fb8c (_ZN11ClamAVStateD2Ev @ clamav_dbload_fuzzer.cpp:100) co: 3 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x11fb94 (_ZN11ClamAVStateD2Ev @ clamav_dbload_fuzzer.cpp:101) UAF read at: 0x7ffd7d86c118
+[UNINITIALIZED mov read] ip: main+0x11fb98 (_ZN11ClamAVStateD2Ev @ clamav_dbload_fuzzer.cpp:101) co: 3 vo: -1
+[STACK PIVOT] ip: main+0x11fba4 (_ZN11ClamAVStateD2Ev @ clamav_dbload_fuzzer.cpp:103) RSP 0x7ffd7d86c128 left stack [0x190,0x7ffd7d84c000]
+[STACK PIVOT] ip: main+0x11fba5 (_ZN11ClamAVStateD2Ev @ clamav_dbload_fuzzer.cpp:103) RSP 0x7ffd7d86c130 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x11f94e (__do_global_dtors_aux) final_ea: 0x5ac3676f7f20 base: 0x5ac36430a94e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x11f974 (__do_global_dtors_aux) RSP 0x7ffd7d86c060 left stack after RET
+[STACK PIVOT] ip: main+0x14d72e0 (_fini) RSP 0x7ffd7d86c090 left stack after RET

@@ -1,0 +1,10 @@
+[ALLOC:internal] malloc(0x1d8) -> 0x57f321a04010 subject=5 at _IO_fopen
+[FREE:internal] free(0x57f321a04010) subject=5 at _IO_fopen
+[FREE:internal] free(0x57f321a04010) subject=0
+[DOUBLE FREE] free(0x57f321a04010) — already freed
+[INCONSISTENCY mov write reg] ip: main+0x1356 (main @ gen_poc.c:36) co: 4 vo: 4, 4 write 4
+[STACK PIVOT] ip: main+0x16df (main @ gen_poc.c:110) RSP 0x7ffee7f24018 left stack [0x7,0x7ffee7f05000]
+[STACK PIVOT] ip: main+0x16e0 (main @ gen_poc.c:110) RSP 0x7ffee7f24020 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x12ae (__do_global_dtors_aux) final_ea: 0x57f2f5d79ff8 base: 0x57f2f5d772ae pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x12d4 (__do_global_dtors_aux) RSP 0x7ffee7f23f00 left stack after RET
+[STACK PIVOT] ip: main+0x16f0 (_fini) RSP 0x7ffee7f23f30 left stack after RET

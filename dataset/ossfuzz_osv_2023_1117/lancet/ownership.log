@@ -1,0 +1,43 @@
+[INCONSISTENCY mov write reg] ip: main+0x1381 (main @ gen_poc.c:59) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x138c (main @ gen_poc.c:60) co: 4 vo: 4, 4 write 4
+[ALLOC] calloc(0xbc) -> 0x652ebdb36010 subject=5 at main @ gen_poc.c:65
+[INCONSISTENCY mov write reg] ip: main+0x13c5 (main @ gen_poc.c:65) co: 4 vo: 4, 4 write 4
+[CORRUPTED_PTR_LOAD] ip: main+0x12bc (w32 @ gen_poc.c:28) loaded: 0xbdb36010000000bc from cell: 0x7fffca345e44 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x12cc (w32 @ gen_poc.c:29) loaded: 0x652ebdb36010 from cell: 0x7fffca345e48 cell_owner: 6 value_owner: 4
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x8,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0xa,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0xc,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0xe,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x10,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x12,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x14,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x16,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x18,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x1a,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x1c,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x1e,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x20,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x22,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x24,0x7fffca327000]
+[STACK PIVOT] ip: main+0x12d3 (w32 @ gen_poc.c:30) RSP 0x7fffca345e58 left stack [0x26,0x7fffca327000]
+[STACK PIVOT] ip: main+0x1309 (w16 @ gen_poc.c:35) RSP 0x7fffca345e58 left stack [0x28,0x7fffca327000]
+[STACK PIVOT] ip: main+0x1309 (w16 @ gen_poc.c:35) RSP 0x7fffca345e58 left stack [0x2a,0x7fffca327000]
+[STACK PIVOT] ip: main+0x1309 (w16 @ gen_poc.c:35) RSP 0x7fffca345e58 left stack [0x2c,0x7fffca327000]
+[STACK PIVOT] ip: main+0x1309 (w16 @ gen_poc.c:35) RSP 0x7fffca345e58 left stack [0x2e,0x7fffca327000]
+[STACK PIVOT] ip: main+0x1309 (w16 @ gen_poc.c:35) RSP 0x7fffca345e58 left stack [0x30,0x7fffca327000]
+[STACK PIVOT] ip: main+0x1309 (w16 @ gen_poc.c:35) RSP 0x7fffca345e58 left stack [0x32,0x7fffca327000]
+[STACK PIVOT] ip: main+0x1309 (w16 @ gen_poc.c:35) RSP 0x7fffca345e58 left stack [0x34,0x7fffca327000]
+[STACK PIVOT] ip: main+0x1309 (w16 @ gen_poc.c:35) RSP 0x7fffca345e58 left stack [0x36,0x7fffca327000]
+[ALLOC:internal] malloc(0x1d8) -> 0x652ebdb360e0 subject=54 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x652ebdb362c0 subject=55 at _IO_file_doallocate
+[FREE:internal] free(0x652ebdb362c0) subject=55 at _IO_setb
+[FREE:internal] free(0x652ebdb360e0) subject=54 at _IO_fclose
+[FREE:internal] free(0x652ebdb360e0) subject=0
+[DOUBLE FREE] free(0x652ebdb360e0) — already freed
+[FREE] free(0x652ebdb36010) subject=5 at main @ gen_poc.c:118
+[ALLOC:internal] malloc(0x1000) -> 0x652ebdb365c0 subject=56 at _IO_file_doallocate
+[STACK PIVOT] ip: main+0x166e (main @ gen_poc.c:122) RSP 0x7fffca345e98 left stack [0x3a,0x7fffca327000]
+[STACK PIVOT] ip: main+0x166f (main @ gen_poc.c:122) RSP 0x7fffca345ea0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x126e (__do_global_dtors_aux) final_ea: 0x652e9e7abff8 base: 0x652e9e7a926e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1294 (__do_global_dtors_aux) RSP 0x7fffca345d80 left stack after RET
+[STACK PIVOT] ip: main+0x167c (_fini) RSP 0x7fffca345db0 left stack after RET
