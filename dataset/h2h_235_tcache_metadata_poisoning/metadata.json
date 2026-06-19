@@ -1,0 +1,16 @@
+{
+  "name": "h2h_235_tcache_metadata_poisoning",
+  "target": "how2heap",
+  "technique": "tcache metadata poisoning",
+  "glibc_version": "2.35",
+  "binary": "bin/tcache_metadata_poisoning",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 9,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 2,
+    "alloc": 2,
+    "inconsistency_arithmetic__crossboundary": 1
+  },
+  "detected": true
+}

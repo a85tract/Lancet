@@ -1,0 +1,64 @@
+# Build artifacts
+obj-intel64/
+*.o
+*.so
+*.log.bak
+
+# PIN runtime
+pin-4.2/
+pin-3.28/
+
+# Large binaries in dataset (rebuild from source)
+dataset/*/bin/
+dataset/*/poc/*.img
+dataset/*/poc/*.bin
+dataset/*/poc/*.ts
+dataset/*/poc/*.y4m
+dataset/*/poc/*.ivf
+dataset/*/poc/*.mpd
+dataset/*/poc/*.raw
+dataset/*/poc/*.icc
+dataset/*/poc/*.pdf
+dataset/*/poc/*.elf
+dataset/*/poc/*.wkt
+dataset/*/poc/*.ics
+dataset/*/poc/*.crb
+dataset/*/poc/*.rar
+dataset/*/poc/*.j2k
+dataset/*/poc/*.jp2
+dataset/*/poc/*.gsr105.jp2
+
+# Duplicate log (raw.log is the canonical copy)
+dataset/*/lancet/ownership.log
+
+# Keep these in dataset
+!dataset/*/lancet/raw.log
+!dataset/*/metadata.json
+!dataset/*/analysis.md
+!dataset/*/run_lancet.sh
+!dataset/*/src/
+
+# Tests directory (14GB — too large, rebuild from build.sh)
+tests/
+
+# Glibc libs (rebuild via Docker)
+libs/
+
+# Results from previous experiments
+results/
+
+# OS / editor
+.DS_Store
+*.swp
+*~
+__pycache__/
+
+# Stale root files
+GCONV_PATH=./.pkexec
+analysis.md
+.clangd
+.claude/
+
+# PoC files that are too large or binary
+dataset/*/poc/*.bin
+dataset/*/poc/presets/

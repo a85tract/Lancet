@@ -1,0 +1,33 @@
+[INCONSISTENCY mov write reg] ip: main+0x11d8 (main @ gen_poc.c:23) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x11de (main @ gen_poc.c:23) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x11ec (main @ gen_poc.c:24) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x1200 (main @ gen_poc.c:28) final_ea: 0x7fff7b8fc4f0 base: 0x7fff7b8fc4e8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x1204 (main @ gen_poc.c:28) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1d8) -> 0x5fae83abd010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x121e (main @ gen_poc.c:30) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1253 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x125a (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1275 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1279 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1291 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1295 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x12ad (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x12b1 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x12c9 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x12cd (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x12e5 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x12e9 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1301 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1305 (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x131a (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x131e (main @ gen_poc.c:47) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x5fae83abd1f0 subject=6 at _IO_file_doallocate
+[FREE:internal] free(0x5fae83abd1f0) subject=6 at _IO_setb
+[FREE:internal] free(0x5fae83abd010) subject=5 at _IO_fclose
+[FREE:internal] free(0x5fae83abd010) subject=0
+[DOUBLE FREE] free(0x5fae83abd010) — already freed
+[STACK PIVOT] ip: main+0x139e (main @ gen_poc.c:81) RSP 0x7fff7b8fc3b8 left stack [0x8,0x7fff7b8de000]
+[STACK PIVOT] ip: main+0x139f (main @ gen_poc.c:81) RSP 0x7fff7b8fc3c0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x118e (__do_global_dtors_aux) final_ea: 0x5fae77adcff8 base: 0x5fae77ada18e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x11b4 (__do_global_dtors_aux) RSP 0x7fff7b8fc2a0 left stack after RET
+[STACK PIVOT] ip: main+0x13ac (_fini) RSP 0x7fff7b8fc2d0 left stack after RET

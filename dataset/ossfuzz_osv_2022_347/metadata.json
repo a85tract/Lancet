@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_347",
+  "target": "libxml2",
+  "binary": "bin/clamav_dbload_LDB_fuzzer",
+  "poc": "poc/poc.ldb",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1387,
+    "free": 343,
+    "alloc": 341,
+    "inconsistency_mov_read_uaf": 155,
+    "corrupted_ptr_load": 118,
+    "untrustedptrderef": 84,
+    "inconsistency_mov_write_reg_uaf": 39,
+    "alloc:internal": 33,
+    "inconsistency_mov_write_imm_uaf": 28,
+    "intra_object_overflow": 22,
+    "uninitialized_mov_read": 21,
+    "inconsistency_mov_read": 16,
+    "free:internal": 10,
+    "heap_metadata_taint": 8,
+    "inconsistency_mov_write_reg": 5,
+    "stack_pivot": 5
+  },
+  "detected": true,
+  "key_functions": "_ZNSiC4Ev; _ZNSiC4Ev; _ZNSiC4Ev",
+  "verification_match": "\u2713"
+}

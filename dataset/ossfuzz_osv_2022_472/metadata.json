@@ -1,0 +1,24 @@
+{
+  "name": "osv_2022_472",
+  "target": "systemd",
+  "binary": "bin/harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 441,
+    "untrustedptrderef": 207,
+    "uninitialized_mov_read": 52,
+    "inconsistency_mov_write_reg_uaf": 44,
+    "corrupted_ptr_load": 27,
+    "inconsistency_mov_read_uaf": 19,
+    "inconsistency_mov_read": 16,
+    "inconsistency_mov_write_reg": 15,
+    "inconsistency_mov_write_imm_uaf": 12,
+    "inconsistency_arithmetic__crossboundary": 5,
+    "stack_pivot": 4,
+    "intra_object_overflow": 1
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "\u2713"
+}

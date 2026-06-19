@@ -1,0 +1,17 @@
+{
+  "name": "h2h_235_house_of_spirit",
+  "target": "how2heap",
+  "technique": "house of spirit",
+  "glibc_version": "2.35",
+  "binary": "bin/house_of_spirit",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 22,
+    "alloc": 8,
+    "free": 8,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 1,
+    "invalid_free": 1
+  },
+  "detected": true
+}

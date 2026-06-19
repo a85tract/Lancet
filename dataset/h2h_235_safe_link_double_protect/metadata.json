@@ -1,0 +1,18 @@
+{
+  "name": "h2h_235_safe_link_double_protect",
+  "target": "how2heap",
+  "technique": "safe link double protect",
+  "glibc_version": "2.35",
+  "binary": "bin/safe_link_double_protect",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 26,
+    "alloc": 8,
+    "inconsistency_mov_write_reg": 4,
+    "free": 4,
+    "stack_pivot": 4,
+    "inconsistency_arithmetic__crossboundary": 1,
+    "untrustedptrderef": 1
+  },
+  "detected": true
+}

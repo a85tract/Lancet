@@ -1,0 +1,23 @@
+{
+  "name": "osv_2021_520",
+  "target": "unknown",
+  "binary": "bin/verifier_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 35,
+    "corrupted_ptr_load": 14,
+    "untrustedptrderef": 5,
+    "alloc:internal": 3,
+    "free:internal": 3,
+    "stack_pivot": 3,
+    "inconsistency_mov_write_reg": 2,
+    "intra_object_overflow": 2,
+    "alloc": 1,
+    "double_free": 1,
+    "free": 1
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

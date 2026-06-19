@@ -1,0 +1,23 @@
+[INCONSISTENCY mov write reg] ip: main+0xe9b (main @ large_bin_attack.c:22) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x428) -> 0x3ac832a0 subject=6 at main @ large_bin_attack.c:43
+[INCONSISTENCY mov write reg] ip: main+0xfd1 (main @ large_bin_attack.c:43) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x18) -> 0x3ac836d0 subject=7 at main @ large_bin_attack.c:45
+[ALLOC] malloc(0x418) -> 0x3ac836f0 subject=8 at main @ large_bin_attack.c:50
+[ALLOC] malloc(0x18) -> 0x3ac83b10 subject=9 at main @ large_bin_attack.c:53
+[FREE] free(0x3ac832a0) subject=6 at main @ large_bin_attack.c:58
+main+0x108a (main @ large_bin_attack.c:59) Read a dangling pointer 0x3ac832a0 from 0x7ffdea987ea8
+[ALLOC] malloc(0x438) -> 0x3ac83b30 subject=10 at main @ large_bin_attack.c:60
+[FREE] free(0x3ac836f0) subject=8 at main @ large_bin_attack.c:65
+main+0x10dc (main @ large_bin_attack.c:66) Read a dangling pointer 0x3ac836f0 from 0x7ffdea987eb8
+main+0x10fb (main @ large_bin_attack.c:67) Using expired pointer: 0x3ac832a0 from 0x7ffdea987ea8
+first time found dangling pointer at: 192 distance: 37
+main+0x111a (main @ large_bin_attack.c:68) Using expired pointer: 0x3ac836f0 from 0x7ffdea987eb8
+first time found dangling pointer at: 220 distance: 18
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1147 (main @ large_bin_attack.c:72) sub rax, 0x20 id before: 5 after: 1 value: 0x7ffdea987e80
+[INCONSISTENCY mov write reg UAF] ip: main+0x1153 (main @ large_bin_attack.c:72) UAF write at: 0x3ac832b8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x115a (main @ large_bin_attack.c:73) sub rax, 0x20 id before: 5 after: 1 value: 0x7ffdea987e80
+[ALLOC] malloc(0x438) -> 0x3ac83f70 subject=11 at main @ large_bin_attack.c:77
+[STACK PIVOT] ip: main+0x12bb (main @ large_bin_attack.c:94) RSP 0x7ffdea987ee8 left stack [0xd,0x7ffdea969000]
+[STACK PIVOT] ip: main+0x12bc (main @ large_bin_attack.c:94) RSP 0x7ffdea987ef0 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7ffdea987df0 left stack after RET
+[STACK PIVOT] ip: main+0x12cc (_fini) RSP 0x7ffdea987df0 left stack after RET

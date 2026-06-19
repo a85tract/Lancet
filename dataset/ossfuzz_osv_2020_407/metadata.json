@@ -1,0 +1,25 @@
+{
+  "name": "osv_2020_407",
+  "target": "unknown",
+  "binary": "bin/fuzz_filter_standalone",
+  "poc": "poc/poc_filter.txt",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 379,
+    "corrupted_ptr_load": 46,
+    "inconsistency_mov_read_uaf": 46,
+    "inconsistency_mov_write_reg_uaf": 43,
+    "inconsistency_mov_write_imm_uaf": 25,
+    "stack_pivot": 13,
+    "alloc": 7,
+    "inconsistency_mov_write_reg": 3,
+    "free:internal": 3,
+    "inconsistency_mov_read": 3,
+    "untrustedptrderef": 2,
+    "alloc:internal": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "MISS"
+}

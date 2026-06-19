@@ -1,0 +1,26 @@
+{
+  "name": "osv_2020_405",
+  "target": "zstd",
+  "binary": "bin/simple_decompress",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 404,
+    "inconsistency_mov_read_uaf": 92,
+    "inconsistency_mov_write_reg_uaf": 82,
+    "inconsistency_mov_write_reg": 72,
+    "corrupted_ptr_load": 39,
+    "untrustedptrderef": 25,
+    "inconsistency_mov_read": 19,
+    "inconsistency_mov_write_imm_uaf": 9,
+    "overlap": 5,
+    "alloc": 3,
+    "free:internal": 3,
+    "stack_pivot": 3,
+    "alloc:internal": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "FUZZ_rand; FUZZ_rand; FUZZ_rand",
+  "verification_match": "\u2713"
+}

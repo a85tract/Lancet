@@ -1,0 +1,20 @@
+{
+  "name": "h2h_large_bin_attack",
+  "target": "how2heap",
+  "technique": "Corrupt large bin bk_nextsize to write heap pointer to arbitrary address",
+  "binary": "bin/large_bin_attack",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 18,
+    "alloc": 5,
+    "inconsistency_mov_write_reg": 2,
+    "free": 2,
+    "inconsistency_arithmetic__crossboundary": 2,
+    "inconsistency_mov_write_reg_uaf": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": true,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "osv_2022_615",
+  "target": "lcms",
+  "binary": "bin/gen_poc",
+  "poc": "poc/poc.icc",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 18,
+    "free:internal": 6,
+    "alloc:internal": 5,
+    "stack_pivot": 4,
+    "double_free": 1,
+    "inconsistency_mov_write_reg": 1,
+    "untrustedptrderef": 1
+  },
+  "detected": true,
+  "key_functions": "main; main; main",
+  "verification_match": "\u2713"
+}

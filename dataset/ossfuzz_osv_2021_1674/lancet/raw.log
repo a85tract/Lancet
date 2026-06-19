@@ -1,0 +1,1270 @@
+[INCONSISTENCY mov write reg] ip: main+0x10798 (main @ harness.c:29) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1079e (main @ harness.c:29) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x107eb (main @ harness.c:35) final_ea: 0x7ffcec7a3f00 base: 0x7ffcec7a3f00 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x579fbd64b010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x10800 (main @ harness.c:35) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x579fbd64b1f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x84) -> 0x579fbd64c200 subject=7 at main @ harness.c:44
+[FREE:internal] free(0x579fbd64b1f0) subject=6 at _IO_setb
+[FREE:internal] free(0x579fbd64b010) subject=5 at _IO_fclose
+[FREE:internal] free(0x579fbd64b010) subject=0
+[DOUBLE FREE] free(0x579fbd64b010) — already freed
+[INCONSISTENCY mov read] ip: main+0x407ef (ksr_hname_init_index @ parse_hname2.c:178) base: 0x7ffcec7a35b0 pointee: 4 read from 8
+[CORRUPTED_PTR_LOAD] ip: main+0x407ef (ksr_hname_init_index @ parse_hname2.c:178) loaded: 0xec7a3dc000000000 from cell: 0x7ffcec7a35ac cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x407a5 (ksr_hname_init_index @ parse_hname2.c:179) loaded: 0xec7a3dc000000000 from cell: 0x7ffcec7a35ac cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x407c0 (ksr_hname_init_index @ parse_hname2.c:180) loaded: 0xec7a3dc000000000 from cell: 0x7ffcec7a35ac cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x407db (ksr_hname_init_index @ parse_hname2.c:181) loaded: 0xec7a3dc000000000 from cell: 0x7ffcec7a35ac cell_owner: 8 value_owner: 4
+[UNTRUSTEDPTRDEREF] ip: main+0x4081b (ksr_hname_init_index @ parse_hname2.c:185) final_ea: 0x579fa50e1260 base: 0x579fa50e1260 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x408a0 (ksr_hname_init_index @ parse_hname2.c:190) final_ea: 0x579fa50e1262 base: 0x579fa50e1262 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x4094e (ksr_hname_init_index @ parse_hname2.c:196) final_ea: 0x579fa50e14f8 base: 0x579fa50e14f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x40928 (ksr_hname_init_index @ parse_hname2.c:197) final_ea: 0x579fa50e14f8 base: 0x579fa50e14f8 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4094b (ksr_hname_init_index @ parse_hname2.c:196) add dword ptr [rbp-0x4], 0x1 id before: 3 after: -1 [unmapped] value: 0x579fa50e1538
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x40925 (ksr_hname_init_index @ parse_hname2.c:197) add dword ptr [rbp-0x4], 0x1 id before: 3 after: -1 [unmapped] value: 0x579fa50e1538
+[STACK PIVOT] ip: main+0x4095a (ksr_hname_init_index @ parse_hname2.c:201) RSP 0x7ffcec7a35b8 left stack [0xa,0x7ffcec784000]
+[CORRUPTED_PTR_LOAD] ip: main+0x3bcbb (parse_first_line @ parse_fline.c:70) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3bcdb (parse_first_line @ parse_fline.c:72) loaded: 0xbd64c20000000083 from cell: 0x7ffcec7a33a4 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3bce1 (parse_first_line @ parse_fline.c:72) loaded: 0x579fbd64c200 from cell: 0x7ffcec7a33a8 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3bcef (parse_first_line @ parse_fline.c:79) loaded: 0xbd64c20000000083 from cell: 0x7ffcec7a33a4 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3c07d (parse_first_line @ parse_fline.c:83) loaded: 0x579fbd64c200 from cell: 0x7ffcec7a33a8 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3c2a5 (parse_first_line @ parse_fline.c:113) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3c2b1 (parse_first_line @ parse_fline.c:113) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3c2bf (parse_first_line @ parse_fline.c:113) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3c2cd (parse_first_line @ parse_fline.c:113) loaded: 0x579fbd64c200 from cell: 0x7ffcec7a33a8 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3d2f3 (parse_first_line @ parse_fline.c:159) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3d2fa (parse_first_line @ parse_fline.c:159) loaded: 0x579fbd64c200 from cell: 0x7ffcec7a33a8 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3d31f (parse_first_line @ parse_fline.c:166) loaded: 0xbd64c20000000083 from cell: 0x7ffcec7a33a4 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3d367 (parse_first_line @ parse_fline.c:171) loaded: 0xbd64c20000000083 from cell: 0x7ffcec7a33a4 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3d3bd (parse_first_line @ parse_fline.c:176) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3d3d6 (parse_first_line @ parse_fline.c:177) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3d3e0 (parse_first_line @ parse_fline.c:180) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dbe6 (parse_first_line @ parse_fline.c:202) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dbfa (parse_first_line @ parse_fline.c:203) loaded: 0xbd64c20000000083 from cell: 0x7ffcec7a33a4 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dc50 (parse_first_line @ parse_fline.c:208) loaded: 0xbd64c20000000083 from cell: 0x7ffcec7a33a4 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3bc4a (is_empty_end @ parser_f.h:81) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3350 cell_owner: 12 value_owner: 11
+[CORRUPTED_PTR_LOAD] ip: main+0x3bc4e (is_empty_end @ parser_f.h:81) loaded: 0x579fbd64c216 from cell: 0x7ffcec7a3358 cell_owner: 12 value_owner: 11
+[STACK PIVOT] ip: main+0x3bc8d (is_empty_end @ parser_f.h:83) RSP 0x7ffcec7a3368 left stack [0xe,0x7ffcec784000]
+[CORRUPTED_PTR_LOAD] ip: main+0x3dcce (parse_first_line @ parse_fline.c:219) loaded: 0xbd64c20000000083 from cell: 0x7ffcec7a33a4 cell_owner: 11 value_owner: 10
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d3f4 (eat_line @ parser_f.c:42) UAF write at: 0x7ffcec7a3358
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3358 ip: main+0x6d3f8 (eat_line @ parser_f.c:43)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3358 ip: main+0x6d3ff (eat_line @ parser_f.c:44)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3358 ip: main+0x6d41b (eat_line @ parser_f.c:45)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3358 ip: main+0x6d432 (eat_line @ parser_f.c:45)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3358 ip: main+0x6d452 (eat_line @ parser_f.c:47)
+[STACK PIVOT] ip: main+0x6d456 (eat_line @ parser_f.c:48) RSP 0x7ffcec7a3368 left stack [0x10,0x7ffcec784000]
+[CORRUPTED_PTR_LOAD] ip: main+0x3dcf6 (parse_first_line @ parse_fline.c:223) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dd0f (parse_first_line @ parse_fline.c:224) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dd26 (parse_first_line @ parse_fline.c:225) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dd30 (parse_first_line @ parse_fline.c:227) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dd44 (parse_first_line @ parse_fline.c:228) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dd53 (parse_first_line @ parse_fline.c:229) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dd77 (parse_first_line @ parse_fline.c:231) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3dda1 (parse_first_line @ parse_fline.c:233) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[CORRUPTED_PTR_LOAD] ip: main+0x3ddb1 (parse_first_line @ parse_fline.c:233) loaded: 0x7ffcec7a35f0 from cell: 0x7ffcec7a3398 cell_owner: 11 value_owner: 10
+[UNINITIALIZED mov read] ip: main+0x1da9d0 (get_debug_level @ dprint.c:177) co: 2 vo: -1
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3368 left stack [0x12,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3498 left stack [0x14,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3498 left stack [0x16,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3498 left stack [0x18,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3498 left stack [0x1a,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x19a9b (parse_headers @ msg_parser.c:326) co: 4 vo: -1
+[ALLOC] malloc(0x40) -> 0x579fbd64b4f0 subject=27 at parse_headers @ msg_parser.c:328
+Store dangling pointer: 0x579fbd64b4f0 at: 0x7ffcec7a3440
+main+0x15df6 (parse_headers @ msg_parser.c:329) Using expired pointer: 0x579fbd64b4f0 from 0x7ffcec7a3440
+first time found dangling pointer at: 6649 distance: 1
+[INCONSISTENCY mov write imm UAF] ip: main+0x16169 (parse_headers @ msg_parser.c:335) UAF write at: 0x579fbd64b4f0
+[INCONSISTENCY mov write imm UAF] ip: main+0x10fcb (get_hdr_field @ msg_parser.c:76) UAF write at: 0x7ffcec7a3348
+[INCONSISTENCY mov read] ip: main+0x10fd3 (get_hdr_field @ msg_parser.c:84) base: 0x7ffcec7a3380 pointee: 26 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x10fd3 (get_hdr_field @ msg_parser.c:84) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3278 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read] ip: main+0x1131c (get_hdr_field @ msg_parser.c:89) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1131c (get_hdr_field @ msg_parser.c:89) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3278 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read] ip: main+0x1132a (get_hdr_field @ msg_parser.c:89) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1132a (get_hdr_field @ msg_parser.c:89) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3278 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read] ip: main+0x1168b (get_hdr_field @ msg_parser.c:96) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1168b (get_hdr_field @ msg_parser.c:96) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read] ip: main+0x11692 (get_hdr_field @ msg_parser.c:96) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x11692 (get_hdr_field @ msg_parser.c:96) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3270 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read] ip: main+0x11699 (get_hdr_field @ msg_parser.c:96) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x11699 (get_hdr_field @ msg_parser.c:96) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3278 cell_owner: 28 value_owner: 26
+[CORRUPTED_PTR_LOAD] ip: main+0x41add (parse_hname2 @ parse_hname2.c:309) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a31f8 cell_owner: 29 value_owner: 28
+[CORRUPTED_PTR_LOAD] ip: main+0x41ae1 (parse_hname2 @ parse_hname2.c:309) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3200 cell_owner: 29 value_owner: 28
+[CORRUPTED_PTR_LOAD] ip: main+0x41ae5 (parse_hname2 @ parse_hname2.c:309) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3208 cell_owner: 29 value_owner: 28
+[INCONSISTENCY mov read] ip: main+0x409ea (parse_sip_header_name @ parse_hname2.c:232) base: 0x7ffcec7a31e0 pointee: 29 read from 30
+[CORRUPTED_PTR_LOAD] ip: main+0x409ea (parse_sip_header_name @ parse_hname2.c:232) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3148 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov read] ip: main+0x409f4 (parse_sip_header_name @ parse_hname2.c:232) base: 0x7ffcec7a31e0 pointee: 29 read from 30
+[CORRUPTED_PTR_LOAD] ip: main+0x409f4 (parse_sip_header_name @ parse_hname2.c:232) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3140 cell_owner: 30 value_owner: 29
+[CORRUPTED_PTR_LOAD] ip: main+0x409fe (parse_sip_header_name @ parse_hname2.c:232) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3140 cell_owner: 30 value_owner: 29
+[CORRUPTED_PTR_LOAD] ip: main+0x40a05 (parse_sip_header_name @ parse_hname2.c:232) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3148 cell_owner: 30 value_owner: 29
+[CORRUPTED_PTR_LOAD] ip: main+0x40a27 (parse_sip_header_name @ parse_hname2.c:236) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3148 cell_owner: 30 value_owner: 29
+[CORRUPTED_PTR_LOAD] ip: main+0x40dda (parse_sip_header_name @ parse_hname2.c:244) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov write imm UAF] ip: main+0x40de1 (parse_sip_header_name @ parse_hname2.c:244) UAF write at: 0x579fbd64b4f0
+[CORRUPTED_PTR_LOAD] ip: main+0x40de7 (parse_sip_header_name @ parse_hname2.c:245) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[CORRUPTED_PTR_LOAD] ip: main+0x40dee (parse_sip_header_name @ parse_hname2.c:245) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3148 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov write reg UAF] ip: main+0x40df5 (parse_sip_header_name @ parse_hname2.c:245) UAF write at: 0x579fbd64b4f8
+[CORRUPTED_PTR_LOAD] ip: main+0x40df9 (parse_sip_header_name @ parse_hname2.c:247) loaded: 0x579fbd64c218 from cell: 0x7ffcec7a3148 cell_owner: 30 value_owner: 29
+[CORRUPTED_PTR_LOAD] ip: main+0x40e3a (parse_sip_header_name @ parse_hname2.c:253) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov read UAF] ip: main+0x40e41 (parse_sip_header_name @ parse_hname2.c:253) UAF read at: 0x579fbd64b4f8
+[CORRUPTED_PTR_LOAD] ip: main+0x40e4c (parse_sip_header_name @ parse_hname2.c:253) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov write reg UAF] ip: main+0x40e53 (parse_sip_header_name @ parse_hname2.c:253) UAF write at: 0x579fbd64b500
+[CORRUPTED_PTR_LOAD] ip: main+0x40e56 (parse_sip_header_name @ parse_hname2.c:255) loaded: 0xbd64b4f000000000 from cell: 0x7ffcec7a3134 cell_owner: 30 value_owner: 29
+[CORRUPTED_PTR_LOAD] ip: main+0x415e7 (parse_sip_header_name @ parse_hname2.c:290) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov read UAF] ip: main+0x415ee (parse_sip_header_name @ parse_hname2.c:290) UAF read at: 0x579fbd64b4f8
+[CORRUPTED_PTR_LOAD] ip: main+0x41614 (parse_sip_header_name @ parse_hname2.c:291) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov read UAF] ip: main+0x4161b (parse_sip_header_name @ parse_hname2.c:291) UAF read at: 0x579fbd64b4f8
+[CORRUPTED_PTR_LOAD] ip: main+0x416c6 (parse_sip_header_name @ parse_hname2.c:292) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov read UAF] ip: main+0x416cd (parse_sip_header_name @ parse_hname2.c:292) UAF read at: 0x579fbd64b4f8
+[CORRUPTED_PTR_LOAD] ip: main+0x41641 (parse_sip_header_name @ parse_hname2.c:293) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov read UAF] ip: main+0x41648 (parse_sip_header_name @ parse_hname2.c:293) UAF read at: 0x579fbd64b500
+[CORRUPTED_PTR_LOAD] ip: main+0x41665 (parse_sip_header_name @ parse_hname2.c:295) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov read UAF] ip: main+0x4166c (parse_sip_header_name @ parse_hname2.c:295) UAF read at: 0x579fbd64b500
+[CORRUPTED_PTR_LOAD] ip: main+0x41689 (parse_sip_header_name @ parse_hname2.c:294) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov read UAF] ip: main+0x41690 (parse_sip_header_name @ parse_hname2.c:294) UAF read at: 0x579fbd64b4f8
+[CORRUPTED_PTR_LOAD] ip: main+0x416b9 (parse_sip_header_name @ parse_hname2.c:296) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3138 cell_owner: 30 value_owner: 29
+[INCONSISTENCY mov write reg UAF] ip: main+0x416c0 (parse_sip_header_name @ parse_hname2.c:296) UAF write at: 0x579fbd64b4f0
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a30f8 left stack [0x21,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x41afc (parse_hname2 @ parse_hname2.c:310) RSP 0x7ffcec7a3218 left stack [0x22,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x116ab (get_hdr_field @ msg_parser.c:96) UAF write at: 0x7ffcec7a3348
+[INCONSISTENCY mov read] ip: main+0x116af (get_hdr_field @ msg_parser.c:97) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x116af (get_hdr_field @ msg_parser.c:97) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x116b6 (get_hdr_field @ msg_parser.c:97) UAF read at: 0x579fbd64b4f0
+[INCONSISTENCY mov read] ip: main+0x119fc (get_hdr_field @ msg_parser.c:103) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x119fc (get_hdr_field @ msg_parser.c:103) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3270 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x11a03 (get_hdr_field @ msg_parser.c:103) UAF read at: 0x7ffcec7a3348
+[INCONSISTENCY mov write reg UAF] ip: main+0x10ed4 (eat_lws_end @ parser_f.h:49) UAF write at: 0x7ffcec7a3208
+[INCONSISTENCY mov write reg UAF] ip: main+0x10ed8 (eat_lws_end @ parser_f.h:49) UAF write at: 0x7ffcec7a3200
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x10f8a (eat_lws_end @ parser_f.h:50)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x10ee1 (eat_lws_end @ parser_f.h:51)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x10eec (eat_lws_end @ parser_f.h:51)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x10f01 (eat_lws_end @ parser_f.h:53)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x10f3f (eat_lws_end @ parser_f.h:54)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x10f98 (eat_lws_end @ parser_f.h:58)
+[INCONSISTENCY mov write reg UAF] ip: main+0x11a12 (get_hdr_field @ msg_parser.c:103) UAF write at: 0x7ffcec7a3348
+[INCONSISTENCY mov read UAF] ip: main+0x11a16 (get_hdr_field @ msg_parser.c:104) UAF read at: 0x7ffcec7a3348
+[INCONSISTENCY mov read] ip: main+0x11d62 (get_hdr_field @ msg_parser.c:113) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x11d62 (get_hdr_field @ msg_parser.c:113) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x11d69 (get_hdr_field @ msg_parser.c:113) UAF read at: 0x579fbd64b4f0
+[UNTRUSTEDPTRDEREF] ip: main+0x11d85 (get_hdr_field @ msg_parser.c:113) final_ea: 0x579fa50dac28 base: 0x4 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x11da0 (get_hdr_field @ msg_parser.c:117) co: 3 vo: 3, 3 write 3
+[ALLOC] malloc(0xf0) -> 0x579fbd64b540 subject=34 at get_hdr_field @ msg_parser.c:118
+Store dangling pointer: 0x579fbd64b540 at: 0x7ffcec7a3300
+[INCONSISTENCY mov read] ip: main+0x11db4 (get_hdr_field @ msg_parser.c:119) base: 0x7ffcec7a3380 pointee: 11 read from 28
+main+0x11db4 (get_hdr_field @ msg_parser.c:119) Using expired pointer: 0x579fbd64b540 from 0x7ffcec7a3300
+first time found dangling pointer at: 7019 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x11db4 (get_hdr_field @ msg_parser.c:119) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3300 cell_owner: 28 value_owner: 11
+[INCONSISTENCY mov read] ip: main+0x120fa (get_hdr_field @ msg_parser.c:123) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x120fa (get_hdr_field @ msg_parser.c:123) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3300 cell_owner: 28 value_owner: 11
+[INCONSISTENCY mov read] ip: main+0x12110 (get_hdr_field @ msg_parser.c:124) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x12110 (get_hdr_field @ msg_parser.c:124) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x12117 (get_hdr_field @ msg_parser.c:124) UAF read at: 0x7ffcec7a3348
+[INCONSISTENCY mov write reg UAF] ip: main+0x1211b (get_hdr_field @ msg_parser.c:124) UAF write at: 0x579fbd64b508
+[INCONSISTENCY mov read] ip: main+0x1211f (get_hdr_field @ msg_parser.c:125) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1211f (get_hdr_field @ msg_parser.c:125) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3300 cell_owner: 28 value_owner: 11
+[INCONSISTENCY mov read] ip: main+0x12123 (get_hdr_field @ msg_parser.c:125) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x12123 (get_hdr_field @ msg_parser.c:125) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3270 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x1212a (get_hdr_field @ msg_parser.c:125) UAF read at: 0x7ffcec7a3348
+[INCONSISTENCY mov write imm UAF] ip: main+0x5de5c (parse_via @ parse_via.c:1352) UAF write at: 0x579fbd64b540
+[UNTRUSTEDPTRDEREF] ip: main+0x5deaf (parse_via @ parse_via.c:1358) final_ea: 0x579fa50e7cc8 base: 0x128 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x5f4eb (parse_via @ parse_via.c:1649) UAF write at: 0x579fbd64b558
+[INCONSISTENCY mov read UAF] ip: main+0x5f09a (parse_via @ parse_via.c:1625) UAF read at: 0x579fbd64b558
+[INCONSISTENCY mov write reg UAF] ip: main+0x5f0a9 (parse_via @ parse_via.c:1625) UAF write at: 0x579fbd64b560
+[INCONSISTENCY mov write reg UAF] ip: main+0x61881 (parse_via @ parse_via.c:1941) UAF write at: 0x579fbd64b568
+[INCONSISTENCY mov read UAF] ip: main+0x5f0bc (parse_via @ parse_via.c:1629) UAF read at: 0x579fbd64b568
+[INCONSISTENCY mov write reg UAF] ip: main+0x5f0cb (parse_via @ parse_via.c:1629) UAF write at: 0x579fbd64b570
+[INCONSISTENCY mov write reg UAF] ip: main+0x600f9 (parse_via @ parse_via.c:1757) UAF write at: 0x579fbd64b578
+[UNTRUSTEDPTRDEREF] ip: main+0x5dee8 (parse_via @ parse_via.c:1361) final_ea: 0x579fa50e7ee0 base: 0x184 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x5defe (parse_via @ parse_via.c:1369) UAF read at: 0x579fbd64b578
+[INCONSISTENCY mov write reg UAF] ip: main+0x5df0d (parse_via @ parse_via.c:1369) UAF write at: 0x579fbd64b580
+[INCONSISTENCY mov write imm UAF] ip: main+0x5df14 (parse_via @ parse_via.c:1370) UAF write at: 0x579fbd64b598
+[UNTRUSTEDPTRDEREF] ip: main+0x62bb1 (parse_via @ parse_via.c:2068) final_ea: 0x579fa50e8498 base: 0xa0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x68b23 (parse_via @ parse_via.c:2496) UAF write at: 0x579fbd64b588
+[UNTRUSTEDPTRDEREF] ip: main+0x637f1 (parse_via @ parse_via.c:2162) final_ea: 0x579fa50e85d8 base: 0x4 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x63820 (parse_via @ parse_via.c:2179) UAF read at: 0x579fbd64b588
+[INCONSISTENCY mov read UAF] ip: main+0x6382d (parse_via @ parse_via.c:2179) UAF read at: 0x579fbd64b588
+[INCONSISTENCY mov write reg UAF] ip: main+0x6383c (parse_via @ parse_via.c:2179) UAF write at: 0x579fbd64b590
+[UNTRUSTEDPTRDEREF] ip: main+0x63386 (parse_via @ parse_via.c:2117) final_ea: 0x579fa50e85d0 base: 0x40 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3038 left stack [0x26,0x7ffcec784000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x6a75d (parse_via @ parse_via.c:2669) UAF write at: 0x579fbd64b540
+[INCONSISTENCY mov write reg UAF] ip: main+0x6a76e (parse_via @ parse_via.c:2670) UAF write at: 0x579fbd64b5d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x6a786 (parse_via @ parse_via.c:2671) UAF write at: 0x579fbd64b5d8
+[INCONSISTENCY mov read UAF] ip: main+0x6a790 (parse_via @ parse_via.c:2672) UAF read at: 0x579fbd64b5a0
+[INCONSISTENCY mov write reg UAF] ip: main+0x12139 (get_hdr_field @ msg_parser.c:125) UAF write at: 0x7ffcec7a3348
+[INCONSISTENCY mov read] ip: main+0x1213d (get_hdr_field @ msg_parser.c:126) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1213d (get_hdr_field @ msg_parser.c:126) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3300 cell_owner: 28 value_owner: 11
+[INCONSISTENCY mov read UAF] ip: main+0x12141 (get_hdr_field @ msg_parser.c:126) UAF read at: 0x579fbd64b540
+[INCONSISTENCY mov read] ip: main+0x12493 (get_hdr_field @ msg_parser.c:131) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x12493 (get_hdr_field @ msg_parser.c:131) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read] ip: main+0x1249a (get_hdr_field @ msg_parser.c:131) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1249a (get_hdr_field @ msg_parser.c:131) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3300 cell_owner: 28 value_owner: 11
+[INCONSISTENCY mov write reg UAF] ip: main+0x1249e (get_hdr_field @ msg_parser.c:131) UAF write at: 0x579fbd64b520
+first time found dangling pointer at: 7911 distance: 0
+[INCONSISTENCY mov read] ip: main+0x124a2 (get_hdr_field @ msg_parser.c:132) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x124a2 (get_hdr_field @ msg_parser.c:132) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x124a9 (get_hdr_field @ msg_parser.c:132) UAF read at: 0x579fbd64b4f8
+[INCONSISTENCY mov read] ip: main+0x124ad (get_hdr_field @ msg_parser.c:132) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x124ad (get_hdr_field @ msg_parser.c:132) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3300 cell_owner: 28 value_owner: 11
+[INCONSISTENCY mov write reg UAF] ip: main+0x124b1 (get_hdr_field @ msg_parser.c:132) UAF write at: 0x579fbd64b548
+[INCONSISTENCY mov read] ip: main+0x124b5 (get_hdr_field @ msg_parser.c:133) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x124b5 (get_hdr_field @ msg_parser.c:133) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x124bc (get_hdr_field @ msg_parser.c:133) UAF read at: 0x579fbd64b500
+[INCONSISTENCY mov read] ip: main+0x124bf (get_hdr_field @ msg_parser.c:133) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x124bf (get_hdr_field @ msg_parser.c:133) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3300 cell_owner: 28 value_owner: 11
+[INCONSISTENCY mov write reg UAF] ip: main+0x124c3 (get_hdr_field @ msg_parser.c:133) UAF write at: 0x579fbd64b550
+[INCONSISTENCY mov read] ip: main+0x124c6 (get_hdr_field @ msg_parser.c:134) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x124c6 (get_hdr_field @ msg_parser.c:134) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x124cd (get_hdr_field @ msg_parser.c:134) UAF read at: 0x579fbd64b508
+[INCONSISTENCY mov read UAF] ip: main+0x124d1 (get_hdr_field @ msg_parser.c:134) UAF read at: 0x7ffcec7a3348
+[INCONSISTENCY mov read] ip: main+0x124d8 (get_hdr_field @ msg_parser.c:134) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x124d8 (get_hdr_field @ msg_parser.c:134) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov write reg UAF] ip: main+0x124df (get_hdr_field @ msg_parser.c:134) UAF write at: 0x579fbd64b510
+[INCONSISTENCY mov read] ip: main+0x15907 (get_hdr_field @ msg_parser.c:277) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x15907 (get_hdr_field @ msg_parser.c:277) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x1590e (get_hdr_field @ msg_parser.c:277) UAF read at: 0x579fbd64b510
+[INCONSISTENCY mov read] ip: main+0x15915 (get_hdr_field @ msg_parser.c:277) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x15915 (get_hdr_field @ msg_parser.c:277) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x1591c (get_hdr_field @ msg_parser.c:277) UAF read at: 0x579fbd64b508
+[INCONSISTENCY mov read] ip: main+0x15920 (get_hdr_field @ msg_parser.c:277) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x15920 (get_hdr_field @ msg_parser.c:277) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x15927 (get_hdr_field @ msg_parser.c:277) UAF read at: 0x579fbd64b510
+[INCONSISTENCY mov read] ip: main+0x158f0 (get_hdr_field @ msg_parser.c:277) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x158f0 (get_hdr_field @ msg_parser.c:277) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x158f7 (get_hdr_field @ msg_parser.c:277) UAF read at: 0x579fbd64b510
+[INCONSISTENCY mov read] ip: main+0x158fd (get_hdr_field @ msg_parser.c:277) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x158fd (get_hdr_field @ msg_parser.c:277) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov write reg UAF] ip: main+0x15904 (get_hdr_field @ msg_parser.c:277) UAF write at: 0x579fbd64b510
+[INCONSISTENCY mov read] ip: main+0x1595d (get_hdr_field @ msg_parser.c:278) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1595d (get_hdr_field @ msg_parser.c:278) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov read UAF] ip: main+0x15964 (get_hdr_field @ msg_parser.c:278) UAF read at: 0x579fbd64b4f8
+[INCONSISTENCY mov read UAF] ip: main+0x15968 (get_hdr_field @ msg_parser.c:278) UAF read at: 0x7ffcec7a3348
+[INCONSISTENCY mov read] ip: main+0x1596f (get_hdr_field @ msg_parser.c:278) base: 0x7ffcec7a3380 pointee: 11 read from 28
+[CORRUPTED_PTR_LOAD] ip: main+0x1596f (get_hdr_field @ msg_parser.c:278) loaded: 0x579fbd64b4f0 from cell: 0x7ffcec7a3268 cell_owner: 28 value_owner: 26
+[INCONSISTENCY mov write reg UAF] ip: main+0x15976 (get_hdr_field @ msg_parser.c:278) UAF write at: 0x579fbd64b518
+[INCONSISTENCY mov read UAF] ip: main+0x15979 (get_hdr_field @ msg_parser.c:279) UAF read at: 0x7ffcec7a3348
+[INCONSISTENCY mov read UAF] ip: main+0x1618e (parse_headers @ msg_parser.c:337) UAF read at: 0x579fbd64b4f0
+[UNTRUSTEDPTRDEREF] ip: main+0x161ad (parse_headers @ msg_parser.c:337) final_ea: 0x579fa50db508 base: 0x8 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x18998 (parse_headers @ msg_parser.c:554) co: 4 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x1da96e (get_debug_level @ dprint.c:168) UAF write at: 0x7ffcec7a3368
+[INCONSISTENCY mov write reg UAF] ip: main+0x1da972 (get_debug_level @ dprint.c:168) UAF write at: 0x7ffcec7a3364
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3388 left stack [0x28,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x18cf1 (parse_headers @ msg_parser.c:556) co: 4 vo: -1
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3388 left stack [0x2a,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x19032 (parse_headers @ msg_parser.c:559) UAF read at: 0x579fbd64b520
+first time found dangling pointer at: 7911 distance: 192
+[INCONSISTENCY mov read UAF] ip: main+0x1904c (parse_headers @ msg_parser.c:560) UAF read at: 0x579fbd64b628
+[UNINITIALIZED mov read] ip: main+0x19a37 (parse_headers @ msg_parser.c:610) co: 4 vo: -1
+[ALLOC] malloc(0x40) -> 0x579fbd64b640 subject=43 at parse_headers @ msg_parser.c:328
+Store dangling pointer: 0x579fbd64b640 at: 0x7ffcec7a3560
+main+0x15df6 (parse_headers @ msg_parser.c:329) Using expired pointer: 0x579fbd64b640 from 0x7ffcec7a3560
+first time found dangling pointer at: 8220 distance: 1
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3218 left stack [0x31,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x41afc (parse_hname2 @ parse_hname2.c:310) RSP 0x7ffcec7a3338 left stack [0x32,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x14f4d (get_hdr_field @ msg_parser.c:251) base: 0x7ffcec7a34a0 pointee: 10 read from 11
+[CORRUPTED_PTR_LOAD] ip: main+0x14f4d (get_hdr_field @ msg_parser.c:251) loaded: 0x579fbd64b640 from cell: 0x7ffcec7a3388 cell_owner: 11 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x14f58 (get_hdr_field @ msg_parser.c:251) UAF write at: 0x579fbd64b658
+[INCONSISTENCY mov read] ip: main+0x14f5c (get_hdr_field @ msg_parser.c:255) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x14f5c (get_hdr_field @ msg_parser.c:255) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3390 cell_owner: 26 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x10e86 (q_memchr @ ut.h:417) UAF write at: 0x7ffcec7a3318
+first time found dangling pointer at: 8276 distance: 574
+[INCONSISTENCY mov write reg UAF] ip: main+0x10e8a (q_memchr @ ut.h:417) UAF write at: 0x7ffcec7a3314
+[INCONSISTENCY mov write reg UAF] ip: main+0x10e8d (q_memchr @ ut.h:417) UAF write at: 0x7ffcec7a3310
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3310 ip: main+0x10e90 (q_memchr @ ut.h:420)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3318 ip: main+0x10e93 (q_memchr @ ut.h:420)
+first time found dangling pointer at: 8276 distance: 578
+[INCONSISTENCY mov write reg UAF] ip: main+0x10e9a (q_memchr @ ut.h:420) UAF write at: 0x7ffcec7a3328
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3318 ip: main+0x10ebf (q_memchr @ ut.h:421)
+first time found dangling pointer at: 8276 distance: 582
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3318 ip: main+0x10ea0 (q_memchr @ ut.h:422)
+first time found dangling pointer at: 8276 distance: 585
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3314 ip: main+0x10eaa (q_memchr @ ut.h:422)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3318 ip: main+0x10eb4 (q_memchr @ ut.h:422)
+first time found dangling pointer at: 8276 distance: 768
+[INCONSISTENCY mov read] ip: main+0x14f81 (get_hdr_field @ msg_parser.c:256) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x14f81 (get_hdr_field @ msg_parser.c:256) loaded: 0x579fbd64c250 from cell: 0x7ffcec7a3410 cell_owner: 26 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x14f93 (get_hdr_field @ msg_parser.c:266) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x14f93 (get_hdr_field @ msg_parser.c:266) loaded: 0x579fbd64c251 from cell: 0x7ffcec7a3410 cell_owner: 26 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x14f9e (get_hdr_field @ msg_parser.c:267) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x14f9e (get_hdr_field @ msg_parser.c:267) loaded: 0x579fbd64c251 from cell: 0x7ffcec7a3410 cell_owner: 26 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x1545a (get_hdr_field @ msg_parser.c:267) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x1545a (get_hdr_field @ msg_parser.c:267) loaded: 0x579fbd64c251 from cell: 0x7ffcec7a3410 cell_owner: 26 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x1546c (get_hdr_field @ msg_parser.c:267) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x1546c (get_hdr_field @ msg_parser.c:267) loaded: 0x579fbd64c251 from cell: 0x7ffcec7a3410 cell_owner: 26 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x1547e (get_hdr_field @ msg_parser.c:268) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x1547e (get_hdr_field @ msg_parser.c:268) loaded: 0x579fbd64c251 from cell: 0x7ffcec7a3410 cell_owner: 26 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x15489 (get_hdr_field @ msg_parser.c:269) base: 0x7ffcec7a34a0 pointee: 10 read from 11
+[CORRUPTED_PTR_LOAD] ip: main+0x15489 (get_hdr_field @ msg_parser.c:269) loaded: 0x579fbd64b640 from cell: 0x7ffcec7a3388 cell_owner: 11 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x15490 (get_hdr_field @ msg_parser.c:269) UAF read at: 0x579fbd64b658
+[INCONSISTENCY mov read] ip: main+0x15494 (get_hdr_field @ msg_parser.c:269) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x15494 (get_hdr_field @ msg_parser.c:269) loaded: 0x579fbd64c251 from cell: 0x7ffcec7a3410 cell_owner: 26 value_owner: 10
+[INCONSISTENCY mov read] ip: main+0x1549e (get_hdr_field @ msg_parser.c:269) base: 0x7ffcec7a34a0 pointee: 10 read from 11
+[CORRUPTED_PTR_LOAD] ip: main+0x1549e (get_hdr_field @ msg_parser.c:269) loaded: 0x579fbd64b640 from cell: 0x7ffcec7a3388 cell_owner: 11 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x154a5 (get_hdr_field @ msg_parser.c:269) UAF write at: 0x579fbd64b660
+[UNINITIALIZED mov read] ip: main+0x17d65 (parse_headers @ msg_parser.c:441) co: 4 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x19a6f (parse_headers @ msg_parser.c:614) UAF write at: 0x579fbd64b528
+first time found dangling pointer at: 9200 distance: 0
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x15de1 (parse_headers @ msg_parser.c:327) add rax, 0x40 id before: 7 after: -1 [unmapped] value: 0x579fbd64c291
+[ALLOC] malloc(0x40) -> 0x579fbd64b690 subject=50 at parse_headers @ msg_parser.c:328
+Store dangling pointer: 0x579fbd64b690 at: 0x7ffcec7a3560
+main+0x15df6 (parse_headers @ msg_parser.c:329) Using expired pointer: 0x579fbd64b690 from 0x7ffcec7a3560
+first time found dangling pointer at: 8220 distance: 1002
+[INCONSISTENCY mov write reg UAF] ip: main+0x10fb6 (get_hdr_field @ msg_parser.c:74) UAF write at: 0x7ffcec7a3398
+[INCONSISTENCY mov write reg UAF] ip: main+0x10fbd (get_hdr_field @ msg_parser.c:74) UAF write at: 0x7ffcec7a3390
+[INCONSISTENCY mov write reg UAF] ip: main+0x10fc4 (get_hdr_field @ msg_parser.c:74) UAF write at: 0x7ffcec7a3388
+first time found dangling pointer at: 8252 distance: 1001
+[INCONSISTENCY mov read UAF] ip: main+0x10fd3 (get_hdr_field @ msg_parser.c:84) UAF read at: 0x7ffcec7a3398
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3218 left stack [0x38,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x41afc (parse_hname2 @ parse_hname2.c:310) RSP 0x7ffcec7a3338 left stack [0x39,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x1415c (get_hdr_field @ msg_parser.c:179) base: 0x7ffcec7a34a0 pointee: 10 read from 11
+[INCONSISTENCY mov write reg UAF] ip: main+0x14167 (get_hdr_field @ msg_parser.c:179) UAF write at: 0x579fbd64b6a8
+[INCONSISTENCY mov read] ip: main+0x14172 (get_hdr_field @ msg_parser.c:180) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[INCONSISTENCY mov write reg UAF] ip: main+0x31319 (parse_content_length @ parse_content.c:216) UAF write at: 0x7ffcec7a3288
+[INCONSISTENCY mov write reg UAF] ip: main+0x31320 (parse_content_length @ parse_content.c:216) UAF write at: 0x7ffcec7a3280
+[INCONSISTENCY mov write reg UAF] ip: main+0x31327 (parse_content_length @ parse_content.c:216) UAF write at: 0x7ffcec7a3278
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3288 ip: main+0x3132e (parse_content_length @ parse_content.c:221)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3288 ip: main+0x31339 (parse_content_length @ parse_content.c:222)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3278 ip: main+0x31b5e (parse_content_length @ parse_content.c:272)
+[INCONSISTENCY mov read] ip: main+0x144ba (get_hdr_field @ msg_parser.c:185) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[INCONSISTENCY mov read] ip: main+0x144c5 (get_hdr_field @ msg_parser.c:185) base: 0x7ffcec7a34a0 pointee: 10 read from 11
+[INCONSISTENCY mov write reg UAF] ip: main+0x144cc (get_hdr_field @ msg_parser.c:185) UAF write at: 0x579fbd64b6c0
+[INCONSISTENCY mov read] ip: main+0x144d0 (get_hdr_field @ msg_parser.c:186) base: 0x7ffcec7a34a0 pointee: 10 read from 11
+[INCONSISTENCY mov read UAF] ip: main+0x144d7 (get_hdr_field @ msg_parser.c:186) UAF read at: 0x579fbd64b6a8
+[INCONSISTENCY mov read] ip: main+0x144e2 (get_hdr_field @ msg_parser.c:186) base: 0x7ffcec7a34a0 pointee: 10 read from 11
+[INCONSISTENCY mov write reg UAF] ip: main+0x144e9 (get_hdr_field @ msg_parser.c:186) UAF write at: 0x579fbd64b6b0
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3338 left stack [0x3c,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x17db1 (parse_headers @ msg_parser.c:445) co: 4 vo: -1
+[ALLOC] malloc(0x40) -> 0x579fbd64b6e0 subject=60 at parse_headers @ msg_parser.c:328
+Store dangling pointer: 0x579fbd64b6e0 at: 0x7ffcec7a3560
+main+0x15df6 (parse_headers @ msg_parser.c:329) Using expired pointer: 0x579fbd64b6e0 from 0x7ffcec7a3560
+first time found dangling pointer at: 8220 distance: 2005
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3338 left stack [0x40,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x11672 (get_hdr_field @ msg_parser.c:92) base: 0x7ffcec7a34a0 pointee: 10 read from 11
+[INCONSISTENCY mov write imm UAF] ip: main+0x11679 (get_hdr_field @ msg_parser.c:92) UAF write at: 0x579fbd64b6e0
+[INCONSISTENCY mov read] ip: main+0x1167f (get_hdr_field @ msg_parser.c:93) base: 0x7ffcec7a34a0 pointee: 10 read from 26
+[FREE] free(0x579fbd64b6e0) subject=60 at parse_headers @ msg_parser.c:345
+[UNINITIALIZED mov read] ip: main+0x7ac43 (parse_sdp @ sdp.c:726) co: 4 vo: -1
+[INCONSISTENCY mov read] ip: main+0x22146 (get_body @ msg_parser.c:1377) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x22146 (get_body @ msg_parser.c:1377) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3428 cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov read] ip: main+0x15d48 (parse_headers @ msg_parser.c:313) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x15d48 (parse_headers @ msg_parser.c:313) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3308 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x15d56 (parse_headers @ msg_parser.c:313) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x15d56 (parse_headers @ msg_parser.c:313) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3308 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x15d6c (parse_headers @ msg_parser.c:314) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x15d6c (parse_headers @ msg_parser.c:314) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3308 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x15d7e (parse_headers @ msg_parser.c:316) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x15d7e (parse_headers @ msg_parser.c:316) loaded: 0xffffffff00000000 from cell: 0x7ffcec7a32fc cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x19a94 (parse_headers @ msg_parser.c:326) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x19a94 (parse_headers @ msg_parser.c:326) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3308 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x19aa9 (parse_headers @ msg_parser.c:326) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x19aa9 (parse_headers @ msg_parser.c:326) loaded: 0xffffffffffffffff from cell: 0x7ffcec7a3300 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x19ab7 (parse_headers @ msg_parser.c:625) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x19ab7 (parse_headers @ msg_parser.c:625) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3308 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x19ac9 (parse_headers @ msg_parser.c:626) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x19ac9 (parse_headers @ msg_parser.c:626) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3308 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x19ad9 (parse_headers @ msg_parser.c:631) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x19ad9 (parse_headers @ msg_parser.c:631) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3308 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x19aee (parse_headers @ msg_parser.c:631) base: 0x7ffcec7a33e0 pointee: 26 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x19aee (parse_headers @ msg_parser.c:631) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3308 cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x2247a (get_body @ msg_parser.c:1382) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x2247a (get_body @ msg_parser.c:1382) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3428 cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov read] ip: main+0x2248d (get_body @ msg_parser.c:1383) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x2248d (get_body @ msg_parser.c:1383) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3428 cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov read] ip: main+0x2249b (get_body @ msg_parser.c:1383) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x2249b (get_body @ msg_parser.c:1383) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3428 cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov write reg UAF] ip: main+0x224ac (get_body @ msg_parser.c:1383) UAF write at: 0x7ffcec7a3484
+[INCONSISTENCY mov read UAF] ip: main+0x224af (get_body @ msg_parser.c:1389) UAF read at: 0x7ffcec7a3484
+[INCONSISTENCY mov read] ip: main+0x224b5 (get_body @ msg_parser.c:1389) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x224b5 (get_body @ msg_parser.c:1389) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3428 cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov read] ip: main+0x227df (get_body @ msg_parser.c:1389) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x227df (get_body @ msg_parser.c:1389) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3428 cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov write imm UAF] ip: main+0x22808 (get_body @ msg_parser.c:1390) UAF write at: 0x7ffcec7a348c
+[INCONSISTENCY mov read] ip: main+0x22d81 (get_body @ msg_parser.c:1402) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x22d81 (get_body @ msg_parser.c:1402) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3428 cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov read UAF] ip: main+0x22d8f (get_body @ msg_parser.c:1402) UAF read at: 0x7ffcec7a348c
+[INCONSISTENCY mov read] ip: main+0x3310e (parse_content_type_hdr @ parse_content.c:419) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov read] ip: main+0x33477 (parse_content_type_hdr @ parse_content.c:430) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov read UAF] ip: main+0x33485 (parse_content_type_hdr @ parse_content.c:430) UAF read at: 0x579fbd64b670
+[INCONSISTENCY mov read] ip: main+0x334a5 (parse_content_type_hdr @ parse_content.c:434) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov read UAF] ip: main+0x334b3 (parse_content_type_hdr @ parse_content.c:434) UAF read at: 0x579fbd64b658
+[INCONSISTENCY mov read] ip: main+0x334b7 (parse_content_type_hdr @ parse_content.c:434) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov read UAF] ip: main+0x334c5 (parse_content_type_hdr @ parse_content.c:434) UAF read at: 0x579fbd64b660
+[INCONSISTENCY mov write reg UAF] ip: main+0x334cd (parse_content_type_hdr @ parse_content.c:434) UAF write at: 0x7ffcec7a3480
+[INCONSISTENCY mov read] ip: main+0x334d1 (parse_content_type_hdr @ parse_content.c:435) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov read UAF] ip: main+0x334df (parse_content_type_hdr @ parse_content.c:435) UAF read at: 0x579fbd64b658
+[INCONSISTENCY mov read UAF] ip: main+0x334e7 (parse_content_type_hdr @ parse_content.c:435) UAF read at: 0x7ffcec7a3480
+[INCONSISTENCY mov read] ip: main+0x32290 (decode_mime_type @ parse_content.c:293) base: 0x7ffcec7a33f0 pointee: 65 read from 61
+[CORRUPTED_PTR_LOAD] ip: main+0x32290 (decode_mime_type @ parse_content.c:293) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a3348 cell_owner: 61 value_owner: 67
+[INCONSISTENCY mov read] ip: main+0x322a2 (decode_mime_type @ parse_content.c:296) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x322a2 (decode_mime_type @ parse_content.c:296) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x322af (decode_mime_type @ parse_content.c:296) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x322af (decode_mime_type @ parse_content.c:296) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x322ba (decode_mime_type @ parse_content.c:296) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x322ba (decode_mime_type @ parse_content.c:296) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x322c5 (decode_mime_type @ parse_content.c:297) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x322c5 (decode_mime_type @ parse_content.c:297) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x322ee (decode_mime_type @ parse_content.c:299) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x322ee (decode_mime_type @ parse_content.c:299) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x322ff (decode_mime_type @ parse_content.c:303) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x322ff (decode_mime_type @ parse_content.c:303) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32328 (decode_mime_type @ parse_content.c:308) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32328 (decode_mime_type @ parse_content.c:308) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32430 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32430 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[UNTRUSTEDPTRDEREF] ip: main+0x32446 (decode_mime_type @ parse_content.c:310) final_ea: 0x763cbca0f6d8 base: 0x763cbca0f6d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x32449 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32449 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[UNTRUSTEDPTRDEREF] ip: main+0x3245a (decode_mime_type @ parse_content.c:310) final_ea: 0x763ca77c2982 base: 0x763ca77c2982 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x32356 (decode_mime_type @ parse_content.c:311) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32356 (decode_mime_type @ parse_content.c:311) loaded: 0xec7a3ef800000000 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[UNTRUSTEDPTRDEREF] ip: main+0x32361 (decode_mime_type @ parse_content.c:311) final_ea: 0x763cbca0f6d8 base: 0x763cbca0f6d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x32364 (decode_mime_type @ parse_content.c:311) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32364 (decode_mime_type @ parse_content.c:311) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[UNTRUSTEDPTRDEREF] ip: main+0x32375 (decode_mime_type @ parse_content.c:311) final_ea: 0x763ca77c2982 base: 0x763ca77c2982 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x32384 (decode_mime_type @ parse_content.c:311) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32384 (decode_mime_type @ parse_content.c:311) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32390 (decode_mime_type @ parse_content.c:311) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32390 (decode_mime_type @ parse_content.c:311) loaded: 0xec7a3ef800000000 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x3233c (decode_mime_type @ parse_content.c:312) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x3233c (decode_mime_type @ parse_content.c:312) loaded: 0xec7a3ef800000000 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x323d5 (decode_mime_type @ parse_content.c:314) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x323d5 (decode_mime_type @ parse_content.c:314) loaded: 0xec7a3ef800000013 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x323db (decode_mime_type @ parse_content.c:315) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x323db (decode_mime_type @ parse_content.c:315) loaded: 0xec7a3ef800000013 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x323f9 (decode_mime_type @ parse_content.c:316) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x323f9 (decode_mime_type @ parse_content.c:316) loaded: 0xec7a3ef800000013 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x3246b (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x3246b (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x3247a (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x3247a (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32489 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32489 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32498 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32498 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x324a7 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x324a7 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x324b6 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x324b6 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x324c5 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x324c5 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x324d4 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x324d4 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x324e3 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x324e3 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x324f2 (decode_mime_type @ parse_content.c:310) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x324f2 (decode_mime_type @ parse_content.c:310) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32501 (decode_mime_type @ parse_content.c:328) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32501 (decode_mime_type @ parse_content.c:328) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32512 (decode_mime_type @ parse_content.c:328) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32512 (decode_mime_type @ parse_content.c:328) loaded: 0x579fbd64c240 from cell: 0x7ffcec7a33a0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32520 (decode_mime_type @ parse_content.c:330) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32520 (decode_mime_type @ parse_content.c:330) loaded: 0xbd64c24b00000003 from cell: 0x7ffcec7a33ac cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32528 (decode_mime_type @ parse_content.c:330) base: 0x7ffcec7a33f0 pointee: 65 read from 68
+[CORRUPTED_PTR_LOAD] ip: main+0x32528 (decode_mime_type @ parse_content.c:330) loaded: 0x7ffcec7a346c from cell: 0x7ffcec7a3338 cell_owner: 68 value_owner: 67
+[INCONSISTENCY mov read] ip: main+0x32538 (decode_mime_type @ parse_content.c:334) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32538 (decode_mime_type @ parse_content.c:334) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32545 (decode_mime_type @ parse_content.c:334) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32545 (decode_mime_type @ parse_content.c:334) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32550 (decode_mime_type @ parse_content.c:334) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32550 (decode_mime_type @ parse_content.c:334) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x3255b (decode_mime_type @ parse_content.c:335) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x3255b (decode_mime_type @ parse_content.c:335) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32584 (decode_mime_type @ parse_content.c:337) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32584 (decode_mime_type @ parse_content.c:337) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32595 (decode_mime_type @ parse_content.c:337) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32595 (decode_mime_type @ parse_content.c:337) loaded: 0x579fbd64c24b from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x325b3 (decode_mime_type @ parse_content.c:341) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x325b3 (decode_mime_type @ parse_content.c:341) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x325c0 (decode_mime_type @ parse_content.c:341) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x325c0 (decode_mime_type @ parse_content.c:341) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x325cb (decode_mime_type @ parse_content.c:341) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x325cb (decode_mime_type @ parse_content.c:341) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x325d6 (decode_mime_type @ parse_content.c:342) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x325d6 (decode_mime_type @ parse_content.c:342) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x325ff (decode_mime_type @ parse_content.c:344) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x325ff (decode_mime_type @ parse_content.c:344) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32610 (decode_mime_type @ parse_content.c:348) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32610 (decode_mime_type @ parse_content.c:348) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32642 (decode_mime_type @ parse_content.c:353) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32642 (decode_mime_type @ parse_content.c:353) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x3274a (decode_mime_type @ parse_content.c:355) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x3274a (decode_mime_type @ parse_content.c:355) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[UNTRUSTEDPTRDEREF] ip: main+0x32760 (decode_mime_type @ parse_content.c:355) final_ea: 0x763cbca0f6d8 base: 0x763cbca0f6d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x32763 (decode_mime_type @ parse_content.c:355) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32763 (decode_mime_type @ parse_content.c:355) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[UNTRUSTEDPTRDEREF] ip: main+0x32774 (decode_mime_type @ parse_content.c:355) final_ea: 0x763ca77c29a6 base: 0x763ca77c29a6 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x32670 (decode_mime_type @ parse_content.c:356) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32670 (decode_mime_type @ parse_content.c:356) loaded: 0xec7a3ef800000000 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[UNTRUSTEDPTRDEREF] ip: main+0x3267b (decode_mime_type @ parse_content.c:356) final_ea: 0x763cbca0f6d8 base: 0x763cbca0f6d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x3267e (decode_mime_type @ parse_content.c:356) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x3267e (decode_mime_type @ parse_content.c:356) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[UNTRUSTEDPTRDEREF] ip: main+0x3268f (decode_mime_type @ parse_content.c:356) final_ea: 0x763ca77c29a6 base: 0x763ca77c29a6 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x3269e (decode_mime_type @ parse_content.c:356) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x3269e (decode_mime_type @ parse_content.c:356) loaded: 0x579fbd64c24c from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x326aa (decode_mime_type @ parse_content.c:356) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x326aa (decode_mime_type @ parse_content.c:356) loaded: 0xec7a3ef800000000 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32656 (decode_mime_type @ parse_content.c:357) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32656 (decode_mime_type @ parse_content.c:357) loaded: 0xec7a3ef800000000 from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x326ef (decode_mime_type @ parse_content.c:358) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x326ef (decode_mime_type @ parse_content.c:358) loaded: 0xec7a3ef80000000d from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x326f5 (decode_mime_type @ parse_content.c:359) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x326f5 (decode_mime_type @ parse_content.c:359) loaded: 0xec7a3ef80000000d from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32713 (decode_mime_type @ parse_content.c:360) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32713 (decode_mime_type @ parse_content.c:360) loaded: 0xec7a3ef80000000d from cell: 0x7ffcec7a33bc cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x3281b (decode_mime_type @ parse_content.c:372) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x3281b (decode_mime_type @ parse_content.c:372) loaded: 0x579fbd64c24f from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32829 (decode_mime_type @ parse_content.c:374) base: 0x7ffcec7a33f0 pointee: 65 read from 68
+[CORRUPTED_PTR_LOAD] ip: main+0x32829 (decode_mime_type @ parse_content.c:374) loaded: 0x7ffcec7a346c from cell: 0x7ffcec7a3338 cell_owner: 68 value_owner: 67
+[INCONSISTENCY mov read] ip: main+0x32837 (decode_mime_type @ parse_content.c:374) base: 0x7ffcec7a33f0 pointee: 65 read from 68
+[CORRUPTED_PTR_LOAD] ip: main+0x32837 (decode_mime_type @ parse_content.c:374) loaded: 0x7ffcec7a346c from cell: 0x7ffcec7a3338 cell_owner: 68 value_owner: 67
+[INCONSISTENCY mov read] ip: main+0x32847 (decode_mime_type @ parse_content.c:378) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32847 (decode_mime_type @ parse_content.c:378) loaded: 0x579fbd64c24f from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x32893 (decode_mime_type @ parse_content.c:384) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32893 (decode_mime_type @ parse_content.c:384) loaded: 0x579fbd64c24f from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x328cf (decode_mime_type @ parse_content.c:388) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x328cf (decode_mime_type @ parse_content.c:388) loaded: 0x579fbd64c24f from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0x328eb (decode_mime_type @ parse_content.c:392) base: 0x7ffcec7a33f0 pointee: 65 read from 68
+[CORRUPTED_PTR_LOAD] ip: main+0x328eb (decode_mime_type @ parse_content.c:392) loaded: 0x7ffcec7a346c from cell: 0x7ffcec7a3338 cell_owner: 68 value_owner: 67
+[INCONSISTENCY mov read] ip: main+0x32c8e (decode_mime_type @ parse_content.c:398) base: 0x7ffcec7a33f0 pointee: 65 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x32c8e (decode_mime_type @ parse_content.c:398) loaded: 0x579fbd64c24f from cell: 0x7ffcec7a33b0 cell_owner: 26 value_owner: 65
+[INCONSISTENCY mov write reg UAF] ip: main+0x334f6 (parse_content_type_hdr @ parse_content.c:435) UAF write at: 0x7ffcec7a3478
+[INCONSISTENCY mov read UAF] ip: main+0x334fa (parse_content_type_hdr @ parse_content.c:436) UAF read at: 0x7ffcec7a3478
+[INCONSISTENCY mov read UAF] ip: main+0x33505 (parse_content_type_hdr @ parse_content.c:438) UAF read at: 0x7ffcec7a3478
+[INCONSISTENCY mov read] ip: main+0x33827 (parse_content_type_hdr @ parse_content.c:442) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov read] ip: main+0x33834 (parse_content_type_hdr @ parse_content.c:442) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov read] ip: main+0x33b56 (parse_content_type_hdr @ parse_content.c:447) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov read] ip: main+0x33b5b (parse_content_type_hdr @ parse_content.c:447) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[INCONSISTENCY mov write reg UAF] ip: main+0x33b69 (parse_content_type_hdr @ parse_content.c:447) UAF write at: 0x579fbd64b670
+[INCONSISTENCY mov read] ip: main+0x33b6d (parse_content_type_hdr @ parse_content.c:448) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[ALLOC] malloc(0x40) -> 0x579fbd64b6e0 subject=70 at new_sdp @ sdp.c:51
+[INCONSISTENCY mov write reg UAF] ip: main+0x72ef6 (new_sdp @ sdp.c:51) UAF write at: 0x7ffcec7a3488
+[INCONSISTENCY mov read UAF] ip: main+0x72efa (new_sdp @ sdp.c:52) UAF read at: 0x7ffcec7a3488
+[INCONSISTENCY mov read UAF] ip: main+0x73203 (new_sdp @ sdp.c:56) UAF read at: 0x7ffcec7a3488
+[INCONSISTENCY mov read UAF] ip: main+0x73219 (new_sdp @ sdp.c:57) UAF read at: 0x7ffcec7a3488
+[INCONSISTENCY mov read UAF] ip: main+0x73223 (new_sdp @ sdp.c:58) UAF read at: 0x7ffcec7a3488
+[INCONSISTENCY mov read] ip: main+0x73232 (new_sdp @ sdp.c:59) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[INCONSISTENCY mov read UAF] ip: main+0x73239 (new_sdp @ sdp.c:59) UAF read at: 0x7ffcec7a3488
+[INCONSISTENCY mov write reg UAF] ip: main+0x76a4b (parse_sdp_session @ sdp.c:360) UAF write at: 0x7ffcec7a3298
+[INCONSISTENCY mov write reg UAF] ip: main+0x76a52 (parse_sdp_session @ sdp.c:360) UAF write at: 0x7ffcec7a3294
+[INCONSISTENCY mov write reg UAF] ip: main+0x76a58 (parse_sdp_session @ sdp.c:360) UAF write at: 0x7ffcec7a3288
+[INCONSISTENCY mov write reg UAF] ip: main+0x76a5f (parse_sdp_session @ sdp.c:360) UAF write at: 0x7ffcec7a3280
+[INCONSISTENCY mov read UAF] ip: main+0x76a66 (parse_sdp_session @ sdp.c:361) UAF read at: 0x7ffcec7a3298
+[INCONSISTENCY mov read UAF] ip: main+0x76aaf (parse_sdp_session @ sdp.c:381) UAF read at: 0x7ffcec7a3280
+[INCONSISTENCY mov read UAF] ip: main+0x76ab6 (parse_sdp_session @ sdp.c:381) UAF read at: 0x7ffcec7a3298
+[INCONSISTENCY mov read] ip: main+0x76ad6 (parse_sdp_session @ sdp.c:395) base: 0x7ffcec7a34c0 pointee: 42 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x76ad6 (parse_sdp_session @ sdp.c:395) loaded: 0x579fbd64c267 from cell: 0x7ffcec7a33d0 cell_owner: 26 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x76add (parse_sdp_session @ sdp.c:395) base: 0x7ffcec7a34c0 pointee: 42 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x76add (parse_sdp_session @ sdp.c:395) loaded: 0x1c from cell: 0x7ffcec7a33d8 cell_owner: 26 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x76aec (parse_sdp_session @ sdp.c:396) base: 0x7ffcec7a34c0 pointee: 42 read from 26
+[CORRUPTED_PTR_LOAD] ip: main+0x76aec (parse_sdp_session @ sdp.c:396) loaded: 0x579fbd64c267 from cell: 0x7ffcec7a33d0 cell_owner: 26 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x76af3 (parse_sdp_session @ sdp.c:396) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x76af3 (parse_sdp_session @ sdp.c:396) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3460 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c0b2 (find_sdp_line @ sdp_helpr_funcs.c:671) UAF write at: 0x7ffcec7a3238
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c0b6 (find_sdp_line @ sdp_helpr_funcs.c:671) UAF write at: 0x7ffcec7a3230
+[INCONSISTENCY mov read UAF] ip: main+0x8c0bf (find_sdp_line @ sdp_helpr_funcs.c:674) UAF read at: 0x7ffcec7a322c
+[INCONSISTENCY mov read UAF] ip: main+0x8c0c9 (find_sdp_line @ sdp_helpr_funcs.c:676) UAF read at: 0x7ffcec7a3238
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c0cd (find_sdp_line @ sdp_helpr_funcs.c:676) UAF write at: 0x7ffcec7a3248
+[INCONSISTENCY mov read UAF] ip: main+0x8c0d1 (find_sdp_line @ sdp_helpr_funcs.c:678) UAF read at: 0x7ffcec7a3248
+[INCONSISTENCY mov read UAF] ip: main+0x8c0e2 (find_sdp_line @ sdp_helpr_funcs.c:680) UAF read at: 0x7ffcec7a3230
+[INCONSISTENCY mov read UAF] ip: main+0x8c0ed (find_sdp_line @ sdp_helpr_funcs.c:680) UAF read at: 0x7ffcec7a3248
+[CORRUPTED_PTR_LOAD] ip: main+0x13a186 (ser_memmem @ ut.c:446) loaded: 0x579fbd64c267 from cell: 0x7ffcec7a31e8 cell_owner: 73 value_owner: 72
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a18a (ser_memmem @ ut.c:446) UAF write at: 0x7ffcec7a3208
+[CORRUPTED_PTR_LOAD] ip: main+0x13a18e (ser_memmem @ ut.c:449) loaded: 0x579fa51af100 from cell: 0x7ffcec7a31e0 cell_owner: 73 value_owner: 72
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a192 (ser_memmem @ ut.c:449) UAF write at: 0x7ffcec7a3200
+[CORRUPTED_PTR_LOAD] ip: main+0x13a196 (ser_memmem @ ut.c:452) loaded: 0x1c from cell: 0x7ffcec7a31d8 cell_owner: 73 value_owner: 72
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x13a1a1 (ser_memmem @ ut.c:452)
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a1a8 (ser_memmem @ ut.c:452) UAF write at: 0x7ffcec7a31f8
+first time found dangling pointer at: 6705 distance: 5217
+[CORRUPTED_PTR_LOAD] ip: main+0x13a1ac (ser_memmem @ ut.c:455) loaded: 0x579fbd64c267 from cell: 0x7ffcec7a31e8 cell_owner: 73 value_owner: 72
+[CORRUPTED_PTR_LOAD] ip: main+0x13a1b3 (ser_memmem @ ut.c:455) loaded: 0x579fa51af100 from cell: 0x7ffcec7a31e0 cell_owner: 73 value_owner: 72
+[CORRUPTED_PTR_LOAD] ip: main+0x13a1ba (ser_memmem @ ut.c:455) loaded: 0x1c from cell: 0x7ffcec7a31d8 cell_owner: 73 value_owner: 72
+[CORRUPTED_PTR_LOAD] ip: main+0x13a1c1 (ser_memmem @ ut.c:455) loaded: 0x2 from cell: 0x7ffcec7a31d0 cell_owner: 73 value_owner: 72
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x13a207 (ser_memmem @ ut.c:458)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a31f8 ip: main+0x13a20b (ser_memmem @ ut.c:458)
+first time found dangling pointer at: 6705 distance: 5227
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x13a1cf (ser_memmem @ ut.c:459)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3200 ip: main+0x13a1d6 (ser_memmem @ ut.c:459)
+[UNINITIALIZED mov read] ip: main+0x13a1da (ser_memmem @ ut.c:459) co: 2 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x13a1e1 (ser_memmem @ ut.c:460) loaded: 0x2 from cell: 0x7ffcec7a31d0 cell_owner: 73 value_owner: 72
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3200 ip: main+0x13a1e5 (ser_memmem @ ut.c:460)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x13a1e9 (ser_memmem @ ut.c:460)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3208 ip: main+0x13a1fc (ser_memmem @ ut.c:461)
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3218 left stack [0x4b,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c105 (find_sdp_line @ sdp_helpr_funcs.c:680) UAF write at: 0x7ffcec7a3240
+[INCONSISTENCY mov read UAF] ip: main+0x8c109 (find_sdp_line @ sdp_helpr_funcs.c:681) UAF read at: 0x7ffcec7a3240
+[INCONSISTENCY mov read UAF] ip: main+0x8c117 (find_sdp_line @ sdp_helpr_funcs.c:687) UAF read at: 0x7ffcec7a3240
+[INCONSISTENCY mov read UAF] ip: main+0x8c135 (find_sdp_line @ sdp_helpr_funcs.c:688) UAF read at: 0x7ffcec7a3240
+[STACK PIVOT] ip: main+0x8c161 (find_sdp_line @ sdp_helpr_funcs.c:698) RSP 0x7ffcec7a3258 left stack [0x4c,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x76b0b (parse_sdp_session @ sdp.c:397) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x76b0b (parse_sdp_session @ sdp.c:397) loaded: 0x579fbd64c267 from cell: 0x7ffcec7a3458 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x76e56 (parse_sdp_session @ sdp.c:402) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x76e56 (parse_sdp_session @ sdp.c:402) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3460 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x76e5a (parse_sdp_session @ sdp.c:402) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x76e5a (parse_sdp_session @ sdp.c:402) loaded: 0x579fbd64c267 from cell: 0x7ffcec7a3458 cell_owner: 69 value_owner: 42
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3218 left stack [0x4f,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x8c161 (find_sdp_line @ sdp_helpr_funcs.c:698) RSP 0x7ffcec7a3258 left stack [0x50,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x76e72 (parse_sdp_session @ sdp.c:403) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x76e72 (parse_sdp_session @ sdp.c:403) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3450 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x771bd (parse_sdp_session @ sdp.c:408) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x771bd (parse_sdp_session @ sdp.c:408) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3460 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x771c1 (parse_sdp_session @ sdp.c:408) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x771c1 (parse_sdp_session @ sdp.c:408) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3450 cell_owner: 69 value_owner: 42
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3218 left stack [0x53,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x8c161 (find_sdp_line @ sdp_helpr_funcs.c:698) RSP 0x7ffcec7a3258 left stack [0x54,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x771d9 (parse_sdp_session @ sdp.c:409) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x771d9 (parse_sdp_session @ sdp.c:409) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x77524 (parse_sdp_session @ sdp.c:414) UAF read at: 0x7ffcec7a3288
+[INCONSISTENCY mov read UAF] ip: main+0x7752b (parse_sdp_session @ sdp.c:414) UAF read at: 0x7ffcec7a3294
+[INCONSISTENCY mov read UAF] ip: main+0x77531 (parse_sdp_session @ sdp.c:414) UAF read at: 0x7ffcec7a3280
+[INCONSISTENCY mov write reg UAF] ip: main+0x7326c (add_sdp_session @ sdp.c:68) UAF write at: 0x7ffcec7a31b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x73273 (add_sdp_session @ sdp.c:68) UAF write at: 0x7ffcec7a31b4
+[INCONSISTENCY mov write reg UAF] ip: main+0x73279 (add_sdp_session @ sdp.c:68) UAF write at: 0x7ffcec7a31a8
+[INCONSISTENCY mov write imm UAF] ip: main+0x73280 (add_sdp_session @ sdp.c:72) UAF write at: 0x7ffcec7a321c
+[INCONSISTENCY mov read UAF] ip: main+0x73287 (add_sdp_session @ sdp.c:73) UAF read at: 0x7ffcec7a321c
+[ALLOC] malloc(0xa8) -> 0x579fbd64b730 subject=85 at add_sdp_session @ sdp.c:73
+Store dangling pointer: 0x579fbd64b730 at: 0x7ffcec7a3210
+[INCONSISTENCY mov write reg UAF] ip: main+0x73294 (add_sdp_session @ sdp.c:73) UAF write at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x73298 (add_sdp_session @ sdp.c:74) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 1
+main+0x73298 (add_sdp_session @ sdp.c:74) Using expired pointer: 0x579fbd64b730 from 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x735b3 (add_sdp_session @ sdp.c:78) UAF read at: 0x7ffcec7a321c
+[INCONSISTENCY mov read UAF] ip: main+0x735b9 (add_sdp_session @ sdp.c:78) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 5
+[INCONSISTENCY mov read UAF] ip: main+0x735ca (add_sdp_session @ sdp.c:80) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0x735ce (add_sdp_session @ sdp.c:80) UAF read at: 0x7ffcec7a31b4
+[INCONSISTENCY mov write reg UAF] ip: main+0x735d4 (add_sdp_session @ sdp.c:80) UAF write at: 0x579fbd64b738
+[INCONSISTENCY mov read UAF] ip: main+0x735d7 (add_sdp_session @ sdp.c:81) UAF read at: 0x7ffcec7a31a8
+[INCONSISTENCY mov read UAF] ip: main+0x73604 (add_sdp_session @ sdp.c:87) UAF read at: 0x7ffcec7a31b8
+[INCONSISTENCY mov read UAF] ip: main+0x7360f (add_sdp_session @ sdp.c:87) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 18
+[INCONSISTENCY mov write reg UAF] ip: main+0x73613 (add_sdp_session @ sdp.c:87) UAF write at: 0x579fbd64b730
+[INCONSISTENCY mov read UAF] ip: main+0x73616 (add_sdp_session @ sdp.c:88) UAF read at: 0x7ffcec7a31b8
+[INCONSISTENCY mov read UAF] ip: main+0x7361d (add_sdp_session @ sdp.c:88) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 21
+[INCONSISTENCY mov read UAF] ip: main+0x73625 (add_sdp_session @ sdp.c:89) UAF read at: 0x7ffcec7a31b8
+[INCONSISTENCY mov read UAF] ip: main+0x73632 (add_sdp_session @ sdp.c:89) UAF read at: 0x7ffcec7a31b8
+[INCONSISTENCY mov read UAF] ip: main+0x7363c (add_sdp_session @ sdp.c:91) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 28
+[INCONSISTENCY mov read] ip: main+0x77546 (parse_sdp_session @ sdp.c:415) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77546 (parse_sdp_session @ sdp.c:415) loaded: 0x579fbd64b730 from cell: 0x7ffcec7a3440 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x77557 (parse_sdp_session @ sdp.c:418) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77557 (parse_sdp_session @ sdp.c:418) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3450 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x77562 (parse_sdp_session @ sdp.c:419) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77562 (parse_sdp_session @ sdp.c:419) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x7756c (parse_sdp_session @ sdp.c:419) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7756c (parse_sdp_session @ sdp.c:419) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3450 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d3d9 (eat_line @ parser_f.c:36) UAF write at: 0x7ffcec7a3238
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d3dd (eat_line @ parser_f.c:36) UAF write at: 0x7ffcec7a3234
+[INCONSISTENCY mov read UAF] ip: main+0x6d3e0 (eat_line @ parser_f.c:42) UAF read at: 0x7ffcec7a3234
+[INCONSISTENCY mov read UAF] ip: main+0x6d3e3 (eat_line @ parser_f.c:42) UAF read at: 0x7ffcec7a3238
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d383 (q_memchr @ ut.h:417) UAF write at: 0x7ffcec7a3208
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d387 (q_memchr @ ut.h:417) UAF write at: 0x7ffcec7a3204
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d38a (q_memchr @ ut.h:417) UAF write at: 0x7ffcec7a3200
+[INCONSISTENCY mov read UAF] ip: main+0x6d38d (q_memchr @ ut.h:420) UAF read at: 0x7ffcec7a3200
+[INCONSISTENCY mov read UAF] ip: main+0x6d390 (q_memchr @ ut.h:420) UAF read at: 0x7ffcec7a3208
+[INCONSISTENCY mov write reg UAF] ip: main+0x6d397 (q_memchr @ ut.h:420) UAF write at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x6d3bc (q_memchr @ ut.h:421) UAF read at: 0x7ffcec7a3208
+[INCONSISTENCY mov read UAF] ip: main+0x6d39d (q_memchr @ ut.h:422) UAF read at: 0x7ffcec7a3208
+[INCONSISTENCY mov read UAF] ip: main+0x6d3a7 (q_memchr @ ut.h:422) UAF read at: 0x7ffcec7a3204
+[INCONSISTENCY mov read UAF] ip: main+0x6d3b1 (q_memchr @ ut.h:422) UAF read at: 0x7ffcec7a3208
+[INCONSISTENCY mov read UAF] ip: main+0x6d407 (eat_line @ parser_f.c:44) UAF read at: 0x7ffcec7a3234
+[INCONSISTENCY mov read UAF] ip: main+0x6d40a (eat_line @ parser_f.c:44) UAF read at: 0x7ffcec7a3238
+[INCONSISTENCY mov read UAF] ip: main+0x6d423 (eat_line @ parser_f.c:45) UAF read at: 0x7ffcec7a3234
+[INCONSISTENCY mov read UAF] ip: main+0x6d426 (eat_line @ parser_f.c:45) UAF read at: 0x7ffcec7a3238
+[STACK PIVOT] ip: main+0x6d456 (eat_line @ parser_f.c:48) RSP 0x7ffcec7a3258 left stack [0x58,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x77584 (parse_sdp_session @ sdp.c:420) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77584 (parse_sdp_session @ sdp.c:420) loaded: 0x579fbd64b730 from cell: 0x7ffcec7a3440 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x8aefc (extract_sess_version @ sdp_helpr_funcs.c:596) UAF write at: 0x7ffcec7a31a8
+Store dangling pointer: 0x579fbd64b768 at: 0x7ffcec7a31a0
+[INCONSISTENCY mov write reg UAF] ip: main+0x8af03 (extract_sess_version @ sdp_helpr_funcs.c:596) UAF write at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x8af0a (extract_sess_version @ sdp_helpr_funcs.c:598) UAF write at: 0x7ffcec7a3208
+[INCONSISTENCY mov write imm UAF] ip: main+0x8af12 (extract_sess_version @ sdp_helpr_funcs.c:599) UAF write at: 0x7ffcec7a3218
+[INCONSISTENCY mov write imm UAF] ip: main+0x8af1a (extract_sess_version @ sdp_helpr_funcs.c:600) UAF write at: 0x7ffcec7a3214
+[INCONSISTENCY mov write imm UAF] ip: main+0x8af21 (extract_sess_version @ sdp_helpr_funcs.c:601) UAF write at: 0x7ffcec7a31f3
+[INCONSISTENCY mov write imm UAF] ip: main+0x8af25 (extract_sess_version @ sdp_helpr_funcs.c:602) UAF write at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 314
+[INCONSISTENCY mov read UAF] ip: main+0x8af2c (extract_sess_version @ sdp_helpr_funcs.c:610) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x8af33 (extract_sess_version @ sdp_helpr_funcs.c:610) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3310 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x8af3b (extract_sess_version @ sdp_helpr_funcs.c:610) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x8af42 (extract_sess_version @ sdp_helpr_funcs.c:610) loaded: 0x579f00000011 from cell: 0x7ffcec7a3318 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x8b267 (extract_sess_version @ sdp_helpr_funcs.c:616) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 14
+main+0x8b267 (extract_sess_version @ sdp_helpr_funcs.c:616) Using expired pointer: 0x579fbd64b768 from 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 14
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3168 left stack [0x5b,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x8b951 (extract_sess_version @ sdp_helpr_funcs.c:625) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x8b958 (extract_sess_version @ sdp_helpr_funcs.c:625) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3310 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x8b95f (extract_sess_version @ sdp_helpr_funcs.c:625) UAF write at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x8b963 (extract_sess_version @ sdp_helpr_funcs.c:626) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x8b96a (extract_sess_version @ sdp_helpr_funcs.c:626) loaded: 0x579f00000011 from cell: 0x7ffcec7a3318 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x8b970 (extract_sess_version @ sdp_helpr_funcs.c:626) UAF write at: 0x7ffcec7a3214
+[INCONSISTENCY mov read UAF] ip: main+0x8b973 (extract_sess_version @ sdp_helpr_funcs.c:631) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov write reg UAF] ip: main+0x8b977 (extract_sess_version @ sdp_helpr_funcs.c:631) UAF write at: 0x7ffcec7a3208
+[INCONSISTENCY mov read UAF] ip: main+0x8b97b (extract_sess_version @ sdp_helpr_funcs.c:634) UAF read at: 0x7ffcec7a3214
+[INCONSISTENCY mov read UAF] ip: main+0x8b985 (extract_sess_version @ sdp_helpr_funcs.c:634) UAF read at: 0x7ffcec7a3208
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a176 (ser_memmem @ ut.c:444) UAF write at: 0x7ffcec7a3138
+first time found dangling pointer at: 6724 distance: 6060
+Store dangling pointer: 0x7ffcec7a31f3 at: 0x7ffcec7a3130
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a17a (ser_memmem @ ut.c:444) UAF write at: 0x7ffcec7a3130
+first time found dangling pointer at: 12785 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a17e (ser_memmem @ ut.c:444) UAF write at: 0x7ffcec7a3128
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a182 (ser_memmem @ ut.c:444) UAF write at: 0x7ffcec7a3120
+[INCONSISTENCY mov read UAF] ip: main+0x13a186 (ser_memmem @ ut.c:446) UAF read at: 0x7ffcec7a3138
+first time found dangling pointer at: 6724 distance: 6064
+[INCONSISTENCY mov read UAF] ip: main+0x13a18e (ser_memmem @ ut.c:449) UAF read at: 0x7ffcec7a3130
+first time found dangling pointer at: 12785 distance: 5
+main+0x13a18e (ser_memmem @ ut.c:449) Using expired pointer: 0x7ffcec7a31f3 from 0x7ffcec7a3130
+first time found dangling pointer at: 12785 distance: 5
+[INCONSISTENCY mov read UAF] ip: main+0x13a196 (ser_memmem @ ut.c:452) UAF read at: 0x7ffcec7a3128
+[INCONSISTENCY mov read UAF] ip: main+0x13a1ac (ser_memmem @ ut.c:455) UAF read at: 0x7ffcec7a3138
+first time found dangling pointer at: 6724 distance: 6074
+[INCONSISTENCY mov read UAF] ip: main+0x13a1b3 (ser_memmem @ ut.c:455) UAF read at: 0x7ffcec7a3130
+first time found dangling pointer at: 12785 distance: 15
+[INCONSISTENCY mov read UAF] ip: main+0x13a1ba (ser_memmem @ ut.c:455) UAF read at: 0x7ffcec7a3128
+[INCONSISTENCY mov read UAF] ip: main+0x13a1c1 (ser_memmem @ ut.c:455) UAF read at: 0x7ffcec7a3120
+[INCONSISTENCY mov read UAF] ip: main+0x13a1da (ser_memmem @ ut.c:459) UAF read at: 0x7ffcec7a31f3
+[INCONSISTENCY mov read UAF] ip: main+0x13a1e1 (ser_memmem @ ut.c:460) UAF read at: 0x7ffcec7a3120
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3168 left stack [0x5d,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8b996 (extract_sess_version @ sdp_helpr_funcs.c:634) UAF write at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x8b99a (extract_sess_version @ sdp_helpr_funcs.c:635) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x8b9a1 (extract_sess_version @ sdp_helpr_funcs.c:638) UAF read at: 0x7ffcec7a3214
+[INCONSISTENCY mov read UAF] ip: main+0x8b9a4 (extract_sess_version @ sdp_helpr_funcs.c:638) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov write reg UAF] ip: main+0x8b9b2 (extract_sess_version @ sdp_helpr_funcs.c:638) UAF write at: 0x7ffcec7a3214
+[INCONSISTENCY mov read UAF] ip: main+0x8b9b5 (extract_sess_version @ sdp_helpr_funcs.c:641) UAF read at: 0x7ffcec7a3214
+[INCONSISTENCY mov read UAF] ip: main+0x8b9c8 (extract_sess_version @ sdp_helpr_funcs.c:648) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x8b9cf (extract_sess_version @ sdp_helpr_funcs.c:648) loaded: 0x579f00000011 from cell: 0x7ffcec7a3318 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x8b9d2 (extract_sess_version @ sdp_helpr_funcs.c:648) UAF read at: 0x7ffcec7a3214
+[INCONSISTENCY mov read UAF] ip: main+0x8b9d7 (extract_sess_version @ sdp_helpr_funcs.c:648) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 449
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3168 left stack [0x5f,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3168 left stack [0x61,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x8b9e0 (extract_sess_version @ sdp_helpr_funcs.c:650) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov write reg UAF] ip: main+0x8b9eb (extract_sess_version @ sdp_helpr_funcs.c:650) UAF write at: 0x7ffcec7a3214
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3168 left stack [0x63,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x8bd28 (extract_sess_version @ sdp_helpr_funcs.c:653) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 354
+[INCONSISTENCY mov read UAF] ip: main+0x8bd2f (extract_sess_version @ sdp_helpr_funcs.c:653) UAF read at: 0x7ffcec7a3208
+[INCONSISTENCY mov write reg UAF] ip: main+0x8bd33 (extract_sess_version @ sdp_helpr_funcs.c:653) UAF write at: 0x579fbd64b768
+[INCONSISTENCY mov read UAF] ip: main+0x8bd36 (extract_sess_version @ sdp_helpr_funcs.c:654) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 357
+[INCONSISTENCY mov read UAF] ip: main+0x8bd3d (extract_sess_version @ sdp_helpr_funcs.c:654) UAF read at: 0x7ffcec7a3214
+[INCONSISTENCY mov write reg UAF] ip: main+0x8bd40 (extract_sess_version @ sdp_helpr_funcs.c:654) UAF write at: 0x579fbd64b770
+[UNTRUSTEDPTRDEREF] ip: main+0x8bd48 (extract_sess_version @ sdp_helpr_funcs.c:656) final_ea: 0x763cbca0f6d8 base: 0x763cbca0f6d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x8bd4b (extract_sess_version @ sdp_helpr_funcs.c:656) UAF read at: 0x7ffcec7a3208
+[UNTRUSTEDPTRDEREF] ip: main+0x8bd5c (extract_sess_version @ sdp_helpr_funcs.c:656) final_ea: 0x763ca77c2920 base: 0x763ca77c2920 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x778e7 (parse_sdp_session @ sdp.c:426) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x778e7 (parse_sdp_session @ sdp.c:426) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3450 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x778f2 (parse_sdp_session @ sdp.c:427) base: 0x7ffcec7a34c0 pointee: 42 read from 68
+[CORRUPTED_PTR_LOAD] ip: main+0x778f2 (parse_sdp_session @ sdp.c:427) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3310 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x778f9 (parse_sdp_session @ sdp.c:427) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x778f9 (parse_sdp_session @ sdp.c:427) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3460 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x77908 (parse_sdp_session @ sdp.c:428) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77908 (parse_sdp_session @ sdp.c:428) loaded: 0x579fbd64b730 from cell: 0x7ffcec7a3440 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x77910 (parse_sdp_session @ sdp.c:428) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77910 (parse_sdp_session @ sdp.c:428) loaded: 0x579fbd64b730 from cell: 0x7ffcec7a3440 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x87e2e (extract_mediaip @ sdp_helpr_funcs.c:446) UAF write at: 0x7ffcec7a31a8
+Store dangling pointer: 0x579fbd64b780 at: 0x7ffcec7a31a0
+[INCONSISTENCY mov write reg UAF] ip: main+0x87e35 (extract_mediaip @ sdp_helpr_funcs.c:446) UAF write at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 410
+Store dangling pointer: 0x579fbd64b778 at: 0x7ffcec7a3198
+[INCONSISTENCY mov write reg UAF] ip: main+0x87e3c (extract_mediaip @ sdp_helpr_funcs.c:446) UAF write at: 0x7ffcec7a3198
+first time found dangling pointer at: 13129 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x87e43 (extract_mediaip @ sdp_helpr_funcs.c:446) UAF write at: 0x7ffcec7a3190
+[INCONSISTENCY mov write imm UAF] ip: main+0x87e4a (extract_mediaip @ sdp_helpr_funcs.c:450) UAF write at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 722
+[INCONSISTENCY mov read UAF] ip: main+0x87e52 (extract_mediaip @ sdp_helpr_funcs.c:451) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x87e59 (extract_mediaip @ sdp_helpr_funcs.c:451) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3310 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x87e5c (extract_mediaip @ sdp_helpr_funcs.c:451) UAF write at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x87eb5 (extract_mediaip @ sdp_helpr_funcs.c:451) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x87ebc (extract_mediaip @ sdp_helpr_funcs.c:451) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3310 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x87ebf (extract_mediaip @ sdp_helpr_funcs.c:451) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x87ec6 (extract_mediaip @ sdp_helpr_funcs.c:451) loaded: 0x579f00000017 from cell: 0x7ffcec7a3318 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x87ed2 (extract_mediaip @ sdp_helpr_funcs.c:451) UAF write at: 0x7ffcec7a320c
+[INCONSISTENCY mov read UAF] ip: main+0x87ed5 (extract_mediaip @ sdp_helpr_funcs.c:451) UAF read at: 0x7ffcec7a320c
+[INCONSISTENCY mov read UAF] ip: main+0x87e62 (extract_mediaip @ sdp_helpr_funcs.c:452) UAF read at: 0x7ffcec7a320c
+[INCONSISTENCY mov read UAF] ip: main+0x87e68 (extract_mediaip @ sdp_helpr_funcs.c:452) UAF read at: 0x7ffcec7a3190
+[INCONSISTENCY mov read UAF] ip: main+0x87e6f (extract_mediaip @ sdp_helpr_funcs.c:452) UAF read at: 0x7ffcec7a3218
+[UNTRUSTEDPTRDEREF] ip: main+0x13a1da (ser_memmem @ ut.c:459) final_ea: 0x579fa50ea34a base: 0x579fa50ea34a pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3168 left stack [0x66,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x87e80 (extract_mediaip @ sdp_helpr_funcs.c:452) UAF write at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 793
+[INCONSISTENCY mov read UAF] ip: main+0x87e84 (extract_mediaip @ sdp_helpr_funcs.c:453) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 794
+[INCONSISTENCY mov read UAF] ip: main+0x87e8b (extract_mediaip @ sdp_helpr_funcs.c:453) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 796
+[INCONSISTENCY mov read UAF] ip: main+0x87edb (extract_mediaip @ sdp_helpr_funcs.c:457) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 801
+[INCONSISTENCY mov read UAF] ip: main+0x87eec (extract_mediaip @ sdp_helpr_funcs.c:460) UAF read at: 0x7ffcec7a3210
+first time found dangling pointer at: 12409 distance: 803
+[INCONSISTENCY mov read UAF] ip: main+0x87ef4 (extract_mediaip @ sdp_helpr_funcs.c:460) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 496
+main+0x87ef4 (extract_mediaip @ sdp_helpr_funcs.c:460) Using expired pointer: 0x579fbd64b780 from 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 496
+[INCONSISTENCY mov write reg UAF] ip: main+0x87efb (extract_mediaip @ sdp_helpr_funcs.c:460) UAF write at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x87efe (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x87f05 (extract_mediaip @ sdp_helpr_funcs.c:461) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3310 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x87f08 (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x7ffcec7a31a8
+[CORRUPTED_PTR_LOAD] ip: main+0x87f0f (extract_mediaip @ sdp_helpr_funcs.c:461) loaded: 0x579f00000017 from cell: 0x7ffcec7a3318 cell_owner: 68 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x87f17 (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 504
+[INCONSISTENCY mov read UAF] ip: main+0x87f1e (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x87f24 (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 507
+[INCONSISTENCY mov read UAF] ip: main+0x87f2b (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x579fbd64b780
+[STACK PIVOT] ip: main+0x6d456 (eat_line @ parser_f.c:48) RSP 0x7ffcec7a3168 left stack [0x68,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x87f3b (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 738
+[INCONSISTENCY mov read UAF] ip: main+0x87f42 (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x87f48 (extract_mediaip @ sdp_helpr_funcs.c:461) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 741
+[INCONSISTENCY mov write reg UAF] ip: main+0x87f4f (extract_mediaip @ sdp_helpr_funcs.c:461) UAF write at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x87f52 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 743
+[INCONSISTENCY mov read UAF] ip: main+0x87f59 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x87f5c (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 745
+[INCONSISTENCY mov write reg UAF] ip: main+0x87f63 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF write at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x87f7f (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 748
+[INCONSISTENCY mov read UAF] ip: main+0x87f86 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x87f8d (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 752
+[INCONSISTENCY mov read UAF] ip: main+0x87f94 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x87f97 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 754
+[INCONSISTENCY mov read UAF] ip: main+0x87f9e (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x87f68 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 770
+[INCONSISTENCY mov read UAF] ip: main+0x87f6f (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x87f75 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 773
+[INCONSISTENCY mov write reg UAF] ip: main+0x87f7c (extract_mediaip @ sdp_helpr_funcs.c:462) UAF write at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x87fee (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 827
+[INCONSISTENCY mov read UAF] ip: main+0x87ff5 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x87ff8 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 829
+[INCONSISTENCY mov write reg UAF] ip: main+0x87fff (extract_mediaip @ sdp_helpr_funcs.c:462) UAF write at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x88033 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 832
+[INCONSISTENCY mov read UAF] ip: main+0x8803a (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x88041 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 836
+[INCONSISTENCY mov read UAF] ip: main+0x88048 (extract_mediaip @ sdp_helpr_funcs.c:462) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x8806a (extract_mediaip @ sdp_helpr_funcs.c:463) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 846
+[INCONSISTENCY mov read UAF] ip: main+0x88071 (extract_mediaip @ sdp_helpr_funcs.c:463) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x883ad (extract_mediaip @ sdp_helpr_funcs.c:469) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 850
+[INCONSISTENCY mov read UAF] ip: main+0x883b4 (extract_mediaip @ sdp_helpr_funcs.c:469) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x883ba (extract_mediaip @ sdp_helpr_funcs.c:469) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 853
+[INCONSISTENCY mov read UAF] ip: main+0x883c1 (extract_mediaip @ sdp_helpr_funcs.c:469) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a224 (ser_memrmem @ ut.c:475) UAF write at: 0x7ffcec7a3138
+first time found dangling pointer at: 6724 distance: 6857
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a228 (ser_memrmem @ ut.c:475) UAF write at: 0x7ffcec7a3130
+first time found dangling pointer at: 12785 distance: 797
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a22c (ser_memrmem @ ut.c:475) UAF write at: 0x7ffcec7a3128
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a230 (ser_memrmem @ ut.c:475) UAF write at: 0x7ffcec7a3120
+[INCONSISTENCY mov read UAF] ip: main+0x13a234 (ser_memrmem @ ut.c:477) UAF read at: 0x7ffcec7a3128
+[INCONSISTENCY mov read UAF] ip: main+0x13a23f (ser_memrmem @ ut.c:477) UAF read at: 0x7ffcec7a3138
+first time found dangling pointer at: 6724 distance: 6864
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a246 (ser_memrmem @ ut.c:477) UAF write at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x13a24a (ser_memrmem @ ut.c:480) UAF read at: 0x7ffcec7a3130
+first time found dangling pointer at: 12785 distance: 806
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a24e (ser_memrmem @ ut.c:480) UAF write at: 0x7ffcec7a3150
+first time found dangling pointer at: 12791 distance: 801
+[INCONSISTENCY mov read UAF] ip: main+0x13a252 (ser_memrmem @ ut.c:483) UAF read at: 0x7ffcec7a3138
+first time found dangling pointer at: 6724 distance: 6869
+[INCONSISTENCY mov write reg UAF] ip: main+0x13a256 (ser_memrmem @ ut.c:483) UAF write at: 0x7ffcec7a3148
+[INCONSISTENCY mov read UAF] ip: main+0x13a25a (ser_memrmem @ ut.c:486) UAF read at: 0x7ffcec7a3138
+first time found dangling pointer at: 6724 distance: 6871
+[INCONSISTENCY mov read UAF] ip: main+0x13a261 (ser_memrmem @ ut.c:486) UAF read at: 0x7ffcec7a3130
+first time found dangling pointer at: 12785 distance: 812
+[INCONSISTENCY mov read UAF] ip: main+0x13a268 (ser_memrmem @ ut.c:486) UAF read at: 0x7ffcec7a3128
+[INCONSISTENCY mov read UAF] ip: main+0x13a26f (ser_memrmem @ ut.c:486) UAF read at: 0x7ffcec7a3120
+[INCONSISTENCY mov read UAF] ip: main+0x13a2b5 (ser_memrmem @ ut.c:489) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x13a27d (ser_memrmem @ ut.c:490) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x13a284 (ser_memrmem @ ut.c:490) UAF read at: 0x7ffcec7a3150
+first time found dangling pointer at: 12791 distance: 817
+[UNTRUSTEDPTRDEREF] ip: main+0x13a288 (ser_memrmem @ ut.c:490) final_ea: 0x579fa50ecbc3 base: 0x579fa50ecbc3 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x13a28f (ser_memrmem @ ut.c:491) UAF read at: 0x7ffcec7a3120
+[INCONSISTENCY mov read UAF] ip: main+0x13a293 (ser_memrmem @ ut.c:491) UAF read at: 0x7ffcec7a3150
+first time found dangling pointer at: 12791 distance: 852
+[INCONSISTENCY mov read UAF] ip: main+0x13a297 (ser_memrmem @ ut.c:491) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x13a2aa (ser_memrmem @ ut.c:492) UAF read at: 0x7ffcec7a3158
+[STACK PIVOT] ip: main+0x13a2c4 (ser_memrmem @ ut.c:498) RSP 0x7ffcec7a3168 left stack [0x6a,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x883d8 (extract_mediaip @ sdp_helpr_funcs.c:469) UAF write at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x883dc (extract_mediaip @ sdp_helpr_funcs.c:470) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x88718 (extract_mediaip @ sdp_helpr_funcs.c:478) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x88720 (extract_mediaip @ sdp_helpr_funcs.c:478) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 943
+[INCONSISTENCY mov read UAF] ip: main+0x88727 (extract_mediaip @ sdp_helpr_funcs.c:478) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x8872a (extract_mediaip @ sdp_helpr_funcs.c:478) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 945
+[INCONSISTENCY mov read UAF] ip: main+0x88731 (extract_mediaip @ sdp_helpr_funcs.c:478) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x88a86 (extract_mediaip @ sdp_helpr_funcs.c:482) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x88aa0 (extract_mediaip @ sdp_helpr_funcs.c:484) UAF read at: 0x7ffcec7a3198
+first time found dangling pointer at: 13129 distance: 546
+main+0x88aa0 (extract_mediaip @ sdp_helpr_funcs.c:484) Using expired pointer: 0x579fbd64b778 from 0x7ffcec7a3198
+first time found dangling pointer at: 13129 distance: 546
+[INCONSISTENCY mov write imm UAF] ip: main+0x88aa7 (extract_mediaip @ sdp_helpr_funcs.c:484) UAF write at: 0x579fbd64b778
+[INCONSISTENCY mov read UAF] ip: main+0x88dfa (extract_mediaip @ sdp_helpr_funcs.c:496) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 961
+[INCONSISTENCY mov read UAF] ip: main+0x88e01 (extract_mediaip @ sdp_helpr_funcs.c:496) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x88e04 (extract_mediaip @ sdp_helpr_funcs.c:496) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 963
+[INCONSISTENCY mov read UAF] ip: main+0x88e0b (extract_mediaip @ sdp_helpr_funcs.c:496) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x88e13 (extract_mediaip @ sdp_helpr_funcs.c:496) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov write reg UAF] ip: main+0x83a5c (eat_space_end) UAF write at: 0x7ffcec7a3158
+[INCONSISTENCY mov write reg UAF] ip: main+0x83a60 (eat_space_end) UAF write at: 0x7ffcec7a3150
+first time found dangling pointer at: 12791 distance: 901
+[INCONSISTENCY mov read UAF] ip: main+0x83a6b (eat_space_end @ parser_f.h:44) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x83a75 (eat_space_end @ parser_f.h:44) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x83a80 (eat_space_end @ parser_f.h:44) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x83a8b (eat_space_end @ parser_f.h:45) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov write reg UAF] ip: main+0x88e22 (extract_mediaip @ sdp_helpr_funcs.c:496) UAF write at: 0x7ffcec7a3218
+[INCONSISTENCY mov read UAF] ip: main+0x88e26 (extract_mediaip @ sdp_helpr_funcs.c:497) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 991
+[INCONSISTENCY mov read UAF] ip: main+0x88e2d (extract_mediaip @ sdp_helpr_funcs.c:497) UAF read at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x88e30 (extract_mediaip @ sdp_helpr_funcs.c:497) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 993
+[INCONSISTENCY mov read UAF] ip: main+0x88e37 (extract_mediaip @ sdp_helpr_funcs.c:497) UAF read at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x88e3f (extract_mediaip @ sdp_helpr_funcs.c:497) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov write reg UAF] ip: main+0x83b63 (eat_token_end @ parser_f.h:64) UAF write at: 0x7ffcec7a3158
+[INCONSISTENCY mov write reg UAF] ip: main+0x83b67 (eat_token_end @ parser_f.h:64) UAF write at: 0x7ffcec7a3150
+first time found dangling pointer at: 12791 distance: 931
+[INCONSISTENCY mov read UAF] ip: main+0x83b72 (eat_token_end @ parser_f.h:65) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x83b7c (eat_token_end @ parser_f.h:65) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x83b87 (eat_token_end @ parser_f.h:65) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x83b92 (eat_token_end @ parser_f.h:65) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x83b9d (eat_token_end @ parser_f.h:65) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov read UAF] ip: main+0x83ba8 (eat_token_end @ parser_f.h:66) UAF read at: 0x7ffcec7a3158
+[INCONSISTENCY mov write reg UAF] ip: main+0x88e52 (extract_mediaip @ sdp_helpr_funcs.c:497) UAF write at: 0x7ffcec7a320c
+[INCONSISTENCY mov read UAF] ip: main+0x88e55 (extract_mediaip @ sdp_helpr_funcs.c:498) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 1034
+[INCONSISTENCY mov read UAF] ip: main+0x88e5c (extract_mediaip @ sdp_helpr_funcs.c:498) UAF read at: 0x7ffcec7a3218
+[INCONSISTENCY mov write reg UAF] ip: main+0x88e60 (extract_mediaip @ sdp_helpr_funcs.c:498) UAF write at: 0x579fbd64b780
+[INCONSISTENCY mov read UAF] ip: main+0x88e63 (extract_mediaip @ sdp_helpr_funcs.c:499) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 1037
+[INCONSISTENCY mov read UAF] ip: main+0x88e6a (extract_mediaip @ sdp_helpr_funcs.c:499) UAF read at: 0x7ffcec7a320c
+[INCONSISTENCY mov write reg UAF] ip: main+0x88e6d (extract_mediaip @ sdp_helpr_funcs.c:499) UAF write at: 0x579fbd64b788
+[INCONSISTENCY mov read UAF] ip: main+0x88e70 (extract_mediaip @ sdp_helpr_funcs.c:501) UAF read at: 0x7ffcec7a31a0
+first time found dangling pointer at: 12718 distance: 1040
+[INCONSISTENCY mov read UAF] ip: main+0x88e77 (extract_mediaip @ sdp_helpr_funcs.c:501) UAF read at: 0x579fbd64b788
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3168 left stack [0x6c,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x77c77 (parse_sdp_session @ sdp.c:435) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77c77 (parse_sdp_session @ sdp.c:435) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x77c7b (parse_sdp_session @ sdp.c:435) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77c7b (parse_sdp_session @ sdp.c:435) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3450 cell_owner: 69 value_owner: 42
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3218 left stack [0x6f,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x8c161 (find_sdp_line @ sdp_helpr_funcs.c:698) RSP 0x7ffcec7a3258 left stack [0x70,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x77c96 (parse_sdp_session @ sdp.c:437) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x77c96 (parse_sdp_session @ sdp.c:437) loaded: 0x0 from cell: 0x7ffcec7a3438 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x78037 (parse_sdp_session @ sdp.c:449) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x78037 (parse_sdp_session @ sdp.c:449) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x7803b (parse_sdp_session @ sdp.c:449) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7803b (parse_sdp_session @ sdp.c:449) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3450 cell_owner: 69 value_owner: 42
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3218 left stack [0x73,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x8c161 (find_sdp_line @ sdp_helpr_funcs.c:698) RSP 0x7ffcec7a3258 left stack [0x74,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x78056 (parse_sdp_session @ sdp.c:450) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x78056 (parse_sdp_session @ sdp.c:450) loaded: 0x0 from cell: 0x7ffcec7a3428 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x780a1 (parse_sdp_session @ sdp.c:458) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x780a1 (parse_sdp_session @ sdp.c:458) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x780a5 (parse_sdp_session @ sdp.c:458) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x780a5 (parse_sdp_session @ sdp.c:458) loaded: 0x579fbd64c26c from cell: 0x7ffcec7a3450 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c1dc (find_first_sdp_line @ sdp_helpr_funcs.c:715) UAF write at: 0x7ffcec7a3238
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c1e0 (find_first_sdp_line @ sdp_helpr_funcs.c:715) UAF write at: 0x7ffcec7a3230
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c1e6 (find_first_sdp_line @ sdp_helpr_funcs.c:715) UAF write at: 0x7ffcec7a3220
+[INCONSISTENCY mov read UAF] ip: main+0x8c1ed (find_first_sdp_line @ sdp_helpr_funcs.c:717) UAF read at: 0x7ffcec7a3238
+[INCONSISTENCY mov read UAF] ip: main+0x8c1f7 (find_first_sdp_line @ sdp_helpr_funcs.c:717) UAF read at: 0x7ffcec7a3230
+[INCONSISTENCY mov read UAF] ip: main+0x8c20b (find_first_sdp_line @ sdp_helpr_funcs.c:719) UAF read at: 0x7ffcec7a322c
+[INCONSISTENCY mov read UAF] ip: main+0x8c20f (find_first_sdp_line @ sdp_helpr_funcs.c:719) UAF read at: 0x7ffcec7a3230
+[INCONSISTENCY mov read UAF] ip: main+0x8c213 (find_first_sdp_line @ sdp_helpr_funcs.c:719) UAF read at: 0x7ffcec7a3238
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a31d8 left stack [0x78,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x8c161 (find_sdp_line @ sdp_helpr_funcs.c:698) RSP 0x7ffcec7a3218 left stack [0x79,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c222 (find_first_sdp_line @ sdp_helpr_funcs.c:719) UAF write at: 0x7ffcec7a3248
+[INCONSISTENCY mov read UAF] ip: main+0x8c226 (find_first_sdp_line @ sdp_helpr_funcs.c:720) UAF read at: 0x7ffcec7a3248
+[INCONSISTENCY mov read UAF] ip: main+0x8c233 (find_first_sdp_line @ sdp_helpr_funcs.c:720) UAF read at: 0x7ffcec7a3220
+[STACK PIVOT] ip: main+0x8c237 (find_first_sdp_line @ sdp_helpr_funcs.c:721) RSP 0x7ffcec7a3258 left stack [0x7a,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x780bb (parse_sdp_session @ sdp.c:458) UAF write at: 0x7ffcec7a3480
+[INCONSISTENCY mov read UAF] ip: main+0x78124 (parse_sdp_session @ sdp.c:459) UAF read at: 0x7ffcec7a3480
+[INCONSISTENCY mov read] ip: main+0x7812e (parse_sdp_session @ sdp.c:469) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7812e (parse_sdp_session @ sdp.c:469) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x78132 (parse_sdp_session @ sdp.c:469) UAF write at: 0x7ffcec7a3488
+[INCONSISTENCY mov write imm UAF] ip: main+0x78136 (parse_sdp_session @ sdp.c:470) UAF write at: 0x7ffcec7a3474
+[INCONSISTENCY mov read UAF] ip: main+0x7813d (parse_sdp_session @ sdp.c:472) UAF read at: 0x7ffcec7a3488
+[INCONSISTENCY mov read] ip: main+0x78145 (parse_sdp_session @ sdp.c:473) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x78145 (parse_sdp_session @ sdp.c:473) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x78150 (parse_sdp_session @ sdp.c:473) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x78150 (parse_sdp_session @ sdp.c:473) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x7815e (parse_sdp_session @ sdp.c:475) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7815e (parse_sdp_session @ sdp.c:475) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3460 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x78162 (parse_sdp_session @ sdp.c:475) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x78162 (parse_sdp_session @ sdp.c:475) loaded: 0x579fbd64c283 from cell: 0x7ffcec7a3460 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x78166 (parse_sdp_session @ sdp.c:475) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x78166 (parse_sdp_session @ sdp.c:475) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c16f (find_next_sdp_line @ sdp_helpr_funcs.c:703) UAF write at: 0x7ffcec7a3238
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c173 (find_next_sdp_line @ sdp_helpr_funcs.c:703) UAF write at: 0x7ffcec7a3230
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c179 (find_next_sdp_line @ sdp_helpr_funcs.c:703) UAF write at: 0x7ffcec7a3220
+[INCONSISTENCY mov read UAF] ip: main+0x8c180 (find_next_sdp_line @ sdp_helpr_funcs.c:705) UAF read at: 0x7ffcec7a3238
+[INCONSISTENCY mov read UAF] ip: main+0x8c18a (find_next_sdp_line @ sdp_helpr_funcs.c:705) UAF read at: 0x7ffcec7a3230
+[INCONSISTENCY mov read UAF] ip: main+0x8c19e (find_next_sdp_line @ sdp_helpr_funcs.c:707) UAF read at: 0x7ffcec7a322c
+[INCONSISTENCY mov read UAF] ip: main+0x8c1a2 (find_next_sdp_line @ sdp_helpr_funcs.c:707) UAF read at: 0x7ffcec7a3238
+[INCONSISTENCY mov read UAF] ip: main+0x8c1aa (find_next_sdp_line @ sdp_helpr_funcs.c:707) UAF read at: 0x7ffcec7a3230
+[INTRA_OBJECT_OVERFLOW] ip: main+0x8c0bc (find_sdp_line @ sdp_helpr_funcs.c:671) byte write at: 0x7ffcec7a31ec offset: +0xc cell_owner: 123 writer_pointee: 122
+[CORRUPTED_PTR_LOAD] ip: main+0x8c0bf (find_sdp_line @ sdp_helpr_funcs.c:674) loaded: 0xbd64c2830000576d from cell: 0x7ffcec7a31ec cell_owner: 123 value_owner: 122
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a31d8 left stack [0x7e,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x8c161 (find_sdp_line @ sdp_helpr_funcs.c:698) RSP 0x7ffcec7a3218 left stack [0x7f,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8c1b9 (find_next_sdp_line @ sdp_helpr_funcs.c:707) UAF write at: 0x7ffcec7a3248
+[INCONSISTENCY mov read UAF] ip: main+0x8c1bd (find_next_sdp_line @ sdp_helpr_funcs.c:708) UAF read at: 0x7ffcec7a3248
+[INCONSISTENCY mov read UAF] ip: main+0x8c1ca (find_next_sdp_line @ sdp_helpr_funcs.c:708) UAF read at: 0x7ffcec7a3220
+[STACK PIVOT] ip: main+0x8c1ce (find_next_sdp_line @ sdp_helpr_funcs.c:709) RSP 0x7ffcec7a3258 left stack [0x80,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x7817a (parse_sdp_session @ sdp.c:475) UAF write at: 0x7ffcec7a3488
+[INCONSISTENCY mov read UAF] ip: main+0x7817e (parse_sdp_session @ sdp.c:477) UAF read at: 0x7ffcec7a3488
+[INCONSISTENCY mov read] ip: main+0x78182 (parse_sdp_session @ sdp.c:477) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x78182 (parse_sdp_session @ sdp.c:477) loaded: 0x579fbd64c27e from cell: 0x7ffcec7a3448 cell_owner: 69 value_owner: 42
+[STACK PIVOT] ip: main+0x13a216 (ser_memmem @ ut.c:467) RSP 0x7ffcec7a3218 left stack [0x83,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x8c161 (find_sdp_line @ sdp_helpr_funcs.c:698) RSP 0x7ffcec7a3258 left stack [0x84,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x781b2 (parse_sdp_session @ sdp.c:481) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x781b2 (parse_sdp_session @ sdp.c:481) loaded: 0x0 from cell: 0x7ffcec7a3420 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x78551 (parse_sdp_session @ sdp.c:490) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x78551 (parse_sdp_session @ sdp.c:490) loaded: 0x0 from cell: 0x7ffcec7a3438 cell_owner: 69 value_owner: 42
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3258 left stack [0x86,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x7859d (parse_sdp_session @ sdp.c:492) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg UAF] ip: main+0x787b2 (parse_sdp_session @ sdp.c:492) UAF write at: 0x7ffcec7a3270
+[INCONSISTENCY mov read] ip: main+0x787fe (parse_sdp_session @ sdp.c:492) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[CORRUPTED_PTR_LOAD] ip: main+0x787fe (parse_sdp_session @ sdp.c:492) loaded: 0xffffffff from cell: 0x7ffcec7a341c cell_owner: 67 value_owner: 42
+[INCONSISTENCY mov read] ip: main+0x7881b (parse_sdp_session @ sdp.c:492) base: 0x7ffcec7a34c0 pointee: 42 read from 67
+[CORRUPTED_PTR_LOAD] ip: main+0x7881b (parse_sdp_session @ sdp.c:492) loaded: 0xffffffff from cell: 0x7ffcec7a341c cell_owner: 67 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x78837 (parse_sdp_session @ sdp.c:492) UAF write at: 0x7ffcec7a3278
+[INCONSISTENCY mov write reg UAF] ip: main+0x1daa10 (get_debug_facility @ dprint.c:194) UAF write at: 0x7ffcec7a3238
+[INCONSISTENCY mov write reg UAF] ip: main+0x1daa14 (get_debug_facility @ dprint.c:194) UAF write at: 0x7ffcec7a3234
+[UNINITIALIZED mov read] ip: main+0x1daa72 (get_debug_facility @ dprint.c:203) co: 2 vo: -1
+[STACK PIVOT] ip: main+0x1daa7d (get_debug_facility @ dprint.c:204) RSP 0x7ffcec7a3258 left stack [0x88,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x78851 (parse_sdp_session @ sdp.c:492) UAF read at: 0x7ffcec7a3278
+[ALLOC:internal] malloc(0xf) -> 0x579fbd64b7e0 subject=136 at strdup
+[ALLOC:internal] malloc(0x1d8) -> 0x579fbd64b010 subject=137 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x579fbd64c290 subject=138 at _IO_file_doallocate
+[ALLOC:internal] malloc(0x11) -> 0x579fbd64b800 subject=139 at tzset
+[FREE:internal] free(0x579fbd64c290) subject=138 at _IO_setb
+[FREE:internal] free(0x579fbd64b010) subject=137 at _IO_fclose
+[ALLOC:internal] malloc(0x14) -> 0x579fbd64b820 subject=140 at adjtime
+[INCONSISTENCY mov write reg] ip: main+0x7888f (parse_sdp_session @ sdp.c:492) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a34c8 left stack [0x8f,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x7cb4f (free_sdp @ sdp.c:813) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x7cb4f (free_sdp @ sdp.c:813) loaded: 0x7ffcec7a37b8 from cell: 0x7ffcec7a33f8 cell_owner: 65 value_owner: 42
+[INCONSISTENCY mov write reg UAF] ip: main+0x7cb59 (free_sdp @ sdp.c:813) UAF write at: 0x7ffcec7a3470
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a33d8 left stack [0x92,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x7ce93 (free_sdp @ sdp.c:820) UAF read at: 0x7ffcec7a3470
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a33d8 left stack [0x94,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x7d1cb (free_sdp @ sdp.c:822) UAF read at: 0x7ffcec7a3470
+[INCONSISTENCY mov write reg UAF] ip: main+0x7d1d3 (free_sdp @ sdp.c:822) UAF write at: 0x7ffcec7a3488
+first time found dangling pointer at: 14761 distance: 0
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a33d8 left stack [0x96,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x7d606 (free_sdp @ sdp.c:824) UAF read at: 0x7ffcec7a3488
+first time found dangling pointer at: 14761 distance: 30
+[INCONSISTENCY mov read UAF] ip: main+0x7d509 (free_sdp @ sdp.c:825) UAF read at: 0x7ffcec7a3488
+first time found dangling pointer at: 14761 distance: 32
+[INCONSISTENCY mov read UAF] ip: main+0x7d511 (free_sdp @ sdp.c:826) UAF read at: 0x7ffcec7a3488
+first time found dangling pointer at: 14761 distance: 34
+[INCONSISTENCY mov read UAF] ip: main+0x7d515 (free_sdp @ sdp.c:826) UAF read at: 0x579fbd64b730
+[INCONSISTENCY mov write reg UAF] ip: main+0x7d518 (free_sdp @ sdp.c:826) UAF write at: 0x7ffcec7a3488
+first time found dangling pointer at: 14761 distance: 36
+[INCONSISTENCY mov read] ip: main+0x7d51c (free_sdp @ sdp.c:827) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7d51c (free_sdp @ sdp.c:827) loaded: 0x579fbd64b730 from cell: 0x7ffcec7a3458 cell_owner: 69 value_owner: 42
+[INCONSISTENCY mov read UAF] ip: main+0x7d520 (free_sdp @ sdp.c:827) UAF read at: 0x579fbd64b7d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x7d527 (free_sdp @ sdp.c:827) UAF write at: 0x7ffcec7a3480
+[INCONSISTENCY mov read UAF] ip: main+0x7d5ef (free_sdp @ sdp.c:828) UAF read at: 0x7ffcec7a3480
+[INCONSISTENCY mov read] ip: main+0x7d5fa (free_sdp @ sdp.c:847) base: 0x7ffcec7a34c0 pointee: 42 read from 69
+[CORRUPTED_PTR_LOAD] ip: main+0x7d5fa (free_sdp @ sdp.c:847) loaded: 0x579fbd64b730 from cell: 0x7ffcec7a3458 cell_owner: 69 value_owner: 42
+[FREE] free(0x579fbd64b730) subject=85 at free_sdp @ sdp.c:847
+[INCONSISTENCY mov read UAF] ip: main+0x7d611 (free_sdp @ sdp.c:849) UAF read at: 0x7ffcec7a3470
+[FREE] free(0x579fbd64b6e0) subject=70 at free_sdp @ sdp.c:849
+[INCONSISTENCY mov read] ip: main+0x7d61d (free_sdp @ sdp.c:850) base: 0x7ffcec7a34c0 pointee: 42 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x7d61d (free_sdp @ sdp.c:850) loaded: 0x7ffcec7a37b8 from cell: 0x7ffcec7a33f8 cell_owner: 65 value_owner: 42
+[UNINITIALIZED mov read] ip: main+0x3f589 (parse_from_header @ parse_from.c:52) co: 4 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x15d7a (parse_headers @ msg_parser.c:314) UAF write at: 0x7ffcec7a34a8
+[INCONSISTENCY mov write imm UAF] ip: main+0x15dd0 (parse_headers @ msg_parser.c:320) UAF write at: 0x7ffcec7a34a0
+[INCONSISTENCY mov read UAF] ip: main+0x19a8a (parse_headers @ msg_parser.c:326) UAF read at: 0x7ffcec7a34a8
+[INCONSISTENCY mov read UAF] ip: main+0x19abe (parse_headers @ msg_parser.c:625) UAF read at: 0x7ffcec7a34a8
+[UNINITIALIZED mov read] ip: main+0x3f5be (parse_from_header @ parse_from.c:52) co: 4 vo: -1
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a34e8 left stack [0x9a,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x3f609 (parse_from_header @ parse_from.c:53) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x1daa7d (get_debug_facility @ dprint.c:204) RSP 0x7ffcec7a34e8 left stack [0x9c,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x3f8ce (parse_from_header @ parse_from.c:53) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read] ip: main+0x3f582 (parse_from_header @ parse_from.c:52) base: 0x7ffcec7a3500 pointee: 150 read from 157
+[CORRUPTED_PTR_LOAD] ip: main+0x3f582 (parse_from_header @ parse_from.c:52) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3468 cell_owner: 157 value_owner: 156
+[INCONSISTENCY mov read] ip: main+0x3f599 (parse_from_header @ parse_from.c:52) base: 0x7ffcec7a3500 pointee: 150 read from 157
+[CORRUPTED_PTR_LOAD] ip: main+0x3f599 (parse_from_header @ parse_from.c:52) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3468 cell_owner: 157 value_owner: 156
+[INCONSISTENCY mov write reg UAF] ip: main+0x15d34 (parse_headers @ msg_parser.c:306) UAF write at: 0x7ffcec7a3358
+[INCONSISTENCY mov write reg UAF] ip: main+0x15d3b (parse_headers @ msg_parser.c:306) UAF write at: 0x7ffcec7a3350
+[INCONSISTENCY mov read UAF] ip: main+0x15d48 (parse_headers @ msg_parser.c:313) UAF read at: 0x7ffcec7a3358
+[INCONSISTENCY mov read UAF] ip: main+0x15d56 (parse_headers @ msg_parser.c:313) UAF read at: 0x7ffcec7a3358
+[INCONSISTENCY mov read UAF] ip: main+0x15d6c (parse_headers @ msg_parser.c:314) UAF read at: 0x7ffcec7a3358
+[INCONSISTENCY mov read] ip: main+0x19a8a (parse_headers @ msg_parser.c:326) base: 0x7ffcec7a3430 pointee: 69 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x19a8a (parse_headers @ msg_parser.c:326) loaded: 0x579fbd64c265 from cell: 0x7ffcec7a33f8 cell_owner: 65 value_owner: 69
+[INCONSISTENCY mov read UAF] ip: main+0x19a94 (parse_headers @ msg_parser.c:326) UAF read at: 0x7ffcec7a3358
+[INCONSISTENCY mov read UAF] ip: main+0x19aa9 (parse_headers @ msg_parser.c:326) UAF read at: 0x7ffcec7a3350
+[INCONSISTENCY mov read UAF] ip: main+0x19ab7 (parse_headers @ msg_parser.c:625) UAF read at: 0x7ffcec7a3358
+[INCONSISTENCY mov read] ip: main+0x19abe (parse_headers @ msg_parser.c:625) base: 0x7ffcec7a3430 pointee: 69 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x19abe (parse_headers @ msg_parser.c:625) loaded: 0x579fbd64c265 from cell: 0x7ffcec7a33f8 cell_owner: 65 value_owner: 69
+[INCONSISTENCY mov read UAF] ip: main+0x19ac9 (parse_headers @ msg_parser.c:626) UAF read at: 0x7ffcec7a3358
+[INCONSISTENCY mov read UAF] ip: main+0x19ad9 (parse_headers @ msg_parser.c:631) UAF read at: 0x7ffcec7a3358
+[INCONSISTENCY mov read UAF] ip: main+0x19aee (parse_headers @ msg_parser.c:631) UAF read at: 0x7ffcec7a3358
+[INCONSISTENCY mov read] ip: main+0x3f5b7 (parse_from_header @ parse_from.c:52) base: 0x7ffcec7a3500 pointee: 150 read from 157
+[CORRUPTED_PTR_LOAD] ip: main+0x3f5b7 (parse_from_header @ parse_from.c:52) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3468 cell_owner: 157 value_owner: 156
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3438 left stack [0xa1,0x7ffcec784000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x3f5f9 (parse_from_header @ parse_from.c:53) UAF write at: 0x7ffcec7a34cc
+[INCONSISTENCY mov read UAF] ip: main+0x3f843 (parse_from_header @ parse_from.c:53) UAF read at: 0x7ffcec7a34cc
+[INCONSISTENCY mov read UAF] ip: main+0x3f85d (parse_from_header @ parse_from.c:53) UAF read at: 0x7ffcec7a34cc
+[STACK PIVOT] ip: main+0x1daa7d (get_debug_facility @ dprint.c:204) RSP 0x7ffcec7a3438 left stack [0xa3,0x7ffcec784000]
+[INCONSISTENCY mov read] ip: main+0x3f890 (parse_from_header @ parse_from.c:53) base: 0x7ffcec7a3500 pointee: 150 read from 157
+[CORRUPTED_PTR_LOAD] ip: main+0x3f890 (parse_from_header @ parse_from.c:53) loaded: 0x579f00000003 from cell: 0x7ffcec7a3460 cell_owner: 157 value_owner: 150
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3508 left stack [0xa5,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x40101 (parse_from_uri @ parse_from.c:94) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x1daa7d (get_debug_facility @ dprint.c:204) RSP 0x7ffcec7a3508 left stack [0xa7,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x403b7 (parse_from_uri @ parse_from.c:94) co: 3 vo: 3, 3 write 3
+[UNINITIALIZED mov read] ip: main+0x4b9f3 (parse_to_header @ parse_to.c:47) co: 4 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x15d42 (parse_headers @ msg_parser.c:306) UAF write at: 0x7ffcec7a341c
+[INCONSISTENCY mov write reg UAF] ip: main+0x15d68 (parse_headers @ msg_parser.c:313) UAF write at: 0x7ffcec7a34b8
+[INCONSISTENCY mov read UAF] ip: main+0x15d7e (parse_headers @ msg_parser.c:316) UAF read at: 0x7ffcec7a341c
+[UNINITIALIZED mov read] ip: main+0x4ba28 (parse_to_header @ parse_to.c:47) co: 4 vo: -1
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3508 left stack [0xab,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x4ba73 (parse_to_header @ parse_to.c:48) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x1daa7d (get_debug_facility @ dprint.c:204) RSP 0x7ffcec7a3508 left stack [0xad,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x4bd29 (parse_to_header @ parse_to.c:48) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg UAF] ip: main+0x4b9e5 (parse_to_header @ parse_to.c:46) UAF write at: 0x7ffcec7a3478
+[INCONSISTENCY mov read UAF] ip: main+0x4b9ec (parse_to_header @ parse_to.c:47) UAF read at: 0x7ffcec7a3478
+[INCONSISTENCY mov read UAF] ip: main+0x4ba03 (parse_to_header @ parse_to.c:47) UAF read at: 0x7ffcec7a3478
+[INCONSISTENCY mov read UAF] ip: main+0x4ba21 (parse_to_header @ parse_to.c:47) UAF read at: 0x7ffcec7a3478
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3458 left stack [0xb2,0x7ffcec784000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x4ba63 (parse_to_header @ parse_to.c:48) UAF write at: 0x7ffcec7a34cc
+[INCONSISTENCY mov read UAF] ip: main+0x4bc9e (parse_to_header @ parse_to.c:48) UAF read at: 0x7ffcec7a34cc
+[INCONSISTENCY mov read UAF] ip: main+0x4bcb8 (parse_to_header @ parse_to.c:48) UAF read at: 0x7ffcec7a34cc
+[INCONSISTENCY mov write reg UAF] ip: main+0x4bcd1 (parse_to_header @ parse_to.c:48) UAF write at: 0x7ffcec7a3474
+[STACK PIVOT] ip: main+0x1daa7d (get_debug_facility @ dprint.c:204) RSP 0x7ffcec7a3458 left stack [0xb4,0x7ffcec784000]
+[INCONSISTENCY mov read UAF] ip: main+0x4bceb (parse_to_header @ parse_to.c:48) UAF read at: 0x7ffcec7a3474
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3508 left stack [0xb6,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x4bdf2 (parse_to_uri @ parse_to.c:68) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x1daa7d (get_debug_facility @ dprint.c:204) RSP 0x7ffcec7a3508 left stack [0xb8,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x4c0a8 (parse_to_uri @ parse_to.c:68) co: 3 vo: 3, 3 write 3
+[UNINITIALIZED mov read] ip: main+0x30bd4 (parse_contact_headers @ parse_contact.c:242) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x4a9c9 (parse_refer_to_header @ parse_refer_to.c:48) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x4aa06 (parse_refer_to_header @ parse_refer_to.c:49) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x47e0d (parse_pai_header @ parse_ppi_pai.c:140) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x48166 (parse_pai_header @ parse_ppi_pai.c:147) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x3b067 (parse_diversion_header @ parse_diversion.c:51) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x3b09f (parse_diversion_header @ parse_diversion.c:55) co: 4 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x497b7 (parse_privacy @ parse_privacy.c:153) UAF write at: 0x7ffcec7a34e8
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a34e8 ip: main+0x497be (parse_privacy @ parse_privacy.c:159)
+[UNINITIALIZED mov read] ip: main+0x497c5 (parse_privacy @ parse_privacy.c:159) co: 4 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a34e8 ip: main+0x497f2 (parse_privacy @ parse_privacy.c:163)
+[UNINITIALIZED mov read] ip: main+0x497f9 (parse_privacy @ parse_privacy.c:163) co: 4 vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a34e8 ip: main+0x49805 (parse_privacy @ parse_privacy.c:164)
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a34e8 ip: main+0x4982b (parse_privacy @ parse_privacy.c:164)
+[UNINITIALIZED mov read] ip: main+0x49832 (parse_privacy @ parse_privacy.c:164) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x3a0df (parse_content_disposition @ parse_disposition.c:370) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x3a118 (parse_content_disposition @ parse_disposition.c:373) co: 4 vo: -1
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a3508 left stack [0xc6,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x42d5d (parse_identityinfo_header @ parse_identityinfo.c:328) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x42d9a (parse_identityinfo_header @ parse_identityinfo.c:330) co: 4 vo: -1
+[STACK PIVOT] ip: main+0x1da9da (get_debug_level @ dprint.c:178) RSP 0x7ffcec7a34f8 left stack [0xca,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x42de5 (parse_identityinfo_header @ parse_identityinfo.c:331) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x1daa7d (get_debug_facility @ dprint.c:204) RSP 0x7ffcec7a34f8 left stack [0xcc,0x7ffcec784000]
+[INCONSISTENCY mov write reg] ip: main+0x430aa (parse_identityinfo_header @ parse_identityinfo.c:331) co: 3 vo: 3, 3 write 3
+[CORRUPTED_PTR_LOAD] ip: main+0x1c6b7 (reset_new_uri @ msg_parser.c:789) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3588 cell_owner: 205 value_owner: 204
+[UNINITIALIZED mov read] ip: main+0x1c6bb (reset_new_uri @ msg_parser.c:789) co: 4 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1c6da (reset_new_uri @ msg_parser.c:792) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3588 cell_owner: 205 value_owner: 204
+[CORRUPTED_PTR_LOAD] ip: main+0x1c6e9 (reset_new_uri @ msg_parser.c:793) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3588 cell_owner: 205 value_owner: 204
+[CORRUPTED_PTR_LOAD] ip: main+0x1c6f7 (reset_new_uri @ msg_parser.c:794) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3588 cell_owner: 205 value_owner: 204
+[STACK PIVOT] ip: main+0x1c706 (reset_new_uri @ msg_parser.c:795) RSP 0x7ffcec7a3598 left stack [0xcf,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x1cee5 (reset_dst_uri @ msg_parser.c:834) co: 4 vo: -1
+[STACK PIVOT] ip: main+0x1cf22 (reset_dst_uri @ msg_parser.c:839) RSP 0x7ffcec7a3598 left stack [0xd1,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x1d6e7 (reset_path_vector @ msg_parser.c:873) co: 4 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x8eeb9 (shm_address_in @ shm.c:178) UAF write at: 0x7ffcec7a34c8
+[INCONSISTENCY mov write imm UAF] ip: main+0x8eebd (shm_address_in @ shm.c:181) UAF write at: 0x7ffcec7a34dc
+[INCONSISTENCY mov read UAF] ip: main+0x8ef3c (shm_address_in @ shm.c:181) UAF read at: 0x7ffcec7a34dc
+[INCONSISTENCY mov read UAF] ip: main+0x8eec6 (shm_address_in @ shm.c:182) UAF read at: 0x7ffcec7a34dc
+[UNINITIALIZED mov read] ip: main+0x1d701 (reset_path_vector @ msg_parser.c:874) co: 4 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1e201 (reset_instance @ msg_parser.c:915) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3588 cell_owner: 210 value_owner: 194
+[UNINITIALIZED mov read] ip: main+0x1e205 (reset_instance @ msg_parser.c:915) co: 4 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1e224 (reset_instance @ msg_parser.c:918) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3588 cell_owner: 210 value_owner: 194
+[CORRUPTED_PTR_LOAD] ip: main+0x1e233 (reset_instance @ msg_parser.c:919) loaded: 0x7ffcec7a35d0 from cell: 0x7ffcec7a3588 cell_owner: 210 value_owner: 194
+[STACK PIVOT] ip: main+0x1e242 (reset_instance @ msg_parser.c:920) RSP 0x7ffcec7a3598 left stack [0xd4,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x1e9f8 (reset_ruid @ msg_parser.c:954) co: 4 vo: -1
+[STACK PIVOT] ip: main+0x1ea35 (reset_ruid @ msg_parser.c:959) RSP 0x7ffcec7a3598 left stack [0xd6,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x1f1eb (reset_ua @ msg_parser.c:993) co: 4 vo: -1
+[STACK PIVOT] ip: main+0x1f228 (reset_ua @ msg_parser.c:998) RSP 0x7ffcec7a3598 left stack [0xd8,0x7ffcec784000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x213a1e (free_hdr_field_lst @ hf.c:214) UAF write at: 0x7ffcec7a3588
+first time found dangling pointer at: 16969 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x213a26 (free_hdr_field_lst @ hf.c:215) UAF read at: 0x579fbd64b528
+first time found dangling pointer at: 9200 distance: 7771
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3588 ip: main+0x213a2e (free_hdr_field_lst @ hf.c:216)
+first time found dangling pointer at: 16969 distance: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x213437 (clean_hdr_field @ hf.c:54) UAF write at: 0x7ffcec7a34d8
+first time found dangling pointer at: 16985 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x21343e (clean_hdr_field @ hf.c:57) UAF read at: 0x7ffcec7a34d8
+first time found dangling pointer at: 16985 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x213445 (clean_hdr_field @ hf.c:57) UAF read at: 0x579fbd64b520
+first time found dangling pointer at: 7911 distance: 9076
+[INCONSISTENCY mov read UAF] ip: main+0x213452 (clean_hdr_field @ hf.c:58) UAF read at: 0x7ffcec7a34d8
+first time found dangling pointer at: 16985 distance: 5
+[INTRA_OBJECT_OVERFLOW] ip: main+0x21345d (clean_hdr_field @ hf.c:58) at: 0x7ffcec7a3528 offset: +0x18 subject: 194 clobbers ptr 0x7ffcec7a35d0 (owner: 4)
+Store dangling pointer: 0x579fbd64b520 at: 0x7ffcec7a3528
+[INCONSISTENCY mov read UAF] ip: main+0x213461 (clean_hdr_field @ hf.c:59) UAF read at: 0x7ffcec7a34d8
+first time found dangling pointer at: 16985 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x213468 (clean_hdr_field @ hf.c:59) UAF read at: 0x579fbd64b4f0
+[UNTRUSTEDPTRDEREF] ip: main+0x213484 (clean_hdr_field @ hf.c:59) final_ea: 0x579fa51363f8 base: 0x4 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x2136a7 (clean_hdr_field @ hf.c:167) UAF read at: 0x7ffcec7a34d8
+first time found dangling pointer at: 16985 distance: 20
+[INCONSISTENCY mov read UAF] ip: main+0x2136ae (clean_hdr_field @ hf.c:167) UAF read at: 0x579fbd64b520
+first time found dangling pointer at: 7911 distance: 9095
+[INCONSISTENCY mov read] ip: main+0x6c4ba (free_via_list @ parse_via.c:2735) base: 0x7ffcec7a34b0 pointee: 217 read from 218
+[CORRUPTED_PTR_LOAD] ip: main+0x6c4ba (free_via_list @ parse_via.c:2735) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3498 cell_owner: 218 value_owner: 217
+[INCONSISTENCY mov read UAF] ip: main+0x6c474 (free_via_list @ parse_via.c:2736) UAF read at: 0x7ffcec7a3498
+first time found dangling pointer at: 17013 distance: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x6c474 (free_via_list @ parse_via.c:2736) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3498 cell_owner: 218 value_owner: 217
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c478 (free_via_list @ parse_via.c:2736) UAF write at: 0x7ffcec7a34a8
+first time found dangling pointer at: 17018 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x6c47c (free_via_list @ parse_via.c:2737) UAF read at: 0x7ffcec7a3498
+first time found dangling pointer at: 17013 distance: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x6c47c (free_via_list @ parse_via.c:2737) loaded: 0x579fbd64b540 from cell: 0x7ffcec7a3498 cell_owner: 218 value_owner: 217
+[INCONSISTENCY mov read UAF] ip: main+0x6c480 (free_via_list @ parse_via.c:2737) UAF read at: 0x579fbd64b628
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c487 (free_via_list @ parse_via.c:2737) UAF write at: 0x7ffcec7a3498
+first time found dangling pointer at: 17013 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x6c48b (free_via_list @ parse_via.c:2738) UAF read at: 0x7ffcec7a34a8
+first time found dangling pointer at: 17018 distance: 4
+[INCONSISTENCY mov read UAF] ip: main+0x6c48f (free_via_list @ parse_via.c:2738) UAF read at: 0x579fbd64b5e0
+[INCONSISTENCY mov read UAF] ip: main+0x6c4ae (free_via_list @ parse_via.c:2740) UAF read at: 0x7ffcec7a34a8
+first time found dangling pointer at: 17018 distance: 8
+[FREE] free(0x579fbd64b540) subject=34 at free_via_list @ parse_via.c:2740
+[INCONSISTENCY mov read UAF] ip: main+0x6c4ba (free_via_list @ parse_via.c:2735) UAF read at: 0x7ffcec7a3498
+first time found dangling pointer at: 17013 distance: 18
+[STACK PIVOT] ip: main+0x6c4c3 (free_via_list @ parse_via.c:2742) RSP 0x7ffcec7a34b8 left stack [0xdc,0x7ffcec784000]
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3588 ip: main+0x213a3a (free_hdr_field_lst @ hf.c:217)
+first time found dangling pointer at: 16969 distance: 78
+[FREE] free(0x579fbd64b4f0) subject=27 at free_hdr_field_lst @ hf.c:217
+[INCONSISTENCY mov write imm UAF] ip: main+0x213a46 (free_hdr_field_lst @ hf.c:218) UAF write at: 0x7ffcec7a3588
+first time found dangling pointer at: 16969 distance: 83
+Store dangling pointer: 0x579fbd64b670 at: 0x7ffcec7a3528
+[FREE] free(0x579fbd64b640) subject=43 at free_hdr_field_lst @ hf.c:217
+Store dangling pointer: 0x579fbd64b6c0 at: 0x7ffcec7a3528
+[FREE] free(0x579fbd64b690) subject=50 at free_hdr_field_lst @ hf.c:217
+[STACK PIVOT] ip: main+0x213a57 (free_hdr_field_lst @ hf.c:220) RSP 0x7ffcec7a3598 left stack [0xdf,0x7ffcec784000]
+[UNINITIALIZED mov read] ip: main+0x1c633 (free_sip_msg @ msg_parser.c:777) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1c656 (free_sip_msg @ msg_parser.c:778) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1c679 (free_sip_msg @ msg_parser.c:779) co: 4 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x1f236 (msg_ldata_reset @ msg_parser.c:1004) UAF write at: 0x7ffcec7a3588
+first time found dangling pointer at: 16969 distance: 225
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3588 ip: main+0x1f23a (msg_ldata_reset @ msg_parser.c:1005)
+first time found dangling pointer at: 16969 distance: 226
+STACKREADUSEAFTERSCOPE at: 0x7ffcec7a3588 ip: main+0x1f241 (msg_ldata_reset @ msg_parser.c:1007)
+first time found dangling pointer at: 16969 distance: 228
+[STACK PIVOT] ip: main+0x1f260 (msg_ldata_reset @ msg_parser.c:1008) RSP 0x7ffcec7a3598 left stack [0xe1,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x1c6a5 (free_sip_msg @ msg_parser.c:782) RSP 0x7ffcec7a35b8 left stack [0xe2,0x7ffcec784000]
+[FREE] free(0x579fbd64c200) subject=7 at main @ harness.c:80
+[STACK PIVOT] ip: main+0x10a0d (main @ harness.c:82) RSP 0x7ffcec7a3dc8 left stack [0xe3,0x7ffcec784000]
+[STACK PIVOT] ip: main+0x10a0e (main @ harness.c:82) RSP 0x7ffcec7a3dd0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x1074e (__do_global_dtors_aux) final_ea: 0x579fa51adff0 base: 0x579fa4cdc74e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x10774 (__do_global_dtors_aux) RSP 0x7ffcec7a3cb0 left stack after RET
+[STACK PIVOT] ip: main+0x40d90c (_fini) RSP 0x7ffcec7a3ce0 left stack after RET

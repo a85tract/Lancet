@@ -1,0 +1,28 @@
+{
+  "name": "osv_2017_35",
+  "target": "openjpeg",
+  "binary": "bin/opj_decompress_fuzzer",
+  "poc": "poc/poc_dwt_interleave_h.gsr105.jp2",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 14028,
+    "corrupted_ptr_load": 3209,
+    "inconsistency_mov_read": 3067,
+    "inconsistency_mov_read_uaf": 1785,
+    "free": 1389,
+    "alloc": 1320,
+    "inconsistency_mov_write_reg_uaf": 568,
+    "inconsistency_mov_write_imm_uaf": 150,
+    "inconsistency_arithmetic__crossboundary": 83,
+    "alloc:internal": 68,
+    "untrustedptrderef": 63,
+    "stack_pivot": 63,
+    "intra_object_overflow": 20,
+    "heap_metadata_taint": 18,
+    "uninitialized_mov_read": 7,
+    "inconsistency_mov_write_reg": 3
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerInitialize; LLVMFuzzerInitialize; LLVMFuzzerTestOn",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,22 @@
+[INCONSISTENCY mov write reg] ip: main+0xe9e (main @ house_of_spirit.c:6) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x30) -> 0x26c4c2a0 subject=6 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x26c4c2e0 subject=7 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x26c4c320 subject=8 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x26c4c360 subject=9 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x26c4c3a0 subject=10 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x26c4c3e0 subject=11 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x26c4c420 subject=12 at main @ house_of_spirit.c:16
+[FREE] free(0x26c4c2a0) subject=6 at main @ house_of_spirit.c:19
+[FREE] free(0x26c4c2e0) subject=7 at main @ house_of_spirit.c:19
+[FREE] free(0x26c4c320) subject=8 at main @ house_of_spirit.c:19
+[FREE] free(0x26c4c360) subject=9 at main @ house_of_spirit.c:19
+[FREE] free(0x26c4c3a0) subject=10 at main @ house_of_spirit.c:19
+[FREE] free(0x26c4c3e0) subject=11 at main @ house_of_spirit.c:19
+[FREE] free(0x26c4c420) subject=12 at main @ house_of_spirit.c:19
+[FREE] free(0x7ffe2d4255b0) subject=5 at main @ house_of_spirit.c:39
+[INVALID FREE] free(0x7ffe2d4255b0) — not in allocation map
+[ALLOC] calloc(0x30) -> 0x7ffe2d4255b0 subject=13 at main @ house_of_spirit.c:44
+[STACK PIVOT] ip: main+0x1134 (main @ house_of_spirit.c:48) RSP 0x7ffe2d425608 left stack [0xf,0x7ffe2d406000]
+[STACK PIVOT] ip: main+0x1135 (main @ house_of_spirit.c:48) RSP 0x7ffe2d425610 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7ffe2d425510 left stack after RET
+[STACK PIVOT] ip: main+0x1144 (_fini) RSP 0x7ffe2d425510 left stack after RET

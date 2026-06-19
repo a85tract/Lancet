@@ -1,0 +1,27 @@
+{
+  "name": "osv_2020_2080",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 211,
+    "inconsistency_mov_read_uaf": 68,
+    "corrupted_ptr_load": 29,
+    "inconsistency_mov_write_reg_uaf": 25,
+    "stack_pivot": 22,
+    "inconsistency_mov_write_reg": 6,
+    "untrustedptrderef": 4,
+    "inconsistency_mov_read": 4,
+    "inconsistency_mov_write_imm_uaf": 4,
+    "alloc": 3,
+    "free": 3,
+    "alloc:internal": 1,
+    "intra_object_overflow": 1,
+    "free:internal": 1,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "coap_prng_init; coap_ticks; coap_ticks",
+  "verification_match": "\u2713"
+}

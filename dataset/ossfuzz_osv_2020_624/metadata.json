@@ -1,0 +1,26 @@
+{
+  "name": "osv_2020_624",
+  "target": "lz4",
+  "binary": "bin/decompress_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 118,
+    "inconsistency_mov_write_reg_uaf": 20,
+    "corrupted_ptr_load": 19,
+    "inconsistency_mov_read_uaf": 16,
+    "stack_pivot": 7,
+    "untrustedptrderef": 6,
+    "inconsistency_arithmetic__crossboundary": 4,
+    "inconsistency_mov_write_reg": 3,
+    "alloc": 3,
+    "free:internal": 3,
+    "intra_object_overflow": 3,
+    "free": 3,
+    "alloc:internal": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "FUZZ_rand; FUZZ_rand; FUZZ_rand",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,44 @@
+[INCONSISTENCY mov write reg] ip: main+0x122e (main @ fastbin_reverse_into_tcache.c:8) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x40) -> 0x1b1a0010 subject=6 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a0060 subject=7 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a00b0 subject=8 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a0100 subject=9 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a0150 subject=10 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a01a0 subject=11 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a01f0 subject=12 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a0240 subject=13 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a0290 subject=14 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a02e0 subject=15 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a0330 subject=16 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a0380 subject=17 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a03d0 subject=18 at main @ fastbin_reverse_into_tcache.c:24
+[ALLOC] malloc(0x40) -> 0x1b1a0420 subject=19 at main @ fastbin_reverse_into_tcache.c:24
+[FREE] free(0x1b1a0010) subject=6 at main @ fastbin_reverse_into_tcache.c:31
+[FREE:internal] free(0x1b1a0010) subject=0
+[DOUBLE FREE] free(0x1b1a0010) — already freed
+[FREE] free(0x1b1a0060) subject=7 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x1b1a00b0) subject=8 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x1b1a0100) subject=9 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x1b1a0150) subject=10 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x1b1a01a0) subject=11 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x1b1a01f0) subject=12 at main @ fastbin_reverse_into_tcache.c:31
+[FREE] free(0x1b1a0240) subject=13 at main @ fastbin_reverse_into_tcache.c:37
+[FREE] free(0x1b1a0290) subject=14 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x1b1a02e0) subject=15 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x1b1a0330) subject=16 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x1b1a0380) subject=17 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x1b1a03d0) subject=18 at main @ fastbin_reverse_into_tcache.c:48
+[FREE] free(0x1b1a0420) subject=19 at main @ fastbin_reverse_into_tcache.c:48
+main+0x13a2 (main @ fastbin_reverse_into_tcache.c:57) Read a dangling pointer 0x1b1a0240 from 0x7fffd25f2d40
+main+0x13c7 (main @ fastbin_reverse_into_tcache.c:65) Using expired pointer: 0x1b1a0240 from 0x7fffd25f2d40
+first time found dangling pointer at: 379 distance: 9
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x13d2 (main @ fastbin_reverse_into_tcache.c:65) xor rax, rdx id before: 5 after: 1 value: 0x7fffd25e9cf0
+[INCONSISTENCY mov write reg UAF] ip: main+0x13df (main @ fastbin_reverse_into_tcache.c:65) UAF write at: 0x1b1a0240
+[ALLOC] malloc(0x40) -> 0x1b1a0420 subject=20 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x1b1a03d0 subject=21 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x1b1a0380 subject=22 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x1b1a0330 subject=23 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x1b1a02e0 subject=24 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x1b1a0290 subject=25 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x1b1a0240 subject=26 at main @ fastbin_reverse_into_tcache.c:72
+[ALLOC] malloc(0x40) -> 0x7fffd25f2d50 subject=27 at main @ fastbin_reverse_into_tcache.c:95

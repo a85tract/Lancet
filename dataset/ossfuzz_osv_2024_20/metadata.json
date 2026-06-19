@@ -1,0 +1,22 @@
+{
+  "name": "osv_2024_20",
+  "target": "unknown",
+  "binary": "bin/gen_poc",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 79,
+    "inconsistency_mov_write_reg": 17,
+    "inconsistency_arithmetic__crossboundary": 15,
+    "untrustedptrderef": 14,
+    "corrupted_ptr_load": 9,
+    "alloc:internal": 8,
+    "free:internal": 8,
+    "stack_pivot": 6,
+    "oob_byte_write": 1,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "hfile_init_fixed; hfile_init_fixed; hfile_init_fixed",
+  "verification_match": "\u2713"
+}

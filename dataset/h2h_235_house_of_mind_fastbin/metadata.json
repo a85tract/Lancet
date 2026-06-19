@@ -1,0 +1,18 @@
+{
+  "name": "h2h_235_house_of_mind_fastbin",
+  "target": "how2heap",
+  "technique": "house of mind fastbin",
+  "glibc_version": "2.35",
+  "binary": "bin/house_of_mind_fastbin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 444,
+    "alloc": 427,
+    "free": 8,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 2,
+    "inconsistency_arithmetic__crossboundary": 2,
+    "alloc:internal": 1
+  },
+  "detected": true
+}

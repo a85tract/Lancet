@@ -1,0 +1,110 @@
+[INCONSISTENCY mov write reg] ip: main+0x8664 (main @ harness.c:86) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x8667 (main @ harness.c:86) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x86a8 (main @ harness.c:92) final_ea: 0x7ffdc51c0db0 base: 0x7ffdc51c0db0 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x62119e2d8010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x86bd (main @ harness.c:92) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x62119e2d81f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x46) -> 0x62119e2d9200 subject=7 at main @ harness.c:98
+[FREE:internal] free(0x62119e2d81f0) subject=6 at _IO_setb
+[FREE:internal] free(0x62119e2d8010) subject=5 at _IO_fclose
+[FREE:internal] free(0x62119e2d8010) subject=0
+[DOUBLE FREE] free(0x62119e2d8010) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x843e (gb_alloc_data @ harness.c:39) loaded: 0x610 from cell: 0x7ffdc51c0bd8 cell_owner: 8 value_owner: 4
+[ALLOC] calloc(0x610) -> 0x62119e2d84f0 subject=9 at gb_alloc_data @ harness.c:39
+Store dangling pointer: 0x62119e2d84f0 at: 0x7ffdc51c0be8
+main+0x8453 (gb_alloc_data @ harness.c:40) Using expired pointer: 0x62119e2d84f0 from 0x7ffdc51c0be8
+first time found dangling pointer at: 603 distance: 1
+[INCONSISTENCY mov write reg] ip: main+0x846e (gb_alloc_data @ harness.c:41) co: 3 vo: 3, 3 write 3
+[STACK PIVOT] ip: main+0x8491 (gb_alloc_data @ harness.c:43) RSP 0x7ffdc51c0bf8 left stack [0xb,0x7ffdc51a2000]
+[INCONSISTENCY mov write reg] ip: main+0x8793 (main @ harness.c:109) co: 3 vo: 3, 3 write 3
+[ALLOC] calloc(0x401) -> 0x62119e2d8b10 subject=12 at gb_alloc_data @ harness.c:39
+Store dangling pointer: 0x62119e2d8b10 at: 0x7ffdc51c0be8
+main+0x8453 (gb_alloc_data @ harness.c:40) Using expired pointer: 0x62119e2d8b10 from 0x7ffdc51c0be8
+first time found dangling pointer at: 603 distance: 36
+[STACK PIVOT] ip: main+0x8491 (gb_alloc_data @ harness.c:43) RSP 0x7ffdc51c0bf8 left stack [0xe,0x7ffdc51a2000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x87d7 (main @ harness.c:112) UAF write at: 0x62119e2d8918
+first time found dangling pointer at: 655 distance: 0
+[ALLOC] calloc(0xc8) -> 0x62119e2d8f20 subject=15 at gb_alloc_data @ harness.c:39
+Store dangling pointer: 0x62119e2d8f20 at: 0x7ffdc51c0be8
+main+0x8453 (gb_alloc_data @ harness.c:40) Using expired pointer: 0x62119e2d8f20 from 0x7ffdc51c0be8
+first time found dangling pointer at: 603 distance: 68
+[STACK PIVOT] ip: main+0x8491 (gb_alloc_data @ harness.c:43) RSP 0x7ffdc51c0bf8 left stack [0x11,0x7ffdc51a2000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x87ef (main @ harness.c:113) UAF write at: 0x62119e2d8ae8
+first time found dangling pointer at: 687 distance: 0
+[ALLOC] calloc(0x100) -> 0x62119e2d8ff0 subject=18 at gb_alloc_data @ harness.c:39
+Store dangling pointer: 0x62119e2d8ff0 at: 0x7ffdc51c0be8
+main+0x8453 (gb_alloc_data @ harness.c:40) Using expired pointer: 0x62119e2d8ff0 from 0x7ffdc51c0be8
+first time found dangling pointer at: 603 distance: 100
+[STACK PIVOT] ip: main+0x8491 (gb_alloc_data @ harness.c:43) RSP 0x7ffdc51c0bf8 left stack [0x14,0x7ffdc51a2000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8807 (main @ harness.c:114) UAF write at: 0x62119e2d8a70
+first time found dangling pointer at: 719 distance: 0
+[ALLOC] calloc(0x100) -> 0x62119e2d9250 subject=21 at gb_alloc_data @ harness.c:39
+[STACK PIVOT] ip: main+0x8491 (gb_alloc_data @ harness.c:43) RSP 0x7ffdc51c0bf8 left stack [0x17,0x7ffdc51a2000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x881f (main @ harness.c:115) UAF write at: 0x62119e2d8a78
+[ALLOC] calloc(0x100) -> 0x62119e2d9360 subject=24 at gb_alloc_data @ harness.c:39
+[STACK PIVOT] ip: main+0x8491 (gb_alloc_data @ harness.c:43) RSP 0x7ffdc51c0bf8 left stack [0x1a,0x7ffdc51a2000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8837 (main @ harness.c:116) UAF write at: 0x62119e2d8a80
+[INCONSISTENCY mov write imm UAF] ip: main+0x8845 (main @ harness.c:117) UAF write at: 0x62119e2d87e4
+[INCONSISTENCY mov read UAF] ip: main+0x8954 (cache_init @ cache.c:106) UAF read at: 0x62119e2d86c4
+[INCONSISTENCY mov write reg] ip: main+0x8972 (cache_init @ cache.c:106) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read UAF] ip: main+0x897f (cache_init @ cache.c:108) UAF read at: 0x62119e2d86c4
+[INCONSISTENCY mov read UAF] ip: main+0x8a00 (cache_init @ cache.c:121) UAF read at: 0x62119e2d86c4
+[INCONSISTENCY mov write reg UAF] ip: main+0x8a1c (rehash @ cache.c:129) UAF write at: 0x7ffdc51c0b9c
+[INCONSISTENCY mov write imm UAF] ip: main+0x8a1f (rehash @ cache.c:134) UAF write at: 0x7ffdc51c0bb8
+[INCONSISTENCY mov read UAF] ip: main+0x8a2b (rehash @ cache.c:134) UAF read at: 0x7ffdc51c0b9c
+[INCONSISTENCY mov read UAF] ip: main+0x8a46 (rehash @ cache.c:134) UAF read at: 0x7ffdc51c0bb8
+[INCONSISTENCY mov read UAF] ip: main+0x8a57 (rehash @ cache.c:138) UAF read at: 0x7ffdc51c0bb8
+[CORRUPTED_PTR_LOAD] ip: main+0x2ad97 (safe_malloc @ util.c:282) loaded: 0x200 from cell: 0x7ffdc51c0b68 cell_owner: 28 value_owner: 27
+[ALLOC] calloc(0x200) -> 0x62119e2d9470 subject=29 at safe_malloc @ util.c:282
+[STACK PIVOT] ip: main+0x2add0 (safe_malloc @ util.c:288) RSP 0x7ffdc51c0b88 left stack [0x1f,0x7ffdc51a2000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x8a68 (rehash @ cache.c:138) UAF write at: 0x7ffdc51c0bc8
+[INCONSISTENCY mov write imm UAF] ip: main+0x8a9d (rehash @ cache.c:142) UAF write at: 0x7ffdc51c0bbc
+[INCONSISTENCY mov read UAF] ip: main+0x8ac5 (rehash @ cache.c:142) UAF read at: 0x7ffdc51c0bbc
+[INCONSISTENCY mov read UAF] ip: main+0x8aa6 (rehash @ cache.c:143) UAF read at: 0x7ffdc51c0bbc
+[INCONSISTENCY mov read UAF] ip: main+0x8ab3 (rehash @ cache.c:143) UAF read at: 0x7ffdc51c0bc8
+[INCONSISTENCY mov write reg UAF] ip: main+0x8ad4 (rehash @ cache.c:145) UAF write at: 0x7ffdc51c0bb0
+[INCONSISTENCY mov write reg UAF] ip: main+0x8ade (rehash @ cache.c:146) UAF write at: 0x7ffdc51c0bac
+[INCONSISTENCY mov read UAF] ip: main+0x8ae1 (rehash @ cache.c:147) UAF read at: 0x7ffdc51c0bc8
+[INCONSISTENCY mov write reg] ip: main+0x8ae5 (rehash @ cache.c:147) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read UAF] ip: main+0x8aec (rehash @ cache.c:148) UAF read at: 0x7ffdc51c0bb8
+[INCONSISTENCY mov write reg] ip: main+0x8aef (rehash @ cache.c:148) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read UAF] ip: main+0x8af5 (rehash @ cache.c:150) UAF read at: 0x7ffdc51c0bb0
+[STACK PIVOT] ip: main+0x8b64 (rehash @ cache.c:160) RSP 0x7ffdc51c0bd8 left stack [0x20,0x7ffdc51a2000]
+[STACK PIVOT] ip: main+0x8a0e (cache_init @ cache.c:122) RSP 0x7ffdc51c0bf8 left stack [0x21,0x7ffdc51a2000]
+[INCONSISTENCY mov read UAF] ip: main+0x2fc98 (blockdata_init @ blockdata.c:49) UAF read at: 0x62119e2d84f4
+[ALLOC] malloc(0x12c) -> 0x62119e2d9680 subject=33 at main @ harness.c:124
+[INCONSISTENCY mov write reg UAF] ip: main+0x888d (main @ harness.c:128) UAF write at: 0x62119e2d8a60
+[INCONSISTENCY mov write reg UAF] ip: main+0x8894 (main @ harness.c:128) UAF write at: 0x62119e2d8a68
+[INCONSISTENCY mov write reg] ip: main+0x889f (main @ harness.c:130) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x88aa (main @ harness.c:131) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write imm UAF] ip: main+0x34c2b (dhcp6_packet @ dhcp6.c:97) UAF write at: 0x7ffdc51c0bc4
+Store dangling pointer: 0x62119e2d8a60 at: 0x7ffdc51c0af0
+[INCONSISTENCY mov read UAF] ip: main+0x34cac (dhcp6_packet @ dhcp6.c:119) UAF read at: 0x62119e2d8ac8
+[CORRUPTED_PTR_LOAD] ip: main+0x30153 (recv_dhcp_packet @ dhcp-common.c:45) loaded: 0x7ffdc51c0ae0 from cell: 0x7ffdc51c09f0 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0x3015f (recv_dhcp_packet @ dhcp-common.c:46) loaded: 0x7ffdc51c0ae0 from cell: 0x7ffdc51c09f0 cell_owner: 35 value_owner: 34
+[CORRUPTED_PTR_LOAD] ip: main+0x30163 (recv_dhcp_packet @ dhcp-common.c:46) loaded: 0x3e800000000 from cell: 0x7ffdc51c09fc cell_owner: 35 value_owner: 34
+[UNTRUSTEDPTRDEREF] ip: main+0x30185 (recv_dhcp_packet @ dhcp-common.c:46) final_ea: 0x75613e2216f0 base: 0x75613e2216f0 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x3027e (recv_dhcp_packet @ dhcp-common.c:80) RSP 0x7ffdc51c0a18 left stack [0x25,0x7ffdc51a2000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x34cc3 (dhcp6_packet @ dhcp6.c:119) UAF write at: 0x7ffdc51c0ba0
+STACKREADUSEAFTERSCOPE at: 0x7ffdc51c0ba0 ip: main+0x34cc7 (dhcp6_packet @ dhcp6.c:119)
+STACKREADUSEAFTERSCOPE at: 0x7ffdc51c0be8 ip: main+0x353c1 (dhcp6_packet @ dhcp6.c:260)
+first time found dangling pointer at: 603 distance: 1016
+[STACK PIVOT] ip: main+0x353c5 (dhcp6_packet @ dhcp6.c:260) RSP 0x7ffdc51c0bf8 left stack [0x26,0x7ffdc51a2000]
+[FREE] free(0x62119e2d9680) subject=33 at main @ harness.c:136
+[INCONSISTENCY mov write imm UAF] ip: main+0x83da (gb_cleanup @ harness.c:32) UAF write at: 0x7ffdc51c0bec
+STACKREADUSEAFTERSCOPE at: 0x7ffdc51c0bec ip: main+0x8424 (gb_cleanup @ harness.c:32)
+STACKREADUSEAFTERSCOPE at: 0x7ffdc51c0bec ip: main+0x83e3 (gb_cleanup @ harness.c:33)
+STACKREADUSEAFTERSCOPE at: 0x7ffdc51c0bec ip: main+0x8400 (gb_cleanup @ harness.c:34)
+[FREE] free(0x62119e2d84f0) subject=9 at gb_cleanup @ harness.c:34
+[FREE] free(0x62119e2d8b10) subject=12 at gb_cleanup @ harness.c:34
+[FREE] free(0x62119e2d8f20) subject=15 at gb_cleanup @ harness.c:34
+[FREE] free(0x62119e2d8ff0) subject=18 at gb_cleanup @ harness.c:34
+[FREE] free(0x62119e2d9250) subject=21 at gb_cleanup @ harness.c:34
+[FREE] free(0x62119e2d9360) subject=24 at gb_cleanup @ harness.c:34
+[STACK PIVOT] ip: main+0x842c (gb_cleanup @ harness.c:36) RSP 0x7ffdc51c0bf8 left stack [0x28,0x7ffdc51a2000]
+[FREE] free(0x62119e2d9200) subject=7 at main @ harness.c:140
+[STACK PIVOT] ip: main+0x88f0 (main @ harness.c:142) RSP 0x7ffdc51c0c78 left stack [0x29,0x7ffdc51a2000]
+[STACK PIVOT] ip: main+0x88f1 (main @ harness.c:142) RSP 0x7ffdc51c0c80 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x834e (__do_global_dtors_aux) final_ea: 0x621177b5aff8 base: 0x621177af634e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x8374 (__do_global_dtors_aux) RSP 0x7ffdc51c0b60 left stack after RET
+[STACK PIVOT] ip: main+0x5c630 (_fini) RSP 0x7ffdc51c0b90 left stack after RET

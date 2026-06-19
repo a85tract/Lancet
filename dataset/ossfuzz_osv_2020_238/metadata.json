@@ -1,0 +1,28 @@
+{
+  "name": "osv_2020_238",
+  "target": "libarchive",
+  "binary": "bin/libarchive_fuzzer",
+  "poc": "poc/poc.rar",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1633,
+    "inconsistency_mov_read_uaf": 398,
+    "inconsistency_mov_write_reg_uaf": 199,
+    "corrupted_ptr_load": 113,
+    "inconsistency_mov_read": 87,
+    "stack_pivot": 72,
+    "inconsistency_mov_write_imm_uaf": 68,
+    "free": 48,
+    "alloc:internal": 34,
+    "alloc": 31,
+    "untrustedptrderef": 24,
+    "free:internal": 17,
+    "inconsistency_mov_write_reg": 13,
+    "uninitialized_mov_read": 11,
+    "intra_object_overflow": 6,
+    "inconsistency_arithmetic__crossboundary": 5
+  },
+  "detected": true,
+  "key_functions": "archive_read_support_filter_zstd; archive_read_support_filte",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "osv_2021_455",
+  "target": "unknown",
+  "binary": "bin/php-fuzz-execute",
+  "poc": "poc/poc.php",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 33733,
+    "overlap": 12234,
+    "inconsistency_mov_read_uaf": 5513,
+    "corrupted_ptr_load": 4184,
+    "inconsistency_mov_read": 4084,
+    "inconsistency_mov_write_reg_uaf": 2536,
+    "uninitialized_mov_read": 841,
+    "inconsistency_mov_write_reg": 454,
+    "untrustedptrderef": 291,
+    "stack_pivot": 276,
+    "intra_object_overflow": 268,
+    "inconsistency_mov_write_imm_uaf": 246,
+    "free": 110,
+    "invalid_free": 110,
+    "alloc": 100,
+    "inconsistency_arithmetic__crossboundary": 79
+  },
+  "detected": true,
+  "key_functions": "zm_startup_hash; zm_startup_hash; zm_startup_hash",
+  "verification_match": "\u2713"
+}

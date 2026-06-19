@@ -1,0 +1,36 @@
+[INCONSISTENCY mov write reg] ip: main+0x1270 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1276 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1286 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1293 (main) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x12aa (main) final_ea: 0x7ffc6378d1f0 base: 0x7ffc6378d1e8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x12ae (main) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1d8) -> 0x5c04ab6d9010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x12ce (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x130c (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1313 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x132e (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1335 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1350 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1354 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x136c (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1370 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1388 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x138c (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x13a4 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x13a8 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x13c0 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x13c4 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x13dc (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x13e0 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x13f5 (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x13f9 (main) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x5c04ab6d91f0 subject=6 at _IO_file_doallocate
+[FREE:internal] free(0x5c04ab6d91f0) subject=6 at _IO_setb
+[FREE:internal] free(0x5c04ab6d9010) subject=5 at _IO_fclose
+[FREE:internal] free(0x5c04ab6d9010) subject=0
+[DOUBLE FREE] free(0x5c04ab6d9010) — already freed
+[STACK PIVOT] ip: main+0x147a (main) RSP 0x7ffc6378d0b8 left stack [0x8,0x7ffc6376f000]
+[STACK PIVOT] ip: main+0x147b (main) RSP 0x7ffc6378d0c0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x11ae (__do_global_dtors_aux) final_ea: 0x5c046ec4eff8 base: 0x5c046ec4c1ae pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x11d4 (__do_global_dtors_aux) RSP 0x7ffc6378cfa0 left stack after RET
+[STACK PIVOT] ip: main+0x1488 (_fini) RSP 0x7ffc6378cfd0 left stack after RET

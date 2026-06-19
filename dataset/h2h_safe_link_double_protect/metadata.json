@@ -1,0 +1,23 @@
+{
+  "name": "h2h_safe_link_double_protect",
+  "target": "how2heap",
+  "technique": "Blind bypass of safe-linking mitigation via double-protect technique",
+  "binary": "bin/safe_link_double_protect",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 31,
+    "alloc": 9,
+    "free": 5,
+    "inconsistency_mov_write_reg": 4,
+    "stack_pivot": 4,
+    "inconsistency_arithmetic__crossboundary": 2,
+    "free:internal": 1,
+    "double_free": 1,
+    "untrustedptrderef": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": true,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

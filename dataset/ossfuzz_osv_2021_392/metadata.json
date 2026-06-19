@@ -1,0 +1,28 @@
+{
+  "name": "osv_2021_392",
+  "target": "mruby",
+  "binary": "bin/mruby_fuzzer",
+  "poc": "poc/poc.rb",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 4714,
+    "alloc:internal": 1000,
+    "free": 999,
+    "corrupted_ptr_load": 668,
+    "inconsistency_mov_read_uaf": 560,
+    "stack_pivot": 388,
+    "untrustedptrderef": 269,
+    "inconsistency_mov_write_reg_uaf": 248,
+    "inconsistency_mov_read": 96,
+    "inconsistency_mov_write_reg": 50,
+    "inconsistency_mov_write_imm_uaf": 46,
+    "inconsistency_arithmetic__crossboundary": 35,
+    "intra_object_overflow": 34,
+    "uninitialized_mov_read": 14,
+    "free:internal": 3,
+    "alloc": 1
+  },
+  "detected": true,
+  "key_functions": "main; main; main",
+  "verification_match": "\u2713"
+}

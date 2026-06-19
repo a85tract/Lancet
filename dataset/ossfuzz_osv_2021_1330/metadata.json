@@ -1,0 +1,28 @@
+{
+  "name": "osv_2021_1330",
+  "target": "unknown",
+  "binary": "bin/kamailio_fuzzer_noasan",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 748,
+    "stack_pivot": 152,
+    "inconsistency_mov_read_uaf": 138,
+    "corrupted_ptr_load": 132,
+    "inconsistency_mov_read": 71,
+    "inconsistency_mov_write_reg_uaf": 69,
+    "uninitialized_mov_read": 27,
+    "inconsistency_mov_write_reg": 26,
+    "alloc": 16,
+    "free": 16,
+    "untrustedptrderef": 15,
+    "inconsistency_mov_write_imm_uaf": 15,
+    "alloc:internal": 7,
+    "free:internal": 5,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "__interceptor_fopen.part.0; __interceptor_fopen.part.0; __in",
+  "verification_match": "\u2713"
+}

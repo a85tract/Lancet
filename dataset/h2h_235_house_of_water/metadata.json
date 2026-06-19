@@ -1,0 +1,21 @@
+{
+  "name": "h2h_235_house_of_water",
+  "target": "how2heap",
+  "technique": "house of water",
+  "glibc_version": "2.35",
+  "binary": "bin/house_of_water",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 86,
+    "alloc": 24,
+    "inconsistency_arithmetic__crossboundary": 18,
+    "free": 12,
+    "stack_pivot": 9,
+    "inconsistency_mov_read_uaf": 4,
+    "untrustedptrderef": 3,
+    "inconsistency_mov_write_reg": 2,
+    "invalid_free": 2,
+    "inconsistency_mov_write_reg_uaf": 2
+  },
+  "detected": true
+}

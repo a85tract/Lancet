@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_549",
+  "target": "lz4",
+  "binary": "bin/round_trip_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 167,
+    "corrupted_ptr_load": 53,
+    "inconsistency_mov_read": 15,
+    "inconsistency_mov_write_reg_uaf": 14,
+    "alloc": 11,
+    "free": 7,
+    "inconsistency_mov_read_uaf": 4,
+    "uninitialized_mov_read": 4,
+    "inconsistency_mov_write_reg": 3,
+    "free:internal": 3,
+    "alloc:internal": 2,
+    "inconsistency_arithmetic__crossboundary": 2,
+    "untrustedptrderef": 1,
+    "double_free": 1,
+    "stack_pivot": 1,
+    "invalid_free": 1
+  },
+  "detected": true,
+  "key_functions": "LZ4_initStream; LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInp",
+  "verification_match": "\u2713"
+}

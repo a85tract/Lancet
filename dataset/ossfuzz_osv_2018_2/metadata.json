@@ -1,0 +1,28 @@
+{
+  "name": "osv_2018_2",
+  "target": "libgit2",
+  "binary": "bin/objects_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 2652,
+    "corrupted_ptr_load": 877,
+    "inconsistency_mov_read": 763,
+    "inconsistency_mov_read_uaf": 298,
+    "inconsistency_mov_write_reg_uaf": 164,
+    "intra_object_overflow": 45,
+    "inconsistency_mov_write_imm_uaf": 36,
+    "untrustedptrderef": 29,
+    "uninitialized_mov_read": 24,
+    "alloc": 24,
+    "free": 16,
+    "inconsistency_mov_write_reg": 14,
+    "alloc:internal": 14,
+    "stack_pivot": 7,
+    "free:internal": 3,
+    "inconsistency_arithmetic__crossboundary": 3
+  },
+  "detected": true,
+  "key_functions": "git_oid_fromstrn; git_oid_fromstrn; git_oid_fromstrn",
+  "verification_match": "\u2713"
+}

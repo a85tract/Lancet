@@ -1,0 +1,21 @@
+{
+  "name": "h2h_fastbin_dup_consolidate",
+  "target": "how2heap",
+  "technique": "Fastbin double-free via malloc_consolidate to bypass duplicate check",
+  "binary": "bin/fastbin_dup_consolidate",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 26,
+    "alloc": 9,
+    "free": 8,
+    "alloc:internal": 3,
+    "free:internal": 3,
+    "inconsistency_mov_write_reg": 1,
+    "double_free": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": false,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

@@ -1,0 +1,21 @@
+[ALLOC] malloc(0x410) -> 0x181b010 subject=6 at main @ tcache_relative_write.c:50
+[INCONSISTENCY mov write reg] ip: main+0x122d (main @ tcache_relative_write.c:50) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x100) -> 0x181b430 subject=7 at main @ tcache_relative_write.c:51
+[INCONSISTENCY mov write reg] ip: main+0x123b (main @ tcache_relative_write.c:51) co: 5 vo: 5, 5 write 5
+[UNTRUSTEDPTRDEREF] ip: main+0x1243 (main @ tcache_relative_write.c:52) final_ea: 0x181b428 base: 0x181b430 pointee: 7 base_vo: 7 src_subject: 7 src_base: 0x181b430
+[FREE] free(0x181b010) subject=6 at main @ tcache_relative_write.c:54
+main+0x1275 (main @ tcache_relative_write.c:67) Read a dangling pointer 0x181b010 from 0x7ffff9f90548
+[INCONSISTENCY mov read UAF] ip: main+0x1279 (main @ tcache_relative_write.c:67) UAF read at: 0x181b010
+main+0x12e3 (main @ tcache_relative_write.c:142) Using expired pointer: 0x181b010 from 0x7ffff9f90548
+first time found dangling pointer at: 73 distance: 36
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1349 (main @ tcache_relative_write.c:148) sub rax, 0x6 id before: 7 after: -1 [chunk metadata] value: 0x181b42a
+[ALLOC] malloc(0x3560) -> 0x181b540 subject=8 at main @ tcache_relative_write.c:154
+[FREE] free(0x181b540) subject=8 at main @ tcache_relative_write.c:157
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1389 (main @ tcache_relative_write.c:160) sub rax, 0x8 id before: 7 after: -1 [chunk metadata] value: 0x181b428
+[UNTRUSTEDPTRDEREF] ip: main+0x138d (main @ tcache_relative_write.c:160) final_ea: 0x181b428 base: 0x181b428 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x14) -> 0x181b010 subject=9 at gettext
+[ALLOC:internal] malloc(0x2) -> 0x181b030 subject=10 at gettext
+[FREE:internal] free(0x181b010) subject=9 at gettext
+[FREE:internal] free(0x181b010) subject=0
+[DOUBLE FREE] free(0x181b010) — already freed
+[FREE:internal] free(0x181b030) subject=10 at gettext

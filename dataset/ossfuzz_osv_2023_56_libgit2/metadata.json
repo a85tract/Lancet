@@ -1,0 +1,26 @@
+{
+  "name": "osv_2023_56_libgit2",
+  "target": "libgit2",
+  "binary": "bin/commit_graph_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 3817,
+    "inconsistency_mov_read_uaf": 1967,
+    "inconsistency_mov_write_reg_uaf": 511,
+    "stack_pivot": 195,
+    "corrupted_ptr_load": 183,
+    "inconsistency_mov_write_imm_uaf": 50,
+    "uninitialized_mov_read": 22,
+    "untrustedptrderef": 20,
+    "inconsistency_mov_write_reg": 17,
+    "alloc:internal": 16,
+    "inconsistency_arithmetic__crossboundary": 11,
+    "alloc": 10,
+    "inconsistency_mov_read": 8,
+    "free": 3,
+    "intra_object_overflow": 2,
+    "free:internal": 2
+  },
+  "detected": true
+}

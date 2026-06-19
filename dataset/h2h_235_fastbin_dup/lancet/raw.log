@@ -1,0 +1,36 @@
+[INCONSISTENCY mov write reg] ip: main+0xe9b (main @ fastbin_dup.c:6) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x8) -> 0x1ded72a0 subject=6 at main @ fastbin_dup.c:14
+[ALLOC] malloc(0x8) -> 0x1ded72c0 subject=7 at main @ fastbin_dup.c:14
+[ALLOC] malloc(0x8) -> 0x1ded72e0 subject=8 at main @ fastbin_dup.c:14
+[ALLOC] malloc(0x8) -> 0x1ded7300 subject=9 at main @ fastbin_dup.c:14
+[ALLOC] malloc(0x8) -> 0x1ded7320 subject=10 at main @ fastbin_dup.c:14
+[ALLOC] malloc(0x8) -> 0x1ded7340 subject=11 at main @ fastbin_dup.c:14
+[ALLOC] malloc(0x8) -> 0x1ded7360 subject=12 at main @ fastbin_dup.c:14
+[ALLOC] malloc(0x8) -> 0x1ded7380 subject=13 at main @ fastbin_dup.c:14
+[FREE] free(0x1ded72a0) subject=6 at main @ fastbin_dup.c:17
+[FREE] free(0x1ded72c0) subject=7 at main @ fastbin_dup.c:17
+[FREE] free(0x1ded72e0) subject=8 at main @ fastbin_dup.c:17
+[FREE] free(0x1ded7300) subject=9 at main @ fastbin_dup.c:17
+[FREE] free(0x1ded7320) subject=10 at main @ fastbin_dup.c:17
+[FREE] free(0x1ded7340) subject=11 at main @ fastbin_dup.c:17
+[FREE] free(0x1ded7360) subject=12 at main @ fastbin_dup.c:17
+[ALLOC] calloc(0x8) -> 0x1ded73a0 subject=14 at main @ fastbin_dup.c:21
+[ALLOC] calloc(0x8) -> 0x1ded73c0 subject=15 at main @ fastbin_dup.c:22
+[ALLOC] calloc(0x8) -> 0x1ded73e0 subject=16 at main @ fastbin_dup.c:23
+[FREE] free(0x1ded73a0) subject=14 at main @ fastbin_dup.c:30
+main+0xfd6 (main @ fastbin_dup.c:32) Read a dangling pointer 0x1ded73a0 from 0x7ffde56c53f8
+main+0xfda (main @ fastbin_dup.c:32) Using expired pointer: 0x1ded73a0 from 0x7ffde56c53f8
+first time found dangling pointer at: 276 distance: 1
+[FREE] free(0x1ded73c0) subject=15 at main @ fastbin_dup.c:36
+[FREE] free(0x1ded73a0) subject=0 at main @ fastbin_dup.c:39
+[DOUBLE FREE] free(0x1ded73a0) — already freed
+main+0x104b (main @ fastbin_dup.c:41) Read a dangling pointer 0x1ded73c0 from 0x7ffde56c5400
+[ALLOC] calloc(0x8) -> 0x1ded73a0 subject=17 at main @ fastbin_dup.c:42
+[ALLOC] calloc(0x8) -> 0x1ded73c0 subject=18 at main @ fastbin_dup.c:43
+[ALLOC] calloc(0x8) -> 0x1ded73a0 subject=19 at main @ fastbin_dup.c:44
+main+0x10be (main @ fastbin_dup.c:46) Using expired pointer: 0x1ded73c0 from 0x7ffde56c5400
+first time found dangling pointer at: 313 distance: 35
+[STACK PIVOT] ip: main+0x113c (main @ fastbin_dup.c:50) RSP 0x7ffde56c5468 left stack [0x15,0x7ffde56a7000]
+[STACK PIVOT] ip: main+0x113d (main @ fastbin_dup.c:50) RSP 0x7ffde56c5470 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7ffde56c5370 left stack after RET
+[STACK PIVOT] ip: main+0x114c (_fini) RSP 0x7ffde56c5370 left stack after RET

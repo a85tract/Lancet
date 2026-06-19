@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_258",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.exr",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1476,
+    "alloc:internal": 222,
+    "stack_pivot": 190,
+    "inconsistency_mov_read_uaf": 185,
+    "free:internal": 138,
+    "inconsistency_mov_write_reg_uaf": 112,
+    "free": 85,
+    "corrupted_ptr_load": 54,
+    "inconsistency_mov_write_imm_uaf": 45,
+    "inconsistency_mov_read": 39,
+    "inconsistency_mov_write_reg": 24,
+    "untrustedptrderef": 24,
+    "uninitialized_mov_read": 17,
+    "inconsistency_arithmetic__crossboundary": 10,
+    "intra_object_overflow": 2,
+    "alloc": 1
+  },
+  "detected": true,
+  "key_functions": "_ZN7Imf_3_116checkOpenEXRFileEPKcmbbb.cold; _ZN7Imf_3_118Mul",
+  "verification_match": "\u2713"
+}

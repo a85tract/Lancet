@@ -1,0 +1,18 @@
+{
+  "name": "h2h_235_overlapping_chunks",
+  "target": "how2heap",
+  "technique": "overlapping chunks",
+  "glibc_version": "2.35",
+  "binary": "bin/overlapping_chunks",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 16,
+    "inconsistency_mov_write_reg": 5,
+    "alloc": 4,
+    "stack_pivot": 4,
+    "free": 1,
+    "overlap": 1,
+    "inconsistency_arithmetic__crossboundary": 1
+  },
+  "detected": true
+}

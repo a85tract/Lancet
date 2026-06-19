@@ -1,0 +1,20 @@
+{
+  "name": "h2h_235_house_of_einherjar",
+  "target": "how2heap",
+  "technique": "house of einherjar",
+  "glibc_version": "2.35",
+  "binary": "bin/house_of_einherjar",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 42,
+    "alloc": 14,
+    "free": 10,
+    "inconsistency_arithmetic__crossboundary": 5,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 3,
+    "untrustedptrderef": 2,
+    "overlap": 1,
+    "inconsistency_mov_write_reg_uaf": 1
+  },
+  "detected": true
+}

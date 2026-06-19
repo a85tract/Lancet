@@ -1,0 +1,28 @@
+{
+  "name": "osv_2018_170",
+  "target": "unknown",
+  "binary": "bin/rules_fuzzer",
+  "poc": "poc/poc.yar",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 3951,
+    "inconsistency_mov_read_uaf": 936,
+    "stack_pivot": 434,
+    "inconsistency_mov_write_reg_uaf": 384,
+    "inconsistency_mov_write_imm_uaf": 122,
+    "free": 91,
+    "alloc": 86,
+    "corrupted_ptr_load": 83,
+    "untrustedptrderef": 34,
+    "inconsistency_mov_write_reg": 17,
+    "alloc:internal": 7,
+    "inconsistency_mov_read": 5,
+    "uninitialized_mov_read": 4,
+    "free:internal": 3,
+    "inconsistency_arithmetic__crossboundary": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "strlcpy; strlcpy; strlcpy",
+  "verification_match": "\u2713"
+}

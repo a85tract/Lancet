@@ -1,0 +1,27 @@
+{
+  "name": "osv_2020_313",
+  "target": "libgit2",
+  "binary": "bin/patch_parse_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 2376,
+    "inconsistency_mov_read_uaf": 883,
+    "inconsistency_mov_write_reg_uaf": 328,
+    "stack_pivot": 236,
+    "corrupted_ptr_load": 112,
+    "inconsistency_mov_write_imm_uaf": 64,
+    "untrustedptrderef": 27,
+    "uninitialized_mov_read": 22,
+    "alloc:internal": 17,
+    "inconsistency_mov_read": 14,
+    "alloc": 13,
+    "inconsistency_mov_write_reg": 9,
+    "free": 8,
+    "intra_object_overflow": 2,
+    "free:internal": 2
+  },
+  "detected": true,
+  "key_functions": "git_oid_fromstrn; git_oid_fromstrn; git_oid_fromstrn",
+  "verification_match": "\u2713"
+}

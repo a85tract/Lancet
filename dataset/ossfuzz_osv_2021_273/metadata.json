@@ -1,0 +1,28 @@
+{
+  "name": "osv_2021_273",
+  "target": "unknown",
+  "binary": "bin/fuzzer_connect",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 768,
+    "corrupted_ptr_load": 208,
+    "inconsistency_mov_read": 184,
+    "inconsistency_mov_write_reg_uaf": 49,
+    "inconsistency_mov_read_uaf": 48,
+    "alloc": 30,
+    "inconsistency_mov_write_reg": 15,
+    "inconsistency_mov_write_imm_uaf": 14,
+    "alloc:internal": 12,
+    "free:internal": 10,
+    "free": 8,
+    "intra_object_overflow": 6,
+    "untrustedptrderef": 2,
+    "double_free": 1,
+    "uninitialized_mov_read": 1,
+    "crash": 1
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "osv_2022_647",
+  "target": "lcms",
+  "binary": "bin/harness_noasan",
+  "poc": "poc/poc.icc",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 6080,
+    "stack_pivot": 3532,
+    "inconsistency_mov_read_uaf": 733,
+    "inconsistency_mov_write_reg_uaf": 332,
+    "corrupted_ptr_load": 73,
+    "free": 43,
+    "inconsistency_mov_write_imm_uaf": 39,
+    "alloc": 38,
+    "uninitialized_mov_read": 30,
+    "untrustedptrderef": 23,
+    "alloc:internal": 13,
+    "inconsistency_mov_read": 6,
+    "free:internal": 5,
+    "inconsistency_mov_write_reg": 3,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "main; main; main",
+  "verification_match": "\u2713"
+}

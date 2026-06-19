@@ -1,0 +1,17 @@
+{
+  "name": "h2h_235_house_of_tangerine",
+  "target": "how2heap",
+  "technique": "house of tangerine",
+  "glibc_version": "2.35",
+  "binary": "bin/house_of_tangerine",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 23,
+    "alloc": 6,
+    "inconsistency_mov_write_reg": 5,
+    "inconsistency_arithmetic__crossboundary": 5,
+    "stack_pivot": 4,
+    "untrustedptrderef": 3
+  },
+  "detected": true
+}

@@ -1,0 +1,26 @@
+{
+  "name": "osv_2020_68",
+  "target": "c-ares",
+  "binary": "bin/ares_fuzz",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 707,
+    "inconsistency_mov_write_reg_uaf": 96,
+    "inconsistency_mov_read_uaf": 84,
+    "corrupted_ptr_load": 60,
+    "stack_pivot": 52,
+    "inconsistency_arithmetic__crossboundary": 35,
+    "inconsistency_mov_write_imm_uaf": 29,
+    "uninitialized_mov_read": 21,
+    "free:internal": 19,
+    "alloc:internal": 18,
+    "inconsistency_mov_write_reg": 4,
+    "double_free": 2,
+    "untrustedptrderef": 1,
+    "alloc": 1
+  },
+  "detected": true,
+  "key_functions": "main; main; main",
+  "verification_match": "\u2713"
+}

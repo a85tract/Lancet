@@ -1,0 +1,27 @@
+{
+  "name": "osv_2020_255",
+  "target": "unknown",
+  "binary": "bin/parse_packet_fuzzer",
+  "poc": "poc/poc_input.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1342,
+    "inconsistency_mov_read_uaf": 325,
+    "stack_pivot": 211,
+    "inconsistency_mov_write_reg_uaf": 143,
+    "inconsistency_mov_write_imm_uaf": 21,
+    "corrupted_ptr_load": 18,
+    "uninitialized_mov_read": 7,
+    "untrustedptrderef": 5,
+    "alloc": 5,
+    "inconsistency_mov_read": 5,
+    "free": 5,
+    "inconsistency_mov_write_reg": 4,
+    "alloc:internal": 3,
+    "free:internal": 3,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "parse_packet; parse_packet; parse_packet",
+  "verification_match": "\u2713"
+}

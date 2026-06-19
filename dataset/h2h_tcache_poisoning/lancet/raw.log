@@ -1,0 +1,21 @@
+[INCONSISTENCY mov write reg] ip: main+0x120e (main @ tcache_poisoning.c:7) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x12b6 (main @ tcache_poisoning.c:27) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x80) -> 0x286f0010 subject=6 at main @ tcache_poisoning.c:36
+[INCONSISTENCY mov write reg] ip: main+0x1335 (main @ tcache_poisoning.c:36) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x80) -> 0x286f00a0 subject=7 at main @ tcache_poisoning.c:38
+[FREE] free(0x286f0010) subject=6 at main @ tcache_poisoning.c:42
+[FREE:internal] free(0x286f0010) subject=0
+[DOUBLE FREE] free(0x286f0010) — already freed
+[FREE] free(0x286f00a0) subject=7 at main @ tcache_poisoning.c:43
+main+0x13b6 (main @ tcache_poisoning.c:45) Read a dangling pointer 0x286f0010 from 0x7ffc07fe9fe8
+main+0x13bd (main @ tcache_poisoning.c:45) Read a dangling pointer 0x286f00a0 from 0x7ffc07fe9ff0
+main+0x13e2 (main @ tcache_poisoning.c:46) Using expired pointer: 0x286f00a0 from 0x7ffc07fe9ff0
+first time found dangling pointer at: 136 distance: 9
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x141a (main @ tcache_poisoning.c:50) xor rdx, rax id before: 5 after: -1 [unmapped] value: 0x7ffc07fc26f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1424 (main @ tcache_poisoning.c:50) UAF write at: 0x286f00a0
+[ALLOC] malloc(0x80) -> 0x286f00a0 subject=8 at main @ tcache_poisoning.c:54
+[ALLOC] malloc(0x80) -> 0x7ffc07fea000 subject=9 at main @ tcache_poisoning.c:57
+[STACK PIVOT] ip: main+0x151d (main @ tcache_poisoning.c:63) RSP 0x7ffc07fea098 left stack [0xb,0x7ffc07fcc000]
+[STACK PIVOT] ip: main+0x151e (main @ tcache_poisoning.c:63) RSP 0x7ffc07fea0a0 left stack after RET
+[STACK PIVOT] ip: main+0x11de (__do_global_dtors_aux) RSP 0x7ffc07fe9f80 left stack after RET
+[STACK PIVOT] ip: main+0x152c (_fini) RSP 0x7ffc07fe9fb0 left stack after RET

@@ -1,0 +1,24 @@
+{
+  "name": "osv_2018_161",
+  "target": "harfbuzz",
+  "binary": "bin/hb-subset-fuzzer-asan",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 426,
+    "alloc": 159,
+    "free": 159,
+    "corrupted_ptr_load": 23,
+    "stack_pivot": 15,
+    "alloc:internal": 12,
+    "inconsistency_mov_read": 5,
+    "inconsistency_mov_write_reg": 2,
+    "free:internal": 2,
+    "intra_object_overflow": 2,
+    "inconsistency_arithmetic__crossboundary": 1,
+    "untrustedptrderef": 1
+  },
+  "detected": true,
+  "key_functions": "_ZL9trySubsetP9hb_face_tPKjibb; _ZL9trySubsetP9hb_face_tPKji",
+  "verification_match": "\u2713"
+}

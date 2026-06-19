@@ -1,0 +1,18 @@
+[ALLOC:internal] malloc(0x1d8) -> 0x590335772010 subject=5 at _IO_fopen
+[FREE:internal] free(0x590335772010) subject=5 at _IO_fopen
+[FREE:internal] free(0x590335772010) subject=0
+[DOUBLE FREE] free(0x590335772010) — already freed
+[INCONSISTENCY mov write reg] ip: main+0x12fa (main @ gen_poc.c:46) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1d8) -> 0x590335772010 subject=6 at _IO_fdopen
+[ALLOC:internal] malloc(0x14) -> 0x5903357724f0 subject=7 at gettext
+[ALLOC:internal] malloc(0x2) -> 0x590335772510 subject=8 at gettext
+[FREE:internal] free(0x5903357724f0) subject=7 at gettext
+[FREE:internal] free(0x590335772510) subject=8 at gettext
+[ALLOC:internal] malloc(0x1000) -> 0x590335772530 subject=9 at _IO_file_doallocate
+[FREE:internal] free(0x590335772530) subject=9 at _IO_setb
+[FREE:internal] free(0x590335772010) subject=6 at _IO_fclose
+[STACK PIVOT] ip: main+0x147a (main @ gen_poc.c:74) RSP 0x7ffe5ebd65a8 left stack [0xb,0x7ffe5ebb7000]
+[STACK PIVOT] ip: main+0x147b (main @ gen_poc.c:74) RSP 0x7ffe5ebd65b0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x126e (__do_global_dtors_aux) final_ea: 0x590319391ff8 base: 0x59031938f26e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1294 (__do_global_dtors_aux) RSP 0x7ffe5ebd6490 left stack after RET
+[STACK PIVOT] ip: main+0x1488 (_fini) RSP 0x7ffe5ebd64c0 left stack after RET

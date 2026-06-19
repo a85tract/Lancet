@@ -1,0 +1,25 @@
+{
+  "name": "osv_2020_1623",
+  "target": "unknown",
+  "binary": "bin/fuzz_xinclude",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 964,
+    "alloc:internal": 323,
+    "free:internal": 319,
+    "stack_pivot": 28,
+    "inconsistency_mov_write_reg": 19,
+    "inconsistency_mov_write_reg_uaf": 13,
+    "free": 8,
+    "corrupted_ptr_load": 5,
+    "inconsistency_mov_read_uaf": 5,
+    "alloc": 3,
+    "inconsistency_mov_write_imm_uaf": 3,
+    "untrustedptrderef": 3,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "main; main; main; __xmlInitializeDict; __xmlInitializeDict;",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,43 @@
+[ALLOC] malloc(0x1) -> 0x23f782a0 subject=6 at main @ poison_null_byte.c:19
+[INCONSISTENCY mov write reg] ip: main+0xf0f (main @ poison_null_byte.c:19) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xf17 (main @ poison_null_byte.c:20) and rax, 0xfffffffffffff000 id before: 6 after: -1 [unmapped] value: 0x23f78000
+[ALLOC] malloc(0x7d40) -> 0x23f782c0 subject=7 at main @ poison_null_byte.c:25
+[ALLOC] malloc(0x500) -> 0x23f80010 subject=8 at main @ poison_null_byte.c:30
+[ALLOC] malloc(0x4f0) -> 0x23f80520 subject=9 at main @ poison_null_byte.c:31
+[ALLOC] malloc(0x10) -> 0x23f80a20 subject=10 at main @ poison_null_byte.c:33
+[ALLOC] malloc(0x4f0) -> 0x23f80a40 subject=11 at main @ poison_null_byte.c:42
+[ALLOC] malloc(0x10) -> 0x23f80f40 subject=12 at main @ poison_null_byte.c:45
+[ALLOC] malloc(0x510) -> 0x23f80f60 subject=13 at main @ poison_null_byte.c:47
+[ALLOC] malloc(0x10) -> 0x23f81480 subject=14 at main @ poison_null_byte.c:50
+[FREE] free(0x23f80a40) subject=11 at main @ poison_null_byte.c:64
+[FREE] free(0x23f80f60) subject=13 at main @ poison_null_byte.c:65
+[FREE] free(0x23f80010) subject=8 at main @ poison_null_byte.c:66
+[ALLOC] malloc(0x1000) -> 0x23f814a0 subject=15 at main @ poison_null_byte.c:70
+main+0x1169 (main @ poison_null_byte.c:74) Read a dangling pointer 0x23f80010 from 0x7ffd9aec75c0
+[INCONSISTENCY mov read UAF] ip: main+0x1171 (main @ poison_null_byte.c:74) UAF read at: 0x23f80020
+main+0x118f (main @ poison_null_byte.c:75) Using expired pointer: 0x23f80010 from 0x7ffd9aec75c0
+first time found dangling pointer at: 269 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0x1197 (main @ poison_null_byte.c:75) UAF read at: 0x23f80028
+[ALLOC] malloc(0x500) -> 0x23f80010 subject=16 at main @ poison_null_byte.c:81
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1289 (main @ poison_null_byte.c:90) add rax, 0x500 id before: 16 after: -1 [chunk metadata] value: 0x23f80510
+[ALLOC] malloc(0x510) -> 0x23f80f60 subject=17 at main @ poison_null_byte.c:98
+[ALLOC] malloc(0x4f0) -> 0x23f80a40 subject=18 at main @ poison_null_byte.c:108
+[FREE] free(0x23f80a40) subject=18 at main @ poison_null_byte.c:109
+[FREE] free(0x23f80520) subject=9 at main @ poison_null_byte.c:111
+main+0x13a4 (main @ poison_null_byte.c:112) Read a dangling pointer 0x23f80a40 from 0x7ffd9aec75d0
+[INCONSISTENCY mov read UAF] ip: main+0x13ac (main @ poison_null_byte.c:112) UAF read at: 0x23f80a48
+main+0x13af (main @ poison_null_byte.c:112) Read a dangling pointer 0x23f80520 from 0x7ffd9aec75c8
+[ALLOC] malloc(0x4f0) -> 0x23f80a40 subject=19 at main @ poison_null_byte.c:114
+[ALLOC] malloc(0x4f0) -> 0x23f80520 subject=20 at main @ poison_null_byte.c:131
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1488 (main @ poison_null_byte.c:135) sub rax, 0x8 id before: 20 after: -1 [chunk metadata] value: 0x23f80518
+main+0x14cf (main @ poison_null_byte.c:145) Using expired pointer: 0x23f80520 from 0x7ffd9aec75c8
+first time found dangling pointer at: 439 distance: 89
+[FREE] free(0x23f80520) subject=20 at main @ poison_null_byte.c:145
+[ALLOC] malloc(0x100) -> 0x23f80020 subject=21 at main @ poison_null_byte.c:151
+Store dangling pointer: 0x23f80020 at: 0x7ffd9aec7608
+main+0x1507 (main @ poison_null_byte.c:152) Using expired pointer: 0x23f80020 from 0x7ffd9aec7608
+first time found dangling pointer at: 547 distance: 1
+[STACK PIVOT] ip: main+0x15d8 (main @ poison_null_byte.c:161) RSP 0x7ffd9aec7618 left stack [0x17,0x7ffd9aea8000]
+[STACK PIVOT] ip: main+0x15d9 (main @ poison_null_byte.c:161) RSP 0x7ffd9aec7620 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7ffd9aec7520 left stack after RET
+[STACK PIVOT] ip: main+0x15e8 (_fini) RSP 0x7ffd9aec7520 left stack after RET

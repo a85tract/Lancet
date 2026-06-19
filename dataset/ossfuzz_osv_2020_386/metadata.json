@@ -1,0 +1,28 @@
+{
+  "name": "osv_2020_386",
+  "target": "openssl",
+  "binary": "bin/harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 21815,
+    "stack_pivot": 14963,
+    "inconsistency_mov_read_uaf": 1370,
+    "alloc": 1268,
+    "free": 1268,
+    "inconsistency_mov_write_reg_uaf": 559,
+    "free:internal": 257,
+    "alloc:internal": 256,
+    "inconsistency_mov_write_imm_uaf": 108,
+    "corrupted_ptr_load": 107,
+    "untrustedptrderef": 30,
+    "uninitialized_mov_read": 29,
+    "inconsistency_mov_write_reg": 17,
+    "inconsistency_mov_read": 8,
+    "inconsistency_arithmetic__crossboundary": 6,
+    "heap_metadata_taint": 3
+  },
+  "detected": true,
+  "key_functions": "sk_EVP_PBE_CTL_pop_free; sk_EVP_PBE_CTL_pop_free; sk_EVP_PBE",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "h2h_235_decrypt_safe_linking",
+  "target": "how2heap",
+  "technique": "decrypt safe linking",
+  "glibc_version": "2.35",
+  "binary": "bin/decrypt_safe_linking",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 26,
+    "corrupted_ptr_load": 5,
+    "stack_pivot": 5,
+    "alloc": 3,
+    "inconsistency_mov_write_reg": 2,
+    "free": 2,
+    "inconsistency_mov_read_uaf": 2,
+    "inconsistency_mov_read": 1
+  },
+  "detected": true
+}

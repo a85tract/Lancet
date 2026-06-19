@@ -1,0 +1,22 @@
+{
+  "name": "osv_2023_1117",
+  "target": "lcms",
+  "binary": "bin/gen_poc",
+  "poc": "poc/poc.icc",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 43,
+    "stack_pivot": 28,
+    "inconsistency_mov_write_reg": 3,
+    "alloc:internal": 3,
+    "free:internal": 3,
+    "corrupted_ptr_load": 2,
+    "alloc": 1,
+    "double_free": 1,
+    "free": 1,
+    "untrustedptrderef": 1
+  },
+  "detected": true,
+  "key_functions": "main; main; main",
+  "verification_match": "\u2713"
+}

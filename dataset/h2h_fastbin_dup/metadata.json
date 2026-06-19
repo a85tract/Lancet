@@ -1,0 +1,20 @@
+{
+  "name": "h2h_fastbin_dup",
+  "target": "how2heap",
+  "technique": "Double-free in fastbin to get overlapping allocations",
+  "binary": "bin/fastbin_dup",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 27,
+    "alloc": 10,
+    "free": 10,
+    "double_free": 2,
+    "inconsistency_mov_write_reg": 1,
+    "free:internal": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": true,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

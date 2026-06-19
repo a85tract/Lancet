@@ -1,0 +1,146 @@
+[INCONSISTENCY mov write reg] ip: main+0x3b4e (main @ poc_harness.c:323) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x3b51 (main @ poc_harness.c:323) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x3be0 (main @ poc_harness.c:334) final_ea: 0x7ffda12be260 base: 0x7ffda12be260 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3c09 (main @ poc_harness.c:335) final_ea: 0x7ffda12be260 base: 0x7ffda12be260 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x60b0effc6010 subject=6 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x3a43 (load_jpeg_from_file @ poc_harness.c:298) co: 5 vo: 5, 5 write 5
+[ALLOC:internal] malloc(0x1000) -> 0x60b0effc61f0 subject=7 at _IO_file_doallocate
+[ALLOC] malloc(0x31cd) -> 0x60b0effc7200 subject=8 at load_jpeg_from_file @ poc_harness.c:307
+[FREE:internal] free(0x60b0effc61f0) subject=7 at _IO_setb
+[FREE:internal] free(0x60b0effc6010) subject=6 at _IO_fclose
+[FREE:internal] free(0x60b0effc6010) subject=0
+[DOUBLE FREE] free(0x60b0effc6010) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x3b25 (load_jpeg_from_file @ poc_harness.c:317) loaded: 0x7ffda12be110 from cell: 0x7ffda12be0b0 cell_owner: 5 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x3b34 (load_jpeg_from_file @ poc_harness.c:318) loaded: 0x7ffda12be108 from cell: 0x7ffda12be0a8 cell_owner: 5 value_owner: 4
+[STACK PIVOT] ip: main+0x3b40 (load_jpeg_from_file @ poc_harness.c:320) RSP 0x7ffda12be0e8 left stack [0xa,0x7ffda129f000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x3558 (decompress_jpeg_buffered @ poc_harness.c:157) UAF write at: 0x7ffda12be0dc
+[UNINITIALIZED mov read] ip: main+0xd9e8 (jpeg_CreateDecompress @ jdapimin.c:54) co: 10 vo: -1
+[ALLOC] malloc(0xa8) -> 0x60b0effc64f0 subject=12 at jinit_memory_mgr @ jmemmgr.c:1119
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d59b (jinit_memory_mgr @ jmemmgr.c:1127) UAF write at: 0x60b0effc64f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5a5 (jinit_memory_mgr @ jmemmgr.c:1128) UAF write at: 0x60b0effc64f8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5b0 (jinit_memory_mgr @ jmemmgr.c:1129) UAF write at: 0x60b0effc6500
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5bb (jinit_memory_mgr @ jmemmgr.c:1130) UAF write at: 0x60b0effc6508
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5c6 (jinit_memory_mgr @ jmemmgr.c:1131) UAF write at: 0x60b0effc6510
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5d1 (jinit_memory_mgr @ jmemmgr.c:1132) UAF write at: 0x60b0effc6518
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5dc (jinit_memory_mgr @ jmemmgr.c:1133) UAF write at: 0x60b0effc6520
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5e7 (jinit_memory_mgr @ jmemmgr.c:1134) UAF write at: 0x60b0effc6528
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5f2 (jinit_memory_mgr @ jmemmgr.c:1135) UAF write at: 0x60b0effc6530
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d5fd (jinit_memory_mgr @ jmemmgr.c:1136) UAF write at: 0x60b0effc6538
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d608 (jinit_memory_mgr @ jmemmgr.c:1137) UAF write at: 0x60b0effc6540
+[INCONSISTENCY mov write imm UAF] ip: main+0x1d60c (jinit_memory_mgr @ jmemmgr.c:1140) UAF write at: 0x60b0effc6550
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d614 (jinit_memory_mgr @ jmemmgr.c:1143) UAF write at: 0x60b0effc6548
+[INCONSISTENCY mov write imm UAF] ip: main+0x1d62a (jinit_memory_mgr @ jmemmgr.c:1152) UAF write at: 0x60b0effc6588
+Store dangling pointer: 0x60b0effc64f0 at: 0x7ffda12bde58
+main+0x10059 (jinit_marker_reader @ jdmarker.c:1283) Using expired pointer: 0x60b0effc64f0 from 0x7ffda12bde58
+first time found dangling pointer at: 270 distance: 29
+[INCONSISTENCY mov read UAF] ip: main+0x1d700 (alloc_small) UAF read at: 0x60b0effc6558
+Store dangling pointer: 0x60b0effc6558 at: 0x7ffda12bdc30
+[UNTRUSTEDPTRDEREF] ip: main+0x1d795 (alloc_small) final_ea: 0x60b0ce092980 base: 0x60b0ce092980 pointee: -1 base_vo: -1
+[ALLOC] malloc(0x797) -> 0x60b0effc65a0 subject=14 at alloc_small @ jmemmgr.c:318
+[INCONSISTENCY mov read] ip: main+0x1d7ed (alloc_small) base: 0x7ffda12bdc60 pointee: 11 read from 13
+[INCONSISTENCY mov read] ip: main+0x1d7f8 (alloc_small @ jmemmgr.c:325) base: 0x7ffda12bdc60 pointee: 11 read from 13
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d808 (alloc_small @ jmemmgr.c:329) UAF write at: 0x60b0effc65b0
+[INCONSISTENCY mov read] ip: main+0x1d80c (alloc_small @ jmemmgr.c:329) base: 0x7ffda12bdc60 pointee: 11 read from 13
+main+0x1d80c (alloc_small @ jmemmgr.c:329) Using expired pointer: 0x60b0effc6558 from 0x7ffda12bdc30
+first time found dangling pointer at: 332 distance: 32
+Store dangling pointer: 0x60b0effc65a0 at: 0x60b0effc6558
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d814 (alloc_small) UAF write at: 0x60b0effc6558
+first time found dangling pointer at: 366 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x1d838 (alloc_small @ jmemmgr.c:341) UAF read at: 0x60b0effc65a8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d842 (alloc_small @ jmemmgr.c:342) UAF write at: 0x60b0effc65a8
+Store dangling pointer: 0x60b0effc65c0 at: 0x7ffda12be098
+[INCONSISTENCY mov write reg UAF] ip: main+0x10074 (jinit_marker_reader @ jdmarker.c:1287) UAF write at: 0x60b0effc65c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1007e (jinit_marker_reader @ jdmarker.c:1288) UAF write at: 0x60b0effc65c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x10089 (jinit_marker_reader @ jdmarker.c:1289) UAF write at: 0x60b0effc65d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x10094 (jinit_marker_reader @ jdmarker.c:1294) UAF write at: 0x60b0effc65e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x10098 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc65f8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1009c (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6600
+[INCONSISTENCY mov write reg UAF] ip: main+0x100aa (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6608
+[INCONSISTENCY mov write reg UAF] ip: main+0x100ae (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6610
+[INCONSISTENCY mov write reg UAF] ip: main+0x100b2 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6618
+[INCONSISTENCY mov write reg UAF] ip: main+0x100b6 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6620
+[INCONSISTENCY mov write reg UAF] ip: main+0x100c1 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6628
+[INCONSISTENCY mov write reg UAF] ip: main+0x100c5 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6630
+[INCONSISTENCY mov write reg UAF] ip: main+0x100c9 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6638
+[INCONSISTENCY mov write reg UAF] ip: main+0x100cd (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6640
+[INCONSISTENCY mov write reg UAF] ip: main+0x100db (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6648
+[INCONSISTENCY mov write reg UAF] ip: main+0x100e2 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6650
+[INCONSISTENCY mov write reg UAF] ip: main+0x100e9 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6658
+[INCONSISTENCY mov write reg UAF] ip: main+0x100f7 (jinit_marker_reader @ jdmarker.c:1297) UAF write at: 0x60b0effc6668
+[INCONSISTENCY mov write imm UAF] ip: main+0x100fe (jinit_marker_reader @ jdmarker.c:1298) UAF write at: 0x60b0effc66b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1010f (jinit_marker_reader @ jdmarker.c:1300) UAF write at: 0x60b0effc65f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x10113 (jinit_marker_reader @ jdmarker.c:1301) UAF write at: 0x60b0effc6660
+main+0x1011a (jinit_marker_reader @ jdmarker.c:1258) Using expired pointer: 0x60b0effc65c0 from 0x7ffda12be098
+first time found dangling pointer at: 389 distance: 32
+[INCONSISTENCY mov write imm UAF] ip: main+0x10140 (jinit_marker_reader @ jdmarker.c:1263) UAF write at: 0x60b0effc65d8
+[INCONSISTENCY mov write imm UAF] ip: main+0x10148 (jinit_marker_reader @ jdmarker.c:1265) UAF write at: 0x60b0effc65e4
+[INCONSISTENCY mov write imm UAF] ip: main+0x1014f (jinit_marker_reader @ jdmarker.c:1266) UAF write at: 0x60b0effc66b8
+main+0x1d700 (alloc_small) Using expired pointer: 0x60b0effc65a0 from 0x60b0effc6558
+first time found dangling pointer at: 366 distance: 99
+[INCONSISTENCY mov read UAF] ip: main+0x1d713 (alloc_small @ jmemmgr.c:299) UAF read at: 0x60b0effc65b0
+Store dangling pointer: 0x60b0effc66e0 at: 0x7ffda12be090
+[INCONSISTENCY mov write reg UAF] ip: main+0xf5f4 (jinit_input_controller @ jdinput.c:398) UAF write at: 0x60b0effc66e0
+[INCONSISTENCY mov write reg UAF] ip: main+0xf5fe (jinit_input_controller @ jdinput.c:399) UAF write at: 0x60b0effc66e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xf609 (jinit_input_controller @ jdinput.c:400) UAF write at: 0x60b0effc66f0
+[INCONSISTENCY mov write reg UAF] ip: main+0xf614 (jinit_input_controller @ jdinput.c:401) UAF write at: 0x60b0effc66f8
+[INCONSISTENCY mov write imm UAF] ip: main+0xf618 (jinit_input_controller @ jdinput.c:405) UAF write at: 0x60b0effc6700
+[INCONSISTENCY mov write imm UAF] ip: main+0xf620 (jinit_input_controller @ jdinput.c:407) UAF write at: 0x60b0effc6708
+Store dangling pointer: 0x60b0effc6720 at: 0x7ffda12be070
+Store dangling pointer: 0x60b0effc67c0 at: 0x7ffda12bde78
+[INCONSISTENCY mov write reg UAF] ip: main+0xf53b (jpeg_mem_src @ jdatasrc.c:287) UAF write at: 0x60b0effc67d0
+[INCONSISTENCY mov write reg UAF] ip: main+0xf546 (jpeg_mem_src @ jdatasrc.c:288) UAF write at: 0x60b0effc67d8
+[INCONSISTENCY mov write reg UAF] ip: main+0xf551 (jpeg_mem_src @ jdatasrc.c:289) UAF write at: 0x60b0effc67e0
+[INCONSISTENCY mov write reg UAF] ip: main+0xf55c (jpeg_mem_src @ jdatasrc.c:290) UAF write at: 0x60b0effc67e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xf567 (jpeg_mem_src @ jdatasrc.c:291) UAF write at: 0x60b0effc67f0
+[INCONSISTENCY mov write reg UAF] ip: main+0xf56b (jpeg_mem_src @ jdatasrc.c:292) UAF write at: 0x60b0effc67c8
+[INCONSISTENCY mov write reg UAF] ip: main+0xf56f (jpeg_mem_src @ jdatasrc.c:293) UAF write at: 0x60b0effc67c0
+[UNTRUSTEDPTRDEREF] ip: main+0xdb7b (jpeg_consume_input) final_ea: 0x60b0ce090b90 base: 0x60b0ce090b90 pointee: -1 base_vo: -1
+main+0xdb9a (jpeg_consume_input @ jdapimin.c:307) Using expired pointer: 0x60b0effc66e0 from 0x7ffda12be090
+first time found dangling pointer at: 493 distance: 219
+[INCONSISTENCY mov write reg UAF] ip: main+0xfa27 (reset_input_controller @ jdinput.c:370) UAF write at: 0x60b0effc66e0
+[INCONSISTENCY mov write imm UAF] ip: main+0xfa2a (reset_input_controller @ jdinput.c:371) UAF write at: 0x60b0effc6700
+[INCONSISTENCY mov write imm UAF] ip: main+0xfa32 (reset_input_controller @ jdinput.c:373) UAF write at: 0x60b0effc6708
+[INCONSISTENCY mov write imm UAF] ip: main+0x1019a (reset_marker_reader @ jdmarker.c:1263) UAF write at: 0x60b0effc65d8
+[INCONSISTENCY mov write imm UAF] ip: main+0x101a2 (reset_marker_reader @ jdmarker.c:1265) UAF write at: 0x60b0effc65e4
+[INCONSISTENCY mov write imm UAF] ip: main+0x101a9 (reset_marker_reader @ jdmarker.c:1266) UAF write at: 0x60b0effc66b8
+main+0xdba7 (jpeg_consume_input @ jdapimin.c:309) Using expired pointer: 0x60b0effc67c0 from 0x7ffda12bde78
+first time found dangling pointer at: 658 distance: 95
+[INCONSISTENCY mov read UAF] ip: main+0xf648 (consume_markers @ jdinput.c:320) UAF read at: 0x60b0effc6704
+[INCONSISTENCY mov read UAF] ip: main+0x10298 (read_markers @ jdmarker.c:973) UAF read at: 0x60b0effc65d8
+[INCONSISTENCY mov read UAF] ip: main+0x102e6 (read_markers @ jdmarker.c:944) UAF read at: 0x60b0effc67c8
+[INCONSISTENCY mov read UAF] ip: main+0x102ef (read_markers) UAF read at: 0x60b0effc67c0
+[INCONSISTENCY mov read] ip: main+0x10354 (read_markers) base: 0x7ffda12bdc20 pointee: 15 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10354 (read_markers) loaded: 0x7ffda12bde50 from cell: 0x7ffda12bdbf0 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x3279 (my_error_exit @ poc_harness.c:54) loaded: 0x7ffda12bde50 from cell: 0x7ffda12bda18 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x3284 (my_error_exit @ poc_harness.c:55) loaded: 0x7ffda12bde50 from cell: 0x7ffda12bda18 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x328f (my_error_exit @ poc_harness.c:55) loaded: 0x7ffda12bde50 from cell: 0x7ffda12bda18 cell_owner: 19 value_owner: 18
+[UNTRUSTEDPTRDEREF] ip: main+0x18b3b (format_message) final_ea: 0x60b0ce0ba6f8 base: 0x60b0ce0ba6f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18b60 (format_message @ jerror.c:183) final_ea: 0x60b0ce091912 base: 0x60b0ce091912 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18b6f (format_message @ jerror.c:185) final_ea: 0x60b0ce091932 base: 0x60b0ce091932 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x18b98 (format_message @ jerror.c:196) co: 10 vo: -1
+[UNINITIALIZED mov read] ip: main+0x18b9c (format_message @ jerror.c:197) co: 10 vo: -1
+[UNINITIALIZED mov read] ip: main+0x18ba0 (format_message @ jerror.c:197) co: 10 vo: -1
+[UNINITIALIZED mov read] ip: main+0x18ba4 (format_message @ jerror.c:198) co: 10 vo: -1
+[UNINITIALIZED mov read] ip: main+0x18ba8 (format_message @ jerror.c:198) co: 10 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18aac (output_message @ jerror.c:110) final_ea: 0x60b0ce0baff0 base: 0x60b0ce036aac pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x18ab3 (output_message @ jerror.c:110) co: 3 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x1ec22 (free_pool) UAF read at: 0x60b0effc6578
+[INCONSISTENCY mov write imm UAF] ip: main+0x1ec52 (free_pool @ jmemmgr.c:1017) UAF write at: 0x60b0effc6578
+[INCONSISTENCY mov read UAF] ip: main+0x1ec5e (free_pool) UAF read at: 0x60b0effc6580
+[INCONSISTENCY mov write imm UAF] ip: main+0x1ec92 (free_pool @ jmemmgr.c:1024) UAF write at: 0x60b0effc6580
+[INCONSISTENCY mov read UAF] ip: main+0x1eca1 (free_pool @ jmemmgr.c:1028) UAF read at: 0x60b0effc6570
+[INCONSISTENCY mov write imm UAF] ip: main+0x1eca6 (free_pool @ jmemmgr.c:1029) UAF write at: 0x60b0effc6570
+[INCONSISTENCY mov read UAF] ip: main+0x1ecee (free_pool @ jmemmgr.c:1042) UAF read at: 0x60b0effc6560
+[INCONSISTENCY mov write imm UAF] ip: main+0x1ecf3 (free_pool @ jmemmgr.c:1043) UAF write at: 0x60b0effc6560
+[INCONSISTENCY mov read UAF] ip: main+0x1ed10 (free_pool @ jmemmgr.c:1046) UAF read at: 0x60b0effc65a0
+[INCONSISTENCY mov read UAF] ip: main+0x1ed13 (free_pool @ jmemmgr.c:1047) UAF read at: 0x60b0effc65a8
+[INCONSISTENCY mov read UAF] ip: main+0x1ed17 (free_pool @ jmemmgr.c:1047) UAF read at: 0x60b0effc65b0
+[FREE] free(0x60b0effc65a0) subject=14 at free_pool @ jmemmgr.c:1049
+[FREE] free(0x60b0effc64f0) subject=12 at self_destruct @ jmemmgr.c:1075
+[STACK PIVOT] ip: main+0x396c (decompress_jpeg_buffered @ poc_harness.c:269) RSP 0x7ffda12be0e8 left stack [0x16,0x7ffda129f000]
+[FREE] free(0x60b0effc7200) subject=8 at main @ poc_harness.c:368
+[STACK PIVOT] ip: main+0x3e44 (main @ poc_harness.c:370) RSP 0x7ffda12be128 left stack [0x17,0x7ffda129f000]
+[STACK PIVOT] ip: main+0x3e45 (main @ poc_harness.c:370) RSP 0x7ffda12be130 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x322e (__do_global_dtors_aux) final_ea: 0x60b0ce0bafe8 base: 0x60b0ce02122e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x3254 (__do_global_dtors_aux) RSP 0x7ffda12be010 left stack after RET
+[STACK PIVOT] ip: main+0x6176c (_fini) RSP 0x7ffda12be040 left stack after RET

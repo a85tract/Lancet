@@ -1,0 +1,21 @@
+{
+  "name": "h2h_235_house_of_lore",
+  "target": "how2heap",
+  "technique": "house of lore",
+  "glibc_version": "2.35",
+  "binary": "bin/house_of_lore",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 51,
+    "alloc": 19,
+    "free": 8,
+    "inconsistency_mov_read": 6,
+    "inconsistency_mov_write_reg": 4,
+    "inconsistency_mov_read_uaf": 4,
+    "stack_pivot": 3,
+    "corrupted_ptr_load": 2,
+    "inconsistency_arithmetic__crossboundary": 1,
+    "inconsistency_mov_write_reg_uaf": 1
+  },
+  "detected": true
+}

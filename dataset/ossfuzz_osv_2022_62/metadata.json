@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_62",
+  "target": "libxml2",
+  "binary": "bin/clamav_dbload_WDB_fuzzer",
+  "poc": "poc/poc.wdb",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1128,
+    "free": 284,
+    "alloc": 282,
+    "inconsistency_mov_read_uaf": 113,
+    "corrupted_ptr_load": 105,
+    "untrustedptrderef": 71,
+    "alloc:internal": 33,
+    "inconsistency_mov_write_reg_uaf": 33,
+    "inconsistency_mov_write_imm_uaf": 23,
+    "uninitialized_mov_read": 21,
+    "inconsistency_mov_read": 20,
+    "free:internal": 10,
+    "stack_pivot": 6,
+    "inconsistency_mov_write_reg": 5,
+    "inconsistency_arithmetic__crossboundary": 5,
+    "intra_object_overflow": 4
+  },
+  "detected": true,
+  "key_functions": "domain_list_done; init_allow_list; init_allow_list",
+  "verification_match": "\u2713"
+}

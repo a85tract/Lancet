@@ -1,0 +1,28 @@
+{
+  "name": "osv_2020_688",
+  "target": "unknown",
+  "binary": "bin/fuzz_target_standalone",
+  "poc": "poc/poc.ics",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1627,
+    "inconsistency_mov_read_uaf": 200,
+    "inconsistency_mov_write_reg_uaf": 153,
+    "stack_pivot": 98,
+    "inconsistency_mov_write_imm_uaf": 65,
+    "corrupted_ptr_load": 49,
+    "alloc": 28,
+    "untrustedptrderef": 12,
+    "free": 12,
+    "inconsistency_mov_write_reg": 5,
+    "alloc:internal": 5,
+    "free:internal": 3,
+    "inconsistency_mov_read": 3,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "double_free": 2,
+    "intra_object_overflow": 1
+  },
+  "detected": true,
+  "key_functions": "_Znwm; _Znwm; _Znwm",
+  "verification_match": "\u2713"
+}

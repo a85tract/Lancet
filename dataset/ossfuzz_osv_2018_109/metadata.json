@@ -1,0 +1,28 @@
+{
+  "name": "osv_2018_109",
+  "target": "openssl",
+  "binary": "bin/harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 100647,
+    "stack_pivot": 64345,
+    "inconsistency_mov_read_uaf": 8497,
+    "free": 4891,
+    "alloc": 4889,
+    "inconsistency_mov_write_reg_uaf": 3452,
+    "corrupted_ptr_load": 724,
+    "inconsistency_mov_write_imm_uaf": 546,
+    "untrustedptrderef": 430,
+    "alloc:internal": 259,
+    "free:internal": 258,
+    "uninitialized_mov_read": 137,
+    "inconsistency_mov_write_reg": 56,
+    "inconsistency_mov_read": 52,
+    "inconsistency_arithmetic__crossboundary": 32,
+    "heap_metadata_taint": 7
+  },
+  "detected": true,
+  "key_functions": "EVP_MD_size; EVP_MD_size; EVP_MD_size",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "h2h_mmap_overlapping_chunks",
+  "target": "how2heap",
+  "technique": "Abuse mmap chunk allocation to create overlapping regions",
+  "binary": "bin/mmap_overlapping_chunks",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 24,
+    "inconsistency_arithmetic__crossboundary": 10,
+    "alloc": 5,
+    "uninitialized_mov_read": 5,
+    "inconsistency_mov_write_reg": 2,
+    "alloc:internal": 1,
+    "free": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": true,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

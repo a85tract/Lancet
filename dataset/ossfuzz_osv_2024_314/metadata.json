@@ -1,0 +1,25 @@
+{
+  "name": "osv_2024_314",
+  "target": "openssl",
+  "binary": "bin/fuzz_harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 321,
+    "corrupted_ptr_load": 119,
+    "alloc:internal": 99,
+    "inconsistency_mov_read": 37,
+    "uninitialized_mov_read": 17,
+    "inconsistency_mov_write_reg": 15,
+    "untrustedptrderef": 6,
+    "alloc": 3,
+    "free:internal": 3,
+    "intra_object_overflow": 3,
+    "double_free": 1,
+    "inconsistency_arithmetic__crossboundary": 1,
+    "movread_nullptr_deref": 1
+  },
+  "detected": true,
+  "key_functions": "config__read_file_core; config__read_file_core; config__read",
+  "verification_match": "\u2713"
+}

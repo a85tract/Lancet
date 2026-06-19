@@ -1,0 +1,26 @@
+{
+  "name": "osv_2023_90",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.raw",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 3018,
+    "inconsistency_mov_read_uaf": 1302,
+    "untrustedptrderef": 567,
+    "inconsistency_mov_write_reg_uaf": 288,
+    "overlap": 101,
+    "corrupted_ptr_load": 101,
+    "uninitialized_mov_read": 94,
+    "inconsistency_arithmetic__crossboundary": 90,
+    "inconsistency_mov_write_imm_uaf": 90,
+    "inconsistency_mov_read": 64,
+    "inconsistency_mov_write_reg": 58,
+    "oob_byte_write": 16,
+    "intra_object_overflow": 6,
+    "stack_pivot": 1
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "\u2713"
+}

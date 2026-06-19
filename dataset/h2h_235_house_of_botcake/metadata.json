@@ -1,0 +1,20 @@
+{
+  "name": "h2h_235_house_of_botcake",
+  "target": "how2heap",
+  "technique": "house of botcake",
+  "glibc_version": "2.35",
+  "binary": "bin/house_of_botcake",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 39,
+    "alloc": 14,
+    "free": 10,
+    "stack_pivot": 4,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "inconsistency_mov_read": 2,
+    "inconsistency_mov_write_reg": 1,
+    "double_free": 1,
+    "inconsistency_mov_write_reg_uaf": 1
+  },
+  "detected": true
+}

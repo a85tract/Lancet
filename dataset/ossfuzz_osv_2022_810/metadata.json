@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_810",
+  "target": "unknown",
+  "binary": "bin/server_fuzzer",
+  "poc": "poc/poc_input.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 4427,
+    "alloc": 2132,
+    "alloc:internal": 341,
+    "corrupted_ptr_load": 338,
+    "inconsistency_mov_read": 261,
+    "free:internal": 258,
+    "inconsistency_mov_read_uaf": 171,
+    "free": 149,
+    "inconsistency_mov_write_reg_uaf": 132,
+    "stack_pivot": 75,
+    "untrustedptrderef": 60,
+    "inconsistency_arithmetic__crossboundary": 41,
+    "uninitialized_mov_read": 39,
+    "inconsistency_mov_write_imm_uaf": 25,
+    "inconsistency_mov_write_reg": 20,
+    "intra_object_overflow": 2
+  },
+  "detected": true,
+  "key_functions": "bn_mul4x_mont; bn_mul4x_mont; bn_mul4x_mont",
+  "verification_match": "\u2713"
+}

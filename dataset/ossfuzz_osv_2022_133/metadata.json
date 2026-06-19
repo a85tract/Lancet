@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_133",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1106,
+    "inconsistency_mov_read_uaf": 240,
+    "inconsistency_mov_write_reg_uaf": 129,
+    "stack_pivot": 106,
+    "corrupted_ptr_load": 82,
+    "inconsistency_mov_write_imm_uaf": 41,
+    "untrustedptrderef": 15,
+    "inconsistency_mov_read": 10,
+    "alloc:internal": 8,
+    "inconsistency_mov_write_reg": 6,
+    "free:internal": 5,
+    "alloc": 4,
+    "free": 4,
+    "uninitialized_mov_read": 3,
+    "intra_object_overflow": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "main; main; main",
+  "verification_match": "\u2713"
+}

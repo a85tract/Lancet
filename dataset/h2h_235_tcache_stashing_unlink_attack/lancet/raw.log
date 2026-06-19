@@ -1,0 +1,32 @@
+[INCONSISTENCY mov write reg] ip: main+0xe9e (main @ tcache_stashing_unlink_attack.c:5) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0xf5a (main @ tcache_stashing_unlink_attack.c:22) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x90) -> 0x1501e2a0 subject=6 at main @ tcache_stashing_unlink_attack.c:30
+[ALLOC] malloc(0x90) -> 0x1501e340 subject=7 at main @ tcache_stashing_unlink_attack.c:30
+[ALLOC] malloc(0x90) -> 0x1501e3e0 subject=8 at main @ tcache_stashing_unlink_attack.c:30
+[ALLOC] malloc(0x90) -> 0x1501e480 subject=9 at main @ tcache_stashing_unlink_attack.c:30
+[ALLOC] malloc(0x90) -> 0x1501e520 subject=10 at main @ tcache_stashing_unlink_attack.c:30
+[ALLOC] malloc(0x90) -> 0x1501e5c0 subject=11 at main @ tcache_stashing_unlink_attack.c:30
+[ALLOC] malloc(0x90) -> 0x1501e660 subject=12 at main @ tcache_stashing_unlink_attack.c:30
+[ALLOC] malloc(0x90) -> 0x1501e700 subject=13 at main @ tcache_stashing_unlink_attack.c:30
+[ALLOC] malloc(0x90) -> 0x1501e7a0 subject=14 at main @ tcache_stashing_unlink_attack.c:30
+[FREE] free(0x1501e480) subject=9 at main @ tcache_stashing_unlink_attack.c:37
+[FREE] free(0x1501e520) subject=10 at main @ tcache_stashing_unlink_attack.c:37
+[FREE] free(0x1501e5c0) subject=11 at main @ tcache_stashing_unlink_attack.c:37
+[FREE] free(0x1501e660) subject=12 at main @ tcache_stashing_unlink_attack.c:37
+[FREE] free(0x1501e700) subject=13 at main @ tcache_stashing_unlink_attack.c:37
+[FREE] free(0x1501e7a0) subject=14 at main @ tcache_stashing_unlink_attack.c:37
+[FREE] free(0x1501e340) subject=7 at main @ tcache_stashing_unlink_attack.c:43
+[FREE] free(0x1501e2a0) subject=6 at main @ tcache_stashing_unlink_attack.c:45
+[FREE] free(0x1501e3e0) subject=8 at main @ tcache_stashing_unlink_attack.c:46
+[ALLOC] malloc(0xa0) -> 0x1501e840 subject=15 at main @ tcache_stashing_unlink_attack.c:51
+[ALLOC] malloc(0x90) -> 0x1501e340 subject=16 at main @ tcache_stashing_unlink_attack.c:56
+[ALLOC] malloc(0x90) -> 0x1501e7a0 subject=17 at main @ tcache_stashing_unlink_attack.c:57
+main+0x10c1 (main @ tcache_stashing_unlink_attack.c:63) Read a dangling pointer 0x1501e3e0 from 0x7ffc695118d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x10d0 (main @ tcache_stashing_unlink_attack.c:63) UAF write at: 0x1501e3e8
+[ALLOC] calloc(0x90) -> 0x1501e2a0 subject=18 at main @ tcache_stashing_unlink_attack.c:69
+[ALLOC] malloc(0x90) -> 0x7ffc69511850 subject=19 at main @ tcache_stashing_unlink_attack.c:74
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1152 (main @ tcache_stashing_unlink_attack.c:78) add rax, 0x10 id before: 5 after: 19 value: 0x7ffc69511850
+[STACK PIVOT] ip: main+0x119d (main @ tcache_stashing_unlink_attack.c:80) RSP 0x7ffc69511958 left stack [0x15,0x7ffc694f1000]
+[STACK PIVOT] ip: main+0x119e (main @ tcache_stashing_unlink_attack.c:80) RSP 0x7ffc69511960 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7ffc69511860 left stack after RET
+[STACK PIVOT] ip: main+0x11ac (_fini) RSP 0x7ffc69511860 left stack after RET

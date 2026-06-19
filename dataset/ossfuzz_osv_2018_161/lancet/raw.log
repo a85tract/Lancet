@@ -1,0 +1,426 @@
+[ALLOC:internal] malloc(0x60) -> 0x55fe5f0a42a0 subject=4 at g_malloc
+[ALLOC:internal] malloc(0x60) -> 0x55fe5f0a42a0 subject=5 at g_hash_table_new_full
+[ALLOC:internal] malloc(0x20) -> 0x55fe5f0a4310 subject=6
+[ALLOC:internal] calloc(0x20) -> 0x55fe5f0a4340 subject=8 at g_malloc0
+[ALLOC:internal] malloc(0x4000) -> 0x55fe5f0a4370 subject=9 at g_malloc
+[ALLOC:internal] malloc(0x4000) -> 0x55fe5f0a4370 subject=10 at .text
+[ALLOC:internal] malloc(0x60) -> 0x55fe5f0a8380 subject=11 at g_malloc
+[ALLOC:internal] malloc(0x60) -> 0x55fe5f0a8380 subject=12 at g_hash_table_new_full
+[ALLOC:internal] malloc(0x20) -> 0x55fe5f0a83f0 subject=13
+[ALLOC:internal] calloc(0x20) -> 0x55fe5f0a8420 subject=15 at g_malloc0
+[INCONSISTENCY mov write reg] ip: main+0x177c (main @ harness.cc:96) co: 16 vo: 16, 16 write 16
+[INCONSISTENCY mov write reg] ip: main+0x177f (main @ harness.cc:96) co: 16 vo: 16, 16 write 16
+[ALLOC:internal] malloc(0x1d8) -> 0x55fe5f0a8450 subject=17 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x55fe5f0a8630 subject=18 at _IO_file_doallocate
+[ALLOC] malloc(0x370) -> 0x55fe5f0a9640 subject=19 at main @ harness.cc:112
+[FREE:internal] free(0x55fe5f0a8630) subject=18 at _IO_setb
+[FREE:internal] free(0x55fe5f0a8450) subject=17 at fclose
+[CORRUPTED_PTR_LOAD] ip: main+0x15b9 (LLVMFuzzerTestOneInput @ harness.cc:64) loaded: 0x370 from cell: 0x7ffff0175a10 cell_owner: 20 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x15c2 (LLVMFuzzerTestOneInput @ harness.cc:64) loaded: 0x55fe5f0a9640 from cell: 0x7ffff0175a18 cell_owner: 20 value_owner: 16
+[ALLOC] calloc(0x38) -> 0x55fe5f0a8630 subject=21 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x10) -> 0x55fe5f0a8670 subject=22 at _hb_face_for_data_closure_create @ hb-face.cc:138
+[ALLOC] calloc(0x58) -> 0x55fe5f0a8690 subject=23 at hb_object_create<hb_face_t> @ hb-object.hh:222
+Store dangling pointer: 0x55fe5f0a8690 at: 0x7ffff0175a30
+[ALLOC] calloc(0x80) -> 0x55fe5f0a86f0 subject=24 at hb_object_create<hb_set_t> @ hb-object.hh:222
+Store dangling pointer: 0x55fe5f0a86f0 at: 0x7ffff0175a38
+main+0x160f (LLVMFuzzerTestOneInput @ harness.cc:69) Using expired pointer: 0x55fe5f0a86f0 from 0x7ffff0175a38
+first time found dangling pointer at: 96 distance: 1
+main+0x1616 (LLVMFuzzerTestOneInput @ harness.cc:69) Using expired pointer: 0x55fe5f0a8690 from 0x7ffff0175a30
+first time found dangling pointer at: 92 distance: 6
+[ALLOC] calloc(0xd0) -> 0x55fe5f0a8780 subject=25 at _Z23_hb_ot_face_data_createP9hb_face_t @ hb-ot-face.cc:61
+[ALLOC] calloc(0x58) -> 0x55fe5f0a8860 subject=26 at _ZN16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj14EE9hb_face_tLj14ES1_E6createEPS4_ @ hb-machinery.hh:848
+[FREE] free(0x55fe5f0a86f0) subject=24 at hb_set_destroy @ hb-set.cc:93
+[INCONSISTENCY mov read] ip: main+0x1583 (trySubset @ harness.cc:52) base: 0x7ffff0175a00 pointee: 20 read from 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1583 (trySubset @ harness.cc:52) loaded: 0x55fe00000000 from cell: 0x7ffff01759f8 cell_owner: 27 value_owner: 20
+[INCONSISTENCY mov read] ip: main+0x1579 (trySubset @ harness.cc:54) base: 0x7ffff0175a00 pointee: 20 read from 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1579 (trySubset @ harness.cc:54) loaded: 0xf0175ae000000000 from cell: 0x7ffff01759fc cell_owner: 27 value_owner: 20
+[INCONSISTENCY mov read] ip: main+0x154b (trySubset @ harness.cc:56) base: 0x7ffff0175a00 pointee: 20 read from 27
+[CORRUPTED_PTR_LOAD] ip: main+0x154b (trySubset @ harness.cc:56) loaded: 0xf0175ae000000000 from cell: 0x7ffff01759fc cell_owner: 27 value_owner: 20
+[INCONSISTENCY mov read] ip: main+0x1555 (trySubset @ harness.cc:56) base: 0x7ffff0175a00 pointee: 20 read from 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1555 (trySubset @ harness.cc:56) loaded: 0x0 from cell: 0x7ffff01759f8 cell_owner: 27 value_owner: 20
+[CORRUPTED_PTR_LOAD] ip: main+0x155f (trySubset @ harness.cc:56) loaded: 0xf0175a8000000013 from cell: 0x7ffff01759dc cell_owner: 27 value_owner: 20
+[CORRUPTED_PTR_LOAD] ip: main+0x1562 (trySubset @ harness.cc:56) loaded: 0x7ffff0175a80 from cell: 0x7ffff01759e0 cell_owner: 27 value_owner: 20
+[CORRUPTED_PTR_LOAD] ip: main+0x1566 (trySubset @ harness.cc:56) loaded: 0x55fe5f0a8690 from cell: 0x7ffff01759e8 cell_owner: 27 value_owner: 20
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1465 (trySubset @ harness.cc:29) byte write at: 0x7ffff0175988 offset: +0x8 cell_owner: 28 writer_pointee: 27
+[INTRA_OBJECT_OVERFLOW] ip: main+0x146a (trySubset @ harness.cc:29) byte write at: 0x7ffff0175984 offset: +0x4 cell_owner: 28 writer_pointee: 27
+[ALLOC] calloc(0x28) -> 0x55fe5f0a88c0 subject=29 at hb_object_create<hb_subset_input_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a88f0 subject=30 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a8980 subject=31 at hb_object_create<hb_set_t> @ hb-object.hh:222
+Store dangling pointer: 0x55fe5f0a88c0 at: 0x7ffff01759a8
+[INCONSISTENCY mov read] ip: main+0x1476 (trySubset @ harness.cc:31) base: 0x7ffff01759c0 pointee: 27 read from 28
+main+0x1476 (trySubset @ harness.cc:31) Using expired pointer: 0x55fe5f0a88c0 from 0x7ffff01759a8
+first time found dangling pointer at: 176 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x1476 (trySubset @ harness.cc:31) loaded: 0x55fe5f0a88c0 from cell: 0x7ffff01759a8 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1481 (trySubset @ harness.cc:32) loaded: 0x135f0a8600 from cell: 0x7ffff0175988 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1485 (trySubset @ harness.cc:32) loaded: 0x55fe5f0a88c0 from cell: 0x7ffff01759a8 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1493 (trySubset @ harness.cc:33) loaded: 0x5f0a860000000000 from cell: 0x7ffff0175984 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1497 (trySubset @ harness.cc:33) loaded: 0x55fe5f0a88c0 from cell: 0x7ffff01759a8 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0x14a5 (trySubset @ harness.cc:34) loaded: 0x55fe5f0a88c0 from cell: 0x7ffff01759a8 cell_owner: 28 value_owner: 27
+Store dangling pointer: 0x55fe5f0a88f0 at: 0x7ffff01759b0
+[CORRUPTED_PTR_LOAD] ip: main+0x14cb (trySubset @ harness.cc:38) loaded: 0x7ffff0175a80 from cell: 0x7ffff0175990 cell_owner: 28 value_owner: 27
+main+0x14d4 (trySubset @ harness.cc:38) Using expired pointer: 0x55fe5f0a88f0 from 0x7ffff01759b0
+first time found dangling pointer at: 198 distance: 12
+[CORRUPTED_PTR_LOAD] ip: main+0x14ee (trySubset @ harness.cc:41) loaded: 0x55fe5f0a88c0 from cell: 0x7ffff01759a8 cell_owner: 28 value_owner: 27
+[CORRUPTED_PTR_LOAD] ip: main+0x14f2 (trySubset @ harness.cc:41) loaded: 0x55fe5f0a8690 from cell: 0x7ffff0175998 cell_owner: 28 value_owner: 27
+[ALLOC] calloc(0x78) -> 0x55fe5f0a8a10 subject=32 at hb_object_create<hb_subset_plan_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a8a90 subject=33 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x210) -> 0x55fe5f0a8b20 subject=34 at _hb_face_builder_data_create @ hb-face.cc:607
+[ALLOC] calloc(0x58) -> 0x55fe5f0a8d40 subject=35 at hb_object_create<hb_face_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0a8da0 subject=36 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0a8de0 subject=37 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a8e20 subject=38 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x20) -> 0x55fe5f0a8eb0 subject=39 at _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E6createEPS4_ @ hb-machinery.hh:848
+[ALLOC] calloc(0x38) -> 0x55fe5f0a8ee0 subject=40 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x346) -> 0x55fe5f0a8f20 subject=41 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x0) -> 0x55fe5f0a9270 subject=42 at _ZN2OT8GSUBGPOS13accelerator_tINS_4GSUBEE4initEP9hb_face_t @ hb-ot-layout-gsubgpos.hh:2756
+[ALLOC] calloc(0x240) -> 0x55fe5f0a9290 subject=43 at _ZN11hb_vector_tIN8hb_set_t6page_tELj1EE5allocEj @ hb-vector.hh:103
+[ALLOC] calloc(0x48) -> 0x55fe5f0a94e0 subject=44 at _ZN11hb_vector_tIN8hb_set_t10page_map_tELj1EE5allocEj @ hb-vector.hh:103
+[FREE] free(0x55fe5f0a94e0) subject=44 at _ZN11hb_vector_tIN8hb_set_t10page_map_tELj1EE4finiEv @ hb-vector.hh:265
+[FREE] free(0x55fe5f0a9290) subject=43 at _ZN11hb_vector_tIN8hb_set_t6page_tELj1EE4finiEv @ hb-vector.hh:265
+[ALLOC] malloc(0x80) -> 0x55fe5f0a86f0 subject=45 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[FREE] free(0x55fe5f0a86f0) subject=45 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[ALLOC] calloc(0x80) -> 0x55fe5f0a9530 subject=46 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0a8e20) subject=38 at hb_set_destroy @ hb-set.cc:93
+[ALLOC] malloc(0x80) -> 0x55fe5f0a8e20 subject=47 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[ALLOC] calloc(0x38) -> 0x55fe5f0a95c0 subject=48 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x346) -> 0x55fe5f0a99c0 subject=49 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x549) -> 0x55fe5f0a9d10 subject=50 at _ZN11hb_vector_tIcLj8EE5allocEj @ hb-vector.hh:103
+[ALLOC] calloc(0x38) -> 0x55fe5f0a9600 subject=53 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x818) -> 0x55fe5f0aaf20 subject=54 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x38) -> 0x55fe5f0ab740 subject=55 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0ab740) subject=55 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0a9d10) subject=52 at _ZN11hb_vector_tIcLj8EE4finiEv @ hb-vector.hh:265
+[FREE] free(0x55fe5f0a99c0) subject=49 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0a95c0) subject=48 at hb_blob_destroy @ hb-blob.cc:234
+[ALLOC] calloc(0x38) -> 0x55fe5f0a9d10 subject=56 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x38) -> 0x55fe5f0a9d50 subject=57 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0a9d50) subject=57 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0a8a90) subject=33 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a8da0) subject=36 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0a8e20) subject=47 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[FREE] free(0x55fe5f0a8de0) subject=37 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0a9530) subject=46 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a8a10) subject=32 at _Z22hb_subset_plan_destroyP16hb_subset_plan_t @ hb-subset-plan.cc:189
+Store dangling pointer: 0x55fe5f0a8d40 at: 0x7ffff01759b8
+main+0x1505 (trySubset @ harness.cc:42) Using expired pointer: 0x55fe5f0a8d40 from 0x7ffff01759b8
+first time found dangling pointer at: 515 distance: 1
+[FREE] free(0x55fe5f0aaf20) subject=54 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0a9600) subject=53 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0a9d10) subject=56 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0a8b20) subject=34 at _hb_face_builder_data_destroy @ hb-face.cc:626
+[FREE] free(0x55fe5f0a8d40) subject=35 at hb_face_destroy @ hb-face.cc:270
+[CORRUPTED_PTR_LOAD] ip: main+0x1511 (trySubset @ harness.cc:44) loaded: 0x55fe5f0a88c0 from cell: 0x7ffff01759a8 cell_owner: 28 value_owner: 27
+[FREE] free(0x55fe5f0a88f0) subject=30 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a8980) subject=31 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a88c0) subject=29 at hb_subset_input_destroy @ hb-subset-input.cc:82
+[STACK PIVOT] ip: main+0x1520 (trySubset @ harness.cc:45) RSP 0x7ffff01759c8 left stack [0x3b,0x7ffff0155000]
+[ALLOC] calloc(0x28) -> 0x55fe5f0a9d90 subject=60 at hb_object_create<hb_subset_input_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a9dc0 subject=61 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a9e50 subject=62 at hb_object_create<hb_set_t> @ hb-object.hh:222
+Store dangling pointer: 0x55fe5f0a9d90 at: 0x7ffff01759a8
+main+0x1476 (trySubset @ harness.cc:31) Using expired pointer: 0x55fe5f0a9d90 from 0x7ffff01759a8
+first time found dangling pointer at: 176 distance: 384
+Store dangling pointer: 0x55fe5f0a9dc0 at: 0x7ffff01759b0
+main+0x14d4 (trySubset @ harness.cc:38) Using expired pointer: 0x55fe5f0a9dc0 from 0x7ffff01759b0
+first time found dangling pointer at: 198 distance: 395
+[ALLOC] calloc(0x78) -> 0x55fe5f0a9ee0 subject=63 at hb_object_create<hb_subset_plan_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a9f60 subject=64 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x210) -> 0x55fe5f0a9ff0 subject=65 at _hb_face_builder_data_create @ hb-face.cc:607
+[ALLOC] calloc(0x58) -> 0x55fe5f0aa210 subject=66 at hb_object_create<hb_face_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa270 subject=67 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa2b0 subject=68 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa2f0 subject=69 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa380 subject=70 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa2f0) subject=69 at hb_set_destroy @ hb-set.cc:93
+[ALLOC] malloc(0x80) -> 0x55fe5f0aa2f0 subject=71 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa410 subject=72 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa450 subject=73 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa450) subject=73 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0a9f60) subject=64 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa270) subject=67 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aa2f0) subject=71 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[FREE] free(0x55fe5f0aa2b0) subject=68 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aa380) subject=70 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a9ee0) subject=63 at _Z22hb_subset_plan_destroyP16hb_subset_plan_t @ hb-subset-plan.cc:189
+Store dangling pointer: 0x55fe5f0aa210 at: 0x7ffff01759b8
+main+0x1505 (trySubset @ harness.cc:42) Using expired pointer: 0x55fe5f0aa210 from 0x7ffff01759b8
+first time found dangling pointer at: 515 distance: 384
+[FREE] free(0x55fe5f0aa410) subject=72 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0a9ff0) subject=65 at _hb_face_builder_data_destroy @ hb-face.cc:626
+[FREE] free(0x55fe5f0aa210) subject=66 at hb_face_destroy @ hb-face.cc:270
+[FREE] free(0x55fe5f0a9dc0) subject=61 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a9e50) subject=62 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a9d90) subject=60 at hb_subset_input_destroy @ hb-subset-input.cc:82
+[STACK PIVOT] ip: main+0x1520 (trySubset @ harness.cc:45) RSP 0x7ffff01759c8 left stack [0x4b,0x7ffff0155000]
+[ALLOC] calloc(0x28) -> 0x55fe5f0aa2f0 subject=76 at hb_object_create<hb_subset_input_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa320 subject=77 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a9dc0 subject=78 at hb_object_create<hb_set_t> @ hb-object.hh:222
+Store dangling pointer: 0x55fe5f0aa320 at: 0x7ffff01759b0
+main+0x14d4 (trySubset @ harness.cc:38) Using expired pointer: 0x55fe5f0aa320 from 0x7ffff01759b0
+first time found dangling pointer at: 198 distance: 785
+[ALLOC] calloc(0x78) -> 0x55fe5f0a9e50 subject=79 at hb_object_create<hb_subset_plan_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa490 subject=80 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x210) -> 0x55fe5f0aa520 subject=81 at _hb_face_builder_data_create @ hb-face.cc:607
+[ALLOC] calloc(0x58) -> 0x55fe5f0aa3b0 subject=82 at hb_object_create<hb_face_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa410 subject=83 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa2b0 subject=84 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa740 subject=85 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x240) -> 0x55fe5f0aa7d0 subject=86 at _ZN11hb_vector_tIN8hb_set_t6page_tELj1EE5allocEj @ hb-vector.hh:103
+[ALLOC] calloc(0x48) -> 0x55fe5f0aaa20 subject=87 at _ZN11hb_vector_tIN8hb_set_t10page_map_tELj1EE5allocEj @ hb-vector.hh:103
+[FREE] free(0x55fe5f0aaa20) subject=87 at _ZN11hb_vector_tIN8hb_set_t10page_map_tELj1EE4finiEv @ hb-vector.hh:265
+[FREE] free(0x55fe5f0aa7d0) subject=86 at _ZN11hb_vector_tIN8hb_set_t6page_tELj1EE4finiEv @ hb-vector.hh:265
+[ALLOC] malloc(0x80) -> 0x55fe5f0a9f60 subject=88 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[FREE] free(0x55fe5f0a9f60) subject=88 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[ALLOC] calloc(0x80) -> 0x55fe5f0aaa70 subject=89 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa740) subject=85 at hb_set_destroy @ hb-set.cc:93
+[ALLOC] malloc(0x80) -> 0x55fe5f0a9f60 subject=90 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa270 subject=91 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x346) -> 0x55fe5f0a99c0 subject=92 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x549) -> 0x55fe5f0aab00 subject=93 at _ZN11hb_vector_tIcLj8EE5allocEj @ hb-vector.hh:103
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa450 subject=96 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x818) -> 0x55fe5f0aab00 subject=97 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa740 subject=98 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa740) subject=98 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0ab780) subject=95 at _ZN11hb_vector_tIcLj8EE4finiEv @ hb-vector.hh:265
+[FREE] free(0x55fe5f0a99c0) subject=92 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0aa270) subject=91 at hb_blob_destroy @ hb-blob.cc:234
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa270 subject=99 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa740 subject=100 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa740) subject=100 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aa490) subject=80 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa410) subject=83 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0a9f60) subject=90 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[FREE] free(0x55fe5f0aa2b0) subject=84 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aaa70) subject=89 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a9e50) subject=79 at _Z22hb_subset_plan_destroyP16hb_subset_plan_t @ hb-subset-plan.cc:189
+Store dangling pointer: 0x55fe5f0aa3b0 at: 0x7ffff01759b8
+main+0x1505 (trySubset @ harness.cc:42) Using expired pointer: 0x55fe5f0aa3b0 from 0x7ffff01759b8
+first time found dangling pointer at: 515 distance: 774
+[FREE] free(0x55fe5f0aab00) subject=97 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0aa450) subject=96 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aa270) subject=99 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aa520) subject=81 at _hb_face_builder_data_destroy @ hb-face.cc:626
+[FREE] free(0x55fe5f0aa3b0) subject=82 at hb_face_destroy @ hb-face.cc:270
+[FREE] free(0x55fe5f0aa320) subject=77 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a9dc0) subject=78 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa2f0) subject=76 at hb_subset_input_destroy @ hb-subset-input.cc:82
+[STACK PIVOT] ip: main+0x1520 (trySubset @ harness.cc:45) RSP 0x7ffff01759c8 left stack [0x66,0x7ffff0155000]
+[ALLOC] calloc(0x28) -> 0x55fe5f0aa780 subject=103 at hb_object_create<hb_subset_input_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a9f60 subject=104 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa320 subject=105 at hb_object_create<hb_set_t> @ hb-object.hh:222
+Store dangling pointer: 0x55fe5f0aa780 at: 0x7ffff01759a8
+main+0x1476 (trySubset @ harness.cc:31) Using expired pointer: 0x55fe5f0aa780 from 0x7ffff01759a8
+first time found dangling pointer at: 176 distance: 1157
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x14cf (trySubset @ harness.cc:38) add dword ptr [rbp-0x1c], 0x1 id before: 104 after: 20 value: 0x7ffff0175a9c
+[ALLOC] calloc(0x78) -> 0x55fe5f0a9dc0 subject=106 at hb_object_create<hb_subset_plan_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0a9e40 subject=107 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x210) -> 0x55fe5f0aaa70 subject=108 at _hb_face_builder_data_create @ hb-face.cc:607
+[ALLOC] calloc(0x58) -> 0x55fe5f0aac90 subject=109 at hb_object_create<hb_face_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa270 subject=110 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa450 subject=111 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aacf0 subject=112 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aad80 subject=113 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aacf0) subject=112 at hb_set_destroy @ hb-set.cc:93
+[ALLOC] malloc(0x80) -> 0x55fe5f0aa490 subject=114 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa2b0 subject=115 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa410 subject=116 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa410) subject=116 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0a9e40) subject=107 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa270) subject=110 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aa490) subject=114 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[FREE] free(0x55fe5f0aa450) subject=111 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aad80) subject=113 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a9dc0) subject=106 at _Z22hb_subset_plan_destroyP16hb_subset_plan_t @ hb-subset-plan.cc:189
+Store dangling pointer: 0x55fe5f0aac90 at: 0x7ffff01759b8
+main+0x1505 (trySubset @ harness.cc:42) Using expired pointer: 0x55fe5f0aac90 from 0x7ffff01759b8
+first time found dangling pointer at: 515 distance: 953
+[FREE] free(0x55fe5f0aa2b0) subject=115 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aaa70) subject=108 at _hb_face_builder_data_destroy @ hb-face.cc:626
+[FREE] free(0x55fe5f0aac90) subject=109 at hb_face_destroy @ hb-face.cc:270
+[FREE] free(0x55fe5f0a9f60) subject=104 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa320) subject=105 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa780) subject=103 at hb_subset_input_destroy @ hb-subset-input.cc:82
+[STACK PIVOT] ip: main+0x1520 (trySubset @ harness.cc:45) RSP 0x7ffff01759c8 left stack [0x76,0x7ffff0155000]
+[STACK PIVOT] ip: main+0x158b (trySubset @ harness.cc:60) RSP 0x7ffff0175a08 left stack [0x77,0x7ffff0155000]
+[CORRUPTED_PTR_LOAD] ip: main+0x16d7 (LLVMFuzzerTestOneInput @ harness.cc:81) loaded: 0x370 from cell: 0x7ffff0175a10 cell_owner: 20 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x16e1 (LLVMFuzzerTestOneInput @ harness.cc:83) loaded: 0x370 from cell: 0x7ffff0175a10 cell_owner: 20 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x16ec (LLVMFuzzerTestOneInput @ harness.cc:83) loaded: 0x55fe5f0a9640 from cell: 0x7ffff0175a18 cell_owner: 20 value_owner: 16
+[ALLOC] calloc(0x28) -> 0x55fe5f0a9f60 subject=121 at hb_object_create<hb_subset_input_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa320 subject=122 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aacf0 subject=123 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x78) -> 0x55fe5f0aad80 subject=124 at hb_object_create<hb_subset_plan_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aae00 subject=125 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x210) -> 0x55fe5f0aae90 subject=126 at _hb_face_builder_data_create @ hb-face.cc:607
+[ALLOC] calloc(0x58) -> 0x55fe5f0a9f90 subject=127 at hb_object_create<hb_face_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa2b0 subject=128 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa450 subject=129 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0ab0b0 subject=130 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x240) -> 0x55fe5f0ab140 subject=131 at _ZN11hb_vector_tIN8hb_set_t6page_tELj1EE5allocEj @ hb-vector.hh:103
+[ALLOC] calloc(0x48) -> 0x55fe5f0ab390 subject=132 at _ZN11hb_vector_tIN8hb_set_t10page_map_tELj1EE5allocEj @ hb-vector.hh:103
+[FREE] free(0x55fe5f0ab390) subject=132 at _ZN11hb_vector_tIN8hb_set_t10page_map_tELj1EE4finiEv @ hb-vector.hh:265
+[FREE] free(0x55fe5f0ab140) subject=131 at _ZN11hb_vector_tIN8hb_set_t6page_tELj1EE4finiEv @ hb-vector.hh:265
+[ALLOC] malloc(0x80) -> 0x55fe5f0aa490 subject=133 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[FREE] free(0x55fe5f0aa490) subject=133 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[ALLOC] calloc(0x80) -> 0x55fe5f0ab3e0 subject=134 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0ab0b0) subject=130 at hb_set_destroy @ hb-set.cc:93
+[ALLOC] malloc(0x80) -> 0x55fe5f0aa490 subject=135 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa270 subject=136 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x346) -> 0x55fe5f0a99c0 subject=137 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x549) -> 0x55fe5f0ab780 subject=138 at _ZN11hb_vector_tIcLj8EE5allocEj @ hb-vector.hh:103
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa410 subject=141 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x818) -> 0x55fe5f0ac990 subject=142 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa740 subject=143 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa740) subject=143 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0ab780) subject=140 at _ZN11hb_vector_tIcLj8EE4finiEv @ hb-vector.hh:265
+[FREE] free(0x55fe5f0a99c0) subject=137 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0aa270) subject=136 at hb_blob_destroy @ hb-blob.cc:234
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa270 subject=144 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa740 subject=145 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa740) subject=145 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aae00) subject=125 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa2b0) subject=128 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aa490) subject=135 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[FREE] free(0x55fe5f0aa450) subject=129 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0ab3e0) subject=134 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aad80) subject=124 at _Z22hb_subset_plan_destroyP16hb_subset_plan_t @ hb-subset-plan.cc:189
+Store dangling pointer: 0x55fe5f0a9f90 at: 0x7ffff01759b8
+main+0x1505 (trySubset @ harness.cc:42) Using expired pointer: 0x55fe5f0a9f90 from 0x7ffff01759b8
+first time found dangling pointer at: 515 distance: 1071
+[FREE] free(0x55fe5f0ac990) subject=142 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0aa410) subject=141 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aa270) subject=144 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aae90) subject=126 at _hb_face_builder_data_destroy @ hb-face.cc:626
+[FREE] free(0x55fe5f0a9f90) subject=127 at hb_face_destroy @ hb-face.cc:270
+[FREE] free(0x55fe5f0aa320) subject=122 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aacf0) subject=123 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0a9f60) subject=121 at hb_subset_input_destroy @ hb-subset-input.cc:82
+[STACK PIVOT] ip: main+0x1520 (trySubset @ harness.cc:45) RSP 0x7ffff01759c8 left stack [0x93,0x7ffff0155000]
+[ALLOC] calloc(0x28) -> 0x55fe5f0aa2b0 subject=148 at hb_object_create<hb_subset_input_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0ab0b0 subject=149 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa320 subject=150 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x78) -> 0x55fe5f0aacf0 subject=151 at hb_object_create<hb_subset_plan_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa450 subject=152 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x210) -> 0x55fe5f0ab3e0 subject=153 at _hb_face_builder_data_create @ hb-face.cc:607
+[ALLOC] calloc(0x58) -> 0x55fe5f0ab600 subject=154 at hb_object_create<hb_face_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa270 subject=155 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa410 subject=156 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0ab660 subject=157 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0ab780 subject=158 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0ab660) subject=157 at hb_set_destroy @ hb-set.cc:93
+[ALLOC] malloc(0x80) -> 0x55fe5f0aae00 subject=159 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa740 subject=160 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa4e0 subject=161 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa4e0) subject=161 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aa450) subject=152 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa270) subject=155 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aae00) subject=159 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[FREE] free(0x55fe5f0aa410) subject=156 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0ab780) subject=158 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aacf0) subject=151 at _Z22hb_subset_plan_destroyP16hb_subset_plan_t @ hb-subset-plan.cc:189
+Store dangling pointer: 0x55fe5f0ab600 at: 0x7ffff01759b8
+main+0x1505 (trySubset @ harness.cc:42) Using expired pointer: 0x55fe5f0ab600 from 0x7ffff01759b8
+first time found dangling pointer at: 515 distance: 1147
+[FREE] free(0x55fe5f0aa740) subject=160 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0ab3e0) subject=153 at _hb_face_builder_data_destroy @ hb-face.cc:626
+[FREE] free(0x55fe5f0ab600) subject=154 at hb_face_destroy @ hb-face.cc:270
+[FREE] free(0x55fe5f0ab0b0) subject=149 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa320) subject=150 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa2b0) subject=148 at hb_subset_input_destroy @ hb-subset-input.cc:82
+[STACK PIVOT] ip: main+0x1520 (trySubset @ harness.cc:45) RSP 0x7ffff01759c8 left stack [0xa3,0x7ffff0155000]
+[ALLOC] calloc(0x28) -> 0x55fe5f0aa410 subject=164 at hb_object_create<hb_subset_input_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aae00 subject=165 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aacf0 subject=166 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x78) -> 0x55fe5f0ab0b0 subject=167 at hb_object_create<hb_subset_plan_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa320 subject=168 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x210) -> 0x55fe5f0ab780 subject=169 at _hb_face_builder_data_create @ hb-face.cc:607
+[ALLOC] calloc(0x58) -> 0x55fe5f0ab660 subject=170 at hb_object_create<hb_face_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa2b0 subject=171 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa740 subject=172 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0ab9a0 subject=173 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x240) -> 0x55fe5f0aba30 subject=174 at _ZN11hb_vector_tIN8hb_set_t6page_tELj1EE5allocEj @ hb-vector.hh:103
+[ALLOC] calloc(0x48) -> 0x55fe5f0ab6c0 subject=175 at _ZN11hb_vector_tIN8hb_set_t10page_map_tELj1EE5allocEj @ hb-vector.hh:103
+[FREE] free(0x55fe5f0ab6c0) subject=175 at _ZN11hb_vector_tIN8hb_set_t10page_map_tELj1EE4finiEv @ hb-vector.hh:265
+[FREE] free(0x55fe5f0aba30) subject=174 at _ZN11hb_vector_tIN8hb_set_t6page_tELj1EE4finiEv @ hb-vector.hh:265
+[ALLOC] malloc(0x80) -> 0x55fe5f0aa450 subject=176 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[FREE] free(0x55fe5f0aa450) subject=176 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[ALLOC] calloc(0x80) -> 0x55fe5f0abc80 subject=177 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0ab9a0) subject=173 at hb_set_destroy @ hb-set.cc:93
+[ALLOC] malloc(0x80) -> 0x55fe5f0aa450 subject=178 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa270 subject=179 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x346) -> 0x55fe5f0a99c0 subject=180 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x549) -> 0x55fe5f0abd10 subject=181 at _ZN11hb_vector_tIcLj8EE5allocEj @ hb-vector.hh:103
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa4e0 subject=184 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] malloc(0x818) -> 0x55fe5f0acf20 subject=185 at _ZN9hb_blob_t17try_make_writableEv @ hb-blob.cc:461
+[ALLOC] calloc(0x38) -> 0x55fe5f0ab9a0 subject=186 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0ab9a0) subject=186 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0abd10) subject=183 at _ZN11hb_vector_tIcLj8EE4finiEv @ hb-vector.hh:265
+[FREE] free(0x55fe5f0a99c0) subject=180 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0aa270) subject=179 at hb_blob_destroy @ hb-blob.cc:234
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa270 subject=187 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x38) -> 0x55fe5f0ab9a0 subject=188 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0ab9a0) subject=188 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aa320) subject=168 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa2b0) subject=171 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aa450) subject=178 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[FREE] free(0x55fe5f0aa740) subject=172 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0abc80) subject=177 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0ab0b0) subject=167 at _Z22hb_subset_plan_destroyP16hb_subset_plan_t @ hb-subset-plan.cc:189
+[FREE] free(0x55fe5f0acf20) subject=185 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0aa4e0) subject=184 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aa270) subject=187 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0ab780) subject=169 at _hb_face_builder_data_destroy @ hb-face.cc:626
+[FREE] free(0x55fe5f0ab660) subject=170 at hb_face_destroy @ hb-face.cc:270
+[FREE] free(0x55fe5f0aae00) subject=165 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aacf0) subject=166 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa410) subject=164 at hb_subset_input_destroy @ hb-subset-input.cc:82
+[STACK PIVOT] ip: main+0x1520 (trySubset @ harness.cc:45) RSP 0x7ffff01759c8 left stack [0xbe,0x7ffff0155000]
+[ALLOC] calloc(0x28) -> 0x55fe5f0ab710 subject=191 at hb_object_create<hb_subset_input_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aa450 subject=192 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0ab0b0 subject=193 at hb_object_create<hb_set_t> @ hb-object.hh:222
+Store dangling pointer: 0x55fe5f0ab710 at: 0x7ffff01759a8
+main+0x1476 (trySubset @ harness.cc:31) Using expired pointer: 0x55fe5f0ab710 from 0x7ffff01759a8
+first time found dangling pointer at: 176 distance: 1613
+[ALLOC] calloc(0x78) -> 0x55fe5f0ab9a0 subject=194 at hb_object_create<hb_subset_plan_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0aae00 subject=195 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x210) -> 0x55fe5f0abc80 subject=196 at _hb_face_builder_data_create @ hb-face.cc:607
+[ALLOC] calloc(0x58) -> 0x55fe5f0aacf0 subject=197 at hb_object_create<hb_face_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa410 subject=198 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x30) -> 0x55fe5f0aa270 subject=199 at hb_object_create<hb_map_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0abea0 subject=200 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[ALLOC] calloc(0x80) -> 0x55fe5f0abf30 subject=201 at hb_object_create<hb_set_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0abea0) subject=200 at hb_set_destroy @ hb-set.cc:93
+[ALLOC] malloc(0x80) -> 0x55fe5f0aa320 subject=202 at _ZN8hb_map_t6resizeEv @ hb-map.hh:93
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa4e0 subject=203 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[ALLOC] calloc(0x38) -> 0x55fe5f0aa740 subject=204 at hb_object_create<hb_blob_t> @ hb-object.hh:222
+[FREE] free(0x55fe5f0aa740) subject=204 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0aae00) subject=195 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0aa410) subject=198 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0aa320) subject=202 at _ZN8hb_map_t12fini_shallowEv @ hb-map.hh:79
+[FREE] free(0x55fe5f0aa270) subject=199 at hb_map_destroy @ hb-map.cc:93
+[FREE] free(0x55fe5f0abf30) subject=201 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0ab9a0) subject=194 at _Z22hb_subset_plan_destroyP16hb_subset_plan_t @ hb-subset-plan.cc:189
+[FREE] free(0x55fe5f0aa4e0) subject=203 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0abc80) subject=196 at _hb_face_builder_data_destroy @ hb-face.cc:626
+[FREE] free(0x55fe5f0aacf0) subject=197 at hb_face_destroy @ hb-face.cc:270
+[FREE] free(0x55fe5f0aa450) subject=192 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0ab0b0) subject=193 at hb_set_destroy @ hb-set.cc:93
+[FREE] free(0x55fe5f0ab710) subject=191 at hb_subset_input_destroy @ hb-subset-input.cc:82
+[STACK PIVOT] ip: main+0x1520 (trySubset @ harness.cc:45) RSP 0x7ffff01759c8 left stack [0xce,0x7ffff0155000]
+[STACK PIVOT] ip: main+0x158b (trySubset @ harness.cc:60) RSP 0x7ffff0175a08 left stack [0xcf,0x7ffff0155000]
+[FREE] free(0x55fe5f0a9270) subject=-1 at _ZN2OT8GSUBGPOS13accelerator_tINS_4GSUBEE4finiEv @ hb-ot-layout-gsubgpos.hh:2768
+[FREE] free(0x55fe5f0a8f20) subject=41 at _ZN9hb_blob_t17destroy_user_dataEv @ hb-blob.hh:50
+[FREE] free(0x55fe5f0a8ee0) subject=40 at hb_blob_destroy @ hb-blob.cc:234
+[FREE] free(0x55fe5f0a8eb0) subject=39 at _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E7destroyEPS1_ @ hb-machinery.hh:863
+[FREE] free(0x55fe5f0a8860) subject=26 at _ZN16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj14EE9hb_face_tLj14ES1_E7destroyEPS1_ @ hb-machinery.hh:863
+[FREE] free(0x55fe5f0a8780) subject=25 at _Z24_hb_ot_face_data_destroyP17hb_ot_face_data_t @ hb-ot-face.cc:74
+[FREE] free(0x55fe5f0a8670) subject=22 at _hb_face_for_data_closure_destroy @ hb-face.cc:154
+[FREE] free(0x55fe5f0a8690) subject=23 at hb_face_destroy @ hb-face.cc:270
+[FREE] free(0x55fe5f0a8630) subject=21 at hb_blob_destroy @ hb-blob.cc:234
+[CORRUPTED_PTR_LOAD] ip: main+0x175a (LLVMFuzzerTestOneInput @ harness.cc:93) loaded: 0xf949da5e8c3da800 from cell: 0x7ffff0175ad8 cell_owner: 20 value_owner: 16
+[STACK PIVOT] ip: main+0x176e (LLVMFuzzerTestOneInput @ harness.cc:93) RSP 0x7ffff0175ae8 left stack [0xd0,0x7ffff0155000]
+[FREE] free(0x55fe5f0a9640) subject=19 at main @ harness.cc:123
+[STACK PIVOT] ip: main+0x18a9 (main @ harness.cc:125) RSP 0x7ffff0175b28 left stack [0xd1,0x7ffff0155000]
+[STACK PIVOT] ip: main+0x18aa (main @ harness.cc:125) RSP 0x7ffff0175b30 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x140e (__do_global_dtors_aux) final_ea: 0x55fe5b6b2ff0 base: 0x55fe5b6b040e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1434 (__do_global_dtors_aux) RSP 0x7ffff01759e0 left stack after RET
+[STACK PIVOT] ip: main+0x18b8 (_fini) RSP 0x7ffff0175a10 left stack after RET

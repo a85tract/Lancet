@@ -1,0 +1,28 @@
+{
+  "name": "osv_2023_458",
+  "target": "harfbuzz",
+  "binary": "bin/hb-subset-fuzzer-asan",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 12153,
+    "stack_pivot": 3355,
+    "inconsistency_mov_read_uaf": 2435,
+    "inconsistency_mov_write_reg_uaf": 1479,
+    "corrupted_ptr_load": 308,
+    "inconsistency_mov_write_imm_uaf": 146,
+    "inconsistency_mov_read": 48,
+    "free": 29,
+    "alloc": 19,
+    "alloc:internal": 12,
+    "untrustedptrderef": 8,
+    "inconsistency_arithmetic__crossboundary": 6,
+    "uninitialized_mov_read": 5,
+    "inconsistency_mov_write_reg": 4,
+    "intra_object_overflow": 4,
+    "free:internal": 3
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "MISS"
+}

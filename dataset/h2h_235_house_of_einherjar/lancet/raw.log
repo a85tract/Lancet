@@ -1,0 +1,42 @@
+[INCONSISTENCY mov write reg] ip: main+0xe9e (main @ house_of_einherjar.c:8) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0xf64 (main @ house_of_einherjar.c:42) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x38) -> 0x259002a0 subject=6 at main @ house_of_einherjar.c:50
+[INCONSISTENCY mov write reg] ip: main+0xfe3 (main @ house_of_einherjar.c:50) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x28) -> 0x259002e0 subject=7 at main @ house_of_einherjar.c:70
+[ALLOC] malloc(0xf8) -> 0x25900310 subject=8 at main @ house_of_einherjar.c:80
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x11b4 (main @ house_of_einherjar.c:84) sub rax, 0x8 id before: 8 after: -1 [chunk metadata] value: 0x25900308
+[UNTRUSTEDPTRDEREF] ip: main+0x11c6 (main @ house_of_einherjar.c:87) final_ea: 0x25900308 base: 0x25900308 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x120e (main @ house_of_einherjar.c:92) add rax, rdx id before: 7 after: -1 [chunk metadata] value: 0x25900308
+[UNTRUSTEDPTRDEREF] ip: main+0x121b (main @ house_of_einherjar.c:94) final_ea: 0x25900308 base: 0x25900308 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1264 (main @ house_of_einherjar.c:102) sub rax, 0x10 id before: 8 after: 7 value: 0x25900300
+[ALLOC] malloc(0xf8) -> 0x25900410 subject=9 at main @ house_of_einherjar.c:116
+[ALLOC] malloc(0xf8) -> 0x25900510 subject=10 at main @ house_of_einherjar.c:116
+[ALLOC] malloc(0xf8) -> 0x25900610 subject=11 at main @ house_of_einherjar.c:116
+[ALLOC] malloc(0xf8) -> 0x25900710 subject=12 at main @ house_of_einherjar.c:116
+[ALLOC] malloc(0xf8) -> 0x25900810 subject=13 at main @ house_of_einherjar.c:116
+[ALLOC] malloc(0xf8) -> 0x25900910 subject=14 at main @ house_of_einherjar.c:116
+[ALLOC] malloc(0xf8) -> 0x25900a10 subject=15 at main @ house_of_einherjar.c:116
+[FREE] free(0x25900410) subject=9 at main @ house_of_einherjar.c:121
+[FREE] free(0x25900510) subject=10 at main @ house_of_einherjar.c:121
+[FREE] free(0x25900610) subject=11 at main @ house_of_einherjar.c:121
+[FREE] free(0x25900710) subject=12 at main @ house_of_einherjar.c:121
+[FREE] free(0x25900810) subject=13 at main @ house_of_einherjar.c:121
+[FREE] free(0x25900910) subject=14 at main @ house_of_einherjar.c:121
+[FREE] free(0x25900a10) subject=15 at main @ house_of_einherjar.c:121
+[FREE] free(0x25900310) subject=8 at main @ house_of_einherjar.c:125
+[OVERLAP] new alloc [0x259002b0, 0x25900408) overlaps live subject 7 [0x259002e0, 0x25900308)
+[ALLOC] malloc(0x158) -> 0x259002b0 subject=16 at main @ house_of_einherjar.c:130
+[ALLOC] malloc(0x28) -> 0x25900b10 subject=17 at main @ house_of_einherjar.c:136
+[FREE] free(0x25900b10) subject=17 at main @ house_of_einherjar.c:137
+[FREE] free(0x259002e0) subject=7 at main @ house_of_einherjar.c:140
+main+0x146c (main @ house_of_einherjar.c:141) Read a dangling pointer 0x25900b10 from 0x7ffe45ac38b0
+main+0x1473 (main @ house_of_einherjar.c:141) Read a dangling pointer 0x259002e0 from 0x7ffe45ac3888
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x14a7 (main @ house_of_einherjar.c:146) add rax, 0x30 id before: 16 after: 0 [freed] value: 0x259002e0
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x14c0 (main @ house_of_einherjar.c:146) add rax, 0x30 id before: 16 after: 0 [freed] value: 0x259002e0
+[INCONSISTENCY mov write reg UAF] ip: main+0x14c7 (main @ house_of_einherjar.c:146) UAF write at: 0x259002e0
+[ALLOC] malloc(0x28) -> 0x259002e0 subject=18 at main @ house_of_einherjar.c:150
+[ALLOC] malloc(0x28) -> 0x7ffe45ac3900 subject=19 at main @ house_of_einherjar.c:151
+[STACK PIVOT] ip: main+0x156f (main @ house_of_einherjar.c:157) RSP 0x7ffe45ac3998 left stack [0x15,0x7ffe45aa5000]
+[STACK PIVOT] ip: main+0x1570 (main @ house_of_einherjar.c:157) RSP 0x7ffe45ac39a0 left stack after RET
+[STACK PIVOT] ip: main+0xe6e (__do_global_dtors_aux) RSP 0x7ffe45ac38a0 left stack after RET
+[STACK PIVOT] ip: main+0x1580 (_fini) RSP 0x7ffe45ac38a0 left stack after RET

@@ -1,0 +1,23 @@
+{
+  "name": "osv_2022_551",
+  "target": "unknown",
+  "binary": "bin/fuzz_pcap",
+  "poc": "poc/poc_usb.pcap",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 91,
+    "alloc:internal": 32,
+    "free:internal": 30,
+    "corrupted_ptr_load": 7,
+    "stack_pivot": 6,
+    "inconsistency_mov_write_reg": 3,
+    "inconsistency_mov_read_uaf": 2,
+    "free": 2,
+    "double_free": 1,
+    "alloc": 1,
+    "untrustedptrderef": 1
+  },
+  "detected": true,
+  "key_functions": "main; main; main; fixup_pcap_pkthdr; fixup_pcap_pkthdr; fixu",
+  "verification_match": "\u2713"
+}

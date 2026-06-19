@@ -1,0 +1,26 @@
+{
+  "name": "osv_2020_2108",
+  "target": "unknown",
+  "binary": "bin/fuzz_parser",
+  "poc": "poc/poc_input.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1798,
+    "inconsistency_mov_read_uaf": 513,
+    "stack_pivot": 321,
+    "inconsistency_mov_write_reg_uaf": 297,
+    "corrupted_ptr_load": 176,
+    "inconsistency_mov_write_imm_uaf": 32,
+    "alloc:internal": 15,
+    "untrustedptrderef": 10,
+    "uninitialized_mov_read": 5,
+    "free:internal": 3,
+    "inconsistency_mov_write_reg": 2,
+    "alloc": 1,
+    "double_free": 1,
+    "intra_object_overflow": 1
+  },
+  "detected": true,
+  "key_functions": "_ZN8simdjson7haswell12_GLOBAL__N_113numberparsing18slow_floa",
+  "verification_match": "\u2713"
+}

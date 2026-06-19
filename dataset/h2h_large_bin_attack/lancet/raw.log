@@ -1,0 +1,18 @@
+[INCONSISTENCY mov write reg] ip: main+0x122b (main @ large_bin_attack.c:22) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x428) -> 0x15ffe010 subject=6 at main @ large_bin_attack.c:43
+[INCONSISTENCY mov write reg] ip: main+0x1361 (main @ large_bin_attack.c:43) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x18) -> 0x15ffe440 subject=7 at main @ large_bin_attack.c:45
+[ALLOC] malloc(0x418) -> 0x15ffe460 subject=8 at main @ large_bin_attack.c:50
+[ALLOC] malloc(0x18) -> 0x15ffe880 subject=9 at main @ large_bin_attack.c:53
+[FREE] free(0x15ffe010) subject=6 at main @ large_bin_attack.c:58
+main+0x141a (main @ large_bin_attack.c:59) Read a dangling pointer 0x15ffe010 from 0x7ffe2a9f1e28
+[ALLOC] malloc(0x438) -> 0x15ffe8a0 subject=10 at main @ large_bin_attack.c:60
+[FREE] free(0x15ffe460) subject=8 at main @ large_bin_attack.c:65
+main+0x146c (main @ large_bin_attack.c:66) Read a dangling pointer 0x15ffe460 from 0x7ffe2a9f1e38
+main+0x148b (main @ large_bin_attack.c:67) Using expired pointer: 0x15ffe010 from 0x7ffe2a9f1e28
+first time found dangling pointer at: 192 distance: 37
+main+0x14aa (main @ large_bin_attack.c:68) Using expired pointer: 0x15ffe460 from 0x7ffe2a9f1e38
+first time found dangling pointer at: 220 distance: 18
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x14d7 (main @ large_bin_attack.c:72) sub rax, 0x20 id before: 5 after: 1 value: 0x7ffe2a9f1e00
+[INCONSISTENCY mov write reg UAF] ip: main+0x14e3 (main @ large_bin_attack.c:72) UAF write at: 0x15ffe028
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x14ea (main @ large_bin_attack.c:73) sub rax, 0x20 id before: 5 after: 1 value: 0x7ffe2a9f1e00

@@ -1,0 +1,20 @@
+{
+  "name": "h2h_house_of_tangerine",
+  "target": "how2heap",
+  "technique": "Abuse top chunk size manipulation for arbitrary allocation",
+  "binary": "bin/house_of_tangerine",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 26,
+    "alloc": 8,
+    "inconsistency_arithmetic__crossboundary": 7,
+    "untrustedptrderef": 4,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 3
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": true,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

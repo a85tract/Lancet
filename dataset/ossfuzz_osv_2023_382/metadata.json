@@ -1,0 +1,28 @@
+{
+  "name": "osv_2023_382",
+  "target": "wabt",
+  "binary": "bin/wasm2wat_fuzz",
+  "poc": "poc/poc.wasm",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 25293,
+    "stack_pivot": 5962,
+    "inconsistency_mov_read_uaf": 5331,
+    "inconsistency_mov_write_reg_uaf": 3347,
+    "corrupted_ptr_load": 939,
+    "inconsistency_mov_write_imm_uaf": 210,
+    "untrustedptrderef": 57,
+    "alloc:internal": 37,
+    "free": 35,
+    "inconsistency_mov_read": 30,
+    "inconsistency_arithmetic__crossboundary": 8,
+    "free:internal": 3,
+    "uninitialized_mov_read": 3,
+    "inconsistency_mov_write_reg": 2,
+    "intra_object_overflow": 2,
+    "alloc": 1
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

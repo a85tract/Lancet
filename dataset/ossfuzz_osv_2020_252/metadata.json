@@ -1,0 +1,21 @@
+{
+  "name": "osv_2020_252",
+  "target": "json-c",
+  "binary": "bin/harness",
+  "poc": "poc/poc.json",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 633,
+    "untrustedptrderef": 345,
+    "uninitialized_mov_read": 108,
+    "corrupted_ptr_load": 79,
+    "inconsistency_mov_read": 77,
+    "inconsistency_mov_write_reg": 21,
+    "inconsistency_arithmetic__crossboundary": 1,
+    "intra_object_overflow": 1,
+    "stack_pivot": 1
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "\u2713"
+}

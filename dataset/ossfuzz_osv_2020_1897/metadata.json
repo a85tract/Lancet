@@ -1,0 +1,23 @@
+{
+  "name": "osv_2020_1897",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.tga",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 911,
+    "inconsistency_mov_read_uaf": 184,
+    "untrustedptrderef": 177,
+    "corrupted_ptr_load": 108,
+    "stack_pivot": 105,
+    "inconsistency_mov_write_reg_uaf": 99,
+    "uninitialized_mov_read": 83,
+    "inconsistency_mov_read": 72,
+    "inconsistency_mov_write_reg": 21,
+    "inconsistency_mov_write_imm_uaf": 20,
+    "intra_object_overflow": 3
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "\u2713"
+}

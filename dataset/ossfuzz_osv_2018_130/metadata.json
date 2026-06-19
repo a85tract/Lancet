@@ -1,0 +1,28 @@
+{
+  "name": "osv_2018_130",
+  "target": "libarchive",
+  "binary": "bin/libarchive_fuzzer",
+  "poc": "poc/poc.rar",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 2009,
+    "stack_pivot": 473,
+    "inconsistency_mov_read_uaf": 409,
+    "inconsistency_mov_write_reg_uaf": 190,
+    "inconsistency_mov_read": 188,
+    "corrupted_ptr_load": 109,
+    "inconsistency_mov_write_imm_uaf": 85,
+    "free": 39,
+    "untrustedptrderef": 28,
+    "alloc": 27,
+    "alloc:internal": 22,
+    "intra_object_overflow": 21,
+    "free:internal": 10,
+    "uninitialized_mov_read": 9,
+    "inconsistency_arithmetic__crossboundary": 6,
+    "inconsistency_mov_write_reg": 5
+  },
+  "detected": true,
+  "key_functions": "archive_read_support_filter_uu; archive_read_support_filter_",
+  "verification_match": "\u2713"
+}

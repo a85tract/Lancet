@@ -1,0 +1,20 @@
+{
+  "name": "h2h_sysmalloc_int_free",
+  "target": "how2heap",
+  "technique": "Abuse sysmalloc internal free for code execution",
+  "binary": "bin/sysmalloc_int_free",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 12,
+    "alloc": 4,
+    "stack_pivot": 4,
+    "untrustedptrderef": 2,
+    "inconsistency_mov_write_reg": 1,
+    "inconsistency_arithmetic__crossboundary": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": true,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

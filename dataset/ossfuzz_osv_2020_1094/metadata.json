@@ -1,0 +1,28 @@
+{
+  "name": "osv_2020_1094",
+  "target": "re2",
+  "binary": "bin/ia_fuzz",
+  "poc": "poc/poc.dex",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 92455,
+    "stack_pivot": 30798,
+    "free": 13513,
+    "inconsistency_mov_read_uaf": 11792,
+    "alloc:internal": 7961,
+    "alloc": 5573,
+    "inconsistency_mov_write_reg_uaf": 4787,
+    "heap_metadata_taint": 1199,
+    "corrupted_ptr_load": 1161,
+    "inconsistency_mov_write_imm_uaf": 714,
+    "untrustedptrderef": 370,
+    "inconsistency_mov_read": 189,
+    "uninitialized_mov_read": 188,
+    "inconsistency_arithmetic__crossboundary": 54,
+    "inconsistency_mov_write_reg": 37,
+    "intra_object_overflow": 18
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

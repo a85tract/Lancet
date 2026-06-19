@@ -1,0 +1,25 @@
+{
+  "name": "osv_2023_66",
+  "target": "systemd",
+  "binary": "bin/fuzz_harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 210,
+    "corrupted_ptr_load": 99,
+    "uninitialized_mov_read": 26,
+    "inconsistency_mov_read": 18,
+    "inconsistency_mov_write_reg": 12,
+    "alloc:internal": 9,
+    "free": 7,
+    "free:internal": 5,
+    "stack_pivot": 5,
+    "untrustedptrderef": 4,
+    "intra_object_overflow": 4,
+    "alloc": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "config__read_file_core; config__read_file_core; config__read",
+  "verification_match": "\u2713"
+}

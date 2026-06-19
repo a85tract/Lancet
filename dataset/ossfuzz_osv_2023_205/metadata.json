@@ -1,0 +1,16 @@
+{
+  "name": "osv_2023_205",
+  "target": "p11-kit",
+  "binary": "bin/rpc_fuzzer",
+  "poc": "poc/poc_input.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 7,
+    "untrustedptrderef": 3,
+    "stack_pivot": 3,
+    "alloc:internal": 1
+  },
+  "detected": true,
+  "key_functions": "main; main",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "h2h_235_sysmalloc_int_free",
+  "target": "how2heap",
+  "technique": "sysmalloc int free",
+  "glibc_version": "2.35",
+  "binary": "bin/sysmalloc_int_free",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 12,
+    "alloc": 4,
+    "stack_pivot": 4,
+    "untrustedptrderef": 2,
+    "inconsistency_mov_write_reg": 1,
+    "inconsistency_arithmetic__crossboundary": 1
+  },
+  "detected": true
+}

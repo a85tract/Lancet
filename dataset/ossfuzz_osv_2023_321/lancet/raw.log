@@ -1,0 +1,1358 @@
+[INCONSISTENCY mov write reg] ip: main+0x24f7 (main @ harness.c:32) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x24fa (main @ harness.c:32) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x253b (main @ harness.c:38) final_ea: 0x7ffecee150a0 base: 0x7ffecee150a0 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x5c38d68a7010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x2550 (main @ harness.c:38) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x5c38d68a71f0 subject=6 at _IO_file_doallocate
+[ALLOC] malloc(0x1fe) -> 0x5c38d68a8200 subject=7 at main @ harness.c:54
+[FREE:internal] free(0x5c38d68a71f0) subject=6 at _IO_setb
+[FREE:internal] free(0x5c38d68a7010) subject=5 at _IO_fclose
+[FREE:internal] free(0x5c38d68a7010) subject=0
+[DOUBLE FREE] free(0x5c38d68a7010) — already freed
+[INCONSISTENCY mov read] ip: main+0x248d (LLVMFuzzerTestOneInput @ harness.c:12) base: 0x7ffecee14f20 pointee: 4 read from 8
+[CORRUPTED_PTR_LOAD] ip: main+0x248d (LLVMFuzzerTestOneInput @ harness.c:12) loaded: 0x1fe from cell: 0x7ffecee14f00 cell_owner: 8 value_owner: 4
+[ALLOC] malloc(0xa8) -> 0x5c38d68a74f0 subject=10 at ucl_parser_new @ ucl_parser.c:2758
+Store dangling pointer: 0x5c38d68a74f0 at: 0x7ffecee14ed8
+[INCONSISTENCY mov read] ip: main+0xd549 (ucl_parser_new @ ucl_parser.c:2759) base: 0x7ffecee14ef0 pointee: 8 read from 9
+main+0xd549 (ucl_parser_new @ ucl_parser.c:2759) Using expired pointer: 0x5c38d68a74f0 from 0x7ffecee14ed8
+first time found dangling pointer at: 82 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0xd549 (ucl_parser_new @ ucl_parser.c:2759) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd561 (ucl_parser_new @ ucl_parser.c:2763) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd571 (ucl_parser_new @ ucl_parser.c:2765) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd575 (ucl_parser_new @ ucl_parser.c:2765) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[INCONSISTENCY mov read] ip: main+0xd738 (ucl_parser_register_macro @ ucl_parser.c:2818) base: 0x7ffecee14ec0 pointee: 9 read from 11
+[CORRUPTED_PTR_LOAD] ip: main+0xd738 (ucl_parser_register_macro @ ucl_parser.c:2818) loaded: 0x5c38cc8a5349 from cell: 0x7ffecee14ea8 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xd743 (ucl_parser_register_macro @ ucl_parser.c:2818) base: 0x7ffecee14ec0 pointee: 9 read from 11
+[CORRUPTED_PTR_LOAD] ip: main+0xd743 (ucl_parser_register_macro @ ucl_parser.c:2818) loaded: 0x5c38cc887130 from cell: 0x7ffecee14ea0 cell_owner: 11 value_owner: 9
+[ALLOC] malloc(0x58) -> 0x5c38d68a75a0 subject=12 at ucl_parser_register_macro @ ucl_parser.c:2822
+Store dangling pointer: 0x5c38d68a75a0 at: 0x7ffecee14e90
+[INCONSISTENCY mov read] ip: main+0xd765 (ucl_parser_register_macro @ ucl_parser.c:2823) base: 0x7ffecee14ec0 pointee: 9 read from 11
+main+0xd765 (ucl_parser_register_macro @ ucl_parser.c:2823) Using expired pointer: 0x5c38d68a75a0 from 0x7ffecee14e90
+first time found dangling pointer at: 109 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0xd765 (ucl_parser_register_macro @ ucl_parser.c:2823) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xd779 (ucl_parser_register_macro @ ucl_parser.c:2827) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xd789 (ucl_parser_register_macro @ ucl_parser.c:2828) loaded: 0x5c38cc887130 from cell: 0x7ffecee14ea0 cell_owner: 11 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xd78d (ucl_parser_register_macro @ ucl_parser.c:2828) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0xd791 (ucl_parser_register_macro @ ucl_parser.c:2828) UAF write at: 0x5c38d68a75a8
+[CORRUPTED_PTR_LOAD] ip: main+0xd795 (ucl_parser_register_macro @ ucl_parser.c:2829) loaded: 0x5c38cc8a5349 from cell: 0x7ffecee14ea8 cell_owner: 11 value_owner: 9
+[ALLOC:internal] malloc(0x8) -> 0x5c38d68a7600 subject=13 at strdup
+[CORRUPTED_PTR_LOAD] ip: main+0xd7a1 (ucl_parser_register_macro @ ucl_parser.c:2829) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+Store dangling pointer: 0x5c38d68a7600 at: 0x5c38d68a75a0
+[INCONSISTENCY mov write reg UAF] ip: main+0xd7a5 (ucl_parser_register_macro @ ucl_parser.c:2829) UAF write at: 0x5c38d68a75a0
+first time found dangling pointer at: 125 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xd7a8 (ucl_parser_register_macro @ ucl_parser.c:2830) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd7ac (ucl_parser_register_macro @ ucl_parser.c:2830) UAF read at: 0x5c38d68a75a0
+first time found dangling pointer at: 125 distance: 2
+main+0xd7ac (ucl_parser_register_macro @ ucl_parser.c:2830) Using expired pointer: 0x5c38d68a7600 from 0x5c38d68a75a0
+first time found dangling pointer at: 125 distance: 2
+[CORRUPTED_PTR_LOAD] ip: main+0xd7c8 (ucl_parser_register_macro @ ucl_parser.c:2834) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e98 cell_owner: 11 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xd7cc (ucl_parser_register_macro @ ucl_parser.c:2834) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0xd7d0 (ucl_parser_register_macro @ ucl_parser.c:2834) UAF write at: 0x5c38d68a75b0
+first time found dangling pointer at: 131 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xd7d4 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write imm UAF] ip: main+0xd7d8 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75d0
+[CORRUPTED_PTR_LOAD] ip: main+0xd7e0 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd7e4 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75a0
+first time found dangling pointer at: 125 distance: 10
+[CORRUPTED_PTR_LOAD] ip: main+0xd7e7 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0xd7eb (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75e8
+first time found dangling pointer at: 137 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xd7ef (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd7f3 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75a0
+first time found dangling pointer at: 125 distance: 14
+[CORRUPTED_PTR_LOAD] ip: main+0xd7fd (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0xd801 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75f0
+[CORRUPTED_PTR_LOAD] ip: main+0xd804 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd808 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+[CORRUPTED_PTR_LOAD] ip: main+0xd813 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xd817 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0xd81b (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xd81f (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd823 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2
+[INCONSISTENCY mov write imm UAF] ip: main+0xd827 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75c8
+[ALLOC] malloc(0x40) -> 0x5c38d68a7620 subject=14 at ucl_parser_register_macro @ ucl_parser.c:2835
+[CORRUPTED_PTR_LOAD] ip: main+0xd83c (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd840 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 9
+Store dangling pointer: 0x5c38d68a7620 at: 0x5c38d68a75c0
+[INCONSISTENCY mov write reg UAF] ip: main+0xd844 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xd848 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd84c (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 12
+[INCONSISTENCY mov read UAF] ip: main+0xd850 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 3
+main+0xd850 (ucl_parser_register_macro @ ucl_parser.c:2835) Using expired pointer: 0x5c38d68a7620 from 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 3
+[CORRUPTED_PTR_LOAD] ip: main+0xd865 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd869 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 16
+[INCONSISTENCY mov read UAF] ip: main+0xd86d (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 7
+[CORRUPTED_PTR_LOAD] ip: main+0xd87d (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd881 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 23
+[CORRUPTED_PTR_LOAD] ip: main+0xd889 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd88d (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 26
+[INCONSISTENCY mov read UAF] ip: main+0xd891 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 17
+Store dangling pointer: 0x5c38d68a75c0 at: 0x5c38d68a7638
+[INCONSISTENCY mov write reg UAF] ip: main+0xd895 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xd899 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd89d (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 30
+[INCONSISTENCY mov read UAF] ip: main+0xd8a1 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 21
+[INCONSISTENCY mov write imm UAF] ip: main+0xd8a5 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7628
+[CORRUPTED_PTR_LOAD] ip: main+0xd8ac (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd8b0 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 34
+[INCONSISTENCY mov read UAF] ip: main+0xd8b4 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 25
+[INCONSISTENCY mov write imm UAF] ip: main+0xd8b8 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a762c
+[CORRUPTED_PTR_LOAD] ip: main+0xd8bf (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd8c3 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 38
+[CORRUPTED_PTR_LOAD] ip: main+0xd8cb (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd8cf (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 41
+[CORRUPTED_PTR_LOAD] ip: main+0xd8d6 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd8da (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 44
+[INCONSISTENCY mov read UAF] ip: main+0xd8de (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 35
+[INCONSISTENCY mov write reg UAF] ip: main+0xd8e2 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7640
+[ALLOC] malloc(0x200) -> 0x5c38d68a7670 subject=15 at ucl_parser_register_macro @ ucl_parser.c:2835
+[CORRUPTED_PTR_LOAD] ip: main+0xd8f3 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd8f7 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 52
+[INCONSISTENCY mov read UAF] ip: main+0xd8fb (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 43
+Store dangling pointer: 0x5c38d68a7670 at: 0x5c38d68a7620
+[INCONSISTENCY mov write reg UAF] ip: main+0xd8ff (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xd902 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd906 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 56
+[INCONSISTENCY mov read UAF] ip: main+0xd90a (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 47
+[INCONSISTENCY mov read UAF] ip: main+0xd90e (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 4
+main+0xd90e (ucl_parser_register_macro @ ucl_parser.c:2835) Using expired pointer: 0x5c38d68a7670 from 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 4
+[CORRUPTED_PTR_LOAD] ip: main+0xd922 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd926 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 61
+[INCONSISTENCY mov read UAF] ip: main+0xd92a (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 52
+[INCONSISTENCY mov read UAF] ip: main+0xd92e (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xd93d (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd941 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 69
+[INCONSISTENCY mov read UAF] ip: main+0xd945 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 60
+[INCONSISTENCY mov write imm UAF] ip: main+0xd949 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7658
+[CORRUPTED_PTR_LOAD] ip: main+0xd9b2 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd9b6 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 74
+[INCONSISTENCY mov read UAF] ip: main+0xd9ba (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 65
+[INCONSISTENCY mov read UAF] ip: main+0xd9be (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7630
+[INCONSISTENCY mov write reg UAF] ip: main+0xd9c4 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7630
+[CORRUPTED_PTR_LOAD] ip: main+0xd9c7 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd9cb (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 80
+[INCONSISTENCY mov read UAF] ip: main+0xd9cf (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 71
+[CORRUPTED_PTR_LOAD] ip: main+0xd9d3 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0xd9d7 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 73
+[CORRUPTED_PTR_LOAD] ip: main+0xd9db (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd9df (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75a0
+first time found dangling pointer at: 125 distance: 110
+[CORRUPTED_PTR_LOAD] ip: main+0xd9e6 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xd9ea (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75a0
+first time found dangling pointer at: 125 distance: 113
+[CORRUPTED_PTR_LOAD] ip: main+0xe594 (mum_hash @ mum.h:414) loaded: 0x5c38d68a7600 from cell: 0x7ffecee14e38 cell_owner: 16 value_owner: 11
+[CORRUPTED_PTR_LOAD] ip: main+0xe598 (mum_hash @ mum.h:414) loaded: 0x7 from cell: 0x7ffecee14e30 cell_owner: 16 value_owner: 11
+[CORRUPTED_PTR_LOAD] ip: main+0xe59c (mum_hash @ mum.h:414) loaded: 0x9e3779b1 from cell: 0x7ffecee14e28 cell_owner: 16 value_owner: 11
+[CORRUPTED_PTR_LOAD] ip: main+0x10927 (_mum_hash_default @ mum.h:324) loaded: 0x5c38d68a7600 from cell: 0x7ffecee14e08 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x1092f (_mum_hash_default @ mum.h:328) loaded: 0x9e3779b1 from cell: 0x7ffecee14df8 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x1093f (_mum_hash_default @ mum.h:330) loaded: 0x5c38d68a7600 from cell: 0x7ffecee14e08 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x10943 (_mum_hash_default @ mum.h:330) loaded: 0x7 from cell: 0x7ffecee14e00 cell_owner: 17 value_owner: 16
+[CORRUPTED_PTR_LOAD] ip: main+0x10987 (_mum_hash_aligned @ mum.h:218) loaded: 0x9e3779b8 from cell: 0x7ffecee149c0 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x1098f (_mum_hash_aligned @ mum.h:219) loaded: 0x5c38d68a7600 from cell: 0x7ffecee149b8 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x109ab (_mum_hash_aligned @ mum.h:225) loaded: 0x7 from cell: 0x7ffecee149b0 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x10a36 (_mum_hash_aligned @ mum.h:237) loaded: 0x7 from cell: 0x7ffecee149b0 cell_owner: 18 value_owner: 17
+[CORRUPTED_PTR_LOAD] ip: main+0x10a9e (_mum_hash_aligned @ mum.h:240) loaded: 0x7 from cell: 0x7ffecee149b0 cell_owner: 18 value_owner: 17
+[UNTRUSTEDPTRDEREF] ip: main+0x10ada (_mum_hash_aligned) final_ea: 0x5c38cc8a4e5c base: 0x5c38cc8a4e44 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x10ae7 (_mum_hash_aligned @ mum.h:243) UAF read at: 0x5c38d68a7600
+[INCONSISTENCY mov read UAF] ip: main+0x10af8 (_mum_hash_aligned @ mum.h:244) UAF read at: 0x5c38d68a7604
+[INCONSISTENCY mov read UAF] ip: main+0x10b0c (_mum_hash_aligned @ mum.h:245) UAF read at: 0x5c38d68a7605
+[INCONSISTENCY mov read UAF] ip: main+0x10b20 (_mum_hash_aligned @ mum.h:246) UAF read at: 0x5c38d68a7606
+[CORRUPTED_PTR_LOAD] ip: main+0x10dac (_mum @ mum.h:119) loaded: 0xf9b3483d3ed26d1c from cell: 0x7ffecee149a8 cell_owner: 18 value_owner: 19
+[CORRUPTED_PTR_LOAD] ip: main+0x10db0 (_mum @ mum.h:119) loaded: 0xa9a7ae7ceff79f3f from cell: 0x7ffecee149a0 cell_owner: 18 value_owner: 19
+[CORRUPTED_PTR_LOAD] ip: main+0xda05 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0xda09 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75f4
+[CORRUPTED_PTR_LOAD] ip: main+0xda0c (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xda10 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75f4
+[CORRUPTED_PTR_LOAD] ip: main+0xda13 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xda17 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 304
+[INCONSISTENCY mov read UAF] ip: main+0xda1b (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 295
+[INCONSISTENCY mov read UAF] ip: main+0xda1f (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7628
+[CORRUPTED_PTR_LOAD] ip: main+0xda2f (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xda33 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 312
+[INCONSISTENCY mov read UAF] ip: main+0xda37 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 303
+[INCONSISTENCY mov read UAF] ip: main+0xda3b (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 260
+[INCONSISTENCY mov read UAF] ip: main+0xda48 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7838
+[INCONSISTENCY mov write reg UAF] ip: main+0xda4e (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7838
+[CORRUPTED_PTR_LOAD] ip: main+0xda51 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xda55 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 322
+[INCONSISTENCY mov read UAF] ip: main+0xda59 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 313
+[INCONSISTENCY mov read UAF] ip: main+0xda5d (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 270
+[INCONSISTENCY mov read UAF] ip: main+0xda6a (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7830
+[CORRUPTED_PTR_LOAD] ip: main+0xda6d (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write reg UAF] ip: main+0xda71 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75e0
+[CORRUPTED_PTR_LOAD] ip: main+0xda75 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov write imm UAF] ip: main+0xda79 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75d8
+[CORRUPTED_PTR_LOAD] ip: main+0xda81 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xda85 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 334
+[INCONSISTENCY mov read UAF] ip: main+0xda89 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 325
+[INCONSISTENCY mov read UAF] ip: main+0xda8d (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 282
+[INCONSISTENCY mov read UAF] ip: main+0xda9a (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7830
+[CORRUPTED_PTR_LOAD] ip: main+0xdacc (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a75a0 from cell: 0x7ffecee14e90 cell_owner: 11 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xdad4 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xdad8 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 345
+[INCONSISTENCY mov read UAF] ip: main+0xdadc (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 336
+[INCONSISTENCY mov read UAF] ip: main+0xdae0 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 293
+[INCONSISTENCY mov write reg UAF] ip: main+0xdaed (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7830
+first time found dangling pointer at: 501 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xdaf0 (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xdaf4 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 353
+[INCONSISTENCY mov read UAF] ip: main+0xdaf8 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 344
+[INCONSISTENCY mov read UAF] ip: main+0xdafc (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 301
+[INCONSISTENCY mov read UAF] ip: main+0xdb09 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7838
+[CORRUPTED_PTR_LOAD] ip: main+0xdb0c (ucl_parser_register_macro @ ucl_parser.c:2835) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 11 value_owner: 9
+[INCONSISTENCY mov read UAF] ip: main+0xdb10 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 361
+[INCONSISTENCY mov read UAF] ip: main+0xdb14 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 352
+[INCONSISTENCY mov read UAF] ip: main+0xdb18 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 309
+[INCONSISTENCY mov read UAF] ip: main+0xdb25 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a783c
+[CORRUPTED_PTR_LOAD] ip: main+0xd5a3 (ucl_parser_new @ ucl_parser.c:2766) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd5a7 (ucl_parser_new @ ucl_parser.c:2766) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[ALLOC] malloc(0x58) -> 0x5c38d68a7880 subject=21 at ucl_parser_register_macro @ ucl_parser.c:2822
+Store dangling pointer: 0x5c38d68a7880 at: 0x7ffecee14e90
+main+0xd765 (ucl_parser_register_macro @ ucl_parser.c:2823) Using expired pointer: 0x5c38d68a7880 from 0x7ffecee14e90
+first time found dangling pointer at: 109 distance: 446
+[ALLOC:internal] malloc(0xc) -> 0x5c38d68a78e0 subject=22 at strdup
+Store dangling pointer: 0x5c38d68a78e0 at: 0x5c38d68a7880
+main+0xd7ac (ucl_parser_register_macro @ ucl_parser.c:2830) Using expired pointer: 0x5c38d68a78e0 from 0x5c38d68a7880
+first time found dangling pointer at: 570 distance: 2
+[INCONSISTENCY mov read UAF] ip: main+0xd95d (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 445
+[INCONSISTENCY mov read UAF] ip: main+0xd961 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 436
+[INCONSISTENCY mov read UAF] ip: main+0xd965 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 419
+main+0xd965 (ucl_parser_register_macro @ ucl_parser.c:2835) Using expired pointer: 0x5c38d68a75c0 from 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 419
+[INCONSISTENCY mov write reg UAF] ip: main+0xd969 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a75d0
+first time found dangling pointer at: 598 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xd971 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 450
+[INCONSISTENCY mov read UAF] ip: main+0xd975 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 441
+[INCONSISTENCY mov read UAF] ip: main+0xd979 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 424
+[INCONSISTENCY mov read UAF] ip: main+0xd981 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 454
+[INCONSISTENCY mov read UAF] ip: main+0xd985 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 445
+[INCONSISTENCY mov write reg UAF] ip: main+0xd996 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a78a8
+first time found dangling pointer at: 610 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xd9a6 (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 464
+[INCONSISTENCY mov read UAF] ip: main+0xd9aa (ucl_parser_register_macro @ ucl_parser.c:2835) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 455
+Store dangling pointer: 0x5c38d68a78a0 at: 0x5c38d68a7638
+[INCONSISTENCY mov write reg UAF] ip: main+0xd9ae (ucl_parser_register_macro @ ucl_parser.c:2835) UAF write at: 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 438
+[INCONSISTENCY mov read UAF] ip: main+0x10a60 (_mum_hash_aligned @ mum.h:239) UAF read at: 0x5c38d68a78e0
+[UNINITIALIZED mov read] ip: main+0x10a77 (_mum_hash_aligned @ mum.h:239) co: 2 vo: -1
+Store dangling pointer: 0x5c38d68a78e8 at: 0x7ffecee149a0
+main+0x10c4b (_mum_hash_aligned @ mum.h:261) Using expired pointer: 0x5c38d68a78e8 from 0x7ffecee149a0
+first time found dangling pointer at: 279 distance: 487
+[INCONSISTENCY mov read UAF] ip: main+0x10c4f (_mum_hash_aligned @ mum.h:261) UAF read at: 0x5c38d68a78e8
+[INCONSISTENCY mov read UAF] ip: main+0x10c5a (_mum_hash_aligned @ mum.h:262) UAF read at: 0x5c38d68a78e9
+[INCONSISTENCY mov read UAF] ip: main+0x10c6e (_mum_hash_aligned @ mum.h:263) UAF read at: 0x5c38d68a78ea
+[CORRUPTED_PTR_LOAD] ip: main+0xd5d5 (ucl_parser_new @ ucl_parser.c:2767) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd5d9 (ucl_parser_new @ ucl_parser.c:2767) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[ALLOC] malloc(0x58) -> 0x5c38d68a7900 subject=28 at ucl_parser_register_macro @ ucl_parser.c:2822
+Store dangling pointer: 0x5c38d68a7900 at: 0x7ffecee14e90
+main+0xd765 (ucl_parser_register_macro @ ucl_parser.c:2823) Using expired pointer: 0x5c38d68a7900 from 0x7ffecee14e90
+first time found dangling pointer at: 109 distance: 869
+[ALLOC:internal] malloc(0x9) -> 0x5c38d68a7960 subject=29 at strdup
+Store dangling pointer: 0x5c38d68a7960 at: 0x5c38d68a7900
+main+0xd7ac (ucl_parser_register_macro @ ucl_parser.c:2830) Using expired pointer: 0x5c38d68a7960 from 0x5c38d68a7900
+first time found dangling pointer at: 993 distance: 2
+main+0xd965 (ucl_parser_register_macro @ ucl_parser.c:2835) Using expired pointer: 0x5c38d68a78a0 from 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 842
+Store dangling pointer: 0x5c38d68a7920 at: 0x5c38d68a7638
+Store dangling pointer: 0x5c38d68a7968 at: 0x7ffecee149a0
+[CORRUPTED_PTR_LOAD] ip: main+0xd607 (ucl_parser_new @ ucl_parser.c:2768) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd60b (ucl_parser_new @ ucl_parser.c:2768) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[ALLOC] malloc(0x58) -> 0x5c38d68a7980 subject=35 at ucl_parser_register_macro @ ucl_parser.c:2822
+Store dangling pointer: 0x5c38d68a7980 at: 0x7ffecee14e90
+main+0xd765 (ucl_parser_register_macro @ ucl_parser.c:2823) Using expired pointer: 0x5c38d68a7980 from 0x7ffecee14e90
+first time found dangling pointer at: 109 distance: 1249
+[ALLOC:internal] malloc(0x9) -> 0x5c38d68a79e0 subject=36 at strdup
+Store dangling pointer: 0x5c38d68a79e0 at: 0x5c38d68a7980
+main+0xd7ac (ucl_parser_register_macro @ ucl_parser.c:2830) Using expired pointer: 0x5c38d68a79e0 from 0x5c38d68a7980
+first time found dangling pointer at: 1373 distance: 2
+main+0xd965 (ucl_parser_register_macro @ ucl_parser.c:2835) Using expired pointer: 0x5c38d68a7920 from 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 1222
+Store dangling pointer: 0x5c38d68a79a0 at: 0x5c38d68a7638
+Store dangling pointer: 0x5c38d68a79e8 at: 0x7ffecee149a0
+[CORRUPTED_PTR_LOAD] ip: main+0xd639 (ucl_parser_new @ ucl_parser.c:2769) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd63d (ucl_parser_new @ ucl_parser.c:2769) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[ALLOC] malloc(0x58) -> 0x5c38d68a7a00 subject=42 at ucl_parser_register_macro @ ucl_parser.c:2822
+Store dangling pointer: 0x5c38d68a7a00 at: 0x7ffecee14e90
+main+0xd765 (ucl_parser_register_macro @ ucl_parser.c:2823) Using expired pointer: 0x5c38d68a7a00 from 0x7ffecee14e90
+first time found dangling pointer at: 109 distance: 1629
+[ALLOC:internal] malloc(0x5) -> 0x5c38d68a7a60 subject=43 at strdup
+Store dangling pointer: 0x5c38d68a7a60 at: 0x5c38d68a7a00
+main+0xd7ac (ucl_parser_register_macro @ ucl_parser.c:2830) Using expired pointer: 0x5c38d68a7a60 from 0x5c38d68a7a00
+first time found dangling pointer at: 1753 distance: 2
+main+0xd965 (ucl_parser_register_macro @ ucl_parser.c:2835) Using expired pointer: 0x5c38d68a79a0 from 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 1602
+Store dangling pointer: 0x5c38d68a7a20 at: 0x5c38d68a7638
+[INCONSISTENCY mov read UAF] ip: main+0x10c13 (_mum_hash_aligned @ mum.h:258) UAF read at: 0x5c38d68a7a60
+[CORRUPTED_PTR_LOAD] ip: main+0xd66b (ucl_parser_new @ ucl_parser.c:2770) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd66f (ucl_parser_new @ ucl_parser.c:2770) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[ALLOC] malloc(0x58) -> 0x5c38d68a7a80 subject=49 at ucl_parser_register_context_macro @ ucl_parser.c:2849
+Store dangling pointer: 0x5c38d68a7a80 at: 0x7ffecee14e90
+main+0xde55 (ucl_parser_register_context_macro @ ucl_parser.c:2850) Using expired pointer: 0x5c38d68a7a80 from 0x7ffecee14e90
+first time found dangling pointer at: 109 distance: 2008
+[INCONSISTENCY mov write reg UAF] ip: main+0xde81 (ucl_parser_register_context_macro @ ucl_parser.c:2855) UAF write at: 0x5c38d68a7a88
+[ALLOC:internal] malloc(0x8) -> 0x5c38d68a7ae0 subject=50 at strdup
+Store dangling pointer: 0x5c38d68a7ae0 at: 0x5c38d68a7a80
+[INCONSISTENCY mov write reg UAF] ip: main+0xde95 (ucl_parser_register_context_macro @ ucl_parser.c:2856) UAF write at: 0x5c38d68a7a80
+first time found dangling pointer at: 2132 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xde9c (ucl_parser_register_context_macro @ ucl_parser.c:2857) UAF read at: 0x5c38d68a7a80
+first time found dangling pointer at: 2132 distance: 2
+main+0xde9c (ucl_parser_register_context_macro @ ucl_parser.c:2857) Using expired pointer: 0x5c38d68a7ae0 from 0x5c38d68a7a80
+first time found dangling pointer at: 2132 distance: 2
+[INCONSISTENCY mov write reg UAF] ip: main+0xdec0 (ucl_parser_register_context_macro @ ucl_parser.c:2861) UAF write at: 0x5c38d68a7a90
+first time found dangling pointer at: 2138 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0xdec8 (ucl_parser_register_context_macro @ ucl_parser.c:2862) UAF write at: 0x5c38d68a7a98
+[INCONSISTENCY mov write imm UAF] ip: main+0xded0 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7ab0
+[INCONSISTENCY mov read UAF] ip: main+0xdedc (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7a80
+first time found dangling pointer at: 2132 distance: 12
+[INCONSISTENCY mov write reg UAF] ip: main+0xdee3 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7ac8
+first time found dangling pointer at: 2146 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xdeeb (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7a80
+first time found dangling pointer at: 2132 distance: 16
+[INCONSISTENCY mov write reg UAF] ip: main+0xdef9 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7ad0
+[INCONSISTENCY mov read UAF] ip: main+0xdf00 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2005
+[INCONSISTENCY mov read UAF] ip: main+0xe055 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2009
+[INCONSISTENCY mov read UAF] ip: main+0xe059 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2000
+[INCONSISTENCY mov read UAF] ip: main+0xe05d (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 1983
+main+0xe05d (ucl_parser_register_context_macro @ ucl_parser.c:2863) Using expired pointer: 0x5c38d68a7a20 from 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 1983
+[INCONSISTENCY mov write reg UAF] ip: main+0xe061 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7a30
+first time found dangling pointer at: 2162 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xe069 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2014
+[INCONSISTENCY mov read UAF] ip: main+0xe06d (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2005
+[INCONSISTENCY mov read UAF] ip: main+0xe071 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 1988
+[INCONSISTENCY mov read UAF] ip: main+0xe079 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2018
+[INCONSISTENCY mov read UAF] ip: main+0xe07d (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2009
+[INCONSISTENCY mov write reg UAF] ip: main+0xe08e (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7aa8
+first time found dangling pointer at: 2174 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xe09e (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2028
+[INCONSISTENCY mov read UAF] ip: main+0xe0a2 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2019
+Store dangling pointer: 0x5c38d68a7aa0 at: 0x5c38d68a7638
+[INCONSISTENCY mov write reg UAF] ip: main+0xe0a6 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7638
+first time found dangling pointer at: 178 distance: 2002
+[INCONSISTENCY mov read UAF] ip: main+0xe0ae (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2032
+[INCONSISTENCY mov read UAF] ip: main+0xe0b2 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2023
+[INCONSISTENCY mov read UAF] ip: main+0xe0b6 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7630
+[INCONSISTENCY mov write reg UAF] ip: main+0xe0bc (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7630
+[INCONSISTENCY mov read UAF] ip: main+0xe0c3 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2038
+[INCONSISTENCY mov read UAF] ip: main+0xe0c7 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2029
+[INCONSISTENCY mov write reg UAF] ip: main+0xe0cf (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7aa0
+first time found dangling pointer at: 2191 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xe0d7 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7a80
+first time found dangling pointer at: 2132 distance: 61
+[INCONSISTENCY mov read UAF] ip: main+0xe0e2 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7a80
+first time found dangling pointer at: 2132 distance: 64
+[INCONSISTENCY mov write reg UAF] ip: main+0xe101 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7ad4
+[INCONSISTENCY mov read UAF] ip: main+0xe108 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7ad4
+[INCONSISTENCY mov read UAF] ip: main+0xe10f (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2262
+[INCONSISTENCY mov read UAF] ip: main+0xe113 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2253
+[INCONSISTENCY mov read UAF] ip: main+0xe117 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7628
+[INCONSISTENCY mov read UAF] ip: main+0xe12b (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2270
+[INCONSISTENCY mov read UAF] ip: main+0xe12f (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2261
+[INCONSISTENCY mov read UAF] ip: main+0xe133 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 2218
+[INCONSISTENCY mov read UAF] ip: main+0xe140 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a77e8
+[INCONSISTENCY mov write reg UAF] ip: main+0xe146 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a77e8
+[INCONSISTENCY mov read UAF] ip: main+0xe14d (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2280
+[INCONSISTENCY mov read UAF] ip: main+0xe151 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2271
+[INCONSISTENCY mov read UAF] ip: main+0xe155 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 2228
+[INCONSISTENCY mov read UAF] ip: main+0xe162 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a77e0
+[INCONSISTENCY mov write reg UAF] ip: main+0xe169 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7ac0
+[INCONSISTENCY mov write imm UAF] ip: main+0xe171 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a7ab8
+[INCONSISTENCY mov read UAF] ip: main+0xe17d (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2292
+[INCONSISTENCY mov read UAF] ip: main+0xe181 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2283
+[INCONSISTENCY mov read UAF] ip: main+0xe185 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 2240
+[INCONSISTENCY mov read UAF] ip: main+0xe192 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a77e0
+[INCONSISTENCY mov read UAF] ip: main+0xe1d0 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2303
+[INCONSISTENCY mov read UAF] ip: main+0xe1d4 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2294
+[INCONSISTENCY mov read UAF] ip: main+0xe1d8 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 2251
+[INCONSISTENCY mov write reg UAF] ip: main+0xe1e5 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF write at: 0x5c38d68a77e0
+first time found dangling pointer at: 2459 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xe1ec (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2311
+[INCONSISTENCY mov read UAF] ip: main+0xe1f0 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2302
+[INCONSISTENCY mov read UAF] ip: main+0xe1f4 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 2259
+[INCONSISTENCY mov read UAF] ip: main+0xe201 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a77e8
+[INCONSISTENCY mov read UAF] ip: main+0xe208 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7530
+first time found dangling pointer at: 150 distance: 2319
+[INCONSISTENCY mov read UAF] ip: main+0xe20c (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a75c0
+first time found dangling pointer at: 160 distance: 2310
+[INCONSISTENCY mov read UAF] ip: main+0xe210 (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a7620
+first time found dangling pointer at: 204 distance: 2267
+[INCONSISTENCY mov read UAF] ip: main+0xe21d (ucl_parser_register_context_macro @ ucl_parser.c:2863) UAF read at: 0x5c38d68a77ec
+[CORRUPTED_PTR_LOAD] ip: main+0xd698 (ucl_parser_new @ ucl_parser.c:2772) loaded: 0x66b9052000000000 from cell: 0x7ffecee14ee4 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd69b (ucl_parser_new @ ucl_parser.c:2772) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[INCONSISTENCY mov write reg UAF] ip: main+0xd69f (ucl_parser_new @ ucl_parser.c:2772) UAF write at: 0x5c38d68a74fc
+[CORRUPTED_PTR_LOAD] ip: main+0xd6a2 (ucl_parser_new @ ucl_parser.c:2773) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[INCONSISTENCY mov write imm UAF] ip: main+0xd6a6 (ucl_parser_new @ ucl_parser.c:2773) UAF write at: 0x5c38d68a7520
+[CORRUPTED_PTR_LOAD] ip: main+0xd6ae (ucl_parser_new @ ucl_parser.c:2775) loaded: 0x66b9052000000000 from cell: 0x7ffecee14ee4 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd6d2 (ucl_parser_new @ ucl_parser.c:2779) loaded: 0x66b9052000000000 from cell: 0x7ffecee14ee4 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xd6e1 (ucl_parser_new @ ucl_parser.c:2781) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[INCONSISTENCY mov read] ip: main+0xe5cc (ucl_parser_register_variable @ ucl_parser.c:2873) base: 0x7ffecee13e80 pointee: 55 read from 56
+[CORRUPTED_PTR_LOAD] ip: main+0xe5cc (ucl_parser_register_variable @ ucl_parser.c:2873) loaded: 0x5c38cc8a4840 from cell: 0x7ffecee13e70 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0xe5dc (ucl_parser_register_variable @ ucl_parser.c:2878) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee13e78 cell_owner: 56 value_owner: 55
+[INCONSISTENCY mov read UAF] ip: main+0xe5e0 (ucl_parser_register_variable @ ucl_parser.c:2878) UAF read at: 0x5c38d68a7568
+[CORRUPTED_PTR_LOAD] ip: main+0xe62f (ucl_parser_register_variable @ ucl_parser.c:2885) loaded: 0x5c38cc8a4850 from cell: 0x7ffecee13e68 cell_owner: 56 value_owner: 55
+[CORRUPTED_PTR_LOAD] ip: main+0xe76b (ucl_parser_register_variable @ ucl_parser.c:2900) loaded: 0x0 from cell: 0x7ffecee13e60 cell_owner: 56 value_owner: 55
+[ALLOC] malloc(0x30) -> 0x5c38d68a7b00 subject=57 at ucl_parser_register_variable @ ucl_parser.c:2901
+Store dangling pointer: 0x5c38d68a7b00 at: 0x7ffecee13e60
+main+0xe784 (ucl_parser_register_variable @ ucl_parser.c:2902) Using expired pointer: 0x5c38d68a7b00 from 0x7ffecee13e60
+first time found dangling pointer at: 2550 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0xe7a4 (ucl_parser_register_variable @ ucl_parser.c:2906) loaded: 0x5c38cc8a4840 from cell: 0x7ffecee13e70 cell_owner: 56 value_owner: 55
+[ALLOC:internal] malloc(0x9) -> 0x5c38d68a7b40 subject=58 at strdup
+Store dangling pointer: 0x5c38d68a7b40 at: 0x5c38d68a7b00
+[INCONSISTENCY mov write reg UAF] ip: main+0xe7b4 (ucl_parser_register_variable @ ucl_parser.c:2906) UAF write at: 0x5c38d68a7b00
+first time found dangling pointer at: 2563 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xe7b7 (ucl_parser_register_variable @ ucl_parser.c:2907) loaded: 0x5c38cc8a4840 from cell: 0x7ffecee13e70 cell_owner: 56 value_owner: 55
+[INCONSISTENCY mov write reg UAF] ip: main+0xe7c7 (ucl_parser_register_variable @ ucl_parser.c:2907) UAF write at: 0x5c38d68a7b10
+[CORRUPTED_PTR_LOAD] ip: main+0xe7cb (ucl_parser_register_variable @ ucl_parser.c:2908) loaded: 0x5c38cc8a4850 from cell: 0x7ffecee13e68 cell_owner: 56 value_owner: 55
+[ALLOC:internal] malloc(0x6) -> 0x5c38d68a7b60 subject=59 at strdup
+Store dangling pointer: 0x5c38d68a7b60 at: 0x5c38d68a7b08
+[INCONSISTENCY mov write reg UAF] ip: main+0xe7db (ucl_parser_register_variable @ ucl_parser.c:2908) UAF write at: 0x5c38d68a7b08
+first time found dangling pointer at: 2575 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xe7df (ucl_parser_register_variable @ ucl_parser.c:2909) loaded: 0x5c38cc8a4850 from cell: 0x7ffecee13e68 cell_owner: 56 value_owner: 55
+[INCONSISTENCY mov write reg UAF] ip: main+0xe7ef (ucl_parser_register_variable @ ucl_parser.c:2909) UAF write at: 0x5c38d68a7b18
+[CORRUPTED_PTR_LOAD] ip: main+0xe7f3 (ucl_parser_register_variable @ ucl_parser.c:2911) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee13e78 cell_owner: 56 value_owner: 55
+[INCONSISTENCY mov read UAF] ip: main+0xe7f7 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7568
+[CORRUPTED_PTR_LOAD] ip: main+0xe84f (ucl_parser_register_variable @ ucl_parser.c:2911) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee13e78 cell_owner: 56 value_owner: 55
+[INCONSISTENCY mov write reg UAF] ip: main+0xe853 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF write at: 0x5c38d68a7568
+first time found dangling pointer at: 2587 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xe857 (ucl_parser_register_variable @ ucl_parser.c:2911) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee13e78 cell_owner: 56 value_owner: 55
+[INCONSISTENCY mov read UAF] ip: main+0xe85b (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7568
+first time found dangling pointer at: 2587 distance: 2
+[CORRUPTED_PTR_LOAD] ip: main+0xe85f (ucl_parser_register_variable @ ucl_parser.c:2911) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee13e78 cell_owner: 56 value_owner: 55
+[INCONSISTENCY mov read UAF] ip: main+0xe863 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7568
+first time found dangling pointer at: 2587 distance: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0xe867 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF write at: 0x5c38d68a7b20
+first time found dangling pointer at: 2592 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xe86b (ucl_parser_register_variable @ ucl_parser.c:2911) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee13e78 cell_owner: 56 value_owner: 55
+[INCONSISTENCY mov read UAF] ip: main+0xe86f (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7568
+first time found dangling pointer at: 2587 distance: 7
+[INCONSISTENCY mov write imm UAF] ip: main+0xe873 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF write at: 0x5c38d68a7b28
+[INCONSISTENCY mov read UAF] ip: main+0xe5f7 (ucl_parser_register_variable @ ucl_parser.c:2879) UAF read at: 0x5c38d68a7b00
+first time found dangling pointer at: 2563 distance: 58
+main+0xe5f7 (ucl_parser_register_variable @ ucl_parser.c:2879) Using expired pointer: 0x5c38d68a7b40 from 0x5c38d68a7b00
+first time found dangling pointer at: 2563 distance: 58
+[INCONSISTENCY mov read UAF] ip: main+0xe622 (ucl_parser_register_variable @ ucl_parser.c:2878) UAF read at: 0x5c38d68a7b28
+[ALLOC] malloc(0x30) -> 0x5c38d68a7b80 subject=61 at ucl_parser_register_variable @ ucl_parser.c:2901
+Store dangling pointer: 0x5c38d68a7b80 at: 0x7ffecee13e60
+main+0xe784 (ucl_parser_register_variable @ ucl_parser.c:2902) Using expired pointer: 0x5c38d68a7b80 from 0x7ffecee13e60
+first time found dangling pointer at: 2550 distance: 92
+[ALLOC:internal] malloc(0x7) -> 0x5c38d68a7bc0 subject=62 at strdup
+Store dangling pointer: 0x5c38d68a7bc0 at: 0x5c38d68a7b80
+[ALLOC:internal] malloc(0x24) -> 0x5c38d68a7be0 subject=63 at strdup
+Store dangling pointer: 0x5c38d68a7be0 at: 0x5c38d68a7b88
+[INCONSISTENCY mov read UAF] ip: main+0xe806 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7568
+first time found dangling pointer at: 2587 distance: 90
+[INCONSISTENCY mov read UAF] ip: main+0xe80a (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7b20
+first time found dangling pointer at: 2592 distance: 86
+[INCONSISTENCY mov write reg UAF] ip: main+0xe812 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF write at: 0x5c38d68a7ba0
+first time found dangling pointer at: 2680 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xe81e (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7568
+first time found dangling pointer at: 2587 distance: 96
+[INCONSISTENCY mov read UAF] ip: main+0xe822 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7b20
+first time found dangling pointer at: 2592 distance: 92
+[INCONSISTENCY mov write reg UAF] ip: main+0xe826 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF write at: 0x5c38d68a7b28
+first time found dangling pointer at: 2685 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0xe832 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF read at: 0x5c38d68a7568
+first time found dangling pointer at: 2587 distance: 101
+[INCONSISTENCY mov write reg UAF] ip: main+0xe836 (ucl_parser_register_variable @ ucl_parser.c:2911) UAF write at: 0x5c38d68a7b20
+first time found dangling pointer at: 2592 distance: 97
+[INCONSISTENCY mov write imm UAF] ip: main+0xe83e (ucl_parser_register_variable @ ucl_parser.c:2911) UAF write at: 0x5c38d68a7ba8
+[CORRUPTED_PTR_LOAD] ip: main+0xd6f0 (ucl_parser_new @ ucl_parser.c:2784) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14ed8 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x24a9 (LLVMFuzzerTestOneInput @ harness.c:19) loaded: 0x1fe from cell: 0x7ffecee14f00 cell_owner: 8 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x24ad (LLVMFuzzerTestOneInput @ harness.c:19) loaded: 0x5c38d68a8200 from cell: 0x7ffecee14f08 cell_owner: 8 value_owner: 4
+[INCONSISTENCY mov read UAF] ip: main+0x10558 (ucl_parser_add_string @ ucl_parser.c:3137) UAF read at: 0x5c38d68a7500
+[INCONSISTENCY mov read] ip: main+0x104a7 (ucl_parser_add_string_priority @ ucl_parser.c:3116) base: 0x7ffecee14ec0 pointee: 64 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x104a7 (ucl_parser_add_string_priority @ ucl_parser.c:3116) loaded: 0x5c38d68a8200 from cell: 0x7ffecee14ea8 cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov read] ip: main+0x104d4 (ucl_parser_add_string_priority @ ucl_parser.c:3120) base: 0x7ffecee14ec0 pointee: 64 read from 65
+[CORRUPTED_PTR_LOAD] ip: main+0x104d4 (ucl_parser_add_string_priority @ ucl_parser.c:3120) loaded: 0x1fe from cell: 0x7ffecee14ea0 cell_owner: 65 value_owner: 64
+[CORRUPTED_PTR_LOAD] ip: main+0x104ec (ucl_parser_add_string_priority @ ucl_parser.c:3124) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14eb0 cell_owner: 65 value_owner: 64
+[CORRUPTED_PTR_LOAD] ip: main+0x104f0 (ucl_parser_add_string_priority @ ucl_parser.c:3125) loaded: 0x5c38d68a8200 from cell: 0x7ffecee14ea8 cell_owner: 65 value_owner: 64
+[CORRUPTED_PTR_LOAD] ip: main+0x104f4 (ucl_parser_add_string_priority @ ucl_parser.c:3125) loaded: 0x1fe from cell: 0x7ffecee14ea0 cell_owner: 65 value_owner: 64
+[CORRUPTED_PTR_LOAD] ip: main+0x104f8 (ucl_parser_add_string_priority @ ucl_parser.c:3125) loaded: 0x1fe00000000 from cell: 0x7ffecee14e9c cell_owner: 65 value_owner: 64
+[INCONSISTENCY mov read] ip: main+0x102c7 (ucl_parser_add_chunk_priority @ ucl_parser.c:3057) base: 0x7ffecee14e80 pointee: 65 read from 66
+[CORRUPTED_PTR_LOAD] ip: main+0x102c7 (ucl_parser_add_chunk_priority @ ucl_parser.c:3057) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e70 cell_owner: 66 value_owner: 65
+[CORRUPTED_PTR_LOAD] ip: main+0x102db (ucl_parser_add_chunk_priority @ ucl_parser.c:3061) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e70 cell_owner: 66 value_owner: 65
+[CORRUPTED_PTR_LOAD] ip: main+0x102df (ucl_parser_add_chunk_priority @ ucl_parser.c:3061) loaded: 0x5c38d68a8200 from cell: 0x7ffecee14e68 cell_owner: 66 value_owner: 65
+[CORRUPTED_PTR_LOAD] ip: main+0x102e3 (ucl_parser_add_chunk_priority @ ucl_parser.c:3061) loaded: 0x1fe from cell: 0x7ffecee14e60 cell_owner: 66 value_owner: 65
+[CORRUPTED_PTR_LOAD] ip: main+0x102e7 (ucl_parser_add_chunk_priority @ ucl_parser.c:3062) loaded: 0x1fe00000000 from cell: 0x7ffecee14e5c cell_owner: 66 value_owner: 65
+[INCONSISTENCY mov read] ip: main+0xe91f (ucl_parser_add_chunk_full @ ucl_parser.c:2937) base: 0x7ffecee14e40 pointee: 66 read from 51
+[CORRUPTED_PTR_LOAD] ip: main+0xe91f (ucl_parser_add_chunk_full @ ucl_parser.c:2937) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov read] ip: main+0xe933 (ucl_parser_add_chunk_full @ ucl_parser.c:2941) base: 0x7ffecee14e40 pointee: 66 read from 51
+[CORRUPTED_PTR_LOAD] ip: main+0xe933 (ucl_parser_add_chunk_full @ ucl_parser.c:2941) loaded: 0x5c38d68a8200 from cell: 0x7ffecee14e28 cell_owner: 51 value_owner: 66
+[CORRUPTED_PTR_LOAD] ip: main+0xe96b (ucl_parser_add_chunk_full @ ucl_parser.c:2946) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov read UAF] ip: main+0xe96f (ucl_parser_add_chunk_full @ ucl_parser.c:2946) UAF read at: 0x5c38d68a74f0
+[ALLOC] malloc(0x50) -> 0x5c38d68a7c10 subject=68 at ucl_parser_add_chunk_full @ ucl_parser.c:2947
+Store dangling pointer: 0x5c38d68a7c10 at: 0x7ffecee14e08
+main+0xe986 (ucl_parser_add_chunk_full @ ucl_parser.c:2948) Using expired pointer: 0x5c38d68a7c10 from 0x7ffecee14e08
+first time found dangling pointer at: 258 distance: 2528
+[CORRUPTED_PTR_LOAD] ip: main+0xe9c3 (ucl_parser_add_chunk_full @ ucl_parser.c:2956) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov read UAF] ip: main+0xe9c7 (ucl_parser_add_chunk_full @ ucl_parser.c:2956) UAF read at: 0x5c38d68a7550
+[CORRUPTED_PTR_LOAD] ip: main+0xeafc (ucl_parser_add_chunk_full @ ucl_parser.c:2985) loaded: 0x0 from cell: 0x7ffecee14e14 cell_owner: 67 value_owner: 66
+[CORRUPTED_PTR_LOAD] ip: main+0xeb85 (ucl_parser_add_chunk_full @ ucl_parser.c:2998) loaded: 0x5c38d68a8200 from cell: 0x7ffecee14e28 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov write reg UAF] ip: main+0xeb8d (ucl_parser_add_chunk_full @ ucl_parser.c:2998) UAF write at: 0x5c38d68a7c10
+[CORRUPTED_PTR_LOAD] ip: main+0xeb90 (ucl_parser_add_chunk_full @ ucl_parser.c:2999) loaded: 0x1fe from cell: 0x7ffecee14e20 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov write reg UAF] ip: main+0xeb98 (ucl_parser_add_chunk_full @ ucl_parser.c:2999) UAF write at: 0x5c38d68a7c30
+[INCONSISTENCY mov read UAF] ip: main+0xeba0 (ucl_parser_add_chunk_full @ ucl_parser.c:3000) UAF read at: 0x5c38d68a7c10
+[INCONSISTENCY mov write reg UAF] ip: main+0xeba7 (ucl_parser_add_chunk_full @ ucl_parser.c:3000) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0xebaf (ucl_parser_add_chunk_full @ ucl_parser.c:3001) UAF read at: 0x5c38d68a7c10
+[INCONSISTENCY mov write reg UAF] ip: main+0xebba (ucl_parser_add_chunk_full @ ucl_parser.c:3001) UAF write at: 0x5c38d68a7c18
+[INCONSISTENCY mov write imm UAF] ip: main+0xebc2 (ucl_parser_add_chunk_full @ ucl_parser.c:3002) UAF write at: 0x5c38d68a7c38
+[INCONSISTENCY mov write imm UAF] ip: main+0xebcd (ucl_parser_add_chunk_full @ ucl_parser.c:3003) UAF write at: 0x5c38d68a7c3c
+[CORRUPTED_PTR_LOAD] ip: main+0xebd4 (ucl_parser_add_chunk_full @ ucl_parser.c:3004) loaded: 0x1fe00000000 from cell: 0x7ffecee14e1c cell_owner: 67 value_owner: 66
+[INCONSISTENCY mov write reg UAF] ip: main+0xebdb (ucl_parser_add_chunk_full @ ucl_parser.c:3004) UAF write at: 0x5c38d68a7c40
+[CORRUPTED_PTR_LOAD] ip: main+0xebde (ucl_parser_add_chunk_full @ ucl_parser.c:3005) loaded: 0x0 from cell: 0x7ffecee14e18 cell_owner: 67 value_owner: 66
+[INCONSISTENCY mov write reg UAF] ip: main+0xebe5 (ucl_parser_add_chunk_full @ ucl_parser.c:3005) UAF write at: 0x5c38d68a7c44
+[CORRUPTED_PTR_LOAD] ip: main+0xebe8 (ucl_parser_add_chunk_full @ ucl_parser.c:3006) loaded: 0x0 from cell: 0x7ffecee14e14 cell_owner: 67 value_owner: 66
+[INCONSISTENCY mov write reg UAF] ip: main+0xebef (ucl_parser_add_chunk_full @ ucl_parser.c:3006) UAF write at: 0x5c38d68a7c48
+[CORRUPTED_PTR_LOAD] ip: main+0xebf2 (ucl_parser_add_chunk_full @ ucl_parser.c:3008) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov read UAF] ip: main+0xebf6 (ucl_parser_add_chunk_full @ ucl_parser.c:3008) UAF read at: 0x5c38d68a7528
+[CORRUPTED_PTR_LOAD] ip: main+0xec1e (ucl_parser_add_chunk_full @ ucl_parser.c:3012) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov read UAF] ip: main+0xec22 (ucl_parser_add_chunk_full @ ucl_parser.c:3012) UAF read at: 0x5c38d68a7540
+[INCONSISTENCY mov write reg UAF] ip: main+0xec2a (ucl_parser_add_chunk_full @ ucl_parser.c:3012) UAF write at: 0x5c38d68a7c58
+[CORRUPTED_PTR_LOAD] ip: main+0xec32 (ucl_parser_add_chunk_full @ ucl_parser.c:3012) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov write reg UAF] ip: main+0xec36 (ucl_parser_add_chunk_full @ ucl_parser.c:3012) UAF write at: 0x5c38d68a7540
+first time found dangling pointer at: 2838 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xec3a (ucl_parser_add_chunk_full @ ucl_parser.c:3013) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov read UAF] ip: main+0xec3e (ucl_parser_add_chunk_full @ ucl_parser.c:3013) UAF read at: 0x5c38d68a74f8
+[INCONSISTENCY mov write reg UAF] ip: main+0xec44 (ucl_parser_add_chunk_full @ ucl_parser.c:3013) UAF write at: 0x5c38d68a74f8
+[CORRUPTED_PTR_LOAD] ip: main+0xec47 (ucl_parser_add_chunk_full @ ucl_parser.c:3015) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[INCONSISTENCY mov read UAF] ip: main+0xec4b (ucl_parser_add_chunk_full @ ucl_parser.c:3015) UAF read at: 0x5c38d68a74f8
+[CORRUPTED_PTR_LOAD] ip: main+0xec7e (ucl_parser_add_chunk_full @ ucl_parser.c:3021) loaded: 0x1fe from cell: 0x7ffecee14e20 cell_owner: 51 value_owner: 66
+[CORRUPTED_PTR_LOAD] ip: main+0xec89 (ucl_parser_add_chunk_full @ ucl_parser.c:3023) loaded: 0x0 from cell: 0x7ffecee14e14 cell_owner: 67 value_owner: 66
+[CORRUPTED_PTR_LOAD] ip: main+0xecc3 (ucl_parser_add_chunk_full @ ucl_parser.c:3026) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14e30 cell_owner: 51 value_owner: 66
+[CORRUPTED_PTR_LOAD] ip: main+0xef5f (ucl_state_machine @ ucl_parser.c:2410) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xef63 (ucl_state_machine @ ucl_parser.c:2410) UAF read at: 0x5c38d68a7540
+first time found dangling pointer at: 2838 distance: 21
+[CORRUPTED_PTR_LOAD] ip: main+0xef93 (ucl_state_machine @ ucl_parser.c:2417) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xef97 (ucl_state_machine @ ucl_parser.c:2417) UAF read at: 0x5c38d68a7508
+[CORRUPTED_PTR_LOAD] ip: main+0xefa2 (ucl_state_machine @ ucl_parser.c:2418) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov write imm UAF] ip: main+0xefa6 (ucl_state_machine @ ucl_parser.c:2418) UAF write at: 0x5c38d68a74f0
+[INCONSISTENCY mov read UAF] ip: main+0xefb0 (ucl_state_machine @ ucl_parser.c:2421) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0xefbc (ucl_state_machine @ ucl_parser.c:2422) UAF read at: 0x5c38d68a7c20
+[CORRUPTED_PTR_LOAD] ip: main+0xefce (ucl_state_machine @ ucl_parser.c:2423) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xefd2 (ucl_state_machine @ ucl_parser.c:2423) UAF read at: 0x5c38d68a74f0
+[UNTRUSTEDPTRDEREF] ip: main+0xefed (ucl_state_machine) final_ea: 0x5c38cc8a4e14 base: 0x5c38cc8a4e14 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0xeff6 (ucl_state_machine @ ucl_parser.c:2430) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[CORRUPTED_PTR_LOAD] ip: main+0x1101c (ucl_skip_comments @ ucl_parser.c:139) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14cd0 cell_owner: 70 value_owner: 69
+[INCONSISTENCY mov read UAF] ip: main+0x11020 (ucl_skip_comments @ ucl_parser.c:139) UAF read at: 0x5c38d68a7540
+first time found dangling pointer at: 2838 distance: 59
+[INCONSISTENCY mov read UAF] ip: main+0x1103f (ucl_skip_comments @ ucl_parser.c:144) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0x1104b (ucl_skip_comments @ ucl_parser.c:147) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov read UAF] ip: main+0x111f9 (ucl_skip_comments @ ucl_parser.c:167) UAF read at: 0x5c38d68a7c30
+[UNTRUSTEDPTRDEREF] ip: main+0xccca (ucl_test_character @ ucl_chartable.h:265) final_ea: 0x5c38cc8a510c base: 0x5c38cc8a4f20 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xf0fa (ucl_state_machine @ ucl_parser.c:2444) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0xf211 (ucl_state_machine @ ucl_parser.c:2455) UAF read at: 0x5c38d68a7c3c
+[INCONSISTENCY mov write reg UAF] ip: main+0xf217 (ucl_state_machine @ ucl_parser.c:2455) UAF write at: 0x5c38d68a7c3c
+[INCONSISTENCY mov read UAF] ip: main+0xf22a (ucl_state_machine @ ucl_parser.c:2455) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov write reg UAF] ip: main+0xf232 (ucl_state_machine @ ucl_parser.c:2455) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0xf23a (ucl_state_machine @ ucl_parser.c:2455) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov write reg UAF] ip: main+0xf242 (ucl_state_machine @ ucl_parser.c:2455) UAF write at: 0x5c38d68a7c30
+[CORRUPTED_PTR_LOAD] ip: main+0xf246 (ucl_state_machine @ ucl_parser.c:2456) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov write imm UAF] ip: main+0xf24a (ucl_state_machine @ ucl_parser.c:2456) UAF write at: 0x5c38d68a74f0
+[CORRUPTED_PTR_LOAD] ip: main+0xf26d (ucl_state_machine @ ucl_parser.c:2465) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xf271 (ucl_state_machine @ ucl_parser.c:2465) UAF read at: 0x5c38d68a7508
+[CORRUPTED_PTR_LOAD] ip: main+0xf27c (ucl_state_machine @ ucl_parser.c:2466) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xf280 (ucl_state_machine @ ucl_parser.c:2466) UAF read at: 0x5c38d68a74f0
+[CORRUPTED_PTR_LOAD] ip: main+0xf2af (ucl_state_machine @ ucl_parser.c:2471) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0x11830 (ucl_parser_add_container @ ucl_parser.c:666) UAF read at: 0x5c38d68a7540
+first time found dangling pointer at: 2838 distance: 204
+[INCONSISTENCY mov read UAF] ip: main+0x11834 (ucl_parser_add_container @ ucl_parser.c:666) UAF read at: 0x5c38d68a7c40
+[INCONSISTENCY mov read] ip: main+0x854e (ucl_object_new_full @ ucl_util.c:3008) base: 0x7ffecee14c90 pointee: 71 read from 72
+[CORRUPTED_PTR_LOAD] ip: main+0x854e (ucl_object_new_full @ ucl_util.c:3008) loaded: 0xcee14ce000000000 from cell: 0x7ffecee14c8c cell_owner: 72 value_owner: 71
+[ALLOC] malloc(0x40) -> 0x5c38d68a7c70 subject=73 at ucl_object_new_full @ ucl_util.c:3009
+Store dangling pointer: 0x5c38d68a7c70 at: 0x7ffecee14c80
+[INCONSISTENCY mov read] ip: main+0x8566 (ucl_object_new_full @ ucl_util.c:3010) base: 0x7ffecee14c90 pointee: 71 read from 72
+main+0x8566 (ucl_object_new_full @ ucl_util.c:3010) Using expired pointer: 0x5c38d68a7c70 from 0x7ffecee14c80
+first time found dangling pointer at: 3055 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x8566 (ucl_object_new_full @ ucl_util.c:3010) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[CORRUPTED_PTR_LOAD] ip: main+0x8571 (ucl_object_new_full @ ucl_util.c:3011) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[CORRUPTED_PTR_LOAD] ip: main+0x8581 (ucl_object_new_full @ ucl_util.c:3012) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[INCONSISTENCY mov write imm UAF] ip: main+0x8585 (ucl_object_new_full @ ucl_util.c:3012) UAF write at: 0x5c38d68a7c98
+[CORRUPTED_PTR_LOAD] ip: main+0x858c (ucl_object_new_full @ ucl_util.c:3013) loaded: 0xcee14ce000000000 from cell: 0x7ffecee14c8c cell_owner: 72 value_owner: 71
+[CORRUPTED_PTR_LOAD] ip: main+0x8596 (ucl_object_new_full @ ucl_util.c:3013) loaded: 0xcee14ce000000000 from cell: 0x7ffecee14c8c cell_owner: 72 value_owner: 71
+[CORRUPTED_PTR_LOAD] ip: main+0x85b4 (ucl_object_new_full @ ucl_util.c:3013) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[CORRUPTED_PTR_LOAD] ip: main+0x85bc (ucl_object_new_full @ ucl_util.c:3014) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[INCONSISTENCY mov write imm UAF] ip: main+0x85c0 (ucl_object_new_full @ ucl_util.c:3014) UAF write at: 0x5c38d68a7c80
+[CORRUPTED_PTR_LOAD] ip: main+0x85c8 (ucl_object_new_full @ ucl_util.c:3015) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[CORRUPTED_PTR_LOAD] ip: main+0x85cc (ucl_object_new_full @ ucl_util.c:3015) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[INCONSISTENCY mov write reg UAF] ip: main+0x85d0 (ucl_object_new_full @ ucl_util.c:3015) UAF write at: 0x5c38d68a7c88
+first time found dangling pointer at: 3078 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0x85d4 (ucl_object_new_full @ ucl_util.c:3016) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[CORRUPTED_PTR_LOAD] ip: main+0x85d8 (ucl_object_new_full @ ucl_util.c:3016) loaded: 0x0 from cell: 0x7ffecee14c88 cell_owner: 72 value_owner: 71
+[INCONSISTENCY mov read] ip: main+0x5c2b (ucl_object_set_priority @ ucl_util.c:3813) base: 0x7ffecee14c50 pointee: 72 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x5c2b (ucl_object_set_priority @ ucl_util.c:3813) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c48 cell_owner: 52 value_owner: 72
+[CORRUPTED_PTR_LOAD] ip: main+0x5c36 (ucl_object_set_priority @ ucl_util.c:3814) loaded: 0xd68a7c7000000000 from cell: 0x7ffecee14c44 cell_owner: 52 value_owner: 72
+[CORRUPTED_PTR_LOAD] ip: main+0x5c48 (ucl_object_set_priority @ ucl_util.c:3816) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c48 cell_owner: 52 value_owner: 72
+[INCONSISTENCY mov read UAF] ip: main+0x5c4c (ucl_object_set_priority @ ucl_util.c:3816) UAF read at: 0x5c38d68a7c9c
+[CORRUPTED_PTR_LOAD] ip: main+0x5c61 (ucl_object_set_priority @ ucl_util.c:3818) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c48 cell_owner: 52 value_owner: 72
+[CORRUPTED_PTR_LOAD] ip: main+0x85e0 (ucl_object_new_full @ ucl_util.c:3018) loaded: 0xcee14ce000000000 from cell: 0x7ffecee14c8c cell_owner: 72 value_owner: 71
+[CORRUPTED_PTR_LOAD] ip: main+0x86c8 (ucl_object_new_full @ ucl_util.c:3035) loaded: 0x5c38d68a7c70 from cell: 0x7ffecee14c80 cell_owner: 72 value_owner: 71
+[INCONSISTENCY mov read UAF] ip: main+0x118d5 (ucl_parser_add_container @ ucl_parser.c:684) UAF read at: 0x5c38d68a7c70
+[INCONSISTENCY mov read UAF] ip: main+0x118e3 (ucl_parser_add_container @ ucl_parser.c:685) UAF read at: 0x5c38d68a74fc
+[ALLOC] malloc(0x18) -> 0x5c38d68a7cc0 subject=75 at ucl_hash_create @ ucl_hash.c:237
+Store dangling pointer: 0x5c38d68a7cc0 at: 0x7ffecee14c78
+main+0x17fde (ucl_hash_create @ ucl_hash.c:238) Using expired pointer: 0x5c38d68a7cc0 from 0x7ffecee14c78
+first time found dangling pointer at: 3140 distance: 1
+[INCONSISTENCY mov write imm UAF] ip: main+0x17fed (ucl_hash_create @ ucl_hash.c:240) UAF write at: 0x5c38d68a7cc8
+[ALLOC] calloc(0x28) -> 0x5c38d68a7ce0 subject=76 at kh_init_ucl_hash_node @ ucl_hash.c:117
+Store dangling pointer: 0x5c38d68a7ce0 at: 0x7ffecee14c70
+main+0x18023 (ucl_hash_create @ ucl_hash.c:248) Using expired pointer: 0x5c38d68a7ce0 from 0x7ffecee14c70
+first time found dangling pointer at: 3160 distance: 1
+[INCONSISTENCY mov write reg UAF] ip: main+0x1804c (ucl_hash_create @ ucl_hash.c:252) UAF write at: 0x5c38d68a7cc0
+first time found dangling pointer at: 3165 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x11901 (ucl_parser_add_container @ ucl_parser.c:685) UAF write at: 0x5c38d68a7c70
+first time found dangling pointer at: 3174 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x11908 (ucl_parser_add_container @ ucl_parser.c:686) UAF read at: 0x5c38d68a7c70
+first time found dangling pointer at: 3174 distance: 2
+[INCONSISTENCY mov write imm UAF] ip: main+0x11920 (ucl_parser_add_container @ ucl_parser.c:690) UAF write at: 0x5c38d68a74f0
+[ALLOC] malloc(0x20) -> 0x5c38d68a7d10 subject=77 at ucl_parser_add_container @ ucl_parser.c:695
+Store dangling pointer: 0x5c38d68a7d10 at: 0x7ffecee14cb0
+main+0x11943 (ucl_parser_add_container @ ucl_parser.c:697) Using expired pointer: 0x5c38d68a7d10 from 0x7ffecee14cb0
+first time found dangling pointer at: 3185 distance: 1
+[INCONSISTENCY mov write reg UAF] ip: main+0x1195b (ucl_parser_add_container @ ucl_parser.c:701) UAF write at: 0x5c38d68a7d10
+first time found dangling pointer at: 3190 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x119ca (ucl_parser_add_container @ ucl_parser.c:718) UAF read at: 0x5c38d68a7540
+first time found dangling pointer at: 2838 distance: 360
+[INCONSISTENCY mov read UAF] ip: main+0x119ce (ucl_parser_add_container @ ucl_parser.c:718) UAF read at: 0x5c38d68a7c38
+[INCONSISTENCY mov write reg UAF] ip: main+0x119d5 (ucl_parser_add_container @ ucl_parser.c:718) UAF write at: 0x5c38d68a7d24
+[INCONSISTENCY mov read UAF] ip: main+0x119dc (ucl_parser_add_container @ ucl_parser.c:719) UAF read at: 0x5c38d68a7540
+first time found dangling pointer at: 2838 distance: 365
+[INCONSISTENCY mov write reg UAF] ip: main+0x119e4 (ucl_parser_add_container @ ucl_parser.c:719) UAF write at: 0x5c38d68a7d28
+first time found dangling pointer at: 3205 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x119f6 (ucl_parser_add_container @ ucl_parser.c:722) UAF write at: 0x5c38d68a7d22
+[INCONSISTENCY mov read UAF] ip: main+0x11a14 (ucl_parser_add_container @ ucl_parser.c:728) UAF read at: 0x5c38d68a7538
+[INCONSISTENCY mov write reg UAF] ip: main+0x11a1c (ucl_parser_add_container @ ucl_parser.c:728) UAF write at: 0x5c38d68a7d18
+[INCONSISTENCY mov write reg UAF] ip: main+0x11a28 (ucl_parser_add_container @ ucl_parser.c:728) UAF write at: 0x5c38d68a7538
+first time found dangling pointer at: 3218 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x11a34 (ucl_parser_add_container @ ucl_parser.c:729) UAF write at: 0x5c38d68a7510
+first time found dangling pointer at: 3221 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xf2e5 (ucl_state_machine @ ucl_parser.c:2479) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov write reg UAF] ip: main+0xf2e9 (ucl_state_machine @ ucl_parser.c:2479) UAF write at: 0x5c38d68a7508
+first time found dangling pointer at: 3234 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0xf2f1 (ucl_state_machine @ ucl_parser.c:2480) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov write reg UAF] ip: main+0xf2f5 (ucl_state_machine @ ucl_parser.c:2480) UAF write at: 0x5c38d68a7510
+first time found dangling pointer at: 3221 distance: 16
+[INCONSISTENCY mov read UAF] ip: main+0xf37c (ucl_state_machine @ ucl_parser.c:2489) UAF read at: 0x5c38d68a7c38
+[INCONSISTENCY mov write reg UAF] ip: main+0xf382 (ucl_state_machine @ ucl_parser.c:2489) UAF write at: 0x5c38d68a7c38
+[INCONSISTENCY mov write imm UAF] ip: main+0xf389 (ucl_state_machine @ ucl_parser.c:2489) UAF write at: 0x5c38d68a7c3c
+[INCONSISTENCY mov read UAF] ip: main+0xf3b2 (ucl_state_machine @ ucl_parser.c:2489) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov write reg UAF] ip: main+0xf3ba (ucl_state_machine @ ucl_parser.c:2489) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0xf3c2 (ucl_state_machine @ ucl_parser.c:2489) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov write reg UAF] ip: main+0xf3ca (ucl_state_machine @ ucl_parser.c:2489) UAF write at: 0x5c38d68a7c30
+[INCONSISTENCY mov read UAF] ip: main+0xf399 (ucl_state_machine @ ucl_parser.c:2489) UAF read at: 0x5c38d68a7c3c
+[INCONSISTENCY mov write reg UAF] ip: main+0xf39f (ucl_state_machine @ ucl_parser.c:2489) UAF write at: 0x5c38d68a7c3c
+[CORRUPTED_PTR_LOAD] ip: main+0xf404 (ucl_state_machine @ ucl_parser.c:2496) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xf408 (ucl_state_machine @ ucl_parser.c:2496) UAF read at: 0x5c38d68a7538
+first time found dangling pointer at: 3218 distance: 247
+[CORRUPTED_PTR_LOAD] ip: main+0xf453 (ucl_state_machine @ ucl_parser.c:2504) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0x11aef (ucl_parse_key @ ucl_parser.c:1370) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0x11bee (ucl_parse_key @ ucl_parser.c:1388) UAF read at: 0x5c38d68a7c30
+[INTRA_OBJECT_OVERFLOW] ip: main+0x13dba (ucl_lex_is_comment @ ucl_parser.c:294) byte write at: 0x7ffecee14c3e offset: +0x25e cell_owner: 52 writer_pointee: 78
+[INTRA_OBJECT_OVERFLOW] ip: main+0x13dbd (ucl_lex_is_comment @ ucl_parser.c:294) byte write at: 0x7ffecee14c3d offset: +0x25d cell_owner: 52 writer_pointee: 78
+[CORRUPTED_PTR_LOAD] ip: main+0x13dc0 (ucl_lex_is_comment @ ucl_parser.c:295) loaded: 0x7ffecee14ce0006b from cell: 0x7ffecee14c3e cell_owner: 52 value_owner: 78
+[CORRUPTED_PTR_LOAD] ip: main+0x13de8 (ucl_lex_is_comment @ ucl_parser.c:300) loaded: 0x7ffecee14ce0006b from cell: 0x7ffecee14c3e cell_owner: 52 value_owner: 78
+[INTRA_OBJECT_OVERFLOW] ip: main+0xccb7 (ucl_test_character @ ucl_chartable.h:264) byte write at: 0x7ffecee14c3f offset: +0x25f cell_owner: 52 writer_pointee: 78
+[CORRUPTED_PTR_LOAD] ip: main+0xccbd (ucl_test_character @ ucl_chartable.h:265) loaded: 0x7ffecee14ce06b from cell: 0x7ffecee14c3f cell_owner: 52 value_owner: 78
+[INCONSISTENCY mov read UAF] ip: main+0x11d5a (ucl_parse_key @ ucl_parser.c:1400) UAF read at: 0x5c38d68a7c3c
+[INCONSISTENCY mov write reg UAF] ip: main+0x11d60 (ucl_parse_key @ ucl_parser.c:1400) UAF write at: 0x5c38d68a7c3c
+[INCONSISTENCY mov read UAF] ip: main+0x11d73 (ucl_parse_key @ ucl_parser.c:1400) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov write reg UAF] ip: main+0x11d7b (ucl_parse_key @ ucl_parser.c:1400) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0x11d83 (ucl_parse_key @ ucl_parser.c:1400) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov write reg UAF] ip: main+0x11d8b (ucl_parse_key @ ucl_parser.c:1400) UAF write at: 0x5c38d68a7c30
+[INCONSISTENCY mov read UAF] ip: main+0x11fc1 (ucl_parse_key @ ucl_parser.c:1433) UAF read at: 0x5c38d68a7c3c
+[INCONSISTENCY mov write reg UAF] ip: main+0x11fc7 (ucl_parse_key @ ucl_parser.c:1433) UAF write at: 0x5c38d68a7c3c
+[INCONSISTENCY mov read UAF] ip: main+0x11fda (ucl_parse_key @ ucl_parser.c:1433) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov write reg UAF] ip: main+0x11fe2 (ucl_parse_key @ ucl_parser.c:1433) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0x11fea (ucl_parse_key @ ucl_parser.c:1433) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov write reg UAF] ip: main+0x11ff2 (ucl_parse_key @ ucl_parser.c:1433) UAF write at: 0x5c38d68a7c30
+[INCONSISTENCY mov read UAF] ip: main+0x1218a (ucl_parse_key @ ucl_parser.c:1469) UAF read at: 0x5c38d68a7c3c
+[INCONSISTENCY mov write reg UAF] ip: main+0x12190 (ucl_parse_key @ ucl_parser.c:1469) UAF write at: 0x5c38d68a7c3c
+[INCONSISTENCY mov read UAF] ip: main+0x121a3 (ucl_parse_key @ ucl_parser.c:1469) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov write reg UAF] ip: main+0x121ab (ucl_parse_key @ ucl_parser.c:1469) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0x121b3 (ucl_parse_key @ ucl_parser.c:1469) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov write reg UAF] ip: main+0x121bb (ucl_parse_key @ ucl_parser.c:1469) UAF write at: 0x5c38d68a7c30
+[INCONSISTENCY mov read UAF] ip: main+0x12235 (ucl_parse_key @ ucl_parser.c:1473) UAF read at: 0x5c38d68a7c3c
+[INCONSISTENCY mov write reg UAF] ip: main+0x1223b (ucl_parse_key @ ucl_parser.c:1473) UAF write at: 0x5c38d68a7c3c
+[INCONSISTENCY mov read UAF] ip: main+0x1224e (ucl_parse_key @ ucl_parser.c:1473) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov write reg UAF] ip: main+0x12256 (ucl_parse_key @ ucl_parser.c:1473) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0x1225e (ucl_parse_key @ ucl_parser.c:1473) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov write reg UAF] ip: main+0x12266 (ucl_parse_key @ ucl_parser.c:1473) UAF write at: 0x5c38d68a7c30
+[INCONSISTENCY mov read UAF] ip: main+0x12382 (ucl_parse_key @ ucl_parser.c:1493) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov read UAF] ip: main+0x1256a (ucl_parse_key @ ucl_parser.c:1542) UAF read at: 0x5c38d68a7540
+first time found dangling pointer at: 2838 distance: 1204
+[INCONSISTENCY mov read UAF] ip: main+0x1256e (ucl_parse_key @ ucl_parser.c:1542) UAF read at: 0x5c38d68a7c40
+[ALLOC] malloc(0x40) -> 0x5c38d68a7d40 subject=80 at ucl_object_new_full @ ucl_util.c:3009
+Store dangling pointer: 0x5c38d68a7d40 at: 0x7ffecee14c30
+main+0x8566 (ucl_object_new_full @ ucl_util.c:3010) Using expired pointer: 0x5c38d68a7d40 from 0x7ffecee14c30
+first time found dangling pointer at: 4056 distance: 1
+[INCONSISTENCY mov read UAF] ip: main+0x125b5 (ucl_parse_key @ ucl_parser.c:1547) UAF read at: 0x5c38d68a74fc
+Store dangling pointer: 0x5c38d68a7d70 at: 0x7ffecee14c20
+[INCONSISTENCY mov read UAF] ip: main+0x1521e (ucl_copy_or_store_ptr @ ucl_parser.c:603) UAF read at: 0x5c38d68a74fc
+[ALLOC] malloc(0x4) -> 0x5c38d68a7d90 subject=82 at ucl_copy_or_store_ptr @ ucl_parser.c:605
+main+0x1523d (ucl_copy_or_store_ptr @ ucl_parser.c:605) Using expired pointer: 0x5c38d68a7d70 from 0x7ffecee14c20
+first time found dangling pointer at: 4156 distance: 28
+Store dangling pointer: 0x5c38d68a7d90 at: 0x5c38d68a7d70
+[INCONSISTENCY mov write reg UAF] ip: main+0x15241 (ucl_copy_or_store_ptr @ ucl_parser.c:605) UAF write at: 0x5c38d68a7d70
+first time found dangling pointer at: 4185 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x15248 (ucl_copy_or_store_ptr @ ucl_parser.c:606) UAF read at: 0x5c38d68a7d70
+first time found dangling pointer at: 4185 distance: 2
+main+0x15248 (ucl_copy_or_store_ptr @ ucl_parser.c:606) Using expired pointer: 0x5c38d68a7d90 from 0x5c38d68a7d70
+first time found dangling pointer at: 4185 distance: 2
+[INCONSISTENCY mov read UAF] ip: main+0x152ae (ucl_copy_or_store_ptr @ ucl_parser.c:615) UAF read at: 0x5c38d68a7d70
+first time found dangling pointer at: 4185 distance: 7
+[CORRUPTED_PTR_LOAD] ip: main+0x6514 (ucl_strlcpy_unsafe @ ucl_util.c:2157) loaded: 0x5c38d68a7d90 from cell: 0x7ffecee14bc8 cell_owner: 83 value_owner: 81
+[CORRUPTED_PTR_LOAD] ip: main+0x6518 (ucl_strlcpy_unsafe @ ucl_util.c:2157) loaded: 0x5c38d68a8204 from cell: 0x7ffecee14bc0 cell_owner: 83 value_owner: 81
+[CORRUPTED_PTR_LOAD] ip: main+0x651c (ucl_strlcpy_unsafe @ ucl_util.c:2157) loaded: 0x4 from cell: 0x7ffecee14bb8 cell_owner: 83 value_owner: 81
+[CORRUPTED_PTR_LOAD] ip: main+0x6529 (ucl_strlcpy_unsafe @ ucl_util.c:2158) loaded: 0x5c38d68a7d90 from cell: 0x7ffecee14bc8 cell_owner: 83 value_owner: 81
+[CORRUPTED_PTR_LOAD] ip: main+0x652d (ucl_strlcpy_unsafe @ ucl_util.c:2158) loaded: 0x4 from cell: 0x7ffecee14bb8 cell_owner: 83 value_owner: 81
+[INCONSISTENCY mov write imm UAF] ip: main+0x6535 (ucl_strlcpy_unsafe @ ucl_util.c:2158) UAF write at: 0x5c38d68a7d93
+[CORRUPTED_PTR_LOAD] ip: main+0x6539 (ucl_strlcpy_unsafe @ ucl_util.c:2160) loaded: 0x4 from cell: 0x7ffecee14bb8 cell_owner: 83 value_owner: 81
+[INCONSISTENCY mov read UAF] ip: main+0x1537a (ucl_copy_or_store_ptr @ ucl_parser.c:641) UAF read at: 0x5c38d68a7d70
+first time found dangling pointer at: 4185 distance: 39
+[INCONSISTENCY mov write reg UAF] ip: main+0x12659 (ucl_parse_key @ ucl_parser.c:1559) UAF write at: 0x5c38d68a7d48
+first time found dangling pointer at: 4242 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x12667 (ucl_parse_key @ ucl_parser.c:1560) UAF write at: 0x5c38d68a7d60
+[INCONSISTENCY mov read UAF] ip: main+0xccff (ucl_parser_process_object_element @ ucl_parser.c:1243) UAF read at: 0x5c38d68a7538
+first time found dangling pointer at: 3218 distance: 1039
+[INCONSISTENCY mov read UAF] ip: main+0xcd03 (ucl_parser_process_object_element @ ucl_parser.c:1243) UAF read at: 0x5c38d68a7d10
+first time found dangling pointer at: 3190 distance: 1068
+[INCONSISTENCY mov read UAF] ip: main+0xcd06 (ucl_parser_process_object_element @ ucl_parser.c:1243) UAF read at: 0x5c38d68a7c70
+first time found dangling pointer at: 3174 distance: 1085
+[INCONSISTENCY mov read UAF] ip: main+0xcd11 (ucl_parser_process_object_element @ ucl_parser.c:1245) UAF read at: 0x5c38d68a7538
+first time found dangling pointer at: 3218 distance: 1044
+[INCONSISTENCY mov read UAF] ip: main+0xcd15 (ucl_parser_process_object_element @ ucl_parser.c:1245) UAF read at: 0x5c38d68a7d10
+first time found dangling pointer at: 3190 distance: 1073
+[INCONSISTENCY mov read UAF] ip: main+0xcd2b (ucl_parser_process_object_element @ ucl_parser.c:1246) UAF read at: 0x5c38d68a7c70
+first time found dangling pointer at: 3174 distance: 1094
+[CORRUPTED_PTR_LOAD] ip: main+0xd140 (ucl_hash_search_obj @ ucl_internal.h:464) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14ae8 cell_owner: 85 value_owner: 84
+[CORRUPTED_PTR_LOAD] ip: main+0xd144 (ucl_hash_search_obj @ ucl_internal.h:464) loaded: 0x5c38d68a7d40 from cell: 0x7ffecee14ae0 cell_owner: 85 value_owner: 84
+[INCONSISTENCY mov read UAF] ip: main+0xd148 (ucl_hash_search_obj @ ucl_internal.h:464) UAF read at: 0x5c38d68a7d48
+first time found dangling pointer at: 4242 distance: 36
+[CORRUPTED_PTR_LOAD] ip: main+0xd14c (ucl_hash_search_obj @ ucl_internal.h:464) loaded: 0x5c38d68a7d40 from cell: 0x7ffecee14ae0 cell_owner: 85 value_owner: 84
+[INCONSISTENCY mov read UAF] ip: main+0xd150 (ucl_hash_search_obj @ ucl_internal.h:464) UAF read at: 0x5c38d68a7d60
+[CORRUPTED_PTR_LOAD] ip: main+0x193ce (ucl_hash_search @ ucl_hash.c:453) loaded: 0x5c38d68a7d90 from cell: 0x7ffecee14ab8 cell_owner: 86 value_owner: 85
+[CORRUPTED_PTR_LOAD] ip: main+0x193d6 (ucl_hash_search @ ucl_hash.c:454) loaded: 0xd68a7d9000000003 from cell: 0x7ffecee14ab4 cell_owner: 86 value_owner: 85
+[CORRUPTED_PTR_LOAD] ip: main+0x193dc (ucl_hash_search @ ucl_hash.c:456) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14ac0 cell_owner: 86 value_owner: 85
+[CORRUPTED_PTR_LOAD] ip: main+0x193f4 (ucl_hash_search @ ucl_hash.c:460) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14ac0 cell_owner: 86 value_owner: 85
+[INCONSISTENCY mov read UAF] ip: main+0x193f8 (ucl_hash_search @ ucl_hash.c:460) UAF read at: 0x5c38d68a7cd0
+[CORRUPTED_PTR_LOAD] ip: main+0x1944f (ucl_hash_search @ ucl_hash.c:472) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14ac0 cell_owner: 86 value_owner: 85
+[INCONSISTENCY mov read UAF] ip: main+0x19453 (ucl_hash_search @ ucl_hash.c:472) UAF read at: 0x5c38d68a7cc0
+first time found dangling pointer at: 3165 distance: 1134
+[CORRUPTED_PTR_LOAD] ip: main+0x19650 (kh_get_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a30 cell_owner: 87 value_owner: 86
+[INCONSISTENCY mov read UAF] ip: main+0x19654 (kh_get_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce0
+[CORRUPTED_PTR_LOAD] ip: main+0x1949c (ucl_hash_search @ ucl_hash.c:480) loaded: 0x0 from cell: 0x7ffecee14aa8 cell_owner: 86 value_owner: 85
+[INCONSISTENCY mov read UAF] ip: main+0xcd54 (ucl_parser_process_object_element @ ucl_parser.c:1245) UAF read at: 0x5c38d68a7c80
+[INCONSISTENCY mov read UAF] ip: main+0xcd78 (ucl_parser_process_object_element @ ucl_parser.c:1256) UAF read at: 0x5c38d68a74fc
+[INCONSISTENCY mov read UAF] ip: main+0xd1c4 (ucl_hash_insert_object @ ucl_internal.h:486) UAF read at: 0x5c38d68a7d48
+first time found dangling pointer at: 4242 distance: 127
+[INCONSISTENCY mov read UAF] ip: main+0xd1cc (ucl_hash_insert_object @ ucl_internal.h:486) UAF read at: 0x5c38d68a7d60
+[INCONSISTENCY mov read] ip: main+0x182e7 (ucl_hash_insert @ ucl_hash.c:311) base: 0x7ffecee14ab0 pointee: 88 read from 89
+[CORRUPTED_PTR_LOAD] ip: main+0x182e7 (ucl_hash_insert @ ucl_hash.c:311) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14aa0 cell_owner: 89 value_owner: 88
+[CORRUPTED_PTR_LOAD] ip: main+0x182fb (ucl_hash_insert @ ucl_hash.c:315) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14aa0 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov read UAF] ip: main+0x182ff (ucl_hash_insert @ ucl_hash.c:315) UAF read at: 0x5c38d68a7cd0
+[CORRUPTED_PTR_LOAD] ip: main+0x18417 (ucl_hash_insert @ ucl_hash.c:332) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14aa0 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov read UAF] ip: main+0x1841b (ucl_hash_insert @ ucl_hash.c:332) UAF read at: 0x5c38d68a7cc0
+first time found dangling pointer at: 3165 distance: 1221
+[CORRUPTED_PTR_LOAD] ip: main+0x18426 (ucl_hash_insert @ ucl_hash.c:333) loaded: 0x5c38d68a7d40 from cell: 0x7ffecee14a98 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov read] ip: main+0x18924 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18924 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x18928 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce8
+[INCONSISTENCY mov read] ip: main+0x1892b (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x1892b (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read] ip: main+0x18938 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18938 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x1893c (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce0
+[INCONSISTENCY mov read] ip: main+0x1893e (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x1893e (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x18942 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce4
+[INCONSISTENCY mov read] ip: main+0x18988 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18988 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read] ip: main+0x1898c (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x1898c (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x18990 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce0
+[INCONSISTENCY mov read] ip: main+0x1a061 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a061 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000001 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read] ip: main+0x1a06a (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a06a (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000000 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a076 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a076 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000000 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a082 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a082 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000000 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a08e (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a08e (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000000 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a09a (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a09a (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000000 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a0a6 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a0a6 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000000 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a0af (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a0af (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000001 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a0c0 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a0c0 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read UAF] ip: main+0x1a0c4 (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce4
+[INCONSISTENCY mov read] ip: main+0x1a0c7 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a0c7 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000004 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a100 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a100 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000004 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a120 (kh_resize_ucl_hash_node) base: 0x7ffecee14a00 pointee: 87 read from 91
+[CORRUPTED_PTR_LOAD] ip: main+0x1a120 (kh_resize_ucl_hash_node) loaded: 0x3ae25c3300000001 from cell: 0x7ffecee14994 cell_owner: 91 value_owner: 87
+[ALLOC] malloc(0x4) -> 0x5c38d68a7db0 subject=92 at kh_resize_ucl_hash_node @ ucl_hash.c:117
+Store dangling pointer: 0x5c38d68a7db0 at: 0x7ffecee149e0
+[INCONSISTENCY mov read] ip: main+0x1a134 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+main+0x1a134 (kh_resize_ucl_hash_node @ ucl_hash.c:117) Using expired pointer: 0x5c38d68a7db0 from 0x7ffecee149e0
+first time found dangling pointer at: 4473 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x1a134 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7db0 from cell: 0x7ffecee149e0 cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a14b (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a14b (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7db0 from cell: 0x7ffecee149e0 cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a153 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a153 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000004 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a173 (kh_resize_ucl_hash_node) base: 0x7ffecee14a00 pointee: 87 read from 91
+[CORRUPTED_PTR_LOAD] ip: main+0x1a173 (kh_resize_ucl_hash_node) loaded: 0x5c38d68a7db0 from cell: 0x7ffecee14988 cell_owner: 91 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a177 (kh_resize_ucl_hash_node) base: 0x7ffecee14a00 pointee: 87 read from 91
+[CORRUPTED_PTR_LOAD] ip: main+0x1a177 (kh_resize_ucl_hash_node) loaded: 0xd68a7db000000001 from cell: 0x7ffecee14984 cell_owner: 91 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a18c (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a18c (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read UAF] ip: main+0x1a190 (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce0
+[INCONSISTENCY mov read] ip: main+0x1a19b (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a19b (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read UAF] ip: main+0x1a19f (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7cf8
+[INCONSISTENCY mov read] ip: main+0x1a1a3 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a1a3 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000004 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[ALLOC:internal] malloc(0x20) -> 0x5c38d68a7dd0 subject=93
+Store dangling pointer: 0x5c38d68a7dd0 at: 0x7ffecee149d0
+main+0x1a1b5 (kh_resize_ucl_hash_node @ ucl_hash.c:117) Using expired pointer: 0x5c38d68a7dd0 from 0x7ffecee149d0
+first time found dangling pointer at: 4502 distance: 1
+[INCONSISTENCY mov read] ip: main+0x1a1d9 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a1d9 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov write reg UAF] ip: main+0x1a1dd (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7cf8
+first time found dangling pointer at: 4507 distance: 0
+[INCONSISTENCY mov read] ip: main+0x1a1e1 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a1e1 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read UAF] ip: main+0x1a1e5 (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7d00
+[INCONSISTENCY mov read] ip: main+0x1a1e9 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a1e9 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000004 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[ALLOC:internal] malloc(0x20) -> 0x5c38d68a7e00 subject=95
+Store dangling pointer: 0x5c38d68a7e00 at: 0x7ffecee149c8
+[INCONSISTENCY mov read] ip: main+0x1a1fb (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 54
+main+0x1a1fb (kh_resize_ucl_hash_node @ ucl_hash.c:117) Using expired pointer: 0x5c38d68a7e00 from 0x7ffecee149c8
+first time found dangling pointer at: 4515 distance: 1
+[CORRUPTED_PTR_LOAD] ip: main+0x1a1fb (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7e00 from cell: 0x7ffecee149c8 cell_owner: 54 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a21b (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 54
+[CORRUPTED_PTR_LOAD] ip: main+0x1a21b (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7e00 from cell: 0x7ffecee149c8 cell_owner: 54 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a21f (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a21f (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov write reg UAF] ip: main+0x1a223 (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7d00
+first time found dangling pointer at: 4520 distance: 0
+[INCONSISTENCY mov read] ip: main+0x1a240 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a240 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read] ip: main+0x1a478 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a478 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read UAF] ip: main+0x1a47c (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce0
+[INCONSISTENCY mov read] ip: main+0x1a4c9 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a4c9 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read UAF] ip: main+0x1a4cd (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7cf0
+[INCONSISTENCY mov read] ip: main+0x1a4d6 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a4d6 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7db0 from cell: 0x7ffecee149e0 cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a4da (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a4da (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov write reg UAF] ip: main+0x1a4de (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7cf0
+first time found dangling pointer at: 4539 distance: 0
+[INCONSISTENCY mov read] ip: main+0x1a4e2 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a4e2 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xd68a7ce000000004 from cell: 0x7ffecee149ec cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1a4e5 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a4e5 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov write reg UAF] ip: main+0x1a4e9 (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7ce0
+[INCONSISTENCY mov read] ip: main+0x1a4eb (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a4eb (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read UAF] ip: main+0x1a4ef (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce4
+[INCONSISTENCY mov write reg UAF] ip: main+0x1a4f2 (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7ce8
+[INCONSISTENCY mov read] ip: main+0x1a4f5 (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a4f5 (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov read UAF] ip: main+0x1a4f9 (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce0
+[INCONSISTENCY mov read] ip: main+0x1a51f (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a51f (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee149f0 cell_owner: 52 value_owner: 90
+[INCONSISTENCY mov write reg UAF] ip: main+0x1a523 (kh_resize_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7cec
+[INCONSISTENCY mov read] ip: main+0x1a52d (kh_resize_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a00 pointee: 87 read from 52
+[CORRUPTED_PTR_LOAD] ip: main+0x1a52d (kh_resize_ucl_hash_node @ ucl_hash.c:117) loaded: 0xcee14a5000000000 from cell: 0x7ffecee149fc cell_owner: 52 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x189c5 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x189c5 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x189c9 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce0
+[INCONSISTENCY mov read] ip: main+0x189d8 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x189d8 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x189dc (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce0
+[INCONSISTENCY mov read] ip: main+0x189e4 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x189e4 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7d40 from cell: 0x7ffecee14a38 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read] ip: main+0x1b24c (ucl_hash_func @ ucl_hash.c:105) base: 0x7ffecee14a00 pointee: 87 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x1b24c (ucl_hash_func @ ucl_hash.c:105) loaded: 0x5c38d68a7d40 from cell: 0x7ffecee149f8 cell_owner: 97 value_owner: 87
+[INCONSISTENCY mov read UAF] ip: main+0x1b250 (ucl_hash_func @ ucl_hash.c:105) UAF read at: 0x5c38d68a7d48
+first time found dangling pointer at: 4242 distance: 340
+[INCONSISTENCY mov read] ip: main+0x1b258 (ucl_hash_func @ ucl_hash.c:105) base: 0x7ffecee14a00 pointee: 87 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x1b258 (ucl_hash_func @ ucl_hash.c:105) loaded: 0x5c38d68a7d40 from cell: 0x7ffecee149f8 cell_owner: 97 value_owner: 87
+[INCONSISTENCY mov read UAF] ip: main+0x1b25c (ucl_hash_func @ ucl_hash.c:105) UAF read at: 0x5c38d68a7d60
+[INCONSISTENCY mov write reg] ip: main+0x1b12b (ucl_hash_seed @ ucl_hash.c:53) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov read] ip: main+0x1b268 (ucl_hash_func @ ucl_hash.c:105) base: 0x7ffecee14a00 pointee: 87 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x1b268 (ucl_hash_func @ ucl_hash.c:105) loaded: 0x5c38d68a7d90 from cell: 0x7ffecee149e8 cell_owner: 97 value_owner: 87
+[INCONSISTENCY mov read] ip: main+0x1b26c (ucl_hash_func @ ucl_hash.c:105) base: 0x7ffecee14a00 pointee: 87 read from 97
+[CORRUPTED_PTR_LOAD] ip: main+0x1b26c (ucl_hash_func @ ucl_hash.c:105) loaded: 0x3 from cell: 0x7ffecee149f0 cell_owner: 97 value_owner: 87
+[CORRUPTED_PTR_LOAD] ip: main+0x1b304 (mum_hash @ mum.h:414) loaded: 0x5c38d68a7d90 from cell: 0x7ffecee149c8 cell_owner: 54 value_owner: 97
+[CORRUPTED_PTR_LOAD] ip: main+0x1b308 (mum_hash @ mum.h:414) loaded: 0x3 from cell: 0x7ffecee149c0 cell_owner: 54 value_owner: 97
+[CORRUPTED_PTR_LOAD] ip: main+0x1b30c (mum_hash @ mum.h:414) loaded: 0x6a352498 from cell: 0x7ffecee149b8 cell_owner: 98 value_owner: 97
+[CORRUPTED_PTR_LOAD] ip: main+0x1b337 (_mum_hash_default @ mum.h:324) loaded: 0x5c38d68a7d90 from cell: 0x7ffecee14998 cell_owner: 91 value_owner: 98
+[CORRUPTED_PTR_LOAD] ip: main+0x1b33f (_mum_hash_default @ mum.h:328) loaded: 0x6a352498 from cell: 0x7ffecee14988 cell_owner: 91 value_owner: 98
+[CORRUPTED_PTR_LOAD] ip: main+0x1b34f (_mum_hash_default @ mum.h:330) loaded: 0x5c38d68a7d90 from cell: 0x7ffecee14998 cell_owner: 91 value_owner: 98
+[CORRUPTED_PTR_LOAD] ip: main+0x1b353 (_mum_hash_default @ mum.h:330) loaded: 0x3 from cell: 0x7ffecee14990 cell_owner: 91 value_owner: 98
+[CORRUPTED_PTR_LOAD] ip: main+0x1b397 (_mum_hash_aligned @ mum.h:218) loaded: 0x6a35249b from cell: 0x7ffecee14550 cell_owner: 100 value_owner: 99
+[CORRUPTED_PTR_LOAD] ip: main+0x1b39f (_mum_hash_aligned @ mum.h:219) loaded: 0x5c38d68a7d90 from cell: 0x7ffecee14548 cell_owner: 100 value_owner: 99
+[CORRUPTED_PTR_LOAD] ip: main+0x1b1bc (_mum @ mum.h:119) loaded: 0x6a35249b from cell: 0x7ffecee144b8 cell_owner: 55 value_owner: 100
+[CORRUPTED_PTR_LOAD] ip: main+0x1b1c0 (_mum @ mum.h:119) loaded: 0xc42b5e2e6480b23b from cell: 0x7ffecee144b0 cell_owner: 55 value_owner: 100
+[CORRUPTED_PTR_LOAD] ip: main+0x1b3bb (_mum_hash_aligned @ mum.h:225) loaded: 0x3 from cell: 0x7ffecee14540 cell_owner: 100 value_owner: 99
+[CORRUPTED_PTR_LOAD] ip: main+0x1b446 (_mum_hash_aligned @ mum.h:237) loaded: 0x3 from cell: 0x7ffecee14540 cell_owner: 100 value_owner: 99
+[CORRUPTED_PTR_LOAD] ip: main+0x1b4ae (_mum_hash_aligned @ mum.h:240) loaded: 0x3 from cell: 0x7ffecee14540 cell_owner: 100 value_owner: 99
+[UNTRUSTEDPTRDEREF] ip: main+0x1b4ea (_mum_hash_aligned) final_ea: 0x5c38cc8a6054 base: 0x5c38cc8a604c pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x1b65f (_mum_hash_aligned @ mum.h:261) UAF read at: 0x5c38d68a7d90
+[INCONSISTENCY mov read UAF] ip: main+0x1b66a (_mum_hash_aligned @ mum.h:262) UAF read at: 0x5c38d68a7d91
+[INCONSISTENCY mov read UAF] ip: main+0x1b67e (_mum_hash_aligned @ mum.h:263) UAF read at: 0x5c38d68a7d92
+[INCONSISTENCY mov read] ip: main+0x189f0 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x189f0 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x40c4abbd6 from cell: 0x7ffecee14a28 cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x189f9 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x189f9 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x189fd (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7cf0
+first time found dangling pointer at: 4539 distance: 263
+[INCONSISTENCY mov read] ip: main+0x18a01 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18a01 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xc4abbd600000002 from cell: 0x7ffecee14a24 cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read UAF] ip: main+0x18a09 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7db0
+[INCONSISTENCY mov read] ip: main+0x18a0c (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18a0c (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xc4abbd600000002 from cell: 0x7ffecee14a24 cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x18a23 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18a23 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xc4abbd600000002 from cell: 0x7ffecee14a24 cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x18b92 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18b92 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x18b96 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7cf0
+first time found dangling pointer at: 4539 distance: 279
+[INCONSISTENCY mov read] ip: main+0x18b9a (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18b9a (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xcee14a8400000002 from cell: 0x7ffecee14a2c cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read UAF] ip: main+0x18ba2 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7db0
+[INCONSISTENCY mov read] ip: main+0x18ba5 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18ba5 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xcee14a8400000002 from cell: 0x7ffecee14a2c cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x18bbc (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18bbc (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7d40 from cell: 0x7ffecee14a38 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read] ip: main+0x18bc0 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18bc0 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x18bc4 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7cf8
+first time found dangling pointer at: 4507 distance: 325
+[INCONSISTENCY mov read] ip: main+0x18bc8 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18bc8 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xcee14a8400000002 from cell: 0x7ffecee14a2c cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov write reg UAF] ip: main+0x18bcb (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7de0
+first time found dangling pointer at: 4834 distance: 0
+[INCONSISTENCY mov read] ip: main+0x18bcf (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18bcf (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xcee14a8400000002 from cell: 0x7ffecee14a2c cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x18be8 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18be8 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x18bec (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7cf0
+first time found dangling pointer at: 4539 distance: 305
+[INCONSISTENCY mov read] ip: main+0x18bf0 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18bf0 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xcee14a8400000002 from cell: 0x7ffecee14a2c cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read UAF] ip: main+0x18bf8 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7db0
+[INCONSISTENCY mov write reg UAF] ip: main+0x18bfe (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7db0
+[INCONSISTENCY mov read] ip: main+0x18c01 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18c01 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x18c05 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce4
+[INCONSISTENCY mov write reg UAF] ip: main+0x18c0b (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7ce4
+[INCONSISTENCY mov read] ip: main+0x18c0e (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18c0e (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x5c38d68a7ce0 from cell: 0x7ffecee14a40 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read UAF] ip: main+0x18c12 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF read at: 0x5c38d68a7ce8
+[INCONSISTENCY mov write reg UAF] ip: main+0x18c18 (kh_put_ucl_hash_node @ ucl_hash.c:117) UAF write at: 0x5c38d68a7ce8
+[INCONSISTENCY mov read] ip: main+0x18c1b (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18c1b (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0x7ffecee14a84 from cell: 0x7ffecee14a30 cell_owner: 90 value_owner: 89
+[INCONSISTENCY mov read] ip: main+0x18cc4 (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18cc4 (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xcee14a8400000002 from cell: 0x7ffecee14a2c cell_owner: 90 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x18cca (kh_put_ucl_hash_node @ ucl_hash.c:117) base: 0x7ffecee14a50 pointee: 86 read from 90
+[CORRUPTED_PTR_LOAD] ip: main+0x18cca (kh_put_ucl_hash_node @ ucl_hash.c:117) loaded: 0xcee14ab000000002 from cell: 0x7ffecee14a4c cell_owner: 90 value_owner: 86
+[ALLOC] malloc(0x18) -> 0x5c38d68a7e30 subject=102 at ucl_hash_insert @ ucl_hash.c:335
+Store dangling pointer: 0x5c38d68a7e30 at: 0x7ffecee14a70
+[INCONSISTENCY mov read UAF] ip: main+0x18452 (ucl_hash_insert @ ucl_hash.c:336) UAF read at: 0x5c38d68a7d00
+first time found dangling pointer at: 4520 distance: 356
+Store dangling pointer: 0x5c38d68a7e10 at: 0x7ffecee14a78
+main+0x18464 (ucl_hash_insert @ ucl_hash.c:337) Using expired pointer: 0x5c38d68a7e30 from 0x7ffecee14a70
+first time found dangling pointer at: 4290 distance: 591
+main+0x18468 (ucl_hash_insert @ ucl_hash.c:337) Using expired pointer: 0x5c38d68a7e10 from 0x7ffecee14a78
+first time found dangling pointer at: 4880 distance: 2
+[INCONSISTENCY mov write reg UAF] ip: main+0x1846c (ucl_hash_insert @ ucl_hash.c:337) UAF write at: 0x5c38d68a7e10
+first time found dangling pointer at: 4883 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0x1846f (ucl_hash_insert @ ucl_hash.c:338) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14aa0 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov read UAF] ip: main+0x18473 (ucl_hash_insert @ ucl_hash.c:338) UAF read at: 0x5c38d68a7cc8
+[CORRUPTED_PTR_LOAD] ip: main+0x184cb (ucl_hash_insert @ ucl_hash.c:338) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14aa0 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov write reg UAF] ip: main+0x184cf (ucl_hash_insert @ ucl_hash.c:338) UAF write at: 0x5c38d68a7cc8
+first time found dangling pointer at: 4889 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0x184d3 (ucl_hash_insert @ ucl_hash.c:338) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14aa0 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov read UAF] ip: main+0x184d7 (ucl_hash_insert @ ucl_hash.c:338) UAF read at: 0x5c38d68a7cc8
+first time found dangling pointer at: 4889 distance: 2
+[CORRUPTED_PTR_LOAD] ip: main+0x184db (ucl_hash_insert @ ucl_hash.c:338) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14aa0 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov read UAF] ip: main+0x184df (ucl_hash_insert @ ucl_hash.c:338) UAF read at: 0x5c38d68a7cc8
+first time found dangling pointer at: 4889 distance: 4
+[INCONSISTENCY mov write reg UAF] ip: main+0x184e3 (ucl_hash_insert @ ucl_hash.c:338) UAF write at: 0x5c38d68a7e38
+first time found dangling pointer at: 4894 distance: 0
+[CORRUPTED_PTR_LOAD] ip: main+0x184e7 (ucl_hash_insert @ ucl_hash.c:338) loaded: 0x5c38d68a7cc0 from cell: 0x7ffecee14aa0 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov read UAF] ip: main+0x184eb (ucl_hash_insert @ ucl_hash.c:338) UAF read at: 0x5c38d68a7cc8
+first time found dangling pointer at: 4889 distance: 7
+[INCONSISTENCY mov write imm UAF] ip: main+0x184ef (ucl_hash_insert @ ucl_hash.c:338) UAF write at: 0x5c38d68a7e40
+[CORRUPTED_PTR_LOAD] ip: main+0x184fc (ucl_hash_insert @ ucl_hash.c:339) loaded: 0x5c38d68a7d40 from cell: 0x7ffecee14a98 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov write reg UAF] ip: main+0x18504 (ucl_hash_insert @ ucl_hash.c:339) UAF write at: 0x5c38d68a7e30
+first time found dangling pointer at: 4901 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0xcdaf (ucl_parser_process_object_element @ ucl_parser.c:1260) UAF write at: 0x5c38d68a7d58
+first time found dangling pointer at: 4079 distance: 846
+[INCONSISTENCY mov write imm UAF] ip: main+0xcdb7 (ucl_parser_process_object_element @ ucl_parser.c:1261) UAF write at: 0x5c38d68a7d50
+[INCONSISTENCY mov read UAF] ip: main+0xcdc3 (ucl_parser_process_object_element @ ucl_parser.c:1262) UAF read at: 0x5c38d68a7538
+first time found dangling pointer at: 3218 distance: 1711
+[INCONSISTENCY mov read UAF] ip: main+0xcdc7 (ucl_parser_process_object_element @ ucl_parser.c:1262) UAF read at: 0x5c38d68a7d10
+first time found dangling pointer at: 3190 distance: 1740
+[INCONSISTENCY mov read UAF] ip: main+0xcdca (ucl_parser_process_object_element @ ucl_parser.c:1262) UAF read at: 0x5c38d68a7c94
+[INCONSISTENCY mov write reg UAF] ip: main+0xcdd0 (ucl_parser_process_object_element @ ucl_parser.c:1262) UAF write at: 0x5c38d68a7c94
+[INCONSISTENCY mov read UAF] ip: main+0xd0f2 (ucl_parser_process_object_element @ ucl_parser.c:1343) UAF read at: 0x5c38d68a7538
+first time found dangling pointer at: 3218 distance: 1719
+[INCONSISTENCY mov read UAF] ip: main+0xd0f6 (ucl_parser_process_object_element @ ucl_parser.c:1343) UAF read at: 0x5c38d68a7d10
+first time found dangling pointer at: 3190 distance: 1748
+[INCONSISTENCY mov write reg UAF] ip: main+0xd0f9 (ucl_parser_process_object_element @ ucl_parser.c:1343) UAF write at: 0x5c38d68a7c70
+first time found dangling pointer at: 3174 distance: 1765
+[INCONSISTENCY mov write reg UAF] ip: main+0xd104 (ucl_parser_process_object_element @ ucl_parser.c:1344) UAF write at: 0x5c38d68a7510
+first time found dangling pointer at: 3221 distance: 1721
+[INCONSISTENCY mov read UAF] ip: main+0xd4bb (ucl_attach_comment @ ucl_parser.c:119) UAF read at: 0x5c38d68a7588
+[CORRUPTED_PTR_LOAD] ip: main+0xf4b5 (ucl_state_machine @ ucl_parser.c:2515) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xf4b9 (ucl_state_machine @ ucl_parser.c:2515) UAF read at: 0x5c38d68a74f0
+[CORRUPTED_PTR_LOAD] ip: main+0xf537 (ucl_state_machine @ ucl_parser.c:2528) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov write imm UAF] ip: main+0xf53b (ucl_state_machine @ ucl_parser.c:2528) UAF write at: 0x5c38d68a74f0
+[INCONSISTENCY mov read UAF] ip: main+0xf55b (ucl_state_machine @ ucl_parser.c:2534) UAF read at: 0x5c38d68a7c20
+[CORRUPTED_PTR_LOAD] ip: main+0xf568 (ucl_state_machine @ ucl_parser.c:2538) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xf56c (ucl_state_machine @ ucl_parser.c:2538) UAF read at: 0x5c38d68a7510
+first time found dangling pointer at: 3221 distance: 1792
+[CORRUPTED_PTR_LOAD] ip: main+0xf577 (ucl_state_machine @ ucl_parser.c:2538) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0x126e8 (ucl_parse_value @ ucl_parser.c:1747) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov read] ip: main+0xccbd (ucl_test_character @ ucl_chartable.h:265) base: 0x7ffecee14c60 pointee: 72 read from 78
+[INCONSISTENCY mov read UAF] ip: main+0x1270d (ucl_parse_value @ ucl_parser.c:1751) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov read] ip: main+0x13dc0 (ucl_lex_is_comment @ ucl_parser.c:295) base: 0x7ffecee14c60 pointee: 72 read from 78
+[INCONSISTENCY mov read] ip: main+0x13de8 (ucl_lex_is_comment @ ucl_parser.c:300) base: 0x7ffecee14c60 pointee: 72 read from 78
+[INCONSISTENCY mov read UAF] ip: main+0x12901 (ucl_parse_value @ ucl_parser.c:1765) UAF read at: 0x5c38d68a7c3c
+[INCONSISTENCY mov write reg UAF] ip: main+0x12907 (ucl_parse_value @ ucl_parser.c:1765) UAF write at: 0x5c38d68a7c3c
+[INCONSISTENCY mov read UAF] ip: main+0x1291a (ucl_parse_value @ ucl_parser.c:1765) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov write reg UAF] ip: main+0x12922 (ucl_parse_value @ ucl_parser.c:1765) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read UAF] ip: main+0x1292a (ucl_parse_value @ ucl_parser.c:1765) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov write reg UAF] ip: main+0x12932 (ucl_parse_value @ ucl_parser.c:1765) UAF write at: 0x5c38d68a7c30
+[INCONSISTENCY mov read] ip: main+0x14bdc (ucl_lex_json_string @ ucl_parser.c:1088) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x14bdc (ucl_lex_json_string @ ucl_parser.c:1088) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14c48 cell_owner: 105 value_owner: 104
+[INCONSISTENCY mov read UAF] ip: main+0x14be0 (ucl_lex_json_string @ ucl_parser.c:1088) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov read] ip: main+0x14be8 (ucl_lex_json_string @ ucl_parser.c:1092) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x14be8 (ucl_lex_json_string @ ucl_parser.c:1092) loaded: 0x5c38d68a820b from cell: 0x7ffecee14c28 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x14bec (ucl_lex_json_string @ ucl_parser.c:1092) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x14bec (ucl_lex_json_string @ ucl_parser.c:1092) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14c48 cell_owner: 105 value_owner: 104
+[INCONSISTENCY mov read] ip: main+0x14bfa (ucl_lex_json_string @ ucl_parser.c:1093) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x14bfa (ucl_lex_json_string @ ucl_parser.c:1093) loaded: 0x5c38d68a820b from cell: 0x7ffecee14c28 cell_owner: 105 value_owner: 72
+[INTRA_OBJECT_OVERFLOW] ip: main+0x14c00 (ucl_lex_json_string @ ucl_parser.c:1093) byte write at: 0x7ffecee14c27 offset: +0x17 cell_owner: 105 writer_pointee: 72
+[INCONSISTENCY mov read] ip: main+0x14c03 (ucl_lex_json_string @ ucl_parser.c:1094) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x14c03 (ucl_lex_json_string @ ucl_parser.c:1094) loaded: 0x5c38d68a820b76 from cell: 0x7ffecee14c27 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x14c6b (ucl_lex_json_string @ ucl_parser.c:1106) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x14c6b (ucl_lex_json_string @ ucl_parser.c:1106) loaded: 0x5c38d68a820b76 from cell: 0x7ffecee14c27 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x14fe1 (ucl_lex_json_string @ ucl_parser.c:1140) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x14fe1 (ucl_lex_json_string @ ucl_parser.c:1140) loaded: 0x5c38d68a820b76 from cell: 0x7ffecee14c27 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x1507e (ucl_lex_json_string @ ucl_parser.c:1144) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x1507e (ucl_lex_json_string @ ucl_parser.c:1144) loaded: 0x5c38d68a820b76 from cell: 0x7ffecee14c27 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x150a0 (ucl_lex_json_string @ ucl_parser.c:1147) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x150a0 (ucl_lex_json_string @ ucl_parser.c:1147) loaded: 0x5c38d68a820b76 from cell: 0x7ffecee14c27 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x150cd (ucl_lex_json_string @ ucl_parser.c:1150) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x150cd (ucl_lex_json_string @ ucl_parser.c:1150) loaded: 0x5c38d68a820b from cell: 0x7ffecee14c28 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x150d1 (ucl_lex_json_string @ ucl_parser.c:1150) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x150d1 (ucl_lex_json_string @ ucl_parser.c:1150) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14c48 cell_owner: 105 value_owner: 104
+[INCONSISTENCY mov read] ip: main+0x150e4 (ucl_lex_json_string @ ucl_parser.c:1150) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x150e4 (ucl_lex_json_string @ ucl_parser.c:1150) loaded: 0x5c38d68a820b from cell: 0x7ffecee14c28 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x15111 (ucl_lex_json_string @ ucl_parser.c:1150) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x15111 (ucl_lex_json_string @ ucl_parser.c:1150) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14c48 cell_owner: 105 value_owner: 104
+[INCONSISTENCY mov read UAF] ip: main+0x15115 (ucl_lex_json_string @ ucl_parser.c:1150) UAF read at: 0x5c38d68a7c3c
+[INCONSISTENCY mov write reg UAF] ip: main+0x1511b (ucl_lex_json_string @ ucl_parser.c:1150) UAF write at: 0x5c38d68a7c3c
+[INCONSISTENCY mov read] ip: main+0x1511e (ucl_lex_json_string @ ucl_parser.c:1150) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x1511e (ucl_lex_json_string @ ucl_parser.c:1150) loaded: 0x5c38d68a820b from cell: 0x7ffecee14c28 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x1512a (ucl_lex_json_string @ ucl_parser.c:1150) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x1512a (ucl_lex_json_string @ ucl_parser.c:1150) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14c48 cell_owner: 105 value_owner: 104
+[INCONSISTENCY mov read UAF] ip: main+0x1512e (ucl_lex_json_string @ ucl_parser.c:1150) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov write reg UAF] ip: main+0x15136 (ucl_lex_json_string @ ucl_parser.c:1150) UAF write at: 0x5c38d68a7c20
+[INCONSISTENCY mov read] ip: main+0x1513a (ucl_lex_json_string @ ucl_parser.c:1150) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x1513a (ucl_lex_json_string @ ucl_parser.c:1150) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14c48 cell_owner: 105 value_owner: 104
+[INCONSISTENCY mov read UAF] ip: main+0x1513e (ucl_lex_json_string @ ucl_parser.c:1150) UAF read at: 0x5c38d68a7c30
+[INCONSISTENCY mov write reg UAF] ip: main+0x15146 (ucl_lex_json_string @ ucl_parser.c:1150) UAF write at: 0x5c38d68a7c30
+[INCONSISTENCY mov read] ip: main+0x14c10 (ucl_lex_json_string @ ucl_parser.c:1096) base: 0x7ffecee14c60 pointee: 72 read from 105
+[CORRUPTED_PTR_LOAD] ip: main+0x14c10 (ucl_lex_json_string @ ucl_parser.c:1096) loaded: 0x5c38d68a821000 from cell: 0x7ffecee14c27 cell_owner: 105 value_owner: 72
+[INCONSISTENCY mov read] ip: main+0x14c42 (ucl_lex_json_string @ ucl_parser.c:1101) base: 0x7ffecee14c60 pointee: 72 read from 78
+[CORRUPTED_PTR_LOAD] ip: main+0x14c42 (ucl_lex_json_string @ ucl_parser.c:1101) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14c50 cell_owner: 78 value_owner: 104
+[INCONSISTENCY mov read] ip: main+0x14c46 (ucl_lex_json_string @ ucl_parser.c:1102) base: 0x7ffecee14c60 pointee: 72 read from 78
+[CORRUPTED_PTR_LOAD] ip: main+0x14c46 (ucl_lex_json_string @ ucl_parser.c:1102) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14c50 cell_owner: 78 value_owner: 104
+Store dangling pointer: 0x5c38d68a7590 at: 0x7ffecee14be0
+[CORRUPTED_PTR_LOAD] ip: main+0xd397 (ucl_set_err @ ucl_parser.c:67) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14bf8 cell_owner: 81 value_owner: 105
+[INCONSISTENCY mov read UAF] ip: main+0xd39b (ucl_set_err @ ucl_parser.c:67) UAF read at: 0x5c38d68a7540
+first time found dangling pointer at: 2838 distance: 2675
+[CORRUPTED_PTR_LOAD] ip: main+0xd3a3 (ucl_set_err @ ucl_parser.c:69) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14bf8 cell_owner: 81 value_owner: 105
+[INCONSISTENCY mov read UAF] ip: main+0xd3a7 (ucl_set_err @ ucl_parser.c:69) UAF read at: 0x5c38d68a7528
+[INCONSISTENCY mov read] ip: main+0xd3ce (ucl_set_err @ ucl_parser.c:76) base: 0x7ffecee14c00 pointee: 81 read from 106
+[CORRUPTED_PTR_LOAD] ip: main+0xd3ce (ucl_set_err @ ucl_parser.c:76) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14bc8 cell_owner: 106 value_owner: 81
+[INCONSISTENCY mov read UAF] ip: main+0xd3d2 (ucl_set_err @ ucl_parser.c:76) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov read] ip: main+0xd3d6 (ucl_set_err @ ucl_parser.c:76) base: 0x7ffecee14c00 pointee: 81 read from 106
+[CORRUPTED_PTR_LOAD] ip: main+0xd3d6 (ucl_set_err @ ucl_parser.c:76) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14bc8 cell_owner: 106 value_owner: 81
+[UNTRUSTEDPTRDEREF] ip: main+0xd3e9 (ucl_set_err @ ucl_parser.c:77) final_ea: 0x75026860e6d8 base: 0x75026860e6d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0xd3ec (ucl_set_err @ ucl_parser.c:77) base: 0x7ffecee14c00 pointee: 81 read from 106
+[CORRUPTED_PTR_LOAD] ip: main+0xd3ec (ucl_set_err @ ucl_parser.c:77) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14bc8 cell_owner: 106 value_owner: 81
+[INCONSISTENCY mov read UAF] ip: main+0xd3f0 (ucl_set_err @ ucl_parser.c:77) UAF read at: 0x5c38d68a7c20
+[UNTRUSTEDPTRDEREF] ip: main+0xd3fa (ucl_set_err @ ucl_parser.c:77) final_ea: 0x750254fc28c0 base: 0x750254fc28c0 pointee: -1 base_vo: -1
+main+0xd427 (ucl_set_err @ ucl_parser.c:85) Using expired pointer: 0x5c38d68a7590 from 0x7ffecee14be0
+first time found dangling pointer at: 5511 distance: 27
+[CORRUPTED_PTR_LOAD] ip: main+0xd427 (ucl_set_err @ ucl_parser.c:85) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14be0 cell_owner: 81 value_owner: 105
+[INCONSISTENCY mov read] ip: main+0xd42b (ucl_set_err @ ucl_parser.c:85) base: 0x7ffecee14c00 pointee: 81 read from 106
+[CORRUPTED_PTR_LOAD] ip: main+0xd42b (ucl_set_err @ ucl_parser.c:85) loaded: 0x5c38cc8a5532 from cell: 0x7ffecee14bd8 cell_owner: 106 value_owner: 81
+[INCONSISTENCY mov read] ip: main+0xd42f (ucl_set_err @ ucl_parser.c:86) base: 0x7ffecee14c00 pointee: 81 read from 106
+[CORRUPTED_PTR_LOAD] ip: main+0xd42f (ucl_set_err @ ucl_parser.c:86) loaded: 0x5c38cc8a54e3 from cell: 0x7ffecee14bd0 cell_owner: 106 value_owner: 81
+[INCONSISTENCY mov read] ip: main+0xd433 (ucl_set_err @ ucl_parser.c:86) base: 0x7ffecee14c00 pointee: 81 read from 106
+[CORRUPTED_PTR_LOAD] ip: main+0xd433 (ucl_set_err @ ucl_parser.c:86) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14bc8 cell_owner: 106 value_owner: 81
+[INCONSISTENCY mov read UAF] ip: main+0xd437 (ucl_set_err @ ucl_parser.c:86) UAF read at: 0x5c38d68a7c38
+[INCONSISTENCY mov read] ip: main+0xd43a (ucl_set_err @ ucl_parser.c:86) base: 0x7ffecee14c00 pointee: 81 read from 106
+[CORRUPTED_PTR_LOAD] ip: main+0xd43a (ucl_set_err @ ucl_parser.c:86) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14bc8 cell_owner: 106 value_owner: 81
+[INCONSISTENCY mov read UAF] ip: main+0xd43e (ucl_set_err @ ucl_parser.c:86) UAF read at: 0x5c38d68a7c3c
+[CORRUPTED_PTR_LOAD] ip: main+0xd442 (ucl_set_err @ ucl_parser.c:87) loaded: 0x5c38cc8a5813 from cell: 0x7ffecee14be8 cell_owner: 81 value_owner: 105
+[INCONSISTENCY mov read] ip: main+0xd446 (ucl_set_err @ ucl_parser.c:87) base: 0x7ffecee14c00 pointee: 81 read from 106
+[CORRUPTED_PTR_LOAD] ip: main+0xd446 (ucl_set_err @ ucl_parser.c:87) loaded: 0x5c38d68a7c10 from cell: 0x7ffecee14bc8 cell_owner: 106 value_owner: 81
+[INCONSISTENCY mov read UAF] ip: main+0xd44a (ucl_set_err @ ucl_parser.c:87) UAF read at: 0x5c38d68a7c20
+[INCONSISTENCY mov read] ip: main+0xedc0 (ucl_create_err @ ucl_internal.h:380) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xedc0 (ucl_create_err @ ucl_internal.h:380) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xedc4 (ucl_create_err @ ucl_internal.h:380) UAF read at: 0x5c38d68a7590
+[ALLOC] calloc(0x20) -> 0x5c38d68a7e50 subject=108 at ucl_create_err @ ucl_internal.h:381
+[INCONSISTENCY mov read] ip: main+0xede5 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xede5 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+Store dangling pointer: 0x5c38d68a7e50 at: 0x5c38d68a7590
+[INCONSISTENCY mov write reg UAF] ip: main+0xede9 (ucl_create_err @ ucl_internal.h:381) UAF write at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 0
+[INCONSISTENCY mov read] ip: main+0xedec (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xedec (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xedf0 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 2
+main+0xedf0 (ucl_create_err @ ucl_internal.h:381) Using expired pointer: 0x5c38d68a7e50 from 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 2
+[INCONSISTENCY mov read] ip: main+0xee04 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee04 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee08 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 6
+[INCONSISTENCY mov write imm UAF] ip: main+0xee0b (ucl_create_err @ ucl_internal.h:381) UAF write at: 0x5c38d68a7e60
+[INCONSISTENCY mov read] ip: main+0xee13 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee13 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee17 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 9
+[INCONSISTENCY mov write imm UAF] ip: main+0xee1a (ucl_create_err @ ucl_internal.h:381) UAF write at: 0x5c38d68a7e68
+[INCONSISTENCY mov read] ip: main+0xee22 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee22 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee26 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 12
+[INCONSISTENCY mov write imm UAF] ip: main+0xee29 (ucl_create_err @ ucl_internal.h:381) UAF write at: 0x5c38d68a7e50
+[INCONSISTENCY mov read] ip: main+0xee30 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee30 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee34 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 15
+[INCONSISTENCY mov read UAF] ip: main+0xee37 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7e60
+[INCONSISTENCY mov read] ip: main+0xee3b (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee3b (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee3f (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 18
+[INCONSISTENCY mov read] ip: main+0xee52 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee52 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee56 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 23
+[INCONSISTENCY mov read UAF] ip: main+0xee59 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7e50
+[INCONSISTENCY mov read] ip: main+0xee5c (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee5c (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee60 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 26
+[INCONSISTENCY mov read UAF] ip: main+0xee63 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7e60
+[ALLOC:internal] malloc(0x80) -> 0x5c38d68a7e80 subject=109
+[INCONSISTENCY mov read] ip: main+0xee76 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee76 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee7a (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 33
+Store dangling pointer: 0x5c38d68a7e80 at: 0x5c38d68a7e50
+[INCONSISTENCY mov write reg UAF] ip: main+0xee7d (ucl_create_err @ ucl_internal.h:381) UAF write at: 0x5c38d68a7e50
+first time found dangling pointer at: 5607 distance: 0
+[INCONSISTENCY mov read] ip: main+0xee80 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee80 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee84 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 36
+[INCONSISTENCY mov read UAF] ip: main+0xee87 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7e50
+first time found dangling pointer at: 5607 distance: 3
+main+0xee87 (ucl_create_err @ ucl_internal.h:381) Using expired pointer: 0x5c38d68a7e80 from 0x5c38d68a7e50
+first time found dangling pointer at: 5607 distance: 3
+[INCONSISTENCY mov read] ip: main+0xee96 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xee96 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xee9a (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 40
+[INCONSISTENCY mov read UAF] ip: main+0xee9d (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7e60
+[INCONSISTENCY mov write reg UAF] ip: main+0xeea8 (ucl_create_err @ ucl_internal.h:381) UAF write at: 0x5c38d68a7e60
+[INCONSISTENCY mov read] ip: main+0xeeac (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xeeac (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xeeb0 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 45
+[INCONSISTENCY mov read UAF] ip: main+0xeeb3 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7e58
+[INCONSISTENCY mov read] ip: main+0xeee5 (ucl_create_err @ ucl_internal.h:381) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xeee5 (ucl_create_err @ ucl_internal.h:381) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xeee9 (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 52
+[INCONSISTENCY mov read UAF] ip: main+0xeeec (ucl_create_err @ ucl_internal.h:381) UAF read at: 0x5c38d68a7e50
+first time found dangling pointer at: 5607 distance: 19
+[INCONSISTENCY mov write imm UAF] ip: main+0xeeef (ucl_create_err @ ucl_internal.h:381) UAF write at: 0x5c38d68a7e80
+[INCONSISTENCY mov read] ip: main+0xef20 (ucl_create_err @ ucl_internal.h:384) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xef20 (ucl_create_err @ ucl_internal.h:384) loaded: 0x5c38d68a7590 from cell: 0x7ffecee14ba8 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read UAF] ip: main+0xef24 (ucl_create_err @ ucl_internal.h:384) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 65
+[INCONSISTENCY mov read] ip: main+0xef27 (ucl_create_err @ ucl_internal.h:384) base: 0x7ffecee14bb0 pointee: 83 read from 84
+[CORRUPTED_PTR_LOAD] ip: main+0xef27 (ucl_create_err @ ucl_internal.h:384) loaded: 0x5c38cc8a5532 from cell: 0x7ffecee14ba0 cell_owner: 84 value_owner: 106
+[INCONSISTENCY mov read] ip: main+0x10e18 (utstring_printf_va @ utstring.h:130) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e18 (utstring_printf_va @ utstring.h:130) loaded: 0x7ffecee14b80 from cell: 0x7ffecee14aa8 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov read] ip: main+0x10e2a (utstring_printf_va @ utstring.h:132) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e2a (utstring_printf_va @ utstring.h:132) loaded: 0x5c38d68a7e50 from cell: 0x7ffecee14ab8 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov read UAF] ip: main+0x10e2e (utstring_printf_va @ utstring.h:132) UAF read at: 0x5c38d68a7e50
+first time found dangling pointer at: 5607 distance: 48
+[INCONSISTENCY mov read] ip: main+0x10e31 (utstring_printf_va @ utstring.h:132) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e31 (utstring_printf_va @ utstring.h:132) loaded: 0x5c38d68a7e50 from cell: 0x7ffecee14ab8 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov read] ip: main+0x10e39 (utstring_printf_va @ utstring.h:132) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e39 (utstring_printf_va @ utstring.h:132) loaded: 0x5c38d68a7e50 from cell: 0x7ffecee14ab8 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov read UAF] ip: main+0x10e3d (utstring_printf_va @ utstring.h:132) UAF read at: 0x5c38d68a7e60
+[INCONSISTENCY mov read] ip: main+0x10e41 (utstring_printf_va @ utstring.h:132) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e41 (utstring_printf_va @ utstring.h:132) loaded: 0x5c38d68a7e50 from cell: 0x7ffecee14ab8 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov read] ip: main+0x10e49 (utstring_printf_va @ utstring.h:132) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e49 (utstring_printf_va @ utstring.h:132) loaded: 0x5c38cc8a5532 from cell: 0x7ffecee14ab0 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov read] ip: main+0x10e5d (utstring_printf_va @ utstring.h:135) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e5d (utstring_printf_va @ utstring.h:135) loaded: 0xcee14b8000000066 from cell: 0x7ffecee14aa4 cell_owner: 111 value_owner: 88
+[INCONSISTENCY mov read] ip: main+0x10e67 (utstring_printf_va @ utstring.h:135) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e67 (utstring_printf_va @ utstring.h:135) loaded: 0xcee14b8000000066 from cell: 0x7ffecee14aa4 cell_owner: 111 value_owner: 88
+[INCONSISTENCY mov read] ip: main+0x10e6a (utstring_printf_va @ utstring.h:135) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e6a (utstring_printf_va @ utstring.h:135) loaded: 0x5c38d68a7e50 from cell: 0x7ffecee14ab8 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov read UAF] ip: main+0x10e6e (utstring_printf_va @ utstring.h:135) UAF read at: 0x5c38d68a7e60
+[INCONSISTENCY mov read] ip: main+0x10e72 (utstring_printf_va @ utstring.h:135) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e72 (utstring_printf_va @ utstring.h:135) loaded: 0x5c38d68a7e50 from cell: 0x7ffecee14ab8 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov read] ip: main+0x10e82 (utstring_printf_va @ utstring.h:136) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e82 (utstring_printf_va @ utstring.h:136) loaded: 0xcee14b8000000066 from cell: 0x7ffecee14aa4 cell_owner: 111 value_owner: 88
+[INCONSISTENCY mov read] ip: main+0x10e86 (utstring_printf_va @ utstring.h:136) base: 0x7ffecee14ac0 pointee: 88 read from 111
+[CORRUPTED_PTR_LOAD] ip: main+0x10e86 (utstring_printf_va @ utstring.h:136) loaded: 0x5c38d68a7e50 from cell: 0x7ffecee14ab8 cell_owner: 111 value_owner: 107
+[INCONSISTENCY mov write reg UAF] ip: main+0x10e8e (utstring_printf_va @ utstring.h:136) UAF write at: 0x5c38d68a7e68
+[CORRUPTED_PTR_LOAD] ip: main+0xd47a (ucl_set_err @ ucl_parser.c:94) loaded: 0xd68a74f000000001 from cell: 0x7ffecee14bf4 cell_owner: 81 value_owner: 105
+[CORRUPTED_PTR_LOAD] ip: main+0xd47d (ucl_set_err @ ucl_parser.c:94) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14bf8 cell_owner: 81 value_owner: 105
+[INCONSISTENCY mov write reg UAF] ip: main+0xd481 (ucl_set_err @ ucl_parser.c:94) UAF write at: 0x5c38d68a7504
+[CORRUPTED_PTR_LOAD] ip: main+0xd484 (ucl_set_err @ ucl_parser.c:95) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14bf8 cell_owner: 81 value_owner: 105
+[INCONSISTENCY mov write imm UAF] ip: main+0xd488 (ucl_set_err @ ucl_parser.c:95) UAF write at: 0x5c38d68a74f0
+[CORRUPTED_PTR_LOAD] ip: main+0xf58c (ucl_state_machine @ ucl_parser.c:2539) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov read UAF] ip: main+0xf590 (ucl_state_machine @ ucl_parser.c:2539) UAF read at: 0x5c38d68a74f0
+[CORRUPTED_PTR_LOAD] ip: main+0xf592 (ucl_state_machine @ ucl_parser.c:2539) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov write reg UAF] ip: main+0xf596 (ucl_state_machine @ ucl_parser.c:2539) UAF write at: 0x5c38d68a74f4
+[CORRUPTED_PTR_LOAD] ip: main+0xf599 (ucl_state_machine @ ucl_parser.c:2540) loaded: 0x5c38d68a74f0 from cell: 0x7ffecee14dc0 cell_owner: 69 value_owner: 67
+[INCONSISTENCY mov write imm UAF] ip: main+0xf59d (ucl_state_machine @ ucl_parser.c:2540) UAF write at: 0x5c38d68a74f0
+[INCONSISTENCY mov read UAF] ip: main+0x3a54 (ucl_parser_get_error @ ucl_util.c:669) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 200
+[INCONSISTENCY mov read UAF] ip: main+0x3a73 (ucl_parser_get_error @ ucl_util.c:673) UAF read at: 0x5c38d68a7590
+first time found dangling pointer at: 5573 distance: 203
+[INCONSISTENCY mov read UAF] ip: main+0x3a7a (ucl_parser_get_error @ ucl_util.c:673) UAF read at: 0x5c38d68a7e50
+first time found dangling pointer at: 5607 distance: 170
+[STACK PIVOT] ip: main+0x24e9 (LLVMFuzzerTestOneInput @ harness.c:30) RSP 0x7ffecee14f28 left stack [0x71,0x7ffecedf6000]
+[FREE] free(0x5c38d68a8200) subject=7 at main @ harness.c:72
+[STACK PIVOT] ip: main+0x26cd (main @ harness.c:74) RSP 0x7ffecee14f68 left stack [0x72,0x7ffecedf6000]
+[STACK PIVOT] ip: main+0x26ce (main @ harness.c:74) RSP 0x7ffecee14f70 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x243e (__do_global_dtors_aux) final_ea: 0x5c38cc8abff8 base: 0x5c38cc88543e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x2464 (__do_global_dtors_aux) RSP 0x7ffecee14e50 left stack after RET
+[STACK PIVOT] ip: main+0x20724 (_fini) RSP 0x7ffecee14e80 left stack after RET

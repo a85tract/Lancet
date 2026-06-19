@@ -1,0 +1,20 @@
+{
+  "name": "osv_2022_1223",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.der",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 608,
+    "untrustedptrderef": 196,
+    "inconsistency_mov_read": 155,
+    "corrupted_ptr_load": 147,
+    "uninitialized_mov_read": 83,
+    "inconsistency_mov_write_reg": 20,
+    "intra_object_overflow": 5,
+    "inconsistency_arithmetic__crossboundary": 2
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "\u2713"
+}

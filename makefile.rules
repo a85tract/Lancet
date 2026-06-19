@@ -1,0 +1,46 @@
+#
+# Lancet Advanced - Build Rules
+#
+
+TEST_TOOL_ROOTS := lancet
+TEST_ROOTS :=
+TOOL_ROOTS :=
+SA_TOOL_ROOTS :=
+APP_ROOTS :=
+OBJECT_ROOTS :=
+DLL_ROOTS :=
+LIB_ROOTS :=
+
+RUNNABLE_TESTS := $(TEST_TOOL_ROOTS) $(TEST_ROOTS)
+SANITY_SUBSET := $(TEST_TOOL_ROOTS) $(TEST_ROOTS)
+
+TOOL_CXXFLAGS := $(TOOL_CXXFLAGS) -fno-omit-frame-pointer -I./src -DPIN_DISABLE_CRT_REG_DEF
+
+# Object files
+$(OBJDIR)common$(OBJ_SUFFIX): ./src/common.cpp
+	$(CXX) $(TOOL_CXXFLAGS) $(COMP_OBJ)$@ $<
+
+$(OBJDIR)ownership$(OBJ_SUFFIX): ./src/ownership.cpp
+	$(CXX) $(TOOL_CXXFLAGS) $(COMP_OBJ)$@ $<
+
+$(OBJDIR)allocation$(OBJ_SUFFIX): ./src/allocation.cpp
+	$(CXX) $(TOOL_CXXFLAGS) $(COMP_OBJ)$@ $<
+
+$(OBJDIR)dangling$(OBJ_SUFFIX): ./src/dangling.cpp
+	$(CXX) $(TOOL_CXXFLAGS) $(COMP_OBJ)$@ $<
+
+$(OBJDIR)instrumentation$(OBJ_SUFFIX): ./src/instrumentation.cpp
+	$(CXX) $(TOOL_CXXFLAGS) $(COMP_OBJ)$@ $<
+
+$(OBJDIR)xed_handler$(OBJ_SUFFIX): ./src/xed_handler.cpp
+	$(CXX) $(TOOL_CXXFLAGS) $(COMP_OBJ)$@ $<
+
+$(OBJDIR)rules$(OBJ_SUFFIX): ./src/rules.cpp
+	$(CXX) $(TOOL_CXXFLAGS) $(COMP_OBJ)$@ $<
+
+$(OBJDIR)main$(OBJ_SUFFIX): ./src/main.cpp
+	$(CXX) $(TOOL_CXXFLAGS) $(COMP_OBJ)$@ $<
+
+# Final tool
+$(OBJDIR)lancet$(PINTOOL_SUFFIX): $(OBJDIR)common$(OBJ_SUFFIX) $(OBJDIR)ownership$(OBJ_SUFFIX) $(OBJDIR)allocation$(OBJ_SUFFIX) $(OBJDIR)dangling$(OBJ_SUFFIX) $(OBJDIR)instrumentation$(OBJ_SUFFIX) $(OBJDIR)xed_handler$(OBJ_SUFFIX) $(OBJDIR)rules$(OBJ_SUFFIX) $(OBJDIR)main$(OBJ_SUFFIX)
+	$(LINKER) $(TOOL_LDFLAGS_NOOPT) $(LINK_EXE)$@ $(^:%.hpp=) $(TOOL_LPATHS) $(TOOL_LIBS)

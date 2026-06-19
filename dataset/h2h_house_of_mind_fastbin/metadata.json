@@ -1,0 +1,22 @@
+{
+  "name": "h2h_house_of_mind_fastbin",
+  "target": "how2heap",
+  "technique": "Fake non-main arena to redirect fastbin free to arbitrary location",
+  "binary": "bin/house_of_mind_fastbin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 483,
+    "alloc": 464,
+    "free": 8,
+    "alloc:internal": 3,
+    "free:internal": 3,
+    "inconsistency_mov_write_reg": 2,
+    "inconsistency_arithmetic__crossboundary": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": false,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_416",
+  "target": "openjpeg",
+  "binary": "bin/opj_decompress_fuzzer",
+  "poc": "poc/poc.j2k",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 6944,
+    "corrupted_ptr_load": 2514,
+    "inconsistency_mov_read": 2445,
+    "inconsistency_mov_read_uaf": 759,
+    "inconsistency_mov_write_reg_uaf": 207,
+    "alloc": 73,
+    "free": 67,
+    "inconsistency_mov_write_imm_uaf": 64,
+    "inconsistency_arithmetic__crossboundary": 47,
+    "untrustedptrderef": 20,
+    "intra_object_overflow": 12,
+    "alloc:internal": 7,
+    "uninitialized_mov_read": 5,
+    "inconsistency_mov_write_reg": 3,
+    "free:internal": 3,
+    "stack_pivot": 2
+  },
+  "detected": true,
+  "key_functions": "opj_j2k_create_decompress; opj_j2k_create_decompress; opj_j2",
+  "verification_match": "\u2713"
+}

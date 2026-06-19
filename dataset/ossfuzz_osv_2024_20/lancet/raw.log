@@ -1,0 +1,79 @@
+[INCONSISTENCY mov write reg] ip: main+0x160d (main @ gen_poc.c:146) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1613 (main @ gen_poc.c:146) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1623 (main @ gen_poc.c:146) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1630 (main @ gen_poc.c:147) co: 5 vo: 5, 5 write 5
+[UNTRUSTEDPTRDEREF] ip: main+0x1647 (main @ gen_poc.c:149) final_ea: 0x7fff589de2e0 base: 0x7fff589de2d8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x164b (main @ gen_poc.c:149) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1693 (main @ gen_poc.c:158) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x16a9 (main @ gen_poc.c:159) co: 5 vo: 5, 5 write 5
+[UNTRUSTEDPTRDEREF] ip: main+0x12f8 (put_le32 @ gen_poc.c:60) final_ea: 0x7fff589dd124 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12fd (put_le32 @ gen_poc.c:60) final_ea: 0x7fff589dd128 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1303 (put_le32 @ gen_poc.c:61) final_ea: 0x7fff589dd124 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x130b (put_le32 @ gen_poc.c:61) final_ea: 0x7fff589dd128 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1315 (put_le32 @ gen_poc.c:62) final_ea: 0x7fff589dd124 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x131d (put_le32 @ gen_poc.c:62) final_ea: 0x7fff589dd128 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1327 (put_le32 @ gen_poc.c:63) final_ea: 0x7fff589dd124 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x132f (put_le32 @ gen_poc.c:63) final_ea: 0x7fff589dd128 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1720 (main @ gen_poc.c:164) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1b5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1746 (main @ gen_poc.c:167) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1b9
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x176c (main @ gen_poc.c:168) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1bd
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x179c (main @ gen_poc.c:169) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1c1
+[INCONSISTENCY mov write reg] ip: main+0x1813 (main @ gen_poc.c:206) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1828 (main @ gen_poc.c:209) add rdx, rax id before: 5 after: 4 value: 0x7fff589dd1c5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1851 (main @ gen_poc.c:212) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1c9
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1877 (main @ gen_poc.c:214) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1cd
+[INCONSISTENCY mov write reg] ip: main+0x1897 (main @ gen_poc.c:217) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x18b5 (main @ gen_poc.c:219) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x18d4 (main @ gen_poc.c:221) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1d3
+[OOB byte write] ip: main+0x134a (put_le16 @ gen_poc.c:67) write at: 0x7fff589dd124 from subject 5 [unmapped]
+[UNTRUSTEDPTRDEREF] ip: main+0x134e (put_le16 @ gen_poc.c:68) final_ea: 0x7fff589dd124 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1354 (put_le16 @ gen_poc.c:68) final_ea: 0x7fff589dd128 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x135a (put_le16 @ gen_poc.c:69) final_ea: 0x7fff589dd124 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1364 (put_le16 @ gen_poc.c:69) final_ea: 0x7fff589dd128 base: 0x7fff589dd130 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1904 (main @ gen_poc.c:223) add rdx, rcx id before: 5 after: 4 value: 0x7fff589dd1d5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1927 (main @ gen_poc.c:225) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1d7
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x194d (main @ gen_poc.c:227) add rdx, rax id before: 5 after: 4 value: 0x7fff589dd1d9
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1976 (main @ gen_poc.c:229) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1dd
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x199c (main @ gen_poc.c:231) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1e1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x19c2 (main @ gen_poc.c:233) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1e5
+[INCONSISTENCY mov write reg] ip: main+0x19e2 (main @ gen_poc.c:236) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x19fb (main @ gen_poc.c:237) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1a1a (main @ gen_poc.c:240) add rax, rdx id before: 5 after: 4 value: 0x7fff589dd1eb
+[INCONSISTENCY mov write reg] ip: main+0x1a3a (main @ gen_poc.c:243) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1a53 (main @ gen_poc.c:246) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1a6c (main @ gen_poc.c:262) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1a85 (main @ gen_poc.c:263) co: 5 vo: 5, 5 write 5
+[ALLOC:internal] malloc(0x1d8) -> 0x64b356e4d010 subject=6 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x1aae (main @ gen_poc.c:266) co: 5 vo: 5, 5 write 5
+[ALLOC:internal] malloc(0x1740) -> 0x64b356e4d1f0 subject=24 at deflateInit2_
+[ALLOC:internal] malloc(0x10000) -> 0x64b356e4e940 subject=25 at deflateInit2_
+[ALLOC:internal] malloc(0x10000) -> 0x64b356e5e950 subject=26 at deflateInit2_
+[ALLOC:internal] malloc(0x10000) -> 0x64b356e6e960 subject=27 at deflateInit2_
+[ALLOC:internal] malloc(0x10000) -> 0x64b356e7e970 subject=28 at deflateInit2_
+[CORRUPTED_PTR_LOAD] ip: main+0x1441 (write_bgzf_block @ gen_poc.c:102) loaded: 0x7fff589dd190 from cell: 0x7fff589cd060 cell_owner: 23 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x144f (write_bgzf_block @ gen_poc.c:103) loaded: 0x589dd19000000063 from cell: 0x7fff589cd05c cell_owner: 23 value_owner: 5
+[FREE:internal] free(0x64b356e7e970) subject=28 at deflateEnd
+[FREE:internal] free(0x64b356e6e960) subject=27 at deflateEnd
+[FREE:internal] free(0x64b356e5e950) subject=26 at deflateEnd
+[FREE:internal] free(0x64b356e4e940) subject=25 at deflateEnd
+[FREE:internal] free(0x64b356e4d1f0) subject=24 at deflateEnd
+[CORRUPTED_PTR_LOAD] ip: main+0x14c1 (write_bgzf_block @ gen_poc.c:115) loaded: 0x589dd19000000063 from cell: 0x7fff589cd05c cell_owner: 23 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x14c7 (write_bgzf_block @ gen_poc.c:115) loaded: 0x7fff589dd190 from cell: 0x7fff589cd060 cell_owner: 23 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x150b (write_bgzf_block @ gen_poc.c:123) loaded: 0x64b356e4d010 from cell: 0x7fff589cd068 cell_owner: 23 value_owner: 5
+[ALLOC:internal] malloc(0x1000) -> 0x64b356e4d1f0 subject=29 at _IO_file_doallocate
+[CORRUPTED_PTR_LOAD] ip: main+0x1537 (write_bgzf_block @ gen_poc.c:124) loaded: 0x64b356e4d010 from cell: 0x7fff589cd068 cell_owner: 23 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1574 (write_bgzf_block @ gen_poc.c:129) loaded: 0x589dd19000000063 from cell: 0x7fff589cd05c cell_owner: 23 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1584 (write_bgzf_block @ gen_poc.c:130) loaded: 0x64b356e4d010 from cell: 0x7fff589cd068 cell_owner: 23 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x15ac (write_bgzf_block @ gen_poc.c:133) loaded: 0xeaa60444e76e7e00 from cell: 0x7fff589dd128 cell_owner: 7 value_owner: 5
+[STACK PIVOT] ip: main+0x15c0 (write_bgzf_block @ gen_poc.c:133) RSP 0x7fff589dd138 left stack [0x1e,0x7fff589c0000]
+[STACK PIVOT] ip: main+0x15f3 (write_bgzf_eof @ gen_poc.c:144) RSP 0x7fff589dd138 left stack [0x20,0x7fff589c0000]
+[FREE:internal] free(0x64b356e4d1f0) subject=29 at _IO_setb
+[FREE:internal] free(0x64b356e4d010) subject=6 at _IO_fclose
+[FREE:internal] free(0x64b356e4d010) subject=0
+[DOUBLE FREE] free(0x64b356e4d010) — already freed
+[ALLOC:internal] malloc(0x1000) -> 0x64b356e4d4f0 subject=32 at _IO_file_doallocate
+[STACK PIVOT] ip: main+0x1be4 (main @ gen_poc.c:289) RSP 0x7fff589de1a8 left stack [0x22,0x7fff589c0000]
+[STACK PIVOT] ip: main+0x1be5 (main @ gen_poc.c:289) RSP 0x7fff589de1b0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x12ae (__do_global_dtors_aux) final_ea: 0x64b341a89ff8 base: 0x64b341a872ae pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x12d4 (__do_global_dtors_aux) RSP 0x7fff589de080 left stack after RET
+[STACK PIVOT] ip: main+0x1bf4 (_fini) RSP 0x7fff589de0b0 left stack after RET

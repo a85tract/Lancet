@@ -1,0 +1,27 @@
+{
+  "name": "osv_2020_1847",
+  "target": "openh264",
+  "binary": "bin/decoder_fuzzer",
+  "poc": "poc/poc.h264",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 2383,
+    "inconsistency_mov_read_uaf": 1006,
+    "inconsistency_mov_write_reg_uaf": 348,
+    "stack_pivot": 171,
+    "corrupted_ptr_load": 103,
+    "inconsistency_mov_write_imm_uaf": 73,
+    "inconsistency_mov_read": 42,
+    "untrustedptrderef": 16,
+    "alloc:internal": 7,
+    "alloc": 5,
+    "free:internal": 3,
+    "inconsistency_mov_write_reg": 2,
+    "double_free": 1,
+    "inconsistency_arithmetic__crossboundary": 1,
+    "free": 1
+  },
+  "detected": true,
+  "key_functions": "_ZN7WelsDecL25WriteBackActiveParametersEPNS_21TagWelsDecoder",
+  "verification_match": "\u2713"
+}

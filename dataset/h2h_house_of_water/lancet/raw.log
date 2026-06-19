@@ -1,0 +1,127 @@
+[INCONSISTENCY mov write reg] ip: main+0x1285 (main @ house_of_water.c:37) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x1e0) -> 0x1098c010 subject=6 at main @ house_of_water.c:57
+[FREE] free(0x1098c010) subject=6 at main @ house_of_water.c:57
+[FREE:internal] free(0x1098c010) subject=0
+[DOUBLE FREE] free(0x1098c010) — already freed
+[ALLOC] malloc(0x88) -> 0x1098c500 subject=7 at main @ house_of_water.c:72
+[INCONSISTENCY mov write reg] ip: main+0x13de (main @ house_of_water.c:72) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x18) -> 0x1098c590 subject=8 at main @ house_of_water.c:74
+[ALLOC] malloc(0x88) -> 0x1098c5b0 subject=9 at main @ house_of_water.c:78
+[ALLOC] malloc(0x18) -> 0x1098c640 subject=10 at main @ house_of_water.c:80
+[ALLOC] malloc(0x88) -> 0x1098c660 subject=11 at main @ house_of_water.c:84
+[ALLOC] malloc(0x18) -> 0x1098c6f0 subject=12 at main @ house_of_water.c:86
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1522 (main @ house_of_water.c:102) and rax, 0xfffffffffffff000 id before: 7 after: -1 [chunk metadata] value: 0x1098c000
+Store dangling pointer: 0x1098c190 at: 0x7ffc423da968
+main+0x1535 (main @ house_of_water.c:103) Using expired pointer: 0x1098c190 from 0x7ffc423da968
+first time found dangling pointer at: 241 distance: 1
+[ALLOC] malloc(0x88) -> 0x1098c710 subject=13 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098c7a0 subject=14 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098c830 subject=15 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098c8c0 subject=16 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098c950 subject=17 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098c9e0 subject=18 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098ca70 subject=19 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098cb00 subject=20 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098cb90 subject=21 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098cc20 subject=22 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098ccb0 subject=23 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098cd40 subject=24 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098cdd0 subject=25 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098ce60 subject=26 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098cef0 subject=27 at main @ house_of_water.c:109
+[ALLOC] malloc(0x88) -> 0x1098cf80 subject=28 at main @ house_of_water.c:109
+[FREE] free(0x1098c710) subject=13 at main @ house_of_water.c:119
+[FREE] free(0x1098c7a0) subject=14 at main @ house_of_water.c:119
+[FREE] free(0x1098c830) subject=15 at main @ house_of_water.c:119
+[FREE] free(0x1098c8c0) subject=16 at main @ house_of_water.c:119
+[FREE] free(0x1098c950) subject=17 at main @ house_of_water.c:119
+[FREE] free(0x1098c9e0) subject=18 at main @ house_of_water.c:119
+[FREE] free(0x1098ca70) subject=19 at main @ house_of_water.c:119
+[FREE] free(0x1098cb00) subject=20 at main @ house_of_water.c:119
+[FREE] free(0x1098cb90) subject=21 at main @ house_of_water.c:119
+[FREE] free(0x1098cc20) subject=22 at main @ house_of_water.c:119
+[FREE] free(0x1098ccb0) subject=23 at main @ house_of_water.c:119
+[FREE] free(0x1098cd40) subject=24 at main @ house_of_water.c:119
+[FREE] free(0x1098cdd0) subject=25 at main @ house_of_water.c:119
+[FREE] free(0x1098ce60) subject=26 at main @ house_of_water.c:119
+[FREE] free(0x1098cef0) subject=27 at main @ house_of_water.c:119
+[FREE] free(0x1098cf80) subject=28 at main @ house_of_water.c:119
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1702 (main @ house_of_water.c:146) sub rax, 0x8 id before: 9 after: -1 [chunk metadata] value: 0x1098c5a8
+[UNTRUSTEDPTRDEREF] ip: main+0x1706 (main @ house_of_water.c:146) final_ea: 0x1098c5a8 base: 0x1098c5a8 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1710 (main @ house_of_water.c:146) sub rax, 0x10 id before: 9 after: 8 value: 0x1098c5a0
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x171e (main @ house_of_water.c:146) sub rcx, 0x10 id before: 9 after: 8 value: 0x1098c5a0
+[CORRUPTED_PTR_LOAD] ip: main+0x1259 (dump_memory @ house_of_water.c:32) loaded: 0x423daa1000000000 from cell: 0x7ffc423da91c cell_owner: 29 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x125c (dump_memory @ house_of_water.c:32) loaded: 0x2 from cell: 0x7ffc423da900 cell_owner: 29 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1213 (dump_memory @ house_of_water.c:33) loaded: 0x423daa1000000000 from cell: 0x7ffc423da91c cell_owner: 29 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x121a (dump_memory @ house_of_water.c:33) loaded: 0x1098c5b0 from cell: 0x7ffc423da908 cell_owner: 29 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1224 (dump_memory @ house_of_water.c:33) loaded: 0x423daa1000000000 from cell: 0x7ffc423da91c cell_owner: 29 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1227 (dump_memory @ house_of_water.c:33) loaded: 0x1098c5b0 from cell: 0x7ffc423da908 cell_owner: 29 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1231 (dump_memory @ house_of_water.c:33) loaded: 0x423daa1000000000 from cell: 0x7ffc423da91c cell_owner: 29 value_owner: 5
+[CORRUPTED_PTR_LOAD] ip: main+0x1234 (dump_memory @ house_of_water.c:33) loaded: 0x1098c5b0 from cell: 0x7ffc423da908 cell_owner: 29 value_owner: 5
+[STACK PIVOT] ip: main+0x126b (dump_memory @ house_of_water.c:35) RSP 0x7ffc423da928 left stack [0x1f,0x7ffc423bb000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1775 (main @ house_of_water.c:151) sub rax, 0x8 id before: 11 after: -1 [chunk metadata] value: 0x1098c658
+[UNTRUSTEDPTRDEREF] ip: main+0x1779 (main @ house_of_water.c:151) final_ea: 0x1098c658 base: 0x1098c658 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1783 (main @ house_of_water.c:151) sub rax, 0x10 id before: 11 after: 10 value: 0x1098c650
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1791 (main @ house_of_water.c:151) sub rcx, 0x10 id before: 11 after: 10 value: 0x1098c650
+[STACK PIVOT] ip: main+0x126b (dump_memory @ house_of_water.c:35) RSP 0x7ffc423da928 left stack [0x21,0x7ffc423bb000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x18ba (main @ house_of_water.c:174) sub rax, 0x18 id before: 9 after: 8 value: 0x1098c598
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x18ea (main @ house_of_water.c:178) sub rax, 0x20 id before: 9 after: 8 value: 0x1098c590
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x121e (dump_memory @ house_of_water.c:33) add rax, rdx id before: 8 after: -1 [chunk metadata] value: 0x1098c5a8
+[UNTRUSTEDPTRDEREF] ip: main+0x1221 (dump_memory @ house_of_water.c:33) final_ea: 0x1098c5a8 base: 0x1098c5a8 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x122b (dump_memory @ house_of_water.c:33) add rax, rcx id before: 8 after: 9 value: 0x1098c5b0
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1238 (dump_memory @ house_of_water.c:33) add rcx, rsi id before: 8 after: 9 value: 0x1098c5b0
+[STACK PIVOT] ip: main+0x126b (dump_memory @ house_of_water.c:35) RSP 0x7ffc423da928 left stack [0x23,0x7ffc423bb000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1933 (main @ house_of_water.c:182) sub rax, 0x10 id before: 9 after: 8 value: 0x1098c5a0
+[FREE] free(0x1098c5a0) subject=8 at main @ house_of_water.c:182
+[INVALID FREE] free(0x1098c5a0) — not in allocation map
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1991 (main @ house_of_water.c:188) sub rax, 0x8 id before: 9 after: -1 [chunk metadata] value: 0x1098c5a8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1a39 (main @ house_of_water.c:203) sub rax, 0x18 id before: 11 after: 10 value: 0x1098c648
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1a69 (main @ house_of_water.c:207) sub rax, 0x20 id before: 11 after: 10 value: 0x1098c640
+[STACK PIVOT] ip: main+0x126b (dump_memory @ house_of_water.c:35) RSP 0x7ffc423da928 left stack [0x25,0x7ffc423bb000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1ab2 (main @ house_of_water.c:211) sub rax, 0x10 id before: 11 after: 10 value: 0x1098c650
+[FREE] free(0x1098c650) subject=10 at main @ house_of_water.c:211
+[INVALID FREE] free(0x1098c650) — not in allocation map
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1b01 (main @ house_of_water.c:216) sub rax, 0x8 id before: 11 after: -1 [chunk metadata] value: 0x1098c658
+[FREE] free(0x1098c660) subject=11 at main @ house_of_water.c:232
+[FREE] free(0x1098c500) subject=7 at main @ house_of_water.c:235
+[FREE] free(0x1098c5b0) subject=9 at main @ house_of_water.c:238
+[ALLOC] malloc(0x700) -> 0x1098d010 subject=37 at main @ house_of_water.c:243
+main+0x1c3a (main @ house_of_water.c:253) Read a dangling pointer 0x1098c660 from 0x7ffc423da960
+main+0x1c45 (main @ house_of_water.c:253) Read a dangling pointer 0x1098c500 from 0x7ffc423da950
+main+0x1c50 (main @ house_of_water.c:253) Read a dangling pointer 0x1098c5b0 from 0x7ffc423da958
+[UNTRUSTEDPTRDEREF] ip: main+0x1c8b (main @ house_of_water.c:256) final_ea: 0x1098c4a0 base: 0x1098c4a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cc1 (main @ house_of_water.c:258) final_ea: 0x1098c4a8 base: 0x1098c4a8 pointee: -1 base_vo: -1
+main+0x121a (dump_memory @ house_of_water.c:33) Using expired pointer: 0x1098c500 from 0x7ffc423da908
+first time found dangling pointer at: 1413 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0x1221 (dump_memory @ house_of_water.c:33) UAF read at: 0x1098c508
+[INCONSISTENCY mov read UAF] ip: main+0x122e (dump_memory @ house_of_water.c:33) UAF read at: 0x1098c500
+[STACK PIVOT] ip: main+0x126b (dump_memory @ house_of_water.c:35) RSP 0x7ffc423da928 left stack [0x28,0x7ffc423bb000]
+main+0x1de9 (main @ house_of_water.c:286) Using expired pointer: 0x1098c5b0 from 0x7ffc423da958
+first time found dangling pointer at: 1364 distance: 207
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e1e (main @ house_of_water.c:287) UAF write at: 0x1098c5b0
+main+0x1e4d (main @ house_of_water.c:291) Using expired pointer: 0x1098c660 from 0x7ffc423da960
+first time found dangling pointer at: 1360 distance: 232
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e84 (main @ house_of_water.c:292) UAF write at: 0x1098c668
+[ALLOC] malloc(0x88) -> 0x1098cf80 subject=40 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098cef0 subject=41 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098ce60 subject=42 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098cdd0 subject=43 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098cd40 subject=44 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098ccb0 subject=45 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098cc20 subject=46 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098cb90 subject=47 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098cb00 subject=48 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098ca70 subject=49 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098c9e0 subject=50 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098c950 subject=51 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098c8c0 subject=52 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098c830 subject=53 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098c7a0 subject=54 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098c710 subject=55 at main @ house_of_water.c:315
+[ALLOC] malloc(0x88) -> 0x1098c660 subject=56 at main @ house_of_water.c:318
+[ALLOC] malloc(0x88) -> 0x1098c5b0 subject=57 at main @ house_of_water.c:319
+[ALLOC] malloc(0x88) -> 0x1098c410 subject=58 at main @ house_of_water.c:323
+[STACK PIVOT] ip: main+0x207f (main @ house_of_water.c:330) RSP 0x7ffc423daa18 left stack [0x3c,0x7ffc423bb000]
+[STACK PIVOT] ip: main+0x2080 (main @ house_of_water.c:330) RSP 0x7ffc423daa20 left stack after RET
+[STACK PIVOT] ip: main+0x11de (__do_global_dtors_aux) RSP 0x7ffc423da900 left stack after RET
+[STACK PIVOT] ip: main+0x2090 (_fini) RSP 0x7ffc423da930 left stack after RET

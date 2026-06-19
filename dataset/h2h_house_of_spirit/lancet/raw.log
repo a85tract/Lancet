@@ -1,0 +1,31 @@
+[INCONSISTENCY mov write reg] ip: main+0x122e (main @ house_of_spirit.c:6) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x30) -> 0x25a57010 subject=6 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x25a57050 subject=7 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x25a57090 subject=8 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x25a570d0 subject=9 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x25a57110 subject=10 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x25a57150 subject=11 at main @ house_of_spirit.c:16
+[ALLOC] malloc(0x30) -> 0x25a57190 subject=12 at main @ house_of_spirit.c:16
+[FREE] free(0x25a57010) subject=6 at main @ house_of_spirit.c:19
+[FREE:internal] free(0x25a57010) subject=0
+[DOUBLE FREE] free(0x25a57010) — already freed
+[FREE] free(0x25a57050) subject=7 at main @ house_of_spirit.c:19
+[FREE] free(0x25a57090) subject=8 at main @ house_of_spirit.c:19
+[FREE] free(0x25a570d0) subject=9 at main @ house_of_spirit.c:19
+[FREE] free(0x25a57110) subject=10 at main @ house_of_spirit.c:19
+[FREE] free(0x25a57150) subject=11 at main @ house_of_spirit.c:19
+[FREE] free(0x25a57190) subject=12 at main @ house_of_spirit.c:19
+[FREE] free(0x7ffd1faeec00) subject=5 at main @ house_of_spirit.c:39
+[INVALID FREE] free(0x7ffd1faeec00) — not in allocation map
+[ALLOC] malloc(0x30) -> 0x7ffd1faeec00 subject=13 at main @ house_of_spirit.c:44
+[ALLOC] malloc(0x30) -> 0x25a57190 subject=14 at main @ house_of_spirit.c:44
+[ALLOC] malloc(0x30) -> 0x25a57150 subject=15 at main @ house_of_spirit.c:44
+[ALLOC] malloc(0x30) -> 0x25a57110 subject=16 at main @ house_of_spirit.c:44
+[ALLOC] malloc(0x30) -> 0x25a570d0 subject=17 at main @ house_of_spirit.c:44
+[ALLOC] malloc(0x30) -> 0x25a57090 subject=18 at main @ house_of_spirit.c:44
+[ALLOC] malloc(0x30) -> 0x25a57050 subject=19 at main @ house_of_spirit.c:44
+[ALLOC] calloc(0x30) -> 0x25a57010 subject=20 at main @ house_of_spirit.c:48
+[ALLOC:internal] malloc(0x14) -> 0x25a574d0 subject=21 at gettext
+[ALLOC:internal] malloc(0x2) -> 0x25a574f0 subject=22 at gettext
+[FREE:internal] free(0x25a574d0) subject=21 at gettext
+[FREE:internal] free(0x25a574f0) subject=22 at gettext

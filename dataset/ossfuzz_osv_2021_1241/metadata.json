@@ -1,0 +1,28 @@
+{
+  "name": "osv_2021_1241",
+  "target": "wabt",
+  "binary": "bin/wasm2wat_fuzz",
+  "poc": "poc/poc.wasm",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 5618,
+    "inconsistency_mov_read_uaf": 1282,
+    "stack_pivot": 910,
+    "inconsistency_mov_write_reg_uaf": 831,
+    "corrupted_ptr_load": 359,
+    "inconsistency_mov_write_imm_uaf": 77,
+    "intra_object_overflow": 18,
+    "untrustedptrderef": 17,
+    "alloc:internal": 9,
+    "free": 7,
+    "free:internal": 3,
+    "inconsistency_mov_read": 3,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "inconsistency_mov_write_reg": 2,
+    "alloc": 1,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

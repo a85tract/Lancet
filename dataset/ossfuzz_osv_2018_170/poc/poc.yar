@@ -1,0 +1,1 @@
+/home/secondst/Code/lancet_advanced/tests/ossfuzz/osv_2018_170/poc.yar

@@ -1,0 +1,18 @@
+{
+  "name": "h2h_235_fastbin_dup_into_stack",
+  "target": "how2heap",
+  "technique": "fastbin dup into stack",
+  "glibc_version": "2.35",
+  "binary": "bin/fastbin_dup_into_stack",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 35,
+    "alloc": 14,
+    "free": 10,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 1,
+    "double_free": 1,
+    "inconsistency_arithmetic__crossboundary": 1
+  },
+  "detected": true
+}

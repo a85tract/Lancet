@@ -1,0 +1,28 @@
+{
+  "name": "osv_2017_22",
+  "target": "openjpeg",
+  "binary": "bin/opj_decompress_fuzzer",
+  "poc": "poc/poc_osv_2017_22.j2k",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 7304,
+    "corrupted_ptr_load": 2042,
+    "inconsistency_mov_read": 1919,
+    "inconsistency_mov_read_uaf": 1068,
+    "free": 290,
+    "inconsistency_mov_write_reg_uaf": 285,
+    "alloc": 278,
+    "inconsistency_mov_write_imm_uaf": 96,
+    "inconsistency_arithmetic__crossboundary": 50,
+    "intra_object_overflow": 24,
+    "untrustedptrderef": 18,
+    "alloc:internal": 14,
+    "stack_pivot": 6,
+    "inconsistency_mov_write_reg": 3,
+    "free:internal": 3,
+    "uninitialized_mov_read": 2
+  },
+  "detected": true,
+  "key_functions": "opj_int_ceildivpow2; opj_int_ceildivpow2; opj_int_ceildivpow",
+  "verification_match": "\u2713"
+}

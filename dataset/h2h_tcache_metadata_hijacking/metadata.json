@@ -1,0 +1,18 @@
+{
+  "name": "h2h_tcache_metadata_hijacking",
+  "target": "how2heap",
+  "technique": "tcache metadata hijacking",
+  "glibc_version": "2.43",
+  "binary": "bin/tcache_metadata_hijacking",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 13,
+    "stack_pivot": 4,
+    "alloc": 3,
+    "inconsistency_mov_write_reg": 2,
+    "free": 1,
+    "free:internal": 1,
+    "double_free": 1
+  },
+  "detected": true
+}

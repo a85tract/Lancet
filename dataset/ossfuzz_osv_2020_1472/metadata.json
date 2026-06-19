@@ -1,0 +1,24 @@
+{
+  "name": "osv_2020_1472",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.jpg",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 2474,
+    "inconsistency_mov_read_uaf": 532,
+    "stack_pivot": 524,
+    "untrustedptrderef": 320,
+    "inconsistency_mov_write_reg_uaf": 228,
+    "inconsistency_mov_write_imm_uaf": 169,
+    "corrupted_ptr_load": 158,
+    "inconsistency_mov_read": 94,
+    "uninitialized_mov_read": 81,
+    "inconsistency_mov_write_reg": 21,
+    "inconsistency_arithmetic__crossboundary": 10,
+    "intra_object_overflow": 2
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "\u2713"
+}

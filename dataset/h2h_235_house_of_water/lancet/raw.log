@@ -1,0 +1,86 @@
+[ALLOC] malloc(0x88) -> 0x122ba2a0 subject=5 at main @ house_of_water.c:59
+[ALLOC] malloc(0x18) -> 0x122ba330 subject=6 at main @ house_of_water.c:61
+[ALLOC] malloc(0x88) -> 0x122ba350 subject=7 at main @ house_of_water.c:65
+[ALLOC] malloc(0x18) -> 0x122ba3e0 subject=8 at main @ house_of_water.c:67
+[ALLOC] malloc(0x88) -> 0x122ba400 subject=9 at main @ house_of_water.c:71
+[ALLOC] malloc(0x18) -> 0x122ba490 subject=10 at main @ house_of_water.c:73
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x10e4 (main @ house_of_water.c:89) and rax, 0xfffffffffffff000 id before: 5 after: -1 [unmapped] value: 0x122ba000
+[ALLOC] malloc(0x88) -> 0x122ba4b0 subject=11 at main @ house_of_water.c:95
+[ALLOC] malloc(0x88) -> 0x122ba540 subject=12 at main @ house_of_water.c:95
+[ALLOC] malloc(0x88) -> 0x122ba5d0 subject=13 at main @ house_of_water.c:95
+[ALLOC] malloc(0x88) -> 0x122ba660 subject=14 at main @ house_of_water.c:95
+[ALLOC] malloc(0x88) -> 0x122ba6f0 subject=15 at main @ house_of_water.c:95
+[ALLOC] malloc(0x88) -> 0x122ba780 subject=16 at main @ house_of_water.c:95
+[ALLOC] malloc(0x88) -> 0x122ba810 subject=17 at main @ house_of_water.c:95
+[FREE] free(0x122ba4b0) subject=11 at main @ house_of_water.c:105
+[FREE] free(0x122ba540) subject=12 at main @ house_of_water.c:105
+[FREE] free(0x122ba5d0) subject=13 at main @ house_of_water.c:105
+[FREE] free(0x122ba660) subject=14 at main @ house_of_water.c:105
+[FREE] free(0x122ba6f0) subject=15 at main @ house_of_water.c:105
+[FREE] free(0x122ba780) subject=16 at main @ house_of_water.c:105
+[FREE] free(0x122ba810) subject=17 at main @ house_of_water.c:105
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x127c (main @ house_of_water.c:133) sub rax, 0x8 id before: 7 after: -1 [chunk metadata] value: 0x122ba348
+[UNTRUSTEDPTRDEREF] ip: main+0x1280 (main @ house_of_water.c:133) final_ea: 0x122ba348 base: 0x122ba348 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1287 (main @ house_of_water.c:133) sub rax, 0x10 id before: 7 after: 6 value: 0x122ba340
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1292 (main @ house_of_water.c:133) sub rcx, 0x10 id before: 7 after: 6 value: 0x122ba340
+[INCONSISTENCY mov write reg] ip: main+0xe72 (dump_memory @ house_of_water.c:31) co: 18 vo: 18, 18 write 18
+[INCONSISTENCY mov write reg] ip: main+0xe76 (dump_memory @ house_of_water.c:31) co: 18 vo: 18, 18 write 18
+[STACK PIVOT] ip: main+0xedb (dump_memory @ house_of_water.c:35) RSP 0x7ffd21712408 left stack [0x14,0x7ffd216f3000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x12e3 (main @ house_of_water.c:138) sub rax, 0x8 id before: 9 after: -1 [chunk metadata] value: 0x122ba3f8
+[UNTRUSTEDPTRDEREF] ip: main+0x12e7 (main @ house_of_water.c:138) final_ea: 0x122ba3f8 base: 0x122ba3f8 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x12ee (main @ house_of_water.c:138) sub rax, 0x10 id before: 9 after: 8 value: 0x122ba3f0
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x12f9 (main @ house_of_water.c:138) sub rcx, 0x10 id before: 9 after: 8 value: 0x122ba3f0
+[STACK PIVOT] ip: main+0xedb (dump_memory @ house_of_water.c:35) RSP 0x7ffd21712408 left stack [0x16,0x7ffd216f3000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1419 (main @ house_of_water.c:161) sub rax, 0x18 id before: 7 after: 6 value: 0x122ba338
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1446 (main @ house_of_water.c:165) sub rax, 0x20 id before: 7 after: 6 value: 0x122ba330
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xe8e (dump_memory @ house_of_water.c:33) add rax, rdx id before: 6 after: -1 [chunk metadata] value: 0x122ba348
+[UNTRUSTEDPTRDEREF] ip: main+0xe91 (dump_memory @ house_of_water.c:33) final_ea: 0x122ba348 base: 0x122ba348 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xe9b (dump_memory @ house_of_water.c:33) add rax, rcx id before: 6 after: 7 value: 0x122ba350
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xea8 (dump_memory @ house_of_water.c:33) add rcx, rsi id before: 6 after: 7 value: 0x122ba350
+[STACK PIVOT] ip: main+0xedb (dump_memory @ house_of_water.c:35) RSP 0x7ffd21712408 left stack [0x18,0x7ffd216f3000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1489 (main @ house_of_water.c:169) sub rax, 0x10 id before: 7 after: 6 value: 0x122ba340
+[FREE] free(0x122ba340) subject=6 at main @ house_of_water.c:169
+[INVALID FREE] free(0x122ba340) — not in allocation map
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x14e1 (main @ house_of_water.c:175) sub rax, 0x8 id before: 7 after: -1 [chunk metadata] value: 0x122ba348
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1583 (main @ house_of_water.c:190) sub rax, 0x18 id before: 9 after: 8 value: 0x122ba3e8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x15b0 (main @ house_of_water.c:194) sub rax, 0x20 id before: 9 after: 8 value: 0x122ba3e0
+[STACK PIVOT] ip: main+0xedb (dump_memory @ house_of_water.c:35) RSP 0x7ffd21712408 left stack [0x1a,0x7ffd216f3000]
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x15f3 (main @ house_of_water.c:198) sub rax, 0x10 id before: 9 after: 8 value: 0x122ba3f0
+[FREE] free(0x122ba3f0) subject=8 at main @ house_of_water.c:198
+[INVALID FREE] free(0x122ba3f0) — not in allocation map
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x163c (main @ house_of_water.c:203) sub rax, 0x8 id before: 9 after: -1 [chunk metadata] value: 0x122ba3f8
+[FREE] free(0x122ba400) subject=9 at main @ house_of_water.c:219
+[FREE] free(0x122ba2a0) subject=5 at main @ house_of_water.c:222
+[FREE] free(0x122ba350) subject=7 at main @ house_of_water.c:225
+[ALLOC] malloc(0x700) -> 0x122ba8a0 subject=26 at main @ house_of_water.c:230
+main+0x1769 (main @ house_of_water.c:240) Read a dangling pointer 0x122ba400 from 0x7ffd21712438
+main+0x1771 (main @ house_of_water.c:240) Read a dangling pointer 0x122ba2a0 from 0x7ffd21712428
+main+0x1779 (main @ house_of_water.c:240) Read a dangling pointer 0x122ba350 from 0x7ffd21712430
+[INCONSISTENCY mov read UAF] ip: main+0x17ae (main @ house_of_water.c:243) UAF read at: 0x122ba390
+[INCONSISTENCY mov read UAF] ip: main+0x17e1 (main @ house_of_water.c:245) UAF read at: 0x122ba398
+Store dangling pointer: 0x122ba370 at: 0x7ffd217123e8
+main+0xe8a (dump_memory @ house_of_water.c:33) Using expired pointer: 0x122ba370 from 0x7ffd217123e8
+first time found dangling pointer at: 1183 distance: 11
+[INCONSISTENCY mov read UAF] ip: main+0xe91 (dump_memory @ house_of_water.c:33) UAF read at: 0x122ba378
+[INCONSISTENCY mov read UAF] ip: main+0xe9e (dump_memory @ house_of_water.c:33) UAF read at: 0x122ba370
+[STACK PIVOT] ip: main+0xedb (dump_memory @ house_of_water.c:35) RSP 0x7ffd21712408 left stack [0x1d,0x7ffd216f3000]
+main+0x18ef (main @ house_of_water.c:272) Using expired pointer: 0x122ba350 from 0x7ffd21712430
+first time found dangling pointer at: 1134 distance: 204
+[INCONSISTENCY mov write reg UAF] ip: main+0x191b (main @ house_of_water.c:273) UAF write at: 0x122ba350
+main+0x1947 (main @ house_of_water.c:277) Using expired pointer: 0x122ba400 from 0x7ffd21712438
+first time found dangling pointer at: 1130 distance: 229
+[INCONSISTENCY mov write reg UAF] ip: main+0x1975 (main @ house_of_water.c:278) UAF write at: 0x122ba408
+[ALLOC] malloc(0x88) -> 0x122ba810 subject=29 at main @ house_of_water.c:302
+[ALLOC] malloc(0x88) -> 0x122ba780 subject=30 at main @ house_of_water.c:302
+[ALLOC] malloc(0x88) -> 0x122ba6f0 subject=31 at main @ house_of_water.c:302
+[ALLOC] malloc(0x88) -> 0x122ba660 subject=32 at main @ house_of_water.c:302
+[ALLOC] malloc(0x88) -> 0x122ba5d0 subject=33 at main @ house_of_water.c:302
+[ALLOC] malloc(0x88) -> 0x122ba540 subject=34 at main @ house_of_water.c:302
+[ALLOC] malloc(0x88) -> 0x122ba4b0 subject=35 at main @ house_of_water.c:302
+[ALLOC] malloc(0x88) -> 0x122ba400 subject=36 at main @ house_of_water.c:305
+[ALLOC] malloc(0x88) -> 0x122ba350 subject=37 at main @ house_of_water.c:306
+[ALLOC] malloc(0x88) -> 0x122ba210 subject=38 at main @ house_of_water.c:310
+[STACK PIVOT] ip: main+0x1b46 (main @ house_of_water.c:317) RSP 0x7ffd21712498 left stack [0x28,0x7ffd216f3000]
+[STACK PIVOT] ip: main+0x1b47 (main @ house_of_water.c:317) RSP 0x7ffd217124a0 left stack after RET
+[STACK PIVOT] ip: main+0xe4e (__do_global_dtors_aux) RSP 0x7ffd217123a0 left stack after RET
+[STACK PIVOT] ip: main+0x1b54 (_fini) RSP 0x7ffd217123a0 left stack after RET

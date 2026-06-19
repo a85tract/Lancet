@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_904",
+  "target": "unknown",
+  "binary": "bin/fuzz_target_standalone",
+  "poc": "poc/poc.wkt",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 18796,
+    "alloc:internal": 3039,
+    "inconsistency_mov_read_uaf": 2023,
+    "free": 1775,
+    "free:internal": 1262,
+    "inconsistency_mov_write_reg_uaf": 944,
+    "stack_pivot": 544,
+    "corrupted_ptr_load": 515,
+    "inconsistency_mov_read": 429,
+    "inconsistency_mov_write_imm_uaf": 279,
+    "inconsistency_arithmetic__crossboundary": 233,
+    "untrustedptrderef": 161,
+    "intra_object_overflow": 140,
+    "uninitialized_mov_read": 19,
+    "inconsistency_mov_write_reg": 15,
+    "alloc": 2
+  },
+  "detected": true,
+  "key_functions": "_ZN6fuzzer12FuzzerDriverEPiPPPcPFiPKhmE; _ZN6fuzzer12FuzzerD",
+  "verification_match": "\u2713"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "osv_2023_1365",
+  "target": "unknown",
+  "binary": "bin/gen_poc",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 36,
+    "corrupted_ptr_load": 8,
+    "stack_pivot": 8,
+    "inconsistency_mov_write_reg": 5,
+    "untrustedptrderef": 4,
+    "free:internal": 3,
+    "alloc:internal": 2,
+    "inconsistency_mov_write_reg_uaf": 1,
+    "inconsistency_mov_write_imm_uaf": 1,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "-",
+  "verification_match": "MISS"
+}

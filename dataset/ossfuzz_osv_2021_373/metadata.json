@@ -1,0 +1,26 @@
+{
+  "name": "osv_2021_373",
+  "target": "wabt",
+  "binary": "bin/wasm2wat_fuzz",
+  "poc": "poc/poc.wasm",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 6208,
+    "inconsistency_mov_read_uaf": 1370,
+    "inconsistency_mov_write_reg_uaf": 932,
+    "stack_pivot": 805,
+    "corrupted_ptr_load": 354,
+    "inconsistency_mov_write_imm_uaf": 81,
+    "untrustedptrderef": 31,
+    "alloc:internal": 9,
+    "free:internal": 3,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "inconsistency_mov_read": 3,
+    "inconsistency_mov_write_reg": 2,
+    "alloc": 1,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "_ZNSaIPN4wabt5EventEEC2Ev; _ZNSaIPN4wabt5EventEEC2Ev; _ZNSt1",
+  "verification_match": "\u2713"
+}

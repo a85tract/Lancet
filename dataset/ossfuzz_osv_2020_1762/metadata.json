@@ -1,0 +1,28 @@
+{
+  "name": "osv_2020_1762",
+  "target": "unknown",
+  "binary": "bin/php-fuzz-parser",
+  "poc": "poc/poc.serialized",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 41912,
+    "overlap": 27317,
+    "inconsistency_mov_read_uaf": 3346,
+    "corrupted_ptr_load": 3262,
+    "inconsistency_mov_read": 2913,
+    "inconsistency_mov_write_reg_uaf": 1569,
+    "uninitialized_mov_read": 631,
+    "inconsistency_mov_write_reg": 336,
+    "untrustedptrderef": 257,
+    "stack_pivot": 230,
+    "intra_object_overflow": 204,
+    "free": 182,
+    "invalid_free": 182,
+    "alloc": 179,
+    "inconsistency_mov_write_imm_uaf": 156,
+    "inconsistency_arithmetic__crossboundary": 82
+  },
+  "detected": true,
+  "key_functions": "zm_startup_date; zm_startup_date; zm_startup_date",
+  "verification_match": "\u2713"
+}

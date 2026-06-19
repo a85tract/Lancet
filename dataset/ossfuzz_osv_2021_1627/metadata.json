@@ -1,0 +1,28 @@
+{
+  "name": "osv_2021_1627",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.exr",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 3518,
+    "alloc:internal": 548,
+    "stack_pivot": 530,
+    "inconsistency_mov_read_uaf": 475,
+    "inconsistency_mov_write_reg_uaf": 321,
+    "free:internal": 295,
+    "free": 254,
+    "inconsistency_mov_write_imm_uaf": 117,
+    "untrustedptrderef": 96,
+    "corrupted_ptr_load": 85,
+    "inconsistency_mov_read": 49,
+    "inconsistency_arithmetic__crossboundary": 28,
+    "inconsistency_mov_write_reg": 25,
+    "uninitialized_mov_read": 18,
+    "intra_object_overflow": 7,
+    "alloc": 1
+  },
+  "detected": true,
+  "key_functions": "_ZN7Imf_3_112_GLOBAL__N_18readRgbaINS_13RgbaInputFileEEEbRT_",
+  "verification_match": "\u2713"
+}

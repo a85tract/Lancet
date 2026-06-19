@@ -1,0 +1,514 @@
+[INCONSISTENCY mov write reg] ip: main+0x1210 (main @ poc_harness.c:32) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1216 (main @ poc_harness.c:32) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1240 (main @ poc_harness.c:45) add rax, rdx id before: 6 after: 5 value: 0x7ffc1e881a60
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1275 (main @ poc_harness.c:53) add rax, rdx id before: 6 after: 5 value: 0x7ffc1e881bad
+[ALLOC:internal] malloc(0x1000) -> 0x5fe3dc875010 subject=7 at _IO_file_doallocate
+[INCONSISTENCY mov read] ip: main+0x2ce0 (pcre2_compile_8 @ pcre2_compile.c:10044) base: 0x7ffc1e881910 pointee: 6 read from 8
+[CORRUPTED_PTR_LOAD] ip: main+0x2ce0 (pcre2_compile_8 @ pcre2_compile.c:10044) loaded: 0x7ffc1e883a44 from cell: 0x7ffc1e8818d0 cell_owner: 8 value_owner: 6
+[INCONSISTENCY mov read] ip: main+0x2ceb (pcre2_compile_8 @ pcre2_compile.c:10044) base: 0x7ffc1e881910 pointee: 6 read from 8
+[CORRUPTED_PTR_LOAD] ip: main+0x2ceb (pcre2_compile_8 @ pcre2_compile.c:10044) loaded: 0x7ffc1e883a38 from cell: 0x7ffc1e8818c8 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2d03 (pcre2_compile_8 @ pcre2_compile.c:10045) loaded: 0x7ffc1e883a44 from cell: 0x7ffc1e8818d0 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2d0d (pcre2_compile_8 @ pcre2_compile.c:10046) loaded: 0x7ffc1e883a38 from cell: 0x7ffc1e8818c8 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2d18 (pcre2_compile_8 @ pcre2_compile.c:10050) loaded: 0x7ffc1e881a30 from cell: 0x7ffc1e8818e8 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2d5a (pcre2_compile_8 @ pcre2_compile.c:10061) loaded: 0x0 from cell: 0x7ffc1e8818c0 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2d70 (pcre2_compile_8 @ pcre2_compile.c:10066) loaded: 0x18600000000 from cell: 0x7ffc1e8818dc cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2d8c (pcre2_compile_8 @ pcre2_compile.c:10070) loaded: 0x18600000000 from cell: 0x7ffc1e8818dc cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x2da1 (pcre2_compile_8 @ pcre2_compile.c:10071) final_ea: 0x5fe3a7366cf8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x2dc9 (pcre2_compile_8 @ pcre2_compile.c:10077) loaded: 0x18600000000 from cell: 0x7ffc1e8818dc cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2e17 (pcre2_compile_8 @ pcre2_compile.c:10088) loaded: 0x186 from cell: 0x7ffc1e8818e0 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2e44 (pcre2_compile_8 @ pcre2_compile.c:10091) loaded: 0x186 from cell: 0x7ffc1e8818e0 cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x2e71 (pcre2_compile_8 @ pcre2_compile.c:10103) final_ea: 0x5fe3a7366ce0 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2e80 (pcre2_compile_8 @ pcre2_compile.c:10103) final_ea: 0x5fe3a7366ce0 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x2f20 (pcre2_compile_8 @ pcre2_compile.c:10114) loaded: 0x7ffc1e881a30 from cell: 0x7ffc1e8818e8 cell_owner: 8 value_owner: 6
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x2f24 (pcre2_compile_8 @ pcre2_compile.c:10114) add rax, qword ptr [rbp-0x30] id before: 6 after: 5 value: 0x7ffc1e881bb6
+[CORRUPTED_PTR_LOAD] ip: main+0x2f44 (pcre2_compile_8 @ pcre2_compile.c:10117) loaded: 0x18600000000 from cell: 0x7ffc1e8818dc cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x2f77 (pcre2_compile_8 @ pcre2_compile.c:10122) final_ea: 0x5fe3a7366cfc base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x2fd3 (pcre2_compile_8 @ pcre2_compile.c:10131) loaded: 0x7ffc1e87d2d0 from cell: 0x7ffc1e87d2c8 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2fe1 (pcre2_compile_8 @ pcre2_compile.c:10132) loaded: 0x7ffc1e881a30 from cell: 0x7ffc1e8818e8 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x2fec (pcre2_compile_8 @ pcre2_compile.c:10133) loaded: 0x7ffc1e87d2d0 from cell: 0x7ffc1e87d2c8 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3056 (pcre2_compile_8 @ pcre2_compile.c:10168) loaded: 0x7ffc1e881a30 from cell: 0x7ffc1e8818e8 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x306b (pcre2_compile_8 @ pcre2_compile.c:10171) loaded: 0x18600000000 from cell: 0x7ffc1e8818dc cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3081 (pcre2_compile_8 @ pcre2_compile.c:10173) loaded: 0x186 from cell: 0x7ffc1e8818e0 cell_owner: 8 value_owner: 6
+[UNINITIALIZED mov read] ip: main+0x30ad (pcre2_compile_8 @ pcre2_compile.c:10174) co: 6 vo: -1
+[UNINITIALIZED mov read] ip: main+0x30d4 (pcre2_compile_8 @ pcre2_compile.c:10175) co: 6 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x354f (pcre2_compile_8 @ pcre2_compile.c:10293) loaded: 0x0 from cell: 0x7ffc1e881704 cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x3560 (pcre2_compile_8 @ pcre2_compile.c:10293) final_ea: 0x5fe3a7366cf0 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x356a (pcre2_compile_8 @ pcre2_compile.c:10297) loaded: 0xffffffff00000000 from cell: 0x7ffc1e881708 cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x357b (pcre2_compile_8 @ pcre2_compile.c:10297) final_ea: 0x5fe3a7366cf2 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x35b8 (pcre2_compile_8) final_ea: 0x5fe3a7342374 base: 0x5fe3a7342370 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x364d (pcre2_compile_8 @ pcre2_compile.c:10362) loaded: 0x186 from cell: 0x7ffc1e8818e0 cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x366c (pcre2_compile_8 @ pcre2_compile.c:10364) final_ea: 0x5fe3a7366cf8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x368d (pcre2_compile_8 @ pcre2_compile.c:10368) loaded: 0x18600000000 from cell: 0x7ffc1e8818dc cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x4682 (parse_regex @ pcre2_compile.c:2698) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4691 (parse_regex @ pcre2_compile.c:2699) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x46ae (parse_regex @ pcre2_compile.c:2702) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[UNTRUSTEDPTRDEREF] ip: main+0x46b5 (parse_regex @ pcre2_compile.c:2702) final_ea: 0x5fe3a7366cf8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x46ea (parse_regex @ pcre2_compile.c:2711) loaded: 0x1e881a3000000000 from cell: 0x7ffc1e87d14c cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4703 (parse_regex @ pcre2_compile.c:2712) loaded: 0x1e881a3000000000 from cell: 0x7ffc1e87d14c cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4724 (parse_regex @ pcre2_compile.c:2718) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x47ba (parse_regex @ pcre2_compile.c:2740) loaded: 0x1e881a3000000000 from cell: 0x7ffc1e87d14c cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4a4e (parse_regex @ pcre2_compile.c:2762) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4a56 (parse_regex @ pcre2_compile.c:2762) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4a6c (parse_regex @ pcre2_compile.c:2769) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4a8b (parse_regex @ pcre2_compile.c:2773) loaded: 0x1e881a3000000000 from cell: 0x7ffc1e87d14c cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4aac (parse_regex @ pcre2_compile.c:2777) loaded: 0x7ffc1e881a30 from cell: 0x7ffc1e87d150 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4aef (parse_regex @ pcre2_compile.c:2795) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4b0b (parse_regex @ pcre2_compile.c:2803) loaded: 0x7ffc1e881a30 from cell: 0x7ffc1e87d150 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x4b16 (parse_regex @ pcre2_compile.c:2804) loaded: 0x7ffc1e881a30 from cell: 0x7ffc1e87d150 cell_owner: 9 value_owner: 8
+[UNINITIALIZED mov read] ip: main+0x4b25 (parse_regex @ pcre2_compile.c:2804) co: 6 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x50a8 (parse_regex @ pcre2_compile.c:2961) loaded: 0x1e881a3100000000 from cell: 0x7ffc1e87d14c cell_owner: 9 value_owner: 8
+[UNINITIALIZED mov read] ip: main+0x52d2 (parse_regex @ pcre2_compile.c:2988) co: 6 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x53f9 (parse_regex @ pcre2_compile.c:3010) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0xb60b (manage_callouts @ pcre2_compile.c:2513) loaded: 0x0 from cell: 0x7ffc1e87d110 cell_owner: 9 value_owner: 8
+[UNTRUSTEDPTRDEREF] ip: main+0x566e (parse_regex) final_ea: 0x5fe3a7342424 base: 0x5fe3a7342414 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x70e1 (parse_regex @ pcre2_compile.c:3808) co: 6 vo: -1
+[UNINITIALIZED mov read] ip: main+0x70f1 (parse_regex @ pcre2_compile.c:3815) co: 6 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x7109 (parse_regex @ pcre2_compile.c:3818) loaded: 0x1e881a3100000000 from cell: 0x7ffc1e87d14c cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x711a (parse_regex @ pcre2_compile.c:3820) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x713a (parse_regex @ pcre2_compile.c:3825) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x714d (parse_regex @ pcre2_compile.c:3826) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x4b1d (parse_regex @ pcre2_compile.c:2804) add rcx, 0x1 id before: 6 after: 5 value: 0x7ffc1e881a60
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x5672 (parse_regex) jmp 0xffffffffffffb35d id before: 5 after: -1 [unmapped] value: 0x5fe3a7329677
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x9741 (parse_regex @ pcre2_compile.c:4849) mov dword ptr [rax], 0x80190000 id before: 5 after: 8 value: 0x7ffc1e8805fc
+[UNINITIALIZED mov read] ip: main+0x52e2 (parse_regex @ pcre2_compile.c:2988) co: 5 vo: -1
+[UNINITIALIZED mov read] ip: main+0x78f8 (parse_regex @ pcre2_compile.c:4049) co: 5 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x791e (parse_regex) final_ea: 0x5fe3a73425e4 base: 0x5fe3a7342578 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x8f86 (parse_regex @ pcre2_compile.c:4654) co: 5 vo: -1
+[UNINITIALIZED mov read] ip: main+0x8fc8 (parse_regex @ pcre2_compile.c:4661) co: 5 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x901a (parse_regex @ pcre2_compile.c:4666) loaded: 0x7ffc1e8818b4 from cell: 0x7ffc1e87d140 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x9028 (parse_regex @ pcre2_compile.c:4667) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x9791 (parse_regex @ pcre2_compile.c:4866) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d138 cell_owner: 9 value_owner: 8
+[UNTRUSTEDPTRDEREF] ip: main+0x3792 (pcre2_compile_8 @ pcre2_compile.c:10404) final_ea: 0x5fe3a7366cb8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x37ad (pcre2_compile_8 @ pcre2_compile.c:10405) final_ea: 0x5fe3a7366cc8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[ALLOC] malloc(0x404) -> 0x5fe3dc876020 subject=11 at default_malloc @ pcre2_context.c:59
+[CORRUPTED_PTR_LOAD] ip: main+0xc6fc (set_lookbehind_lengths @ pcre2_compile.c:9740) loaded: 0x7ffc1e87d150 from cell: 0x7ffc1e87d100 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc73d (set_lookbehind_lengths @ pcre2_compile.c:9747) loaded: 0x7ffc1e87d150 from cell: 0x7ffc1e87d100 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc74b (set_lookbehind_lengths @ pcre2_compile.c:9757) loaded: 0x7ffc1e87d150 from cell: 0x7ffc1e87d100 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc759 (set_lookbehind_lengths @ pcre2_compile.c:9758) loaded: 0x7ffc1e87d150 from cell: 0x7ffc1e87d100 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc75d (set_lookbehind_lengths @ pcre2_compile.c:9758) loaded: 0x7ffc1e87d12c from cell: 0x7ffc1e87d0f8 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc761 (set_lookbehind_lengths @ pcre2_compile.c:9758) loaded: 0x7ffc1e87d2ac from cell: 0x7ffc1e87d0f0 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc765 (set_lookbehind_lengths @ pcre2_compile.c:9759) loaded: 0x0 from cell: 0x7ffc1e87d0e8 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc769 (set_lookbehind_lengths @ pcre2_compile.c:9759) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d0e0 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc91f (get_branchlength @ pcre2_compile.c:9319) loaded: 0x7ffc1e87d150 from cell: 0x7ffc1e87d090 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0xc92a (get_branchlength @ pcre2_compile.c:9327) loaded: 0x7ffc1e87d2ac from cell: 0x7ffc1e87d078 cell_owner: 14 value_owner: 13
+[UNINITIALIZED mov read] ip: main+0xc97f (get_branchlength @ pcre2_compile.c:9345) co: 8 vo: -1
+[UNINITIALIZED mov read] ip: main+0xc9a8 (get_branchlength @ pcre2_compile.c:9350) co: 8 vo: -1
+[UNINITIALIZED mov read] ip: main+0xd63c (get_branchlength @ pcre2_compile.c:9620) co: 8 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0xd655 (get_branchlength @ pcre2_compile.c:9628) loaded: 0x7ffc1e87d12c from cell: 0x7ffc1e87d080 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0xd659 (get_branchlength @ pcre2_compile.c:9629) loaded: 0x7ffc1e87d2ac from cell: 0x7ffc1e87d078 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0xd664 (get_branchlength @ pcre2_compile.c:9629) loaded: 0x0 from cell: 0x7ffc1e87d070 cell_owner: 14 value_owner: 13
+[CORRUPTED_PTR_LOAD] ip: main+0xd668 (get_branchlength @ pcre2_compile.c:9629) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d068 cell_owner: 14 value_owner: 13
+[INCONSISTENCY mov read] ip: main+0xc97b (get_branchlength @ pcre2_compile.c:9345) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xc97b (get_branchlength @ pcre2_compile.c:9345) loaded: 0x7ffc1e8808f4 from cell: 0x7ffc1e87cee8 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xc9a4 (get_branchlength @ pcre2_compile.c:9350) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xc9a4 (get_branchlength @ pcre2_compile.c:9350) loaded: 0x7ffc1e8808f4 from cell: 0x7ffc1e87cee8 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xc9c5 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xc9c5 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xc9db (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xc9db (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xc9f1 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xc9f1 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xca07 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xca07 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xca1d (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xca1d (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xca33 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xca33 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xca49 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xca49 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xca5f (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xca5f (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xca75 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xca75 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xca8b (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xca8b (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcaa1 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcaa1 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcab7 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcab7 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcacd (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcacd (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcae3 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcae3 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcaf9 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcaf9 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcb0f (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcb0f (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcb25 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcb25 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcb3b (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcb3b (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcb51 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcb51 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcb67 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcb67 (get_branchlength) loaded: 0x80170000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xd7ec (get_branchlength @ pcre2_compile.c:9684) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xd7ec (get_branchlength @ pcre2_compile.c:9684) loaded: 0x1 from cell: 0x7ffc1e87ceac cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xd819 (get_branchlength @ pcre2_compile.c:9690) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xd819 (get_branchlength @ pcre2_compile.c:9690) loaded: 0x100000001 from cell: 0x7ffc1e87cea8 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xd825 (get_branchlength @ pcre2_compile.c:9694) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xd825 (get_branchlength @ pcre2_compile.c:9694) loaded: 0x1 from cell: 0x7ffc1e87ceac cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xd82e (get_branchlength @ pcre2_compile.c:9695) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xd82e (get_branchlength @ pcre2_compile.c:9695) loaded: 0x100000001 from cell: 0x7ffc1e87cea8 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xd837 (get_branchlength @ pcre2_compile.c:9335) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xd837 (get_branchlength @ pcre2_compile.c:9335) loaded: 0x7ffc1e8808f4 from cell: 0x7ffc1e87cee8 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcb7d (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcb7d (get_branchlength) loaded: 0x80190000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xcb93 (get_branchlength) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xcb93 (get_branchlength) loaded: 0x80190000 from cell: 0x7ffc1e87ce74 cell_owner: 16 value_owner: 9
+[INCONSISTENCY mov read] ip: main+0xd848 (get_branchlength @ pcre2_compile.c:9699) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xd848 (get_branchlength @ pcre2_compile.c:9699) loaded: 0x7ffc1e8808f8 from cell: 0x7ffc1e87cee8 cell_owner: 16 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xd84c (get_branchlength @ pcre2_compile.c:9699) loaded: 0x7ffc1e87d048 from cell: 0x7ffc1e87cf30 cell_owner: 9 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0xd853 (get_branchlength @ pcre2_compile.c:9700) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xd853 (get_branchlength @ pcre2_compile.c:9700) loaded: 0x100000001 from cell: 0x7ffc1e87cf00 cell_owner: 16 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0xd856 (get_branchlength @ pcre2_compile.c:9700) loaded: 0x7ffc1e87cf68 from cell: 0x7ffc1e87cf28 cell_owner: 9 value_owner: 15
+[INCONSISTENCY mov read] ip: main+0xd85c (get_branchlength @ pcre2_compile.c:9701) base: 0x7ffc1e87cf40 pointee: 9 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xd85c (get_branchlength @ pcre2_compile.c:9701) loaded: 0x1e88178000000001 from cell: 0x7ffc1e87cf04 cell_owner: 16 value_owner: 9
+[UNINITIALIZED mov read] ip: main+0xdda3 (get_grouplength @ pcre2_compile.c:9271) co: 8 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0xc801 (set_lookbehind_lengths @ pcre2_compile.c:9772) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d0e0 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc814 (set_lookbehind_lengths @ pcre2_compile.c:9772) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87d0e0 cell_owner: 13 value_owner: 12
+[CORRUPTED_PTR_LOAD] ip: main+0xc829 (set_lookbehind_lengths @ pcre2_compile.c:9774) loaded: 0x7ffc1e87d150 from cell: 0x7ffc1e87d100 cell_owner: 13 value_owner: 12
+[UNINITIALIZED mov read] ip: main+0xc838 (set_lookbehind_lengths @ pcre2_compile.c:9776) co: 8 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x3847 (pcre2_compile_8 @ pcre2_compile.c:10450) loaded: 0x186 from cell: 0x7ffc1e8818e0 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3860 (pcre2_compile_8 @ pcre2_compile.c:10452) loaded: 0x7ffc1e87d2d0 from cell: 0x7ffc1e87d2c8 cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x3882 (pcre2_compile_8 @ pcre2_compile.c:10455) final_ea: 0x5fe3a7366cf8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xa02c (compile_regex @ pcre2_compile.c:8271) final_ea: 0x5fe3a7366cd0 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0xde44 (compile_branch @ pcre2_compile.c:5510) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xde48 (compile_branch @ pcre2_compile.c:5510) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xde4c (compile_branch @ pcre2_compile.c:5510) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xde50 (compile_branch @ pcre2_compile.c:5510) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xde54 (compile_branch @ pcre2_compile.c:5510) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xde58 (compile_branch @ pcre2_compile.c:5510) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xde5c (compile_branch @ pcre2_compile.c:5510) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xdee5 (compile_branch @ pcre2_compile.c:5530) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0xdee5 (compile_branch @ pcre2_compile.c:5530) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xdef3 (compile_branch @ pcre2_compile.c:5531) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0xdef3 (compile_branch @ pcre2_compile.c:5531) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xdf3e (compile_branch @ pcre2_compile.c:5540) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xdf4d (compile_branch @ pcre2_compile.c:5548) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xdf4d (compile_branch @ pcre2_compile.c:5548) loaded: 0x8000000000 from cell: 0x7ffc1e87cf78 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xdf69 (compile_branch @ pcre2_compile.c:5549) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xdf69 (compile_branch @ pcre2_compile.c:5549) loaded: 0x8000000000 from cell: 0x7ffc1e87cf78 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xdf85 (compile_branch @ pcre2_compile.c:5567) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xdf85 (compile_branch @ pcre2_compile.c:5567) loaded: 0x8000000000 from cell: 0x7ffc1e87cf78 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xdf9e (compile_branch @ pcre2_compile.c:5568) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xdf9e (compile_branch @ pcre2_compile.c:5568) loaded: 0x0 from cell: 0x7ffc1e87cf88 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xdff7 (compile_branch @ pcre2_compile.c:5588) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xdff7 (compile_branch @ pcre2_compile.c:5588) loaded: 0x8000000000 from cell: 0x7ffc1e87cf78 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe013 (compile_branch @ pcre2_compile.c:5614) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xe013 (compile_branch @ pcre2_compile.c:5614) loaded: 0x7ffc1e8802f0 from cell: 0x7ffc1e87cf58 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe027 (compile_branch @ pcre2_compile.c:5615) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xe027 (compile_branch @ pcre2_compile.c:5615) loaded: 0x7ffc1e8802f0 from cell: 0x7ffc1e87cf58 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe03b (compile_branch @ pcre2_compile.c:5620) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xe046 (compile_branch @ pcre2_compile.c:5622) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0xe046 (compile_branch @ pcre2_compile.c:5622) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe04d (compile_branch @ pcre2_compile.c:5622) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xe055 (compile_branch @ pcre2_compile.c:5622) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xe0a3 (compile_branch @ pcre2_compile.c:5636) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0xe0a3 (compile_branch @ pcre2_compile.c:5636) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe0c5 (compile_branch @ pcre2_compile.c:5642) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xe0c5 (compile_branch @ pcre2_compile.c:5642) loaded: 0x1e8802f080080000 from cell: 0x7ffc1e87cf54 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe0e5 (compile_branch @ pcre2_compile.c:5644) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xe0f1 (compile_branch @ pcre2_compile.c:5644) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0xe0f1 (compile_branch @ pcre2_compile.c:5644) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe0f8 (compile_branch @ pcre2_compile.c:5644) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xe0f8 (compile_branch @ pcre2_compile.c:5644) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf08 cell_owner: 16 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe121 (compile_branch @ pcre2_compile.c:5649) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0xe121 (compile_branch @ pcre2_compile.c:5649) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe128 (compile_branch @ pcre2_compile.c:5649) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xe128 (compile_branch @ pcre2_compile.c:5649) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf08 cell_owner: 16 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe132 (compile_branch @ pcre2_compile.c:5649) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xe13c (compile_branch @ pcre2_compile.c:5650) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0xe163 (compile_branch @ pcre2_compile.c:5655) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xe163 (compile_branch @ pcre2_compile.c:5655) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf08 cell_owner: 16 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe171 (compile_branch @ pcre2_compile.c:5661) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0xe171 (compile_branch @ pcre2_compile.c:5661) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe17f (compile_branch @ pcre2_compile.c:5669) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xe17f (compile_branch @ pcre2_compile.c:5669) loaded: 0x1e8802f080080000 from cell: 0x7ffc1e87cf54 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe19f (compile_branch @ pcre2_compile.c:5671) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0xe19f (compile_branch @ pcre2_compile.c:5671) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe1ad (compile_branch @ pcre2_compile.c:5672) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xe1ad (compile_branch @ pcre2_compile.c:5672) loaded: 0x0 from cell: 0x7ffc1e87cee8 cell_owner: 16 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe1d3 (compile_branch @ pcre2_compile.c:5675) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xe1d3 (compile_branch @ pcre2_compile.c:5675) loaded: 0x0 from cell: 0x7ffc1e87cee8 cell_owner: 16 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe1fd (compile_branch @ pcre2_compile.c:5680) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0xe1fd (compile_branch @ pcre2_compile.c:5680) loaded: 0x1e8802f080080000 from cell: 0x7ffc1e87cf54 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe219 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0xe219 (compile_branch) loaded: 0x80080000 from cell: 0x7ffc1e87cca0 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe22f (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0xe22f (compile_branch) loaded: 0x80080000 from cell: 0x7ffc1e87cca0 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe245 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0xe245 (compile_branch) loaded: 0x80080000 from cell: 0x7ffc1e87cca0 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe25b (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0xe25b (compile_branch) loaded: 0x80080000 from cell: 0x7ffc1e87cca0 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe271 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0xe271 (compile_branch) loaded: 0x80080000 from cell: 0x7ffc1e87cca0 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe287 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0xe287 (compile_branch) loaded: 0x80080000 from cell: 0x7ffc1e87cca0 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe29d (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0xe29d (compile_branch) loaded: 0x80080000 from cell: 0x7ffc1e87cca0 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0xe2b3 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0xe2b3 (compile_branch) loaded: 0x80080000 from cell: 0x7ffc1e87cca0 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x13244 (compile_branch @ pcre2_compile.c:7964) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x13244 (compile_branch @ pcre2_compile.c:7964) loaded: 0x8008000000000001 from cell: 0x7ffc1e87cf50 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x1324f (compile_branch @ pcre2_compile.c:7964) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1324f (compile_branch @ pcre2_compile.c:7964) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x13259 (compile_branch @ pcre2_compile.c:7964) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x13259 (compile_branch @ pcre2_compile.c:7964) loaded: 0x8008000000000001 from cell: 0x7ffc1e87cf50 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x13266 (compile_branch @ pcre2_compile.c:7964) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x13266 (compile_branch @ pcre2_compile.c:7964) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x13270 (compile_branch @ pcre2_compile.c:7965) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x13270 (compile_branch @ pcre2_compile.c:7965) loaded: 0x8008000000000001 from cell: 0x7ffc1e87cf50 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x13276 (compile_branch @ pcre2_compile.c:7965) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10995 (compile_branch @ pcre2_compile.c:6689) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x109aa (compile_branch @ pcre2_compile.c:6690) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x109aa (compile_branch @ pcre2_compile.c:6690) loaded: 0x1e87d0b400000089 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x109af (compile_branch @ pcre2_compile.c:6690) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x109af (compile_branch @ pcre2_compile.c:6690) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x109b8 (compile_branch @ pcre2_compile.c:6691) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x109b8 (compile_branch @ pcre2_compile.c:6691) loaded: 0x7ffc1e8802f0 from cell: 0x7ffc1e87cf58 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x109ca (compile_branch @ pcre2_compile.c:6692) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x109ca (compile_branch @ pcre2_compile.c:6692) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x109d8 (compile_branch @ pcre2_compile.c:6693) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x109f3 (compile_branch @ pcre2_compile.c:6698) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x109f3 (compile_branch @ pcre2_compile.c:6698) loaded: 0x8000000000 from cell: 0x7ffc1e87cf78 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x109ff (compile_branch @ pcre2_compile.c:6699) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x109ff (compile_branch @ pcre2_compile.c:6699) loaded: 0x0 from cell: 0x7ffc1e87cf74 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a0b (compile_branch @ pcre2_compile.c:6702) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10a0b (compile_branch @ pcre2_compile.c:6702) loaded: 0x7ffc1e881700 from cell: 0x7ffc1e87cfa8 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a16 (compile_branch @ pcre2_compile.c:6703) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0x10a16 (compile_branch @ pcre2_compile.c:6703) loaded: 0x2 from cell: 0x7ffc1e87ce6c cell_owner: 16 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a22 (compile_branch @ pcre2_compile.c:6708) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10a2d (compile_branch @ pcre2_compile.c:6709) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10a38 (compile_branch @ pcre2_compile.c:6710) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10a43 (compile_branch @ pcre2_compile.c:6711) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10a6f (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10a6f (compile_branch) loaded: 0x7ffc1e881780 from cell: 0x7ffc1e87cc70 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a76 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10a76 (compile_branch) loaded: 0x0 from cell: 0x7ffc1e87cc68 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a7d (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10a7d (compile_branch) loaded: 0x7ffc1e87d090 from cell: 0x7ffc1e87cc60 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a84 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10a84 (compile_branch) loaded: 0x1e87d09000000002 from cell: 0x7ffc1e87cc5c cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a8b (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10a8b (compile_branch) loaded: 0x7ffc1e881700 from cell: 0x7ffc1e87cc50 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a92 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10a92 (compile_branch) loaded: 0x1e88170000000000 from cell: 0x7ffc1e87cc4c cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a98 (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10a98 (compile_branch) loaded: 0x0 from cell: 0x7ffc1e87cc48 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10a9e (compile_branch) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10a9e (compile_branch) loaded: 0x7ffc1e87cf20 from cell: 0x7ffc1e87cc40 cell_owner: 18 value_owner: 14
+[CORRUPTED_PTR_LOAD] ip: main+0x9fec (compile_regex @ pcre2_compile.c:8252) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf00 cell_owner: 16 value_owner: 14
+[CORRUPTED_PTR_LOAD] ip: main+0xa01b (compile_regex @ pcre2_compile.c:8259) loaded: 0x7ffc1e8802f4 from cell: 0x7ffc1e87cf58 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10b13 (compile_branch @ pcre2_compile.c:6716) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10b28 (compile_branch @ pcre2_compile.c:6722) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0x10b28 (compile_branch @ pcre2_compile.c:6722) loaded: 0x1 from cell: 0x7ffc1e87ce78 cell_owner: 16 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10b35 (compile_branch @ pcre2_compile.c:6722) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10b35 (compile_branch @ pcre2_compile.c:6722) loaded: 0x1e87d0b400000089 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10b42 (compile_branch @ pcre2_compile.c:6722) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10b42 (compile_branch @ pcre2_compile.c:6722) loaded: 0xffffffff00000001 from cell: 0x7ffc1e87cf94 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10b56 (compile_branch @ pcre2_compile.c:6727) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10b56 (compile_branch @ pcre2_compile.c:6727) loaded: 0x1e87d0b400000089 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10b60 (compile_branch @ pcre2_compile.c:6727) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10b60 (compile_branch @ pcre2_compile.c:6727) loaded: 0x1e87d0b400000089 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10b82 (compile_branch @ pcre2_compile.c:6739) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10b82 (compile_branch @ pcre2_compile.c:6739) loaded: 0x1e87d0b400000089 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10ce2 (compile_branch @ pcre2_compile.c:6789) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10ced (compile_branch @ pcre2_compile.c:6791) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10cf9 (compile_branch @ pcre2_compile.c:6791) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[INCONSISTENCY mov read] ip: main+0x10d27 (compile_branch @ pcre2_compile.c:6796) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[INCONSISTENCY mov read] ip: main+0x10d36 (compile_branch @ pcre2_compile.c:6796) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10d40 (compile_branch @ pcre2_compile.c:6797) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10d40 (compile_branch @ pcre2_compile.c:6797) loaded: 0x7ffc1e87d2d3 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10d52 (compile_branch @ pcre2_compile.c:6798) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10d52 (compile_branch @ pcre2_compile.c:6798) loaded: 0x7ffc1e87d2d4 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10d5c (compile_branch @ pcre2_compile.c:6798) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10d5c (compile_branch @ pcre2_compile.c:6798) loaded: 0x7ffc1e87d2d4 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10d67 (compile_branch @ pcre2_compile.c:6798) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10d67 (compile_branch @ pcre2_compile.c:6798) loaded: 0x7ffc1e87d2d4 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10d79 (compile_branch @ pcre2_compile.c:6799) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10d79 (compile_branch @ pcre2_compile.c:6799) loaded: 0x7ffc1e87d2d6 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10d91 (compile_branch @ pcre2_compile.c:6800) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10d91 (compile_branch @ pcre2_compile.c:6800) loaded: 0x7ffc1e87d2d7 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10d9b (compile_branch @ pcre2_compile.c:6800) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10d9b (compile_branch @ pcre2_compile.c:6800) loaded: 0x7ffc1e87d2d7 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10da6 (compile_branch @ pcre2_compile.c:6800) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10da6 (compile_branch @ pcre2_compile.c:6800) loaded: 0x7ffc1e87d2d7 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x1390a (compile_branch @ pcre2_compile.c:5592) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[INCONSISTENCY mov read] ip: main+0xe1ba (compile_branch @ pcre2_compile.c:5672) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0xe1ba (compile_branch @ pcre2_compile.c:5672) loaded: 0x0 from cell: 0x7ffc1e87ceec cell_owner: 16 value_owner: 14
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xa1ea (compile_regex @ pcre2_compile.c:8327) mov qword ptr [rbp+0x38], rax id before: 143 after: 8 value: 0x7ffc1e87d2d8
+[INCONSISTENCY mov read] ip: main+0x10910 (compile_branch @ pcre2_compile.c:6654) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[INCONSISTENCY mov read] ip: main+0x10b6d (compile_branch @ pcre2_compile.c:6728) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[CORRUPTED_PTR_LOAD] ip: main+0x390f (pcre2_compile_8 @ pcre2_compile.c:10463) loaded: 0x511 from cell: 0x7ffc1e881750 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x392f (pcre2_compile_8 @ pcre2_compile.c:10475) loaded: 0x511 from cell: 0x7ffc1e881750 cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x3960 (pcre2_compile_8 @ pcre2_compile.c:10478) final_ea: 0x5fe3a7366cb8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x396e (pcre2_compile_8 @ pcre2_compile.c:10478) final_ea: 0x5fe3a7366cc8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x148d0 (default_malloc @ pcre2_context.c:59) loaded: 0x599 from cell: 0x7ffc1e87d158 cell_owner: 145 value_owner: 12
+[ALLOC] malloc(0x599) -> 0x5fe3dc876430 subject=146 at default_malloc @ pcre2_context.c:59
+[UNTRUSTEDPTRDEREF] ip: main+0x39b5 (pcre2_compile_8 @ pcre2_compile.c:10492) final_ea: 0x5fe3a7366cb8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x39bb (pcre2_compile_8 @ pcre2_compile.c:10492) final_ea: 0x5fe3a7366cc0 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x39c3 (pcre2_compile_8 @ pcre2_compile.c:10492) final_ea: 0x5fe3a7366cc8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x3a14 (pcre2_compile_8 @ pcre2_compile.c:10498) loaded: 0x18600000000 from cell: 0x7ffc1e8818dc cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x3a2f (pcre2_compile_8 @ pcre2_compile.c:10500) final_ea: 0x5fe3a7366cf8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x3a4f (pcre2_compile_8 @ pcre2_compile.c:10502) loaded: 0xffffffff from cell: 0x7ffc1e881714 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3a5c (pcre2_compile_8 @ pcre2_compile.c:10503) loaded: 0xffffffffffffffff from cell: 0x7ffc1e881710 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x3a69 (pcre2_compile_8 @ pcre2_compile.c:10504) loaded: 0xffffffffffffffff from cell: 0x7ffc1e88170c cell_owner: 8 value_owner: 6
+[UNTRUSTEDPTRDEREF] ip: main+0x3c4e (pcre2_compile_8 @ pcre2_compile.c:10553) final_ea: 0x5fe3a7366cf8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x13730 (compile_branch @ pcre2_compile.c:8142) jmp 0x18 id before: 8 after: 146 value: 0x5fe3dc8764c1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x13911 (compile_branch @ pcre2_compile.c:5592) jmp 0x18 id before: 146 after: 8 value: 0x7ffc1e8802f8
+[INCONSISTENCY mov read] ip: main+0x10dbd (compile_branch @ pcre2_compile.c:6806) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[INCONSISTENCY mov read] ip: main+0x10dcb (compile_branch @ pcre2_compile.c:6811) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10dcb (compile_branch @ pcre2_compile.c:6811) loaded: 0x1e87d0b400000089 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10ddd (compile_branch @ pcre2_compile.c:6820) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10ddd (compile_branch @ pcre2_compile.c:6820) loaded: 0x0 from cell: 0x7ffc1e87cf6c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10de9 (compile_branch @ pcre2_compile.c:6821) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10de9 (compile_branch @ pcre2_compile.c:6821) loaded: 0xffffffffffffffff from cell: 0x7ffc1e87cf48 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10df5 (compile_branch @ pcre2_compile.c:6822) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10df5 (compile_branch @ pcre2_compile.c:6822) loaded: 0x0 from cell: 0x7ffc1e87cf70 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10e01 (compile_branch @ pcre2_compile.c:6823) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10e01 (compile_branch @ pcre2_compile.c:6823) loaded: 0x1ffffffff from cell: 0x7ffc1e87cf4c cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10e17 (compile_branch @ pcre2_compile.c:6826) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10e17 (compile_branch @ pcre2_compile.c:6826) loaded: 0x1e87d0b400000089 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10e24 (compile_branch @ pcre2_compile.c:6834) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10e24 (compile_branch @ pcre2_compile.c:6834) loaded: 0x1ffffffff from cell: 0x7ffc1e87cf4c cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10e31 (compile_branch @ pcre2_compile.c:6834) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[INCONSISTENCY mov read] ip: main+0x10e3e (compile_branch @ pcre2_compile.c:6836) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[INCONSISTENCY mov read] ip: main+0x10e4b (compile_branch @ pcre2_compile.c:6838) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[INCONSISTENCY mov read] ip: main+0x10e57 (compile_branch @ pcre2_compile.c:6839) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[INCONSISTENCY mov read] ip: main+0x10ec8 (compile_branch @ pcre2_compile.c:6859) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[INCONSISTENCY mov read] ip: main+0x10e8b (compile_branch @ pcre2_compile.c:6850) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[INCONSISTENCY mov read] ip: main+0x10e98 (compile_branch @ pcre2_compile.c:6850) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[INCONSISTENCY mov read] ip: main+0x10ea5 (compile_branch @ pcre2_compile.c:6852) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[INCONSISTENCY mov read] ip: main+0x10eb1 (compile_branch @ pcre2_compile.c:6853) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10ec8 (compile_branch @ pcre2_compile.c:6859) loaded: 0x0 from cell: 0x7ffc1e87ce54 cell_owner: 18 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10ed5 (compile_branch @ pcre2_compile.c:6861) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[CORRUPTED_PTR_LOAD] ip: main+0x10ed5 (compile_branch @ pcre2_compile.c:6861) loaded: 0x200000061 from cell: 0x7ffc1e87ce68 cell_owner: 16 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10ee1 (compile_branch @ pcre2_compile.c:6862) base: 0x7ffc1e87d000 pointee: 14 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x10ee1 (compile_branch @ pcre2_compile.c:6862) loaded: 0x0 from cell: 0x7ffc1e87ce54 cell_owner: 18 value_owner: 14
+[CORRUPTED_PTR_LOAD] ip: main+0x10e98 (compile_branch @ pcre2_compile.c:6850) loaded: 0xffffffff from cell: 0x7ffc1e87ce54 cell_owner: 18 value_owner: 14
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xa5fa (compile_regex @ pcre2_compile.c:8454) jmp 0x29c5 id before: 8 after: 146 value: 0x5fe3dc87673b
+[INCONSISTENCY mov read] ip: main+0x10ef2 (compile_branch @ pcre2_compile.c:6877) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10ef2 (compile_branch @ pcre2_compile.c:6877) loaded: 0x1e87d0b400000081 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x10efc (compile_branch @ pcre2_compile.c:6877) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x10efc (compile_branch @ pcre2_compile.c:6877) loaded: 0x1e87d0b400000081 from cell: 0x7ffc1e87cf9c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x1385a (compile_branch @ pcre2_compile.c:8184) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x1385a (compile_branch @ pcre2_compile.c:8184) loaded: 0x61 from cell: 0x7ffc1e87cf70 cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x13866 (compile_branch @ pcre2_compile.c:8185) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x13866 (compile_branch @ pcre2_compile.c:8185) loaded: 0x7800000000 from cell: 0x7ffc1e87cf4c cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x13872 (compile_branch @ pcre2_compile.c:8186) base: 0x7ffc1e87d000 pointee: 14 read from 15
+[CORRUPTED_PTR_LOAD] ip: main+0x13872 (compile_branch @ pcre2_compile.c:8186) loaded: 0x6100000061 from cell: 0x7ffc1e87cf6c cell_owner: 15 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x1387e (compile_branch @ pcre2_compile.c:8187) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1387e (compile_branch @ pcre2_compile.c:8187) loaded: 0x0 from cell: 0x7ffc1e87cf48 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x1388a (compile_branch @ pcre2_compile.c:8188) base: 0x7ffc1e87d000 pointee: 14 read from 16
+[INCONSISTENCY mov read] ip: main+0x138a4 (compile_branch @ pcre2_compile.c:8190) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x138a4 (compile_branch @ pcre2_compile.c:8190) loaded: 0x5fe3dc8769c5 from cell: 0x7ffc1e87cf18 cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x138b5 (compile_branch @ pcre2_compile.c:8191) base: 0x7ffc1e87d000 pointee: 14 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x138b5 (compile_branch @ pcre2_compile.c:8191) loaded: 0x0 from cell: 0x7ffc1e87cf3c cell_owner: 9 value_owner: 14
+[INCONSISTENCY mov read] ip: main+0x138bb (compile_branch @ pcre2_compile.c:8191) base: 0x7ffc1e87d000 pointee: 14 read from 17
+[CORRUPTED_PTR_LOAD] ip: main+0x3da0 (pcre2_compile_8 @ pcre2_compile.c:10577) loaded: 0x511 from cell: 0x7ffc1e881750 cell_owner: 8 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x194f4 (_pcre2_auto_possessify_8 @ pcre2_auto_possess.c:1144) loaded: 0x5fe3dc8764b8 from cell: 0x7ffc1e87d150 cell_owner: 145 value_owner: 12
+[UNTRUSTEDPTRDEREF] ip: main+0x1985e (_pcre2_auto_possessify_8) final_ea: 0x5fe3a7363c9c base: 0x5fe3a7363a80 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1994a (_pcre2_auto_possessify_8 @ pcre2_auto_possess.c:1291) final_ea: 0x5fe3a7345ae7 base: 0x5fe3a7345a60 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x1994e (_pcre2_auto_possessify_8 @ pcre2_auto_possess.c:1291) loaded: 0x5fe3dc8764b8 from cell: 0x7ffc1e87d150 cell_owner: 145 value_owner: 12
+[UNTRUSTEDPTRDEREF] ip: main+0xab4e (is_anchored @ pcre2_compile.c:8566) final_ea: 0x5fe3a7345ae7 base: 0x5fe3a7345a60 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x145db (first_significant_code @ pcre2_compile.c:4940) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87d0f0 cell_owner: 147 value_owner: 148
+[UNTRUSTEDPTRDEREF] ip: main+0x14601 (first_significant_code) final_ea: 0x5fe3a7343154 base: 0x5fe3a7342f40 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x147bc (first_significant_code @ pcre2_compile.c:4993) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87d0f0 cell_owner: 147 value_owner: 148
+[CORRUPTED_PTR_LOAD] ip: main+0xab3a (is_anchored @ pcre2_compile.c:8566) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87d0f0 cell_owner: 147 value_owner: 148
+[CORRUPTED_PTR_LOAD] ip: main+0xab3e (is_anchored @ pcre2_compile.c:8566) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87d0f0 cell_owner: 147 value_owner: 148
+[INCONSISTENCY mov read] ip: main+0xab6c (is_anchored @ pcre2_compile.c:8571) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xab6c (is_anchored @ pcre2_compile.c:8571) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xab79 (is_anchored @ pcre2_compile.c:8571) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xab79 (is_anchored @ pcre2_compile.c:8571) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xab86 (is_anchored @ pcre2_compile.c:8572) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xab86 (is_anchored @ pcre2_compile.c:8572) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xab93 (is_anchored @ pcre2_compile.c:8572) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xab93 (is_anchored @ pcre2_compile.c:8572) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xabd1 (is_anchored @ pcre2_compile.c:8580) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xabd1 (is_anchored @ pcre2_compile.c:8580) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xabde (is_anchored @ pcre2_compile.c:8580) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xabde (is_anchored @ pcre2_compile.c:8580) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xabeb (is_anchored @ pcre2_compile.c:8581) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xabeb (is_anchored @ pcre2_compile.c:8581) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xabf8 (is_anchored @ pcre2_compile.c:8581) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xabf8 (is_anchored @ pcre2_compile.c:8581) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xac88 (is_anchored @ pcre2_compile.c:8590) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xac88 (is_anchored @ pcre2_compile.c:8590) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xac92 (is_anchored @ pcre2_compile.c:8590) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xac92 (is_anchored @ pcre2_compile.c:8590) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xacd2 (is_anchored @ pcre2_compile.c:8597) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xacd2 (is_anchored @ pcre2_compile.c:8597) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xacdf (is_anchored @ pcre2_compile.c:8597) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xacdf (is_anchored @ pcre2_compile.c:8597) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xad51 (is_anchored @ pcre2_compile.c:8606) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xad51 (is_anchored @ pcre2_compile.c:8606) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xad92 (is_anchored @ pcre2_compile.c:8619) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xad92 (is_anchored @ pcre2_compile.c:8619) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xad9c (is_anchored @ pcre2_compile.c:8619) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xad9c (is_anchored @ pcre2_compile.c:8619) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xada6 (is_anchored @ pcre2_compile.c:8620) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xada6 (is_anchored @ pcre2_compile.c:8620) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xae25 (is_anchored @ pcre2_compile.c:8630) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xae25 (is_anchored @ pcre2_compile.c:8630) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xae2f (is_anchored @ pcre2_compile.c:8630) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xae2f (is_anchored @ pcre2_compile.c:8630) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0xae39 (is_anchored @ pcre2_compile.c:8630) base: 0x7ffc1e87d100 pointee: 147 read from 149
+[CORRUPTED_PTR_LOAD] ip: main+0xae39 (is_anchored @ pcre2_compile.c:8630) loaded: 0xdc8764c00000001d from cell: 0x7ffc1e87d0cc cell_owner: 149 value_owner: 147
+[INCONSISTENCY mov read] ip: main+0x174fb (find_minlength @ pcre2_study.c:106) base: 0x7ffc1e87cec0 pointee: 16 read from 150
+[INCONSISTENCY mov read] ip: main+0x1763f (find_minlength @ pcre2_study.c:147) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x1763f (find_minlength @ pcre2_study.c:147) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INTRA_OBJECT_OVERFLOW] ip: main+0x17645 (find_minlength @ pcre2_study.c:147) byte write at: 0x7ffc1e87ce33 offset: +0x73 cell_owner: 151 writer_pointee: 16
+[INCONSISTENCY mov read] ip: main+0x1764b (find_minlength @ pcre2_study.c:148) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x1764b (find_minlength @ pcre2_study.c:148) loaded: 0x89 from cell: 0x7ffc1e87ce33 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x17665 (find_minlength) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17665 (find_minlength) loaded: 0x89 from cell: 0x7ffc1e87cde0 cell_owner: 151 value_owner: 16
+[UNTRUSTEDPTRDEREF] ip: main+0x17673 (find_minlength) final_ea: 0x5fe3a73459d8 base: 0x5fe3a73457b4 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x177a9 (find_minlength @ pcre2_study.c:203) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x177a9 (find_minlength @ pcre2_study.c:203) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x177b4 (find_minlength @ pcre2_study.c:203) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x177b4 (find_minlength @ pcre2_study.c:203) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x177ce (find_minlength @ pcre2_study.c:204) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x177ce (find_minlength @ pcre2_study.c:204) loaded: 0x1 from cell: 0x7ffc1e87ce34 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x177dd (find_minlength @ pcre2_study.c:206) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x177dd (find_minlength @ pcre2_study.c:206) loaded: 0x1 from cell: 0x7ffc1e87ce34 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x177ea (find_minlength @ pcre2_study.c:207) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x177ea (find_minlength @ pcre2_study.c:207) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x177fd (find_minlength @ pcre2_study.c:208) base: 0x7ffc1e87cec0 pointee: 16 read from 150
+[INCONSISTENCY mov read] ip: main+0x17830 (find_minlength @ pcre2_study.c:212) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17830 (find_minlength @ pcre2_study.c:212) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x1783b (find_minlength @ pcre2_study.c:212) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x1783b (find_minlength @ pcre2_study.c:212) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x17845 (find_minlength @ pcre2_study.c:212) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17845 (find_minlength @ pcre2_study.c:212) loaded: 0x5fe3dc8764bb from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x17852 (find_minlength @ pcre2_study.c:212) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17852 (find_minlength @ pcre2_study.c:212) loaded: 0x5fe3dc8764c2 from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x17862 (find_minlength @ pcre2_study.c:213) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17862 (find_minlength @ pcre2_study.c:213) loaded: 0x5fe3dc8764c2 from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x17677 (find_minlength) jmp 0x5 id before: 12 after: -1 [unmapped] value: 0x5fe3a733b9fa
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x17583 (find_minlength @ pcre2_study.c:116) call 0xfffffffffffffceb id before: 150 after: 146 value: 0x5fe3dc876738
+[INCONSISTENCY mov read] ip: main+0x17910 (find_minlength @ pcre2_study.c:253) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17910 (find_minlength @ pcre2_study.c:253) loaded: 0x5fe3dc8769b1 from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x1791b (find_minlength @ pcre2_study.c:253) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x1791b (find_minlength @ pcre2_study.c:253) loaded: 0x5fe3dc8769b1 from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x17925 (find_minlength @ pcre2_study.c:253) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17925 (find_minlength @ pcre2_study.c:253) loaded: 0x5fe3dc8769b1 from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x17932 (find_minlength @ pcre2_study.c:253) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17932 (find_minlength @ pcre2_study.c:253) loaded: 0x5fe3dc8769c0 from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[INCONSISTENCY mov read] ip: main+0x17947 (find_minlength @ pcre2_study.c:279) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x17947 (find_minlength @ pcre2_study.c:279) loaded: 0x5fe3dc8769c0 from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[UNTRUSTEDPTRDEREF] ip: main+0x17957 (find_minlength @ pcre2_study.c:279) final_ea: 0x5fe3a7345ad9 base: 0x5fe3a7345a60 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x1795b (find_minlength @ pcre2_study.c:279) base: 0x7ffc1e87cec0 pointee: 16 read from 151
+[CORRUPTED_PTR_LOAD] ip: main+0x1795b (find_minlength @ pcre2_study.c:279) loaded: 0x5fe3dc8769c0 from cell: 0x7ffc1e87ce50 cell_owner: 151 value_owner: 16
+[UNTRUSTEDPTRDEREF] ip: main+0x45cb (pcre2_compile_8 @ pcre2_compile.c:10829) final_ea: 0x5fe3a7366cc0 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x45da (pcre2_compile_8 @ pcre2_compile.c:10829) final_ea: 0x5fe3a7366cc8 base: 0x5fe3a7366cb8 pointee: -1 base_vo: -1
+[FREE] free(0x5fe3dc876020) subject=11 at default_free @ pcre2_context.c:66
+[FREE:internal] free(0x5fe3dc876020) subject=0
+[DOUBLE FREE] free(0x5fe3dc876020) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x148f0 (default_free @ pcre2_context.c:66) loaded: 0x5fe3dc876430 from cell: 0x7ffc1e8818e8 cell_owner: 217 value_owner: 216
+[FREE] free(0x5fe3dc876430) subject=146 at default_free @ pcre2_context.c:66
+[STACK PIVOT] ip: main+0x1427 (main @ poc_harness.c:90) RSP 0x7ffc1e883a68 left stack [0xdb,0x7ffc1e864000]
+[STACK PIVOT] ip: main+0x1428 (main @ poc_harness.c:90) RSP 0x7ffc1e883a70 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x11ae (__do_global_dtors_aux) final_ea: 0x5fe3a7366ff8 base: 0x5fe3a73251ae pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x11d4 (__do_global_dtors_aux) RSP 0x7ffc1e883950 left stack after RET
+[STACK PIVOT] ip: main+0x1d01c (_fini) RSP 0x7ffc1e883980 left stack after RET

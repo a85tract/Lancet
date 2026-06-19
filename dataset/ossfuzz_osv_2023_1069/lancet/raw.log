@@ -1,0 +1,821 @@
+[INCONSISTENCY mov write reg] ip: main+0x34fb (main @ harness.c:20) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x3501 (main @ harness.c:20) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x44c7 (igraph_set_attribute_table @ attributes.c:298) co: 3 vo: 3, 3 write 3
+[UNTRUSTEDPTRDEREF] ip: main+0x357b (main @ harness.c:36) final_ea: 0x7ffc07d04170 base: 0x7ffc07d04170 pointee: -1 base_vo: -1
+[ALLOC:internal] malloc(0x1d8) -> 0x5efe90e91010 subject=5 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x3590 (main @ harness.c:36) co: 4 vo: 4, 4 write 4
+[ALLOC:internal] malloc(0x1000) -> 0x5efe90e911f0 subject=6 at _IO_file_doallocate
+[UNINITIALIZED mov read] ip: main+0x3688 (main @ harness.c:53) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x3706 (main @ harness.c:60) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x3718 (main @ harness.c:60) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x372a (main @ harness.c:60) co: 4 vo: -1
+[ALLOC] calloc(0x8) -> 0x5efe90e92200 subject=8 at igraph_vector_int_init @ vector.pmt:144
+[ALLOC] calloc(0x8) -> 0x5efe90e92220 subject=9 at igraph_strvector_init @ strvector.c:73
+[ALLOC] calloc(0x8) -> 0x5efe90e92240 subject=10 at igraph_vector_ptr_init @ vector_ptr.c:91
+[ALLOC] calloc(0x8) -> 0x5efe90e92260 subject=11 at igraph_vector_int_init @ vector.pmt:144
+[ALLOC] calloc(0x8) -> 0x5efe90e92280 subject=12 at igraph_strvector_init @ strvector.c:73
+[ALLOC] calloc(0x8) -> 0x5efe90e922a0 subject=13 at igraph_vector_ptr_init @ vector_ptr.c:91
+[ALLOC] calloc(0x8) -> 0x5efe90e922c0 subject=14 at igraph_strvector_init @ strvector.c:73
+[ALLOC] calloc(0x8) -> 0x5efe90e922e0 subject=15 at igraph_vector_ptr_init @ vector_ptr.c:91
+[ALLOC] calloc(0x8) -> 0x5efe90e92300 subject=16 at igraph_vector_int_init @ vector.pmt:144
+[ALLOC] calloc(0x8) -> 0x5efe90e92320 subject=17 at igraph_strvector_init @ strvector.c:73
+[ALLOC] calloc(0x8) -> 0x5efe90e92340 subject=18 at igraph_vector_ptr_init @ vector_ptr.c:91
+[ALLOC] calloc(0xa0) -> 0x5efe90e92360 subject=19 at igraph_pajek_yylex_init_extra @ pajek-lexer.c:2664
+[UNTRUSTEDPTRDEREF] ip: main+0x1ad18 (igraph_pajek_yyparse @ pajek-parser.c:1701) final_ea: 0x5efe831bf6e0 base: 0x5efe831bf6e0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d673 (igraph_pajek_yylex @ pajek-lexer.c:1192) final_ea: 0x5efe831d1fc8 base: 0x5efe8318d673 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d67a (igraph_pajek_yylex @ pajek-lexer.c:1192) final_ea: 0x790787c13668 base: 0x790787c13668 pointee: -1 base_vo: -1
+[ALLOC] malloc(0x8) -> 0x5efe90e92410 subject=22 at igraph_pajek_yylex @ pajek-lexer.c:2664
+[ALLOC] malloc(0x40) -> 0x5efe90e92430 subject=23 at igraph_pajek_yylex @ pajek-lexer.c:2664
+[ALLOC] malloc(0x4002) -> 0x5efe90e92480 subject=24 at igraph_pajek_yylex @ pajek-lexer.c:2664
+[UNTRUSTEDPTRDEREF] ip: main+0x1fe69 (igraph_pajek_yy_init_buffer @ pajek-lexer.c:2074) final_ea: 0x79079acd8720 base: 0x79079acd8720 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d7eb (igraph_pajek_yylex @ pajek-lexer.c:1225) final_ea: 0x5efe831c0800 base: 0x5efe831c07f0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d801 (igraph_pajek_yylex @ pajek-lexer.c:1230) final_ea: 0x5efe831c0d20 base: 0x5efe831c0d10 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d809 (igraph_pajek_yylex @ pajek-lexer.c:1230) final_ea: 0x5efe831c0974 base: 0x5efe831c0940 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d832 (igraph_pajek_yylex @ pajek-lexer.c:1232) final_ea: 0x5efe831c0e90 base: 0x5efe831c0e80 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d820 (igraph_pajek_yylex @ pajek-lexer.c:1230) final_ea: 0x5efe831c0e62 base: 0x5efe831c0d10 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d7c7 (igraph_pajek_yylex @ pajek-lexer.c:1236) final_ea: 0x5efe831c1382 base: 0x5efe831c1040 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d7d0 (igraph_pajek_yylex @ pajek-lexer.c:1239) final_ea: 0x5efe831c0d2a base: 0x5efe831c0d10 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d854 (igraph_pajek_yylex @ pajek-lexer.c:1242) final_ea: 0x5efe831c093a base: 0x5efe831c07f0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d86c (igraph_pajek_yylex @ pajek-lexer.c:1247) final_ea: 0x5efe831c080a base: 0x5efe831c07f0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d902 (igraph_pajek_yylex) final_ea: 0x5efe831c06cc base: 0x5efe831c05e0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1d8a3 (igraph_pajek_yylex @ pajek-lexer.c:1252) final_ea: 0x5efe831c1418 base: 0x5efe831c1410 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1adb1 (igraph_pajek_yyparse @ pajek-parser.c:1733) final_ea: 0x5efe831bf957 base: 0x107 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1ade7 (igraph_pajek_yyparse @ pajek-parser.c:1740) final_ea: 0x5efe831bf998 base: 0x5efe831bf990 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1ae6c (igraph_pajek_yyparse @ pajek-parser.c:1784) final_ea: 0x5efe831bfd55 base: 0x5 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x1aea0 (igraph_pajek_yyparse @ pajek-parser.c:1797) co: 20 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1aeab (igraph_pajek_yyparse) co: 20 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1aeaf (igraph_pajek_yyparse) co: 20 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1aec7 (igraph_pajek_yyparse) final_ea: 0x5efe831bf4ec base: 0x5efe831bf4e0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1bfef (igraph_pajek_yyparse @ pajek-parser.c:2335) final_ea: 0x5efe831bfdd5 base: 0x5 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1bffb (igraph_pajek_yyparse @ pajek-parser.c:2336) final_ea: 0x5efe831bfe53 base: 0x36 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x1ae8c (igraph_pajek_yyparse @ pajek-parser.c:1797) co: 20 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1ae93 (igraph_pajek_yyparse @ pajek-parser.c:1797) co: 20 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x477ba (igraph_i_parse_integer @ parse_utils.c:80) final_ea: 0x79079acd8720 base: 0x79079acd8720 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x477c0 (igraph_i_parse_integer @ parse_utils.c:82) loaded: 0x7ffc07d01f61 from cell: 0x7ffc07d01f58 cell_owner: 26 value_owner: 20
+[UNTRUSTEDPTRDEREF] ip: main+0x1c017 (igraph_pajek_yyparse @ pajek-parser.c:2337) final_ea: 0x5efe831bf994 base: 0x5efe831bf990 pointee: -1 base_vo: -1
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1b23f (igraph_pajek_yyparse @ pajek-parser.c:1850) at: 0x7ffc07d03db8 offset: +0x1f8 subject: 7 clobbers ptr 0x5efe90e91010 (owner: 5)
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1cfb7 (igraph_i_pajek_add_string_attribute @ pajek-parser.c:2616) at: 0x7ffc07d01fe0 offset: +0x10 subject: 31 clobbers ptr 0x5efe90e92480 (owner: 24)
+[INTRA_OBJECT_OVERFLOW] ip: main+0x2229c (igraph_i_strvector_expand_if_full @ strvector.c:515) at: 0x7ffc07d03ea8 offset: +0x2e8 subject: 7 clobbers ptr 0x5efe90e92280 (owner: 32)
+[ALLOC:internal] malloc(0x3) -> 0x5efe90e96490 subject=33 at strdup
+[ALLOC:internal] malloc(0x3) -> 0x5efe90e964b0 subject=36 at strdup
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x3242d (igraph_vector_int_push_back @ vector.pmt:582) add rcx, 0x8 id before: 11 after: -1 [chunk metadata] value: 0x5efe90e92268
+[INTRA_OBJECT_OVERFLOW] ip: main+0x32431 (igraph_vector_int_push_back @ vector.pmt:582) at: 0x7ffc07d03e88 offset: +0x2c8 subject: 7 clobbers ptr 0x5efe90e92260 (owner: 11)
+[ALLOC] calloc(0x18) -> 0x5efe90e964d0 subject=37 at igraph_i_pajek_add_string_attribute @ pajek-parser.c:2625
+[ALLOC] calloc(0x18) -> 0x5efe90e964f0 subject=38 at igraph_i_pajek_add_string_attribute @ pajek-parser.c:2629
+[ALLOC] calloc(0x8) -> 0x5efe90e96510 subject=39 at igraph_strvector_init @ strvector.c:73
+[ALLOC] calloc(0x1) -> 0x5efe90e96530 subject=40 at igraph_strvector_init @ strvector.c:77
+[ALLOC:internal] malloc(0x3) -> 0x5efe90e96550 subject=41 at strdup
+[INCONSISTENCY mov read] ip: main+0x1d0eb (igraph_i_pajek_add_string_attribute) base: 0x7ffc07d01fd0 pointee: 31 read from 20
+[ALLOC:internal] malloc(0x5) -> 0x5efe90e96570 subject=45 at strdup
+[ALLOC:internal] malloc(0x5) -> 0x5efe90e96590 subject=48 at strdup
+[INTRA_OBJECT_OVERFLOW] ip: main+0x3fcd4 (igraph_vector_ptr_push_back @ vector_ptr.c:229) at: 0x7ffc07d03e60 offset: +0x2a0 subject: 7 clobbers ptr 0x5efe90e92248 (owner: 49)
+[INTRA_OBJECT_OVERFLOW] ip: main+0x322c6 (igraph_vector_int_reserve @ vector.pmt:479) at: 0x7ffc07d03e80 offset: +0x2c0 subject: 7 clobbers ptr 0x5efe90e92268 (owner: 50)
+[ALLOC] calloc(0x18) -> 0x5efe90e965b0 subject=51 at igraph_i_pajek_add_string_attribute @ pajek-parser.c:2625
+[ALLOC] calloc(0x18) -> 0x5efe90e965d0 subject=52 at igraph_i_pajek_add_string_attribute @ pajek-parser.c:2629
+[ALLOC] calloc(0x8) -> 0x5efe90e965f0 subject=53 at igraph_strvector_init @ strvector.c:73
+[ALLOC] calloc(0x1) -> 0x5efe90e96610 subject=54 at igraph_strvector_init @ strvector.c:77
+[ALLOC:internal] malloc(0x5) -> 0x5efe90e96630 subject=55 at strdup
+[UNTRUSTEDPTRDEREF] ip: main+0x47917 (igraph_i_parse_real @ parse_utils.c:137) final_ea: 0x79079acd8720 base: 0x79079acd8720 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x47919 (igraph_i_parse_real @ parse_utils.c:138) loaded: 0x7ffc07d01f61 from cell: 0x7ffc07d01f58 cell_owner: 59 value_owner: 20
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1d219 (igraph_i_pajek_add_numeric_attribute @ pajek-parser.c:2555) at: 0x7ffc07d01fd8 offset: +0x8 subject: 63 clobbers ptr 0x5efe90e9248f (owner: 24)
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e92280 subject=65 at strdup
+[CORRUPTED_PTR_LOAD] ip: main+0x2146e (igraph_strvector_get @ strvector.c:136) loaded: 0x5efe90e964b0 from cell: 0x5efe90e92220 cell_owner: 47 value_owner: 35
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e92220 subject=68 at strdup
+[ALLOC] calloc(0x18) -> 0x5efe90e92240 subject=71 at igraph_i_pajek_add_numeric_attribute @ pajek-parser.c:2564
+[ALLOC] calloc(0x18) -> 0x5efe90e92260 subject=72 at igraph_i_pajek_add_numeric_attribute @ pajek-parser.c:2568
+[ALLOC] calloc(0x8) -> 0x5efe90e96a20 subject=73 at igraph_vector_init @ vector.pmt:144
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e96a40 subject=74 at strdup
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e922a0 subject=77 at strdup
+[UNINITIALIZED mov read] ip: main+0x2146e (igraph_strvector_get @ strvector.c:136) co: 67 vo: -1
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e96a90 subject=79 at strdup
+[ALLOC] calloc(0x18) -> 0x5efe90e96ab0 subject=80 at igraph_i_pajek_add_numeric_attribute @ pajek-parser.c:2564
+[ALLOC] calloc(0x18) -> 0x5efe90e96ad0 subject=81 at igraph_i_pajek_add_numeric_attribute @ pajek-parser.c:2568
+[ALLOC] calloc(0x8) -> 0x5efe90e96af0 subject=82 at igraph_vector_init @ vector.pmt:144
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e96b10 subject=83 at strdup
+[ALLOC:internal] malloc(0x6) -> 0x5efe90e96650 subject=86 at strdup
+[ALLOC:internal] malloc(0x6) -> 0x5efe90e96990 subject=89 at strdup
+[ALLOC] calloc(0x18) -> 0x5efe90e969c0 subject=92 at igraph_i_pajek_add_string_attribute @ pajek-parser.c:2625
+[ALLOC] calloc(0x18) -> 0x5efe90e969e0 subject=93 at igraph_i_pajek_add_string_attribute @ pajek-parser.c:2629
+[ALLOC] calloc(0x8) -> 0x5efe90e96a00 subject=94 at igraph_strvector_init @ strvector.c:73
+Store dangling pointer: 0x5efe90e96a00 at: 0x5efe90e969e0
+[ALLOC] calloc(0x1) -> 0x5efe90e96c70 subject=95 at igraph_strvector_init @ strvector.c:77
+[INCONSISTENCY mov write reg UAF] ip: main+0x212ef (igraph_strvector_init @ strvector.c:77) UAF write at: 0x5efe90e96a00
+main+0x212f3 (igraph_strvector_init @ strvector.c:78) Using expired pointer: 0x5efe90e96a00 from 0x5efe90e969e0
+first time found dangling pointer at: 11879 distance: 13
+[INCONSISTENCY mov read UAF] ip: main+0x212f6 (igraph_strvector_init @ strvector.c:78) UAF read at: 0x5efe90e96a00
+Store dangling pointer: 0x5efe90e96a08 at: 0x5efe90e969e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x21316 (igraph_strvector_init @ strvector.c:91) UAF write at: 0x5efe90e969f0
+first time found dangling pointer at: 11903 distance: 0
+[ALLOC:internal] malloc(0x6) -> 0x5efe90e96c90 subject=96 at strdup
+[INCONSISTENCY mov read UAF] ip: main+0x216ce (igraph_strvector_size @ strvector.c:565) UAF read at: 0x5efe90e969f0
+first time found dangling pointer at: 11903 distance: 136
+main+0x216ce (igraph_strvector_size @ strvector.c:565) Using expired pointer: 0x5efe90e96a08 from 0x5efe90e969f0
+first time found dangling pointer at: 11903 distance: 136
+[INCONSISTENCY mov read UAF] ip: main+0x2151b (igraph_strvector_set_len @ strvector.c:185) UAF read at: 0x5efe90e96a00
+[INCONSISTENCY mov write reg UAF] ip: main+0x2154a (igraph_strvector_set_len @ strvector.c:190) UAF write at: 0x5efe90e96a00
+[INCONSISTENCY mov read UAF] ip: main+0x21551 (igraph_strvector_set_len @ strvector.c:191) UAF read at: 0x5efe90e96a00
+[INCONSISTENCY mov read UAF] ip: main+0x21563 (igraph_strvector_set_len @ strvector.c:192) UAF read at: 0x5efe90e96a00
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1d99a (igraph_pajek_yylex @ pajek-lexer.c:1704) at: 0x7ffc07d01fb8 offset: +0x38 subject: 100 clobbers ptr 0x5efe90e92496 (owner: 24)
+[UNTRUSTEDPTRDEREF] ip: main+0x1e359 (igraph_pajek_yylex @ pajek-lexer.c:1819) final_ea: 0x5efe831c0802 base: 0x5efe831c07f0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e368 (igraph_pajek_yylex @ pajek-lexer.c:1824) final_ea: 0x5efe831c0d22 base: 0x5efe831c0d10 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e373 (igraph_pajek_yylex @ pajek-lexer.c:1824) final_ea: 0x5efe831c0a76 base: 0x5efe831c0940 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e3a2 (igraph_pajek_yylex @ pajek-lexer.c:1826) final_ea: 0x5efe831c0e92 base: 0x5efe831c0e80 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e3b0 (igraph_pajek_yylex @ pajek-lexer.c:1828) final_ea: 0x5efe831c0fff base: 0xf pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e390 (igraph_pajek_yylex @ pajek-lexer.c:1824) final_ea: 0x5efe831c0e5c base: 0x5efe831c0d10 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e331 (igraph_pajek_yylex @ pajek-lexer.c:1830) final_ea: 0x5efe831c132c base: 0x5efe831c1040 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x1f245 (igraph_pajek_yylex @ pajek-lexer.c:1505) co: 101 vo: -1
+main+0x1aeab (igraph_pajek_yyparse) Read a dangling pointer 0x5efe90e9249a from 0x7ffc07d02fb0
+main+0x1b81c (igraph_pajek_yyparse @ pajek-parser.c:1997) Using expired pointer: 0x5efe90e9249a from 0x7ffc07d02fb0
+first time found dangling pointer at: 16897 distance: 15
+[ALLOC:internal] malloc(0x1) -> 0x5efe90e96a60 subject=102 at strndup
+[ALLOC:internal] malloc(0x1) -> 0x5efe90e92480 subject=104 at strdup
+[INTRA_OBJECT_OVERFLOW] ip: main+0x22905 (igraph_i_trie_get_node) at: 0x7ffc07d01f38 offset: +0x8 subject: 105 clobbers ptr 0x5efe90e96a60 (owner: 102)
+[ALLOC:internal] malloc(0x1) -> 0x5efe90e924a0 subject=106 at strdup
+Store dangling pointer: 0x5efe90e924a0 at: 0x5efe90e96ba8
+[ALLOC] calloc(0x18) -> 0x5efe90e924c0 subject=107 at igraph_i_pajek_add_string_attribute @ pajek-parser.c:2625
+[ALLOC] calloc(0x18) -> 0x5efe90e924e0 subject=108 at igraph_i_pajek_add_string_attribute @ pajek-parser.c:2629
+[ALLOC] calloc(0x8) -> 0x5efe90e92500 subject=109 at igraph_strvector_init @ strvector.c:73
+Store dangling pointer: 0x5efe90e92500 at: 0x5efe90e924e0
+[INCONSISTENCY mov write reg UAF] ip: main+0x212c5 (igraph_strvector_init @ strvector.c:73) UAF write at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 0
+[ALLOC] calloc(0x1) -> 0x5efe90e92520 subject=110 at igraph_strvector_init @ strvector.c:77
+Store dangling pointer: 0x5efe90e92520 at: 0x5efe90e92500
+[INCONSISTENCY mov read UAF] ip: main+0x212f3 (igraph_strvector_init @ strvector.c:78) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 13
+main+0x212f3 (igraph_strvector_init @ strvector.c:78) Using expired pointer: 0x5efe90e92500 from 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 13
+main+0x212f6 (igraph_strvector_init @ strvector.c:78) Using expired pointer: 0x5efe90e92520 from 0x5efe90e92500
+first time found dangling pointer at: 17554 distance: 2
+[INCONSISTENCY mov write imm UAF] ip: main+0x212ff (igraph_strvector_init @ strvector.c:87) UAF write at: 0x5efe90e92520
+[INCONSISTENCY mov read UAF] ip: main+0x21306 (igraph_strvector_init) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 19
+Store dangling pointer: 0x5efe90e92508 at: 0x5efe90e924e8
+[INCONSISTENCY mov write reg UAF] ip: main+0x21312 (igraph_strvector_init @ strvector.c:90) UAF write at: 0x5efe90e924e8
+first time found dangling pointer at: 17565 distance: 0
+[ALLOC:internal] malloc(0x1) -> 0x5efe90e92540 subject=111 at strdup
+Store dangling pointer: 0x5efe90e92540 at: 0x5efe90e924c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d072 (igraph_i_pajek_add_string_attribute @ pajek-parser.c:2634) UAF write at: 0x5efe90e924c0
+first time found dangling pointer at: 17599 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x1d08d (igraph_i_pajek_add_string_attribute @ pajek-parser.c:2638) UAF write at: 0x5efe90e924c8
+Store dangling pointer: 0x5efe90e924e0 at: 0x5efe90e924d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1d094 (igraph_i_pajek_add_string_attribute @ pajek-parser.c:2639) UAF write at: 0x5efe90e924d0
+first time found dangling pointer at: 17621 distance: 0
+Store dangling pointer: 0x5efe90e924c0 at: 0x5efe90e96cd8
+main+0x1d0c1 (igraph_i_pajek_add_string_attribute @ pajek-parser.c:2645) Using expired pointer: 0x5efe90e924c0 from 0x5efe90e96cd8
+first time found dangling pointer at: 17641 distance: 25
+[INCONSISTENCY mov read UAF] ip: main+0x1d0c5 (igraph_i_pajek_add_string_attribute @ pajek-parser.c:2646) UAF read at: 0x5efe90e924d0
+first time found dangling pointer at: 17621 distance: 46
+main+0x1d0c5 (igraph_i_pajek_add_string_attribute @ pajek-parser.c:2646) Using expired pointer: 0x5efe90e924e0 from 0x5efe90e924d0
+first time found dangling pointer at: 17621 distance: 46
+[INCONSISTENCY mov read UAF] ip: main+0x216c6 (igraph_strvector_size @ strvector.c:564) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 131
+main+0x216ce (igraph_strvector_size @ strvector.c:565) Using expired pointer: 0x5efe90e92508 from 0x5efe90e924f0
+first time found dangling pointer at: 17566 distance: 110
+[INCONSISTENCY mov read UAF] ip: main+0x21510 (igraph_strvector_set_len @ strvector.c:184) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 154
+[INCONSISTENCY mov read UAF] ip: main+0x21547 (igraph_strvector_set_len @ strvector.c:190) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 171
+[INCONSISTENCY mov read UAF] ip: main+0x2154e (igraph_strvector_set_len @ strvector.c:191) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 173
+[INCONSISTENCY mov read UAF] ip: main+0x21560 (igraph_strvector_set_len @ strvector.c:192) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 179
+[FREE] free(0x5efe90e96a60) subject=102 at igraph_pajek_yyparse @ pajek-parser.c:2007
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1ddf5 (igraph_pajek_yylex) at: 0x7ffc07d01fc0 offset: +0x40 subject: 113 clobbers ptr 0x7ffc07d03c00 (owner: 7)
+[INCONSISTENCY mov read] ip: main+0x1ddfa (igraph_pajek_yylex) base: 0x7ffc07d01f80 pointee: 113 read from 103
+[CORRUPTED_PTR_LOAD] ip: main+0x1ddfa (igraph_pajek_yylex) loaded: 0x79079acd8720 from cell: 0x7ffc07d01fd8 cell_owner: 103 value_owner: 113
+[UNINITIALIZED mov read] ip: main+0x1e0f8 (igraph_pajek_yylex @ pajek-lexer.c:1818) co: 101 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e10f (igraph_pajek_yylex @ pajek-lexer.c:1819) final_ea: 0x5efe831c0802 base: 0x5efe831c07f0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e11e (igraph_pajek_yylex @ pajek-lexer.c:1824) final_ea: 0x5efe831c0d22 base: 0x5efe831c0d10 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e129 (igraph_pajek_yylex @ pajek-lexer.c:1824) final_ea: 0x5efe831c0a5e base: 0x5efe831c0940 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e0e7 (igraph_pajek_yylex @ pajek-lexer.c:1830) final_ea: 0x5efe831c115e base: 0x5efe831c1040 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x1d8d0 (igraph_pajek_yylex @ pajek-lexer.c:1256) co: 101 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1e96f (igraph_pajek_yylex @ pajek-lexer.c:1345) co: 101 vo: -1
+[INCONSISTENCY mov read] ip: main+0x1dd8b (igraph_pajek_yylex) base: 0x7ffc07d01f80 pointee: 114 read from 103
+[CORRUPTED_PTR_LOAD] ip: main+0x1dd8b (igraph_pajek_yylex) loaded: 0x5efe90e96d01 from cell: 0x7ffc07d01fd0 cell_owner: 103 value_owner: 114
+[ALLOC] calloc(0x8) -> 0x5efe90e92520 subject=116 at igraph_vector_int_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92528 at: 0x7ffc07d03f18
+[ALLOC] calloc(0x8) -> 0x5efe90e92560 subject=117 at igraph_vector_int_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92560 at: 0x7ffc07d03f28
+Store dangling pointer: 0x5efe90e92568 at: 0x7ffc07d03f30
+[ALLOC] calloc(0x8) -> 0x5efe90e92580 subject=118 at igraph_vector_int_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92580 at: 0x7ffc07d03f40
+Store dangling pointer: 0x5efe90e92588 at: 0x7ffc07d03f48
+[ALLOC] calloc(0x8) -> 0x5efe90e925a0 subject=119 at igraph_vector_int_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e925a0 at: 0x7ffc07d03f58
+Store dangling pointer: 0x5efe90e925a8 at: 0x7ffc07d03f60
+[ALLOC] calloc(0x8) -> 0x5efe90e925c0 subject=120 at igraph_vector_int_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e925c0 at: 0x7ffc07d03f70
+Store dangling pointer: 0x5efe90e925c8 at: 0x7ffc07d03f78
+[ALLOC] calloc(0x8) -> 0x5efe90e925e0 subject=121 at igraph_vector_int_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e925e0 at: 0x7ffc07d03f88
+Store dangling pointer: 0x5efe90e925e8 at: 0x7ffc07d03f90
+[ALLOC] calloc(0xc) -> 0x5efe90e92600 subject=122 at igraph_empty_attrs @ type_indexededgelist.c:114
+Store dangling pointer: 0x5efe90e92600 at: 0x7ffc07d03fa8
+main+0x13bec (igraph_empty_attrs @ type_indexededgelist.c:117) Using expired pointer: 0x5efe90e92600 from 0x7ffc07d03fa8
+first time found dangling pointer at: 19990 distance: 21
+[INCONSISTENCY mov write imm UAF] ip: main+0x47160 (igraph_i_property_cache_init @ caching.c:33) UAF write at: 0x5efe90e92603
+[INCONSISTENCY mov write imm UAF] ip: main+0x47167 (igraph_i_property_cache_init @ caching.c:33) UAF write at: 0x5efe90e92600
+[INCONSISTENCY mov write imm UAF] ip: main+0x4716d (igraph_i_property_cache_init @ caching.c:34) UAF write at: 0x5efe90e92608
+main+0x13c13 (igraph_empty_attrs @ type_indexededgelist.c:120) Using expired pointer: 0x5efe90e925c0 from 0x7ffc07d03f70
+first time found dangling pointer at: 19898 distance: 140
+[INCONSISTENCY mov write imm UAF] ip: main+0x13c17 (igraph_empty_attrs @ type_indexededgelist.c:120) UAF write at: 0x5efe90e925c0
+main+0x13c1e (igraph_empty_attrs @ type_indexededgelist.c:121) Using expired pointer: 0x5efe90e925e0 from 0x7ffc07d03f88
+first time found dangling pointer at: 19952 distance: 88
+[INCONSISTENCY mov write imm UAF] ip: main+0x13c25 (igraph_empty_attrs @ type_indexededgelist.c:121) UAF write at: 0x5efe90e925e0
+[UNTRUSTEDPTRDEREF] ip: main+0x4207 (igraph_i_attribute_init @ attributes.c:40) final_ea: 0x5efe831d1528 base: 0x5efe831d1528 pointee: -1 base_vo: -1
+[ALLOC] calloc(0x60) -> 0x5efe90e92620 subject=124 at igraph_i_cattribute_init @ cattributes.c:176
+[ALLOC] calloc(0x8) -> 0x5efe90e92690 subject=125 at igraph_vector_ptr_init @ vector_ptr.c:91
+Store dangling pointer: 0x5efe90e92690 at: 0x5efe90e92620
+[INCONSISTENCY mov write reg UAF] ip: main+0x3f7ce (igraph_vector_ptr_init @ vector_ptr.c:91) UAF write at: 0x5efe90e92620
+first time found dangling pointer at: 20111 distance: 0
+Store dangling pointer: 0x5efe90e92698 at: 0x5efe90e92628
+[INCONSISTENCY mov write reg UAF] ip: main+0x3f7da (igraph_vector_ptr_init @ vector_ptr.c:95) UAF write at: 0x5efe90e92628
+first time found dangling pointer at: 20115 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x3f7e2 (igraph_vector_ptr_init @ vector_ptr.c:96) UAF write at: 0x5efe90e92630
+first time found dangling pointer at: 20117 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x3f7e6 (igraph_vector_ptr_init @ vector_ptr.c:97) UAF write at: 0x5efe90e92638
+[ALLOC] calloc(0x8) -> 0x5efe90e926b0 subject=126 at igraph_vector_ptr_init @ vector_ptr.c:91
+Store dangling pointer: 0x5efe90e926b0 at: 0x5efe90e92640
+Store dangling pointer: 0x5efe90e926b8 at: 0x5efe90e92648
+[ALLOC] calloc(0x8) -> 0x5efe90e926d0 subject=127 at igraph_vector_ptr_init @ vector_ptr.c:91
+Store dangling pointer: 0x5efe90e926d0 at: 0x5efe90e92660
+Store dangling pointer: 0x5efe90e926d8 at: 0x5efe90e92668
+Store dangling pointer: 0x5efe90e92620 at: 0x7ffc07d03fa0
+main+0x32278 (igraph_vector_int_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e925c8 from 0x7ffc07d03f78
+first time found dangling pointer at: 19902 distance: 448
+main+0x32278 (igraph_vector_int_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e925e8 from 0x7ffc07d03f90
+first time found dangling pointer at: 19956 distance: 423
+[INCONSISTENCY mov read] ip: main+0x13ebd (igraph_add_vertices) base: 0x7ffc07d03b20 pointee: 128 read from 123
+[CORRUPTED_PTR_LOAD] ip: main+0x13ebd (igraph_add_vertices) loaded: 0x7ffc07d03f70 from cell: 0x7ffc07d03b38 cell_owner: 123 value_owner: 128
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x24e58 (igraph_vector_int_resize @ vector.pmt:1271) add rbx, qword ptr [rbp] id before: 4 after: 0 [freed] value: 0x5efe90e925c8
+[INCONSISTENCY mov read] ip: main+0x13fbb (igraph_add_vertices) base: 0x7ffc07d03b20 pointee: 128 read from 123
+[CORRUPTED_PTR_LOAD] ip: main+0x13fbb (igraph_add_vertices) loaded: 0x0 from cell: 0x7ffc07d03b30 cell_owner: 123 value_owner: 128
+main+0x13fca (igraph_add_vertices @ type_indexededgelist.c:412) Using expired pointer: 0x5efe90e92620 from 0x7ffc07d03fa0
+first time found dangling pointer at: 20267 distance: 229
+[UNTRUSTEDPTRDEREF] ip: main+0x424c (igraph_i_attribute_add_vertices @ attributes.c:63) final_ea: 0x5efe831d1540 base: 0x5efe831d1528 pointee: -1 base_vo: -1
+Store dangling pointer: 0x5efe90e92640 at: 0x7ffc07d03a78
+[INCONSISTENCY mov read UAF] ip: main+0x3fb46 (igraph_vector_ptr_size @ vector_ptr.c:260) UAF read at: 0x5efe90e92650
+first time found dangling pointer at: 20175 distance: 368
+main+0x3fb46 (igraph_vector_ptr_size @ vector_ptr.c:260) Using expired pointer: 0x5efe90e926b0 from 0x5efe90e92650
+first time found dangling pointer at: 20175 distance: 368
+[ALLOC] calloc(0x8) -> 0x5efe90e926f0 subject=130 at igraph_vector_int_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e926f0 at: 0x7ffc07d03ad0
+Store dangling pointer: 0x5efe90e926f8 at: 0x7ffc07d03ad8
+main+0x31e79 (igraph_vector_int_destroy @ vector.pmt:404) Using expired pointer: 0x5efe90e926f0 from 0x7ffc07d03ad0
+first time found dangling pointer at: 20577 distance: 51
+[HEAP METADATA TAINT] free(0x5efe90e926f0): chunk size at 0x5efe90e926e8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e926f0) subject=130 at igraph_vector_int_destroy @ vector.pmt:405
+[INCONSISTENCY mov read UAF] ip: main+0x47299 (igraph_i_property_cache_invalidate_conditionally @ caching.c:165) UAF read at: 0x5efe90e92608
+[INCONSISTENCY mov write reg UAF] ip: main+0x47397 (igraph_i_property_cache_invalidate_conditionally @ caching.c:184) UAF write at: 0x5efe90e92608
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x322b8 (igraph_vector_int_reserve @ vector.pmt:477) add rcx, rax id before: 132 after: 0 [freed] value: 0x5efe90e925c8
+Store dangling pointer: 0x5efe90e925d0 at: 0x7ffc07d03f78
+Store dangling pointer: 0x5efe90e925f0 at: 0x7ffc07d03f90
+main+0x32278 (igraph_vector_int_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e925d0 from 0x7ffc07d03f78
+first time found dangling pointer at: 19902 distance: 1003
+main+0x32278 (igraph_vector_int_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e925f0 from 0x7ffc07d03f90
+first time found dangling pointer at: 19956 distance: 997
+[INCONSISTENCY mov write reg UAF] ip: main+0x14010 (igraph_add_vertices @ type_indexededgelist.c:402) UAF write at: 0x5efe90e925c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x14015 (igraph_add_vertices @ type_indexededgelist.c:403) UAF write at: 0x5efe90e925e8
+[ALLOC] calloc(0x8) -> 0x5efe90e926f0 subject=135 at igraph_vector_int_init @ vector.pmt:144
+[INTRA_OBJECT_OVERFLOW] ip: main+0x5077 (igraph_i_cattribute_add_vertices) at: 0x7ffc07d03a98 offset: +0x28 subject: 134 clobbers ptr 0x5efe90ea2d20 (owner: 112)
+[UNINITIALIZED mov read] ip: main+0x50e5 (igraph_i_cattribute_add_vertices @ cattributes.c:301) co: 97 vo: -1
+main+0x50f1 (igraph_i_cattribute_add_vertices) Using expired pointer: 0x5efe90e92640 from 0x7ffc07d03ab8
+first time found dangling pointer at: 21038 distance: 99
+main+0x323f7 (igraph_vector_int_push_back @ vector.pmt:568) Using expired pointer: 0x5efe90e926f8 from 0x7ffc07d03b18
+first time found dangling pointer at: 21091 distance: 71
+[INCONSISTENCY mov read] ip: main+0x323fb (igraph_vector_int_push_back @ vector.pmt:568) base: 0x7ffc07d03b10 pointee: 134 read from 128
+[CORRUPTED_PTR_LOAD] ip: main+0x323fb (igraph_vector_int_push_back @ vector.pmt:568) loaded: 0x5efe90e926f0 from cell: 0x7ffc07d03b20 cell_owner: 128 value_owner: 134
+[INCONSISTENCY mov read] ip: main+0x322b1 (igraph_vector_int_reserve @ vector.pmt:477) base: 0x7ffc07d03b10 pointee: 134 read from 128
+[CORRUPTED_PTR_LOAD] ip: main+0x322b1 (igraph_vector_int_reserve @ vector.pmt:477) loaded: 0x5efe90e926f8 from cell: 0x7ffc07d03b20 cell_owner: 128 value_owner: 134
+Store dangling pointer: 0x5efe90e92700 at: 0x7ffc07d03b18
+[INCONSISTENCY mov read] ip: main+0x32426 (igraph_vector_int_push_back @ vector.pmt:581) base: 0x7ffc07d03b10 pointee: 134 read from 128
+[CORRUPTED_PTR_LOAD] ip: main+0x32426 (igraph_vector_int_push_back @ vector.pmt:581) loaded: 0x5efe90e926f8 from cell: 0x7ffc07d03b20 cell_owner: 128 value_owner: 134
+[INCONSISTENCY mov write reg UAF] ip: main+0x3242a (igraph_vector_int_push_back @ vector.pmt:581) UAF write at: 0x5efe90e926f8
+main+0x323f7 (igraph_vector_int_push_back @ vector.pmt:568) Using expired pointer: 0x5efe90e92700 from 0x7ffc07d03b18
+first time found dangling pointer at: 21091 distance: 220
+Store dangling pointer: 0x5efe90e92710 at: 0x7ffc07d03b18
+Store dangling pointer: 0x5efe90e92708 at: 0x7ffc07d03b20
+main+0x323f7 (igraph_vector_int_push_back @ vector.pmt:568) Using expired pointer: 0x5efe90e92710 from 0x7ffc07d03b18
+first time found dangling pointer at: 21091 distance: 321
+main+0x323fb (igraph_vector_int_push_back @ vector.pmt:568) Using expired pointer: 0x5efe90e92708 from 0x7ffc07d03b20
+first time found dangling pointer at: 21168 distance: 245
+Store dangling pointer: 0x5efe90e92730 at: 0x7ffc07d03b18
+Store dangling pointer: 0x5efe90e92718 at: 0x7ffc07d03b20
+[INTRA_OBJECT_OVERFLOW] ip: main+0x50e9 (igraph_i_cattribute_add_vertices) at: 0x7ffc07d03ac0 offset: +0x50 subject: 134 clobbers ptr 0x5efe90e969c0 (owner: 92)
+[INCONSISTENCY mov read UAF] ip: main+0x50ee (igraph_i_cattribute_add_vertices @ cattributes.c:302) UAF read at: 0x5efe90e924c0
+first time found dangling pointer at: 17599 distance: 3936
+main+0x50ee (igraph_i_cattribute_add_vertices @ cattributes.c:302) Using expired pointer: 0x5efe90e92540 from 0x5efe90e924c0
+first time found dangling pointer at: 17599 distance: 3936
+main+0x323f7 (igraph_vector_int_push_back @ vector.pmt:568) Using expired pointer: 0x5efe90e92730 from 0x7ffc07d03b18
+first time found dangling pointer at: 21091 distance: 470
+main+0x323fb (igraph_vector_int_push_back @ vector.pmt:568) Using expired pointer: 0x5efe90e92718 from 0x7ffc07d03b20
+first time found dangling pointer at: 21168 distance: 394
+Store dangling pointer: 0x5efe90e92720 at: 0x7ffc07d03b20
+[CORRUPTED_PTR_LOAD] ip: main+0x51b0 (igraph_i_cattribute_add_vertices @ cattributes.c:320) loaded: 0x0 from cell: 0x5efe90e926f0 cell_owner: 138 value_owner: 135
+[UNINITIALIZED mov read] ip: main+0x51b4 (igraph_i_cattribute_add_vertices @ cattributes.c:320) co: 97 vo: -1
+[ALLOC] calloc(0x18) -> 0x5efe90e92740 subject=139 at igraph_i_cattribute_add_vertices @ cattributes.c:321
+[INCONSISTENCY mov write reg UAF] ip: main+0x51e1 (igraph_i_cattribute_add_vertices @ cattributes.c:327) UAF write at: 0x5efe90e92748
+[ALLOC:internal] malloc(0x3) -> 0x5efe90e92760 subject=140 at strdup
+Store dangling pointer: 0x5efe90e92760 at: 0x5efe90e92740
+[INCONSISTENCY mov write reg UAF] ip: main+0x51ee (igraph_i_cattribute_add_vertices @ cattributes.c:328) UAF write at: 0x5efe90e92740
+first time found dangling pointer at: 21621 distance: 0
+[ALLOC] calloc(0x18) -> 0x5efe90e92780 subject=141 at igraph_i_cattribute_add_vertices @ cattributes.c:343
+[ALLOC] calloc(0x8) -> 0x5efe90e927a0 subject=142 at igraph_strvector_init @ strvector.c:73
+Store dangling pointer: 0x5efe90e927a0 at: 0x5efe90e92780
+Store dangling pointer: 0x5efe90e92780 at: 0x5efe90e92750
+[INCONSISTENCY mov write reg UAF] ip: main+0x52ca (igraph_i_cattribute_add_vertices @ cattributes.c:349) UAF write at: 0x5efe90e92750
+first time found dangling pointer at: 21727 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x3fc64 (igraph_vector_ptr_push_back @ vector_ptr.c:311) UAF read at: 0x5efe90e92640
+first time found dangling pointer at: 20169 distance: 1571
+[INCONSISTENCY mov read UAF] ip: main+0x3fc73 (igraph_vector_ptr_push_back @ vector_ptr.c:314) UAF read at: 0x5efe90e92648
+first time found dangling pointer at: 20173 distance: 1571
+main+0x3fc73 (igraph_vector_ptr_push_back @ vector_ptr.c:314) Using expired pointer: 0x5efe90e926b8 from 0x5efe90e92648
+first time found dangling pointer at: 20173 distance: 1571
+[INCONSISTENCY mov read UAF] ip: main+0x3fc77 (igraph_vector_ptr_push_back @ vector_ptr.c:314) UAF read at: 0x5efe90e92650
+first time found dangling pointer at: 20175 distance: 1570
+Store dangling pointer: 0x5efe90e92740 at: 0x5efe90e926b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x3fce0 (igraph_vector_ptr_push_back @ vector_ptr.c:322) UAF write at: 0x5efe90e926b0
+first time found dangling pointer at: 21748 distance: 0
+[INCONSISTENCY mov read] ip: main+0x534b (igraph_i_cattribute_add_vertices @ cattributes.c:319) base: 0x7ffc07d03a70 pointee: 129 read from 134
+[ALLOC] calloc(0x18) -> 0x5efe90e927c0 subject=143 at igraph_i_cattribute_add_vertices @ cattributes.c:321
+[ALLOC:internal] malloc(0x5) -> 0x5efe90e927e0 subject=144 at strdup
+Store dangling pointer: 0x5efe90e927e0 at: 0x5efe90e927c0
+[ALLOC] calloc(0x18) -> 0x5efe90e92800 subject=145 at igraph_i_cattribute_add_vertices @ cattributes.c:343
+[ALLOC] calloc(0x8) -> 0x5efe90e92820 subject=146 at igraph_strvector_init @ strvector.c:73
+Store dangling pointer: 0x5efe90e92820 at: 0x5efe90e92800
+Store dangling pointer: 0x5efe90e92800 at: 0x5efe90e927d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x3fccd (igraph_vector_ptr_push_back @ vector_ptr.c:228) UAF write at: 0x5efe90e92640
+first time found dangling pointer at: 20169 distance: 1787
+Store dangling pointer: 0x5efe90e926c0 at: 0x5efe90e92648
+[INCONSISTENCY mov write reg UAF] ip: main+0x3fcd4 (igraph_vector_ptr_push_back @ vector_ptr.c:229) UAF write at: 0x5efe90e92648
+first time found dangling pointer at: 20173 distance: 1785
+[INCONSISTENCY mov write reg UAF] ip: main+0x3fcdc (igraph_vector_ptr_push_back @ vector_ptr.c:230) UAF write at: 0x5efe90e92650
+first time found dangling pointer at: 20175 distance: 1785
+Store dangling pointer: 0x5efe90e927c0 at: 0x5efe90e926b8
+[ALLOC] calloc(0x18) -> 0x5efe90e92840 subject=148 at igraph_i_cattribute_add_vertices @ cattributes.c:321
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e92860 subject=149 at strdup
+Store dangling pointer: 0x5efe90e92860 at: 0x5efe90e92840
+[ALLOC] calloc(0x18) -> 0x5efe90e92880 subject=150 at igraph_i_cattribute_add_vertices @ cattributes.c:334
+[ALLOC] calloc(0x8) -> 0x5efe90e928a0 subject=151 at igraph_vector_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e928a0 at: 0x5efe90e92880
+[INCONSISTENCY mov write reg UAF] ip: main+0x23314 (igraph_vector_init @ vector.pmt:144) UAF write at: 0x5efe90e92880
+first time found dangling pointer at: 22077 distance: 0
+Store dangling pointer: 0x5efe90e928a8 at: 0x5efe90e92888
+[INCONSISTENCY mov write reg UAF] ip: main+0x23320 (igraph_vector_init @ vector.pmt:148) UAF write at: 0x5efe90e92888
+first time found dangling pointer at: 22081 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x23328 (igraph_vector_init @ vector.pmt:149) UAF write at: 0x5efe90e92890
+first time found dangling pointer at: 22083 distance: 0
+Store dangling pointer: 0x5efe90e92880 at: 0x5efe90e92850
+[INCONSISTENCY mov write reg UAF] ip: main+0x5266 (igraph_i_cattribute_add_vertices @ cattributes.c:340) UAF write at: 0x5efe90e92850
+first time found dangling pointer at: 22096 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x2419a (igraph_vector_fill @ vector.pmt:769) UAF read at: 0x5efe90e92880
+first time found dangling pointer at: 22077 distance: 26
+main+0x2419a (igraph_vector_fill @ vector.pmt:769) Using expired pointer: 0x5efe90e928a0 from 0x5efe90e92880
+first time found dangling pointer at: 22077 distance: 26
+[INCONSISTENCY mov read UAF] ip: main+0x241a6 (igraph_vector_fill) UAF read at: 0x5efe90e92890
+first time found dangling pointer at: 22083 distance: 23
+main+0x3fc73 (igraph_vector_ptr_push_back @ vector_ptr.c:314) Using expired pointer: 0x5efe90e926c0 from 0x5efe90e92648
+first time found dangling pointer at: 20173 distance: 1954
+Store dangling pointer: 0x5efe90e928c0 at: 0x5efe90e92640
+Store dangling pointer: 0x5efe90e928e0 at: 0x5efe90e92648
+Store dangling pointer: 0x5efe90e928d0 at: 0x5efe90e92650
+Store dangling pointer: 0x5efe90e92840 at: 0x5efe90e928d0
+[ALLOC] calloc(0x18) -> 0x5efe90e926b0 subject=153 at igraph_i_cattribute_add_vertices @ cattributes.c:321
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e928f0 subject=154 at strdup
+Store dangling pointer: 0x5efe90e928f0 at: 0x5efe90e926b0
+[ALLOC] calloc(0x18) -> 0x5efe90e92910 subject=155 at igraph_i_cattribute_add_vertices @ cattributes.c:334
+[ALLOC] calloc(0x8) -> 0x5efe90e92930 subject=156 at igraph_vector_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92930 at: 0x5efe90e92910
+Store dangling pointer: 0x5efe90e92938 at: 0x5efe90e92918
+Store dangling pointer: 0x5efe90e92910 at: 0x5efe90e926c0
+main+0x2419a (igraph_vector_fill @ vector.pmt:769) Using expired pointer: 0x5efe90e92930 from 0x5efe90e92910
+first time found dangling pointer at: 22243 distance: 26
+main+0x3fc64 (igraph_vector_ptr_push_back @ vector_ptr.c:311) Using expired pointer: 0x5efe90e928c0 from 0x5efe90e92640
+first time found dangling pointer at: 20169 distance: 2120
+main+0x3fc73 (igraph_vector_ptr_push_back @ vector_ptr.c:314) Using expired pointer: 0x5efe90e928e0 from 0x5efe90e92648
+first time found dangling pointer at: 20173 distance: 2120
+main+0x3fc77 (igraph_vector_ptr_push_back @ vector_ptr.c:314) Read a dangling pointer 0x5efe90e928d8 from 0x5efe90e92650
+[INCONSISTENCY mov read UAF] ip: main+0x51b0 (igraph_i_cattribute_add_vertices @ cattributes.c:320) UAF read at: 0x5efe90e92710
+[ALLOC] calloc(0x18) -> 0x5efe90e92950 subject=157 at igraph_i_cattribute_add_vertices @ cattributes.c:321
+[ALLOC:internal] malloc(0x6) -> 0x5efe90e92970 subject=158 at strdup
+Store dangling pointer: 0x5efe90e92970 at: 0x5efe90e92950
+[ALLOC] calloc(0x18) -> 0x5efe90e92990 subject=159 at igraph_i_cattribute_add_vertices @ cattributes.c:343
+[ALLOC] calloc(0x8) -> 0x5efe90e929b0 subject=160 at igraph_strvector_init @ strvector.c:73
+Store dangling pointer: 0x5efe90e929b0 at: 0x5efe90e92990
+Store dangling pointer: 0x5efe90e92990 at: 0x5efe90e92960
+Store dangling pointer: 0x5efe90e929d0 at: 0x5efe90e92640
+Store dangling pointer: 0x5efe90e92a10 at: 0x5efe90e92648
+Store dangling pointer: 0x5efe90e929f0 at: 0x5efe90e92650
+Store dangling pointer: 0x5efe90e92950 at: 0x5efe90e929f0
+[ALLOC] calloc(0x18) -> 0x5efe90e92a20 subject=162 at igraph_i_cattribute_add_vertices @ cattributes.c:321
+[INCONSISTENCY mov read UAF] ip: main+0x51d3 (igraph_i_cattribute_add_vertices) UAF read at: 0x5efe90e924c8
+[INCONSISTENCY mov read UAF] ip: main+0x51e5 (igraph_i_cattribute_add_vertices @ cattributes.c:328) UAF read at: 0x5efe90e924c0
+first time found dangling pointer at: 17599 distance: 4893
+[ALLOC:internal] malloc(0x1) -> 0x5efe90e92a40 subject=163 at strdup
+Store dangling pointer: 0x5efe90e92a40 at: 0x5efe90e92a20
+[ALLOC] calloc(0x18) -> 0x5efe90e92a60 subject=164 at igraph_i_cattribute_add_vertices @ cattributes.c:343
+[ALLOC] calloc(0x8) -> 0x5efe90e92a80 subject=165 at igraph_strvector_init @ strvector.c:73
+Store dangling pointer: 0x5efe90e92a80 at: 0x5efe90e92a60
+Store dangling pointer: 0x5efe90e92a60 at: 0x5efe90e92a30
+main+0x3fc64 (igraph_vector_ptr_push_back @ vector_ptr.c:311) Using expired pointer: 0x5efe90e929d0 from 0x5efe90e92640
+first time found dangling pointer at: 20169 distance: 2399
+main+0x3fc73 (igraph_vector_ptr_push_back @ vector_ptr.c:314) Using expired pointer: 0x5efe90e92a10 from 0x5efe90e92648
+first time found dangling pointer at: 20173 distance: 2399
+main+0x3fc77 (igraph_vector_ptr_push_back @ vector_ptr.c:314) Read a dangling pointer 0x5efe90e929f8 from 0x5efe90e92650
+Store dangling pointer: 0x5efe90e92a20 at: 0x5efe90e929f8
+main+0x3fb46 (igraph_vector_ptr_size @ vector_ptr.c:260) Read a dangling pointer 0x5efe90e92a00 from 0x5efe90e92650
+[INTRA_OBJECT_OVERFLOW] ip: main+0x53bc (igraph_i_cattribute_add_vertices) at: 0x7ffc07d03ae0 offset: +0x70 subject: 134 clobbers ptr 0x5efe90e926f0 (owner: 138)
+[INTRA_OBJECT_OVERFLOW] ip: main+0x53eb (igraph_i_cattribute_add_vertices) at: 0x7ffc07d03af8 offset: +0x88 subject: 134 clobbers ptr 0x7ffc07d03f88 (owner: 4)
+[INCONSISTENCY mov read UAF] ip: main+0x5444 (igraph_i_cattribute_add_vertices @ cattributes.c:368) UAF read at: 0x5efe90e92640
+first time found dangling pointer at: 20169 distance: 2485
+[INCONSISTENCY mov read UAF] ip: main+0x5447 (igraph_i_cattribute_add_vertices @ cattributes.c:368) UAF read at: 0x5efe90e929d0
+[INCONSISTENCY mov read UAF] ip: main+0x544b (igraph_i_cattribute_add_vertices @ cattributes.c:370) UAF read at: 0x5efe90e92740
+first time found dangling pointer at: 21621 distance: 1035
+main+0x544b (igraph_i_cattribute_add_vertices @ cattributes.c:370) Using expired pointer: 0x5efe90e92760 from 0x5efe90e92740
+first time found dangling pointer at: 21621 distance: 1035
+[UNINITIALIZED mov read] ip: main+0x5470 (igraph_i_cattribute_add_vertices @ cattributes.c:45) co: 97 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x5530 (igraph_i_cattribute_add_vertices @ cattributes.c:388) UAF read at: 0x5efe90e92748
+[INCONSISTENCY mov read UAF] ip: main+0x553d (igraph_i_cattribute_add_vertices) UAF read at: 0x5efe90e92750
+first time found dangling pointer at: 21727 distance: 961
+main+0x553d (igraph_i_cattribute_add_vertices) Using expired pointer: 0x5efe90e92780 from 0x5efe90e92750
+first time found dangling pointer at: 21727 distance: 961
+[INCONSISTENCY mov read UAF] ip: main+0x219e7 (igraph_strvector_append @ strvector.c:564) UAF read at: 0x5efe90e92780
+first time found dangling pointer at: 21689 distance: 1031
+main+0x219e7 (igraph_strvector_append @ strvector.c:564) Using expired pointer: 0x5efe90e927a0 from 0x5efe90e92780
+first time found dangling pointer at: 21689 distance: 1031
+[INCONSISTENCY mov read UAF] ip: main+0x21a0b (igraph_strvector_append) UAF read at: 0x5efe90e92790
+first time found dangling pointer at: 21697 distance: 1032
+[INCONSISTENCY mov read UAF] ip: main+0x21b60 (igraph_strvector_reserve @ strvector.c:471) UAF read at: 0x5efe90e92780
+first time found dangling pointer at: 21689 distance: 1056
+[INCONSISTENCY mov read UAF] ip: main+0x21b6f (igraph_strvector_reserve @ strvector.c:472) UAF read at: 0x5efe90e92788
+first time found dangling pointer at: 21696 distance: 1053
+[INCONSISTENCY mov read UAF] ip: main+0x21ba9 (igraph_strvector_reserve @ strvector.c:513) UAF read at: 0x5efe90e92790
+first time found dangling pointer at: 21697 distance: 1069
+[INCONSISTENCY mov write reg UAF] ip: main+0x21bb3 (igraph_strvector_reserve @ strvector.c:513) UAF write at: 0x5efe90e92790
+first time found dangling pointer at: 21697 distance: 1072
+[INCONSISTENCY mov write reg UAF] ip: main+0x21bb7 (igraph_strvector_reserve @ strvector.c:514) UAF write at: 0x5efe90e92780
+first time found dangling pointer at: 21689 distance: 1081
+Store dangling pointer: 0x5efe90e927a8 at: 0x5efe90e92788
+[INCONSISTENCY mov write reg UAF] ip: main+0x21bbe (igraph_strvector_reserve @ strvector.c:515) UAF write at: 0x5efe90e92788
+first time found dangling pointer at: 21696 distance: 1076
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e92aa0 subject=167 at strdup
+[INCONSISTENCY mov read UAF] ip: main+0x21a6b (igraph_strvector_append @ strvector.c:337) UAF read at: 0x5efe90e92790
+first time found dangling pointer at: 21697 distance: 1101
+Store dangling pointer: 0x5efe90e92aa0 at: 0x5efe90e927a0
+main+0x544b (igraph_i_cattribute_add_vertices @ cattributes.c:370) Using expired pointer: 0x5efe90e927e0 from 0x5efe90e927c0
+first time found dangling pointer at: 21808 distance: 1015
+main+0x553d (igraph_i_cattribute_add_vertices) Using expired pointer: 0x5efe90e92800 from 0x5efe90e927d0
+first time found dangling pointer at: 21914 distance: 952
+main+0x219e7 (igraph_strvector_append @ strvector.c:564) Using expired pointer: 0x5efe90e92820 from 0x5efe90e92800
+first time found dangling pointer at: 21876 distance: 1022
+Store dangling pointer: 0x5efe90e92828 at: 0x5efe90e92808
+[ALLOC:internal] malloc(0x2) -> 0x5efe90e92ac0 subject=169 at strdup
+Store dangling pointer: 0x5efe90e92ac0 at: 0x5efe90e92820
+main+0x544b (igraph_i_cattribute_add_vertices @ cattributes.c:370) Using expired pointer: 0x5efe90e92860 from 0x5efe90e92840
+first time found dangling pointer at: 22021 distance: 980
+main+0x553d (igraph_i_cattribute_add_vertices) Using expired pointer: 0x5efe90e92880 from 0x5efe90e92850
+first time found dangling pointer at: 22096 distance: 959
+[INCONSISTENCY mov read UAF] ip: main+0x26b57 (igraph_vector_append @ vector.pmt:515) UAF read at: 0x5efe90e92880
+first time found dangling pointer at: 22077 distance: 1014
+[INCONSISTENCY mov read UAF] ip: main+0x26b7b (igraph_vector_append) UAF read at: 0x5efe90e92890
+first time found dangling pointer at: 22083 distance: 1017
+[INCONSISTENCY mov read UAF] ip: main+0x23b50 (igraph_vector_reserve @ vector.pmt:465) UAF read at: 0x5efe90e92880
+first time found dangling pointer at: 22077 distance: 1040
+[INCONSISTENCY mov read UAF] ip: main+0x23b68 (igraph_vector_reserve @ vector.pmt:429) UAF read at: 0x5efe90e92888
+first time found dangling pointer at: 22081 distance: 1042
+main+0x23b68 (igraph_vector_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e928a8 from 0x5efe90e92888
+first time found dangling pointer at: 22081 distance: 1042
+[INCONSISTENCY mov read UAF] ip: main+0x26bab (igraph_vector_append @ vector.pmt:1271) UAF read at: 0x5efe90e92880
+first time found dangling pointer at: 22077 distance: 1060
+[INCONSISTENCY mov write reg UAF] ip: main+0x26bb2 (igraph_vector_append @ vector.pmt:1271) UAF write at: 0x5efe90e92890
+first time found dangling pointer at: 22083 distance: 1056
+[INCONSISTENCY mov write reg UAF] ip: main+0x26bd7 (igraph_vector_append @ vector.pmt:2467) UAF write at: 0x5efe90e92890
+first time found dangling pointer at: 22083 distance: 1066
+[CORRUPTED_PTR_LOAD] ip: main+0x26bdb (igraph_vector_append @ vector.pmt:2467) loaded: 0x90e9224000000000 from cell: 0x7ffc07d03a34 cell_owner: 129 value_owner: 134
+main+0x544b (igraph_i_cattribute_add_vertices @ cattributes.c:370) Using expired pointer: 0x5efe90e928f0 from 0x5efe90e926b0
+first time found dangling pointer at: 21748 distance: 1420
+main+0x553d (igraph_i_cattribute_add_vertices) Using expired pointer: 0x5efe90e92910 from 0x5efe90e926c0
+first time found dangling pointer at: 22262 distance: 971
+main+0x23b68 (igraph_vector_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e92938 from 0x5efe90e92918
+first time found dangling pointer at: 22247 distance: 1054
+main+0x5447 (igraph_i_cattribute_add_vertices @ cattributes.c:368) Using expired pointer: 0x5efe90e92950 from 0x5efe90e929f0
+first time found dangling pointer at: 22450 distance: 895
+main+0x544b (igraph_i_cattribute_add_vertices @ cattributes.c:370) Using expired pointer: 0x5efe90e92970 from 0x5efe90e92950
+first time found dangling pointer at: 22342 distance: 1004
+main+0x553d (igraph_i_cattribute_add_vertices) Using expired pointer: 0x5efe90e92990 from 0x5efe90e92960
+first time found dangling pointer at: 22403 distance: 1019
+main+0x219e7 (igraph_strvector_append @ strvector.c:564) Using expired pointer: 0x5efe90e929b0 from 0x5efe90e92990
+first time found dangling pointer at: 22380 distance: 1074
+[INCONSISTENCY mov read UAF] ip: main+0x21a16 (igraph_strvector_append @ strvector.c:565) UAF read at: 0x5efe90e969f0
+first time found dangling pointer at: 11903 distance: 11563
+Store dangling pointer: 0x5efe90e929b8 at: 0x5efe90e92998
+[INCONSISTENCY mov read UAF] ip: main+0x21a58 (igraph_strvector_append @ strvector.c:136) UAF read at: 0x5efe90e96a00
+[ALLOC:internal] malloc(0x4) -> 0x5efe90e92ae0 subject=171 at strdup
+Store dangling pointer: 0x5efe90e92ae0 at: 0x5efe90e929b0
+main+0x5447 (igraph_i_cattribute_add_vertices @ cattributes.c:368) Using expired pointer: 0x5efe90e92a20 from 0x5efe90e929f8
+first time found dangling pointer at: 22576 distance: 980
+main+0x544b (igraph_i_cattribute_add_vertices @ cattributes.c:370) Using expired pointer: 0x5efe90e92a40 from 0x5efe90e92a20
+first time found dangling pointer at: 22495 distance: 1062
+[INCONSISTENCY mov read UAF] ip: main+0x5475 (igraph_i_cattribute_add_vertices @ cattributes.c:46) UAF read at: 0x5efe90e924c0
+first time found dangling pointer at: 17599 distance: 6032
+main+0x553d (igraph_i_cattribute_add_vertices) Using expired pointer: 0x5efe90e92a60 from 0x5efe90e92a30
+first time found dangling pointer at: 22555 distance: 1089
+[INCONSISTENCY mov read UAF] ip: main+0x5541 (igraph_i_cattribute_add_vertices) UAF read at: 0x5efe90e924d0
+first time found dangling pointer at: 17621 distance: 6024
+main+0x219e7 (igraph_strvector_append @ strvector.c:564) Using expired pointer: 0x5efe90e92a80 from 0x5efe90e92a60
+first time found dangling pointer at: 22532 distance: 1144
+[INCONSISTENCY mov read UAF] ip: main+0x219ff (igraph_strvector_append @ strvector.c:564) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 6140
+Store dangling pointer: 0x5efe90e92a88 at: 0x5efe90e92a68
+[INCONSISTENCY mov read UAF] ip: main+0x21a50 (igraph_strvector_append @ strvector.c:135) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 6202
+[ALLOC:internal] malloc(0x4011) -> 0x5efe90ea2d30 subject=173 at strdup
+[HEAP METADATA TAINT] free(0x5efe90e926f0): chunk size at 0x5efe90e926e8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e926f0) subject=138 at igraph_vector_int_destroy @ vector.pmt:405
+[INCONSISTENCY mov read] ip: main+0x1449c (igraph_add_edges) base: 0x7ffc07d03b20 pointee: 174 read from 123
+[CORRUPTED_PTR_LOAD] ip: main+0x1449c (igraph_add_edges) loaded: 0x0 from cell: 0x7ffc07d03b40 cell_owner: 123 value_owner: 174
+[INCONSISTENCY mov read] ip: main+0x1456e (igraph_add_edges) base: 0x7ffc07d03b20 pointee: 174 read from 123
+[CORRUPTED_PTR_LOAD] ip: main+0x1456e (igraph_add_edges) loaded: 0x7ffc07d03f10 from cell: 0x7ffc07d03b38 cell_owner: 123 value_owner: 174
+main+0x32278 (igraph_vector_int_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e92528 from 0x7ffc07d03f18
+first time found dangling pointer at: 19686 distance: 4277
+[INCONSISTENCY mov read] ip: main+0x14583 (igraph_add_edges) base: 0x7ffc07d03b20 pointee: 174 read from 123
+[CORRUPTED_PTR_LOAD] ip: main+0x14583 (igraph_add_edges) loaded: 0x7ffc07d03f00 from cell: 0x7ffc07d03b30 cell_owner: 123 value_owner: 174
+main+0x32260 (igraph_vector_int_reserve @ vector.pmt:465) Using expired pointer: 0x5efe90e92560 from 0x7ffc07d03f28
+first time found dangling pointer at: 19736 distance: 4251
+main+0x32278 (igraph_vector_int_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e92568 from 0x7ffc07d03f30
+first time found dangling pointer at: 19740 distance: 4253
+[INCONSISTENCY mov read] ip: main+0x1459f (igraph_add_edges @ type_indexededgelist.c:273) base: 0x7ffc07d03b20 pointee: 174 read from 123
+[CORRUPTED_PTR_LOAD] ip: main+0x1459f (igraph_add_edges @ type_indexededgelist.c:273) loaded: 0x0 from cell: 0x7ffc07d03b40 cell_owner: 123 value_owner: 174
+[INCONSISTENCY mov read] ip: main+0x145a5 (igraph_add_edges @ type_indexededgelist.c:273) base: 0x7ffc07d03b20 pointee: 174 read from 123
+[CORRUPTED_PTR_LOAD] ip: main+0x145a5 (igraph_add_edges @ type_indexededgelist.c:273) loaded: 0x7ffc07d03f10 from cell: 0x7ffc07d03b38 cell_owner: 123 value_owner: 174
+[ALLOC] calloc(0x8) -> 0x5efe90e928c0 subject=175 at igraph_vector_int_init @ vector.pmt:144
+[INTRA_OBJECT_OVERFLOW] ip: main+0x31a20 (igraph_vector_int_init @ vector.pmt:148) at: 0x7ffc07d03b78 offset: +0x18 subject: 131 clobbers ptr 0x7ffc07d03f70 (owner: 4)
+Store dangling pointer: 0x5efe90e928c8 at: 0x7ffc07d03b78
+[ALLOC] calloc(0x8) -> 0x5efe90e92b00 subject=176 at igraph_vector_int_init @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92b00 at: 0x7ffc07d03b58
+Store dangling pointer: 0x5efe90e92b08 at: 0x7ffc07d03b60
+[INCONSISTENCY mov read] ip: main+0x146ef (igraph_add_edges) base: 0x7ffc07d03b20 pointee: 174 read from 123
+[CORRUPTED_PTR_LOAD] ip: main+0x146ef (igraph_add_edges) loaded: 0x7ffc07d03f00 from cell: 0x7ffc07d03b30 cell_owner: 123 value_owner: 174
+[ALLOC] calloc(0x10) -> 0x5efe90e92b20 subject=178 at igraph_vector_int_pair_order @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92b20 at: 0x7ffc07d03ac0
+[INTRA_OBJECT_OVERFLOW] ip: main+0x3a02d (igraph_vector_int_pair_order @ vector.pmt:148) at: 0x7ffc07d03ac8 offset: +0x28 subject: 177 clobbers ptr 0x7ffc07d03f10 (owner: 4)
+Store dangling pointer: 0x5efe90e92b30 at: 0x7ffc07d03ac8
+[INTRA_OBJECT_OVERFLOW] ip: main+0x3a036 (igraph_vector_int_pair_order @ vector.pmt:149) at: 0x7ffc07d03ad0 offset: +0x30 subject: 177 clobbers ptr 0x7ffc07d03f28 (owner: 4)
+[ALLOC] calloc(0x8) -> 0x5efe90e92b40 subject=179 at igraph_vector_int_pair_order @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92b40 at: 0x7ffc07d03aa8
+[INTRA_OBJECT_OVERFLOW] ip: main+0x3a088 (igraph_vector_int_pair_order @ vector.pmt:148) at: 0x7ffc07d03ab0 offset: +0x10 subject: 177 clobbers ptr 0x7ffc07d03c00 (owner: 7)
+Store dangling pointer: 0x5efe90e92b48 at: 0x7ffc07d03ab0
+main+0x32278 (igraph_vector_int_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e928c8 from 0x7ffc07d03b78
+first time found dangling pointer at: 24047 distance: 139
+main+0x3a134 (igraph_vector_int_pair_order) Using expired pointer: 0x5efe90e92b20 from 0x7ffc07d03ac0
+first time found dangling pointer at: 21534 distance: 2672
+main+0x3a142 (igraph_vector_int_pair_order) Using expired pointer: 0x5efe90e92b40 from 0x7ffc07d03aa8
+first time found dangling pointer at: 24156 distance: 53
+[INCONSISTENCY mov read UAF] ip: main+0x3a14b (igraph_vector_int_pair_order @ vector.c:162) UAF read at: 0x5efe90e92b20
+[INCONSISTENCY mov read UAF] ip: main+0x3a16c (igraph_vector_int_pair_order @ vector.c:162) UAF read at: 0x5efe90e92b28
+main+0x3a1f0 (igraph_vector_int_pair_order @ vector.pmt:516) Using expired pointer: 0x5efe90e92b30 from 0x7ffc07d03ad0
+first time found dangling pointer at: 20577 distance: 3653
+[INCONSISTENCY mov read UAF] ip: main+0x3a2ac (igraph_vector_int_pair_order @ vector.c:186) UAF read at: 0x5efe90e92b20
+[HEAP METADATA TAINT] free(0x5efe90e92b20): chunk size at 0x5efe90e92b18 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92b20) subject=178 at igraph_vector_int_pair_order @ vector.pmt:405
+[HEAP METADATA TAINT] free(0x5efe90e92b40): chunk size at 0x5efe90e92b38 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92b40) subject=179 at igraph_vector_int_pair_order @ vector.pmt:405
+[ALLOC] calloc(0x10) -> 0x5efe90e92b40 subject=181 at igraph_vector_int_pair_order @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92b50 at: 0x7ffc07d03ac8
+[ALLOC] calloc(0x8) -> 0x5efe90e92b20 subject=182 at igraph_vector_int_pair_order @ vector.pmt:144
+Store dangling pointer: 0x5efe90e92b28 at: 0x7ffc07d03ab0
+main+0x3a0b3 (igraph_vector_int_pair_order @ vector.pmt:1269) Using expired pointer: 0x5efe90e92b00 from 0x7ffc07d03b58
+first time found dangling pointer at: 24080 distance: 290
+main+0x32278 (igraph_vector_int_reserve @ vector.pmt:429) Using expired pointer: 0x5efe90e92b08 from 0x7ffc07d03b60
+first time found dangling pointer at: 24084 distance: 303
+main+0x3a1f0 (igraph_vector_int_pair_order @ vector.pmt:516) Using expired pointer: 0x5efe90e92b50 from 0x7ffc07d03ad0
+first time found dangling pointer at: 20577 distance: 3854
+[HEAP METADATA TAINT] free(0x5efe90e92b40): chunk size at 0x5efe90e92b38 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92b40) subject=181 at igraph_vector_int_pair_order @ vector.pmt:405
+[HEAP METADATA TAINT] free(0x5efe90e92b20): chunk size at 0x5efe90e92b18 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92b20) subject=182 at igraph_vector_int_pair_order @ vector.pmt:405
+[UNTRUSTEDPTRDEREF] ip: main+0x42cc (igraph_i_attribute_add_edges @ attributes.c:102) final_ea: 0x5efe831d1558 base: 0x5efe831d1528 pointee: -1 base_vo: -1
+Store dangling pointer: 0x5efe90e92660 at: 0x7ffc07d03a70
+main+0x3fb46 (igraph_vector_ptr_size @ vector_ptr.c:260) Using expired pointer: 0x5efe90e926d0 from 0x5efe90e92670
+first time found dangling pointer at: 20234 distance: 4327
+[ALLOC] calloc(0x8) -> 0x5efe90e92b20 subject=184 at igraph_vector_int_init @ vector.pmt:144
+[INCONSISTENCY mov read] ip: main+0x6e91 (igraph_i_cattribute_add_edges) base: 0x7ffc07d03a20 pointee: 183 read from 134
+[CORRUPTED_PTR_LOAD] ip: main+0x6e91 (igraph_i_cattribute_add_edges) loaded: 0x0 from cell: 0x7ffc07d03a78 cell_owner: 134 value_owner: 183
+[INCONSISTENCY mov read] ip: main+0x6ea3 (igraph_i_cattribute_add_edges) base: 0x7ffc07d03a20 pointee: 183 read from 129
+[CORRUPTED_PTR_LOAD] ip: main+0x6ea3 (igraph_i_cattribute_add_edges) loaded: 0x0 from cell: 0x7ffc07d03a40 cell_owner: 129 value_owner: 183
+[INCONSISTENCY mov read] ip: main+0x6ec9 (igraph_i_cattribute_add_edges @ cattributes.c:1848) base: 0x7ffc07d03a20 pointee: 183 read from 129
+[CORRUPTED_PTR_LOAD] ip: main+0x6ec9 (igraph_i_cattribute_add_edges @ cattributes.c:1848) loaded: 0x0 from cell: 0x7ffc07d03a48 cell_owner: 129 value_owner: 183
+[INCONSISTENCY mov read] ip: main+0x719a (igraph_i_cattribute_add_edges @ cattributes.c:1915) base: 0x7ffc07d03a20 pointee: 183 read from 134
+[CORRUPTED_PTR_LOAD] ip: main+0x719a (igraph_i_cattribute_add_edges @ cattributes.c:1915) loaded: 0x0 from cell: 0x7ffc07d03a88 cell_owner: 134 value_owner: 183
+[INCONSISTENCY mov read] ip: main+0x71a0 (igraph_i_cattribute_add_edges @ cattributes.c:1915) base: 0x7ffc07d03a20 pointee: 183 read from 129
+[CORRUPTED_PTR_LOAD] ip: main+0x71a0 (igraph_i_cattribute_add_edges @ cattributes.c:1915) loaded: 0x0 from cell: 0x7ffc07d03a40 cell_owner: 129 value_owner: 183
+[HEAP METADATA TAINT] free(0x5efe90e92b20): chunk size at 0x5efe90e92b18 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92b20) subject=184 at igraph_vector_int_destroy @ vector.pmt:405
+main+0x31e79 (igraph_vector_int_destroy @ vector.pmt:404) Using expired pointer: 0x5efe90e92580 from 0x7ffc07d03f40
+first time found dangling pointer at: 19790 distance: 5137
+[HEAP METADATA TAINT] free(0x5efe90e92580): chunk size at 0x5efe90e92578 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92580) subject=118 at igraph_vector_int_destroy @ vector.pmt:405
+main+0x31e79 (igraph_vector_int_destroy @ vector.pmt:404) Using expired pointer: 0x5efe90e925a0 from 0x7ffc07d03f58
+first time found dangling pointer at: 19844 distance: 5097
+[HEAP METADATA TAINT] free(0x5efe90e925a0): chunk size at 0x5efe90e92598 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e925a0) subject=119 at igraph_vector_int_destroy @ vector.pmt:405
+[INCONSISTENCY mov read] ip: main+0x14822 (igraph_add_edges @ type_indexededgelist.c:326) base: 0x7ffc07d03b20 pointee: 174 read from 131
+[INCONSISTENCY mov read] ip: main+0x1483f (igraph_add_edges @ type_indexededgelist.c:327) base: 0x7ffc07d03b20 pointee: 174 read from 131
+[FREE] free(0x5efe90e92200) subject=8 at igraph_vector_int_destroy @ vector.pmt:405
+[FREE] free(0x5efe90e92340) subject=18 at igraph_vector_ptr_destroy @ vector_ptr.c:134
+[FREE] free(0x5efe90e92320) subject=17 at igraph_strvector_destroy @ strvector.c:116
+[FREE] free(0x5efe90e922c0) subject=14 at igraph_strvector_destroy @ strvector.c:116
+[FREE] free(0x5efe90e922e0) subject=15 at igraph_vector_ptr_destroy @ vector_ptr.c:134
+[FREE] free(0x5efe90e92300) subject=16 at igraph_vector_int_destroy @ vector.pmt:405
+[UNINITIALIZED mov read] ip: main+0x18581 (igraph_i_pajek_destroy_attr_vector @ pajek.c:52) co: 97 vo: -1
+[FREE] free(0x5efe90e96530) subject=42 at igraph_strvector_destroy @ strvector.c:114
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x213ff (igraph_strvector_destroy @ strvector.c:113) add rbx, 0x8 id before: 39 after: -1 [chunk metadata] value: 0x5efe90e96518
+[FREE] free(0x5efe90e96510) subject=39 at igraph_strvector_destroy @ strvector.c:116
+[FREE] free(0x5efe90e964f0) subject=38 at igraph_i_pajek_destroy_attr_vector
+[FREE] free(0x5efe90e96550) subject=41 at igraph_i_pajek_destroy_attr_vector @ pajek.c:69
+[FREE] free(0x5efe90e964d0) subject=37 at igraph_i_pajek_destroy_attr_vector @ pajek.c:70
+[FREE] free(0x5efe90e96610) subject=57 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e965f0) subject=53 at igraph_strvector_destroy @ strvector.c:116
+[FREE] free(0x5efe90e965d0) subject=52 at igraph_i_pajek_destroy_attr_vector
+[FREE] free(0x5efe90e96630) subject=55 at igraph_i_pajek_destroy_attr_vector @ pajek.c:69
+[FREE] free(0x5efe90e965b0) subject=51 at igraph_i_pajek_destroy_attr_vector @ pajek.c:70
+[FREE] free(0x5efe90e96a20) subject=73 at igraph_vector_destroy @ vector.pmt:405
+[FREE] free(0x5efe90e92260) subject=72 at igraph_i_pajek_destroy_attr_vector
+[FREE] free(0x5efe90e96a40) subject=74 at igraph_i_pajek_destroy_attr_vector @ pajek.c:69
+[FREE] free(0x5efe90e92240) subject=71 at igraph_i_pajek_destroy_attr_vector @ pajek.c:70
+[FREE] free(0x5efe90e96af0) subject=82 at igraph_vector_destroy @ vector.pmt:405
+[FREE] free(0x5efe90e96ad0) subject=81 at igraph_i_pajek_destroy_attr_vector
+[FREE] free(0x5efe90e96b10) subject=83 at igraph_i_pajek_destroy_attr_vector @ pajek.c:69
+[FREE] free(0x5efe90e96ab0) subject=80 at igraph_i_pajek_destroy_attr_vector @ pajek.c:70
+[INCONSISTENCY mov read UAF] ip: main+0x213f0 (igraph_strvector_destroy @ strvector.c:114) UAF read at: 0x5efe90e96a00
+[FREE] free(0x5efe90e96c70) subject=98 at igraph_strvector_destroy @ strvector.c:114
+[INCONSISTENCY mov write imm UAF] ip: main+0x213f8 (igraph_strvector_destroy @ strvector.c:114) UAF write at: 0x5efe90e96a00
+[FREE] free(0x5efe90e96a00) subject=94 at igraph_strvector_destroy @ strvector.c:116
+[HEAP METADATA TAINT] free(0x5efe90e969e0): chunk size at 0x5efe90e969d8 has vo=69 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e969e0) subject=93 at igraph_i_pajek_destroy_attr_vector
+[FREE] free(0x5efe90e96c90) subject=96 at igraph_i_pajek_destroy_attr_vector @ pajek.c:69
+[FREE] free(0x5efe90e969c0) subject=92 at igraph_i_pajek_destroy_attr_vector @ pajek.c:70
+[INCONSISTENCY mov read UAF] ip: main+0x18585 (igraph_i_pajek_destroy_attr_vector @ pajek.c:53) UAF read at: 0x5efe90e924c8
+[INCONSISTENCY mov read UAF] ip: main+0x185b0 (igraph_i_pajek_destroy_attr_vector @ pajek.c:62) UAF read at: 0x5efe90e924d0
+first time found dangling pointer at: 17621 distance: 7792
+[INCONSISTENCY mov read UAF] ip: main+0x213dc (igraph_strvector_destroy @ strvector.c:112) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 7880
+[FREE] free(0x5efe90e9ed10) subject=112 at igraph_strvector_destroy @ strvector.c:114
+[INCONSISTENCY mov read UAF] ip: main+0x21409 (igraph_strvector_destroy @ strvector.c:116) UAF read at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 7893
+[HEAP METADATA TAINT] free(0x5efe90e92500): chunk size at 0x5efe90e924f8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92500) subject=109 at igraph_strvector_destroy @ strvector.c:116
+[INCONSISTENCY mov write imm UAF] ip: main+0x21414 (igraph_strvector_destroy @ strvector.c:116) UAF write at: 0x5efe90e924e0
+first time found dangling pointer at: 17542 distance: 7897
+[HEAP METADATA TAINT] free(0x5efe90e924e0): chunk size at 0x5efe90e924d8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e924e0) subject=108 at igraph_i_pajek_destroy_attr_vector
+[INCONSISTENCY mov read UAF] ip: main+0x18564 (igraph_i_pajek_destroy_attr_vector @ pajek.c:69) UAF read at: 0x5efe90e924c0
+first time found dangling pointer at: 17599 distance: 7849
+[HEAP METADATA TAINT] free(0x5efe90e92540): chunk size at 0x5efe90e92538 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92540) subject=111 at igraph_i_pajek_destroy_attr_vector @ pajek.c:69
+[HEAP METADATA TAINT] free(0x5efe90e924c0): chunk size at 0x5efe90e924b8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e924c0) subject=107 at igraph_i_pajek_destroy_attr_vector @ pajek.c:70
+[FREE] free(0x5efe90e96cb0) subject=97 at igraph_vector_ptr_destroy @ vector_ptr.c:134
+[UNINITIALIZED mov read] ip: main+0x213f0 (igraph_strvector_destroy @ strvector.c:114) co: 85 vo: -1
+[FREE] free(0x5efe90e96490) subject=33 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e96570) subject=45 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e92280) subject=65 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e922a0) subject=77 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e96650) subject=86 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e92480) subject=104 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e96b30) subject=85 at igraph_strvector_destroy @ strvector.c:116
+[FREE] free(0x5efe90e964b0) subject=36 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e96590) subject=48 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e92220) subject=68 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e96a90) subject=79 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e96990) subject=89 at igraph_strvector_destroy @ strvector.c:114
+main+0x213f0 (igraph_strvector_destroy @ strvector.c:114) Using expired pointer: 0x5efe90e924a0 from 0x5efe90e96ba8
+first time found dangling pointer at: 17360 distance: 8246
+[HEAP METADATA TAINT] free(0x5efe90e924a0): chunk size at 0x5efe90e92498 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e924a0) subject=106 at igraph_strvector_destroy @ strvector.c:114
+[FREE] free(0x5efe90e96b80) subject=88 at igraph_strvector_destroy @ strvector.c:116
+[UNINITIALIZED mov read] ip: main+0x2328d (igraph_i_trie_destroy_node_helper @ trie.c:79) co: 90 vo: -1
+[FREE] free(0x5efe90e96bd0) subject=90 at igraph_vector_ptr_destroy @ vector_ptr.c:134
+[FREE] free(0x5efe90e96c20) subject=91 at igraph_vector_int_destroy @ vector.pmt:405
+[FREE] free(0x5efe90e96d00) subject=101 at igraph_pajek_yylex_destroy @ pajek-lexer.c:2686
+[FREE] free(0x5efe90e92430) subject=23 at igraph_pajek_yylex_destroy @ pajek-lexer.c:2686
+[FREE] free(0x5efe90e92410) subject=22 at igraph_pajek_yylex_destroy @ pajek-lexer.c:2686
+[FREE] free(0x5efe90e92360) subject=19 at igraph_pajek_yylex_destroy @ pajek-lexer.c:2686
+main+0x3fb46 (igraph_vector_ptr_size @ vector_ptr.c:260) Using expired pointer: 0x5efe90e92690 from 0x5efe90e92630
+first time found dangling pointer at: 20117 distance: 5750
+[INCONSISTENCY mov read UAF] ip: main+0x3f869 (igraph_vector_ptr_destroy @ vector_ptr.c:133) UAF read at: 0x5efe90e92620
+first time found dangling pointer at: 20111 distance: 5774
+[HEAP METADATA TAINT] free(0x5efe90e92690): chunk size at 0x5efe90e92688 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92690) subject=125 at igraph_vector_ptr_destroy @ vector_ptr.c:134
+[INCONSISTENCY mov write imm UAF] ip: main+0x3f876 (igraph_vector_ptr_destroy @ vector_ptr.c:135) UAF write at: 0x5efe90e92620
+first time found dangling pointer at: 20111 distance: 5778
+main+0x3fb46 (igraph_vector_ptr_size @ vector_ptr.c:260) Using expired pointer: 0x5efe90e92a00 from 0x5efe90e92650
+first time found dangling pointer at: 20175 distance: 5729
+[INCONSISTENCY mov read UAF] ip: main+0xdafb (igraph_i_attribute_list_destroy @ cattributes.c:147) UAF read at: 0x5efe90e92640
+first time found dangling pointer at: 20169 distance: 5745
+[INCONSISTENCY mov read UAF] ip: main+0xdafe (igraph_i_attribute_list_destroy @ cattributes.c:147) UAF read at: 0x5efe90e929d0
+first time found dangling pointer at: 22655 distance: 3260
+main+0xdafe (igraph_i_attribute_list_destroy @ cattributes.c:147) Using expired pointer: 0x5efe90e92740 from 0x5efe90e929d0
+first time found dangling pointer at: 22655 distance: 3260
+[INCONSISTENCY mov read UAF] ip: main+0xdb07 (igraph_i_attribute_list_destroy @ cattributes.c:149) UAF read at: 0x5efe90e92748
+[INCONSISTENCY mov read UAF] ip: main+0xdb28 (igraph_i_attribute_list_destroy @ cattributes.c:154) UAF read at: 0x5efe90e92750
+first time found dangling pointer at: 21727 distance: 4194
+main+0x213f0 (igraph_strvector_destroy @ strvector.c:114) Using expired pointer: 0x5efe90e92aa0 from 0x5efe90e927a0
+first time found dangling pointer at: 22799 distance: 3137
+[HEAP METADATA TAINT] free(0x5efe90e92aa0): chunk size at 0x5efe90e92a98 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92aa0) subject=167 at igraph_strvector_destroy @ strvector.c:114
+[HEAP METADATA TAINT] free(0x5efe90e927a0): chunk size at 0x5efe90e92798 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e927a0) subject=166 at igraph_strvector_destroy @ strvector.c:116
+[HEAP METADATA TAINT] free(0x5efe90e92780): chunk size at 0x5efe90e92778 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92780) subject=141 at igraph_i_attribute_list_destroy
+[INCONSISTENCY mov read UAF] ip: main+0xdae1 (igraph_i_attribute_list_destroy @ cattributes.c:162) UAF read at: 0x5efe90e92740
+first time found dangling pointer at: 21621 distance: 4332
+[HEAP METADATA TAINT] free(0x5efe90e92760): chunk size at 0x5efe90e92758 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92760) subject=140 at igraph_i_attribute_list_destroy @ cattributes.c:162
+[HEAP METADATA TAINT] free(0x5efe90e92740): chunk size at 0x5efe90e92738 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92740) subject=139 at igraph_i_attribute_list_destroy @ cattributes.c:163
+main+0xdafe (igraph_i_attribute_list_destroy @ cattributes.c:147) Using expired pointer: 0x5efe90e927c0 from 0x5efe90e929d8
+first time found dangling pointer at: 22822 distance: 3139
+main+0x213f0 (igraph_strvector_destroy @ strvector.c:114) Using expired pointer: 0x5efe90e92ac0 from 0x5efe90e92820
+first time found dangling pointer at: 22977 distance: 3005
+[HEAP METADATA TAINT] free(0x5efe90e92ac0): chunk size at 0x5efe90e92ab8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92ac0) subject=169 at igraph_strvector_destroy @ strvector.c:114
+[HEAP METADATA TAINT] free(0x5efe90e92820): chunk size at 0x5efe90e92818 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92820) subject=168 at igraph_strvector_destroy @ strvector.c:116
+[HEAP METADATA TAINT] free(0x5efe90e92800): chunk size at 0x5efe90e927f8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92800) subject=145 at igraph_i_attribute_list_destroy
+[HEAP METADATA TAINT] free(0x5efe90e927e0): chunk size at 0x5efe90e927d8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e927e0) subject=144 at igraph_i_attribute_list_destroy @ cattributes.c:162
+[HEAP METADATA TAINT] free(0x5efe90e927c0): chunk size at 0x5efe90e927b8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e927c0) subject=143 at igraph_i_attribute_list_destroy @ cattributes.c:163
+main+0xdafe (igraph_i_attribute_list_destroy @ cattributes.c:147) Using expired pointer: 0x5efe90e92840 from 0x5efe90e929e0
+first time found dangling pointer at: 23000 distance: 3007
+[INCONSISTENCY mov read UAF] ip: main+0xdb1a (igraph_i_attribute_list_destroy @ cattributes.c:150) UAF read at: 0x5efe90e92850
+first time found dangling pointer at: 22096 distance: 3921
+[INCONSISTENCY mov read UAF] ip: main+0x23769 (igraph_vector_destroy @ vector.pmt:404) UAF read at: 0x5efe90e92880
+first time found dangling pointer at: 22077 distance: 3947
+[HEAP METADATA TAINT] free(0x5efe90e928a0): chunk size at 0x5efe90e92898 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e928a0) subject=151 at igraph_vector_destroy @ vector.pmt:405
+[INCONSISTENCY mov write imm UAF] ip: main+0x23776 (igraph_vector_destroy @ vector.pmt:406) UAF write at: 0x5efe90e92880
+first time found dangling pointer at: 22077 distance: 3951
+[HEAP METADATA TAINT] free(0x5efe90e92880): chunk size at 0x5efe90e92878 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92880) subject=150 at igraph_i_attribute_list_destroy
+[HEAP METADATA TAINT] free(0x5efe90e92860): chunk size at 0x5efe90e92858 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92860) subject=149 at igraph_i_attribute_list_destroy @ cattributes.c:162
+[HEAP METADATA TAINT] free(0x5efe90e92840): chunk size at 0x5efe90e92838 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92840) subject=148 at igraph_i_attribute_list_destroy @ cattributes.c:163
+[HEAP METADATA TAINT] free(0x5efe90e92930): chunk size at 0x5efe90e92928 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92930) subject=156 at igraph_vector_destroy @ vector.pmt:405
+[HEAP METADATA TAINT] free(0x5efe90e92910): chunk size at 0x5efe90e92908 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92910) subject=155 at igraph_i_attribute_list_destroy
+[HEAP METADATA TAINT] free(0x5efe90e928f0): chunk size at 0x5efe90e928e8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e928f0) subject=154 at igraph_i_attribute_list_destroy @ cattributes.c:162
+[HEAP METADATA TAINT] free(0x5efe90e926b0): chunk size at 0x5efe90e926a8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e926b0) subject=153 at igraph_i_attribute_list_destroy @ cattributes.c:163
+main+0x213f0 (igraph_strvector_destroy @ strvector.c:114) Using expired pointer: 0x5efe90e92ae0 from 0x5efe90e929b0
+first time found dangling pointer at: 23533 distance: 2565
+[HEAP METADATA TAINT] free(0x5efe90e92ae0): chunk size at 0x5efe90e92ad8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92ae0) subject=171 at igraph_strvector_destroy @ strvector.c:114
+[HEAP METADATA TAINT] free(0x5efe90e929b0): chunk size at 0x5efe90e929a8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e929b0) subject=170 at igraph_strvector_destroy @ strvector.c:116
+[HEAP METADATA TAINT] free(0x5efe90e92990): chunk size at 0x5efe90e92988 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92990) subject=159 at igraph_i_attribute_list_destroy
+[HEAP METADATA TAINT] free(0x5efe90e92970): chunk size at 0x5efe90e92968 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92970) subject=158 at igraph_i_attribute_list_destroy @ cattributes.c:162
+[HEAP METADATA TAINT] free(0x5efe90e92950): chunk size at 0x5efe90e92948 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92950) subject=157 at igraph_i_attribute_list_destroy @ cattributes.c:163
+[FREE] free(0x5efe90ea2d30) subject=173 at igraph_strvector_destroy @ strvector.c:114
+[HEAP METADATA TAINT] free(0x5efe90e92a80): chunk size at 0x5efe90e92a78 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92a80) subject=172 at igraph_strvector_destroy @ strvector.c:116
+[HEAP METADATA TAINT] free(0x5efe90e92a60): chunk size at 0x5efe90e92a58 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92a60) subject=164 at igraph_i_attribute_list_destroy
+[HEAP METADATA TAINT] free(0x5efe90e92a40): chunk size at 0x5efe90e92a38 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92a40) subject=163 at igraph_i_attribute_list_destroy @ cattributes.c:162
+[HEAP METADATA TAINT] free(0x5efe90e92a20): chunk size at 0x5efe90e92a18 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92a20) subject=162 at igraph_i_attribute_list_destroy @ cattributes.c:163
+[HEAP METADATA TAINT] free(0x5efe90e929d0): chunk size at 0x5efe90e929c8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e929d0) subject=161 at igraph_vector_ptr_destroy @ vector_ptr.c:134
+[HEAP METADATA TAINT] free(0x5efe90e926d0): chunk size at 0x5efe90e926c8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e926d0) subject=127 at igraph_vector_ptr_destroy @ vector_ptr.c:134
+[HEAP METADATA TAINT] free(0x5efe90e92620): chunk size at 0x5efe90e92618 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92620) subject=124 at igraph_i_cattribute_destroy @ cattributes.c:207
+[HEAP METADATA TAINT] free(0x5efe90e92600): chunk size at 0x5efe90e925f8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92600) subject=122 at igraph_destroy @ type_indexededgelist.c:155
+[HEAP METADATA TAINT] free(0x5efe90e92520): chunk size at 0x5efe90e92518 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92520) subject=116 at igraph_vector_int_destroy @ vector.pmt:405
+[HEAP METADATA TAINT] free(0x5efe90e92560): chunk size at 0x5efe90e92558 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92560) subject=117 at igraph_vector_int_destroy @ vector.pmt:405
+[HEAP METADATA TAINT] free(0x5efe90e928c0): chunk size at 0x5efe90e928b8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e928c0) subject=175 at igraph_vector_int_destroy @ vector.pmt:405
+[HEAP METADATA TAINT] free(0x5efe90e92b00): chunk size at 0x5efe90e92af8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e92b00) subject=176 at igraph_vector_int_destroy @ vector.pmt:405
+[HEAP METADATA TAINT] free(0x5efe90e925c0): chunk size at 0x5efe90e925b8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e925c0) subject=132 at igraph_vector_int_destroy @ vector.pmt:405
+[HEAP METADATA TAINT] free(0x5efe90e925e0): chunk size at 0x5efe90e925d8 has vo=24 co=0 (cross-subject taint)
+[FREE] free(0x5efe90e925e0) subject=133 at igraph_vector_int_destroy @ vector.pmt:405
+[FREE:internal] free(0x5efe90e911f0) subject=6 at _IO_setb
+[FREE:internal] free(0x5efe90e91010) subject=5 at _IO_fclose
+[STACK PIVOT] ip: main+0x3890 (main @ harness.c:85) RSP 0x7ffc07d04040 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x34ae (__do_global_dtors_aux) final_ea: 0x5efe831d1fe8 base: 0x5efe831734ae pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x34d4 (__do_global_dtors_aux) RSP 0x7ffc07d03f10 left stack after RET
+[STACK PIVOT] ip: main+0x4c400 (_fini) RSP 0x7ffc07d03f40 left stack after RET

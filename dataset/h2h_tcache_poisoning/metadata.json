@@ -1,0 +1,23 @@
+{
+  "name": "h2h_tcache_poisoning",
+  "target": "how2heap",
+  "technique": "Corrupt tcache fd pointer to return arbitrary location from malloc",
+  "binary": "bin/tcache_poisoning",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 21,
+    "alloc": 4,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 3,
+    "free": 2,
+    "free:internal": 1,
+    "double_free": 1,
+    "inconsistency_arithmetic__crossboundary": 1,
+    "inconsistency_mov_write_reg_uaf": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": true,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

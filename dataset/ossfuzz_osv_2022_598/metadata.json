@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_598",
+  "target": "re2",
+  "binary": "bin/ia_fuzz",
+  "poc": "poc/poc.macho",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 189424,
+    "stack_pivot": 107332,
+    "free": 17203,
+    "inconsistency_mov_read_uaf": 13370,
+    "alloc:internal": 10602,
+    "alloc": 6662,
+    "inconsistency_mov_write_reg_uaf": 5371,
+    "corrupted_ptr_load": 1252,
+    "inconsistency_mov_write_imm_uaf": 858,
+    "heap_metadata_taint": 765,
+    "untrustedptrderef": 537,
+    "inconsistency_mov_read": 126,
+    "uninitialized_mov_read": 105,
+    "inconsistency_arithmetic__crossboundary": 46,
+    "intra_object_overflow": 26,
+    "free:internal": 8
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

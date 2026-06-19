@@ -1,0 +1,441 @@
+[INCONSISTENCY mov write reg] ip: main+0x1d0d (main @ harness.c:139) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1d10 (main @ harness.c:139) co: 5 vo: 5, 5 write 5
+[UNTRUSTEDPTRDEREF] ip: main+0x21b70 (__libc_malloc) final_ea: 0x296d0e08 base: 0x296d0dd0 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x20399 (_int_malloc) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x20813 (_int_malloc) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x20bda (_int_malloc) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x20dba (_int_malloc) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x20dd3 (_int_malloc) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x20de7 (_int_malloc) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x20df5 (_int_malloc) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x20df9 (_int_malloc) final_ea: 0x296d1798 base: 0x296d1790 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x20e01 (_int_malloc) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21bd3 (__libc_malloc) final_ea: 0x296d1798 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1aeb2 (_IO_no_init) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19bd0 (_IO_link_in) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x19c65 (_IO_link_in) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x19c72 (_IO_link_in) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x19c74 (_IO_link_in) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x19c7e (_IO_link_in) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x19c98 (_IO_link_in) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19c9f (_IO_link_in) final_ea: 0x296d1888 base: 0x296d1880 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19cb8 (_IO_link_in) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19cbf (_IO_link_in) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x19cd0 (_IO_link_in) co: 3 vo: 3, 3 write 3
+[UNTRUSTEDPTRDEREF] ip: main+0x19ce0 (_IO_link_in) final_ea: 0x296d1884 base: 0x296d1880 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x19d38 (_IO_link_in) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x18c62 (_IO_file_fopen) final_ea: 0x296d1810 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18c6c (_IO_file_fopen) final_ea: 0x499020 base: 0x499020 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18ce0 (_IO_file_fopen) final_ea: 0x499021 base: 0x499020 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18d05 (_IO_file_fopen) final_ea: 0x49b71c base: 0x49b71c pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18d2b (_IO_file_fopen) final_ea: 0x499022 base: 0x499020 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x187d7 (_IO_file_open) final_ea: 0x296d1814 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x52277 (__libc_open64) base: 0x7ffca4f900a0 pointee: 10 read from 7
+[CORRUPTED_PTR_LOAD] ip: main+0x52277 (__libc_open64) loaded: 0xefa43b2ca6ede600 from cell: 0x7ffca4f900c8 cell_owner: 7 value_owner: 10
+[UNTRUSTEDPTRDEREF] ip: main+0x187f2 (_IO_file_open) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x24765 (__strstr_sse2) final_ea: 0x49b715 base: 0x49b715 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x40833 (__strchr_sse2) final_ea: 0x499022 base: 0x499022 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x127a3 (_IO_new_fopen) final_ea: 0x296d1814 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x16427 (fseek) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x16439 (fseek) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x16440 (fseek) final_ea: 0x296d1888 base: 0x296d1880 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x16451 (fseek) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12d5b (_IO_seekoff_unlocked) final_ea: 0x296d1860 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12da0 (_IO_seekoff_unlocked) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12dc4 (_IO_seekoff_unlocked) final_ea: 0x4c8fe8 base: 0x4c8fa0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x172c6 (_IO_new_file_seekoff) final_ea: 0x296d17c0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x172ca (_IO_new_file_seekoff) final_ea: 0x296d17c8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x172d1 (_IO_new_file_seekoff) final_ea: 0x296d17b0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x172d5 (_IO_new_file_seekoff) final_ea: 0x296d17b8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17390 (_IO_new_file_seekoff) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1739d (_IO_new_file_seekoff) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x173a8 (_IO_new_file_seekoff) final_ea: 0x296d17b8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a3f4 (_IO_doallocbuf) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a404 (_IO_doallocbuf) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a417 (_IO_doallocbuf) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x74565 (_IO_file_doallocate) final_ea: 0x296d1810 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x74570 (_IO_file_doallocate) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17864 (_IO_file_stat) final_ea: 0x296d1810 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x745a8 (_IO_file_doallocate) base: 0x7ffca4f8ffd0 pointee: 16 read from 12
+[INCONSISTENCY mov read] ip: main+0x745bc (_IO_file_doallocate) base: 0x7ffca4f8ffd0 pointee: 16 read from 12
+[UNINITIALIZED mov read] ip: main+0x20558 (_int_malloc) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x20bad (_int_malloc) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a39d (_IO_setb) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a3a1 (_IO_setb) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x745f3 (_IO_file_doallocate) base: 0x7ffca4f8ffd0 pointee: 16 read from 12
+[CORRUPTED_PTR_LOAD] ip: main+0x745f3 (_IO_file_doallocate) loaded: 0xefa43b2ca6ede600 from cell: 0x7ffca4f90068 cell_owner: 12 value_owner: 16
+[UNTRUSTEDPTRDEREF] ip: main+0x173c5 (_IO_new_file_seekoff) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1731a (_IO_new_file_seekoff) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x17357 (_IO_new_file_seekoff) base: 0x7ffca4f900b0 pointee: 15 read from 11
+[UNTRUSTEDPTRDEREF] ip: main+0x19f05 (_IO_free_backup_area) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19f0a (_IO_free_backup_area) final_ea: 0x296d17e8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17414 (_IO_new_file_seekoff) final_ea: 0x296d1830 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1741b (_IO_new_file_seekoff) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17479 (_IO_new_file_seekoff) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1747d (_IO_new_file_seekoff) final_ea: 0x296d17e0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1749c (_IO_new_file_seekoff) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17024 (_IO_file_seek) final_ea: 0x296d1810 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x174d2 (_IO_new_file_seekoff) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x174e8 (_IO_new_file_seekoff) final_ea: 0x4c9010 base: 0x4c8fa0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x174ec (_IO_new_file_seekoff) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18284 (_IO_file_read) final_ea: 0x296d1810 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18288 (_IO_file_read) final_ea: 0x296d1814 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1751e (_IO_new_file_seekoff) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x175bc (_IO_new_file_seekoff) base: 0x7ffca4f900b0 pointee: 15 read from 9
+[CORRUPTED_PTR_LOAD] ip: main+0x175bc (_IO_new_file_seekoff) loaded: 0xefa43b2ca6ede600 from cell: 0x7ffca4f90158 cell_owner: 9 value_owner: 15
+[UNTRUSTEDPTRDEREF] ip: main+0x1647f (fseek) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x16487 (fseek) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1648e (fseek) final_ea: 0x296d1884 base: 0x296d1880 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1292d (ftell) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1293f (ftell) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12946 (ftell) final_ea: 0x296d1888 base: 0x296d1880 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1295b (ftell) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x175e8 (_IO_new_file_seekoff) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x175f3 (_IO_new_file_seekoff) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x175f5 (_IO_new_file_seekoff) final_ea: 0x296d17c8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x175f9 (_IO_new_file_seekoff) final_ea: 0x296d17c0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x176c0 (_IO_new_file_seekoff) final_ea: 0x296d1830 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x176d0 (_IO_new_file_seekoff) final_ea: 0x296d17a8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1297b (ftell) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x129df (ftell) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17424 (_IO_new_file_seekoff) final_ea: 0x296d17b8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17774 (_IO_new_file_seekoff) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x206f0 (_int_malloc) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12842 (_IO_fread) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12860 (_IO_fread) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12867 (_IO_fread) final_ea: 0x296d1888 base: 0x296d1880 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1287c (_IO_fread) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a709 (_IO_sgetn) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a72d (_IO_sgetn) final_ea: 0x4c8fe0 base: 0x4c8fa0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17c6b (_IO_file_xsgetn) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17c88 (_IO_file_xsgetn) final_ea: 0x296d17a8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x17c8c (_IO_file_xsgetn) final_ea: 0x296d17b0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2df04 (__memcpy_ssse3) final_ea: 0x49d08c base: 0x49cfd8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x30210 (__memcpy_ssse3) final_ea: 0x296d1980 base: 0x296d19ad pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x30214 (__memcpy_ssse3) final_ea: 0x296d1988 base: 0x296d19ad pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x30218 (__memcpy_ssse3) final_ea: 0x296d1990 base: 0x296d19ad pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x3021c (__memcpy_ssse3) final_ea: 0x296d1998 base: 0x296d19ad pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x30220 (__memcpy_ssse3) final_ea: 0x296d19a0 base: 0x296d19ad pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x30224 (__memcpy_ssse3) final_ea: 0x296d19a5 base: 0x296d19ad pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12899 (_IO_fread) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x128a1 (_IO_fread) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x128a8 (_IO_fread) final_ea: 0x296d1884 base: 0x296d1880 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x122eb (_IO_fclose) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19ba4 (_IO_un_link) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x199ca (_IO_un_link.part.0) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x199d7 (_IO_un_link.part.0) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x199d9 (_IO_un_link.part.0) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x199e3 (_IO_un_link.part.0) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x199ff (_IO_un_link.part.0) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19a1f (_IO_un_link.part.0) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19a21 (_IO_un_link.part.0) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19a43 (_IO_un_link.part.0) final_ea: 0x296d1808 base: 0x296d17a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x19a50 (_IO_un_link.part.0) co: 3 vo: 3, 3 write 3
+[UNTRUSTEDPTRDEREF] ip: main+0x19a61 (_IO_un_link.part.0) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x19a68 (_IO_un_link.part.0) final_ea: 0x296d1884 base: 0x296d1880 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x19a9a (_IO_un_link.part.0) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov read] ip: main+0x1c844 (__libc_cleanup_pop_restore) base: 0x7ffca4f90160 pointee: 30 read from 21
+[CORRUPTED_PTR_LOAD] ip: main+0x1c844 (__libc_cleanup_pop_restore) loaded: 0x0 from cell: 0x7ffca4f90178 cell_owner: 21 value_owner: 30
+[INCONSISTENCY mov read] ip: main+0x1c851 (__libc_cleanup_pop_restore) base: 0x7ffca4f90160 pointee: 30 read from 21
+[CORRUPTED_PTR_LOAD] ip: main+0x1c851 (__libc_cleanup_pop_restore) loaded: 0x0 from cell: 0x7ffca4f90170 cell_owner: 21 value_owner: 30
+[INCONSISTENCY mov read] ip: main+0x19ac6 (_IO_un_link.part.0) base: 0x7ffca4f90160 pointee: 30 read from 6
+[CORRUPTED_PTR_LOAD] ip: main+0x19ac6 (_IO_un_link.part.0) loaded: 0xefa43b2ca6ede600 from cell: 0x7ffca4f90188 cell_owner: 6 value_owner: 30
+[UNTRUSTEDPTRDEREF] ip: main+0x123b5 (_IO_fclose) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x123c6 (_IO_fclose) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x123cd (_IO_fclose) final_ea: 0x296d1888 base: 0x296d1880 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x123e4 (_IO_fclose) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x123eb (_IO_fclose) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18ae8 (_IO_new_file_close_it) final_ea: 0x296d1810 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18af6 (_IO_new_file_close_it) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1ba85 (_IO_unsave_markers) final_ea: 0x296d1800 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1ba97 (_IO_unsave_markers) final_ea: 0x296d17e8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18b18 (_IO_new_file_close_it) final_ea: 0x296d1814 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18b1e (_IO_new_file_close_it) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x16c44 (_IO_file_close) final_ea: 0x296d1810 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x18b54 (_IO_new_file_close_it) final_ea: 0x296d1860 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21d6e (free) final_ea: 0x296d1978 base: 0x296d1980 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21d72 (free) final_ea: 0x296d0378 base: 0xffffffffffffffb8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e3f1 (_int_free) final_ea: 0x296d1978 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e550 (_int_free) final_ea: 0x296d1978 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x1e58b (_int_free) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1eba0 (_int_free) final_ea: 0x296d29c8 base: 0x296d29c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e597 (_int_free) final_ea: 0x296d2988 base: 0x296d2980 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x1e5b4 (_int_free) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e5d0 (_int_free) final_ea: 0x296d1978 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e604 (_int_free) final_ea: 0x296d29c8 base: 0x296d2980 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x1e615 (_int_free) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1e62d (_int_free) co: 3 vo: -1
+[INCONSISTENCY mov read] ip: main+0x1e66e (_int_free) base: 0x7ffca4f900d0 pointee: 33 read from 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1e66e (_int_free) loaded: 0x1 from cell: 0x7ffca4f900e4 cell_owner: 27 value_owner: 33
+[INCONSISTENCY mov read] ip: main+0x1e526 (_int_free) base: 0x7ffca4f900d0 pointee: 33 read from 27
+[CORRUPTED_PTR_LOAD] ip: main+0x1e526 (_int_free) loaded: 0xefa43b2ca6ede600 from cell: 0x7ffca4f900f8 cell_owner: 27 value_owner: 33
+[UNTRUSTEDPTRDEREF] ip: main+0x1a3d9 (_IO_setb) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1240f (_IO_fclose) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12311 (_IO_fclose) final_ea: 0x296d1828 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12322 (_IO_fclose) final_ea: 0x296d1878 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1934d (_IO_new_file_finish) final_ea: 0x296d1810 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1af58 (_IO_default_finish) final_ea: 0x296d17d8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1af67 (_IO_default_finish) final_ea: 0x296d1800 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1af80 (_IO_default_finish) final_ea: 0x296d17e8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1af96 (_IO_default_finish) final_ea: 0x296d17a0 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12352 (_IO_fclose) final_ea: 0x296d1860 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12360 (_IO_fclose) final_ea: 0x296d17e8 base: 0x296d17a0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e46f (_int_free) final_ea: 0x296d17a8 base: 0x296d1790 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e479 (_int_free) final_ea: 0x296d0e08 base: 0x296d0dd0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xeeee (__vfprintf_internal) final_ea: 0x296d0378 base: 0xffffffffffffffb8 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0xeef5 (__vfprintf_internal) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0xef0d (__vfprintf_internal) co: 3 vo: -1
+[INCONSISTENCY mov read] ip: main+0x103a0 (__vfprintf_internal) base: 0x7ffca4f8fb90 pointee: 37 read from 25
+[CORRUPTED_PTR_LOAD] ip: main+0x103a0 (__vfprintf_internal) loaded: 0xefa43b2ca6ede600 from cell: 0x7ffca4f900b8 cell_owner: 25 value_owner: 37
+[UNINITIALIZED mov read] ip: main+0x11270 (buffered_vfprintf) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1a5a0 (_IO_default_xsputn) co: 40 vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x2ded7 (__mempcpy_ssse3) add rax, rdx id before: 40 after: 39 value: 0x7ffca4f8e0d5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x2df0b (__memcpy_ssse3) add rdi, rdx id before: 40 after: 39 value: 0x7ffca4f8e0d5
+[UNTRUSTEDPTRDEREF] ip: main+0x302b0 (__memcpy_ssse3) final_ea: 0x499048 base: 0x49905d pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x302b4 (__memcpy_ssse3) final_ea: 0x499050 base: 0x49905d pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x302b8 (__memcpy_ssse3) final_ea: 0x499055 base: 0x49905d pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xeffa (__vfprintf_internal) final_ea: 0x49905d base: 0x49905d pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xf02b (__vfprintf_internal) final_ea: 0x4cec38 base: 0x40f02b pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xf080 (__vfprintf_internal) final_ea: 0x49905e base: 0x49905d pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xf1a4 (__vfprintf_internal) final_ea: 0x49a1ac base: 0x49a160 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xf1a8 (__vfprintf_internal) final_ea: 0x296d0360 base: 0xffffffffffffffa0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xf1c3 (__vfprintf_internal) final_ea: 0x4c3e58 base: 0x4c3e00 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xfd04 (__vfprintf_internal) final_ea: 0x49905f base: 0x49905e pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xfd32 (__vfprintf_internal) final_ea: 0x49a1a4 base: 0x49a160 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xfd36 (__vfprintf_internal) final_ea: 0x4c3978 base: 0x4c3900 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0xfc69 (__vfprintf_internal) loaded: 0x2d from cell: 0x7ffca4f90130 cell_owner: 35 value_owner: 36
+[UNTRUSTEDPTRDEREF] ip: main+0x68b3b (_itoa_word) final_ea: 0x4ae805 base: 0x4ae800 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a6ae (_IO_default_xsputn) final_ea: 0x499060 base: 0x499060 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a646 (_IO_default_xsputn) final_ea: 0x499068 base: 0x499068 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a651 (_IO_default_xsputn) final_ea: 0x499069 base: 0x499068 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a65f (_IO_default_xsputn) final_ea: 0x49906a base: 0x499068 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1a66d (_IO_default_xsputn) final_ea: 0x49906b base: 0x499068 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xf5b9 (__vfprintf_internal) final_ea: 0x49906c base: 0x49906c pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0xf5ef (__vfprintf_internal) loaded: 0x7ffca4f91056 from cell: 0x7ffca4f90138 cell_owner: 35 value_owner: 36
+[INTRA_OBJECT_OVERFLOW] ip: main+0x1092c (__vfprintf_internal) at: 0x7ffca4f8da68 offset: +0x38 subject: 41 clobbers ptr 0x4c89a8 (owner: 3)
+[UNTRUSTEDPTRDEREF] ip: main+0x1a6e0 (_IO_default_xsputn) final_ea: 0x49906e base: 0x49906e pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x112d0 (buffered_vfprintf) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x11399 (buffered_vfprintf) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x113a0 (buffered_vfprintf) co: 4 vo: -1
+[UNINITIALIZED mov read] ip: main+0x113b1 (buffered_vfprintf) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x113bc (buffered_vfprintf) co: 40 vo: -1
+[UNINITIALIZED mov read] ip: main+0x112f1 (buffered_vfprintf) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x17fa0 (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x17fa7 (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x17fb6 (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x18023 (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x193eb (_IO_file_overflow) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x193f7 (_IO_file_overflow) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1a3f4 (_IO_doallocbuf) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1a404 (_IO_doallocbuf) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x19580 (_IO_file_overflow) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x19466 (_IO_file_overflow) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x19473 (_IO_file_overflow) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x18060 (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x180d0 (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x180e4 (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x178ad (_IO_file_write) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x178b7 (_IO_file_write) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x178db (_IO_file_write) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1814f (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x18164 (_IO_file_xsputn) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x11337 (buffered_vfprintf) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x1133e (buffered_vfprintf) co: 4 vo: -1
+[INCONSISTENCY mov read] ip: main+0x11364 (buffered_vfprintf) base: 0x7ffca4f8dfa0 pointee: 40 read from 22
+[CORRUPTED_PTR_LOAD] ip: main+0x11364 (buffered_vfprintf) loaded: 0xefa43b2ca6ede600 from cell: 0x7ffca4f900c8 cell_owner: 22 value_owner: 40
+[UNTRUSTEDPTRDEREF] ip: main+0x304d0 (__memcpy_ssse3) final_ea: 0x296d2990 base: 0x296d299e pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x304d4 (__memcpy_ssse3) final_ea: 0x296d2996 base: 0x296d299e pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x40833 (__strchr_sse2) co: 43 vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x190d (nft_set_context_add @ harness.c:48) loaded: 0x7ffca4f90082 from cell: 0x7ffca4f90010 cell_owner: 44 value_owner: 43
+[UNINITIALIZED mov read] ip: main+0x20587 (_int_malloc) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x20865 (_int_malloc) final_ea: 0x296d1978 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x20884 (_int_malloc) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x20894 (_int_malloc) final_ea: 0x296d2988 base: 0x296d2980 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x208ab (_int_malloc) final_ea: 0x296d2980 base: 0x296d2980 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x208bb (_int_malloc) final_ea: 0x296d1988 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x208c9 (_int_malloc) final_ea: 0x296d1980 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x20ce0 (_int_malloc) co: 3 vo: -1
+[UNINITIALIZED mov read] ip: main+0x20b1b (_int_malloc) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x20f5e (_int_malloc) final_ea: 0x296d1978 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e144 (unlink_chunk.constprop.0) final_ea: 0x296d1978 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e15e (unlink_chunk.constprop.0) final_ea: 0x296d1980 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e162 (unlink_chunk.constprop.0) final_ea: 0x296d1988 base: 0x296d1970 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x1e17f (unlink_chunk.constprop.0) co: 3 vo: 3, 3 write 3
+[UNTRUSTEDPTRDEREF] ip: main+0x1e191 (unlink_chunk.constprop.0) final_ea: 0x296d1990 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e1a0 (unlink_chunk.constprop.0) final_ea: 0x296d1998 base: 0x296d1970 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1e1c3 (unlink_chunk.constprop.0) final_ea: 0x296d1998 base: 0x296d1970 pointee: -1 base_vo: -1
+[CORRUPTED_PTR_LOAD] ip: main+0x192e (nft_set_context_add @ harness.c:51) loaded: 0x7ffca4f90089 from cell: 0x7ffca4f90008 cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x195b (nft_set_context_add @ harness.c:57) loaded: 0x7ffca4f901f8 from cell: 0x7ffca4f90020 cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x1976 (nft_set_context_add @ harness.c:57) loaded: 0x7ffca4f90200 from cell: 0x7ffca4f90028 cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x19b5 (nft_set_context_add @ harness.c:64) loaded: 0x7ffca4f90200 from cell: 0x7ffca4f90028 cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x19c0 (nft_set_context_add @ harness.c:65) loaded: 0x7ffca4f901f8 from cell: 0x7ffca4f90020 cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x19de (nft_set_context_add @ harness.c:65) loaded: 0xa4f901f800000002 from cell: 0x7ffca4f9001c cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x19e3 (nft_set_context_add @ harness.c:66) loaded: 0x7ffca4f901f8 from cell: 0x7ffca4f90020 cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x1a09 (nft_set_context_add @ harness.c:67) loaded: 0x7ffca4f901f8 from cell: 0x7ffca4f90020 cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x1a2f (nft_set_context_add @ harness.c:68) loaded: 0x7ffca4f901f8 from cell: 0x7ffca4f90020 cell_owner: 44 value_owner: 43
+[CORRUPTED_PTR_LOAD] ip: main+0x1a3a (nft_set_context_add @ harness.c:68) loaded: 0x7ffca4f901f8 from cell: 0x7ffca4f90020 cell_owner: 44 value_owner: 43
+[STACK PIVOT] ip: main+0x1a46 (nft_set_context_add @ harness.c:71) RSP 0x7ffca4f90058 left stack [0x35,0x7ffca4f71000]
+[UNTRUSTEDPTRDEREF] ip: main+0x220f5 (__libc_realloc) final_ea: 0x296d19b8 base: 0x296d19c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x213ee (_int_realloc) final_ea: 0x296d19b8 base: 0x296d19b0 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x213ff (_int_realloc) co: 3 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x21424 (_int_realloc) final_ea: 0x296d19d8 base: 0x296d19d0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x214a2 (_int_realloc) final_ea: 0x296d2988 base: 0x296d19d0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2155c (_int_realloc) final_ea: 0x296d19b8 base: 0x296d19b0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x1e3fe (_int_free) UAF write at: 0x7ffca4f8ff88
+[INCONSISTENCY mov write imm UAF] ip: main+0x1e570 (_int_free) UAF write at: 0x7ffca4f8ff74
+[INCONSISTENCY mov read UAF] ip: main+0x1e66e (_int_free) UAF read at: 0x7ffca4f8ff74
+[INCONSISTENCY mov read UAF] ip: main+0x1e526 (_int_free) UAF read at: 0x7ffca4f8ff88
+[UNTRUSTEDPTRDEREF] ip: main+0x22271 (__libc_realloc) final_ea: 0x296d19b8 base: 0x296d19c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1c77 (config_parse_nft_set_context_buggy @ harness.c:123) final_ea: 0x296d19c8 base: 0x296d19c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1cc3 (config_parse_nft_set_context_buggy @ harness.c:124) final_ea: 0x296d19d0 base: 0x296d19c0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x18ea (nft_set_context_add @ harness.c:45) UAF write at: 0x7ffca4f90028
+[INCONSISTENCY mov write reg UAF] ip: main+0x18ee (nft_set_context_add @ harness.c:45) UAF write at: 0x7ffca4f90020
+[INCONSISTENCY mov write reg UAF] ip: main+0x18f2 (nft_set_context_add @ harness.c:45) UAF write at: 0x7ffca4f9001c
+[INCONSISTENCY mov write reg UAF] ip: main+0x18f5 (nft_set_context_add @ harness.c:45) UAF write at: 0x7ffca4f90010
+[INCONSISTENCY mov write reg UAF] ip: main+0x18f9 (nft_set_context_add @ harness.c:45) UAF write at: 0x7ffca4f90008
+[INCONSISTENCY mov write imm UAF] ip: main+0x18fd (nft_set_context_add @ harness.c:46) UAF write at: 0x7ffca4f90048
+[INCONSISTENCY mov write imm UAF] ip: main+0x1905 (nft_set_context_add @ harness.c:46) UAF write at: 0x7ffca4f90040
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90010 ip: main+0x190d (nft_set_context_add @ harness.c:48)
+[INCONSISTENCY mov write imm UAF] ip: main+0x2077b (_int_malloc) UAF write at: 0x7ffca4f8ff60
+[INCONSISTENCY mov write reg UAF] ip: main+0x20788 (_int_malloc) UAF write at: 0x7ffca4f8ff30
+[INCONSISTENCY mov write reg UAF] ip: main+0x20793 (_int_malloc) UAF write at: 0x7ffca4f8ff40
+[INCONSISTENCY mov write reg UAF] ip: main+0x20798 (_int_malloc) UAF write at: 0x7ffca4f8ff64
+[INCONSISTENCY mov write reg UAF] ip: main+0x2079f (_int_malloc) UAF write at: 0x7ffca4f8ff3c
+[INCONSISTENCY mov write imm UAF] ip: main+0x207a3 (_int_malloc) UAF write at: 0x7ffca4f8ff5c
+[INCONSISTENCY mov write imm UAF] ip: main+0x207ab (_int_malloc) UAF write at: 0x7ffca4f8ff58
+[INCONSISTENCY mov write imm UAF] ip: main+0x207b3 (_int_malloc) UAF write at: 0x7ffca4f8ff50
+[INCONSISTENCY mov write imm UAF] ip: main+0x207bc (_int_malloc) UAF write at: 0x7ffca4f8ff48
+[INCONSISTENCY mov write reg UAF] ip: main+0x207f7 (_int_malloc) UAF write at: 0x7ffca4f8ff38
+[INCONSISTENCY mov write reg UAF] ip: main+0x2080a (_int_malloc) UAF write at: 0x7ffca4f8ff10
+[INCONSISTENCY mov write reg UAF] ip: main+0x2084b (_int_malloc) UAF write at: 0x7ffca4f8ff00
+[INCONSISTENCY mov write reg UAF] ip: main+0x20857 (_int_malloc) UAF write at: 0x7ffca4f8ff20
+[INCONSISTENCY mov write reg UAF] ip: main+0x20860 (_int_malloc) UAF write at: 0x7ffca4f8ff28
+[INCONSISTENCY mov read UAF] ip: main+0x20f62 (_int_malloc) UAF read at: 0x7ffca4f8ff10
+[INCONSISTENCY mov write reg UAF] ip: main+0x1919 (nft_set_context_add @ harness.c:48) UAF write at: 0x7ffca4f90048
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90048 ip: main+0x191d (nft_set_context_add @ harness.c:49)
+[INCONSISTENCY mov read UAF] ip: main+0x20cea (_int_malloc) UAF read at: 0x7ffca4f8ff28
+[INCONSISTENCY mov read UAF] ip: main+0x20cfc (_int_malloc) UAF read at: 0x7ffca4f8ff10
+[INCONSISTENCY mov write reg UAF] ip: main+0x193a (nft_set_context_add @ harness.c:51) UAF write at: 0x7ffca4f90040
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90040 ip: main+0x193e (nft_set_context_add @ harness.c:52)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90020 ip: main+0x195b (nft_set_context_add @ harness.c:57)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90028 ip: main+0x1976 (nft_set_context_add @ harness.c:57)
+[INCONSISTENCY mov read] ip: main+0x20cea (_int_malloc) base: 0x7ffca4f8fea0 pointee: 61 read from 59
+[CORRUPTED_PTR_LOAD] ip: main+0x20cea (_int_malloc) loaded: 0x70 from cell: 0x7ffca4f8fee8 cell_owner: 59 value_owner: 61
+[INCONSISTENCY mov read] ip: main+0x20cfc (_int_malloc) base: 0x7ffca4f8fea0 pointee: 61 read from 18
+[CORRUPTED_PTR_LOAD] ip: main+0x20cfc (_int_malloc) loaded: 0x41 from cell: 0x7ffca4f8fed0 cell_owner: 18 value_owner: 61
+[UNTRUSTEDPTRDEREF] ip: main+0x214c6 (_int_realloc) final_ea: 0x296d1a38 base: 0x296d1a40 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x214d3 (_int_realloc) final_ea: 0x296d19b8 base: 0x296d19b0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f865 (__memcpy_ssse3) final_ea: 0x296d19d0 base: 0x296d19f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f869 (__memcpy_ssse3) final_ea: 0x296d19d8 base: 0x296d19f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f86d (__memcpy_ssse3) final_ea: 0x296d19e0 base: 0x296d19f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f871 (__memcpy_ssse3) final_ea: 0x296d19e8 base: 0x296d19f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f875 (__memcpy_ssse3) final_ea: 0x296d19f0 base: 0x296d19f8 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x1988 (nft_set_context_add @ harness.c:57) UAF write at: 0x7ffca4f90038
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90038 ip: main+0x198c (nft_set_context_add @ harness.c:58)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90028 ip: main+0x19b5 (nft_set_context_add @ harness.c:64)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90038 ip: main+0x19b9 (nft_set_context_add @ harness.c:64)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90020 ip: main+0x19c0 (nft_set_context_add @ harness.c:65)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90038 ip: main+0x19d7 (nft_set_context_add @ harness.c:65)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f9001c ip: main+0x19de (nft_set_context_add @ harness.c:65)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90020 ip: main+0x19e3 (nft_set_context_add @ harness.c:66)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90038 ip: main+0x19fa (nft_set_context_add @ harness.c:66)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90048 ip: main+0x1a01 (nft_set_context_add @ harness.c:66)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90020 ip: main+0x1a09 (nft_set_context_add @ harness.c:67)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90038 ip: main+0x1a20 (nft_set_context_add @ harness.c:67)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90040 ip: main+0x1a27 (nft_set_context_add @ harness.c:67)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90020 ip: main+0x1a2f (nft_set_context_add @ harness.c:68)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f90020 ip: main+0x1a3a (nft_set_context_add @ harness.c:68)
+[STACK PIVOT] ip: main+0x1a46 (nft_set_context_add @ harness.c:71) RSP 0x7ffca4f90058 left stack [0x40,0x7ffca4f71000]
+[UNTRUSTEDPTRDEREF] ip: main+0x2e03f (__memcpy_ssse3) final_ea: 0x49cff8 base: 0x49cfd8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f980 (__memcpy_ssse3) final_ea: 0x296d1aa0 base: 0x296d1aa8 pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1a46 (nft_set_context_add @ harness.c:71) RSP 0x7ffca4f90058 left stack [0x4b,0x7ffca4f71000]
+[STACK PIVOT] ip: main+0x1cff (config_parse_nft_set_context_buggy @ harness.c:136) RSP 0x7ffca4f901d8 left stack [0x4e,0x7ffca4f71000]
+[INCONSISTENCY mov write reg UAF] ip: main+0xbdab (__fprintf) UAF write at: 0x7ffca4f90130
+[INCONSISTENCY mov write reg UAF] ip: main+0xbdb0 (__fprintf) UAF write at: 0x7ffca4f90138
+[INCONSISTENCY mov write reg UAF] ip: main+0xbdb5 (__fprintf) UAF write at: 0x7ffca4f90140
+[INCONSISTENCY mov write reg UAF] ip: main+0xbdba (__fprintf) UAF write at: 0x7ffca4f90148
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe03 (__fprintf) UAF write at: 0x7ffca4f90118
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe17 (__fprintf) UAF write at: 0x7ffca4f90108
+[INCONSISTENCY mov write imm UAF] ip: main+0xbe21 (__fprintf) UAF write at: 0x7ffca4f90100
+[INCONSISTENCY mov write imm UAF] ip: main+0xbe28 (__fprintf) UAF write at: 0x7ffca4f90104
+Store dangling pointer: 0x7ffca4f90120 at: 0x7ffca4f90110
+[INCONSISTENCY mov write reg UAF] ip: main+0xbe30 (__fprintf) UAF write at: 0x7ffca4f90110
+first time found dangling pointer at: 8581 distance: 0
+Store dangling pointer: 0x7ffca4f90100 at: 0x7ffca4f8fbb0
+[INCONSISTENCY mov write reg UAF] ip: main+0xeedf (__vfprintf_internal) UAF write at: 0x7ffca4f900b8
+[INCONSISTENCY mov read UAF] ip: main+0x103a0 (__vfprintf_internal) UAF read at: 0x7ffca4f900b8
+main+0x103bb (__vfprintf_internal) Using expired pointer: 0x7ffca4f90100 from 0x7ffca4f8fbb0
+first time found dangling pointer at: 8593 distance: 23
+[INCONSISTENCY mov write reg UAF] ip: main+0x11220 (buffered_vfprintf) UAF write at: 0x7ffca4f900c8
+Store dangling pointer: 0x7ffca4f900c0 at: 0x7ffca4f8dff0
+[INCONSISTENCY mov read UAF] ip: main+0xef49 (__vfprintf_internal) UAF read at: 0x7ffca4f90110
+first time found dangling pointer at: 8581 distance: 116
+main+0xef49 (__vfprintf_internal) Using expired pointer: 0x7ffca4f90120 from 0x7ffca4f90110
+first time found dangling pointer at: 8581 distance: 116
+[CORRUPTED_PTR_LOAD] ip: main+0x1a5a0 (_IO_default_xsputn) loaded: 0x7ffca4f8e0c0 from cell: 0x7ffca4f8dfe8 cell_owner: 82 value_owner: 40
+main+0x1a5a5 (_IO_default_xsputn) Using expired pointer: 0x7ffca4f900c0 from 0x7ffca4f8dff0
+first time found dangling pointer at: 8653 distance: 130
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1a69e (_IO_default_xsputn) add rdi, rbx id before: 82 after: 81 value: 0x7ffca4f8e0d1
+[UNTRUSTEDPTRDEREF] ip: main+0xf208 (__vfprintf_internal) final_ea: 0x499083 base: 0x499082 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xf232 (__vfprintf_internal) final_ea: 0x49a1b5 base: 0x49a160 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0xf236 (__vfprintf_internal) final_ea: 0x4c3a80 base: 0x4c3a00 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0xfb7f (__vfprintf_internal) UAF read at: 0x7ffca4f90100
+[INCONSISTENCY mov write reg UAF] ip: main+0xfb98 (__vfprintf_internal) UAF write at: 0x7ffca4f90100
+[INCONSISTENCY mov read UAF] ip: main+0xfba2 (__vfprintf_internal) UAF read at: 0x7ffca4f90130
+[INCONSISTENCY mov read] ip: main+0xf10f (__vfprintf_internal) base: 0x7ffca4f8da30 pointee: 83 read from 42
+[CORRUPTED_PTR_LOAD] ip: main+0xf10f (__vfprintf_internal) loaded: 0xefa43b2ca6ede600 from cell: 0x7ffca4f8df58 cell_owner: 42 value_owner: 83
+[INCONSISTENCY mov read UAF] ip: main+0x11364 (buffered_vfprintf) UAF read at: 0x7ffca4f900c8
+[INCONSISTENCY mov read UAF] ip: main+0xbe3a (__fprintf) UAF read at: 0x7ffca4f90118
+[INCONSISTENCY mov write reg UAF] ip: main+0x1831 (nft_set_context_free_many @ harness.c:30) UAF write at: 0x7ffca4f901b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1835 (nft_set_context_free_many @ harness.c:30) UAF write at: 0x7ffca4f901b0
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f901b8 ip: main+0x1839 (nft_set_context_free_many @ harness.c:31)
+[INCONSISTENCY mov write imm UAF] ip: main+0x1856 (nft_set_context_free_many @ harness.c:34) UAF write at: 0x7ffca4f901c8
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f901b0 ip: main+0x18b3 (nft_set_context_free_many @ harness.c:34)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f901c8 ip: main+0x18ba (nft_set_context_free_many @ harness.c:34)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f901c8 ip: main+0x1860 (nft_set_context_free_many @ harness.c:35)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f901b8 ip: main+0x1874 (nft_set_context_free_many @ harness.c:35)
+[UNTRUSTEDPTRDEREF] ip: main+0x187b (nft_set_context_free_many @ harness.c:35) final_ea: 0x296d1af8 base: 0x296d1af0 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f901c8 ip: main+0x1887 (nft_set_context_free_many @ harness.c:36)
+STACKREADUSEAFTERSCOPE at: 0x7ffca4f901b8 ip: main+0x189b (nft_set_context_free_many @ harness.c:36)
+[UNTRUSTEDPTRDEREF] ip: main+0x18a2 (nft_set_context_free_many @ harness.c:36) final_ea: 0x296d1b00 base: 0x296d1af0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1eb31 (_int_free) final_ea: 0x296d0e50 base: 0x296d0dd0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1eb51 (_int_free) final_ea: 0x296d19a0 base: 0x296d19a0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x16824 (__libc_message) UAF write at: 0x7ffca4f900a0
+[INCONSISTENCY mov write reg UAF] ip: main+0x16828 (__libc_message) UAF write at: 0x7ffca4f900a8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1682c (__libc_message) UAF write at: 0x7ffca4f900b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x16830 (__libc_message) UAF write at: 0x7ffca4f900b8
+[UNTRUSTEDPTRDEREF] ip: main+0x16834 (__libc_message) final_ea: 0x4afe08 base: 0x4afe08 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x16841 (__libc_message) UAF write at: 0x7ffca4f90088
+[INCONSISTENCY mov write imm UAF] ip: main+0x1684b (__libc_message) UAF write at: 0x7ffca4f90070
+[INCONSISTENCY mov write reg UAF] ip: main+0x16852 (__libc_message) UAF write at: 0x7ffca4f90078
+first time found dangling pointer at: 9878 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1685a (__libc_message) UAF write at: 0x7ffca4f90080
+[UNTRUSTEDPTRDEREF] ip: main+0x1689a (__libc_message) final_ea: 0x4afe09 base: 0x4afe08 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x16908 (__libc_message) final_ea: 0x4afe09 base: 0x4afe08 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x1690e (__libc_message) UAF read at: 0x7ffca4f90070
+[INCONSISTENCY mov write reg UAF] ip: main+0x16923 (__libc_message) UAF write at: 0x7ffca4f90070
+[INCONSISTENCY mov read UAF] ip: main+0x16926 (__libc_message) UAF read at: 0x7ffca4f900a0
+[INCONSISTENCY mov write reg UAF] ip: main+0x16930 (__libc_message) UAF write at: 0x7ffca4f90068
+[INCONSISTENCY mov read UAF] ip: main+0x1693c (__libc_message) UAF read at: 0x7ffca4f90068
+[INCONSISTENCY mov write reg UAF] ip: main+0x168e6 (__libc_message) UAF write at: 0x7ffca4f90040
+[INCONSISTENCY mov write reg UAF] ip: main+0x168e9 (__libc_message) UAF write at: 0x7ffca4f90048
+[INCONSISTENCY mov write reg UAF] ip: main+0x168ed (__libc_message) UAF write at: 0x7ffca4f90050
+[UNTRUSTEDPTRDEREF] ip: main+0x168f1 (__libc_message) final_ea: 0x4afe0a base: 0x4afe0a pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x1688e (__libc_message) final_ea: 0x4afe0b base: 0x4afe0b pointee: -1 base_vo: -1
+Store dangling pointer: 0x7ffca4f90040 at: 0x7ffca4f90030
+[INCONSISTENCY mov write reg UAF] ip: main+0x169a2 (__libc_message) UAF write at: 0x7ffca4f90000
+[INCONSISTENCY mov write reg UAF] ip: main+0x169a5 (__libc_message) UAF write at: 0x7ffca4f90008
+[INCONSISTENCY mov read UAF] ip: main+0x169c0 (__libc_message) UAF read at: 0x7ffca4f90048
+[INCONSISTENCY mov read UAF] ip: main+0x169c5 (__libc_message) UAF read at: 0x7ffca4f90040
+[INCONSISTENCY mov read UAF] ip: main+0x169cd (__libc_message) UAF read at: 0x7ffca4f90050
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x16a59 (__libc_message) add rbx, r13 id before: 12 after: 0 [freed] value: 0x7ffca4f90010
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x16a68 (__libc_message) add r13, 0x10 id before: 12 after: 0 [freed] value: 0x7ffca4f90000
+[UNTRUSTEDPTRDEREF] ip: main+0x2f8e0 (__memcpy_ssse3) final_ea: 0x49c268 base: 0x49c290 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f8e4 (__memcpy_ssse3) final_ea: 0x49c270 base: 0x49c290 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f8e8 (__memcpy_ssse3) final_ea: 0x49c278 base: 0x49c290 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f8ec (__memcpy_ssse3) final_ea: 0x49c280 base: 0x49c290 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2f8f0 (__memcpy_ssse3) final_ea: 0x49c288 base: 0x49c290 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x16a60 (__libc_message) UAF read at: 0x7ffca4f90008
+[INCONSISTENCY mov read UAF] ip: main+0x16a64 (__libc_message) UAF read at: 0x7ffca4f90000
+[INCONSISTENCY mov write reg] ip: main+0x1224 (abort) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x1278 (abort) co: 4 vo: 4, 4 write 4

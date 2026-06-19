@@ -1,0 +1,28 @@
+{
+  "name": "osv_2020_1245",
+  "target": "unknown",
+  "binary": "bin/x509_fuzzer",
+  "poc": "poc/poc_input.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 3217,
+    "alloc": 1740,
+    "alloc:internal": 268,
+    "free:internal": 258,
+    "inconsistency_mov_read_uaf": 151,
+    "untrustedptrderef": 97,
+    "inconsistency_mov_write_reg_uaf": 95,
+    "stack_pivot": 73,
+    "inconsistency_mov_write_imm_uaf": 43,
+    "free": 34,
+    "corrupted_ptr_load": 30,
+    "uninitialized_mov_read": 22,
+    "inconsistency_mov_read": 18,
+    "inconsistency_mov_write_reg": 11,
+    "inconsistency_arithmetic__crossboundary": 5,
+    "intra_object_overflow": 2
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

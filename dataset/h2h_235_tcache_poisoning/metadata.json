@@ -1,0 +1,17 @@
+{
+  "name": "h2h_235_tcache_poisoning",
+  "target": "how2heap",
+  "technique": "tcache poisoning",
+  "glibc_version": "2.35",
+  "binary": "bin/tcache_poisoning",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 18,
+    "alloc": 4,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 3,
+    "free": 2,
+    "inconsistency_mov_write_reg_uaf": 1
+  },
+  "detected": true
+}

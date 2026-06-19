@@ -1,0 +1,27 @@
+{
+  "name": "osv_2023_31",
+  "target": "zstd",
+  "binary": "bin/zip_read_fuzzer",
+  "poc": "poc/poc_input.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1596,
+    "corrupted_ptr_load": 532,
+    "inconsistency_mov_read": 406,
+    "inconsistency_mov_read_uaf": 145,
+    "inconsistency_mov_write_imm_uaf": 114,
+    "inconsistency_mov_write_reg_uaf": 69,
+    "alloc": 20,
+    "intra_object_overflow": 12,
+    "alloc:internal": 10,
+    "untrustedptrderef": 7,
+    "free": 6,
+    "free:internal": 5,
+    "inconsistency_mov_write_reg": 3,
+    "double_free": 1,
+    "inconsistency_arithmetic__crossboundary": 1
+  },
+  "detected": true,
+  "key_functions": "crc_read; crc_read; crc_read",
+  "verification_match": "\u2713"
+}

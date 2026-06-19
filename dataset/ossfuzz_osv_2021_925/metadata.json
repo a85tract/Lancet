@@ -1,0 +1,25 @@
+{
+  "name": "osv_2021_925",
+  "target": "unknown",
+  "binary": "bin/dnsmasq_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 110,
+    "stack_pivot": 16,
+    "inconsistency_mov_read_uaf": 14,
+    "inconsistency_mov_write_reg_uaf": 12,
+    "inconsistency_mov_write_reg": 10,
+    "alloc": 9,
+    "free": 8,
+    "corrupted_ptr_load": 5,
+    "inconsistency_mov_write_imm_uaf": 5,
+    "untrustedptrderef": 3,
+    "free:internal": 3,
+    "alloc:internal": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "__interceptor_fread.part.0; __interceptor_fread.part.0; __in",
+  "verification_match": "\u2713"
+}

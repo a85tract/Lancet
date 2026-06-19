@@ -1,0 +1,28 @@
+{
+  "name": "osv_2020_263",
+  "target": "unknown",
+  "binary": "bin/dotnet_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 26456,
+    "stack_pivot": 13472,
+    "free": 3214,
+    "alloc": 2855,
+    "inconsistency_mov_read_uaf": 2251,
+    "inconsistency_mov_write_reg_uaf": 849,
+    "alloc:internal": 361,
+    "inconsistency_mov_write_imm_uaf": 151,
+    "corrupted_ptr_load": 116,
+    "untrustedptrderef": 87,
+    "inconsistency_arithmetic__crossboundary": 41,
+    "inconsistency_mov_write_reg": 13,
+    "inconsistency_mov_read": 7,
+    "uninitialized_mov_read": 5,
+    "intra_object_overflow": 4,
+    "free:internal": 3
+  },
+  "detected": true,
+  "key_functions": "yr_scanner_destroy; yr_scanner_destroy; yr_scanner_destroy",
+  "verification_match": "\u2713"
+}

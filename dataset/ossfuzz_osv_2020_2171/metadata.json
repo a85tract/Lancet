@@ -1,0 +1,19 @@
+{
+  "name": "osv_2020_2171",
+  "target": "openssl",
+  "binary": "bin/gen_poc",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 36,
+    "inconsistency_mov_write_reg": 24,
+    "stack_pivot": 4,
+    "free:internal": 3,
+    "untrustedptrderef": 2,
+    "alloc:internal": 2,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "ParseCert; ParseCert; ParseCert",
+  "verification_match": "\u2713"
+}

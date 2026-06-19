@@ -1,0 +1,23 @@
+{
+  "name": "osv_2020_2299",
+  "target": "openssl",
+  "binary": "bin/fuzz_client_asan",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 2762,
+    "stack_pivot": 1255,
+    "inconsistency_mov_read_uaf": 521,
+    "inconsistency_arithmetic__crossboundary": 306,
+    "untrustedptrderef": 259,
+    "inconsistency_mov_write_reg_uaf": 152,
+    "inconsistency_mov_write_reg": 55,
+    "inconsistency_mov_write_imm_uaf": 35,
+    "inconsistency_mov_read": 31,
+    "uninitialized_mov_read": 8,
+    "intra_object_overflow": 2
+  },
+  "detected": true,
+  "key_functions": "wolfSSL_RAND_seed; wolfSSL_RAND_seed; rotlFixed",
+  "verification_match": "\u2713"
+}

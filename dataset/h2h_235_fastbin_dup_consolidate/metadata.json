@@ -1,0 +1,17 @@
+{
+  "name": "h2h_235_fastbin_dup_consolidate",
+  "target": "how2heap",
+  "technique": "fastbin dup consolidate",
+  "glibc_version": "2.35",
+  "binary": "bin/fastbin_dup_consolidate",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 25,
+    "alloc": 10,
+    "free": 9,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 1,
+    "alloc:internal": 1
+  },
+  "detected": true
+}

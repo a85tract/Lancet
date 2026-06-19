@@ -1,0 +1,28 @@
+{
+  "name": "osv_2023_1069",
+  "target": "unknown",
+  "binary": "bin/harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 821,
+    "free": 104,
+    "alloc": 75,
+    "inconsistency_mov_read_uaf": 63,
+    "heap_metadata_taint": 53,
+    "untrustedptrderef": 40,
+    "alloc:internal": 31,
+    "inconsistency_mov_write_reg_uaf": 30,
+    "corrupted_ptr_load": 23,
+    "inconsistency_mov_read": 22,
+    "uninitialized_mov_read": 20,
+    "intra_object_overflow": 18,
+    "inconsistency_mov_write_imm_uaf": 12,
+    "inconsistency_mov_write_reg": 4,
+    "inconsistency_arithmetic__crossboundary": 4,
+    "stack_pivot": 3
+  },
+  "detected": true,
+  "key_functions": "igraph_empty_attrs; igraph_empty_attrs; igraph_add_vertices",
+  "verification_match": "\u2713"
+}

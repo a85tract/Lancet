@@ -1,0 +1,173 @@
+[INCONSISTENCY mov write reg] ip: main+0x2648 (main @ harness.c:22) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x264e (main @ harness.c:22) co: 4 vo: 4, 4 write 4
+[UNTRUSTEDPTRDEREF] ip: main+0x269b (main @ harness.c:27) final_ea: 0x7fffa2d08df0 base: 0x7fffa2d08df0 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x26b0 (main @ harness.c:27) co: 4 vo: 4, 4 write 4
+[ALLOC] malloc(0x3) -> 0x5d135449b010 subject=5 at main @ harness.c:31
+[INCONSISTENCY mov write reg] ip: main+0x2719 (main @ harness.c:31) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov read] ip: main+0x474f (plist_from_json @ jplist.c:756) base: 0x7fffa2d08bd0 pointee: 4 read from 6
+[CORRUPTED_PTR_LOAD] ip: main+0x474f (plist_from_json @ jplist.c:756) loaded: 0x7fffa2d08bf8 from cell: 0x7fffa2d08b68 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x4760 (plist_from_json @ jplist.c:759) loaded: 0x7fffa2d08bf8 from cell: 0x7fffa2d08b68 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x476b (plist_from_json @ jplist.c:760) loaded: 0x5d135449b010 from cell: 0x7fffa2d08b78 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x4772 (plist_from_json @ jplist.c:760) loaded: 0x5449b01000000003 from cell: 0x7fffa2d08b74 cell_owner: 6 value_owner: 4
+[ALLOC:internal] malloc(0x1000) -> 0x5d135449b030 subject=7
+[CORRUPTED_PTR_LOAD] ip: main+0x481f (plist_from_json @ jplist.c:781) loaded: 0x5449b01000000003 from cell: 0x7fffa2d08b74 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x4822 (plist_from_json @ jplist.c:781) loaded: 0x5d135449b010 from cell: 0x7fffa2d08b78 cell_owner: 6 value_owner: 4
+[CORRUPTED_PTR_LOAD] ip: main+0x1067d (jsmn_parse @ jsmn.c:171) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10681 (jsmn_parse @ jsmn.c:171) loaded: 0x5449b01000000003 from cell: 0x7fffa2d08b1c cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10978 (jsmn_parse @ jsmn.c:173) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10983 (jsmn_parse @ jsmn.c:173) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10989 (jsmn_parse @ jsmn.c:173) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10994 (jsmn_parse @ jsmn.c:173) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1099c (jsmn_parse @ jsmn.c:173) loaded: 0x5d135449b010 from cell: 0x7fffa2d08b20 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1068c (jsmn_parse @ jsmn.c:177) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10694 (jsmn_parse @ jsmn.c:177) loaded: 0x5d135449b010 from cell: 0x7fffa2d08b20 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10733 (jsmn_parse @ jsmn.c:180) loaded: 0x300000100 from cell: 0x7fffa2d08b18 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10736 (jsmn_parse @ jsmn.c:180) loaded: 0x5d135449b030 from cell: 0x7fffa2d08b10 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1073a (jsmn_parse @ jsmn.c:180) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1075e (jsmn_parse @ jsmn.c:183) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x107a2 (jsmn_parse @ jsmn.c:190) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x107b1 (jsmn_parse @ jsmn.c:191) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x107bb (jsmn_parse @ jsmn.c:191) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10969 (jsmn_parse @ jsmn.c:173) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10972 (jsmn_parse @ jsmn.c:173) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1090c (jsmn_parse @ jsmn.c:254) loaded: 0x300000100 from cell: 0x7fffa2d08b18 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1090f (jsmn_parse @ jsmn.c:254) loaded: 0x5d135449b030 from cell: 0x7fffa2d08b10 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10913 (jsmn_parse @ jsmn.c:254) loaded: 0x5d135449b010 from cell: 0x7fffa2d08b20 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10917 (jsmn_parse @ jsmn.c:254) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1034a (jsmn_parse_primitive @ jsmn.c:67) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10401 (jsmn_parse_primitive @ jsmn.c:69) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1040c (jsmn_parse_primitive @ jsmn.c:69) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10412 (jsmn_parse_primitive @ jsmn.c:69) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1041d (jsmn_parse_primitive @ jsmn.c:69) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10425 (jsmn_parse_primitive @ jsmn.c:69) loaded: 0x5d135449b010 from cell: 0x7fffa2d08ae0 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10358 (jsmn_parse_primitive @ jsmn.c:70) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10360 (jsmn_parse_primitive @ jsmn.c:70) loaded: 0x5d135449b010 from cell: 0x7fffa2d08ae0 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x103b3 (jsmn_parse_primitive @ jsmn.c:81) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x103bb (jsmn_parse_primitive @ jsmn.c:81) loaded: 0x5d135449b010 from cell: 0x7fffa2d08ae0 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x103c9 (jsmn_parse_primitive @ jsmn.c:81) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x103d1 (jsmn_parse_primitive @ jsmn.c:81) loaded: 0x5d135449b010 from cell: 0x7fffa2d08ae0 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x103f2 (jsmn_parse_primitive @ jsmn.c:69) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x103fb (jsmn_parse_primitive @ jsmn.c:69) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1043d (jsmn_parse_primitive @ jsmn.c:93) loaded: 0x5449b03000000100 from cell: 0x7fffa2d08ad4 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10440 (jsmn_parse_primitive @ jsmn.c:93) loaded: 0x5d135449b030 from cell: 0x7fffa2d08ad8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10444 (jsmn_parse_primitive @ jsmn.c:93) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1046e (jsmn_parse_primitive @ jsmn.c:98) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x1048a (jsmn_parse_primitive @ jsmn.c:102) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[CORRUPTED_PTR_LOAD] ip: main+0x10493 (jsmn_parse_primitive @ jsmn.c:102) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08ae8 cell_owner: 10 value_owner: 9
+[STACK PIVOT] ip: main+0x1049e (jsmn_parse_primitive @ jsmn.c:104) RSP 0x7fffa2d08b08 left stack [0xc,0x7fffa2ceb000]
+[CORRUPTED_PTR_LOAD] ip: main+0x10934 (jsmn_parse @ jsmn.c:256) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10940 (jsmn_parse @ jsmn.c:257) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10950 (jsmn_parse @ jsmn.c:257) loaded: 0x5d135449b030 from cell: 0x7fffa2d08b10 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x107dc (jsmn_parse @ jsmn.c:215) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x107f7 (jsmn_parse @ jsmn.c:216) loaded: 0x5d135449b030 from cell: 0x7fffa2d08b10 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1082f (jsmn_parse @ jsmn.c:221) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x1083a (jsmn_parse @ jsmn.c:222) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x10874 (jsmn_parse @ jsmn.c:229) loaded: 0x5d135449b030 from cell: 0x7fffa2d08b10 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x109ae (jsmn_parse @ jsmn.c:269) loaded: 0x7fffa2d08ba0 from cell: 0x7fffa2d08b28 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x109c9 (jsmn_parse @ jsmn.c:271) loaded: 0x5d135449b030 from cell: 0x7fffa2d08b10 cell_owner: 9 value_owner: 6
+[CORRUPTED_PTR_LOAD] ip: main+0x109e4 (jsmn_parse @ jsmn.c:271) loaded: 0x5d135449b030 from cell: 0x7fffa2d08b10 cell_owner: 9 value_owner: 6
+[STACK PIVOT] ip: main+0x10a09 (jsmn_parse @ jsmn.c:277) RSP 0x7fffa2d08b58 left stack [0xd,0x7fffa2ceb000]
+[CORRUPTED_PTR_LOAD] ip: main+0x4946 (plist_from_json @ jplist.c:815) loaded: 0x5d135449b010 from cell: 0x7fffa2d08b78 cell_owner: 6 value_owner: 4
+[ALLOC] calloc(0x18) -> 0x5d135449c040 subject=16 at plist_new_plist_data @ plist.c:224
+[INCONSISTENCY mov write reg UAF] ip: main+0x4b7f (plist_new_plist_data @ plist.c:224) UAF write at: 0x7fffa2d08ad8
+[INCONSISTENCY mov read UAF] ip: main+0x4b83 (plist_new_plist_data @ plist.c:225) UAF read at: 0x7fffa2d08ad8
+[STACK PIVOT] ip: main+0x4b87 (plist_new_plist_data @ plist.c:226) RSP 0x7fffa2d08ae8 left stack [0x12,0x7fffa2ceb000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x4dfc (plist_new_array @ plist.c:308) UAF write at: 0x7fffa2d08af8
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08af8 ip: main+0x4e00 (plist_new_array @ plist.c:309)
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08af8 ip: main+0x4e0b (plist_new_array @ plist.c:310)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4b29 (plist_new_node @ plist.c:211) UAF write at: 0x7fffa2d08ad8
+[INCONSISTENCY mov read UAF] ip: main+0x4b2d (plist_new_node @ plist.c:212) UAF read at: 0x7fffa2d08ad8
+[ALLOC] calloc(0x30) -> 0x5d135449c060 subject=20 at node_create @ node.c:49
+[INCONSISTENCY mov read] ip: main+0x77be (node_create @ node.c:50) base: 0x7fffa2d08ac0 pointee: 18 read from 19
+[CORRUPTED_PTR_LOAD] ip: main+0x77be (node_create @ node.c:50) loaded: 0x5d135449c060 from cell: 0x7fffa2d08ab0 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x77cf (node_create @ node.c:54) loaded: 0x5d135449c060 from cell: 0x7fffa2d08ab0 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x77d3 (node_create @ node.c:54) loaded: 0x5d135449c040 from cell: 0x7fffa2d08aa0 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x77db (node_create @ node.c:55) loaded: 0x5d135449c060 from cell: 0x7fffa2d08ab0 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x77e6 (node_create @ node.c:56) loaded: 0x5d135449c060 from cell: 0x7fffa2d08ab0 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x77f2 (node_create @ node.c:57) loaded: 0x5d135449c060 from cell: 0x7fffa2d08ab0 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x77fd (node_create @ node.c:58) loaded: 0x5d135449c060 from cell: 0x7fffa2d08ab0 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x7809 (node_create @ node.c:59) loaded: 0x5d135449c060 from cell: 0x7fffa2d08ab0 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x7815 (node_create @ node.c:62) loaded: 0x0 from cell: 0x7fffa2d08aa8 cell_owner: 19 value_owner: 18
+[CORRUPTED_PTR_LOAD] ip: main+0x7864 (node_create @ node.c:73) loaded: 0x5d135449c060 from cell: 0x7fffa2d08ab0 cell_owner: 19 value_owner: 18
+[STACK PIVOT] ip: main+0x7868 (node_create @ node.c:74) RSP 0x7fffa2d08ac8 left stack [0x16,0x7fffa2ceb000]
+[STACK PIVOT] ip: main+0x4b3e (plist_new_node @ plist.c:213) RSP 0x7fffa2d08ae8 left stack [0x17,0x7fffa2ceb000]
+[STACK PIVOT] ip: main+0x4e17 (plist_new_array @ plist.c:311) RSP 0x7fffa2d08b08 left stack [0x18,0x7fffa2ceb000]
+[INCONSISTENCY mov write imm UAF] ip: main+0x383e (parse_primitive @ jplist.c:475) UAF write at: 0x7fffa2d08af8
+[INCONSISTENCY mov write reg UAF] ip: main+0x386c (parse_primitive @ jplist.c:476) UAF write at: 0x7fffa2d08ad0
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08ad0 ip: main+0x38e0 (parse_primitive @ jplist.c:479)
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08ad0 ip: main+0x3911 (parse_primitive @ jplist.c:481)
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08ad0 ip: main+0x3942 (parse_primitive @ jplist.c:483)
+[UNTRUSTEDPTRDEREF] ip: main+0x398a (parse_primitive @ jplist.c:487) final_ea: 0x7d8e3f6d96d8 base: 0x7d8e3f6d96d8 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08ad0 ip: main+0x398d (parse_primitive @ jplist.c:487)
+[UNTRUSTEDPTRDEREF] ip: main+0x399e (parse_primitive @ jplist.c:487) final_ea: 0x7d8e2cdc291a base: 0x7d8e2cdc291a pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08ad0 ip: main+0x39ad (parse_primitive @ jplist.c:487)
+[UNTRUSTEDPTRDEREF] ip: main+0x39cf (parse_primitive @ jplist.c:487) final_ea: 0x7d8e3f6d96d8 base: 0x7d8e3f6d96d8 pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08ad0 ip: main+0x39d2 (parse_primitive @ jplist.c:487)
+[UNTRUSTEDPTRDEREF] ip: main+0x39e7 (parse_primitive @ jplist.c:487) final_ea: 0x7d8e2cdc297a base: 0x7d8e2cdc297a pointee: -1 base_vo: -1
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08af8 ip: main+0x3d9c (parse_primitive @ jplist.c:540)
+[STACK PIVOT] ip: main+0x3da0 (parse_primitive @ jplist.c:541) RSP 0x7fffa2d08b08 left stack [0x1a,0x7fffa2ceb000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x5125 (plist_free @ plist.c:397) UAF write at: 0x7fffa2d08af8
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08af8 ip: main+0x5129 (plist_free @ plist.c:398)
+STACKREADUSEAFTERSCOPE at: 0x7fffa2d08af8 ip: main+0x5130 (plist_free @ plist.c:400)
+[INCONSISTENCY mov write reg UAF] ip: main+0x4d21 (plist_free_node @ plist.c:280) UAF write at: 0x7fffa2d08ab8
+[INCONSISTENCY mov write imm UAF] ip: main+0x4d25 (plist_free_node @ plist.c:281) UAF write at: 0x7fffa2d08ad0
+[INCONSISTENCY mov read UAF] ip: main+0x4d2d (plist_free_node @ plist.c:282) UAF read at: 0x7fffa2d08ab8
+[INCONSISTENCY mov read UAF] ip: main+0x4d35 (plist_free_node @ plist.c:282) UAF read at: 0x7fffa2d08ab8
+[INCONSISTENCY mov write reg UAF] ip: main+0x7900 (node_detach @ node.c:89) UAF write at: 0x7fffa2d08a88
+[INCONSISTENCY mov write reg UAF] ip: main+0x7904 (node_detach @ node.c:89) UAF write at: 0x7fffa2d08a80
+[INCONSISTENCY mov read UAF] ip: main+0x7908 (node_detach @ node.c:90) UAF read at: 0x7fffa2d08a88
+[STACK PIVOT] ip: main+0x7951 (node_detach @ node.c:96) RSP 0x7fffa2d08aa8 left stack [0x1e,0x7fffa2ceb000]
+[INCONSISTENCY mov write reg UAF] ip: main+0x4d44 (plist_free_node @ plist.c:282) UAF write at: 0x7fffa2d08acc
+[INCONSISTENCY mov read UAF] ip: main+0x4d47 (plist_free_node @ plist.c:283) UAF read at: 0x7fffa2d08ab8
+[INCONSISTENCY mov write reg UAF] ip: main+0x4b48 (plist_get_data @ plist.c:216) UAF write at: 0x7fffa2d08a98
+[INCONSISTENCY mov read UAF] ip: main+0x4b4c (plist_get_data @ plist.c:217) UAF read at: 0x7fffa2d08a98
+[INCONSISTENCY mov read UAF] ip: main+0x4b5a (plist_get_data @ plist.c:219) UAF read at: 0x7fffa2d08a98
+[INCONSISTENCY mov write reg UAF] ip: main+0x4d53 (plist_free_node @ plist.c:283) UAF write at: 0x7fffa2d08ad0
+[INCONSISTENCY mov read UAF] ip: main+0x4d57 (plist_free_node @ plist.c:284) UAF read at: 0x7fffa2d08ad0
+[INCONSISTENCY mov write reg UAF] ip: main+0x4c80 (plist_free_data @ plist.c:254) UAF write at: 0x7fffa2d08a98
+[INCONSISTENCY mov read UAF] ip: main+0x4c84 (plist_free_data @ plist.c:255) UAF read at: 0x7fffa2d08a98
+[INCONSISTENCY mov read UAF] ip: main+0x4c8f (plist_free_data @ plist.c:257) UAF read at: 0x7fffa2d08a98
+[UNTRUSTEDPTRDEREF] ip: main+0x4caf (plist_free_data @ plist.c:257) final_ea: 0x5d13350d81d0 base: 0x4 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x4ce3 (plist_free_data @ plist.c:267) UAF read at: 0x7fffa2d08a98
+[INCONSISTENCY mov write reg UAF] ip: main+0x8790 (ptr_array_free @ ptrarray.c:35) UAF write at: 0x7fffa2d08a78
+[INCONSISTENCY mov read UAF] ip: main+0x8794 (ptr_array_free @ ptrarray.c:36) UAF read at: 0x7fffa2d08a78
+[STACK PIVOT] ip: main+0x87c5 (ptr_array_free @ ptrarray.c:41) RSP 0x7fffa2d08a88 left stack [0x21,0x7fffa2ceb000]
+[INCONSISTENCY mov read UAF] ip: main+0x4d06 (plist_free_data @ plist.c:275) UAF read at: 0x7fffa2d08a98
+[FREE] free(0x5d135449c040) subject=16 at plist_free_data @ plist.c:275
+[FREE:internal] free(0x5d135449c040) subject=0
+[DOUBLE FREE] free(0x5d135449c040) — already freed
+[STACK PIVOT] ip: main+0x4d13 (plist_free_data @ plist.c:277) RSP 0x7fffa2d08aa8 left stack [0x22,0x7fffa2ceb000]
+[INCONSISTENCY mov read UAF] ip: main+0x4d63 (plist_free_node @ plist.c:285) UAF read at: 0x7fffa2d08ab8
+[INCONSISTENCY mov read UAF] ip: main+0x4d6f (plist_free_node @ plist.c:288) UAF read at: 0x7fffa2d08ab8
+[INCONSISTENCY mov write reg UAF] ip: main+0x7bb5 (node_first_child @ node.c:165) UAF write at: 0x7fffa2d08a98
+[INCONSISTENCY mov read UAF] ip: main+0x7bb9 (node_first_child @ node.c:166) UAF read at: 0x7fffa2d08a98
+[INCONSISTENCY mov read UAF] ip: main+0x7bc0 (node_first_child @ node.c:166) UAF read at: 0x7fffa2d08a98
+[INCONSISTENCY mov write reg UAF] ip: main+0x4d7b (plist_free_node @ plist.c:288) UAF write at: 0x7fffa2d08ad8
+[INCONSISTENCY mov read UAF] ip: main+0x4da5 (plist_free_node @ plist.c:288) UAF read at: 0x7fffa2d08ad8
+[INCONSISTENCY mov read UAF] ip: main+0x4dac (plist_free_node @ plist.c:294) UAF read at: 0x7fffa2d08ab8
+[INCONSISTENCY mov write reg UAF] ip: main+0x76fd (node_destroy @ node.c:30) UAF write at: 0x7fffa2d08a88
+[INCONSISTENCY mov read UAF] ip: main+0x7701 (node_destroy @ node.c:31) UAF read at: 0x7fffa2d08a88
+[INCONSISTENCY mov read UAF] ip: main+0x770c (node_destroy @ node.c:33) UAF read at: 0x7fffa2d08a88
+[INCONSISTENCY mov read UAF] ip: main+0x7763 (node_destroy @ node.c:40) UAF read at: 0x7fffa2d08a88
+[INCONSISTENCY mov read UAF] ip: main+0x7d95 (node_list_destroy @ node_list.c:32) UAF read at: 0x7fffa2d08a68
+[CORRUPTED_PTR_LOAD] ip: main+0x7d95 (node_list_destroy @ node_list.c:32) loaded: 0x0 from cell: 0x7fffa2d08a68 cell_owner: 35 value_owner: 34
+[STACK PIVOT] ip: main+0x7da2 (node_list_destroy @ node_list.c:33) RSP 0x7fffa2d08a78 left stack [0x25,0x7fffa2ceb000]
+[INCONSISTENCY mov read UAF] ip: main+0x7773 (node_destroy @ node.c:41) UAF read at: 0x7fffa2d08a88
+[INCONSISTENCY mov read UAF] ip: main+0x777f (node_destroy @ node.c:43) UAF read at: 0x7fffa2d08a88
+[FREE] free(0x5d135449c060) subject=20 at node_destroy @ node.c:43
+[STACK PIVOT] ip: main+0x778e (node_destroy @ node.c:44) RSP 0x7fffa2d08aa8 left stack [0x26,0x7fffa2ceb000]
+[INCONSISTENCY mov read UAF] ip: main+0x4db8 (plist_free_node @ plist.c:296) UAF read at: 0x7fffa2d08acc
+[STACK PIVOT] ip: main+0x4dbb (plist_free_node @ plist.c:297) RSP 0x7fffa2d08ae8 left stack [0x27,0x7fffa2ceb000]
+[STACK PIVOT] ip: main+0x513d (plist_free @ plist.c:402) RSP 0x7fffa2d08b08 left stack [0x28,0x7fffa2ceb000]
+[STACK PIVOT] ip: main+0x44a0 (parse_array @ jplist.c:689) RSP 0x7fffa2d08b58 left stack [0x29,0x7fffa2ceb000]
+[CORRUPTED_PTR_LOAD] ip: main+0x4955 (plist_from_json @ jplist.c:815) loaded: 0x7fffa2d08bf8 from cell: 0x7fffa2d08b68 cell_owner: 6 value_owner: 4
+[FREE] free(0x5d135449b030) subject=8 at plist_from_json @ jplist.c:823
+[STACK PIVOT] ip: main+0x4990 (plist_from_json @ jplist.c:825) RSP 0x7fffa2d08bd8 left stack [0x2a,0x7fffa2ceb000]
+[FREE] free(0x5d135449b010) subject=5 at main @ harness.c:48
+[STACK PIVOT] ip: main+0x2876 (main @ harness.c:50) RSP 0x7fffa2d08cb8 left stack [0x2b,0x7fffa2ceb000]
+[STACK PIVOT] ip: main+0x2877 (main @ harness.c:50) RSP 0x7fffa2d08cc0 left stack after RET
+[STACK PIVOT] ip: main+0x49c5 (internal_plist_deinit @ plist.c:67) RSP 0x7fffa2d08b00 left stack after RET
+[STACK PIVOT] ip: main+0x4a0d (libplist_deinitialize @ plist.c:110) RSP 0x7fffa2d08b90 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x25fe (__do_global_dtors_aux) final_ea: 0x5d13350dcff8 base: 0x5d13350c75fe pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x2624 (__do_global_dtors_aux) RSP 0x7fffa2d08b90 left stack after RET
+[STACK PIVOT] ip: main+0x12d40 (_fini) RSP 0x7fffa2d08bc0 left stack after RET

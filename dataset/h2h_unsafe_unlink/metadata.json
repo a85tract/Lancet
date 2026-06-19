@@ -1,0 +1,21 @@
+{
+  "name": "h2h_unsafe_unlink",
+  "target": "how2heap",
+  "technique": "Exploit unlink macro to get write-what-where via fake chunk pointers",
+  "binary": "bin/unsafe_unlink",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 15,
+    "stack_pivot": 4,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "untrustedptrderef": 3,
+    "inconsistency_mov_write_reg": 2,
+    "alloc": 2,
+    "free": 1
+  },
+  "detected": true,
+  "requires_docker": false,
+  "exploit_succeeds_glibc241": true,
+  "system_glibc": "2.43",
+  "how2heap_target_glibc": "2.41"
+}

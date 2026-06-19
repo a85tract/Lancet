@@ -1,0 +1,27 @@
+{
+  "name": "osv_2020_1054",
+  "target": "wabt",
+  "binary": "bin/wasm2wat_fuzz",
+  "poc": "poc/poc.wasm",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1456,
+    "stack_pivot": 237,
+    "inconsistency_mov_read_uaf": 213,
+    "inconsistency_mov_write_reg_uaf": 187,
+    "corrupted_ptr_load": 176,
+    "inconsistency_mov_write_imm_uaf": 33,
+    "untrustedptrderef": 14,
+    "alloc:internal": 3,
+    "free:internal": 3,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "inconsistency_mov_write_reg": 2,
+    "alloc": 1,
+    "double_free": 1,
+    "intra_object_overflow": 1,
+    "movread_nullptr_deref": 1
+  },
+  "detected": true,
+  "key_functions": "_ZNSt12_Vector_baseIN4wabt12_GLOBAL__N_19LabelNodeESaIS2_EEC",
+  "verification_match": "\u2713"
+}

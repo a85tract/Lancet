@@ -1,0 +1,23 @@
+[INCONSISTENCY mov write reg] ip: main+0xe7c (main @ house_of_tangerine.c:55) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0xe96 (main @ house_of_tangerine.c:57) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0xe9a (main @ house_of_tangerine.c:57) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x1001 (main @ house_of_tangerine.c:77) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x10) -> 0x2c1aa2a0 subject=6 at main @ house_of_tangerine.c:81
+[INCONSISTENCY mov write reg] ip: main+0x100f (main @ house_of_tangerine.c:81) co: 5 vo: 5, 5 write 5
+[UNTRUSTEDPTRDEREF] ip: main+0x1017 (main @ house_of_tangerine.c:82) final_ea: 0x2c1aa2b8 base: 0x2c1aa2a0 pointee: 6 base_vo: 6 src_subject: 6 src_base: 0x2c1aa2a0
+[ALLOC] malloc(0xce0) -> 0x2c1aa2c0 subject=7 at main @ house_of_tangerine.c:95
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x10a0 (main @ house_of_tangerine.c:98) add rax, rdx id before: 7 after: -1 [unmapped] value: 0x2c1aafa8
+[UNTRUSTEDPTRDEREF] ip: main+0x10ab (main @ house_of_tangerine.c:100) final_ea: 0x2c1aafa8 base: 0x2c1aafa8 pointee: -1 base_vo: -1
+[ALLOC] malloc(0xf90) -> 0x2c1cb010 subject=8 at main @ house_of_tangerine.c:124
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x119e (main @ house_of_tangerine.c:126) add rax, rdx id before: 8 after: -1 [unmapped] value: 0x2c1cbfa8
+[UNTRUSTEDPTRDEREF] ip: main+0x11a1 (main @ house_of_tangerine.c:126) final_ea: 0x2c1cbfa8 base: 0x2c1cbfa8 pointee: -1 base_vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x11f3 (main @ house_of_tangerine.c:131) add rdx, rax id before: 8 after: -1 [unmapped] value: 0x2c1cbfa8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1289 (main @ house_of_tangerine.c:141) add rax, rdx id before: 8 after: -1 [unmapped] value: 0x2c1cbfb0
+[ALLOC] malloc(0xf90) -> 0x2c1ed010 subject=9 at main @ house_of_tangerine.c:146
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x12e3 (main @ house_of_tangerine.c:150) add rdx, rax id before: 9 after: -1 [unmapped] value: 0x2c1cbfb0
+[ALLOC] malloc(0x30) -> 0x2c1cbfb0 subject=10 at main @ house_of_tangerine.c:153
+[ALLOC] malloc(0x30) -> 0x7ffc1b1e3cf0 subject=11 at main @ house_of_tangerine.c:156
+[STACK PIVOT] ip: main+0x1364 (main @ house_of_tangerine.c:161) RSP 0x7ffc1b1e3d28 left stack [0xd,0x7ffc1b1c5000]
+[STACK PIVOT] ip: main+0x1365 (main @ house_of_tangerine.c:161) RSP 0x7ffc1b1e3d30 left stack after RET
+[STACK PIVOT] ip: main+0xe4e (__do_global_dtors_aux) RSP 0x7ffc1b1e3c30 left stack after RET
+[STACK PIVOT] ip: main+0x1374 (_fini) RSP 0x7ffc1b1e3c30 left stack after RET

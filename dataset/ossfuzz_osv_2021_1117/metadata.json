@@ -1,0 +1,28 @@
+{
+  "name": "osv_2021_1117",
+  "target": "libxml2",
+  "binary": "bin/clamav_scanfile_HWP3_fuzzer",
+  "poc": "poc/poc.hwp",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 19059,
+    "alloc:internal": 5129,
+    "free:internal": 4809,
+    "free": 1578,
+    "inconsistency_mov_read_uaf": 1398,
+    "alloc": 1281,
+    "stack_pivot": 766,
+    "inconsistency_mov_write_reg_uaf": 751,
+    "untrustedptrderef": 214,
+    "inconsistency_mov_write_imm_uaf": 201,
+    "heap_metadata_taint": 98,
+    "uninitialized_mov_read": 97,
+    "corrupted_ptr_load": 95,
+    "inconsistency_mov_write_reg": 50,
+    "inconsistency_mov_read": 50,
+    "intra_object_overflow": 19
+  },
+  "detected": true,
+  "key_functions": "BIO_gets; BIO_gets; BIO_gets",
+  "verification_match": "\u2713"
+}

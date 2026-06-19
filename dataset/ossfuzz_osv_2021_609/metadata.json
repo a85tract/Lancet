@@ -1,0 +1,19 @@
+{
+  "name": "osv_2021_609",
+  "target": "unknown",
+  "binary": "bin/gen_poc",
+  "poc": "poc/poc_harness.c",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 15,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 3,
+    "alloc:internal": 3,
+    "free:internal": 3,
+    "double_free": 1,
+    "untrustedptrderef": 1
+  },
+  "detected": true,
+  "key_functions": "direct_proof; direct_proof; direct_proof",
+  "verification_match": "\u2713"
+}

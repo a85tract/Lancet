@@ -1,0 +1,20 @@
+{
+  "name": "h2h_235_tcache_relative_write",
+  "target": "how2heap",
+  "technique": "tcache relative write",
+  "glibc_version": "2.35",
+  "binary": "bin/tcache_relative_write",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 28,
+    "alloc": 5,
+    "free": 4,
+    "stack_pivot": 4,
+    "untrustedptrderef": 3,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "inconsistency_mov_write_reg": 2,
+    "inconsistency_mov_read_uaf": 2,
+    "heap_metadata_taint": 1
+  },
+  "detected": true
+}

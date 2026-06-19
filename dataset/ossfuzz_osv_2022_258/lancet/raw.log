@@ -1,0 +1,1476 @@
+[ALLOC:internal] malloc(0x12000) -> 0x5f014ac14010 subject=4 at _ZSt21__to_chars_bfloat16_tPcS_fSt12chars_format
+[ALLOC:internal] calloc(0x410) -> 0x5f014ac26020 subject=5 at __cxa_at_quick_exit
+[ALLOC:internal] calloc(0x410) -> 0x5f014ac26440 subject=6 at __cxa_at_quick_exit
+[ALLOC:internal] calloc(0x410) -> 0x5f014ac26860 subject=7 at __cxa_at_quick_exit
+[INCONSISTENCY mov write reg] ip: main+0x2aa30 (main @ harness.cpp:52) co: 8 vo: 8, 8 write 8
+[INCONSISTENCY mov write reg] ip: main+0x2aa33 (main @ harness.cpp:52) co: 8 vo: 8, 8 write 8
+[ALLOC:internal] malloc(0x1d8) -> 0x5f014ac26c80 subject=9 at _IO_fopen
+[ALLOC:internal] malloc(0x1000) -> 0x5f014ac26e60 subject=10 at _IO_file_doallocate
+[ALLOC] malloc(0x2c7) -> 0x5f014ac27e70 subject=11 at main @ harness.cpp:74
+[FREE:internal] free(0x5f014ac26e60) subject=10 at _IO_setb
+[FREE:internal] free(0x5f014ac26c80) subject=9 at _IO_fclose
+[FREE:internal] free(0x5f014ac26c80) subject=0
+[DOUBLE FREE] free(0x5f014ac26c80) — already freed
+[CORRUPTED_PTR_LOAD] ip: main+0x2a9fd (fuzz_one @ harness.cpp:47) loaded: 0x2c7 from cell: 0x7fffd8bb8480 cell_owner: 12 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x2aa01 (fuzz_one @ harness.cpp:47) loaded: 0x5f014ac27e70 from cell: 0x7fffd8bb8488 cell_owner: 12 value_owner: 8
+[CORRUPTED_PTR_LOAD] ip: main+0x6b6fb (_ZN7Imf_3_17IStreamC2EPKc @ basic_string.tcc:232) loaded: 0x4 from cell: 0x7fffd8bb81a8 cell_owner: 14 value_owner: 13
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27160 subject=15 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0xe2fcf (_ZN13IlmThread_3_110ThreadPoolC2Ej @ atomic_base.h:345) UAF write at: 0x5f014ac27160
+[INCONSISTENCY mov write imm UAF] ip: main+0xe2fd8 (_ZN13IlmThread_3_110ThreadPoolC2Ej @ IlmThreadPool.cpp:461) UAF write at: 0x5f014ac27168
+Store dangling pointer: 0x5f014ac27160 at: 0x5f011d2c7b08
+[ALLOC:internal] malloc(0x8) -> 0x5f014ac27180 subject=16 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0xe2bbf (_ZN13IlmThread_3_118ThreadPoolProviderC2Ev @ IlmThreadPool.cpp:598) UAF write at: 0x5f014ac27180
+[INCONSISTENCY mov write reg UAF] ip: main+0xe300a (_ZN13IlmThread_3_110ThreadPoolC2Ej @ IlmThreadPool.cpp:364) UAF write at: 0x5f014ac27180
+[INCONSISTENCY mov read UAF] ip: main+0xe300e (_ZN13IlmThread_3_110ThreadPoolC2Ej @ IlmThreadPool.cpp:500) UAF read at: 0x5f014ac27168
+[INCONSISTENCY mov read UAF] ip: main+0xe3025 (_ZN13IlmThread_3_110ThreadPoolC2Ej @ IlmThreadPool.cpp:516) UAF read at: 0x5f014ac27160
+main+0xe2c7d (_ZNK13IlmThread_3_110ThreadPool10numThreadsEv @ IlmThreadPool.cpp:635) Using expired pointer: 0x5f014ac27160 from 0x5f011d2c7b08
+first time found dangling pointer at: 212 distance: 53
+[INCONSISTENCY mov read UAF] ip: main+0xe2c85 (_ZNK13IlmThread_3_110ThreadPool10numThreadsEv @ IlmThreadPool.cpp:477) UAF read at: 0x5f014ac27168
+main+0xe2c85 (_ZNK13IlmThread_3_110ThreadPool10numThreadsEv @ IlmThreadPool.cpp:477) Read a dangling pointer 0x5f014ac27180 from 0x5f014ac27168
+[INCONSISTENCY mov read UAF] ip: main+0xe2c89 (_ZNK13IlmThread_3_110ThreadPool10numThreadsEv @ IlmThreadPool.cpp:635) UAF read at: 0x5f014ac27180
+[STACK PIVOT] ip: main+0xe2c9c (_ZNK13IlmThread_3_110ThreadPool10numThreadsEv @ IlmThreadPool.cpp:639) RSP 0x7fffd8bb81e8 left stack [0x12,0x7fffd8b99000]
+[ALLOC:internal] malloc(0xa8) -> 0x5f014ac271a0 subject=19 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0x74429 (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ ImfMultiPartInputFile.cpp:76) UAF write at: 0x5f014ac271dc
+[INCONSISTENCY mov write imm UAF] ip: main+0x74434 (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib) UAF write at: 0x5f014ac271d0
+[INCONSISTENCY mov write imm UAF] ip: main+0x7443c (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ ImfInputStreamMutex.h:22) UAF write at: 0x5f014ac271f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x74444 (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ ImfMultiPartInputFile.cpp:77) UAF write at: 0x5f014ac271f8
+[INCONSISTENCY mov write imm UAF] ip: main+0x7444b (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ stl_map.h:185) UAF write at: 0x5f014ac27208
+[INCONSISTENCY mov write imm UAF] ip: main+0x74452 (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ stl_tree.h:176) UAF write at: 0x5f014ac27210
+Store dangling pointer: 0x5f014ac27208 at: 0x5f014ac27218
+[INCONSISTENCY mov write reg UAF] ip: main+0x7445a (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ stl_tree.h:209) UAF write at: 0x5f014ac27218
+first time found dangling pointer at: 321 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x7445e (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ stl_tree.h:210) UAF write at: 0x5f014ac27220
+first time found dangling pointer at: 322 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x74465 (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ stl_tree.h:211) UAF write at: 0x5f014ac27228
+[INCONSISTENCY mov write imm UAF] ip: main+0x74470 (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ stl_tree.h:211) UAF write at: 0x5f014ac27240
+Store dangling pointer: 0x5f014ac271a0 at: 0x7fffd8bb82b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x74480 (_ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib @ ImfMultiPartInputFile.cpp:132) UAF write at: 0x5f014ac271c8
+main+0x7397b (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ ImfMultiPartInputFile.cpp:299) Using expired pointer: 0x5f014ac271a0 from 0x7fffd8bb82b8
+first time found dangling pointer at: 325 distance: 18
+[INCONSISTENCY mov read UAF] ip: main+0x7397f (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ ImfMultiPartInputFile.cpp:299) UAF read at: 0x5f014ac271c8
+[UNTRUSTEDPTRDEREF] ip: main+0x5e798 (_ZN7Imf_3_116GenericInputFile30readMagicNumberAndVersionFieldERNS_7IStreamERi @ ImfGenericInputFile.cpp:25) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf80798 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x5e7a3 (_ZN7Imf_3_116GenericInputFile30readMagicNumberAndVersionFieldERNS_7IStreamERi @ ImfGenericInputFile.cpp:25) final_ea: 0x5f011d2c6f70 base: 0x5f011cf807a3 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2c1fb (_ZN7Imf_3_112_GLOBAL__N_110PtrIStream4readEPci @ ImfCheckFile.cpp:956) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf4e1fb pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x2c206 (_ZN7Imf_3_112_GLOBAL__N_110PtrIStream4readEPci @ ImfCheckFile.cpp:956) final_ea: 0x5f011d2c6f70 base: 0x5f011cf4e206 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x2c235 (_ZN7Imf_3_112_GLOBAL__N_110PtrIStream4readEPci @ ImfCheckFile.cpp:964) co: 13 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x5e7ee (_ZN7Imf_3_116GenericInputFile30readMagicNumberAndVersionFieldERNS_7IStreamERi @ ImfXdr.h:478) UAF write at: 0x5f014ac271d8
+[INCONSISTENCY mov read UAF] ip: main+0x73990 (_ZN7Imf_3_118MultiPartInputFile10initializeEv) UAF read at: 0x5f014ac271d8
+[UNTRUSTEDPTRDEREF] ip: main+0x9ab3b (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:75) final_ea: 0x5f011d2c6fa0 base: 0x5f011cfbcb3b pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x9ab4d (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:75) final_ea: 0x5f011d2c6f70 base: 0x5f011cfbcb4d pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x9ae97 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ stl_tree.h:209) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x9ae9e (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ stl_tree.h:210) co: 3 vo: 3, 3 write 3
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27250 subject=26 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0x9af13 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE) UAF write at: 0x5f014ac27270
+[INCONSISTENCY mov read] ip: main+0x9af20 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE) base: 0x7fffd8bb7e60 pointee: 21 read from 25
+[CORRUPTED_PTR_LOAD] ip: main+0x9af20 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE) loaded: 0x5f011cfbf960 from cell: 0x7fffd8bb7c88 cell_owner: 25 value_owner: 24
+[INCONSISTENCY mov write reg UAF] ip: main+0x9af2a (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ stl_tree.h:1786) UAF write at: 0x5f014ac27278
+main+0x9ab90 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:80) Read a dangling pointer 0x5f014ac27250 from 0x5f011d2c7830
+[INCONSISTENCY mov read UAF] ip: main+0x9abbb (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27270
+[INCONSISTENCY mov read UAF] ip: main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27268
+[INCONSISTENCY mov read UAF] ip: main+0x9abce (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ stl_tree.h:780) UAF read at: 0x5f014ac27260
+[INCONSISTENCY mov read UAF] ip: main+0x9ade3 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ stl_tree.h:2071) UAF read at: 0x5f014ac27270
+[INCONSISTENCY mov read UAF] ip: main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27268
+[INCONSISTENCY mov read UAF] ip: main+0x9af40 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27270
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27290 subject=28 at _Znwm
+main+0x9ab90 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:80) Using expired pointer: 0x5f014ac27250 from 0x5f011d2c7830
+first time found dangling pointer at: 672 distance: 109
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27290 from 0x5f014ac27268
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27290 from 0x5f014ac27268
+first time found dangling pointer at: 792 distance: 29
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac272d0 subject=30 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac272d0 from 0x5f014ac272a8
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac272d0 from 0x5f014ac272a8
+first time found dangling pointer at: 928 distance: 29
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27310 subject=32 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27310 from 0x5f014ac272e8
+[INCONSISTENCY mov read UAF] ip: main+0x9abf4 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27330
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27310 from 0x5f014ac272e8
+first time found dangling pointer at: 1078 distance: 47
+[INCONSISTENCY mov read UAF] ip: main+0x9aeee (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac272f0
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27350 subject=34 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27350 from 0x5f014ac272a8
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27350 from 0x5f014ac272a8
+first time found dangling pointer at: 928 distance: 352
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27390 subject=36 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27390 from 0x5f014ac27328
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27390 from 0x5f014ac27328
+first time found dangling pointer at: 1428 distance: 55
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac273d0 subject=38 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac273d0 from 0x5f014ac273a8
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac273d0 from 0x5f014ac273a8
+first time found dangling pointer at: 1618 distance: 55
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27410 subject=40 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27410 from 0x5f014ac273e8
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27410 from 0x5f014ac273e8
+first time found dangling pointer at: 1808 distance: 55
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27450 subject=42 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27450 from 0x5f014ac27428
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27450 from 0x5f014ac27428
+first time found dangling pointer at: 1996 distance: 51
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27490 subject=44 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27490 from 0x5f014ac27468
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27490 from 0x5f014ac27468
+first time found dangling pointer at: 2189 distance: 63
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac274d0 subject=46 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac274d0 from 0x5f014ac274a8
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac274d0 from 0x5f014ac274a8
+first time found dangling pointer at: 2394 distance: 63
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27510 subject=48 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27510 from 0x5f014ac274e8
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27510 from 0x5f014ac274e8
+first time found dangling pointer at: 2599 distance: 63
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27550 subject=50 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27550 from 0x5f014ac27528
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27550 from 0x5f014ac27528
+first time found dangling pointer at: 2804 distance: 63
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27590 subject=52 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27590 from 0x5f014ac27568
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27590 from 0x5f014ac27568
+first time found dangling pointer at: 3022 distance: 75
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac275d0 subject=54 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac275d0 from 0x5f014ac275a8
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac275d0 from 0x5f014ac275a8
+first time found dangling pointer at: 3252 distance: 75
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27610 subject=56 at _Znwm
+main+0x9abc7 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27610 from 0x5f014ac275e8
+main+0x9adf2 (_ZN7Imf_3_19Attribute21registerAttributeTypeEPKcPFPS0_vE @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27610 from 0x5f014ac275e8
+first time found dangling pointer at: 3482 distance: 67
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27650 subject=58 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27690 subject=60 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac276d0 subject=62 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27710 subject=64 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27750 subject=66 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27790 subject=68 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac277d0 subject=70 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27810 subject=72 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27850 subject=74 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27890 subject=76 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac278d0 subject=78 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27910 subject=80 at _Znwm
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27950 subject=82 at _Znwm
+[INCONSISTENCY mov write reg] ip: main+0x4e843 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2772) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e855 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2773) co: 2 vo: 2, 2 write 2
+[CORRUPTED_PTR_LOAD] ip: main+0x8ee97 (_ZN7Imf_3_15CpuIdC2Ev @ ImfSystemSpecific.cpp:122) loaded: 0x7fffd8bb7fa0 from cell: 0x7fffd8bb7e38 cell_owner: 21 value_owner: 20
+[STACK PIVOT] ip: main+0x8ee9b (_ZN7Imf_3_15CpuIdC2Ev @ ImfSystemSpecific.cpp:122) RSP 0x7fffd8bb7e48 left stack [0x55,0x7fffd8b99000]
+[INCONSISTENCY mov write reg] ip: main+0x4e90b (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2791) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e919 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2792) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e927 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2793) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e935 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2794) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e943 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2795) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e951 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2796) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e95f (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2797) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e96d (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2798) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e97d (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2813) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e98b (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2814) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e999 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2815) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e9a7 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2816) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e9b5 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2817) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e9c3 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2818) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e9d1 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2819) co: 2 vo: 2, 2 write 2
+[INCONSISTENCY mov write reg] ip: main+0x4e9df (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2820) co: 2 vo: 2, 2 write 2
+[STACK PIVOT] ip: main+0x4e9e6 (_ZN7Imf_3_113DwaCompressor15initializeFuncsEv @ ImfDwaCompressor.cpp:2822) RSP 0x7fffd8bb7e68 left stack [0x56,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x30) -> 0x5f014ac27990 subject=87 at _Znwm
+[UNTRUSTEDPTRDEREF] ip: main+0x656a7 (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ ImfHeader.cpp:217) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf876a7 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x656ae (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ ImfHeader.cpp:217) UAF write at: 0x7fffd8bb7cb4
+[INCONSISTENCY mov write reg UAF] ip: main+0x656b5 (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ ImfHeader.cpp:217) UAF write at: 0x7fffd8bb7cb0
+[UNTRUSTEDPTRDEREF] ip: main+0x656c0 (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ ImfHeader.cpp:217) final_ea: 0x5f011d2c6f70 base: 0x5f011cf876c0 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x6473b (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:435) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf8673b pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x6474d (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:435) final_ea: 0x5f011d2c6f70 base: 0x5f011cf8674d pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x6475d (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:436) final_ea: 0x5f011d1bd106 base: 0x5f011d1bd106 pointee: -1 base_vo: -1
+[INCONSISTENCY mov read] ip: main+0x64937 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ string_fortified.h:95) base: 0x7fffd8bb7c60 pointee: 86 read from 89
+[CORRUPTED_PTR_LOAD] ip: main+0x64937 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ string_fortified.h:95) loaded: 0x7fffd8bb7fa0 from cell: 0x7fffd8bb7a88 cell_owner: 89 value_owner: 88
+[CORRUPTED_PTR_LOAD] ip: main+0x64977 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:452) loaded: 0x5f011d2c35c0 from cell: 0x7fffd8bb7cc0 cell_owner: 88 value_owner: 86
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac279d0 subject=90 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0x9dbad (_ZNK7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac279d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a2df (_ZN7Imf_3_19AttributeC2Ev @ ImfAttribute.cpp:25) UAF write at: 0x5f014ac279d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x9dbe2 (_ZNK7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE4copyEv @ ImfAttribute.h:111) UAF write at: 0x5f014ac279d0
+[CORRUPTED_PTR_LOAD] ip: main+0x9db68 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:313) loaded: 0x0 from cell: 0x7fffd8bb7cc8 cell_owner: 88 value_owner: 86
+[INCONSISTENCY mov write reg UAF] ip: main+0x9db6b (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1321) UAF write at: 0x5f014ac279d8
+[CORRUPTED_PTR_LOAD] ip: main+0x9db6e (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) loaded: 0x3f00000000 from cell: 0x7fffd8bb7ccc cell_owner: 88 value_owner: 86
+[INCONSISTENCY mov write reg UAF] ip: main+0x9db71 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) UAF write at: 0x5f014ac279dc
+[INCONSISTENCY mov read] ip: main+0x9db74 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) base: 0x7fffd8bb7cc0 pointee: 88 read from 21
+[CORRUPTED_PTR_LOAD] ip: main+0x9db74 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) loaded: 0x3f0000003f from cell: 0x7fffd8bb7cd0 cell_owner: 21 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x9db77 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) base: 0x7fffd8bb7cc0 pointee: 88 read from 21
+[CORRUPTED_PTR_LOAD] ip: main+0x9db77 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) loaded: 0x4ec2c6c00000003f from cell: 0x7fffd8bb7cd4 cell_owner: 21 value_owner: 86
+[INCONSISTENCY mov write reg UAF] ip: main+0x9db7a (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1321) UAF write at: 0x5f014ac279e0
+[INCONSISTENCY mov write reg UAF] ip: main+0x9db7d (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) UAF write at: 0x5f014ac279e4
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x5c,0x7fffd8b99000]
+[INCONSISTENCY mov read] ip: main+0x64993 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ string_fortified.h:95) base: 0x7fffd8bb7c60 pointee: 86 read from 89
+[CORRUPTED_PTR_LOAD] ip: main+0x64993 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ string_fortified.h:95) loaded: 0x7fffd8bb7fa0 from cell: 0x7fffd8bb7a88 cell_owner: 89 value_owner: 88
+[INCONSISTENCY mov read] ip: main+0x64e50 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:467) base: 0x7fffd8bb7c60 pointee: 86 read from 89
+[CORRUPTED_PTR_LOAD] ip: main+0x64e50 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:467) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a80 cell_owner: 89 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x64e57 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:750) base: 0x7fffd8bb7c60 pointee: 86 read from 89
+[CORRUPTED_PTR_LOAD] ip: main+0x64e57 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:750) loaded: 0x7fffd8bb7fa0 from cell: 0x7fffd8bb7a88 cell_owner: 89 value_owner: 88
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac279f0 subject=93 at _Znwm
+[CORRUPTED_PTR_LOAD] ip: main+0x6459b (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ new_allocator.h:127) loaded: 0x7fffd8bb7aa0 from cell: 0x7fffd8bb7a98 cell_owner: 89 value_owner: 86
+[INCONSISTENCY mov write imm UAF] ip: main+0x6468b (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ tuple:1820) UAF write at: 0x5f014ac27b10
+Store dangling pointer: 0x5f014ac279d0 at: 0x5f014ac27b10
+[INCONSISTENCY mov write reg UAF] ip: main+0x64ba4 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:456) UAF write at: 0x5f014ac27b10
+first time found dangling pointer at: 5175 distance: 0
+main+0x64945 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:86) Read a dangling pointer 0x5f014ac279f0 from 0x7fffd8bb7fb0
+[INCONSISTENCY mov read UAF] ip: main+0x64a17 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:128) UAF read at: 0x5f014ac27a08
+[INCONSISTENCY mov read UAF] ip: main+0x64a1e (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:780) UAF read at: 0x5f014ac27a00
+[INCONSISTENCY mov read] ip: main+0x64a3b (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:273) base: 0x7fffd8bb7c60 pointee: 86 read from 95
+[CORRUPTED_PTR_LOAD] ip: main+0x64a3b (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:273) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a80 cell_owner: 95 value_owner: 86
+[INCONSISTENCY mov read] ip: main+0x64b70 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:442) base: 0x7fffd8bb7c60 pointee: 86 read from 95
+[CORRUPTED_PTR_LOAD] ip: main+0x64b70 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:442) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a80 cell_owner: 95 value_owner: 86
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac27b20 subject=96 at _Znwm
+[CORRUPTED_PTR_LOAD] ip: main+0x9db80 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a08 cell_owner: 92 value_owner: 20
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x62,0x7fffd8b99000]
+main+0x649a1 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:86) Using expired pointer: 0x5f014ac279f0 from 0x7fffd8bb7fb0
+first time found dangling pointer at: 5254 distance: 110
+[INCONSISTENCY mov read] ip: main+0x649ae (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:750) base: 0x7fffd8bb7c60 pointee: 86 read from 95
+[CORRUPTED_PTR_LOAD] ip: main+0x649ae (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:750) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a80 cell_owner: 95 value_owner: 86
+[INCONSISTENCY mov read UAF] ip: main+0x649db (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:128) UAF read at: 0x5f014ac27a08
+[INCONSISTENCY mov read UAF] ip: main+0x649e2 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:780) UAF read at: 0x5f014ac27a00
+[INCONSISTENCY mov read] ip: main+0x64b83 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:273) base: 0x7fffd8bb7c60 pointee: 86 read from 95
+[CORRUPTED_PTR_LOAD] ip: main+0x64b83 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:273) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a80 cell_owner: 95 value_owner: 86
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac27b40 subject=99 at _Znwm
+Store dangling pointer: 0x5f014ac27b20 at: 0x5f014ac27c60
+main+0x64a1e (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:780) Read a dangling pointer 0x5f014ac27b40 from 0x5f014ac27a00
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27c70 subject=102 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0xa76f9 (_ZNK7Imf_3_114TypedAttributeIfE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac27c70
+[INCONSISTENCY mov write imm UAF] ip: main+0xa7706 (_ZNK7Imf_3_114TypedAttributeIfE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac27c78
+[INCONSISTENCY mov write reg UAF] ip: main+0xa7723 (_ZNK7Imf_3_114TypedAttributeIfE4copyEv @ ImfAttribute.h:111) UAF write at: 0x5f014ac27c70
+[CORRUPTED_PTR_LOAD] ip: main+0xa76d2 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a08 cell_owner: 98 value_owner: 20
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x68,0x7fffd8b99000]
+main+0x649e2 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:780) Using expired pointer: 0x5f014ac27b40 from 0x5f014ac27a00
+first time found dangling pointer at: 5598 distance: 95
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac27c90 subject=105 at _Znwm
+[CORRUPTED_PTR_LOAD] ip: main+0x66637 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ ImfName.h:128) loaded: 0x5f014ac279f0 from cell: 0x7fffd8bb79b8 cell_owner: 106 value_owner: 104
+Store dangling pointer: 0x5f014ac27c70 at: 0x5f014ac27db0
+main+0x64a17 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:128) Read a dangling pointer 0x5f014ac27c90 from 0x5f014ac27a08
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27dc0 subject=108 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0x98919 (_ZNK7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac27dc0
+[INCONSISTENCY mov write imm UAF] ip: main+0x98926 (_ZNK7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac27dc8
+[INCONSISTENCY mov write reg UAF] ip: main+0x98944 (_ZNK7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE4copyEv) UAF write at: 0x5f014ac27dc0
+[INCONSISTENCY mov write reg UAF] ip: main+0x988ec (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1321) UAF write at: 0x5f014ac27dc8
+[CORRUPTED_PTR_LOAD] ip: main+0x988f0 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1321) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a08 cell_owner: 104 value_owner: 20
+[STACK PIVOT] ip: main+0x988f4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x6e,0x7fffd8b99000]
+main+0x649db (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:128) Using expired pointer: 0x5f014ac27c90 from 0x5f014ac27a08
+first time found dangling pointer at: 5912 distance: 108
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28140 subject=111 at _Znwm
+Store dangling pointer: 0x5f014ac27dc0 at: 0x5f014ac28260
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27de0 subject=114 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x74,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28270 subject=117 at _Znwm
+Store dangling pointer: 0x5f014ac27de0 at: 0x5f014ac28390
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27e00 subject=120 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0x6c1a9 (_ZNK7Imf_3_114TypedAttributeINS_9LineOrderEE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac27e00
+[INCONSISTENCY mov write imm UAF] ip: main+0x6c1b6 (_ZNK7Imf_3_114TypedAttributeINS_9LineOrderEE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac27e08
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c1d3 (_ZNK7Imf_3_114TypedAttributeINS_9LineOrderEE4copyEv @ ImfAttribute.h:111) UAF write at: 0x5f014ac27e00
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c17b (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:276) UAF write at: 0x5f014ac27e08
+[CORRUPTED_PTR_LOAD] ip: main+0x6c17e (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a08 cell_owner: 116 value_owner: 20
+[STACK PIVOT] ip: main+0x6c182 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x7a,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac283a0 subject=123 at _Znwm
+[CORRUPTED_PTR_LOAD] ip: main+0x66678 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ stl_tree.h:303) loaded: 0x5f014ac279f0 from cell: 0x7fffd8bb79b0 cell_owner: 124 value_owner: 122
+[CORRUPTED_PTR_LOAD] ip: main+0x6667c (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ stl_tree.h:303) loaded: 0x5f014ac27c90 from cell: 0x7fffd8bb79b8 cell_owner: 124 value_owner: 122
+[INCONSISTENCY mov read UAF] ip: main+0x66682 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ stl_tree.h:2187) UAF read at: 0x5f014ac27a08
+first time found dangling pointer at: 5912 distance: 971
+Store dangling pointer: 0x5f014ac27e00 at: 0x5f014ac284c0
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27e20 subject=126 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0xa4769 (_ZNK7Imf_3_114TypedAttributeINS_11CompressionEE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac27e20
+[INCONSISTENCY mov write imm UAF] ip: main+0xa4776 (_ZNK7Imf_3_114TypedAttributeINS_11CompressionEE4copyEv @ ImfAttribute.h:249) UAF write at: 0x5f014ac27e28
+[INCONSISTENCY mov write reg UAF] ip: main+0xa4793 (_ZNK7Imf_3_114TypedAttributeINS_11CompressionEE4copyEv @ ImfAttribute.h:111) UAF write at: 0x5f014ac27e20
+[INCONSISTENCY mov write reg UAF] ip: main+0xa473b (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:276) UAF write at: 0x5f014ac27e28
+[CORRUPTED_PTR_LOAD] ip: main+0xa473e (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a08 cell_owner: 122 value_owner: 20
+[STACK PIVOT] ip: main+0xa4742 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x80,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac284d0 subject=129 at _Znwm
+Store dangling pointer: 0x5f014ac27e20 at: 0x5f014ac285f0
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac28600 subject=132 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x9ee69 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13copyValueFromERKNS_9AttributeE @ stl_tree.h:715) base: 0x7fffd8bb7cc0 pointee: 88 read from 21
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28640 subject=135 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x9ead9 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev @ stl_tree.h:735) base: 0x7fffd8bb7cc0 pointee: 88 read from 21
+[INCONSISTENCY mov read UAF] ip: main+0x73a3f (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ ImfMultiPartInputFile.cpp:316) UAF read at: 0x5f014ac271c8
+[UNTRUSTEDPTRDEREF] ip: main+0x65132 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1341) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf87132 pointee: -1 base_vo: -1
+Store dangling pointer: 0x5f014ac271d8 at: 0x7fffd8bb7ae0
+[UNTRUSTEDPTRDEREF] ip: main+0x65155 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1346) final_ea: 0x5f011d2c6f70 base: 0x5f011cf87155 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x651a1 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfIO.h:180) co: 137 vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x61817 (_ZN7Imf_3_112_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_ @ ImfHeader.cpp:232) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf83817 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x61822 (_ZN7Imf_3_112_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_ @ ImfHeader.cpp:232) final_ea: 0x5f011d2c6f70 base: 0x5f011cf83822 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x61859 (_ZN7Imf_3_112_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_ @ ImfHeader.cpp:236) co: 137 vo: -1
+[UNINITIALIZED mov read] ip: main+0x651f9 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfIO.h:180) co: 137 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x65297 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfName.h:128) UAF read at: 0x5f014ac27a08
+first time found dangling pointer at: 5912 distance: 2831
+[INCONSISTENCY mov read UAF] ip: main+0x6529e (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ stl_tree.h:780) UAF read at: 0x5f014ac27a00
+first time found dangling pointer at: 5598 distance: 3147
+main+0x65300 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1410) Using expired pointer: 0x5f014ac271d8 from 0x7fffd8bb7ae0
+first time found dangling pointer at: 7713 distance: 1084
+[INCONSISTENCY mov read UAF] ip: main+0x65313 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1410) UAF read at: 0x5f014ac271d8
+[UNTRUSTEDPTRDEREF] ip: main+0x9e279 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:88) final_ea: 0x5f011d2c6f70 base: 0x5f011cfc0279 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x9e280 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:88) final_ea: 0x5f011d2c6fa0 base: 0x5f011cfc0280 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x9e2c1 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) co: 157 vo: -1
+[INCONSISTENCY mov read] ip: main+0x9e2d1 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:98) base: 0x7fffd8bb7ac0 pointee: 23 read from 157
+[UNINITIALIZED mov read] ip: main+0x9e2f5 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:37) co: 157 vo: -1
+[INCONSISTENCY mov read] ip: main+0x9e30f (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii) base: 0x7fffd8bb7ac0 pointee: 23 read from 157
+[INCONSISTENCY mov read] ip: main+0x9e324 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) base: 0x7fffd8bb7ac0 pointee: 23 read from 157
+[INTRA_OBJECT_OVERFLOW] ip: main+0x9e33d (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfXdr.h:423) byte write at: 0x7fffd8bb7588 offset: +0x38 cell_owner: 157 writer_pointee: 23
+[INCONSISTENCY mov read] ip: main+0x9e35b (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfXdr.h:480) base: 0x7fffd8bb7ac0 pointee: 23 read from 157
+[INCONSISTENCY mov read] ip: main+0x9e37e (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:131) base: 0x7fffd8bb7ac0 pointee: 23 read from 157
+[CORRUPTED_PTR_LOAD] ip: main+0x9e37e (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:131) loaded: 0x7186526c3d00 from cell: 0x7fffd8bb7588 cell_owner: 157 value_owner: 23
+[INCONSISTENCY mov read] ip: main+0x9e386 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:131) base: 0x7fffd8bb7ac0 pointee: 23 read from 157
+[INCONSISTENCY mov read] ip: main+0x9e39b (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:130) base: 0x7fffd8bb7ac0 pointee: 23 read from 157
+[CORRUPTED_PTR_LOAD] ip: main+0x9e39b (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:130) loaded: 0x5f014ac28600 from cell: 0x7fffd8bb7580 cell_owner: 157 value_owner: 131
+[UNTRUSTEDPTRDEREF] ip: main+0x33a8b (_ZN7Imf_3_111ChannelList6insertEPKcRKNS_7ChannelE @ ImfChannelList.cpp:37) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf55a8b pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x33a96 (_ZN7Imf_3_111ChannelList6insertEPKcRKNS_7ChannelE @ ImfChannelList.cpp:37) final_ea: 0x5f011d2c6f70 base: 0x5f011cf55a96 pointee: -1 base_vo: -1
+[UNINITIALIZED mov read] ip: main+0x33aa6 (_ZN7Imf_3_111ChannelList6insertEPKcRKNS_7ChannelE @ ImfChannelList.cpp:38) co: 157 vo: -1
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac28770 subject=166 at _Znwm
+[UNINITIALIZED mov read] ip: main+0x33d00 (_ZN7Imf_3_111ChannelList6insertEPKcRKNS_7ChannelE @ ImfChannelList.cpp:43) co: 157 vo: -1
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac288b0 subject=176 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x343b7 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS3_ @ ImfName.h:128) base: 0x7fffd8bb7330 pointee: 174 read from 177
+[CORRUPTED_PTR_LOAD] ip: main+0x343b7 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS3_ @ ImfName.h:128) loaded: 0x5f014ac28770 from cell: 0x7fffd8bb72f8 cell_owner: 177 value_owner: 175
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac289f0 subject=186 at _Znwm
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x2c430 (_ZN7Imf_3_112_GLOBAL__N_110PtrIStream4readEPci @ ImfCheckFile.cpp:972) call qword ptr [rax+0x18] id before: 21 after: 11 value: 0x5f014ac27edb
+main+0x652d4 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) Using expired pointer: 0x5f014ac27e20 from 0x5f014ac285f0
+first time found dangling pointer at: 7255 distance: 4667
+[INCONSISTENCY mov read UAF] ip: main+0x652db (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) UAF read at: 0x5f014ac27e20
+[INCONSISTENCY mov read UAF] ip: main+0x65310 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1410) UAF read at: 0x5f014ac27e20
+[INCONSISTENCY mov read] ip: main+0xa44d2 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13readValueFromERNS_7IStreamEii @ ImfCompressionAttribute.cpp:65) base: 0x7fffd8bb7ac0 pointee: 23 read from 214
+[CORRUPTED_PTR_LOAD] ip: main+0xa44d2 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13readValueFromERNS_7IStreamEii @ ImfCompressionAttribute.cpp:65) loaded: 0x7fffd8bb7c2b00 from cell: 0x7fffd8bb7aaf cell_owner: 214 value_owner: 137
+[INCONSISTENCY mov write reg UAF] ip: main+0xa44e0 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13readValueFromERNS_7IStreamEii @ ImfCompressionAttribute.cpp:65) UAF write at: 0x5f014ac27e28
+[CORRUPTED_PTR_LOAD] ip: main+0xa44e3 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13readValueFromERNS_7IStreamEii @ ImfCompressionAttribute.cpp:66) loaded: 0x7fffd8bb8270 from cell: 0x7fffd8bb7ab8 cell_owner: 23 value_owner: 13
+[STACK PIVOT] ip: main+0xa44e7 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13readValueFromERNS_7IStreamEii @ ImfCompressionAttribute.cpp:66) RSP 0x7fffd8bb7ac8 left stack [0xd8,0x7fffd8b99000]
+[INCONSISTENCY mov read UAF] ip: main+0x652d4 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) UAF read at: 0x5f014ac27c60
+first time found dangling pointer at: 5500 distance: 6838
+main+0x652d4 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) Using expired pointer: 0x5f014ac27b20 from 0x5f014ac27c60
+first time found dangling pointer at: 5500 distance: 6838
+[INCONSISTENCY mov read UAF] ip: main+0x652f9 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1410) UAF read at: 0x5f014ac27c60
+first time found dangling pointer at: 5500 distance: 6853
+[INCONSISTENCY mov read] ip: main+0x9d7bc (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) base: 0x7fffd8bb7ac0 pointee: 23 read from 218
+[CORRUPTED_PTR_LOAD] ip: main+0x9d7bc (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) loaded: 0xd8bb7d2000000000 from cell: 0x7fffd8bb7a9c cell_owner: 218 value_owner: 13
+[INCONSISTENCY mov write reg UAF] ip: main+0x9d7ca (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfXdr.h:478) UAF write at: 0x5f014ac27b28
+[INCONSISTENCY mov read] ip: main+0x9d7d4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) base: 0x7fffd8bb7ac0 pointee: 23 read from 218
+[CORRUPTED_PTR_LOAD] ip: main+0x9d7d4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) loaded: 0xd8bb7d2000000000 from cell: 0x7fffd8bb7a9c cell_owner: 218 value_owner: 13
+[INCONSISTENCY mov write reg UAF] ip: main+0x9d7e2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfXdr.h:478) UAF write at: 0x5f014ac27b2c
+[INCONSISTENCY mov read] ip: main+0x9d7ec (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) base: 0x7fffd8bb7ac0 pointee: 23 read from 218
+[CORRUPTED_PTR_LOAD] ip: main+0x9d7ec (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) loaded: 0xd8bb7d2000000001 from cell: 0x7fffd8bb7a9c cell_owner: 218 value_owner: 13
+[INCONSISTENCY mov write reg UAF] ip: main+0x9d7fa (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfXdr.h:478) UAF write at: 0x5f014ac27b30
+[INCONSISTENCY mov read] ip: main+0x9d804 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) base: 0x7fffd8bb7ac0 pointee: 23 read from 218
+[CORRUPTED_PTR_LOAD] ip: main+0x9d804 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) loaded: 0xd8bb7d2000000001 from cell: 0x7fffd8bb7a9c cell_owner: 218 value_owner: 13
+[INCONSISTENCY mov write reg UAF] ip: main+0x9d807 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii) UAF write at: 0x5f014ac27b34
+main+0x652d4 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) Using expired pointer: 0x5f014ac279d0 from 0x5f014ac27b10
+first time found dangling pointer at: 5175 distance: 7609
+main+0x652d4 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) Using expired pointer: 0x5f014ac27e00 from 0x5f014ac284c0
+first time found dangling pointer at: 6917 distance: 6271
+[INCONSISTENCY mov read] ip: main+0x6bf12 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13readValueFromERNS_7IStreamEii @ ImfLineOrderAttribute.cpp:59) base: 0x7fffd8bb7ac0 pointee: 23 read from 224
+[CORRUPTED_PTR_LOAD] ip: main+0x6bf12 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13readValueFromERNS_7IStreamEii @ ImfLineOrderAttribute.cpp:59) loaded: 0x7fffd8bb7c2900 from cell: 0x7fffd8bb7aaf cell_owner: 224 value_owner: 137
+[INCONSISTENCY mov write reg UAF] ip: main+0x6bf20 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13readValueFromERNS_7IStreamEii @ ImfLineOrderAttribute.cpp:59) UAF write at: 0x5f014ac27e08
+[INCONSISTENCY mov read UAF] ip: main+0x6bf23 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13readValueFromERNS_7IStreamEii @ ImfLineOrderAttribute.cpp:60) UAF read at: 0x7fffd8bb7ab8
+[STACK PIVOT] ip: main+0x6bf27 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13readValueFromERNS_7IStreamEii @ ImfLineOrderAttribute.cpp:60) RSP 0x7fffd8bb7ac8 left stack [0xe2,0x7fffd8b99000]
+main+0x652d4 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) Using expired pointer: 0x5f014ac27c70 from 0x5f014ac27db0
+first time found dangling pointer at: 5827 distance: 7699
+[INCONSISTENCY mov read] ip: main+0xa7472 (_ZN7Imf_3_114TypedAttributeIfE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) base: 0x7fffd8bb7ac0 pointee: 23 read from 228
+[CORRUPTED_PTR_LOAD] ip: main+0xa7472 (_ZN7Imf_3_114TypedAttributeIfE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) loaded: 0xd8bb7c253f800000 from cell: 0x7fffd8bb7aac cell_owner: 228 value_owner: 137
+[INCONSISTENCY mov write reg UAF] ip: main+0xa7475 (_ZN7Imf_3_114TypedAttributeIfE13readValueFromERNS_7IStreamEii @ ImfXdr.h:549) UAF write at: 0x5f014ac27c78
+[INCONSISTENCY mov read UAF] ip: main+0xa7478 (_ZN7Imf_3_114TypedAttributeIfE13readValueFromERNS_7IStreamEii @ ImfXdr.h:549) UAF read at: 0x7fffd8bb7ab8
+[STACK PIVOT] ip: main+0xa747c (_ZN7Imf_3_114TypedAttributeIfE13readValueFromERNS_7IStreamEii @ ImfAttribute.h:270) RSP 0x7fffd8bb7ac8 left stack [0xe6,0x7fffd8b99000]
+main+0x652d4 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) Using expired pointer: 0x5f014ac27dc0 from 0x5f014ac28260
+first time found dangling pointer at: 6169 distance: 7565
+[INCONSISTENCY mov read] ip: main+0x97cec (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) base: 0x7fffd8bb7ac0 pointee: 23 read from 232
+[CORRUPTED_PTR_LOAD] ip: main+0x97cec (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) loaded: 0xd8bb7d2000000000 from cell: 0x7fffd8bb7a9c cell_owner: 232 value_owner: 13
+[INCONSISTENCY mov write reg UAF] ip: main+0x97cfa (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13readValueFromERNS_7IStreamEii @ ImfXdr.h:549) UAF write at: 0x5f014ac27dc8
+[INCONSISTENCY mov read] ip: main+0x97d04 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) base: 0x7fffd8bb7ac0 pointee: 23 read from 232
+[CORRUPTED_PTR_LOAD] ip: main+0x97d04 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) loaded: 0xd8bb7d2000000000 from cell: 0x7fffd8bb7a9c cell_owner: 232 value_owner: 13
+[INCONSISTENCY mov write reg UAF] ip: main+0x97d07 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13readValueFromERNS_7IStreamEii @ ImfXdr.h:549) UAF write at: 0x5f014ac27dcc
+main+0x652d4 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1403) Using expired pointer: 0x5f014ac27de0 from 0x5f014ac28390
+first time found dangling pointer at: 6537 distance: 7439
+[STACK PIVOT] ip: main+0xa747c (_ZN7Imf_3_114TypedAttributeIfE13readValueFromERNS_7IStreamEii @ ImfAttribute.h:270) RSP 0x7fffd8bb7ac8 left stack [0xed,0x7fffd8b99000]
+[INCONSISTENCY mov read UAF] ip: main+0x9a39b (_ZN7Imf_3_19Attribute9knownTypeEPKc @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27430
+[INCONSISTENCY mov read UAF] ip: main+0x9a3a7 (_ZN7Imf_3_19Attribute9knownTypeEPKc @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27420
+first time found dangling pointer at: 1998 distance: 12242
+[INCONSISTENCY mov read UAF] ip: main+0x9a3ab (_ZN7Imf_3_19Attribute9knownTypeEPKc @ stl_tree.h:788) UAF read at: 0x5f014ac27428
+first time found dangling pointer at: 1996 distance: 12245
+main+0x9a3ab (_ZN7Imf_3_19Attribute9knownTypeEPKc @ stl_tree.h:788) Read a dangling pointer 0x5f014ac27710 from 0x5f014ac27628
+main+0x9a3a7 (_ZN7Imf_3_19Attribute9knownTypeEPKc @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27690 from 0x5f014ac27720
+main+0x9a3ab (_ZN7Imf_3_19Attribute9knownTypeEPKc @ stl_tree.h:788) Read a dangling pointer 0x5f014ac27810 from 0x5f014ac27728
+main+0x9a3a7 (_ZN7Imf_3_19Attribute9knownTypeEPKc @ ImfAttribute.cpp:38) Read a dangling pointer 0x5f014ac27650 from 0x5f014ac276a0
+main+0x9a3ab (_ZN7Imf_3_19Attribute9knownTypeEPKc @ stl_tree.h:788) Read a dangling pointer 0x5f014ac276d0 from 0x5f014ac276a8
+[INCONSISTENCY mov read UAF] ip: main+0x9a3c0 (_ZN7Imf_3_19Attribute9knownTypeEPKc @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27730
+[INCONSISTENCY mov read UAF] ip: main+0x9a78b (_ZN7Imf_3_19Attribute12newAttributeEPKc @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27430
+[INCONSISTENCY mov read UAF] ip: main+0x9a797 (_ZN7Imf_3_19Attribute12newAttributeEPKc @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27428
+first time found dangling pointer at: 1996 distance: 12344
+[INCONSISTENCY mov read UAF] ip: main+0x9a79e (_ZN7Imf_3_19Attribute12newAttributeEPKc @ stl_tree.h:780) UAF read at: 0x5f014ac27420
+first time found dangling pointer at: 1998 distance: 12344
+main+0x9a797 (_ZN7Imf_3_19Attribute12newAttributeEPKc @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27710 from 0x5f014ac27628
+first time found dangling pointer at: 14251 distance: 102
+main+0x9a797 (_ZN7Imf_3_19Attribute12newAttributeEPKc @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac27810 from 0x5f014ac27728
+first time found dangling pointer at: 14261 distance: 105
+main+0x9a79e (_ZN7Imf_3_19Attribute12newAttributeEPKc @ stl_tree.h:780) Using expired pointer: 0x5f014ac27690 from 0x5f014ac27720
+first time found dangling pointer at: 14260 distance: 108
+main+0x9a797 (_ZN7Imf_3_19Attribute12newAttributeEPKc @ ImfAttribute.cpp:38) Using expired pointer: 0x5f014ac276d0 from 0x5f014ac276a8
+first time found dangling pointer at: 14272 distance: 106
+main+0x9a79e (_ZN7Imf_3_19Attribute12newAttributeEPKc @ stl_tree.h:780) Using expired pointer: 0x5f014ac27650 from 0x5f014ac276a0
+first time found dangling pointer at: 14271 distance: 109
+[INCONSISTENCY mov read UAF] ip: main+0x9a7c4 (_ZN7Imf_3_19Attribute12newAttributeEPKc @ ImfAttribute.cpp:38) UAF read at: 0x5f014ac27730
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac27e40 subject=240 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0x8ddaa (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16makeNewAttributeEv @ ImfAttribute.h:242) UAF write at: 0x5f014ac27e60
+[INCONSISTENCY mov write imm UAF] ip: main+0x8ddcb (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16makeNewAttributeEv @ char_traits.h:357) UAF write at: 0x5f014ac27e58
+[INCONSISTENCY mov write imm UAF] ip: main+0x8ddd1 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16makeNewAttributeEv @ basic_string.h:191) UAF write at: 0x5f014ac27e50
+[INCONSISTENCY mov write reg UAF] ip: main+0x8ddde (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16makeNewAttributeEv) UAF write at: 0x5f014ac27e40
+Store dangling pointer: 0x5f014ac27e58 at: 0x5f014ac27e48
+[INCONSISTENCY mov write reg UAF] ip: main+0x8dde7 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16makeNewAttributeEv @ basic_string.h:201) UAF write at: 0x5f014ac27e48
+first time found dangling pointer at: 14433 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x65342 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1431) UAF read at: 0x5f014ac27e40
+[INCONSISTENCY mov read UAF] ip: main+0x65351 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfHeader.cpp:1431) UAF read at: 0x5f014ac271d8
+[INCONSISTENCY mov read UAF] ip: main+0x8dcd0 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13readValueFromERNS_7IStreamEii @ ImfStringAttribute.cpp:60) UAF read at: 0x5f014ac27e48
+first time found dangling pointer at: 14433 distance: 46
+main+0x8dcd0 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13readValueFromERNS_7IStreamEii @ ImfStringAttribute.cpp:60) Using expired pointer: 0x5f014ac27e58 from 0x5f014ac27e48
+first time found dangling pointer at: 14433 distance: 46
+[INCONSISTENCY mov read UAF] ip: main+0x653b7 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfName.h:128) UAF read at: 0x5f014ac27a08
+first time found dangling pointer at: 5912 distance: 8717
+[INCONSISTENCY mov read UAF] ip: main+0x653be (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ stl_tree.h:780) UAF read at: 0x5f014ac27a00
+first time found dangling pointer at: 5598 distance: 9033
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28b30 subject=242 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x64709 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ ImfName.h:128) base: 0x7fffd8bb7ac0 pointee: 23 read from 241
+[CORRUPTED_PTR_LOAD] ip: main+0x64709 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ ImfName.h:128) loaded: 0x7fffd8bb7fa8 from cell: 0x7fffd8bb7a90 cell_owner: 241 value_owner: 23
+[INCONSISTENCY mov read] ip: main+0x6470d (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_) base: 0x7fffd8bb7ac0 pointee: 23 read from 241
+[CORRUPTED_PTR_LOAD] ip: main+0x6470d (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_) loaded: 0x5f014ac28270 from cell: 0x7fffd8bb7a98 cell_owner: 241 value_owner: 23
+Store dangling pointer: 0x5f014ac27e40 at: 0x5f014ac28c50
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x2c212 (_ZN7Imf_3_112_GLOBAL__N_110PtrIStream4readEPci @ ImfCheckFile.cpp:956) nop id before: 242 after: -1 [unmapped] value: 0x71863de96b78
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac28c60 subject=247 at _Znwm
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28c90 subject=249 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x73a60 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:1187) UAF read at: 0x5f014ac27238
+[INCONSISTENCY mov read UAF] ip: main+0x73a67 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:1189) UAF read at: 0x5f014ac27240
+[INCONSISTENCY mov read UAF] ip: main+0x748d2 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_) UAF read at: 0x5f014ac27238
+[INCONSISTENCY mov read UAF] ip: main+0x748d6 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_) UAF read at: 0x5f014ac27230
+Store dangling pointer: 0x5f014ac27230 at: 0x7fffd8bb7e98
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac28dc0 subject=252 at _Znwm
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac28e00 subject=254 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac28e40 subject=256 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac28f80 subject=257 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac290c0 subject=258 at _Znwm
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29200 subject=260 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x64977 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:452) UAF read at: 0x5f014ac27e20
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac29330 subject=263 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0xa4738 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:313) UAF read at: 0x5f014ac27e28
+[STACK PIVOT] ip: main+0xa4742 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x109,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29350 subject=266 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x66637 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ ImfName.h:128) base: 0x7fffd8bb7bc0 pointee: 255 read from 267
+[INCONSISTENCY mov read UAF] ip: main+0x64f90 (_ZN7Imf_3_16HeaderC1ERKS0_ @ ImfHeader.cpp:356) UAF read at: 0x5f014ac27c60
+first time found dangling pointer at: 5500 distance: 10853
+[INCONSISTENCY mov read UAF] ip: main+0x6475d (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:436) UAF read at: 0x5f014ac27b60
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac29480 subject=269 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x9db68 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:313) UAF read at: 0x5f014ac27b28
+[INCONSISTENCY mov read UAF] ip: main+0x9db6e (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) UAF read at: 0x5f014ac27b2c
+[INCONSISTENCY mov read UAF] ip: main+0x9db74 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) UAF read at: 0x5f014ac27b30
+[INCONSISTENCY mov read UAF] ip: main+0x9db77 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) UAF read at: 0x5f014ac27b34
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x10f,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac294a0 subject=272 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac295d0 subject=275 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x115,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac295f0 subject=278 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac29720 subject=281 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x6c178 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:313) UAF read at: 0x5f014ac27e08
+[STACK PIVOT] ip: main+0x6c182 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x11b,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29740 subject=284 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac29870 subject=287 at _Znwm
+[CORRUPTED_PTR_LOAD] ip: main+0x8e05c (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) loaded: 0x5f014ac28dc8 from cell: 0x7fffd8bb7bd8 cell_owner: 283 value_owner: 252
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x121,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac298a0 subject=290 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac299d0 subject=293 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x127,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac299f0 subject=296 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac29b20 subject=299 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x988e8 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:313) UAF read at: 0x5f014ac27dc8
+[STACK PIVOT] ip: main+0x988f4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x12d,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29b40 subject=302 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac29c70 subject=305 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x133,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29c90 subject=308 at _Znwm
+main+0x64f90 (_ZN7Imf_3_16HeaderC1ERKS0_ @ ImfHeader.cpp:356) Using expired pointer: 0x5f014ac27e40 from 0x5f014ac28c50
+first time found dangling pointer at: 14791 distance: 3979
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac29dc0 subject=311 at _Znwm
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x139,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29df0 subject=314 at _Znwm
+[INCONSISTENCY mov write reg] ip: main+0x5f50b (_ZN7Imf_3_112_GLOBAL__N_1L21copyCompressionRecordEPNS_6HeaderEPKS1_ @ stl_tree.h:176) co: 3 vo: 3, 3 write 3
+[INCONSISTENCY mov write reg] ip: main+0x5f512 (_ZN7Imf_3_112_GLOBAL__N_1L21copyCompressionRecordEPNS_6HeaderEPKS1_ @ stl_tree.h:210) co: 3 vo: 3, 3 write 3
+[UNINITIALIZED mov read] ip: main+0x5f364 (_ZN7Imf_3_112_GLOBAL__N_1L21copyCompressionRecordEPNS_6HeaderEPKS1_ @ ImfHeader.cpp:192) co: 3 vo: -1
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x74988 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_uninitialized.h:91) add r13, 0x38 id before: 252 after: -1 [chunk metadata] value: 0x5f014ac28df8
+main+0x74a03 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ new_allocator.h:145) Using expired pointer: 0x5f014ac27230 from 0x7fffd8bb7e98
+first time found dangling pointer at: 15543 distance: 3686
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x74a10 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ vector.tcc:504) add rax, qword ptr [rbp-0x50] id before: 252 after: -1 [chunk metadata] value: 0x5f014ac28df8
+[INCONSISTENCY mov write reg UAF] ip: main+0x74a14 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ vector.tcc:504) UAF write at: 0x5f014ac27240
+[INCONSISTENCY mov read] ip: main+0x9e08e (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) base: 0x7fffd8bb7e70 pointee: 251 read from 317
+[CORRUPTED_PTR_LOAD] ip: main+0x9e08e (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) loaded: 0x5f014ac289f0 from cell: 0x7fffd8bb7e28 cell_owner: 317 value_owner: 24
+[INCONSISTENCY mov write reg UAF] ip: main+0x9e096 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) UAF write at: 0x7fffd8bb7e38
+[INCONSISTENCY mov read] ip: main+0x9e205 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:1887) base: 0x7fffd8bb7e70 pointee: 251 read from 317
+[CORRUPTED_PTR_LOAD] ip: main+0x9e205 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:1887) loaded: 0x5f014ac289f0 from cell: 0x7fffd8bb7e28 cell_owner: 317 value_owner: 24
+[FREE:internal] free(0x5f014ac289f0) subject=186 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E
+[FREE:internal] free(0x5f014ac288b0) subject=176 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[FREE:internal] free(0x5f014ac28770) subject=166 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[CORRUPTED_PTR_LOAD] ip: main+0x9eb29 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) loaded: 0x5f014ac28640 from cell: 0x7fffd8bb7ea8 cell_owner: 24 value_owner: 135
+[STACK PIVOT] ip: main+0x9eb32 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x140,0x7fffd8b99000]
+[FREE] free(0x5f014ac28600) subject=132 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov read UAF] ip: main+0x5f8a5 (_ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371) UAF read at: 0x5f014ac27e20
+[INCONSISTENCY mov write reg UAF] ip: main+0xa450f (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED2Ev @ ImfAttribute.h:215) UAF write at: 0x5f014ac27e20
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0xa4539 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215)
+[STACK PIVOT] ip: main+0xa4542 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x141,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e20) subject=126 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov read UAF] ip: main+0x5f898 (_ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371) UAF read at: 0x5f014ac27c60
+first time found dangling pointer at: 5500 distance: 13901
+[INCONSISTENCY mov write reg UAF] ip: main+0x9d84f (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED2Ev @ ImfAttribute.h:215) UAF write at: 0x5f014ac27b20
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x9d899 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215)
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x142,0x7fffd8b99000]
+[FREE] free(0x5f014ac27b20) subject=96 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x143,0x7fffd8b99000]
+[FREE] free(0x5f014ac279d0) subject=90 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov write reg UAF] ip: main+0x6bf4f (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED2Ev @ ImfAttribute.h:215) UAF write at: 0x5f014ac27e00
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x6bf79 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215)
+first time found dangling pointer at: 19421 distance: 62
+[STACK PIVOT] ip: main+0x6bf82 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x144,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e00) subject=120 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov read] ip: main+0x8dd4e (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev) base: 0x7fffd8bb7e90 pointee: 24 read from 251
+[CORRUPTED_PTR_LOAD] ip: main+0x8dd4e (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev) loaded: 0x5f014ac28c60 from cell: 0x7fffd8bb7e88 cell_owner: 251 value_owner: 247
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e98 left stack [0x145,0x7fffd8b99000]
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x8dd79 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215)
+first time found dangling pointer at: 19421 distance: 105
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x146,0x7fffd8b99000]
+[FREE] free(0x5f014ac28c60) subject=247 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov write reg UAF] ip: main+0xa748f (_ZN7Imf_3_114TypedAttributeIfED2Ev @ ImfAttribute.h:215) UAF write at: 0x5f014ac27c70
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0xa74b9 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215)
+first time found dangling pointer at: 19421 distance: 136
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x147,0x7fffd8b99000]
+[FREE] free(0x5f014ac27c70) subject=102 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov write reg UAF] ip: main+0x9804f (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED2Ev @ ImfAttribute.h:215) UAF write at: 0x5f014ac27dc0
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x98129 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215)
+first time found dangling pointer at: 19421 distance: 167
+[STACK PIVOT] ip: main+0x98132 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x148,0x7fffd8b99000]
+[FREE] free(0x5f014ac27dc0) subject=108 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x149,0x7fffd8b99000]
+[FREE] free(0x5f014ac27de0) subject=114 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov write reg UAF] ip: main+0x8dd2c (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev) UAF write at: 0x5f014ac27e40
+[INCONSISTENCY mov read UAF] ip: main+0x8dd2f (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ basic_string.h:671) UAF read at: 0x5f014ac27e48
+first time found dangling pointer at: 14433 distance: 5218
+[INCONSISTENCY mov read UAF] ip: main+0x8dd4e (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev) UAF read at: 0x7fffd8bb7e88
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e98 left stack [0x14a,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x14b,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e40) subject=240 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[UNINITIALIZED mov read] ip: main+0x5f8ea (_ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:144) co: 3 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x5f96c (_ZN7Imf_3_16HeaderD2Ev @ stl_tree.h:787) UAF read at: 0x5f014ac27a08
+first time found dangling pointer at: 5912 distance: 13782
+[FREE:internal] free(0x5f014ac28b30) subject=242 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28270) subject=117 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28140) subject=111 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[INCONSISTENCY mov read UAF] ip: main+0x5eec7 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:787) UAF read at: 0x5f014ac27ca8
+[INCONSISTENCY mov read UAF] ip: main+0x5f00e (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:780) UAF read at: 0x5f014ac27ca0
+[FREE:internal] free(0x5f014ac27c90) subject=105 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28c90) subject=249 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac283a0) subject=123 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[INCONSISTENCY mov read UAF] ip: main+0x5f978 (_ZN7Imf_3_16HeaderD2Ev @ stl_tree.h:780) UAF read at: 0x5f014ac27a00
+first time found dangling pointer at: 5598 distance: 14191
+[FREE:internal] free(0x5f014ac279f0) subject=93 at _ZN7Imf_3_16HeaderD2Ev
+[INCONSISTENCY mov write reg UAF] ip: main+0x5eea1 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:1883) UAF write at: 0x7fffd8bb7e68
+first time found dangling pointer at: 19805 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x5eeb2 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:787) UAF read at: 0x5f014ac27b58
+[INCONSISTENCY mov read UAF] ip: main+0x5f02e (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:780) UAF read at: 0x5f014ac27b50
+[FREE:internal] free(0x5f014ac27b40) subject=99 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac284d0) subject=129 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac28640) subject=135 at _ZN7Imf_3_16HeaderD2Ev
+[INCONSISTENCY mov write imm UAF] ip: main+0x65b94 (_ZN7Imf_3_16HeaderC2EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE @ ImathVec.h:1321) UAF write at: 0x7fffd8bb7ea0
+[INCONSISTENCY mov write reg UAF] ip: main+0x65b9c (_ZN7Imf_3_16HeaderC2EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE @ ImfHeader.cpp:285) UAF write at: 0x7fffd8bb7ea8
+first time found dangling pointer at: 19421 distance: 517
+[INCONSISTENCY mov write reg UAF] ip: main+0x65ba0 (_ZN7Imf_3_16HeaderC2EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE @ ImfHeader.cpp:285) UAF write at: 0x7fffd8bb7eac
+[INCONSISTENCY mov write reg UAF] ip: main+0x9da11 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEC2ERKS5_) UAF write at: 0x7fffd8bb7cc0
+[INCONSISTENCY mov read UAF] ip: main+0x9da14 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEC2ERKS5_ @ ImathBox.h:362) UAF read at: 0x7fffd8bb7ea0
+[INCONSISTENCY mov write reg UAF] ip: main+0x9da18 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEC2ERKS5_) UAF write at: 0x7fffd8bb7cc8
+[INCONSISTENCY mov read UAF] ip: main+0x9da1c (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEC2ERKS5_ @ ImathVec.h:1306) UAF read at: 0x7fffd8bb7ea8
+first time found dangling pointer at: 19421 distance: 564
+[INCONSISTENCY mov write reg UAF] ip: main+0x9da21 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEC2ERKS5_ @ ImathVec.h:1306) UAF write at: 0x7fffd8bb7cd0
+[INCONSISTENCY mov write reg UAF] ip: main+0x64742 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:435) UAF write at: 0x7fffd8bb7a88
+[INCONSISTENCY mov read UAF] ip: main+0x64937 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ string_fortified.h:95) UAF read at: 0x7fffd8bb7a88
+[INCONSISTENCY mov write imm UAF] ip: main+0x6493e (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:86) UAF write at: 0x7fffd8bb7b9f
+[INCONSISTENCY mov write reg UAF] ip: main+0x6494d (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:750) UAF write at: 0x7fffd8bb7a80
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac27de0 subject=337 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x153,0x7fffd8b99000]
+[INCONSISTENCY mov read UAF] ip: main+0x64993 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ string_fortified.h:95) UAF read at: 0x7fffd8bb7a88
+[INCONSISTENCY mov write imm UAF] ip: main+0x6499a (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:86) UAF write at: 0x7fffd8bb7b9f
+[INCONSISTENCY mov read UAF] ip: main+0x64e50 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:467) UAF read at: 0x7fffd8bb7a80
+[INCONSISTENCY mov read UAF] ip: main+0x64e57 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:750) UAF read at: 0x7fffd8bb7a88
+Store dangling pointer: 0x7fffd8bb7aa0 at: 0x7fffd8bb7a98
+[INCONSISTENCY mov write reg UAF] ip: main+0x64e68 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ tuple:200) UAF write at: 0x7fffd8bb7a98
+first time found dangling pointer at: 20122 distance: 0
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28640 subject=340 at _Znwm
+main+0x6459b (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ new_allocator.h:127) Using expired pointer: 0x7fffd8bb7aa0 from 0x7fffd8bb7a98
+first time found dangling pointer at: 20122 distance: 17
+[INCONSISTENCY mov read UAF] ip: main+0x64a3b (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:273) UAF read at: 0x7fffd8bb7a80
+[INCONSISTENCY mov read UAF] ip: main+0x64b70 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:442) UAF read at: 0x7fffd8bb7a80
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac27dc0 subject=343 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x159,0x7fffd8b99000]
+[INCONSISTENCY mov read UAF] ip: main+0x649ae (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:750) UAF read at: 0x7fffd8bb7a80
+[INCONSISTENCY mov read UAF] ip: main+0x64b83 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ stl_tree.h:273) UAF read at: 0x7fffd8bb7a80
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac284d0 subject=346 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0xa757c (_ZN7Imf_3_114TypedAttributeIfEC2ERKf @ ImfAttribute.h:207) UAF write at: 0x7fffd8bb7cc0
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27c70 subject=349 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x15f,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac27b40 subject=352 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0x98791 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEEC2ERKS3_) UAF write at: 0x7fffd8bb7cc0
+[INCONSISTENCY mov write reg UAF] ip: main+0x98798 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEEC2ERKS3_ @ ImathVec.h:1306) UAF write at: 0x7fffd8bb7cc8
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27e00 subject=355 at _Znwm
+[STACK PIVOT] ip: main+0x988f4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x165,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac279f0 subject=358 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac279d0 subject=361 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x16b,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac283a0 subject=364 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c031 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEEC2ERKS1_ @ ImfAttribute.h:207) UAF write at: 0x7fffd8bb7cc0
+[INCONSISTENCY mov read UAF] ip: main+0x6c034 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEEC2ERKS1_ @ ImfAttribute.h:207) UAF read at: 0x7fffd8bb7cb4
+[INCONSISTENCY mov write reg UAF] ip: main+0x6c038 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEEC2ERKS1_ @ ImfAttribute.h:207) UAF write at: 0x7fffd8bb7cc8
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27b20 subject=367 at _Znwm
+[STACK PIVOT] ip: main+0x6c182 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x171,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28c90 subject=370 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x66678 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ stl_tree.h:303) base: 0x7fffd8bb79f0 pointee: 133 read from 371
+[INCONSISTENCY mov read] ip: main+0x6667c (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ stl_tree.h:303) base: 0x7fffd8bb79f0 pointee: 133 read from 371
+[INCONSISTENCY mov write reg UAF] ip: main+0xa45f1 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEEC2ERKS1_ @ ImfAttribute.h:207) UAF write at: 0x7fffd8bb7cc0
+[INCONSISTENCY mov read UAF] ip: main+0xa45f4 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEEC2ERKS1_ @ ImfAttribute.h:207) UAF read at: 0x7fffd8bb7cb0
+[INCONSISTENCY mov write reg UAF] ip: main+0xa45f8 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEEC2ERKS1_ @ ImfAttribute.h:207) UAF write at: 0x7fffd8bb7cc8
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27e20 subject=373 at _Znwm
+[STACK PIVOT] ip: main+0xa4742 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x177,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac27c90 subject=376 at _Znwm
+[INCONSISTENCY mov write imm UAF] ip: main+0x659d8 (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ ImfHeader.cpp:227) UAF write at: 0x7fffd8bb7cf0
+[INCONSISTENCY mov write imm UAF] ip: main+0x65a11 (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ stl_tree.h:175) UAF write at: 0x7fffd8bb7cd0
+[INCONSISTENCY mov write imm UAF] ip: main+0x65a1b (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ stl_tree.h:208) UAF write at: 0x7fffd8bb7cd8
+[INCONSISTENCY mov write reg UAF] ip: main+0x65a2a (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE) UAF write at: 0x7fffd8bb7cc0
+Store dangling pointer: 0x7fffd8bb7cd0 at: 0x7fffd8bb7ce0
+[INCONSISTENCY mov write reg UAF] ip: main+0x65a38 (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE) UAF write at: 0x7fffd8bb7ce0
+first time found dangling pointer at: 22341 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x65a3f (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ stl_tree.h:210) UAF write at: 0x7fffd8bb7ce8
+first time found dangling pointer at: 22342 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x65a46 (_ZN7Imf_3_112_GLOBAL__N_110initializeERNS_6HeaderERKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_fRKNS5_IfEEfNS_9LineOrderENS_11CompressionE @ stl_tree.h:211) UAF write at: 0x7fffd8bb7cf0
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac28600 subject=379 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x9ee69 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13copyValueFromERKNS_9AttributeE @ stl_tree.h:715) UAF read at: 0x7fffd8bb7cd8
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28140 subject=382 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x9ead9 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev @ stl_tree.h:735) UAF read at: 0x7fffd8bb7cd8
+[INCONSISTENCY mov write reg UAF] ip: main+0x9eadd (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev @ ImfAttribute.h:215) UAF write at: 0x7fffd8bb7cc0
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7d20 ip: main+0x65228 (_ZN7Imf_3_16Header8readFromERNS_7IStreamERi @ ImfIO.h:180)
+[CORRUPTED_PTR_LOAD] ip: main+0x9e30f (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii) loaded: 0x100000001 from cell: 0x7fffd8bb7690 cell_owner: 387 value_owner: 157
+[CORRUPTED_PTR_LOAD] ip: main+0x9e324 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfIO.h:180) loaded: 0x100000000 from cell: 0x7fffd8bb7690 cell_owner: 387 value_owner: 157
+[CORRUPTED_PTR_LOAD] ip: main+0x9e35b (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfXdr.h:480) loaded: 0x100000001 from cell: 0x7fffd8bb7690 cell_owner: 387 value_owner: 157
+[CORRUPTED_PTR_LOAD] ip: main+0x9e386 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13readValueFromERNS_7IStreamEii @ ImfChannelListAttribute.cpp:131) loaded: 0x100000001 from cell: 0x7fffd8bb7690 cell_owner: 387 value_owner: 157
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac28770 subject=389 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0xa44e3 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13readValueFromERNS_7IStreamEii @ ImfCompressionAttribute.cpp:66) UAF read at: 0x7fffd8bb7ab8
+[STACK PIVOT] ip: main+0xa44e7 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13readValueFromERNS_7IStreamEii @ ImfCompressionAttribute.cpp:66) RSP 0x7fffd8bb7ac8 left stack [0x18b,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x6bf27 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13readValueFromERNS_7IStreamEii @ ImfLineOrderAttribute.cpp:60) RSP 0x7fffd8bb7ac8 left stack [0x195,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0xa747c (_ZN7Imf_3_114TypedAttributeIfE13readValueFromERNS_7IStreamEii @ ImfAttribute.h:270) RSP 0x7fffd8bb7ac8 left stack [0x199,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0xa747c (_ZN7Imf_3_114TypedAttributeIfE13readValueFromERNS_7IStreamEii @ ImfAttribute.h:270) RSP 0x7fffd8bb7ac8 left stack [0x1a0,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac27e40 subject=419 at _Znwm
+Store dangling pointer: 0x7fffd8bb7d20 at: 0x7fffd8bb7b18
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28270 subject=421 at _Znwm
+main+0x6459b (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ new_allocator.h:127) Using expired pointer: 0x7fffd8bb7d20 from 0x7fffd8bb7b18
+first time found dangling pointer at: 25069 distance: 17
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac28c60 subject=426 at _Znwm
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28b30 subject=428 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0x748e0 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_vector.h:1756) UAF write at: 0x7fffd8bb7ea8
+first time found dangling pointer at: 19421 distance: 6486
+[INCONSISTENCY mov write reg UAF] ip: main+0x7491d (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_vector.h:1761) UAF write at: 0x7fffd8bb7e80
+[INCONSISTENCY mov write reg UAF] ip: main+0x74a79 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ new_allocator.h:162) UAF write at: 0x7fffd8bb7e80
+[ALLOC:internal] malloc(0x70) -> 0x5f014ac29f20 subject=431 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0x74a50 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ new_allocator.h:127) UAF write at: 0x7fffd8bb7ea0
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac29fa0 subject=433 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac288b0 subject=435 at _Znwm
+[CORRUPTED_PTR_LOAD] ip: main+0x9ee10 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13copyValueFromERKNS_9AttributeE @ stl_tree.h:462) loaded: 0x0 from cell: 0x7fffd8bb7ba0 cell_owner: 434 value_owner: 314
+Store dangling pointer: 0x7fffd8bb7c70 at: 0x7fffd8bb7c68
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29fe0 subject=437 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x6459b (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ new_allocator.h:127) UAF read at: 0x7fffd8bb7c68
+first time found dangling pointer at: 26197 distance: 17
+main+0x6459b (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ new_allocator.h:127) Using expired pointer: 0x7fffd8bb7c70 from 0x7fffd8bb7c68
+first time found dangling pointer at: 26197 distance: 17
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2a110 subject=440 at _Znwm
+[STACK PIVOT] ip: main+0xa4742 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1ba,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2a130 subject=443 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac2a260 subject=446 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1c0,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2a280 subject=449 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac2a3b0 subject=452 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1c6,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2a3d0 subject=455 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2a500 subject=458 at _Znwm
+[STACK PIVOT] ip: main+0x6c182 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1cc,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2a520 subject=461 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac2a650 subject=464 at _Znwm
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1d2,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2a680 subject=467 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2a7b0 subject=470 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1d8,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2a7d0 subject=473 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2a900 subject=476 at _Znwm
+[STACK PIVOT] ip: main+0x988f4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1de,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2a920 subject=479 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2aa50 subject=482 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1e4,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2aa70 subject=485 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac2aba0 subject=488 at _Znwm
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1ea,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2abd0 subject=491 at _Znwm
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x74959 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_vector.h:346)
+first time found dangling pointer at: 19421 distance: 9657
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea0 ip: main+0x7495d (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_uninitialized.h:91)
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac2ad00 subject=495 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac289f0 subject=497 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac2ad40 subject=498 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac2ae80 subject=499 at _Znwm
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2afc0 subject=501 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2b0f0 subject=504 at _Znwm
+[STACK PIVOT] ip: main+0xa4742 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x1fa,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2b110 subject=507 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac2b240 subject=510 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x200,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2b260 subject=513 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac2b390 subject=516 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x206,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2b3b0 subject=519 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2b4e0 subject=522 at _Znwm
+[STACK PIVOT] ip: main+0x6c182 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x20c,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2b500 subject=525 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac2b630 subject=528 at _Znwm
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x212,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2b660 subject=531 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2b790 subject=534 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x218,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2b7b0 subject=537 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2b8e0 subject=540 at _Znwm
+[STACK PIVOT] ip: main+0x988f4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x21e,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2b900 subject=543 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac2ba30 subject=546 at _Znwm
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x9a2db (_ZN7Imf_3_19AttributeC2Ev @ ImfAttribute.cpp:25) call 0xffffffffffff2bc3 id before: 546 after: -1 [unmapped] value: 0x5f011d2c3530
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x224,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2ba50 subject=549 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac2bb80 subject=552 at _Znwm
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7be8 left stack [0x22a,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2bbb0 subject=555 at _Znwm
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x7497b (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_construct.h:119) add r12, 0x38 id before: 252 after: -1 [chunk metadata] value: 0x5f014ac28df8
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea0 ip: main+0x749b0 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_uninitialized.h:91)
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x749b5 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_construct.h:162)
+first time found dangling pointer at: 19421 distance: 12672
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x749d3 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_construct.h:162) add rbx, 0x38 id before: 252 after: -1 [chunk metadata] value: 0x5f014ac28df8
+[INCONSISTENCY mov write reg UAF] ip: main+0x9e081 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:1883) UAF write at: 0x7fffd8bb7da8
+[INCONSISTENCY mov read UAF] ip: main+0x9e08e (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) UAF read at: 0x7fffd8bb7da8
+[INCONSISTENCY mov read UAF] ip: main+0x9e205 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:1887) UAF read at: 0x7fffd8bb7da8
+[FREE:internal] free(0x5f014ac28f80) subject=257 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E
+[FREE:internal] free(0x5f014ac28e40) subject=256 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[FREE:internal] free(0x5f014ac290c0) subject=258 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[INCONSISTENCY mov read UAF] ip: main+0x9eb29 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) UAF read at: 0x7fffd8bb7e28
+[STACK PIVOT] ip: main+0x9eb32 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x231,0x7fffd8b99000]
+[FREE] free(0x5f014ac28e00) subject=254 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa4542 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x232,0x7fffd8b99000]
+[FREE] free(0x5f014ac29330) subject=263 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x233,0x7fffd8b99000]
+[FREE] free(0x5f014ac29480) subject=269 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x234,0x7fffd8b99000]
+[FREE] free(0x5f014ac295d0) subject=275 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x6bf82 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x235,0x7fffd8b99000]
+[FREE] free(0x5f014ac29720) subject=281 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e18 left stack [0x236,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x237,0x7fffd8b99000]
+[FREE] free(0x5f014ac29870) subject=287 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x238,0x7fffd8b99000]
+[FREE] free(0x5f014ac299d0) subject=293 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x98132 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x239,0x7fffd8b99000]
+[FREE] free(0x5f014ac29b20) subject=299 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x23a,0x7fffd8b99000]
+[FREE] free(0x5f014ac29c70) subject=305 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e18 left stack [0x23b,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e38 left stack [0x23c,0x7fffd8b99000]
+[FREE] free(0x5f014ac29dc0) subject=311 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov read UAF] ip: main+0x5eeae (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:787) UAF read at: 0x7fffd8bb7de8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5eeb6 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:787) UAF write at: 0x7fffd8bb7df8
+[INCONSISTENCY mov read UAF] ip: main+0x5eec3 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:787) UAF read at: 0x7fffd8bb7df8
+[INCONSISTENCY mov write reg UAF] ip: main+0x5eed8 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:787) UAF write at: 0x7fffd8bb7df0
+[INCONSISTENCY mov read UAF] ip: main+0x5eee5 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:787) UAF read at: 0x7fffd8bb7df0
+[INCONSISTENCY mov read UAF] ip: main+0x5ef9e (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:1887) UAF read at: 0x7fffd8bb7df0
+[FREE:internal] free(0x5f014ac29df0) subject=314 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac29c90) subject=308 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[INCONSISTENCY mov read UAF] ip: main+0x5f005 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:1887) UAF read at: 0x7fffd8bb7df8
+[FREE:internal] free(0x5f014ac29b40) subject=302 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[INCONSISTENCY mov write reg UAF] ip: main+0x5f01c (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E) UAF write at: 0x7fffd8bb7df8
+[FREE:internal] free(0x5f014ac299f0) subject=296 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[INCONSISTENCY mov read UAF] ip: main+0x5f025 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E @ stl_tree.h:1887) UAF read at: 0x7fffd8bb7de8
+[FREE:internal] free(0x5f014ac298a0) subject=290 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[INCONSISTENCY mov write reg UAF] ip: main+0x5f03c (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E) UAF write at: 0x7fffd8bb7de8
+[FREE:internal] free(0x5f014ac29740) subject=284 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac295f0) subject=278 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac294a0) subject=272 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac29350) subject=266 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac29200) subject=260 at _ZN7Imf_3_16HeaderD2Ev
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x749e1 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ stl_construct.h:162)
+first time found dangling pointer at: 19421 distance: 13307
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x749ec (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_)
+first time found dangling pointer at: 19421 distance: 13310
+[INCONSISTENCY mov read UAF] ip: main+0x749f0 (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_) UAF read at: 0x5f014ac27240
+[FREE] free(0x5f014ac28dc0) subject=252 at _ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ new_allocator.h:145
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea0 ip: main+0x74a0c (_ZNSt6vectorIN7Imf_3_16HeaderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ @ vector.tcc:504)
+[FREE:internal] free(0x5f014ac28770) subject=389 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[STACK PIVOT] ip: main+0x9eb32 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x241,0x7fffd8b99000]
+[FREE] free(0x5f014ac28600) subject=379 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa4542 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x242,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e20) subject=373 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x243,0x7fffd8b99000]
+[FREE] free(0x5f014ac27dc0) subject=343 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x244,0x7fffd8b99000]
+[FREE] free(0x5f014ac27de0) subject=337 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x6bf82 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x245,0x7fffd8b99000]
+[FREE] free(0x5f014ac27b20) subject=367 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e98 left stack [0x246,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x247,0x7fffd8b99000]
+[FREE] free(0x5f014ac28c60) subject=426 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x248,0x7fffd8b99000]
+[FREE] free(0x5f014ac27c70) subject=349 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x98132 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x249,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e00) subject=355 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x24a,0x7fffd8b99000]
+[FREE] free(0x5f014ac279d0) subject=361 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7e98 left stack [0x24b,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x24c,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e40) subject=419 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[FREE:internal] free(0x5f014ac28270) subject=421 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac283a0) subject=364 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac279f0) subject=358 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac27b40) subject=352 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28b30) subject=428 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28c90) subject=370 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28640) subject=340 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac284d0) subject=346 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac27c90) subject=376 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac28140) subject=382 at _ZN7Imf_3_16HeaderD2Ev
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac279d0 subject=594 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x254,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28c90 subject=597 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac27e00 subject=600 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x25a,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28b30 subject=603 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27c70 subject=606 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x260,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac27b40 subject=609 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27b20 subject=612 at _Znwm
+[STACK PIVOT] ip: main+0x988f4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x266,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac279f0 subject=615 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27de0 subject=618 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x26c,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac283a0 subject=621 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27dc0 subject=624 at _Znwm
+[STACK PIVOT] ip: main+0x6c182 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x272,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28270 subject=627 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27e20 subject=630 at _Znwm
+[STACK PIVOT] ip: main+0xa4742 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7a18 left stack [0x278,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29200 subject=633 at _Znwm
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac28600 subject=636 at _Znwm
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29350 subject=639 at _Znwm
+[STACK PIVOT] ip: main+0x9eb32 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x283,0x7fffd8b99000]
+[FREE] free(0x5f014ac28600) subject=636 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa4542 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x284,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e20) subject=630 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x285,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e00) subject=600 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x286,0x7fffd8b99000]
+[FREE] free(0x5f014ac279d0) subject=594 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x6bf82 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x287,0x7fffd8b99000]
+[FREE] free(0x5f014ac27dc0) subject=624 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x288,0x7fffd8b99000]
+[FREE] free(0x5f014ac27c70) subject=606 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x98132 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x289,0x7fffd8b99000]
+[FREE] free(0x5f014ac27b20) subject=612 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7eb8 left stack [0x28a,0x7fffd8b99000]
+[FREE] free(0x5f014ac27de0) subject=618 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[FREE:internal] free(0x5f014ac283a0) subject=621 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac279f0) subject=615 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac27b40) subject=609 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28270) subject=627 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28c90) subject=597 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac28b30) subject=603 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac29200) subject=633 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac29350) subject=639 at _ZN7Imf_3_16HeaderD2Ev
+[INCONSISTENCY mov read UAF] ip: main+0x73b2b (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:918) UAF read at: 0x5f014ac27230
+[INCONSISTENCY mov read UAF] ip: main+0x73b32 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ ImfMultiPartInputFile.cpp:337) UAF read at: 0x5f014ac27238
+[INCONSISTENCY mov read UAF] ip: main+0x73fa2 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:1046) UAF read at: 0x5f014ac27230
+[INCONSISTENCY mov read UAF] ip: main+0x73bbb (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:1046) UAF read at: 0x5f014ac27230
+[UNTRUSTEDPTRDEREF] ip: main+0x60bc8 (_ZN7Imf_3_16HeaderixEPKc) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf82bc8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x60bd3 (_ZN7Imf_3_16HeaderixEPKc) final_ea: 0x5f011d2c6f70 base: 0x5f011cf82bd3 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write imm UAF] ip: main+0x60c01 (_ZN7Imf_3_16HeaderixEPKc @ ImfName.h:86) UAF write at: 0x7fffd8bb7dff
+[UNTRUSTEDPTRDEREF] ip: main+0x611f8 (_ZNK7Imf_3_16HeaderixEPKc) final_ea: 0x5f011d2c6fa0 base: 0x5f011cf831f8 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x61203 (_ZNK7Imf_3_16HeaderixEPKc) final_ea: 0x5f011d2c6f70 base: 0x5f011cf83203 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write imm UAF] ip: main+0x61231 (_ZNK7Imf_3_16HeaderixEPKc @ ImfName.h:86) UAF write at: 0x7fffd8bb7bbf
+[INCONSISTENCY mov write imm UAF] ip: main+0x601cc (_ZNK7Imf_3_16Header7hasNameEv @ stl_tree.h:745) UAF write at: 0x7fffd8bb7c6f
+[INCONSISTENCY mov write imm UAF] ip: main+0x602cc (_ZNK7Imf_3_16Header7hasTypeEv @ stl_tree.h:745) UAF write at: 0x7fffd8bb7c6f
+Store dangling pointer: 0x7fffd8bb7d10 at: 0x7fffd8bb7d00
+[INCONSISTENCY mov write reg UAF] ip: main+0x61e07 (_ZNK7Imf_3_16Header11sanityCheckEbb @ basic_string.h:168) UAF write at: 0x7fffd8bb7d00
+first time found dangling pointer at: 37587 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x61e15 (_ZNK7Imf_3_16Header11sanityCheckEbb @ basic_string.h:927) UAF write at: 0x7fffd8bb7cf0
+first time found dangling pointer at: 37590 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x61e2d (_ZNK7Imf_3_16Header11sanityCheckEbb @ basic_string.tcc:215) UAF write at: 0x7fffd8bb7d20
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7cf0 ip: main+0x63f8d (_ZNK7Imf_3_16Header11sanityCheckEbb @ ostream:616)
+first time found dangling pointer at: 37590 distance: 13
+main+0x63f8d (_ZNK7Imf_3_16Header11sanityCheckEbb @ ostream:616) Using expired pointer: 0x7fffd8bb7d10 from 0x7fffd8bb7cf0
+first time found dangling pointer at: 37590 distance: 13
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7d20 ip: main+0x625c9 (_ZNK7Imf_3_16Header11sanityCheckEbb @ char_traits.h:437)
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7d00 ip: main+0x625d0 (_ZNK7Imf_3_16Header11sanityCheckEbb @ basic_string.h:195)
+first time found dangling pointer at: 37587 distance: 23
+[INCONSISTENCY mov write reg UAF] ip: main+0x61e60 (_ZNK7Imf_3_16Header11sanityCheckEbb @ char_traits.h:357) UAF write at: 0x7fffd8bb7d08
+[INCONSISTENCY mov write imm UAF] ip: main+0x61e67 (_ZNK7Imf_3_16Header11sanityCheckEbb @ basic_string.h:191) UAF write at: 0x7fffd8bb7d1e
+[INCONSISTENCY mov read UAF] ip: main+0x76042 (_ZN7Imf_3_115isSupportedTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) UAF read at: 0x7fffd8bb7d08
+[INCONSISTENCY mov read UAF] ip: main+0x7604d (_ZN7Imf_3_115isSupportedTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @ basic_string.h:6234) UAF read at: 0x7fffd8bb7d00
+first time found dangling pointer at: 37587 distance: 45
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7d00 ip: main+0x61dc0 (_ZNK7Imf_3_16Header11sanityCheckEbb @ ImfHeader.cpp:1176)
+first time found dangling pointer at: 37587 distance: 63
+[INCONSISTENCY mov read UAF] ip: main+0x73f6b (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27230
+[INCONSISTENCY mov read UAF] ip: main+0x73f72 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27238
+[INCONSISTENCY mov read UAF] ip: main+0x73c46 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_tree.h:176) UAF read at: 0x5f014ac27230
+[INCONSISTENCY mov write reg UAF] ip: main+0x33f30 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:2115) UAF write at: 0x7fffd8bb7e80
+[INCONSISTENCY mov write reg UAF] ip: main+0x33f34 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:2061) UAF write at: 0x7fffd8bb7e88
+first time found dangling pointer at: 19656 distance: 19622
+[INCONSISTENCY mov write reg UAF] ip: main+0x33f38 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:750) UAF write at: 0x7fffd8bb7e90
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e80 ip: main+0x340d3 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:995)
+[INCONSISTENCY mov write reg UAF] ip: main+0x34168 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ char_traits.h:437) UAF write at: 0x7fffd8bb7e98
+first time found dangling pointer at: 15543 distance: 23743
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e98 ip: main+0x34172 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:1780)
+first time found dangling pointer at: 15543 distance: 23745
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e90 ip: main+0x34176 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_)
+[ALLOC:internal] malloc(0x40) -> 0x5f014ac28640 subject=680 at _Znwm
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e88 ip: main+0x3404c (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ basic_string.h:168)
+first time found dangling pointer at: 19656 distance: 19640
+[INCONSISTENCY mov write reg UAF] ip: main+0x34068 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ basic_string.tcc:215) UAF write at: 0x7fffd8bb7ea8
+first time found dangling pointer at: 19421 distance: 19883
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x34154 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ char_traits.h:437)
+first time found dangling pointer at: 19421 distance: 19894
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e98 ip: main+0x34089 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ char_traits.h:357)
+first time found dangling pointer at: 15543 distance: 23775
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e90 ip: main+0x3408d (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_)
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e80 ip: main+0x340a6 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:1788)
+[INCONSISTENCY mov read UAF] ip: main+0x73de2 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27230
+[INCONSISTENCY mov read UAF] ip: main+0x73de9 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27238
+[INCONSISTENCY mov write reg UAF] ip: main+0x33f7e (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ char_traits.h:377) UAF write at: 0x7fffd8bb7e98
+first time found dangling pointer at: 15543 distance: 24086
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e98 ip: main+0x33f87 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ char_traits.h:389)
+first time found dangling pointer at: 15543 distance: 24089
+[INCONSISTENCY mov write reg UAF] ip: main+0x33fc6 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:2075) UAF write at: 0x7fffd8bb7e98
+first time found dangling pointer at: 15543 distance: 24100
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e98 ip: main+0x34018 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:2126)
+first time found dangling pointer at: 15543 distance: 24111
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e98 ip: main+0x34023 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:523)
+first time found dangling pointer at: 15543 distance: 24113
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e90 ip: main+0x3402d (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_tree.h:1780)
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e88 ip: main+0x34180 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ stl_function.h:399)
+first time found dangling pointer at: 19656 distance: 20004
+[ALLOC:internal] malloc(0x40) -> 0x5f014ac28690 subject=684 at _Znwm
+Store dangling pointer: 0x5f014ac286c0 at: 0x5f014ac286b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x34048 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ new_allocator.h:127) UAF write at: 0x5f014ac286b0
+first time found dangling pointer at: 39681 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x34158 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ basic_string.h:195) UAF read at: 0x5f014ac286b0
+first time found dangling pointer at: 39681 distance: 21
+main+0x34158 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ basic_string.h:195) Using expired pointer: 0x5f014ac286c0 from 0x5f014ac286b0
+first time found dangling pointer at: 39681 distance: 21
+[INCONSISTENCY mov write reg UAF] ip: main+0x34091 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ basic_string.h:191) UAF write at: 0x5f014ac286b8
+[INCONSISTENCY mov write imm UAF] ip: main+0x34099 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ @ char_traits.h:357) UAF write at: 0x5f014ac286c6
+[INCONSISTENCY mov write reg UAF] ip: main+0x711c1 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:1883) UAF write at: 0x7fffd8bb7e90
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e90 ip: main+0x711ce (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787)
+main+0x711d2 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) Read a dangling pointer 0x5f014ac28690 from 0x5f014ac28658
+[INCONSISTENCY mov write reg UAF] ip: main+0x711d6 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) UAF write at: 0x7fffd8bb7ea8
+first time found dangling pointer at: 19421 distance: 20329
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x711e3 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787)
+first time found dangling pointer at: 19421 distance: 20332
+main+0x711e3 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) Using expired pointer: 0x5f014ac28690 from 0x7fffd8bb7ea8
+first time found dangling pointer at: 19421 distance: 20332
+[INCONSISTENCY mov read UAF] ip: main+0x711e7 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) UAF read at: 0x5f014ac286a8
+[INCONSISTENCY mov write reg UAF] ip: main+0x711eb (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:787) UAF write at: 0x7fffd8bb7ea0
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea8 ip: main+0x71456 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:1887)
+first time found dangling pointer at: 19421 distance: 20337
+[INCONSISTENCY mov read UAF] ip: main+0x7145a (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ basic_string.h:195) UAF read at: 0x5f014ac286b0
+first time found dangling pointer at: 39681 distance: 78
+[INCONSISTENCY mov read UAF] ip: main+0x71462 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:780) UAF read at: 0x5f014ac286a0
+[FREE:internal] free(0x5f014ac28690) subject=684 at _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e90 ip: main+0x714a9 (_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E @ stl_tree.h:1887)
+[FREE:internal] free(0x5f014ac28640) subject=680 at _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E
+[INCONSISTENCY mov read UAF] ip: main+0x73e11 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:918) UAF read at: 0x5f014ac27238
+[INCONSISTENCY mov read UAF] ip: main+0x73e19 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27230
+[UNINITIALIZED mov read] ip: main+0x733ae (_ZNK7Imf_3_118MultiPartInputFile4Data27checkSharedAttributesValuesERKNS_6HeaderES4_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE @ stl_vector.h:1499) co: 20 vo: -1
+[UNINITIALIZED mov read] ip: main+0x733b1 (_ZNK7Imf_3_118MultiPartInputFile4Data27checkSharedAttributesValuesERKNS_6HeaderES4_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE @ stl_vector.h:1794) co: 20 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0x733b5 (_ZNK7Imf_3_118MultiPartInputFile4Data27checkSharedAttributesValuesERKNS_6HeaderES4_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE @ stl_vector.h:1499) UAF write at: 0x7fffd8bb7e68
+first time found dangling pointer at: 19805 distance: 20020
+[INCONSISTENCY mov write imm UAF] ip: main+0x74635 (_ZNK7Imf_3_16Header18findTypedAttributeINS_14TypedAttributeINS_8TimeCodeEEEEEPKT_PKc @ stl_tree.h:745) UAF write at: 0x7fffd8bb7e2f
+[INCONSISTENCY mov write imm UAF] ip: main+0x74725 (_ZNK7Imf_3_16Header18findTypedAttributeINS_14TypedAttributeINS_14ChromaticitiesEEEEEPKT_PKc @ stl_tree.h:745) UAF write at: 0x7fffd8bb7e2f
+[INCONSISTENCY mov read UAF] ip: main+0x74103 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27238
+[INCONSISTENCY mov read UAF] ip: main+0x7410b (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27230
+[ALLOC:internal] malloc(0x70) -> 0x5f014ac286e0 subject=695 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x74079 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ ImfMultiPartInputFile.cpp:433) UAF read at: 0x5f014ac271d8
+[INCONSISTENCY mov read UAF] ip: main+0x7407d (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ ImfMultiPartInputFile.cpp:433) UAF read at: 0x5f014ac271f8
+Store dangling pointer: 0x5f014ac286e8 at: 0x5f014ac286f8
+[INCONSISTENCY mov write reg UAF] ip: main+0x64f5d (_ZN7Imf_3_16HeaderC1ERKS0_ @ stl_tree.h:209) UAF write at: 0x5f014ac286f8
+first time found dangling pointer at: 40683 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x64f65 (_ZN7Imf_3_16HeaderC1ERKS0_ @ stl_tree.h:210) UAF write at: 0x5f014ac28700
+first time found dangling pointer at: 40685 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0x64f6d (_ZN7Imf_3_16HeaderC1ERKS0_ @ stl_tree.h:175) UAF write at: 0x5f014ac286e8
+[INCONSISTENCY mov write imm UAF] ip: main+0x64f74 (_ZN7Imf_3_16HeaderC1ERKS0_ @ stl_tree.h:176) UAF write at: 0x5f014ac286f0
+[INCONSISTENCY mov write imm UAF] ip: main+0x64f7c (_ZN7Imf_3_16HeaderC1ERKS0_ @ stl_tree.h:209) UAF write at: 0x5f014ac28708
+Store dangling pointer: 0x5f014ac286e0 at: 0x7fffd8bb7c98
+main+0x64937 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ string_fortified.h:95) Using expired pointer: 0x5f014ac286e0 from 0x7fffd8bb7c98
+first time found dangling pointer at: 40709 distance: 15
+[INCONSISTENCY mov read UAF] ip: main+0x64945 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:86) UAF read at: 0x5f014ac286f0
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac28600 subject=698 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0x9ed7b (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13copyValueFromERKNS_9AttributeE @ stl_tree.h:444) UAF write at: 0x7fffd8bb7bf0
+[INCONSISTENCY mov write imm UAF] ip: main+0x9ee6d (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13copyValueFromERKNS_9AttributeE @ stl_tree.h:454) UAF write at: 0x7fffd8bb7be8
+[INCONSISTENCY mov read UAF] ip: main+0x9e6ba (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_ @ stl_tree.h:483) UAF read at: 0x7fffd8bb7be8
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac28770 subject=700 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac290c0 subject=701 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x9e764 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE7_M_copyILb0ENSB_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_ @ stl_tree.h:637) UAF read at: 0x7fffd8bb7be8
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac28e40 subject=702 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x9ee10 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEE13copyValueFromERKNS_9AttributeE @ stl_tree.h:462) UAF read at: 0x7fffd8bb7be0
+[INCONSISTENCY mov read UAF] ip: main+0x649a1 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfName.h:86) UAF read at: 0x5f014ac286f0
+main+0x64e50 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:467) Using expired pointer: 0x5f014ac286e8 from 0x7fffd8bb7c90
+first time found dangling pointer at: 40728 distance: 278
+Store dangling pointer: 0x7fffd8bb7cb0 at: 0x7fffd8bb7ca8
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29350 subject=704 at _Znwm
+main+0x6459b (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ new_allocator.h:127) Using expired pointer: 0x7fffd8bb7cb0 from 0x7fffd8bb7ca8
+first time found dangling pointer at: 41010 distance: 17
+[INCONSISTENCY mov read UAF] ip: main+0x665a8 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ ImfName.h:128) UAF read at: 0x5f014ac28708
+[INCONSISTENCY mov read UAF] ip: main+0x665af (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ stl_tree.h:2061) UAF read at: 0x5f014ac286f0
+[INCONSISTENCY mov read UAF] ip: main+0x66653 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ stl_tree.h:995) UAF read at: 0x5f014ac286f8
+first time found dangling pointer at: 40683 distance: 402
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27de0 subject=707 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0xa473e (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) UAF read at: 0x7fffd8bb7c18
+[STACK PIVOT] ip: main+0xa4742 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2c5,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29200 subject=710 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x66620 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ stl_tree.h:2083) UAF read at: 0x5f014ac28700
+first time found dangling pointer at: 40685 distance: 642
+[INCONSISTENCY mov write reg UAF] ip: main+0x6662e (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ ImfName.h:128) UAF write at: 0x7fffd8bb7bc8
+[INCONSISTENCY mov read UAF] ip: main+0x66637 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ ImfName.h:128) UAF read at: 0x7fffd8bb7bc8
+[INCONSISTENCY mov write reg UAF] ip: main+0x646fc (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ ImfName.h:128) UAF write at: 0x7fffd8bb7c10
+first time found dangling pointer at: 41357 distance: 0
+[INCONSISTENCY mov write reg UAF] ip: main+0x64700 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ ImfName.h:128) UAF write at: 0x7fffd8bb7c18
+first time found dangling pointer at: 41231 distance: 127
+[INCONSISTENCY mov read UAF] ip: main+0x64709 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_ @ ImfName.h:128) UAF read at: 0x7fffd8bb7c10
+first time found dangling pointer at: 41357 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0x6470d (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_) UAF read at: 0x7fffd8bb7c18
+first time found dangling pointer at: 41231 distance: 130
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac27b20 subject=713 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x9db80 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1322) UAF read at: 0x7fffd8bb7c18
+first time found dangling pointer at: 41231 distance: 266
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2cb,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28b30 subject=716 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac27c70 subject=719 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2d1,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28c90 subject=722 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27dc0 subject=725 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x6c17e (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) UAF read at: 0x7fffd8bb7c18
+first time found dangling pointer at: 41231 distance: 789
+[STACK PIVOT] ip: main+0x6c182 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2d7,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28270 subject=728 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac27e40 subject=731 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x8e05c (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) UAF read at: 0x7fffd8bb7c18
+first time found dangling pointer at: 41231 distance: 1051
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2dd,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac27b40 subject=734 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac279d0 subject=737 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0xa76d2 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) UAF read at: 0x7fffd8bb7c18
+first time found dangling pointer at: 41231 distance: 1310
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2e3,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac279f0 subject=739 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27e00 subject=741 at _Znwm
+[INCONSISTENCY mov read UAF] ip: main+0x988f0 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImathVec.h:1321) UAF read at: 0x7fffd8bb7c18
+first time found dangling pointer at: 41231 distance: 1474
+[STACK PIVOT] ip: main+0x988f4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2e7,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac283a0 subject=743 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac27e20 subject=745 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2eb,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac294a0 subject=747 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac28c60 subject=749 at _Znwm
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2ef,0x7fffd8b99000]
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac295f0 subject=751 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0xb6369 (_ZN7Imf_3_113InputPartDataC2EPNS_16InputStreamMutexERKNS_6HeaderEiii @ ImfInputPartData.cpp:20) UAF write at: 0x5f014ac28720
+[INCONSISTENCY mov write reg UAF] ip: main+0xb636d (_ZN7Imf_3_113InputPartDataC2EPNS_16InputStreamMutexERKNS_6HeaderEiii @ ImfInputPartData.cpp:21) UAF write at: 0x5f014ac28728
+first time found dangling pointer at: 43154 distance: 0
+[INCONSISTENCY mov write imm UAF] ip: main+0xb6371 (_ZN7Imf_3_113InputPartDataC2EPNS_16InputStreamMutexERKNS_6HeaderEiii @ stl_vector.h:487) UAF write at: 0x5f014ac28730
+[INCONSISTENCY mov write imm UAF] ip: main+0xb6379 (_ZN7Imf_3_113InputPartDataC2EPNS_16InputStreamMutexERKNS_6HeaderEiii @ stl_vector.h:98) UAF write at: 0x5f014ac28738
+[INCONSISTENCY mov write imm UAF] ip: main+0xb6381 (_ZN7Imf_3_113InputPartDataC2EPNS_16InputStreamMutexERKNS_6HeaderEiii @ stl_vector.h:98) UAF write at: 0x5f014ac28740
+[INCONSISTENCY mov write imm UAF] ip: main+0xb6389 (_ZN7Imf_3_113InputPartDataC2EPNS_16InputStreamMutexERKNS_6HeaderEiii @ ImfInputPartData.cpp:22) UAF write at: 0x5f014ac28748
+[INCONSISTENCY mov read UAF] ip: main+0x7408a (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:1203) UAF read at: 0x5f014ac271e8
+[INCONSISTENCY mov read UAF] ip: main+0x7558f (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_) UAF read at: 0x5f014ac271e8
+[INCONSISTENCY mov read UAF] ip: main+0x75593 (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_) UAF read at: 0x5f014ac271e0
+[INCONSISTENCY mov write reg UAF] ip: main+0x7568d (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ new_allocator.h:127) UAF write at: 0x7fffd8bb7e98
+first time found dangling pointer at: 15543 distance: 27667
+[INCONSISTENCY mov write reg UAF] ip: main+0x75691 (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ new_allocator.h:127) UAF write at: 0x7fffd8bb7ea0
+[ALLOC:internal] malloc(0x8) -> 0x5f014ac29c70 subject=754 at _Znwm
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7ea0 ip: main+0x7569a (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ new_allocator.h:127)
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e98 ip: main+0x7569e (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ new_allocator.h:127)
+first time found dangling pointer at: 15543 distance: 27671
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x756a5 (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ new_allocator.h:127) add rbx, rax id before: 754 after: 0 [freed] value: 0x5f014ac29c78
+Store dangling pointer: 0x5f014ac29c78 at: 0x5f014ac271f0
+[INCONSISTENCY mov write reg UAF] ip: main+0x75619 (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ vector.tcc:504) UAF write at: 0x5f014ac271f0
+first time found dangling pointer at: 43234 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x74026 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27230
+[INCONSISTENCY mov read UAF] ip: main+0x7402e (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ stl_vector.h:919) UAF read at: 0x5f014ac27238
+[ALLOC:internal] malloc(0x70) -> 0x5f014ac284d0 subject=755 at _Znwm
+[ALLOC:internal] malloc(0x38) -> 0x5f014ac28dc0 subject=757 at _Znwm
+[ALLOC:internal] malloc(0x130) -> 0x5f014ac28f80 subject=759 at _Znwm
+[STACK PIVOT] ip: main+0x9ef37 (_ZNK7Imf_3_114TypedAttributeINS_11ChannelListEE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29740 subject=761 at _Znwm
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x64759 (_ZN7Imf_3_16Header6insertEPKcRKNS_9AttributeE @ ImfHeader.cpp:435) call 0xfffffffffffff780 id before: 443 after: -1 [unmapped] value: 0x71863de96b78
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac29b20 subject=762 at _Znwm
+[STACK PIVOT] ip: main+0xa4742 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x2fc,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0xa47a4 (_ZNK7Imf_3_114TypedAttributeINS_11CompressionEE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac298a0 subject=765 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac299d0 subject=766 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x300,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x9dbf3 (_ZNK7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac299f0 subject=769 at _Znwm
+[ALLOC:internal] malloc(0x18) -> 0x5f014ac29720 subject=770 at _Znwm
+[STACK PIVOT] ip: main+0x9db84 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x304,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x9dbf3 (_ZNK7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29b40 subject=773 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac295d0 subject=774 at _Znwm
+[STACK PIVOT] ip: main+0x6c182 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x308,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x6c1e4 (_ZNK7Imf_3_114TypedAttributeINS_9LineOrderEE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29c90 subject=777 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac29dc0 subject=778 at _Znwm
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x30c,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8e0e2 (_ZNK7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac29df0 subject=781 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac29480 subject=782 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x310,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0xa7734 (_ZNK7Imf_3_114TypedAttributeIfE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac27c90 subject=785 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac29330 subject=786 at _Znwm
+[STACK PIVOT] ip: main+0x988f4 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x314,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x98955 (_ZNK7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac28140 subject=789 at _Znwm
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac28550 subject=790 at _Znwm
+[STACK PIVOT] ip: main+0xa76d6 (_ZN7Imf_3_114TypedAttributeIfE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x318,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0xa7734 (_ZNK7Imf_3_114TypedAttributeIfE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2bce0 subject=793 at _Znwm
+[ALLOC:internal] malloc(0x28) -> 0x5f014ac29870 subject=794 at _Znwm
+[STACK PIVOT] ip: main+0x8e060 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE @ ImfAttribute.h:277) RSP 0x7fffd8bb7c28 left stack [0x31c,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8e0e2 (_ZNK7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4copyEv @ ImfAttribute.h:252) RSP 0x7fffd8bb7c50 left stack after RET
+[ALLOC:internal] malloc(0x128) -> 0x5f014ac2be10 subject=797 at _Znwm
+[INCONSISTENCY mov read] ip: main+0x665a8 (_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_ @ ImfName.h:128) base: 0x5f014ac284d0 pointee: 793 read from 755
+main+0x7558f (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_) Using expired pointer: 0x5f014ac29c78 from 0x5f014ac271e8
+first time found dangling pointer at: 44432 distance: 16
+[ALLOC:internal] malloc(0x10) -> 0x5f014ac28570 subject=800 at _Znwm
+[INCONSISTENCY mov write reg UAF] ip: main+0x755f0 (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ new_allocator.h:162) UAF write at: 0x5f014ac28578
+Store dangling pointer: 0x5f014ac28580 at: 0x7fffd8bb7e98
+[INCONSISTENCY mov write reg UAF] ip: main+0x7563e (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ stl_uninitialized.h:1011) UAF write at: 0x7fffd8bb7e98
+first time found dangling pointer at: 15543 distance: 28953
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7e98 ip: main+0x7564a (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ stl_uninitialized.h:1011)
+first time found dangling pointer at: 15543 distance: 28957
+main+0x7564a (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ stl_uninitialized.h:1011) Using expired pointer: 0x5f014ac28580 from 0x7fffd8bb7e98
+first time found dangling pointer at: 15543 distance: 28957
+[INCONSISTENCY mov read UAF] ip: main+0x75650 (_ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ @ stl_uninitialized.h:1010) UAF read at: 0x5f014ac271f0
+first time found dangling pointer at: 43234 distance: 1268
+[FREE:internal] free(0x5f014ac29c70) subject=754 at _ZNSt6vectorIPN7Imf_3_113InputPartDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_
+[INCONSISTENCY mov read UAF] ip: main+0x740b0 (_ZN7Imf_3_118MultiPartInputFile10initializeEv @ ImfMultiPartInputFile.cpp:435) UAF read at: 0x5f014ac271fc
+[INCONSISTENCY mov read UAF] ip: main+0x731cb (_ZN7Imf_3_118MultiPartInputFile4Data21readChunkOffsetTablesEb @ stl_vector.h:919) UAF read at: 0x5f014ac271e0
+main+0x731cb (_ZN7Imf_3_118MultiPartInputFile4Data21readChunkOffsetTablesEb @ stl_vector.h:919) Read a dangling pointer 0x5f014ac28570 from 0x5f014ac271e0
+[INCONSISTENCY mov read UAF] ip: main+0x731db (_ZN7Imf_3_118MultiPartInputFile4Data21readChunkOffsetTablesEb @ ImfMultiPartInputFile.cpp:802) UAF read at: 0x5f014ac271e8
+first time found dangling pointer at: 44432 distance: 121
+[INCONSISTENCY mov read UAF] ip: main+0x731f4 (_ZN7Imf_3_118MultiPartInputFile4Data21readChunkOffsetTablesEb @ ImfMultiPartInputFile.cpp:804) UAF read at: 0x5f014ac28570
+[INCONSISTENCY mov read UAF] ip: main+0x602c8 (_ZNK7Imf_3_16Header7hasTypeEv @ string_fortified.h:95) UAF read at: 0x5f014ac286f0
+[INCONSISTENCY mov read UAF] ip: main+0x6122d (_ZNK7Imf_3_16HeaderixEPKc @ string_fortified.h:95) UAF read at: 0x5f014ac286f0
+[INCONSISTENCY mov read UAF] ip: main+0x605c8 (_ZNK7Imf_3_16Header13hasChunkCountEv @ string_fortified.h:95) UAF read at: 0x5f014ac286f0
+[ALLOC:internal] malloc(0xc8) -> 0x5f014ac2bf40 subject=805 at __cxa_allocate_exception
+[ALLOC:internal] malloc(0x37) -> 0x5f014ac28e00 subject=807 at _Znwm
+[CORRUPTED_PTR_LOAD] ip: main+0xe70fe (_ZN7Iex_3_17BaseExcC1EPKc @ basic_string.h:186) loaded: 0x36 from cell: 0x7fffd8bb7f18 cell_owner: 806 value_owner: 20
+[CORRUPTED_PTR_LOAD] ip: main+0xe7112 (_ZN7Iex_3_17BaseExcC1EPKc @ char_traits.h:437) loaded: 0x36 from cell: 0x7fffd8bb7f18 cell_owner: 806 value_owner: 20
+[STACK PIVOT] ip: main+0xe7bd7 (_ZN7Iex_3_16ArgExcC2EPKc @ IexBaseExc.cpp:177) RSP 0x7fffd8bb7f78 left stack [0x329,0x7fffd8b99000]
+[INCONSISTENCY mov read UAF] ip: main+0x744e4 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ ImfMultiPartInputFile.cpp:83) UAF read at: 0x5f014ac271dc
+[INCONSISTENCY mov read UAF] ip: main+0x744f9 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ ImfMultiPartInputFile.cpp:85) UAF read at: 0x5f014ac271e8
+first time found dangling pointer at: 44432 distance: 589
+[INCONSISTENCY mov read UAF] ip: main+0x744fd (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ stl_vector.h:919) UAF read at: 0x5f014ac271e0
+first time found dangling pointer at: 44550 distance: 472
+main+0x744fd (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ stl_vector.h:919) Using expired pointer: 0x5f014ac28570 from 0x5f014ac271e0
+first time found dangling pointer at: 44550 distance: 472
+[INCONSISTENCY mov read UAF] ip: main+0x74510 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ ImfMultiPartInputFile.cpp:86) UAF read at: 0x5f014ac28570
+first time found dangling pointer at: 44558 distance: 469
+[INCONSISTENCY mov read UAF] ip: main+0x74519 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ ImfInputPartData.h:17) UAF read at: 0x5f014ac28730
+[INCONSISTENCY mov read UAF] ip: main+0x5f888 (_ZN7Imf_3_16HeaderD2Ev @ stl_tree.h:996) UAF read at: 0x5f014ac286f8
+first time found dangling pointer at: 40683 distance: 4361
+[FREE:internal] free(0x5f014ac290c0) subject=701 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E
+[FREE:internal] free(0x5f014ac28770) subject=700 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[FREE:internal] free(0x5f014ac28e40) subject=702 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[STACK PIVOT] ip: main+0x9eb32 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x32c,0x7fffd8b99000]
+[FREE] free(0x5f014ac28600) subject=698 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa4542 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x32d,0x7fffd8b99000]
+[FREE] free(0x5f014ac27de0) subject=707 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x32e,0x7fffd8b99000]
+[FREE] free(0x5f014ac27b20) subject=713 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x32f,0x7fffd8b99000]
+[FREE] free(0x5f014ac27c70) subject=719 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x6bf82 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x330,0x7fffd8b99000]
+[FREE] free(0x5f014ac27dc0) subject=725 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7f98 left stack [0x331,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x332,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e40) subject=731 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x333,0x7fffd8b99000]
+[FREE] free(0x5f014ac279d0) subject=737 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x98132 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x334,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e00) subject=741 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x335,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e20) subject=745 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7f98 left stack [0x336,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x337,0x7fffd8b99000]
+[FREE] free(0x5f014ac28c60) subject=749 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[INCONSISTENCY mov read UAF] ip: main+0x5f963 (_ZN7Imf_3_16HeaderD2Ev @ gthr-default.h:779) UAF read at: 0x5f014ac286f0
+[FREE:internal] free(0x5f014ac295f0) subject=751 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac294a0) subject=747 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac283a0) subject=743 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac279f0) subject=739 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac27b40) subject=734 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28270) subject=728 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28c90) subject=722 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac28b30) subject=716 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac29200) subject=710 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac29350) subject=704 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac286e0) subject=695 at _ZN7Imf_3_118MultiPartInputFile4DataD2Ev
+[INCONSISTENCY mov read UAF] ip: main+0x74543 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ stl_vector.h:919) UAF read at: 0x5f014ac271e8
+first time found dangling pointer at: 44432 distance: 1189
+[INCONSISTENCY mov read UAF] ip: main+0x74547 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ stl_vector.h:919) UAF read at: 0x5f014ac271e0
+first time found dangling pointer at: 44550 distance: 1072
+[FREE:internal] free(0x5f014ac28f80) subject=759 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[STACK PIVOT] ip: main+0x9eb32 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x33c,0x7fffd8b99000]
+[FREE] free(0x5f014ac28dc0) subject=757 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa4542 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x33d,0x7fffd8b99000]
+[FREE] free(0x5f014ac29b20) subject=762 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x33e,0x7fffd8b99000]
+[FREE] free(0x5f014ac299d0) subject=766 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x33f,0x7fffd8b99000]
+[FREE] free(0x5f014ac29720) subject=770 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x6bf82 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x340,0x7fffd8b99000]
+[FREE] free(0x5f014ac295d0) subject=774 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7f98 left stack [0x341,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x342,0x7fffd8b99000]
+[FREE] free(0x5f014ac29dc0) subject=778 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x343,0x7fffd8b99000]
+[FREE] free(0x5f014ac29480) subject=782 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x98132 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x344,0x7fffd8b99000]
+[FREE] free(0x5f014ac29330) subject=786 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+main+0x5f898 (_ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371) Read a dangling pointer 0x5f014ac28550 from 0x5f014ac2be00
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x345,0x7fffd8b99000]
+[FREE] free(0x5f014ac28550) subject=790 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7f98 left stack [0x346,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x347,0x7fffd8b99000]
+[FREE] free(0x5f014ac29870) subject=794 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[FREE:internal] free(0x5f014ac2be10) subject=797 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2bce0) subject=793 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac28140) subject=789 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac27c90) subject=785 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac29df0) subject=781 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac29c90) subject=777 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac29b40) subject=773 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac299f0) subject=769 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac298a0) subject=765 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac29740) subject=761 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac284d0) subject=755 at _ZN7Imf_3_118MultiPartInputFile4DataD2Ev
+[INCONSISTENCY mov read UAF] ip: main+0x7455e (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ ImfMultiPartInputFile.cpp:85) UAF read at: 0x5f014ac27238
+[INCONSISTENCY mov read UAF] ip: main+0x74565 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev) UAF read at: 0x5f014ac27230
+[FREE:internal] free(0x5f014ac2ad40) subject=498 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_7ChannelEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E
+[FREE:internal] free(0x5f014ac289f0) subject=497 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[FREE:internal] free(0x5f014ac2ae80) subject=499 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[STACK PIVOT] ip: main+0x9eb32 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x34d,0x7fffd8b99000]
+[FREE] free(0x5f014ac2ad00) subject=495 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa4542 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x34e,0x7fffd8b99000]
+[FREE] free(0x5f014ac2b0f0) subject=504 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x34f,0x7fffd8b99000]
+[FREE] free(0x5f014ac2b240) subject=510 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x350,0x7fffd8b99000]
+[FREE] free(0x5f014ac2b390) subject=516 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x6bf82 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x351,0x7fffd8b99000]
+[FREE] free(0x5f014ac2b4e0) subject=522 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7f98 left stack [0x352,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x353,0x7fffd8b99000]
+[FREE] free(0x5f014ac2b630) subject=528 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x354,0x7fffd8b99000]
+[FREE] free(0x5f014ac2b790) subject=534 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x98132 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x355,0x7fffd8b99000]
+[FREE] free(0x5f014ac2b8e0) subject=540 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x356,0x7fffd8b99000]
+[FREE] free(0x5f014ac2ba30) subject=546 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7f98 left stack [0x357,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x358,0x7fffd8b99000]
+[FREE] free(0x5f014ac2bb80) subject=552 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[FREE:internal] free(0x5f014ac2bbb0) subject=555 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2ba50) subject=549 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2b900) subject=543 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2b7b0) subject=537 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2b660) subject=531 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2b500) subject=525 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2b3b0) subject=519 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac2b260) subject=513 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2b110) subject=507 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac2afc0) subject=501 at _ZN7Imf_3_16HeaderD2Ev
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x7457b (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ stl_construct.h:162) add r12, 0x38 id before: 431 after: -1 [chunk metadata] value: 0x5f014ac29f90
+[FREE:internal] free(0x5f014ac288b0) subject=435 at _ZN7Imf_3_114TypedAttributeINS_11ChannelListEED2Ev
+[STACK PIVOT] ip: main+0x9eb32 (_ZN7Imf_3_114TypedAttributeINS_11ChannelListEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x35d,0x7fffd8b99000]
+[FREE] free(0x5f014ac29fa0) subject=433 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa4542 (_ZN7Imf_3_114TypedAttributeINS_11CompressionEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x35e,0x7fffd8b99000]
+[FREE] free(0x5f014ac2a110) subject=440 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x35f,0x7fffd8b99000]
+[FREE] free(0x5f014ac2a260) subject=446 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x9d8a2 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x360,0x7fffd8b99000]
+[FREE] free(0x5f014ac2a3b0) subject=452 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x6bf82 (_ZN7Imf_3_114TypedAttributeINS_9LineOrderEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x361,0x7fffd8b99000]
+[FREE] free(0x5f014ac2a500) subject=458 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7f98 left stack [0x362,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x363,0x7fffd8b99000]
+[FREE] free(0x5f014ac2a650) subject=464 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x364,0x7fffd8b99000]
+[FREE] free(0x5f014ac2a7b0) subject=470 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x98132 (_ZN7Imf_3_114TypedAttributeIN9Imath_3_24Vec2IfEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x365,0x7fffd8b99000]
+[FREE] free(0x5f014ac2a900) subject=476 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0xa74c2 (_ZN7Imf_3_114TypedAttributeIfED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x366,0x7fffd8b99000]
+[FREE] free(0x5f014ac2aa50) subject=482 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[STACK PIVOT] ip: main+0x8dd52 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7f98 left stack [0x367,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x8dd82 (_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev @ ImfAttribute.h:215) RSP 0x7fffd8bb7fb8 left stack [0x368,0x7fffd8b99000]
+[FREE] free(0x5f014ac2aba0) subject=488 at _ZN7Imf_3_16HeaderD2Ev @ ImfHeader.cpp:371
+[FREE:internal] free(0x5f014ac2abd0) subject=491 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2aa70) subject=485 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2a920) subject=479 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2a7d0) subject=473 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2a680) subject=467 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2a520) subject=461 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2a3d0) subject=455 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac2a280) subject=449 at _ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E
+[FREE:internal] free(0x5f014ac2a130) subject=443 at _ZN7Imf_3_16HeaderD2Ev
+[FREE:internal] free(0x5f014ac29fe0) subject=437 at _ZN7Imf_3_16HeaderD2Ev
+[INCONSISTENCY mov read UAF] ip: main+0x74589 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ stl_vector.h:336) UAF read at: 0x5f014ac27230
+[INCONSISTENCY mov read UAF] ip: main+0x74595 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ alloc_traits.h:495) UAF read at: 0x5f014ac27240
+[FREE] free(0x5f014ac29f20) subject=431 at _ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ new_allocator.h:145
+[INCONSISTENCY mov read UAF] ip: main+0x745a7 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ new_allocator.h:145) UAF read at: 0x5f014ac27210
+[INCONSISTENCY mov read UAF] ip: main+0x745d1 (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ stl_tree.h:1887) UAF read at: 0x5f014ac271e0
+first time found dangling pointer at: 44550 distance: 2630
+[INCONSISTENCY mov read UAF] ip: main+0x745da (_ZN7Imf_3_118MultiPartInputFile4DataD2Ev @ alloc_traits.h:495) UAF read at: 0x5f014ac271f0
+first time found dangling pointer at: 43234 distance: 3949
+[FREE] free(0x5f014ac28570) subject=800 at _ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib.cold @ ImfMultiPartInputFile.cpp:137
+[FREE] free(0x5f014ac271a0) subject=19 at _ZN7Imf_3_118MultiPartInputFileC2ERNS_7IStreamEib.cold @ ImfMultiPartInputFile.cpp:137
+[ALLOC:internal] malloc(0x201) -> 0x5f014ac2b110 subject=875 at _Znwm
+[UNINITIALIZED mov read] ip: main+0xe785a (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ streambuf:537) co: 18 vo: -1
+[INCONSISTENCY mov write reg UAF] ip: main+0xe785e (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ basic_string.h:165) UAF write at: 0x7fffd8bb7fe0
+[UNINITIALIZED mov read] ip: main+0xe7877 (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ streambuf:493) co: 18 vo: -1
+[UNINITIALIZED mov read] ip: main+0xe788d (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ sstream:435) co: 18 vo: -1
+[ALLOC:internal] malloc(0x56) -> 0x5f014ac2b320 subject=877 at _Znwm
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7fe0 ip: main+0xe789d (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ basic_string.h:1960)
+main+0xe789d (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ basic_string.h:1960) Read a dangling pointer 0x5f014ac2b320 from 0x7fffd8bb7fe0
+[INTRA_OBJECT_OVERFLOW] ip: main+0xe78c3 (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ basic_string.h:186) at: 0x5f014ac2bfc8 offset: +0x88 subject: 805 clobbers ptr 0x5f014ac28e00 (owner: 807)
+[INCONSISTENCY mov write reg UAF] ip: main+0xe78d3 (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ basic_string.h:186) UAF write at: 0x7fffd8bb7fe0
+first time found dangling pointer at: 47261 distance: 13
+STACKREADUSEAFTERSCOPE at: 0x7fffd8bb7fe0 ip: main+0xe78e6 (_ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE @ char_traits.h:357)
+first time found dangling pointer at: 47261 distance: 17
+[FREE:internal] free(0x5f014ac28e00) subject=807 at _ZN7Iex_3_17BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE
+[FREE:internal] free(0x5f014ac2b110) subject=875 at _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev
+main+0xe3afb (_ZN7Iex_3_17BaseExcD2Ev @ new_allocator.h:145) Using expired pointer: 0x5f014ac2b320 from 0x5f014ac2bfc8
+first time found dangling pointer at: 47270 distance: 65
+[FREE:internal] free(0x5f014ac2b320) subject=877 at _ZN7Iex_3_17BaseExcD2Ev
+[STACK PIVOT] ip: main+0xe3b1f (_ZN7Iex_3_17BaseExcD2Ev @ IexBaseExc.cpp:80) RSP 0x7fffd8bb81c8 left stack [0x36f,0x7fffd8b99000]
+[FREE] free(0x5f014ac2bf40) subject=805 at _ZN7Imf_3_116checkOpenEXRFileEPKcmbbb.cold @ ImfCheckFile.cpp:1099
+main+0x30fa0 (_ZN7Imf_3_116checkOpenEXRFileEPKcmbbb @ ImfCheckFile.cpp:1106) Read a dangling pointer 0x5f014ac27e01 from 0x7fffd8bb8240
+[STACK PIVOT] ip: main+0x2aa22 (fuzz_one @ harness.cpp:49) RSP 0x7fffd8bb8498 left stack [0x370,0x7fffd8b99000]
+[FREE] free(0x5f014ac27e70) subject=11 at main @ harness.cpp:93
+[STACK PIVOT] ip: main+0x2ac2c (main @ harness.cpp:95) RSP 0x7fffd8bb84d8 left stack [0x371,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x2ac2d (main @ harness.cpp:95) RSP 0x7fffd8bb84e0 left stack after RET
+[UNINITIALIZED mov read] ip: main+0x5ee04 (~CompressionStash @ ImfHeader.cpp:118) co: 3 vo: -1
+[STACK PIVOT] ip: main+0x5ee83 (~CompressionStash) RSP 0x7fffd8bb8470 left stack after RET
+[UNINITIALIZED mov read] ip: main+0x9a29d (~LockedTypeMap @ stl_tree.h:735) co: 3 vo: -1
+[INCONSISTENCY mov read UAF] ip: main+0x9a2a6 (~LockedTypeMap @ stl_tree.h:787) UAF read at: 0x5f014ac27428
+first time found dangling pointer at: 1996 distance: 45441
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a0d1 (_M_erase @ stl_tree.h:1883) UAF write at: 0x7fffd8bb83f8
+first time found dangling pointer at: 47447 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x9a0de (_M_erase @ stl_tree.h:787) UAF read at: 0x7fffd8bb83f8
+first time found dangling pointer at: 47447 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0x9a0e2 (_M_erase @ stl_tree.h:787) UAF read at: 0x5f014ac27628
+first time found dangling pointer at: 14251 distance: 33200
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a0e6 (_M_erase @ stl_tree.h:787) UAF write at: 0x7fffd8bb8408
+first time found dangling pointer at: 47452 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x9a0f3 (_M_erase @ stl_tree.h:787) UAF read at: 0x7fffd8bb8408
+first time found dangling pointer at: 47452 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0x9a0f7 (_M_erase @ stl_tree.h:787) UAF read at: 0x5f014ac27728
+first time found dangling pointer at: 14261 distance: 33195
+[INCONSISTENCY mov read UAF] ip: main+0x9a104 (_M_erase @ stl_tree.h:787) UAF read at: 0x5f014ac27828
+main+0x9a104 (_M_erase @ stl_tree.h:787) Read a dangling pointer 0x5f014ac27890 from 0x5f014ac27828
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a108 (_M_erase @ stl_tree.h:787) UAF write at: 0x7fffd8bb8400
+first time found dangling pointer at: 47460 distance: 0
+[INCONSISTENCY mov read UAF] ip: main+0x9a115 (_M_erase @ stl_tree.h:787) UAF read at: 0x7fffd8bb8400
+first time found dangling pointer at: 47460 distance: 3
+main+0x9a115 (_M_erase @ stl_tree.h:787) Using expired pointer: 0x5f014ac27890 from 0x7fffd8bb8400
+first time found dangling pointer at: 47460 distance: 3
+[INCONSISTENCY mov read UAF] ip: main+0x9a119 (_M_erase @ stl_tree.h:787) UAF read at: 0x5f014ac278a8
+main+0x9a119 (_M_erase @ stl_tree.h:787) Read a dangling pointer 0x5f014ac27910 from 0x5f014ac278a8
+[INCONSISTENCY mov read UAF] ip: main+0x9a126 (_M_erase @ stl_tree.h:787) UAF read at: 0x5f014ac27928
+main+0x9a126 (_M_erase @ stl_tree.h:787) Read a dangling pointer 0x5f014ac27950 from 0x5f014ac27928
+[INCONSISTENCY mov read UAF] ip: main+0x9a12f (_M_erase @ stl_tree.h:787) UAF read at: 0x5f014ac27968
+[INCONSISTENCY mov read UAF] ip: main+0x9a1b0 (_M_erase @ stl_tree.h:779) UAF read at: 0x5f014ac27960
+[FREE:internal] free(0x5f014ac27950) subject=82 at _M_erase
+[INCONSISTENCY mov read UAF] ip: main+0x9a191 (_M_erase @ stl_tree.h:1887) UAF read at: 0x5f014ac27920
+main+0x9a191 (_M_erase @ stl_tree.h:1887) Read a dangling pointer 0x5f014ac278d0 from 0x5f014ac27920
+[FREE:internal] free(0x5f014ac27910) subject=80 at _M_erase
+[FREE:internal] free(0x5f014ac278d0) subject=78 at _M_erase
+[INCONSISTENCY mov read UAF] ip: main+0x9a1ce (_M_erase @ stl_tree.h:1887) UAF read at: 0x7fffd8bb8400
+first time found dangling pointer at: 47460 distance: 36
+[INCONSISTENCY mov read UAF] ip: main+0x9a1d7 (_M_erase @ stl_tree.h:780) UAF read at: 0x5f014ac278a0
+main+0x9a1d7 (_M_erase @ stl_tree.h:780) Read a dangling pointer 0x5f014ac27850 from 0x5f014ac278a0
+[FREE:internal] free(0x5f014ac27890) subject=76 at _M_erase
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a1e5 (_M_erase) UAF write at: 0x7fffd8bb8400
+first time found dangling pointer at: 47460 distance: 42
+main+0x9a115 (_M_erase @ stl_tree.h:787) Using expired pointer: 0x5f014ac27850 from 0x7fffd8bb8400
+first time found dangling pointer at: 47460 distance: 44
+[FREE:internal] free(0x5f014ac27850) subject=74 at _M_erase
+[INCONSISTENCY mov read UAF] ip: main+0x9a217 (_M_erase @ stl_tree.h:1887) UAF read at: 0x5f014ac27820
+main+0x9a217 (_M_erase @ stl_tree.h:1887) Read a dangling pointer 0x5f014ac27790 from 0x5f014ac27820
+[FREE:internal] free(0x5f014ac27810) subject=72 at _M_erase
+main+0x9a104 (_M_erase @ stl_tree.h:787) Read a dangling pointer 0x5f014ac277d0 from 0x5f014ac277a8
+main+0x9a115 (_M_erase @ stl_tree.h:787) Using expired pointer: 0x5f014ac277d0 from 0x7fffd8bb8400
+first time found dangling pointer at: 47460 distance: 66
+[FREE:internal] free(0x5f014ac277d0) subject=70 at _M_erase
+main+0x9a217 (_M_erase @ stl_tree.h:1887) Read a dangling pointer 0x5f014ac27750 from 0x5f014ac277a0
+[FREE:internal] free(0x5f014ac27790) subject=68 at _M_erase
+[FREE:internal] free(0x5f014ac27750) subject=66 at _M_erase
+[INCONSISTENCY mov read UAF] ip: main+0x9a235 (_M_erase @ stl_tree.h:1887) UAF read at: 0x7fffd8bb8408
+first time found dangling pointer at: 47452 distance: 102
+[INCONSISTENCY mov read UAF] ip: main+0x9a23e (_M_erase @ stl_tree.h:780) UAF read at: 0x5f014ac27720
+first time found dangling pointer at: 14260 distance: 33296
+[FREE:internal] free(0x5f014ac27710) subject=64 at _M_erase
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a24c (_M_erase) UAF write at: 0x7fffd8bb8408
+first time found dangling pointer at: 47452 distance: 108
+[FREE:internal] free(0x5f014ac276d0) subject=62 at _M_erase
+[FREE:internal] free(0x5f014ac27690) subject=60 at _M_erase
+[FREE:internal] free(0x5f014ac27650) subject=58 at _M_erase
+[INCONSISTENCY mov read UAF] ip: main+0x9a255 (_M_erase @ stl_tree.h:1887) UAF read at: 0x7fffd8bb83f8
+first time found dangling pointer at: 47447 distance: 147
+[INCONSISTENCY mov read UAF] ip: main+0x9a25e (_M_erase @ stl_tree.h:780) UAF read at: 0x5f014ac27620
+first time found dangling pointer at: 14250 distance: 33346
+[FREE:internal] free(0x5f014ac27610) subject=56 at _M_erase
+[INCONSISTENCY mov write reg UAF] ip: main+0x9a26c (_M_erase) UAF write at: 0x7fffd8bb83f8
+first time found dangling pointer at: 47447 distance: 153
+[FREE:internal] free(0x5f014ac275d0) subject=54 at _M_erase
+[FREE:internal] free(0x5f014ac27590) subject=52 at _M_erase
+[FREE:internal] free(0x5f014ac27550) subject=50 at _M_erase
+[FREE:internal] free(0x5f014ac27510) subject=48 at _M_erase
+main+0x9a23e (_M_erase @ stl_tree.h:780) Read a dangling pointer 0x5f014ac27990 from 0x5f014ac274e0
+[FREE:internal] free(0x5f014ac274d0) subject=46 at _M_erase
+main+0x9a0f3 (_M_erase @ stl_tree.h:787) Using expired pointer: 0x5f014ac27990 from 0x7fffd8bb8408
+first time found dangling pointer at: 47452 distance: 212
+[FREE:internal] free(0x5f014ac27990) subject=87 at _M_erase
+[FREE:internal] free(0x5f014ac27490) subject=44 at _M_erase
+[FREE:internal] free(0x5f014ac27450) subject=42 at _M_erase
+[INCONSISTENCY mov read UAF] ip: main+0x9a2b2 (~LockedTypeMap @ stl_tree.h:780) UAF read at: 0x5f014ac27420
+first time found dangling pointer at: 1998 distance: 45704
+[FREE:internal] free(0x5f014ac27410) subject=40 at ~LockedTypeMap
+[FREE:internal] free(0x5f014ac273d0) subject=38 at _M_erase
+[FREE:internal] free(0x5f014ac27390) subject=36 at _M_erase
+[FREE:internal] free(0x5f014ac27310) subject=32 at _M_erase
+[FREE:internal] free(0x5f014ac27350) subject=34 at ~LockedTypeMap
+[FREE:internal] free(0x5f014ac272d0) subject=30 at _M_erase
+[FREE:internal] free(0x5f014ac27290) subject=28 at ~LockedTypeMap
+[FREE:internal] free(0x5f014ac27250) subject=26 at ~LockedTypeMap
+[INCONSISTENCY mov read UAF] ip: main+0x9a2c5 (~LockedTypeMap @ ImfAttribute.cpp:45) UAF read at: 0x7fffd8bb8458
+[STACK PIVOT] ip: main+0x9a2c9 (~LockedTypeMap @ ImfAttribute.cpp:45) RSP 0x7fffd8bb8468 left stack [0x378,0x7fffd8b99000]
+[STACK PIVOT] ip: main+0x9a2ca (~LockedTypeMap @ ImfAttribute.cpp:45) RSP 0x7fffd8bb8470 left stack after RET
+[INCONSISTENCY mov read UAF] ip: main+0xe2843 (_ZN13IlmThread_3_110ThreadPoolD2Ev @ IlmThreadPool.cpp:468) UAF read at: 0x5f014ac27168
+first time found dangling pointer at: 267 distance: 47580
+main+0xe2843 (_ZN13IlmThread_3_110ThreadPoolD2Ev @ IlmThreadPool.cpp:468) Using expired pointer: 0x5f014ac27180 from 0x5f014ac27168
+first time found dangling pointer at: 267 distance: 47580
+[INCONSISTENCY mov read UAF] ip: main+0xe2848 (_ZN13IlmThread_3_110ThreadPoolD2Ev @ IlmThreadPool.cpp:469) UAF read at: 0x5f014ac27180
+[INCONSISTENCY mov read UAF] ip: main+0xe2857 (_ZN13IlmThread_3_110ThreadPoolD2Ev @ IlmThreadPool.cpp:470) UAF read at: 0x5f014ac27180
+[INCONSISTENCY mov write reg UAF] ip: main+0xe2c18 (~NullThreadPoolProvider @ IlmThreadPool.cpp:366) UAF write at: 0x5f014ac27180
+[INCONSISTENCY mov read UAF] ip: main+0xe2c23 (~NullThreadPoolProvider @ IlmThreadPool.cpp:366) UAF read at: 0x7fffd8bb8438
+[STACK PIVOT] ip: main+0xe2c2c (~NullThreadPoolProvider @ IlmThreadPool.cpp:366) RSP 0x7fffd8bb8448 left stack [0x37a,0x7fffd8b99000]
+[FREE] free(0x5f014ac27180) subject=16 at _ZN13IlmThread_3_110ThreadPoolD2Ev @ IlmThreadPool.cpp:470
+[FREE:internal] free(0x5f014ac27160) subject=15 at erand48_r
+[FREE:internal] free(0x5f014ac26860) subject=7 at erand48_r
+[FREE:internal] free(0x5f014ac26440) subject=6 at erand48_r
+[FREE:internal] free(0x5f014ac26020) subject=5 at erand48_r
+[UNTRUSTEDPTRDEREF] ip: main+0x2a9ae (__do_global_dtors_aux) final_ea: 0x5f011d2c6f60 base: 0x5f011cf4c9ae pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x2a9d4 (__do_global_dtors_aux) RSP 0x7fffd8bb83a0 left stack after RET
+[STACK PIVOT] ip: main+0xf896c (_fini) RSP 0x7fffd8bb83d0 left stack after RET

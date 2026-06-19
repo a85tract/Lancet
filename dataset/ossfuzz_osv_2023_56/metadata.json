@@ -1,0 +1,24 @@
+{
+  "name": "osv_2023_56",
+  "target": "pcre2",
+  "binary": "bin/pcre2_fuzzer",
+  "poc": "poc/poc_harness.c",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 106,
+    "corrupted_ptr_load": 50,
+    "untrustedptrderef": 25,
+    "inconsistency_arithmetic__crossboundary": 6,
+    "inconsistency_mov_read": 5,
+    "stack_pivot": 4,
+    "inconsistency_mov_write_reg": 3,
+    "alloc:internal": 3,
+    "alloc": 3,
+    "free:internal": 3,
+    "free": 3,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "compile_branch; compile_branch; compile_branch",
+  "verification_match": "\u2713"
+}

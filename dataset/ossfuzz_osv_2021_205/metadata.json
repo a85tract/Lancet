@@ -1,0 +1,28 @@
+{
+  "name": "osv_2021_205",
+  "target": "unknown",
+  "binary": "bin/fuzz_target_standalone",
+  "poc": "poc/poc.lua",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 22196,
+    "alloc:internal": 5306,
+    "free": 5303,
+    "corrupted_ptr_load": 3965,
+    "inconsistency_mov_read": 3662,
+    "inconsistency_mov_read_uaf": 1287,
+    "inconsistency_mov_write_reg_uaf": 467,
+    "inconsistency_mov_write_imm_uaf": 120,
+    "untrustedptrderef": 72,
+    "intra_object_overflow": 65,
+    "inconsistency_arithmetic__crossboundary": 36,
+    "stack_pivot": 36,
+    "heap_metadata_taint": 33,
+    "uninitialized_mov_read": 32,
+    "inconsistency_mov_write_reg": 4,
+    "free:internal": 4
+  },
+  "detected": true,
+  "key_functions": "_Znwm; _Znwm; _Znwm",
+  "verification_match": "\u2713"
+}

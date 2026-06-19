@@ -1,0 +1,25 @@
+{
+  "name": "osv_2022_24",
+  "target": "openssl",
+  "binary": "bin/harness",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 8278,
+    "alloc:internal": 6008,
+    "free:internal": 1400,
+    "corrupted_ptr_load": 409,
+    "inconsistency_mov_read": 353,
+    "uninitialized_mov_read": 39,
+    "untrustedptrderef": 27,
+    "intra_object_overflow": 17,
+    "heap_metadata_taint": 10,
+    "inconsistency_mov_write_reg": 6,
+    "alloc": 6,
+    "inconsistency_arithmetic__crossboundary": 2,
+    "free": 1
+  },
+  "detected": true,
+  "key_functions": "_libssh2_openssl_random; _libssh2_openssl_random; _libssh2_o",
+  "verification_match": "\u2713"
+}

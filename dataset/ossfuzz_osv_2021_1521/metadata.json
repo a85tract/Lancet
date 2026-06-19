@@ -1,0 +1,27 @@
+{
+  "name": "osv_2021_1521",
+  "target": "unknown",
+  "binary": "bin/exif_from_data_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 4757,
+    "stack_pivot": 3043,
+    "inconsistency_mov_read_uaf": 641,
+    "inconsistency_mov_write_reg_uaf": 171,
+    "corrupted_ptr_load": 64,
+    "free": 40,
+    "alloc": 38,
+    "inconsistency_mov_write_imm_uaf": 34,
+    "untrustedptrderef": 12,
+    "inconsistency_mov_read": 8,
+    "alloc:internal": 4,
+    "inconsistency_mov_write_reg": 3,
+    "free:internal": 3,
+    "inconsistency_arithmetic__crossboundary": 3,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

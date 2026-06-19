@@ -1,0 +1,199 @@
+[INCONSISTENCY mov write reg] ip: main+0x1779 (main @ gen_poc.c:134) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x177f (main @ gen_poc.c:134) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x178f (main @ gen_poc.c:134) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x179c (main @ gen_poc.c:135) co: 6 vo: 6, 6 write 6
+[UNTRUSTEDPTRDEREF] ip: main+0x17b3 (main @ gen_poc.c:137) final_ea: 0x7ffd36143270 base: 0x7ffd36143268 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x17b7 (main @ gen_poc.c:137) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1801 (main @ gen_poc.c:144) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x181a (main @ gen_poc.c:145) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x185c (main @ gen_poc.c:149) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1872 (main @ gen_poc.c:150) co: 6 vo: 6, 6 write 6
+[UNTRUSTEDPTRDEREF] ip: main+0x1298 (put_le32 @ gen_poc.c:24) final_ea: 0x7ffd36140704 base: 0x7ffd36140710 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x129d (put_le32 @ gen_poc.c:24) final_ea: 0x7ffd36140708 base: 0x7ffd36140710 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12a3 (put_le32 @ gen_poc.c:25) final_ea: 0x7ffd36140704 base: 0x7ffd36140710 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12ab (put_le32 @ gen_poc.c:25) final_ea: 0x7ffd36140708 base: 0x7ffd36140710 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12b5 (put_le32 @ gen_poc.c:26) final_ea: 0x7ffd36140704 base: 0x7ffd36140710 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12bd (put_le32 @ gen_poc.c:26) final_ea: 0x7ffd36140708 base: 0x7ffd36140710 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12c7 (put_le32 @ gen_poc.c:27) final_ea: 0x7ffd36140704 base: 0x7ffd36140710 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12cf (put_le32 @ gen_poc.c:27) final_ea: 0x7ffd36140708 base: 0x7ffd36140710 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x1456 (build_block @ gen_poc.c:66) co: 7 vo: 7, 7 write 7
+[INCONSISTENCY mov write reg] ip: main+0x145a (build_block @ gen_poc.c:66) co: 7 vo: 7, 7 write 7
+[INCONSISTENCY mov write reg] ip: main+0x145d (build_block @ gen_poc.c:66) co: 7 vo: 7, 7 write 7
+[INCONSISTENCY mov write reg] ip: main+0x1460 (build_block @ gen_poc.c:66) co: 7 vo: 7, 7 write 7
+[INCONSISTENCY mov write reg] ip: main+0x1463 (build_block @ gen_poc.c:66) co: 7 vo: 7, 7 write 7
+[INCONSISTENCY mov write reg] ip: main+0x1467 (build_block @ gen_poc.c:66) co: 7 vo: 7, 7 write 7
+[INCONSISTENCY mov write reg] ip: main+0x1474 (build_block @ gen_poc.c:66) co: 7 vo: 7, 7 write 7
+[INCONSISTENCY mov write reg] ip: main+0x148e (build_block @ gen_poc.c:71) co: 7 vo: 7, 7 write 7
+[INCONSISTENCY mov write reg] ip: main+0x14a0 (build_block @ gen_poc.c:72) co: 7 vo: 7, 7 write 7
+[UNTRUSTEDPTRDEREF] ip: main+0x12eb (itf8_put @ gen_poc.c:32) final_ea: 0x7ffd36140684 base: 0x7ffd36140690 pointee: 7 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12f1 (itf8_put @ gen_poc.c:32) final_ea: 0x7ffd36140684 base: 0x7ffd36140690 pointee: 7 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12f7 (itf8_put @ gen_poc.c:33) final_ea: 0x7ffd36140684 base: 0x7ffd36140690 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x12fc (itf8_put @ gen_poc.c:33) final_ea: 0x7ffd36140688 base: 0x7ffd36140690 pointee: -1 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x14f0 (build_block @ gen_poc.c:75) final_ea: 0x7ffd36140710 base: 0x7ffd36140700 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x1562 (build_block @ gen_poc.c:83) co: 7 vo: 7, 7 write 7
+[STACK PIVOT] ip: main+0x159a (build_block @ gen_poc.c:88) RSP 0x7ffd36140708 left stack [0x9,0x0]
+[INCONSISTENCY mov write reg] ip: main+0x1925 (main @ gen_poc.c:164) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg UAF] ip: main+0x15a8 (build_container_header @ gen_poc.c:99) UAF write at: 0x7ffd361406c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x15ac (build_container_header @ gen_poc.c:99) UAF write at: 0x7ffd361406c4
+[INCONSISTENCY mov write reg UAF] ip: main+0x15af (build_container_header @ gen_poc.c:99) UAF write at: 0x7ffd361406c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x15b2 (build_container_header @ gen_poc.c:99) UAF write at: 0x7ffd361406bc
+[INCONSISTENCY mov write reg UAF] ip: main+0x15b5 (build_container_header @ gen_poc.c:99) UAF write at: 0x7ffd361406b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x15b9 (build_container_header @ gen_poc.c:99) UAF write at: 0x7ffd361406b4
+[INCONSISTENCY mov read UAF] ip: main+0x15c4 (build_container_header @ gen_poc.c:103) UAF read at: 0x7ffd361406c4
+[INCONSISTENCY mov read UAF] ip: main+0x15c7 (build_container_header @ gen_poc.c:103) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x15cd (build_container_header @ gen_poc.c:103) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1291 (put_le32 @ gen_poc.c:23) UAF write at: 0x7ffd36140698
+[INCONSISTENCY mov write reg UAF] ip: main+0x1295 (put_le32 @ gen_poc.c:23) UAF write at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x1298 (put_le32 @ gen_poc.c:24) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x129d (put_le32 @ gen_poc.c:24) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x12a3 (put_le32 @ gen_poc.c:25) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x12ab (put_le32 @ gen_poc.c:25) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x12b5 (put_le32 @ gen_poc.c:26) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x12bd (put_le32 @ gen_poc.c:26) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x12c7 (put_le32 @ gen_poc.c:27) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x12cf (put_le32 @ gen_poc.c:27) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x15e2 (build_container_header @ gen_poc.c:107) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov write reg UAF] ip: main+0x15e5 (build_container_header @ gen_poc.c:107) UAF write at: 0x7ffd361406d8
+[INCONSISTENCY mov read UAF] ip: main+0x15e8 (build_container_header @ gen_poc.c:109) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x15ee (build_container_header @ gen_poc.c:109) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x15f5 (build_container_header @ gen_poc.c:109) UAF read at: 0x7ffd361406c0
+[INCONSISTENCY mov write reg UAF] ip: main+0x12e4 (itf8_put @ gen_poc.c:31) UAF write at: 0x7ffd36140698
+[INCONSISTENCY mov write reg UAF] ip: main+0x12e8 (itf8_put @ gen_poc.c:31) UAF write at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x12eb (itf8_put @ gen_poc.c:32) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x12f1 (itf8_put @ gen_poc.c:32) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x12f7 (itf8_put @ gen_poc.c:33) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x12fc (itf8_put @ gen_poc.c:33) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x1605 (build_container_header @ gen_poc.c:110) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x160b (build_container_header @ gen_poc.c:110) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x1612 (build_container_header @ gen_poc.c:110) UAF read at: 0x7ffd361406bc
+[INCONSISTENCY mov read UAF] ip: main+0x1622 (build_container_header @ gen_poc.c:111) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x1628 (build_container_header @ gen_poc.c:111) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x162f (build_container_header @ gen_poc.c:111) UAF read at: 0x7ffd361406b8
+[INCONSISTENCY mov read UAF] ip: main+0x163f (build_container_header @ gen_poc.c:112) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x1645 (build_container_header @ gen_poc.c:112) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x164c (build_container_header @ gen_poc.c:112) UAF read at: 0x7ffd361406b4
+[INCONSISTENCY mov read UAF] ip: main+0x165c (build_container_header @ gen_poc.c:114) UAF read at: 0x7ffd361406f0
+[INCONSISTENCY mov read UAF] ip: main+0x1662 (build_container_header @ gen_poc.c:114) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x1668 (build_container_header @ gen_poc.c:114) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x167c (build_container_header @ gen_poc.c:115) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x1682 (build_container_header @ gen_poc.c:115) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x1689 (build_container_header @ gen_poc.c:115) UAF read at: 0x7ffd361406f8
+[INCONSISTENCY mov read UAF] ip: main+0x1699 (build_container_header @ gen_poc.c:116) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x169f (build_container_header @ gen_poc.c:116) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x16a6 (build_container_header @ gen_poc.c:116) UAF read at: 0x7ffd36140700
+[INCONSISTENCY mov read UAF] ip: main+0x16b6 (build_container_header @ gen_poc.c:117) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x16bc (build_container_header @ gen_poc.c:117) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x16c3 (build_container_header @ gen_poc.c:117) UAF read at: 0x7ffd36140708
+[INCONSISTENCY mov write imm UAF] ip: main+0x16d3 (build_container_header @ gen_poc.c:118) UAF write at: 0x7ffd361406d4
+[INCONSISTENCY mov read UAF] ip: main+0x1710 (build_container_header @ gen_poc.c:118) UAF read at: 0x7ffd361406d4
+[INCONSISTENCY mov read UAF] ip: main+0x1718 (build_container_header @ gen_poc.c:127) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x171b (build_container_header @ gen_poc.c:127) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x172c (build_container_header @ gen_poc.c:127) UAF write at: 0x7ffd361406dc
+[INCONSISTENCY mov read UAF] ip: main+0x172f (build_container_header @ gen_poc.c:128) UAF read at: 0x7ffd361406d0
+[INCONSISTENCY mov read UAF] ip: main+0x1735 (build_container_header @ gen_poc.c:128) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x173c (build_container_header @ gen_poc.c:128) UAF read at: 0x7ffd361406dc
+[INCONSISTENCY mov read UAF] ip: main+0x174d (build_container_header @ gen_poc.c:131) UAF read at: 0x7ffd361406d0
+[STACK PIVOT] ip: main+0x1750 (build_container_header @ gen_poc.c:132) RSP 0x7ffd361406e8 left stack [0xb,0x0]
+[INCONSISTENCY mov write reg] ip: main+0x1968 (main @ gen_poc.c:169) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1986 (main @ gen_poc.c:176) add rcx, rax id before: 6 after: 5 value: 0x7ffd3614113a
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x19bf (main @ gen_poc.c:178) add rcx, rax id before: 6 after: 5 value: 0x7ffd3614114a
+[INCONSISTENCY mov write reg] ip: main+0x19f3 (main @ gen_poc.c:225) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1a0c (main @ gen_poc.c:226) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1a25 (main @ gen_poc.c:230) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1a3e (main @ gen_poc.c:231) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1a57 (main @ gen_poc.c:234) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1a70 (main @ gen_poc.c:235) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1a89 (main @ gen_poc.c:236) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1aa2 (main @ gen_poc.c:237) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1abb (main @ gen_poc.c:240) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1ad4 (main @ gen_poc.c:241) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg] ip: main+0x1aea (main @ gen_poc.c:243) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov write reg UAF] ip: main+0x1456 (build_block @ gen_poc.c:66) UAF write at: 0x7ffd361406b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x145a (build_block @ gen_poc.c:66) UAF write at: 0x7ffd361406b4
+[INCONSISTENCY mov write reg UAF] ip: main+0x145d (build_block @ gen_poc.c:66) UAF write at: 0x7ffd361406b0
+[INCONSISTENCY mov write reg UAF] ip: main+0x1474 (build_block @ gen_poc.c:66) UAF write at: 0x7ffd361406f8
+[INCONSISTENCY mov read UAF] ip: main+0x1488 (build_block @ gen_poc.c:71) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x148e (build_block @ gen_poc.c:71) UAF write at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x1491 (build_block @ gen_poc.c:71) UAF read at: 0x7ffd361406b4
+[INCONSISTENCY mov read UAF] ip: main+0x149a (build_block @ gen_poc.c:72) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov write reg UAF] ip: main+0x14a0 (build_block @ gen_poc.c:72) UAF write at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x14a3 (build_block @ gen_poc.c:72) UAF read at: 0x7ffd361406b0
+[INCONSISTENCY mov read UAF] ip: main+0x14ac (build_block @ gen_poc.c:73) UAF read at: 0x7ffd361406c8
+Store dangling pointer: 0x7ffd361406d2 at: 0x7ffd36140688
+main+0x12fc (itf8_put @ gen_poc.c:33) Using expired pointer: 0x7ffd361406d2 from 0x7ffd36140688
+first time found dangling pointer at: 779 distance: 8
+[INCONSISTENCY mov read UAF] ip: main+0x14c8 (build_block @ gen_poc.c:74) UAF read at: 0x7ffd361406c8
+Store dangling pointer: 0x7ffd361406d3 at: 0x7ffd36140688
+main+0x12fc (itf8_put @ gen_poc.c:33) Using expired pointer: 0x7ffd361406d3 from 0x7ffd36140688
+first time found dangling pointer at: 779 distance: 34
+[INCONSISTENCY mov read UAF] ip: main+0x14e4 (build_block @ gen_poc.c:75) UAF read at: 0x7ffd361406c8
+Store dangling pointer: 0x7ffd361406d4 at: 0x7ffd36140688
+main+0x12fc (itf8_put @ gen_poc.c:33) Using expired pointer: 0x7ffd361406d4 from 0x7ffd36140688
+first time found dangling pointer at: 779 distance: 59
+[INCONSISTENCY mov read UAF] ip: main+0x14fe (build_block @ gen_poc.c:77) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x1504 (build_block @ gen_poc.c:77) UAF read at: 0x7ffd361406c4
+[INCONSISTENCY mov read UAF] ip: main+0x150a (build_block @ gen_poc.c:77) UAF read at: 0x7ffd361406b8
+[INCONSISTENCY mov read UAF] ip: main+0x1520 (build_block @ gen_poc.c:78) UAF read at: 0x7ffd361406c8
+[INCONSISTENCY mov read UAF] ip: main+0x152c (build_block @ gen_poc.c:79) UAF read at: 0x7ffd361406c4
+[INCONSISTENCY mov read UAF] ip: main+0x1532 (build_block @ gen_poc.c:79) UAF read at: 0x7ffd361406b8
+[INCONSISTENCY mov read UAF] ip: main+0x154e (build_block @ gen_poc.c:83) UAF read at: 0x7ffd361406c4
+[INCONSISTENCY mov read UAF] ip: main+0x1551 (build_block @ gen_poc.c:83) UAF read at: 0x7ffd361406b8
+[INCONSISTENCY mov write reg UAF] ip: main+0x1562 (build_block @ gen_poc.c:83) UAF write at: 0x7ffd361406cc
+[INCONSISTENCY mov read UAF] ip: main+0x1565 (build_block @ gen_poc.c:84) UAF read at: 0x7ffd361406c4
+[INCONSISTENCY mov read UAF] ip: main+0x156b (build_block @ gen_poc.c:84) UAF read at: 0x7ffd361406b8
+[INCONSISTENCY mov read UAF] ip: main+0x1572 (build_block @ gen_poc.c:84) UAF read at: 0x7ffd361406cc
+[INCONSISTENCY mov read UAF] ip: main+0x1583 (build_block @ gen_poc.c:87) UAF read at: 0x7ffd361406c4
+[INCONSISTENCY mov read UAF] ip: main+0x1586 (build_block @ gen_poc.c:88) UAF read at: 0x7ffd361406f8
+[STACK PIVOT] ip: main+0x159a (build_block @ gen_poc.c:88) RSP 0x7ffd36140708 left stack [0xd,0x0]
+[INCONSISTENCY mov write reg] ip: main+0x1b2b (main @ gen_poc.c:251) co: 6 vo: 6, 6 write 6
+[UNTRUSTEDPTRDEREF] ip: main+0x16a6 (build_container_header @ gen_poc.c:116) final_ea: 0x7ffd36140700 base: 0x7ffd361406e0 pointee: 0 base_vo: -1
+[UNTRUSTEDPTRDEREF] ip: main+0x16c3 (build_container_header @ gen_poc.c:117) final_ea: 0x7ffd36140708 base: 0x7ffd361406e0 pointee: 0 base_vo: -1
+[STACK PIVOT] ip: main+0x1750 (build_container_header @ gen_poc.c:132) RSP 0x7ffd361406e8 left stack [0xf,0x0]
+[INCONSISTENCY mov write reg] ip: main+0x1b6e (main @ gen_poc.c:256) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1b8c (main @ gen_poc.c:263) add rcx, rax id before: 6 after: 5 value: 0x7ffd36141180
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1bc5 (main @ gen_poc.c:265) add rcx, rax id before: 6 after: 5 value: 0x7ffd36141190
+[STACK PIVOT] ip: main+0x159a (build_block @ gen_poc.c:88) RSP 0x7ffd36140708 left stack [0x11,0x0]
+[INCONSISTENCY mov write reg] ip: main+0x1c1b (main @ gen_poc.c:271) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY mov read UAF] ip: main+0x130c (itf8_put @ gen_poc.c:35) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x1343 (itf8_put @ gen_poc.c:39) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x138f (itf8_put @ gen_poc.c:44) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x13ea (itf8_put @ gen_poc.c:51) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x13f5 (itf8_put @ gen_poc.c:51) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x13fb (itf8_put @ gen_poc.c:52) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x1403 (itf8_put @ gen_poc.c:52) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x140d (itf8_put @ gen_poc.c:53) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x1415 (itf8_put @ gen_poc.c:53) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x141f (itf8_put @ gen_poc.c:54) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x1427 (itf8_put @ gen_poc.c:54) UAF read at: 0x7ffd36140698
+[INCONSISTENCY mov read UAF] ip: main+0x1431 (itf8_put @ gen_poc.c:55) UAF read at: 0x7ffd36140694
+[INCONSISTENCY mov read UAF] ip: main+0x1436 (itf8_put @ gen_poc.c:55) UAF read at: 0x7ffd36140698
+[UNTRUSTEDPTRDEREF] ip: main+0x130c (itf8_put @ gen_poc.c:35) final_ea: 0x7ffd36140694 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x1343 (itf8_put @ gen_poc.c:39) final_ea: 0x7ffd36140694 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x138f (itf8_put @ gen_poc.c:44) final_ea: 0x7ffd36140694 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x13ea (itf8_put @ gen_poc.c:51) final_ea: 0x7ffd36140694 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x13f5 (itf8_put @ gen_poc.c:51) final_ea: 0x7ffd36140698 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x13fb (itf8_put @ gen_poc.c:52) final_ea: 0x7ffd36140694 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x1403 (itf8_put @ gen_poc.c:52) final_ea: 0x7ffd36140698 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x140d (itf8_put @ gen_poc.c:53) final_ea: 0x7ffd36140694 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x1415 (itf8_put @ gen_poc.c:53) final_ea: 0x7ffd36140698 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x141f (itf8_put @ gen_poc.c:54) final_ea: 0x7ffd36140694 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x1427 (itf8_put @ gen_poc.c:54) final_ea: 0x7ffd36140698 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x1431 (itf8_put @ gen_poc.c:55) final_ea: 0x7ffd36140694 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[UNTRUSTEDPTRDEREF] ip: main+0x1436 (itf8_put @ gen_poc.c:55) final_ea: 0x7ffd36140698 base: 0x7ffd361406a0 pointee: 0 base_vo: 0 src_subject: 0 src_base: 0x7ffd361406a0
+[STACK PIVOT] ip: main+0x1750 (build_container_header @ gen_poc.c:132) RSP 0x7ffd361406e8 left stack [0x13,0x0]
+[INCONSISTENCY mov write reg] ip: main+0x1c5e (main @ gen_poc.c:275) co: 6 vo: 6, 6 write 6
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1c7c (main @ gen_poc.c:282) add rcx, rax id before: 6 after: 5 value: 0x7ffd361411a3
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1cb5 (main @ gen_poc.c:284) add rcx, rax id before: 6 after: 5 value: 0x7ffd361411bb
+[ALLOC:internal] malloc(0x1d8) -> 0x61f2d2b4d010 subject=19 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x1cef (main @ gen_poc.c:288) co: 6 vo: 6, 6 write 6
+[ALLOC:internal] malloc(0x1000) -> 0x61f2d2b4d1f0 subject=20 at _IO_file_doallocate
+[FREE:internal] free(0x61f2d2b4d1f0) subject=20 at _IO_setb
+[FREE:internal] free(0x61f2d2b4d010) subject=19 at _IO_fclose
+[FREE:internal] free(0x61f2d2b4d010) subject=0
+[DOUBLE FREE] free(0x61f2d2b4d010) — already freed
+[ALLOC:internal] malloc(0x1000) -> 0x61f2d2b4d4f0 subject=21 at _IO_file_doallocate
+[STACK PIVOT] ip: main+0x1db5 (main @ gen_poc.c:302) RSP 0x7ffd36143138 left stack [0x17,0x7ffd36124000]
+[STACK PIVOT] ip: main+0x1db6 (main @ gen_poc.c:302) RSP 0x7ffd36143140 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x124e (__do_global_dtors_aux) final_ea: 0x61f29c8efff8 base: 0x61f29c8ed24e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1274 (__do_global_dtors_aux) RSP 0x7ffd36143010 left stack after RET
+[STACK PIVOT] ip: main+0x1dc4 (_fini) RSP 0x7ffd36143040 left stack after RET

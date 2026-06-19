@@ -1,0 +1,23 @@
+[INCONSISTENCY mov write reg] ip: main+0x12b5 (main) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x12bb (main) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x12cb (main) co: 4 vo: 4, 4 write 4
+[INCONSISTENCY mov write reg] ip: main+0x12d8 (main) co: 5 vo: 5, 5 write 5
+[UNTRUSTEDPTRDEREF] ip: main+0x12f9 (main) final_ea: 0x7ffcc68c9510 base: 0x7ffcc68c9508 pointee: -1 base_vo: -1
+[INCONSISTENCY mov write reg] ip: main+0x12fd (main) co: 5 vo: 5, 5 write 5
+[ALLOC:internal] malloc(0x1d8) -> 0x5c722d41e010 subject=6 at _IO_fopen
+[INCONSISTENCY mov write reg] ip: main+0x131d (main) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY mov write reg] ip: main+0x134e (main) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1629 (main) add rdx, rcx id before: 5 after: 4 value: 0x7ffcc68c83d8
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1673 (main) add rcx, rax id before: 5 after: 4 value: 0x7ffcc68c83dd
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x16ac (main) add rcx, rdx id before: 5 after: 4 value: 0x7ffcc68c846d
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x16da (main) add rax, rdx id before: 5 after: 4 value: 0x7ffcc68c8474
+[ALLOC:internal] malloc(0x1000) -> 0x5c722d41e1f0 subject=7 at _IO_file_doallocate
+[FREE:internal] free(0x5c722d41e1f0) subject=7 at _IO_setb
+[FREE:internal] free(0x5c722d41e010) subject=6 at _IO_fclose
+[FREE:internal] free(0x5c722d41e010) subject=0
+[DOUBLE FREE] free(0x5c722d41e010) — already freed
+[STACK PIVOT] ip: main+0x176a (main) RSP 0x7ffcc68c93d8 left stack [0x9,0x7ffcc68aa000]
+[STACK PIVOT] ip: main+0x176b (main) RSP 0x7ffcc68c93e0 left stack after RET
+[UNTRUSTEDPTRDEREF] ip: main+0x120e (__do_global_dtors_aux) final_ea: 0x5c71fc498ff8 base: 0x5c71fc49620e pointee: -1 base_vo: -1
+[STACK PIVOT] ip: main+0x1234 (__do_global_dtors_aux) RSP 0x7ffcc68c92c0 left stack after RET
+[STACK PIVOT] ip: main+0x1778 (_fini) RSP 0x7ffcc68c92f0 left stack after RET

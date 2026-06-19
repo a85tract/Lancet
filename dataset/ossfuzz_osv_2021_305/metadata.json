@@ -1,0 +1,23 @@
+{
+  "name": "osv_2021_305",
+  "target": "unknown",
+  "binary": "bin/gen_poc",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 199,
+    "inconsistency_mov_read_uaf": 80,
+    "inconsistency_mov_write_reg": 37,
+    "untrustedptrderef": 30,
+    "inconsistency_mov_write_reg_uaf": 19,
+    "stack_pivot": 10,
+    "inconsistency_arithmetic__crossboundary": 6,
+    "alloc:internal": 3,
+    "free:internal": 3,
+    "inconsistency_mov_write_imm_uaf": 1,
+    "double_free": 1
+  },
+  "detected": true,
+  "key_functions": "hpeek; hpeek; hpeek",
+  "verification_match": "\u2713"
+}

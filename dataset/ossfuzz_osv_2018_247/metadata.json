@@ -1,0 +1,28 @@
+{
+  "name": "osv_2018_247",
+  "target": "unknown",
+  "binary": "bin/pdf_fuzzer",
+  "poc": "poc/poc.pdf",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 29963,
+    "corrupted_ptr_load": 11234,
+    "inconsistency_mov_read": 10847,
+    "inconsistency_mov_read_uaf": 2088,
+    "free": 749,
+    "alloc": 741,
+    "inconsistency_mov_write_reg_uaf": 735,
+    "stack_pivot": 439,
+    "untrustedptrderef": 257,
+    "inconsistency_mov_write_imm_uaf": 200,
+    "intra_object_overflow": 186,
+    "inconsistency_arithmetic__crossboundary": 145,
+    "uninitialized_mov_read": 133,
+    "alloc:internal": 15,
+    "inconsistency_mov_write_reg": 6,
+    "free:internal": 5
+  },
+  "detected": true,
+  "key_functions": "_cmsMallocDefaultFn; _cmsMallocDefaultFn; _cmsMallocDefaultF",
+  "verification_match": "\u2713"
+}

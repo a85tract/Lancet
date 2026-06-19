@@ -1,0 +1,28 @@
+{
+  "name": "osv_2023_321",
+  "target": "unknown",
+  "binary": "bin/ucl_add_string_fuzzer",
+  "poc": "poc/poc.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 1358,
+    "corrupted_ptr_load": 345,
+    "inconsistency_mov_read_uaf": 309,
+    "inconsistency_mov_read": 143,
+    "inconsistency_mov_write_reg_uaf": 116,
+    "inconsistency_mov_write_imm_uaf": 32,
+    "alloc": 22,
+    "alloc:internal": 15,
+    "untrustedptrderef": 8,
+    "stack_pivot": 5,
+    "inconsistency_mov_write_reg": 4,
+    "intra_object_overflow": 4,
+    "free:internal": 3,
+    "double_free": 1,
+    "uninitialized_mov_read": 1,
+    "free": 1
+  },
+  "detected": true,
+  "key_functions": "ucl_parser_add_chunk_priority; ucl_parser_add_chunk_priority",
+  "verification_match": "\u2713"
+}

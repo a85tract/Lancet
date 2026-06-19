@@ -1,0 +1,28 @@
+{
+  "name": "osv_2022_698",
+  "target": "unknown",
+  "binary": "bin/x509_fuzzer",
+  "poc": "poc/poc_input.bin",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 3927,
+    "alloc": 1681,
+    "inconsistency_mov_read_uaf": 331,
+    "alloc:internal": 273,
+    "free:internal": 258,
+    "inconsistency_mov_write_reg_uaf": 196,
+    "untrustedptrderef": 134,
+    "inconsistency_mov_read": 121,
+    "corrupted_ptr_load": 99,
+    "free": 89,
+    "stack_pivot": 73,
+    "inconsistency_mov_write_imm_uaf": 62,
+    "uninitialized_mov_read": 24,
+    "inconsistency_mov_write_reg": 11,
+    "intra_object_overflow": 7,
+    "inconsistency_arithmetic__crossboundary": 6
+  },
+  "detected": true,
+  "key_functions": "LLVMFuzzerTestOneInput; LLVMFuzzerTestOneInput; LLVMFuzzerTe",
+  "verification_match": "\u2713"
+}

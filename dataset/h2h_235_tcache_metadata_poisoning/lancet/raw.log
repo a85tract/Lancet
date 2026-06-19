@@ -1,0 +1,9 @@
+[INCONSISTENCY mov write reg] ip: main+0xe5b (main @ tcache_metadata_poisoning.c:24) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x10) -> 0x22e7e2a0 subject=6 at main @ tcache_metadata_poisoning.c:36
+[INCONSISTENCY mov write reg] ip: main+0xeb9 (main @ tcache_metadata_poisoning.c:36) co: 5 vo: 5, 5 write 5
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0xefd (main @ tcache_metadata_poisoning.c:46) sub rax, 0x10 id before: 6 after: -1 [chunk metadata] value: 0x22e7e290
+[ALLOC] malloc(0x20) -> 0x7ffc38fd1680 subject=7 at main @ tcache_metadata_poisoning.c:54
+[STACK PIVOT] ip: main+0xfbd (main @ tcache_metadata_poisoning.c:59) RSP 0x7ffc38fd16b8 left stack [0x9,0x7ffc38fb2000]
+[STACK PIVOT] ip: main+0xfbe (main @ tcache_metadata_poisoning.c:59) RSP 0x7ffc38fd16c0 left stack after RET
+[STACK PIVOT] ip: main+0xe2e (__do_global_dtors_aux) RSP 0x7ffc38fd15c0 left stack after RET
+[STACK PIVOT] ip: main+0xfcc (_fini) RSP 0x7ffc38fd15c0 left stack after RET

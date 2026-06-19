@@ -1,0 +1,28 @@
+{
+  "name": "osv_2023_356",
+  "target": "libxml2",
+  "binary": "bin/clamav_scanfile_PDF_fuzzer",
+  "poc": "poc/poc.pdf",
+  "lancet_output": "lancet/raw.log",
+  "detection_summary": {
+    "total_lines": 21002,
+    "alloc:internal": 5174,
+    "free:internal": 4820,
+    "free": 1669,
+    "inconsistency_mov_read_uaf": 1577,
+    "alloc": 1339,
+    "inconsistency_mov_write_reg_uaf": 804,
+    "corrupted_ptr_load": 789,
+    "stack_pivot": 776,
+    "inconsistency_mov_read": 730,
+    "untrustedptrderef": 295,
+    "inconsistency_mov_write_imm_uaf": 239,
+    "uninitialized_mov_read": 106,
+    "heap_metadata_taint": 102,
+    "inconsistency_mov_write_reg": 51,
+    "intra_object_overflow": 22
+  },
+  "detected": true,
+  "key_functions": "cl_fmap_open_handle; cl_scandesc_callback; cl_scandesc_callb",
+  "verification_match": "\u2713"
+}

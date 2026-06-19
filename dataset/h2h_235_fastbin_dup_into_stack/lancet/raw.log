@@ -1,0 +1,35 @@
+[INCONSISTENCY mov write reg] ip: main+0xe7e (main @ fastbin_dup_into_stack.c:6) co: 5 vo: 5, 5 write 5
+[ALLOC] malloc(0x8) -> 0x315052a0 subject=6 at main @ fastbin_dup_into_stack.c:16
+[ALLOC] malloc(0x8) -> 0x315052c0 subject=7 at main @ fastbin_dup_into_stack.c:16
+[ALLOC] malloc(0x8) -> 0x315052e0 subject=8 at main @ fastbin_dup_into_stack.c:16
+[ALLOC] malloc(0x8) -> 0x31505300 subject=9 at main @ fastbin_dup_into_stack.c:16
+[ALLOC] malloc(0x8) -> 0x31505320 subject=10 at main @ fastbin_dup_into_stack.c:16
+[ALLOC] malloc(0x8) -> 0x31505340 subject=11 at main @ fastbin_dup_into_stack.c:16
+[ALLOC] malloc(0x8) -> 0x31505360 subject=12 at main @ fastbin_dup_into_stack.c:16
+[FREE] free(0x315052a0) subject=6 at main @ fastbin_dup_into_stack.c:19
+[FREE] free(0x315052c0) subject=7 at main @ fastbin_dup_into_stack.c:19
+[FREE] free(0x315052e0) subject=8 at main @ fastbin_dup_into_stack.c:19
+[FREE] free(0x31505300) subject=9 at main @ fastbin_dup_into_stack.c:19
+[FREE] free(0x31505320) subject=10 at main @ fastbin_dup_into_stack.c:19
+[FREE] free(0x31505340) subject=11 at main @ fastbin_dup_into_stack.c:19
+[FREE] free(0x31505360) subject=12 at main @ fastbin_dup_into_stack.c:19
+[ALLOC] calloc(0x8) -> 0x31505380 subject=13 at main @ fastbin_dup_into_stack.c:28
+[ALLOC] calloc(0x8) -> 0x315053a0 subject=14 at main @ fastbin_dup_into_stack.c:29
+[ALLOC] calloc(0x8) -> 0x315053c0 subject=15 at main @ fastbin_dup_into_stack.c:30
+[FREE] free(0x31505380) subject=13 at main @ fastbin_dup_into_stack.c:37
+main+0x1058 (main @ fastbin_dup_into_stack.c:39) Read a dangling pointer 0x31505380 from 0x7ffcb9cb3418
+main+0x105f (main @ fastbin_dup_into_stack.c:39) Using expired pointer: 0x31505380 from 0x7ffcb9cb3418
+first time found dangling pointer at: 280 distance: 1
+[FREE] free(0x315053a0) subject=14 at main @ fastbin_dup_into_stack.c:42
+[FREE] free(0x31505380) subject=0 at main @ fastbin_dup_into_stack.c:47
+[DOUBLE FREE] free(0x31505380) — already freed
+main+0x10f7 (main @ fastbin_dup_into_stack.c:49) Read a dangling pointer 0x315053a0 from 0x7ffcb9cb3420
+[ALLOC] calloc(0x8) -> 0x31505380 subject=16 at main @ fastbin_dup_into_stack.c:51
+[ALLOC] calloc(0x8) -> 0x315053a0 subject=17 at main @ fastbin_dup_into_stack.c:54
+[INCONSISTENCY arithmetic -> CROSSBOUNDARY] ip: main+0x1253 (main @ fastbin_dup_into_stack.c:68) xor rax, qword ptr [rbp-0x78] id before: 16 after: -1 [unmapped] value: 0x7ffcb9c82155
+[ALLOC] calloc(0x8) -> 0x31505380 subject=18 at main @ fastbin_dup_into_stack.c:71
+[ALLOC] calloc(0x8) -> 0x7ffcb9cb3460 subject=19 at main @ fastbin_dup_into_stack.c:73
+[STACK PIVOT] ip: main+0x1315 (main @ fastbin_dup_into_stack.c:77) RSP 0x7ffcb9cb34b8 left stack [0x15,0x7ffcb9c94000]
+[STACK PIVOT] ip: main+0x1316 (main @ fastbin_dup_into_stack.c:77) RSP 0x7ffcb9cb34c0 left stack after RET
+[STACK PIVOT] ip: main+0xe4e (__do_global_dtors_aux) RSP 0x7ffcb9cb33c0 left stack after RET
+[STACK PIVOT] ip: main+0x1324 (_fini) RSP 0x7ffcb9cb33c0 left stack after RET
