@@ -75,6 +75,13 @@ fn mov_rcx_rax(step: u64, pc: u64, rax: u64, rcx: u64) -> TraceRecord {
     r
 }
 
+fn mov_rdx_rax(step: u64, pc: u64, rax: u64, rdx: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0xc2]);
+    r.set_reg(RAX, rax);
+    r.set_reg(RDX, rdx);
+    r
+}
+
 fn mov_rdi_rcx(step: u64, pc: u64, rcx: u64, rdi: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0xcf]);
     r.set_reg(RCX, rcx);
@@ -144,6 +151,7 @@ fn mov_rdi_rbx(step: u64, pc: u64, rbx: u64, rdi: u64) -> TraceRecord {
 fn write_ptr(step: u64, pc: u64, base: RegId, addr: u64) -> TraceRecord {
     let bytes = match base.name() {
         "rbx" => vec![0x89, 0x0b], // mov dword ptr [rbx], ecx
+        "rcx" => vec![0x89, 0x09], // mov dword ptr [rcx], ecx
         "rax" => vec![0x89, 0x08], // mov dword ptr [rax], ecx
         _ => vec![0x89, 0x08],
     };
@@ -157,6 +165,18 @@ fn write_rsp_rax(step: u64, pc: u64, rsp: u64, rax: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x48, 0x89, 0x04, 0x24]); // mov [rsp], rax
     r.set_reg(RSP, rsp);
     r.set_reg(RAX, rax);
+    r
+}
+
+fn write_qword_rcx_rbx(step: u64, pc: u64, rcx: u64, rbx: u64, disp8: u8) -> TraceRecord {
+    let bytes = if disp8 == 0 {
+        vec![0x48, 0x89, 0x19] // mov [rcx], rbx
+    } else {
+        vec![0x48, 0x89, 0x59, disp8] // mov [rcx+disp8], rbx
+    };
+    let mut r = TraceRecord::new(step, pc, bytes);
+    r.set_reg(RCX, rcx);
+    r.set_reg(RBX, rbx);
     r
 }
 
@@ -181,6 +201,31 @@ fn read_rsp(step: u64, pc: u64, rsp: u64) -> TraceRecord {
 fn read_abs_rax(step: u64, pc: u64, addr: u64) -> TraceRecord {
     let mut r = TraceRecord::new(step, pc, vec![0x48, 0xa1, 0, 0, 0, 0, 0, 0, 0, 0]); // mov rax,moffs64
     r.bytecode[2..10].copy_from_slice(&addr.to_le_bytes());
+    r
+}
+
+fn read_rax_from_rdx(step: u64, pc: u64, rdx: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x8b, 0x02]); // mov rax,[rdx]
+    r.set_reg(RDX, rdx);
+    r
+}
+
+fn movaps_xmm0_from_rcx(step: u64, pc: u64, rcx: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x0f, 0x28, 0x01]); // movaps xmm0,[rcx]
+    r.set_reg(RCX, rcx);
+    r
+}
+
+fn movaps_rdx_from_xmm0(step: u64, pc: u64, rdx: u64) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x0f, 0x29, 0x02]); // movaps [rdx],xmm0
+    r.set_reg(RDX, rdx);
+    r
+}
+
+fn imul_rcx_rbx_imm8(step: u64, pc: u64, rbx: u64, imm: u8) -> TraceRecord {
+    let mut r = TraceRecord::new(step, pc, vec![0x48, 0x6b, 0xcb, imm]); // imul rcx,rbx,imm8
+    r.set_reg(RBX, rbx);
+    r.set_reg(RCX, 0);
     r
 }
 
@@ -297,6 +342,46 @@ fn lea_cross_boundary() {
     ];
     let summary = run_qlt("lea_cross", &records);
     assert_eq!(summary["cross_boundaries"], 1);
+}
+
+#[test]
+fn imul_propagates_pointer_owner() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        add_rbx_imm8(4, 0x400009, 0x5000, 0x20),
+        imul_rcx_rbx_imm8(5, 0x40000d, 0x5020, 1),
+        write_ptr(6, 0x400011, RCX, 0x5020),
+    ];
+    let summary = run_qlt("imul_owner", &records);
+    assert_eq!(summary["out_of_bounds_writes"], 1);
+    assert_eq!(summary["untrusted_ptrs"], 0);
+}
+
+#[test]
+fn simd_movaps_propagates_pointee_owner() {
+    let records = vec![
+        call(1, 0x400000, 0x1000, 0x10),
+        nop(2, 0x400005, 0x5000),
+        mov_rbx_rax(3, 0x400006, 0x5000, 0),
+        add_rbx_imm8(4, 0x400009, 0x5000, 0x20),
+        call(5, 0x40000d, 0x1000, 0x10),
+        nop(6, 0x400012, 0x6000),
+        mov_rcx_rax(7, 0x400013, 0x6000, 0),
+        write_qword_rcx_rbx(8, 0x400016, 0x6000, 0x5020, 0),
+        write_qword_rcx_rbx(9, 0x400019, 0x6000, 0x5020, 8),
+        movaps_xmm0_from_rcx(10, 0x40001d, 0x6000),
+        call(11, 0x400020, 0x1000, 0x10),
+        nop(12, 0x400025, 0x7000),
+        mov_rdx_rax(13, 0x400026, 0x7000, 0),
+        movaps_rdx_from_xmm0(14, 0x400029, 0x7000),
+        read_rax_from_rdx(15, 0x40002c, 0x7000),
+        write_ptr(16, 0x40002f, RAX, 0x5020),
+    ];
+    let summary = run_qlt("simd_movaps_owner", &records);
+    assert_eq!(summary["out_of_bounds_writes"], 1);
+    assert_eq!(summary["untrusted_ptrs"], 0);
 }
 
 #[test]

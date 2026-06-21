@@ -99,6 +99,7 @@ pub struct Analyzer {
     config: Config,
     mem: MemoryModel,
     regs: HashMap<RegId, RegState>,
+    wide_regs: HashMap<Register, Vec<RegState>>,
     info_factory: InstructionInfoFactory,
     violations: Vec<Violation>,
     memory_events: Vec<MemoryEvent>,
@@ -117,6 +118,7 @@ impl Analyzer {
             config,
             mem: MemoryModel::new(),
             regs: HashMap::new(),
+            wide_regs: HashMap::new(),
             info_factory: InstructionInfoFactory::new(),
             violations: Vec::new(),
             memory_events: Vec::new(),
@@ -1517,15 +1519,10 @@ impl Analyzer {
         let ins = &decoded.instruction;
         for access in &decoded.accesses {
             if matches!(access.kind, AccessKind::Write | AccessKind::ReadWrite) {
-                let src = first_read_reg_not_addr(ins, access);
+                let src = first_read_register_not_addr(ins, access);
                 let pointer_owners = self.pointer_owner_from_access(access);
-                let mut src_pointee = src
-                    .map(|reg| self.reg_state(reg).pointee_owners)
-                    .unwrap_or_default();
-                if access.size != 8 {
-                    src_pointee.clear();
-                }
-                if let Some(src) = src {
+                let src_pointee = self.source_pointee_bytes(src, access.size);
+                if let Some(src) = src.and_then(id_from_iced) {
                     self.check_dangling_pointer_copy(record, src);
                 }
                 for off in 0..access.size.max(1) {
@@ -1540,34 +1537,74 @@ impl Analyzer {
                     };
                     let cell = self.mem.cell_mut(addr);
                     cell.value_owners = value_owners;
-                    cell.pointee_owners = src_pointee.clone();
+                    cell.pointee_owners =
+                        src_pointee.get(off as usize).cloned().unwrap_or_default();
                     cell.last_write_pc = Some(record.pc);
                 }
             }
         }
     }
 
+    fn source_pointee_bytes(&self, src: Option<Register>, size: u32) -> Vec<OwnerSet> {
+        let size = size.max(1) as usize;
+        let mut out = vec![OwnerSet::new(); size];
+        let Some(src) = src else {
+            return out;
+        };
+        if let Some(reg) = id_from_iced(src) {
+            if size == 8 {
+                let owners = self.reg_state(reg).pointee_owners;
+                out.fill(owners);
+            }
+            return out;
+        }
+        let Some(src) = canonical_wide_register(src) else {
+            return out;
+        };
+        if let Some(states) = self.wide_regs.get(&src) {
+            for (idx, state) in states.iter().take(size).enumerate() {
+                out[idx] = state.pointee_owners.clone();
+            }
+        }
+        out
+    }
+
     fn apply_register_writes(&mut self, record: &TraceRecord, ins: &Instruction) {
         if ins.op_count() == 0 || ins.op0_kind() != OpKind::Register {
             return;
         }
-        let Some(dst) = id_from_iced(ins.op0_register()) else {
+        let dst_register = ins.op0_register();
+        let Some(dst) = id_from_iced(dst_register) else {
+            self.apply_wide_register_write(record, ins);
             return;
         };
         match ins.mnemonic() {
             mnemonic
                 if matches!(
                     mnemonic,
-                    Mnemonic::Mov | Mnemonic::Movzx | Mnemonic::Movsxd | Mnemonic::Movsx
+                    Mnemonic::Mov
+                        | Mnemonic::Movbe
+                        | Mnemonic::Movzx
+                        | Mnemonic::Movsxd
+                        | Mnemonic::Movsx
+                        | Mnemonic::Movd
+                        | Mnemonic::Movq
                 ) || is_cmov(mnemonic) =>
             {
                 let copy_pointee = is_pointer_width(ins.op0_register().size() as u32)
-                    && (ins.mnemonic() == Mnemonic::Mov || is_cmov(ins.mnemonic()));
+                    && matches!(
+                        ins.mnemonic(),
+                        Mnemonic::Mov | Mnemonic::Movbe | Mnemonic::Movq
+                    )
+                    || (is_pointer_width(ins.op0_register().size() as u32)
+                        && is_cmov(ins.mnemonic()));
                 let mut state = match ins.op1_kind() {
                     OpKind::Register => {
                         if let Some(src) = id_from_iced(ins.op1_register()) {
                             self.check_dangling_pointer_copy(record, src);
                             self.reg_state(src)
+                        } else if let Some(src) = canonical_wide_register(ins.op1_register()) {
+                            self.wide_state_union(src, ins.op0_register().size() as u32)
                         } else {
                             RegState::default()
                         }
@@ -1601,13 +1638,16 @@ impl Analyzer {
             | Mnemonic::Sub
             | Mnemonic::Adc
             | Mnemonic::Sbb
+            | Mnemonic::Imul
             | Mnemonic::And
             | Mnemonic::Or
             | Mnemonic::Xor
             | Mnemonic::Shl
             | Mnemonic::Sal
             | Mnemonic::Shr
-            | Mnemonic::Sar => {
+            | Mnemonic::Sar
+            | Mnemonic::Rol
+            | Mnemonic::Ror => {
                 if ins.mnemonic() == Mnemonic::Xor
                     && ins.op1_kind() == OpKind::Register
                     && ins.op1_register().full_register() == ins.op0_register().full_register()
@@ -1615,52 +1655,10 @@ impl Analyzer {
                     self.regs.remove(&dst);
                     return;
                 }
-                if ins.op1_kind() == OpKind::Memory {
-                    let mut state = self.reg_state(dst);
-                    let right_state = self
-                        .first_memory_read_state(record, ins)
-                        .unwrap_or_default();
-                    if pointer_difference_yields_integer(ins.mnemonic(), &state, &right_state) {
-                        state.pointee_owners.clear();
-                        self.regs.insert(dst, state);
-                    }
-                    return;
-                }
-                let Some(left) = record.reg(dst) else {
-                    return;
-                };
-                let Some(right) = right_operand_value(record, ins) else {
-                    return;
-                };
-                let Some(result) = binary_result(ins.mnemonic(), left, right) else {
-                    return;
-                };
-                let mut state = self.reg_state(dst);
-                if is_cross_boundary_mnemonic(ins.mnemonic()) {
-                    self.check_cross_boundary(
-                        record.step,
-                        record.pc,
-                        result,
-                        &state.pointee_owners,
-                    );
-                }
-                if let Some(right_reg) = right_operand_register(ins) {
-                    let right_state = self.reg_state(right_reg);
-                    if pointer_difference_yields_integer(ins.mnemonic(), &state, &right_state) {
-                        state.pointee_owners.clear();
-                    } else {
-                        state.pointee_owners.extend(right_state.pointee_owners);
-                    }
-                    self.check_dangling_pointer_copy(record, right_reg);
-                }
-                let result_owners = self.owner_set_for_value(result);
-                if replace_pointee_owner_for_mnemonic(ins.mnemonic()) {
-                    state.pointee_owners = result_owners;
-                } else {
-                    state.pointee_owners.extend(result_owners);
-                }
-                state.value_owners.extend(state.pointee_owners.clone());
-                self.regs.insert(dst, state);
+                self.apply_binary_register_write(record, ins, dst);
+            }
+            Mnemonic::Inc | Mnemonic::Dec | Mnemonic::Neg | Mnemonic::Not | Mnemonic::Bswap => {
+                self.apply_unary_register_write(record, ins, dst);
             }
             Mnemonic::Xchg => {
                 if let Some(src) = id_from_iced(ins.op1_register()) {
@@ -1668,6 +1666,12 @@ impl Analyzer {
                     let src_state = self.reg_state(src);
                     self.regs.insert(dst, src_state);
                     self.regs.insert(src, dst_state);
+                } else if let Some(src) = canonical_wide_register(ins.op1_register()) {
+                    let dst_state = self.reg_state(dst);
+                    let src_state = self.wide_state_union(src, ins.op0_register().size() as u32);
+                    self.regs.insert(dst, src_state);
+                    self.wide_regs
+                        .insert(src, vec![dst_state; ins.op1_register().size()]);
                 }
             }
             mnemonic if is_setcc(mnemonic) => {
@@ -1679,43 +1683,215 @@ impl Analyzer {
         }
     }
 
-    fn first_memory_read_state(&self, record: &TraceRecord, ins: &Instruction) -> Option<RegState> {
-        let mut factory = InstructionInfoFactory::new();
-        let info = factory.info(ins);
-        for mem in info.used_memory() {
-            let access = mem.access();
-            if !matches!(
-                access,
-                OpAccess::Read | OpAccess::CondRead | OpAccess::ReadWrite | OpAccess::ReadCondWrite
-            ) {
-                continue;
-            }
-            let address = mem.virtual_address(0, |reg, _, _| match reg {
-                Register::None => Some(0),
-                Register::RIP => Some(record.pc.wrapping_add(ins.len() as u64)),
-                Register::EIP => Some((record.pc.wrapping_add(ins.len() as u64)) as u32 as u64),
-                Register::FS => Some(record.fs_base.or(self.config.segment_bases.fs).unwrap_or(0)),
-                Register::GS => Some(record.gs_base.or(self.config.segment_bases.gs).unwrap_or(0)),
-                Register::CS | Register::DS | Register::ES | Register::SS => Some(0),
-                other => id_from_iced(other).and_then(|id| record.reg(id)),
-            })?;
-            let access = ResolvedAccess {
-                address,
-                size: mem.memory_size().size() as u32,
-                kind: AccessKind::Read,
-                base: id_from_iced(mem.base()),
-                index: id_from_iced(mem.index()),
+    fn apply_binary_register_write(&mut self, record: &TraceRecord, ins: &Instruction, dst: RegId) {
+        let (left_state, right_state, result) =
+            if ins.mnemonic() == Mnemonic::Imul && ins.op_count() >= 3 {
+                let left_state = self.operand_state(record, ins, 1);
+                let right_state = self.operand_state(record, ins, 2);
+                let result = operand_value(record, ins, 1)
+                    .zip(operand_value(record, ins, 2))
+                    .map(|(left, right)| left.wrapping_mul(right));
+                (left_state, right_state, result)
+            } else {
+                let left_state = self.reg_state(dst);
+                let right_state = self.operand_state(record, ins, 1);
+                let result = record
+                    .reg(dst)
+                    .zip(operand_value(record, ins, 1))
+                    .and_then(|(left, right)| binary_result(ins.mnemonic(), left, right));
+                (left_state, right_state, result)
             };
+
+        let mut state = left_state;
+        if pointer_difference_yields_integer(ins.mnemonic(), &state, &right_state) {
+            state.pointee_owners.clear();
+        } else {
+            state.pointee_owners.extend(right_state.pointee_owners);
+        }
+        if let Some(right_reg) = operand_register(ins, 1).and_then(id_from_iced) {
+            self.check_dangling_pointer_copy(record, right_reg);
+        }
+
+        if let Some(result) = result {
+            if is_cross_boundary_mnemonic(ins.mnemonic()) {
+                self.check_cross_boundary(record.step, record.pc, result, &state.pointee_owners);
+            }
+            state
+                .pointee_owners
+                .extend(self.owner_set_for_value(result));
+        }
+        state.value_owners.extend(state.pointee_owners.clone());
+        self.regs.insert(dst, state);
+    }
+
+    fn apply_unary_register_write(&mut self, record: &TraceRecord, ins: &Instruction, dst: RegId) {
+        let mut state = self.reg_state(dst);
+        let Some(old) = record.reg(dst) else {
+            return;
+        };
+        let result = match ins.mnemonic() {
+            Mnemonic::Inc => old.wrapping_add(1),
+            Mnemonic::Dec => old.wrapping_sub(1),
+            Mnemonic::Neg => old.wrapping_neg(),
+            Mnemonic::Not => !old,
+            Mnemonic::Bswap => match ins.op0_register().size() {
+                2 => old.swap_bytes() >> 48,
+                4 => (old as u32).swap_bytes() as u64,
+                8 => old.swap_bytes(),
+                _ => old,
+            },
+            _ => old,
+        };
+        if matches!(ins.mnemonic(), Mnemonic::Inc | Mnemonic::Dec) {
+            self.check_cross_boundary(record.step, record.pc, result, &state.pointee_owners);
+        }
+        state
+            .pointee_owners
+            .extend(self.owner_set_for_value(result));
+        state.value_owners.extend(state.pointee_owners.clone());
+        self.regs.insert(dst, state);
+    }
+
+    fn operand_state(&self, record: &TraceRecord, ins: &Instruction, operand: u32) -> RegState {
+        match ins.op_kind(operand) {
+            OpKind::Register => {
+                let reg = operand_register(ins, operand).unwrap_or(Register::None);
+                if let Some(reg) = id_from_iced(reg) {
+                    self.reg_state(reg)
+                } else if let Some(reg) = canonical_wide_register(reg) {
+                    self.wide_state_union(
+                        reg,
+                        operand_register(ins, operand).unwrap().size() as u32,
+                    )
+                } else {
+                    RegState::default()
+                }
+            }
+            OpKind::Memory => self
+                .first_memory_read_state(record, ins)
+                .unwrap_or_default(),
+            OpKind::Immediate8
+            | OpKind::Immediate8to16
+            | OpKind::Immediate8to32
+            | OpKind::Immediate8to64
+            | OpKind::Immediate16
+            | OpKind::Immediate32
+            | OpKind::Immediate32to64
+            | OpKind::Immediate64 => state_for_immediate(self, immediate_at(ins, operand)),
+            _ => RegState::default(),
+        }
+    }
+
+    fn apply_wide_register_write(&mut self, record: &TraceRecord, ins: &Instruction) {
+        let Some(dst) = canonical_wide_register(ins.op0_register()) else {
+            return;
+        };
+        let size = first_memory_read_access(record, ins, self.config.segment_bases)
+            .map(|access| access.size)
+            .unwrap_or_else(|| ins.op0_register().size() as u32)
+            .max(1) as usize;
+        if is_same_register_zero_idiom(ins) {
+            self.wide_regs.remove(&dst);
+            return;
+        }
+        let source_states = self.wide_operand_states(record, ins, 1, size);
+        let states = if is_transfer_mnemonic(ins.mnemonic()) {
+            source_states
+        } else {
+            self.union_wide_states(
+                self.wide_regs.get(&dst).cloned().unwrap_or_default(),
+                source_states,
+                size,
+            )
+        };
+        if !states.is_empty() {
+            self.wide_regs.insert(dst, states);
+        }
+    }
+
+    fn wide_operand_states(
+        &self,
+        record: &TraceRecord,
+        ins: &Instruction,
+        operand: u32,
+        default_size: usize,
+    ) -> Vec<RegState> {
+        match ins.op_kind(operand) {
+            OpKind::Memory => first_memory_read_access(record, ins, self.config.segment_bases)
+                .map(|access| self.state_from_memory_bytes(&access))
+                .unwrap_or_default(),
+            OpKind::Register => {
+                let Some(src) = operand_register(ins, operand) else {
+                    return Vec::new();
+                };
+                if let Some(src) = canonical_wide_register(src) {
+                    self.wide_regs.get(&src).cloned().unwrap_or_default()
+                } else if let Some(src_id) = id_from_iced(src) {
+                    let state = self.reg_state(src_id);
+                    vec![state; default_size.min(src.size().max(1))]
+                } else {
+                    Vec::new()
+                }
+            }
+            OpKind::Immediate8
+            | OpKind::Immediate8to16
+            | OpKind::Immediate8to32
+            | OpKind::Immediate8to64
+            | OpKind::Immediate16
+            | OpKind::Immediate32
+            | OpKind::Immediate32to64
+            | OpKind::Immediate64 => {
+                let state = state_for_immediate(self, immediate_at(ins, operand));
+                vec![state; default_size]
+            }
+            _ => Vec::new(),
+        }
+    }
+
+    fn union_wide_states(
+        &self,
+        mut left: Vec<RegState>,
+        right: Vec<RegState>,
+        size: usize,
+    ) -> Vec<RegState> {
+        left.resize_with(size, RegState::default);
+        for (idx, right_state) in right.into_iter().take(size).enumerate() {
+            left[idx].value_owners.extend(right_state.value_owners);
+            left[idx].pointee_owners.extend(right_state.pointee_owners);
+        }
+        left
+    }
+
+    fn state_from_memory_bytes(&self, access: &ResolvedAccess) -> Vec<RegState> {
+        let mut states = Vec::with_capacity(access.size.max(1) as usize);
+        for off in 0..access.size.max(1) {
+            let cell = self.mem.cell(access.address.saturating_add(off as u64));
+            states.push(RegState {
+                value_owners: cell.value_owners,
+                pointee_owners: cell.pointee_owners,
+            });
+        }
+        states
+    }
+
+    fn wide_state_union(&self, reg: Register, max_size: u32) -> RegState {
+        let mut state = RegState::default();
+        if let Some(states) = self.wide_regs.get(&reg) {
+            for byte_state in states.iter().take(max_size.max(1) as usize) {
+                state.value_owners.extend(byte_state.value_owners.clone());
+                state
+                    .pointee_owners
+                    .extend(byte_state.pointee_owners.clone());
+            }
+        }
+        state
+    }
+
+    fn first_memory_read_state(&self, record: &TraceRecord, ins: &Instruction) -> Option<RegState> {
+        if let Some(access) = first_memory_read_access(record, ins, self.config.segment_bases) {
             let mut state = self.state_from_memory(&access);
             if !is_pointer_width(access.size) {
                 state.pointee_owners.clear();
-            }
-            if state.pointee_owners.len() > 1 {
-                // This mirrors Lancet's "untrusted pointer" check: a single
-                // pointer-sized value should not be assembled from bytes with
-                // incompatible pointee owners.
-                // It is reported by observe/access path through explicit record
-                // below only when callers copy the value.
             }
             return Some(state);
         }
@@ -2032,28 +2208,55 @@ impl Analyzer {
     }
 }
 
-fn first_read_reg_not_addr(ins: &Instruction, access: &ResolvedAccess) -> Option<RegId> {
+fn first_read_register_not_addr(ins: &Instruction, access: &ResolvedAccess) -> Option<Register> {
     for i in 0..ins.op_count() {
         if ins.op_kind(i) != OpKind::Register {
             continue;
         }
-        let reg = match i {
-            0 => ins.op0_register(),
-            1 => ins.op1_register(),
-            2 => ins.op2_register(),
-            3 => ins.op3_register(),
-            _ => Register::None,
-        };
-        let Some(id) = id_from_iced(reg) else {
-            continue;
-        };
-        if Some(id) == access.base || Some(id) == access.index {
+        let reg = operand_register(ins, i)?;
+        let id = id_from_iced(reg);
+        if id.is_some() && (id == access.base || id == access.index) {
             continue;
         }
         // In Intel syntax, register operand after memory destination is usually source.
         if i > 0 || ins.op0_kind() != OpKind::Register {
-            return Some(id);
+            return Some(reg);
         }
+    }
+    None
+}
+
+fn first_memory_read_access(
+    record: &TraceRecord,
+    ins: &Instruction,
+    segment_bases: crate::config::SegmentBases,
+) -> Option<ResolvedAccess> {
+    let mut factory = InstructionInfoFactory::new();
+    let info = factory.info(ins);
+    for mem in info.used_memory() {
+        let access = mem.access();
+        if !matches!(
+            access,
+            OpAccess::Read | OpAccess::CondRead | OpAccess::ReadWrite | OpAccess::ReadCondWrite
+        ) {
+            continue;
+        }
+        let address = mem.virtual_address(0, |reg, _, _| match reg {
+            Register::None => Some(0),
+            Register::RIP => Some(record.pc.wrapping_add(ins.len() as u64)),
+            Register::EIP => Some((record.pc.wrapping_add(ins.len() as u64)) as u32 as u64),
+            Register::FS => Some(record.fs_base.or(segment_bases.fs).unwrap_or(0)),
+            Register::GS => Some(record.gs_base.or(segment_bases.gs).unwrap_or(0)),
+            Register::CS | Register::DS | Register::ES | Register::SS => Some(0),
+            other => id_from_iced(other).and_then(|id| record.reg(id)),
+        })?;
+        return Some(ResolvedAccess {
+            address,
+            size: mem.memory_size().size() as u32,
+            kind: AccessKind::Read,
+            base: id_from_iced(mem.base()),
+            index: id_from_iced(mem.index()),
+        });
     }
     None
 }
@@ -2076,15 +2279,76 @@ fn compute_lea_result(record: &TraceRecord, ins: &Instruction) -> Option<u64> {
 }
 
 fn right_operand_value(record: &TraceRecord, ins: &Instruction) -> Option<u64> {
-    match ins.op1_kind() {
-        OpKind::Register => id_from_iced(ins.op1_register()).and_then(|id| record.reg(id)),
+    operand_value(record, ins, 1)
+}
+
+fn operand_value(record: &TraceRecord, ins: &Instruction, operand: u32) -> Option<u64> {
+    match ins.op_kind(operand) {
+        OpKind::Register => operand_register(ins, operand)
+            .and_then(id_from_iced)
+            .and_then(|id| record.reg(id)),
         OpKind::Memory => None,
-        _ => Some(immediate(ins)),
+        _ => Some(immediate_at(ins, operand)),
     }
 }
 
 fn immediate(ins: &Instruction) -> u64 {
     immediate_at(ins, 1)
+}
+
+fn operand_register(ins: &Instruction, operand: u32) -> Option<Register> {
+    let reg = match operand {
+        0 => ins.op0_register(),
+        1 => ins.op1_register(),
+        2 => ins.op2_register(),
+        3 => ins.op3_register(),
+        4 => ins.op4_register(),
+        _ => Register::None,
+    };
+    (reg != Register::None).then_some(reg)
+}
+
+fn canonical_wide_register(register: Register) -> Option<Register> {
+    let register = register.full_register();
+    if register == Register::None || register.size() == 0 || id_from_iced(register).is_some() {
+        return None;
+    }
+    let name = format!("{register:?}");
+    if name.starts_with("XMM")
+        || name.starts_with("YMM")
+        || name.starts_with("ZMM")
+        || name.starts_with("MM")
+    {
+        Some(register)
+    } else {
+        None
+    }
+}
+
+fn is_transfer_mnemonic(mnemonic: Mnemonic) -> bool {
+    let name = format!("{mnemonic:?}");
+    name.starts_with("Mov")
+        || name.starts_with("Vmov")
+        || name.starts_with("Cmov")
+        || name.starts_with("Pshuf")
+        || name.starts_with("Shuf")
+}
+
+fn is_same_register_zero_idiom(ins: &Instruction) -> bool {
+    let name = format!("{:?}", ins.mnemonic());
+    let is_xor = name == "Xor"
+        || name == "Xorps"
+        || name == "Xorpd"
+        || name == "Pxor"
+        || name == "Vxorps"
+        || name == "Vxorpd"
+        || name == "Vpxor"
+        || name == "Vpxord"
+        || name == "Vpxorq";
+    is_xor
+        && ins.op0_kind() == OpKind::Register
+        && ins.op1_kind() == OpKind::Register
+        && ins.op0_register().full_register() == ins.op1_register().full_register()
 }
 
 fn immediate_at(ins: &Instruction, operand: u32) -> u64 {
@@ -2184,27 +2448,6 @@ fn pointer_difference_yields_integer(
     matches!(mnemonic, Mnemonic::Sub | Mnemonic::Sbb)
         && !left.pointee_owners.is_empty()
         && !right.pointee_owners.is_empty()
-}
-
-fn right_operand_register(ins: &Instruction) -> Option<RegId> {
-    if ins.op1_kind() == OpKind::Register {
-        id_from_iced(ins.op1_register())
-    } else {
-        None
-    }
-}
-
-fn replace_pointee_owner_for_mnemonic(mnemonic: Mnemonic) -> bool {
-    matches!(
-        mnemonic,
-        Mnemonic::And
-            | Mnemonic::Or
-            | Mnemonic::Xor
-            | Mnemonic::Shl
-            | Mnemonic::Sal
-            | Mnemonic::Shr
-            | Mnemonic::Sar
-    )
 }
 
 fn is_cross_boundary_mnemonic(mnemonic: Mnemonic) -> bool {
