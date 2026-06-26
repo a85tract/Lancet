@@ -1,6 +1,6 @@
 # QLancet
 
-**QLancet** is a formal framework for exploit analysis with both **Intel Pin** and **QEMU** backends. It enables runtime memory ownership tracking, vulnerability analysis, and exploit primitive detection.
+**QLancet** is a formal framework for exploit analysis on **Intel Pin** and **QEMU** traces. It enables runtime memory ownership tracking, vulnerability analysis, and exploit primitive detection.
 
 ## Repository Structure
 
