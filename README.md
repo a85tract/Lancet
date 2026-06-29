@@ -1,6 +1,6 @@
-# QLancet
+# Lancet
 
-**QLancet** is a formal framework for exploit analysis on **Intel Pin** and **QEMU** traces. It enables runtime memory ownership tracking, vulnerability analysis, and exploit primitive detection.
+**Lancet** is a formal framework for exploit analysis on **Intel Pin** and **QEMU** traces. It enables runtime memory ownership tracking, vulnerability analysis, and exploit primitive detection.
 
 ## Repository Structure
 
@@ -16,7 +16,7 @@ This repository maintains two implementations:
 Clone the repository:
 
 ```bash
-git clone https://github.com/a85tract/QLancet.git
+git clone https://github.com/a85tract/Lancet.git
 ```
 
 Switch to the desired implementation:
@@ -33,7 +33,7 @@ git checkout pin-4.2
 
 The artifact evaluation package used in our paper is maintained in a separate repository:
 
-**https://github.com/a85tract/Lancet**
+**https://github.com/a85tract/Lancet-AE**
 
 ## License
 
@@ -41,7 +41,7 @@ Apache License 2.0.
 
 ## Citation
 
-If you use **QLancet** in your research or build upon this project, please cite our paper:
+If you use **Lancet** in your research or build upon this project, please cite our paper:
 
 > **Lancet: A Formalization Framework for Crash and Exploit Pathology**  
 > Qinrun Dai, Kirby Linvill, Yueqi Chen, and Gowtham Kaki.  
